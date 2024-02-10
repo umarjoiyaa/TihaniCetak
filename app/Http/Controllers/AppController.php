@@ -9,4 +9,10 @@ class AppController extends Controller
     public function App(){
         return view('app');
     }
+
+    public function Home(){
+        return view('Home.Dashboard');
+
+    }
+
 }

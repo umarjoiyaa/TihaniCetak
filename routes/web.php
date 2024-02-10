@@ -6,11 +6,19 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AreaLevelController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\Inventory_reportController;
 use App\Http\Controllers\invertory_ShopFloorController;
+use App\Http\Controllers\Laporan_PemeriksaanController;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\Manage_TransferController;
+use App\Http\Controllers\Material_requestController;
+use App\Http\Controllers\Pemeriksaan_PenghantaranController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\Stock_InController;
+use App\Http\Controllers\Stock_Transfer_locationController;
+use App\Http\Controllers\Stock_TransferController;
 use App\Http\Controllers\StockCard_ReportController;
 use App\Http\Controllers\Subcon_monitorimg_report_Controller;
 use App\Http\Controllers\UomController;
@@ -74,17 +82,17 @@ Route::get('/Setting/UOMConversion', [UOMConverisonController::class, 'index'])-
 Route::get('/Setting/UOMConversion/view', [UOMConverisonController::class, 'view'])->name('UOMConversion.view');
 Route::get('/Setting/UOMConversion/Create', [UOMConverisonController::class, 'Create'])->name('UOMConversion.create');
 
-//Machine
+//Machine 
 Route::get('/Setting/Machine', [MachineController::class, 'index'])->name('machine.index');
 Route::get('/Setting/Machine/view', [MachineController::class, 'view'])->name('machine.view');
 Route::get('/Setting/machine/Create', [MachineController::class, 'Create'])->name('machine.create');
 
-//Area Level
+//Area Level 
 Route::get('/Setting/Area_Level', [AreaLevelController::class, 'index'])->name('area_level.index');
 Route::get('/Setting/Area_Level/view', [AreaLevelController::class, 'view'])->name('area_level.view');
 Route::get('/Setting/Area_Level/Create', [AreaLevelController::class, 'Create'])->name('area_level.create');
 
-//Area Shelf
+//Area Shelf 
 Route::get('/Setting/Area_shelf', [Area_ShelfController::class, 'index'])->name('area_Shelf.index');
 Route::get('/Setting/Area_shelf/view', [Area_ShelfController::class, 'view'])->name('area_Shelf.view');
 Route::get('/Setting/Area_shelf/Create', [Area_ShelfController::class, 'Create'])->name('area_Shelf.create');
@@ -104,13 +112,57 @@ Route::get('/WHM/Invertory_report', [Inventory_reportController::class, 'index']
 Route::get('/WHM/Invertory_report/view', [Inventory_reportController::class, 'view'])->name('Invertory_report.view');
 Route::get('/WHM/Invertory_report/Create', [Inventory_reportController::class, 'Create'])->name('Invertory_report.create');
 
-//SubInvertory Report
-Route::get('/WHM/Sub_monitring_report', [Subcon_monitorimg_report_Controller::class, 'index'])->name('Sub_monitring_report.index');
-Route::get('/WHM/Sub_monitring_report/view', [Subcon_monitorimg_report_Controller::class, 'view'])->name('Sub_monitring_report.view');
-Route::get('/WHM/Sub_monitring_report/Create', [Subcon_monitorimg_report_Controller::class, 'Create'])->name('Sub_monitring_report.create');
+//Subcon Monitoring Report
+Route::get('/WHM/Subcon_Monitoring_Report', [Subcon_monitorimg_report_Controller::class, 'index'])->name('Sub_monitring_report.index');
+Route::get('/WHM/Subcon_Monitoring_Report/view', [Subcon_monitorimg_report_Controller::class, 'view'])->name('Sub_monitring_report.view');
+Route::get('/WHM/Subcon_Monitoring_Report/Create', [Subcon_monitorimg_report_Controller::class, 'Create'])->name('Sub_monitring_report.create');
 
 //invertory_ShopFloor
 Route::get('/WHM/invertory_ShopFloor', [invertory_ShopFloorController::class, 'index'])->name('invertory_ShopFloor.index');
 Route::get('/WHM/invertory_ShopFloor/view', [invertory_ShopFloorController::class, 'view'])->name('invertory_ShopFloor.view');
 Route::get('/WHM/invertory_ShopFloor/Create', [invertory_ShopFloorController::class, 'Create'])->name('invertory_ShopFloor.create');
 
+//invertory_ShopFloor
+Route::get('/WHM/Stock_Transfer_location', [Stock_Transfer_locationController::class, 'index'])->name('stock_Transfer_location.index');
+Route::get('/WHM/Stock_Transfer_location/view', [Stock_Transfer_locationController::class, 'view'])->name('stock_Transfer_location.view');
+Route::get('/WHM/Stock_Transfer_location/Create', [Stock_Transfer_locationController::class, 'Create'])->name('stock_Transfer_location.create');
+Route::get('/WHM/Stock_Transfer_location/receive', [Stock_Transfer_locationController::class, 'receive'])->name('stock_Transfer_location.receive');
+
+//Good Receiving 
+Route::get('/WHM/Good_Receiving', [GoodReceivingController::class, 'index'])->name('Good_Receiving.index');
+Route::get('/WHM/Good_Receiving/view', [GoodReceivingController::class, 'view'])->name('Good_Receiving.view');
+Route::get('/WHM/Good_Receiving/Create', [GoodReceivingController::class, 'Create'])->name('Good_Receiving.create');
+Route::get('/WHM/Good_Receiving/Receive', [GoodReceivingController::class, 'receive'])->name('Good_Receiving.receive');
+
+// Material Requesst
+Route::get('/WHM/Material_request', [Material_requestController::class, 'index'])->name('Material_request.index');
+Route::get('/WHM/Material_request/view', [Material_requestController::class, 'view'])->name('Material_request.view');
+Route::get('/WHM/Material_request/Create', [Material_requestController::class, 'Create'])->name('Material_request.create');
+
+// Manage Transfer
+Route::get('/WHM/Manage_tranfer', [Manage_TransferController::class, 'index'])->name('Manage_tranfer.index');
+Route::get('/WHM/Manage_tranfer/view', [Manage_TransferController::class, 'view'])->name('Manage_tranfer.view');
+Route::get('/WHM/Manage_tranfer/Create', [Manage_TransferController::class, 'Create'])->name('Manage_tranfer.create');
+
+// Stock In
+Route::get('/WHM/Stock_in', [Stock_InController::class, 'index'])->name('Stock_in.index');
+Route::get('/WHM/Stock_in/view', [Stock_InController::class, 'view'])->name('Stock_in.view');
+Route::get('/WHM/Stock_in/Create', [Stock_InController::class, 'Create'])->name('Stock_in.create');
+
+// Stock Transfer
+Route::get('/WHM/Stock_Transfer', [Stock_TransferController::class, 'index'])->name('Stock_Transfer.index');
+Route::get('/WHM/Stock_Transfer/view', [Stock_TransferController::class, 'view'])->name('Stock_Transfer.view');
+Route::get('/WHM/Stock_Transfer/Create', [Stock_TransferController::class, 'Create'])->name('Stock_Transfer.create');
+Route::get('/WHM/Stock_Transfer/Receive', [Stock_TransferController::class, 'receive'])->name('Stock_Transfer.Receive');
+
+// Laporan_Pemeriksaan
+Route::get('/WHM/Laporan_Pemeriksaan', [Laporan_PemeriksaanController::class, 'index'])->name('Laporan_Pemeriksaan.index');
+Route::get('/WHM/Laporan_Pemeriksaan/view', [Laporan_PemeriksaanController::class, 'view'])->name('Laporan_Pemeriksaan.view');
+Route::get('/WHM/Laporan_Pemeriksaan/Create', [Laporan_PemeriksaanController::class, 'Create'])->name('Laporan_Pemeriksaan.create');
+Route::get('/WHM/Laporan_Pemeriksaan/senarai', [Laporan_PemeriksaanController::class, 'senarai'])->name('Laporan_Pemeriksaan.senarai');
+
+// Pemeriksaan_Penghantaran
+Route::get('/WHM/Pemeriksaan_Penghantaran', [Pemeriksaan_PenghantaranController::class, 'index'])->name('Pemeriksaan_Penghantaran.index');
+Route::get('/WHM/Pemeriksaan_Penghantaran/view', [Pemeriksaan_PenghantaranController::class, 'view'])->name('Pemeriksaan_Penghantaran.view');
+Route::get('/WHM/Pemeriksaan_Penghantaran/Create', [Pemeriksaan_PenghantaranController::class, 'Create'])->name('Pemeriksaan_Penghantaran.create');
+Route::get('/WHM/Pemeriksaan_Penghantaran/senarai', [Pemeriksaan_PenghantaranController::class, 'senarai'])->name('Pemeriksaan_Penghantaran.senarai');

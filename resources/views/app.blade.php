@@ -800,16 +800,16 @@
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Good Receiving</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Material Request</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Manage Transfer</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock In</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Good_Receiving.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Good Receiving</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Material_request.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Material Request</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Manage_tranfer.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Manage Transfer</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Stock_in.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock In</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Stock_Transfer.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer</a></li>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer (Location)</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Laporan Pemeriksaan <br> Akhir, Pembungkusan & <br> Penghantaran ke Stor</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Pemeriksaan Penghantaran</a></li>
+														<li aria-haspopup="true" ><a href="{{route('stock_Transfer_location.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer (Location)</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Laporan_Pemeriksaan.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Laporan Pemeriksaan <br> Akhir, Pembungkusan & <br> Penghantaran ke Stor</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Pemeriksaan_Penghantaran.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Pemeriksaan Penghantaran</a></li>
 
 
                                                     </div>
