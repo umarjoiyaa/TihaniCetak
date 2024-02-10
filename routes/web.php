@@ -74,17 +74,17 @@ Route::get('/Setting/UOMConversion', [UOMConverisonController::class, 'index'])-
 Route::get('/Setting/UOMConversion/view', [UOMConverisonController::class, 'view'])->name('UOMConversion.view');
 Route::get('/Setting/UOMConversion/Create', [UOMConverisonController::class, 'Create'])->name('UOMConversion.create');
 
-//Machine 
+//Machine
 Route::get('/Setting/Machine', [MachineController::class, 'index'])->name('machine.index');
 Route::get('/Setting/Machine/view', [MachineController::class, 'view'])->name('machine.view');
 Route::get('/Setting/machine/Create', [MachineController::class, 'Create'])->name('machine.create');
 
-//Area Level 
+//Area Level
 Route::get('/Setting/Area_Level', [AreaLevelController::class, 'index'])->name('area_level.index');
 Route::get('/Setting/Area_Level/view', [AreaLevelController::class, 'view'])->name('area_level.view');
 Route::get('/Setting/Area_Level/Create', [AreaLevelController::class, 'Create'])->name('area_level.create');
 
-//Area Shelf 
+//Area Shelf
 Route::get('/Setting/Area_shelf', [Area_ShelfController::class, 'index'])->name('area_Shelf.index');
 Route::get('/Setting/Area_shelf/view', [Area_ShelfController::class, 'view'])->name('area_Shelf.view');
 Route::get('/Setting/Area_shelf/Create', [Area_ShelfController::class, 'Create'])->name('area_Shelf.create');

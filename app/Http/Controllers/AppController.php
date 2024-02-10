@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AppController extends Controller
 {
     public function App(){
-        return view('ap2p');
+        return view('app');
     }
 }
