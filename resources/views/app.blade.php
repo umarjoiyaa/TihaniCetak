@@ -660,7 +660,7 @@
 
 						</div>
 						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true"><a href="index.html" class=""><i class="ti-home menu-icon"></i> Home</a></li>
+							<li aria-haspopup="true"><a href="{{route('home')}}" class=""><i class="ti-home menu-icon"></i> Home</a></li>
 							<li aria-haspopup="true"><a href="#" class="sub-icon"><i class="ti-bar-chart-alt"></i> MES </a>
 								<div class="horizontal-megamenu clearfix">
 									<div class="container-fluid">
@@ -670,7 +670,7 @@
                                                        <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
 													<ul>
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
+														<li aria-haspopup="true" ><a href="{{route('SalesOrderList.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
 
 													</ul>
 												</div>
@@ -681,17 +681,17 @@
 
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('SenariSemak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('Senari_SemakPra_Cetak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('REKOD_SERAHANPLATE.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesPencetakan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
 
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Perfect Bind)</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Saddle stitch)</a></li>
-                                                                <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses 3 Knife</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesLipat.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Perfect Bind)</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan(SaddleStitch).index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Saddle stitch)</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesThreeKnife.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses 3 Knife</a></li>
 
 
                                                             </div>
@@ -706,10 +706,10 @@
 
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
-                                                            <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
-                                                            <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
-                                                            <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('Ctp.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('POD.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('PlateCetak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('Prosespencetakan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
                                                             <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
                                                             <li aria-haspopup="true"><a href="treeview.html" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
                                                         </div>
@@ -1120,6 +1120,7 @@
 				<!-- Container closed -->
 
 			</div>
+			@yield('Scripte')
 			<!-- main-content closed -->
 
 			<!-- Right-sidebar-->
