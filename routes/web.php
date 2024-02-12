@@ -189,3 +189,5 @@ Route::get('/WHM/Pemeriksaan_Penghantaran', [Pemeriksaan_PenghantaranController:
 Route::get('/WHM/Pemeriksaan_Penghantaran/view', [Pemeriksaan_PenghantaranController::class, 'view'])->name('Pemeriksaan_Penghantaran.view');
 Route::get('/WHM/Pemeriksaan_Penghantaran/Create', [Pemeriksaan_PenghantaranController::class, 'Create'])->name('Pemeriksaan_Penghantaran.create');
 Route::get('/WHM/Pemeriksaan_Penghantaran/senarai', [Pemeriksaan_PenghantaranController::class, 'senarai'])->name('Pemeriksaan_Penghantaran.senarai');
+
+});
