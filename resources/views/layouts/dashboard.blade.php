@@ -28,7 +28,7 @@ color: #18002D !important;
                 </div>
                     <div class="row mt-3">
                         <div class="col-md-2">
-                            <div class="card childCard ht-80p" >
+                            <div class="card childCard ht-40p" >
                                 <div class="card-body text-center ">
                                     <span class="badge  p-2 text-lg-center mb-2 Management" > Management</span>
                                     <div class="card " style="border-radius:17px;background:#ddcdf0;">
@@ -43,16 +43,16 @@ color: #18002D !important;
                             </div>
                         </div>
                         <div class="col-md-5">
-                            <div class="card childCard" >
+                            <div class="card childCard" style="height: 97%;" >
                                 <div class="card-body text-center ">
-                                    <span class="badge p-2 text-lg-center mb-2 Management" > Production Jobsheet </span>
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Production Jobsheet </span>
                                     <div class="row mt-2">
                                         <div class="col-md-4">
                                             <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Digital printing</span>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Digital printing</span><br><br>
                                                    </a>
                                                 </div>
                                             </div>
@@ -87,7 +87,7 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Digital printing</span>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Mesin Lipat</span><br><br>
                                                    </a>
                                                 </div>
                                             </div>
@@ -97,7 +97,7 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Cover & Endpaper</span>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Staple Bind</span><br><br>
                                                    </a>
                                                 </div>
                                             </div>
@@ -107,9 +107,7 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important;font-weight: bold;">Text</span>
-                                                    <br>
-                                                    <br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Mesin Perfect Bind</span>
 
                                                    </a>
                                                 </div>
@@ -122,7 +120,7 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Digital printing</span>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Mesin Three Knife</span>
                                                    </a>
                                                 </div>
                                             </div>
@@ -132,7 +130,7 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Cover & Endpaper</span>
+                                                    <span style="font-size:10px !important; font-weight: bold;">Borang Serahan Kerja (Kulit Buku/ Cover)</span>
                                                    </a>
                                                 </div>
                                             </div>
@@ -142,9 +140,8 @@ color: #18002D !important;
                                                 <div class="card-body">
                                                    <a href="">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24" height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important;font-weight: bold;">Text</span>
-                                                    <br>
-                                                    <br>
+                                                    <span style="font-size:10px !important;font-weight: bold;">Borang Serahan Kerja (Teks)</span>
+
 
                                                    </a>
                                                 </div>
@@ -156,10 +153,384 @@ color: #18002D !important;
                             </div>
                         </div>
                         <div class="col-md-5">
+                            <div class="card childCard" >
+                                <div class="card-body text-center ">
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Production  </span>
+                                    <div class="row mt-2 d-flex justify-content-between">
+                                        <div class="col-md-4">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
+                                                <div class="card-body">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="24" height="24"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Production Scheduling</span>
+                                                   </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
+                                                <div class="card-body">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="24" height="24"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Printing Process</span>
+                                                   </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
+                                                <div class="card-body">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="24" height="24"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Call for assistance</span>
 
+
+                                                   </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                            <div class="card childCard  h-auto" >
+                                <div class="card-body text-center ">
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Production  - Laporan / Rekod Proses  </span>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Senarai semak Pencetakan Digital</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Senarai semak Pra Cetak</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 w-100">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Rekod serahan plate cetak serta sample</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Laporan Process Pencetakan</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Laporan Proses Lipat</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important;font-weight: bold;">Laporan proses Penjilidan (Perfect Bind)</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-4 offset-2">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important; font-weight: bold;">Laporan Proses Penjilidan (Saddle Stitch)</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important; font-weight: bold;">Laporan proses Three Knife</span> <br> <br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
                         </div>
                     </div>
 
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="card childCard  h-auto" >
+                                <div class="card-body text-center ">
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Laporan Pemeriksaan Kualiti  </span>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-3">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">CTP</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">POD</span> <br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Plate Cetak</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Plate Cetak</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-3">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Proses Lipat</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Penjilidan Perfect Bind</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Penjilidan Saddle Stitch</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Proses Three Knife</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center ">
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Pembungkusan</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Pengumpulan / Gathering</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Pemotongan Kulit Buku/ Teks</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="card childCard  h-auto" >
+                                <div class="card-body text-center ">
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Laporan Pemeriksaan Kualiti  </span>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-3">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Good Receiving</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Material Request</span> <br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Manage Transfer</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Stock In</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-3">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Stock Transfer</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Stock Transfer (Location)</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-6 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Laporan Pemeriksaan Akhir, Pembungkusan & Penghantaran ke stor</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row mt-2 d-flex justify-content-center">
+
+
+                                        <div class="col-md-4 d-flex justify-content-center ">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Pemeriksaan penghantaran</span>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mt-3 d-flex justify-content-center" >
+                        <div class="col-md-6">
+                            <div class="card childCard  h-auto" >
+                                <div class="card-body text-center ">
+                                    <span class="badge p-2  mb-2 Management d-flex justify-content-center" > Dashboard  </span>
+                                    <div class="row mt-2 ">
+                                        <div class="col-md-3">
+                                            <div class="card p-2 " style="border-radius:17px;background:#e6b4a0;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Machine Dashboard</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file" width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important; font-weight: bold;">Production Shopfloor</span> <br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">OEE</span><br><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3 ">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
+                                                   <a href="">
+                                                     <iconify-icon icon="pepicons-pop:file"  width="20" height="20"></iconify-icon><br>
+                                                    <span style="font-size:14px !important;font-weight: bold;">Inventory Shopfloor</span><br><br>
+                                                   </a>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
 
             </div>
         </div>
@@ -169,4 +540,3 @@ color: #18002D !important;
 
 
 @endsection
-
