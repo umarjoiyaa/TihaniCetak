@@ -1,0 +1,28 @@
+.upper{
+	background:#1a0a2e;
+	display: flex;
+	justify-content:center;
+	align-items: flex-start;
+	margin: 15px;
+	border-radius:10px ;
+}
+.upper h1{
+	color: white;
+	font-size: 24px;
+}
+.upper p{
+	color: white;
+	font-size: 8px;
+}
+.hed{
+	text-align: center;
+}
+#btn{
+	margin-bottom: 35px;
+	margin-top: 20px;
+	background:#1a0a2e ;
+	color: white;
+}
+#btn:hover{
+	background: #671ec2;
+}

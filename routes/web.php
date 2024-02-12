@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\AppController;
 use App\Http\Controllers\Area_ShelfController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AreaLevelController;
@@ -24,6 +23,8 @@ use App\Http\Controllers\Subcon_monitorimg_report_Controller;
 use App\Http\Controllers\UomController;
 use App\Http\Controllers\UOMConverisonController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\DashboardController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -37,17 +38,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::get('/', function () {
+    return redirect('login');
+});
 
-// App Route
-Route::get('/', [AppController::class, 'App'])->name('app');
+Auth::routes([
+    'register' => false,
+    'reset' => false,
+    'verify' => true
+]);
 
+Route::middleware('auth')->group(function () {
+    //DASHBOARD
+    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Setting Route
+    //PROFILE
+    // Route::get('/user/profile', [ProfileController::class, 'index'])->name('user.profile');
+    // Route::post('/user/profile', [ProfileController::class, 'update'])->name('user.profile.update');
+    // Route::post('/user/profile/password', [ProfileController::class, 'password'])->name('profile.password.update');
 
-// Role
+    // Role
 Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role.index');
 
 // UOM
@@ -82,17 +92,17 @@ Route::get('/Setting/UOMConversion', [UOMConverisonController::class, 'index'])-
 Route::get('/Setting/UOMConversion/view', [UOMConverisonController::class, 'view'])->name('UOMConversion.view');
 Route::get('/Setting/UOMConversion/Create', [UOMConverisonController::class, 'Create'])->name('UOMConversion.create');
 
-//Machine 
+//Machine
 Route::get('/Setting/Machine', [MachineController::class, 'index'])->name('machine.index');
 Route::get('/Setting/Machine/view', [MachineController::class, 'view'])->name('machine.view');
 Route::get('/Setting/machine/Create', [MachineController::class, 'Create'])->name('machine.create');
 
-//Area Level 
+//Area Level
 Route::get('/Setting/Area_Level', [AreaLevelController::class, 'index'])->name('area_level.index');
 Route::get('/Setting/Area_Level/view', [AreaLevelController::class, 'view'])->name('area_level.view');
 Route::get('/Setting/Area_Level/Create', [AreaLevelController::class, 'Create'])->name('area_level.create');
 
-//Area Shelf 
+//Area Shelf
 Route::get('/Setting/Area_shelf', [Area_ShelfController::class, 'index'])->name('area_Shelf.index');
 Route::get('/Setting/Area_shelf/view', [Area_ShelfController::class, 'view'])->name('area_Shelf.view');
 Route::get('/Setting/Area_shelf/Create', [Area_ShelfController::class, 'Create'])->name('area_Shelf.create');
@@ -128,7 +138,7 @@ Route::get('/WHM/Stock_Transfer_location/view', [Stock_Transfer_locationControll
 Route::get('/WHM/Stock_Transfer_location/Create', [Stock_Transfer_locationController::class, 'Create'])->name('stock_Transfer_location.create');
 Route::get('/WHM/Stock_Transfer_location/receive', [Stock_Transfer_locationController::class, 'receive'])->name('stock_Transfer_location.receive');
 
-//Good Receiving 
+//Good Receiving
 Route::get('/WHM/Good_Receiving', [GoodReceivingController::class, 'index'])->name('Good_Receiving.index');
 Route::get('/WHM/Good_Receiving/view', [GoodReceivingController::class, 'view'])->name('Good_Receiving.view');
 Route::get('/WHM/Good_Receiving/Create', [GoodReceivingController::class, 'Create'])->name('Good_Receiving.create');
@@ -166,3 +176,4 @@ Route::get('/WHM/Pemeriksaan_Penghantaran', [Pemeriksaan_PenghantaranController:
 Route::get('/WHM/Pemeriksaan_Penghantaran/view', [Pemeriksaan_PenghantaranController::class, 'view'])->name('Pemeriksaan_Penghantaran.view');
 Route::get('/WHM/Pemeriksaan_Penghantaran/Create', [Pemeriksaan_PenghantaranController::class, 'Create'])->name('Pemeriksaan_Penghantaran.create');
 Route::get('/WHM/Pemeriksaan_Penghantaran/senarai', [Pemeriksaan_PenghantaranController::class, 'senarai'])->name('Pemeriksaan_Penghantaran.senarai');
+});

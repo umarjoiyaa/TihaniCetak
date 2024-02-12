@@ -90,7 +90,7 @@
 							<div class="swichermainleft">
 								<h4>Versions</h4>
 								<div class="pl-3 pr-3">
-									<a class="btn btn-success btn-block" href="index.html">
+									<a class="btn btn-success btn-block" href="{{route('dashboard')}}">
 										LTR
 									</a>
 									<a class="btn btn-warning btn-block" href="https://laravel.spruko.com/xino/rtl/index">
@@ -104,7 +104,7 @@
 									<a class="btn btn-primary btn-block" href="horizontal.html">
 										Horizontal
 									</a>
-									<a class="btn btn-secondary btn-block" href="index.html">
+									<a class="btn btn-secondary btn-block" href="{{route('dashboard')}}">
 										Left-menu
 									</a>
 								</div>
@@ -194,7 +194,7 @@
 			<div class="container">
 				<div class="main-header-left ">
 					<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-					<a class="header-brand" href="index.html">
+					<a class="header-brand" href="{{route('dashboard')}}">
 						<img src="assets/img/brand/logo-theme-dark.png" class="desktop-dark">
 						<img src="assets/img/brand/logo.png" class="desktop-logo">
 					</a>
@@ -653,14 +653,14 @@
 					<nav class="horizontalMenu clearfix d-flex">
 						<div class="main-header-left ">
 							<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-							<a class="header-brand" href="index.html">
+							<a class="header-brand" href="{{route('dashboard')}}">
 								<img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
 								<div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}" class="desktop-logo"> <span class="text-white mx-2 text" style="font-size: 26px;">Tihani Cetak</span></div>
 							</a>
 
 						</div>
 						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true"><a href="index.html" class=""><i class="ti-home menu-icon"></i> Home</a></li>
+							<li aria-haspopup="true"><a href="{{route('dashboard')}}" class=""><i class="ti-home menu-icon"></i> Home</a></li>
 							<li aria-haspopup="true"><a href="#" class="sub-icon"><i class="ti-bar-chart-alt"></i> MES </a>
 								<div class="horizontal-megamenu clearfix">
 									<div class="container-fluid">
