@@ -6,7 +6,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>LAPORAN PEMERIKSAAN KUALITI -POD </h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left">LAPORAN PEMERIKSAAN KUALITI -POD </h5>
+                            <p class="float-right">TCSB-B23 (Rev.5)</p>
+                        </div>
+                    </div>
+                    
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
@@ -58,8 +64,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <td rowspan="2">kriteria</td>
-                                                <td colspan="3">Tanda bagi Yang bekenaan</td>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
                                             </tr>
                                             <tr>
@@ -123,8 +129,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <td rowspan="2">kriteria</td>
-                                                <td colspan="3">Tanda bagi Yang bekenaan</td>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
                                             </tr>
                                             <tr>

@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Sales Order List</h5>
+                        <h3><b>Sales Order List</b></h3>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="text-center mt-5">
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <div class="box" style="width:350px; height:200px; border:1px solid black;">
+                                <div class="box" style="width:400px; padding:10px; height:180px; border:1px solid black;">
                                     <p>EDUKID DISTRIBUTORS SDN BHD</p>
                                     <p>
                                         NO 8, JALAN MAHAGONI 9, <br>
@@ -92,85 +92,73 @@
                                         <tbody>
                                             <tr>
                                                 <td>Status</td>
-                                                <td>REPEAT</td>
+                                                <td colspan="2"><b>REPEAT</b></td>
                                             </tr>
                                             <tr>
                                                 <td>Kod Buu</td>
-                                                <td>CP-XXXX</td>
+                                                <td  colspan="2">CP-XXXX</td>
                                             </tr>
                                             <tr>
                                                 <td>Catekan</td>
-                                                <td>4</td>
+                                                <td  colspan="2">4</td>
                                             </tr>
                                             <tr>
                                                 <td>Size</td>
-                                                <td>15cm X 21cm</td>
+                                                <td  colspan="2">15cm X 21cm</td>
                                             </tr>
                                             <tr>
-                                                <td>Pages</td>
-                                                <td>
-                                                    <tr>
-                                                        <td>Cover</td>
-                                                        <td></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>text</td>
-                                                        <td>196pp</td>
-                                                    </tr>
-                                                </td>
+                                                <td rowspan="2">Pages</td>
+                                                <td >Cover</td>
+                                                <td></td>
                                             </tr>
                                             <tr>
-                                                <td>Papers</td>
-                                                <td>
-                                                <tr>
-                                                        <td>Cover</td>
-                                                        <td>1/sartcard 260gsm</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>text</td>
-                                                        <td>Simily 70 gsm</td>
-                                                    </tr>
-                                                </td>
+                                                <td>Text </td>
+                                                <td>1966</td>
+                                            </tr>
+                                            <tr>
+                                                <td rowspan="2">Paper</td>
+                                                <td>cover</td>
+                                                <td>1/artcard 260 gsm</td>
+                                            </tr>
+                                            <tr>
+                                                <td>text </td>
+                                                <td>Simily 70gsm</td>
                                             </tr>
 
                                             <tr>
-                                                <td>Printer</td>
-                                                <td>
-                                                <tr>
-                                                        <td>Cover</td>
-                                                        <td>4c</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>text</td>
-                                                        <td>4c</td>
-                                                    </tr>
-                                                </td>
+                                                <td rowspan="2">Priting</td>
+                                                <td >Cover</td>
+                                                <td>4C</td>
+                                            </tr>
+                                            <tr>
+                                                <td>text</td>
+                                                <td>4C</td>
                                             </tr>
                                             <tr>
                                                 <td>Finishing</td>
-                                                <td>Matt Lamination + SpotUV</td>
+                                                <td colspan="2">Matt Lamination + SpotUV</td>
                                             </tr>
                                             <tr>
                                                 <td>Binding</td>
-                                                <td>Perfect Bind</td>
+                                                <td colspan="2">Perfect Bind</td>
                                             </tr>
                                             <tr>
                                                 <td>Shrinking wrapping</td>
-                                                <td>No</td>
+                                                <td colspan="2">No</td>
                                             </tr>
 
                                             <tr>
                                                 <td>Extra Stock</td>
-                                                <td></td>
+                                                <td colspan="2"></td>
                                             </tr>
                                             <tr>
                                                 <td>Remarks</td>
-                                                <td>Approved By  CTP on 20.09.2023</td>
+                                                <td colspan="2">Approved By  CTP on 20.09.2023</td>
                                             </tr>
 
                                             <tr>
                                                 <td>Deilivery Date</td>
-                                                <td></td>
+                                                <td colspan="2"></td>
                                             </tr>
 
                                         </tbody>
@@ -180,11 +168,18 @@
                             </div>
                         
                         <div class="row">
-                            <div class="col-md-5">
+                            <div class="col-md-5 mt-3">
+                                <label for=""><b>SoftCopy Upload</b></label>
                                 <input type="file" name="" id="" class="form-control">
                             </div>
                         </div>
                         </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <a href="{{route('SalesOrderList.index')}}">Back to list</a>
                     </div>
                 </div>
             </div>

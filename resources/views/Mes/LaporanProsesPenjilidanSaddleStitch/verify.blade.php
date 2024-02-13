@@ -6,7 +6,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>LAPORAN PROSES PENJILIDAN (Saddle Stitch)</h5>
+                    <<div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>LAPORAN PROSES PENJILIDAN (Saddle Stitch)</b></h5>
+                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                        </div>
+                    </div>
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
@@ -70,7 +75,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Saiz</div>
-                                        <input type="number" readonly value="Auto Display (based On SO)" name="" id=""
+                                        <input type="number" readonly placeholder="Auto Display (based On SO)" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -111,9 +116,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">Kriteria</td>
-                                        <td colspan="4">Status</td>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Kriteria</th>
+                                        <th colspan="4">Status</th>
 
                                     </tr>
                                     <tr>
@@ -200,13 +205,13 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td rowspan="2">Jumlah </td>
-                                            <td colspan="7">Kriteria</td>
-                                            <td rowspan="2">Check </td>
-                                            <td rowspan="2">Username / datetime</td>
-                                            <td rowspan="2">Verify</td>
-                                            <td rowspan="2">Username / datetime</td>
-                                            <td rowspan="2">Action</td>
+                                            <th rowspan="2">Jumlah </th>
+                                            <th colspan="7">Kriteria</th>
+                                            <th rowspan="2">Check </th>
+                                            <th rowspan="2">Username / datetime</th>
+                                            <th rowspan="2">Verify</th>
+                                            <th rowspan="2">Username / datetime</th>
+                                            <th rowspan="2">Action</th>
                                         </tr>
                                         <tr>
                                             <th>Kedudukan dawai pin</th>
@@ -232,8 +237,7 @@
                                                     style="border-radius:5px; ">check</button>
                                             </td>
                                             <td>username / datetime</td>
-                                            <td><button class="btn"
-                                                    style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                            <td><button class="btn btn-primary">Verify</button>
                                             </td>
                                             <td>username / datetime</td>
                                             <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>

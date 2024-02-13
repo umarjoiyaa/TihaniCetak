@@ -16,38 +16,38 @@
                         <a href="{{route('POD.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table mt-2" id="example1">
+                        <table class="table table-bordered mt-2" id="example1">
                             <thead>
                                 <tr>
-                                    <td rowspan="2">Date.</td>
-                                    <td rowspan="2">Time</td>
-                                    <td rowspan="2">Sales Order NO</td>
-                                    <td rowspan="2">Kod Buku</td>
-                                    <td rowspan="2">Tajuk</td>
-                                    <td colspan="8" class="text-center">File Artwork</td>
-                                    <td colspan="10" class="text-center">First Piece</td>
-                                    <td rowspan="2">Status</td>
-                                    <td rowspan="2">Action</td>
+                                    <th rowspan="2">Date.</th>
+                                    <th rowspan="2">Time</th>
+                                    <th rowspan="2">Sales Order NO</th>
+                                    <th rowspan="2">Kod Buku</th>
+                                    <th rowspan="2">Tajuk</th>
+                                    <th colspan="8" class="text-center">File Artwork</th>
+                                    <th colspan="10" class="text-center">First Piece</th>
+                                    <th rowspan="2">Status</th>
+                                    <th rowspan="2">Action</th>
                                 </tr>
                                 <tr>
-                                    <td>Desgin clearance (5mm)</td>
-                                    <td>Image artwork</td>
-                                    <td>Bleed</td>
-                                    <td>Saiz spine (perfect bind)</td>
-                                    <td>Alamat pencetak</td>
-                                    <td>Jumlah muka surat</td>
-                                    <td>Turutan muka surat</td>
-                                    <td>Jenis kertas</td>
-                                    <td>Saiz produk</td>
-                                    <td>Artwork (gambar, teks)</td>
-                                    <td>Design clearance (5mm)</td>
-                                    <td>Warna</td>
-                                    <td>Jumlah muka surat </td>
-                                    <td>Turutan muka surat</td>
-                                    <td>Bleed</td>
-                                    <td>Crop mark</td>
-                                    <td>kedudukan cetakan depan belakang/ print register</td>
-                                    <td>Jenis Penjilidan</td>
+                                    <th>Desgin clearance (5mm)</th>
+                                    <th>Image artwork</th>
+                                    <th>Bleed</th>
+                                    <th>Saiz spine (perfect bind)</th>
+                                    <th>Alamat pencetak</th>
+                                    <th>Jumlah muka surat</th>
+                                    <th>Turutan muka surat</th>
+                                    <th>Jenis kertas</th>
+                                    <th>Saiz produk</th>
+                                    <th>Artwork (gambar, teks)</th>
+                                    <th>Design clearance (5mm)</th>
+                                    <th>Warna</th>
+                                    <th>Jumlah muka surat </th>
+                                    <th>Turutan muka surat</th>
+                                    <th>Bleed</th>
+                                    <th>Crop mark</th>
+                                    <th>kedudukan cetakan depan belakang/ print register</th>
+                                    <th>Jenis Penjilidan</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -57,27 +57,26 @@
                                     <td>30/5/2023</td>
                                     <td>30/5/2023</td>
                                     <td>SO-001496</td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
                                     
-                                    <td><span
-                                            style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:5px;">Checked</span>
+                                    <td><span class="badge badge-pill badge-warning w-100 p-3">Checked</span>
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -87,11 +86,11 @@
                                                     class="fas fa-caret-down ml-1"></i></button>
                                             <div class="dropdown-menu tx-13">
                                                 <a class="dropdown-item"
-                                                    href="">View</a>
+                                                    href="{{route('POD.view')}}">View</a>
                                                 <a class="dropdown-item"
                                                     href="">Edit</a>
                                                 <a class="dropdown-item"
-                                                    href="}}">Verify</a>
+                                                    href="{{route('POD.verify')}}">Verify</a>
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>

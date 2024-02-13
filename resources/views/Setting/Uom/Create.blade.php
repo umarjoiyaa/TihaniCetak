@@ -12,6 +12,7 @@
                 </div>
                 <div class="card-body">
                    <div class="row mt-3">
+                    <form action="" method="post">
                     <div class="col-md-4">
                         <div class="control-group form-group">
                             <label class="form-label">UOM Name</label>
@@ -23,6 +24,7 @@
                     <div class="col-md-4 d-flex justify-content-end">
                         <button class="btn btn-primary" type="submit" >Save</button>
                     </div>
+                    </form>
                    </div>
                 </div>
             </div>

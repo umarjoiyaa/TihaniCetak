@@ -15,35 +15,35 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tarikh</div>
-                                        <select readonly name="" id="" class="form-control">
+                                        <select  name="" id="" class="form-control">
                                             <option value="">Search Sales Order no</option>
-                                            <option value="">SO - 001387</option>
+                                            <option value="">SO-001387</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Diperiksa Oleh</div>
-                                        <input type="text" readonly value="Admin" class="form-control">
+                                        <div class="label">Date</div>
+                                        <input type="date" readonly value="Admin" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Search Sales Order No.</div>
-                                        <input type="text" value="auto dispaly(based SO)" name="" id="" class="form-control">
+                                        <div class="label">kod Buku</div>
+                                        <input type="text" readonly value="auto dispaly(based SO)" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" value="auto dispaly (Based SO)" name="" id="" class="form-control">
+                                        <input type="text" readonly value="auto dispaly (Based SO)" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Time</div>
-                                            <input type="time" value="10am" readonly placeholder="Auto Display" class="form-control">:
+                                            <input type="time"  value="10am" readonly placeholder="Auto Display" class="form-control">:
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
@@ -51,7 +51,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Checked By</div>
-                                        <input type="text" value="Admin" class="form-control" name="" id="">
+                                        <input type="text" value="Admin" readonly class="form-control" name="" id="">
                                     </div>
                                 </div>
                                 
@@ -61,16 +61,16 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h5>Bahagian A ( Semakan File)</h5>
+                                <h5><b>Bahagian A ( Semakan File)</b></h5>
                             </div>
                             <div class="col-md-9">
                                  <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td rowspan="2">No</td>
-                                            <td rowspan="2"><div class="text-center">kriteria</div></td>
-                                            <td colspan="3">cover</td>
-                                            <td colspan="3">text</td>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2"><div class="text-center">kriteria</div></th>
+                                            <th colspan="3">cover</th>
+                                            <th colspan="3">text</th>
                                             
                                         </tr>
                                         <tr>
@@ -84,7 +84,7 @@
                                     </thead>
                                     <tbody>
                                         <tr>
-                                            <td>2</td>
+                                            <td>1</td>
                                             <td>Design clearance 5mm (print to cut dan stitching binding)</td>
                                             <td><input type="checkbox"  name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
@@ -94,7 +94,7 @@
                                             <td><input type="checkbox" name="" id=""></td>
                                         </tr>
                                         <tr>
-                                            <td>3</td>
+                                            <td>2</td>
                                             <td>Image artwork (Semak teks & gambar)</td>
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
@@ -104,8 +104,19 @@
                                             <td><input type="checkbox" name="" id=""></td>
                                         </tr>
                                         <tr>
-                                            <td>4</td>
+                                            <td>3</td>
                                             <td>Bleed (3-5mm)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Alamat pencetak</td>
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
@@ -117,7 +128,7 @@
                                             <td>5</td>
                                             <td>Saiz spine (perfect bind)</td>
                                             <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox " checked name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td colspan="3"></td>
                                         </tr>
@@ -131,10 +142,10 @@
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>Alamat pencetak</td>
-                                            <td colspan="3"></td>
+                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td colspan="3" readonly></td>
                                             <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox"name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
                                         </tr>
                                         <tr>
@@ -146,20 +157,20 @@
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
-                                            <td colspan="3"></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox"       name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <var><tr>
-                                            <td>10</td>
                                             <td>Turutan mukasurat (Berturutan)</td>
-                                            <td colspan="3"></td>
+                                            <td colspan="3" readonly></td>
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
-                                        </tr></var>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Turutan mukasurat (Berturutan)</td>
+                                            <td colspan="3" readonly></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
                                     </tbody>
                                  </table>
                             </div>
@@ -178,16 +189,16 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h5>Bahagian B (Pemeriksaan Dan Pengesahan 1st Piece)</h5>
+                                <h5><b>Bahagian B (Pemeriksaan Dan Pengesahan 1st Piece)</b></h5>
                             </div>
                             <div class="col-md-9">
                                  <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td rowspan="2">No</td>
-                                            <td rowspan="2"><div class="text-center">kriteria</div></td>
-                                            <td colspan="3">cover</td>
-                                            <td colspan="3">text</td>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2"><div class="text-center">kriteria</div></th>
+                                            <th colspan="3">cover</th>
+                                            <th colspan="3">text</th>
                                             
                                         </tr>
                                         <tr>
@@ -332,16 +343,16 @@
 
                         <div class="row">
                             <div class="col-md-12">
-                                <h5>Bahagian C (Pemeriksaan Dan Pengesahan  Mock Up) - Untuk Mock Up Sahaja</h5>
+                                <h5><b>Bahagian C (Pemeriksaan Dan Pengesahan  Mock Up) - Untuk Mock Up Sahaja</b></h5>
                             </div>
-                            <div class="col-md-9">
+                            <div class="col-md-9 mt-5">
                                  <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td rowspan="2">No</td>
-                                            <td rowspan="2"><div class="text-center">kriteria</div></td>
-                                            <td colspan="3">cover</td>
-                                            <td colspan="3">text</td>
+                                            <th rowspan="2">No</th>
+                                            <th rowspan="2"><div class="text-center">kriteria</div></th>
+                                            <th colspan="3">cover</th>
+                                            <th colspan="3">text</th>
                                             
                                         </tr>
                                         <tr>

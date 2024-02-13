@@ -6,7 +6,13 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>LAPORAN PEMERIKSAAN KUALITI - CTP</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
+                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                        </div>
+                    </div>
+                    
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
@@ -31,7 +37,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">SO-001496</option>
                                         </select>
                                     </div>
@@ -58,8 +64,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <td rowspan="2">kriteria</td>
-                                                <td colspan="3">Tanda bagi Yang bekenaan</td>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
                                             </tr>
                                             <tr>
@@ -129,8 +135,8 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <td rowspan="2">kriteria</td>
-                                                <td colspan="3">Tanda bagi Yang bekenaan</td>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
                                             </tr>
                                             <tr>
@@ -215,3 +221,4 @@
 </div>
 </div>
 @endsection
+

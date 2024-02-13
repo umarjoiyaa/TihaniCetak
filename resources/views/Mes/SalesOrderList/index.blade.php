@@ -7,7 +7,7 @@
                 <div class="card mt-5">
                     <div class="card-header">
                     <div class="d-flex justify-content-between">
-                            <h4 class="card-title tx-20 mg-b-0 p-2">Pemeriksaan Penghantaran</h4>
+                            <h4 class="card-title tx-20 mg-b-0 p-2">Sales Order list</h4>
                         </div>
                         
                     </div>
@@ -16,26 +16,34 @@
                         <a href="{{route('Pemeriksaan_Penghantaran.create')}}" class="btn btn-primary mb-2">Create</a>
                         </div>
                     
-                        <table class="table  mt-2" id="example1">
+                        <table class="table table-bordered  mt-2" id="example1">
                             <thead>
                                 <tr>
-                                    <td>REef No.</td>
-                                    <td>Tarikh</td>
-                                    <td>Sales Order No</td>
-                                    <td>Description</td>
-                                    <td>Diminta Oleh</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
+                                    <th style="font-size:11px;">Sr.</th>
+                                    <th style="font-size:11px;">Sales Order No</th>
+                                    <th  style="font-size:11px;">Customer Name</th>
+                                    <th style="font-size:11px;">PO No.</th>
+                                    <th style="font-size:11px;">Date Issue</th>
+                                    <th style="font-size:11px;">Status</th>
+                                    <th style="font-size:11px;">Status Approveal</th>
+                                    <th style="font-size:11px;">Sales Order No.</th>
+                                    <th style="font-size:11px;">Delivery Qty</th>
+                                    <th style="font-size:11px;">Remaining Qty</th>
+                                    <th style="font-size:11px;">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr class="">
-                                    <td>ST/1/23</td>
-                                    <td>30/5/2023</td>
-                                    <td>SO-001496</td>
-                                    <td>Stock</td>
-                                    <td>UserA</td>
-                                    <td><span style="background:Yellow; padding:10px; border:1px solid yellow; border-radius:5px;">Request</span></td>
+                                    <td>1</td>
+                                    <td style="font-size:11px;">SO-001496</td>
+                                    <td style="font-size:11px;">EDUKID DIDTRIBUTE</td>
+                                    <td style="font-size:11px;">PO-00308</td>
+                                    <td>15/09/2023</td>
+                                    <td ><span class="badge badge-success">Complete</span></td>
+                                    <td><span class="badge badge-info">Approve</span></td>
+                                    <td style="font-size:15px;">5000</td>
+                                    <td style="font-size:15px;">5000</td>
+                                    <td>0</td>
                                     <td>
                                     <div class="dropdown">
                                         <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"

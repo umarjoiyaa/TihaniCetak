@@ -74,8 +74,7 @@
                                     <td>OK</td>
                                     <td>OK</td>
                                     <td>OK</td>
-                                    <td><span
-                                            style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:13px;">Checked</span>
+                                    <td><span class="badge badge-pill badge-warning w-100 p-2">checked</span>
                                     </td>
                                     <td>
                                         <div class="dropdown">

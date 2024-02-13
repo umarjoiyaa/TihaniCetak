@@ -54,7 +54,7 @@
                     </div>
 
 
-                    <div class="row">
+                    <div class="row mt-5">
                         <div class="col-md-12">
                             <h5><b>PEMERIKSAAN PLATE CETAK   </b></h5>
                         </div>
@@ -132,10 +132,10 @@
                         <div class="col-md-12">
                             <h5><b>Nota</b></h5>
                             <span>
-                                Periksa setiap plate cetak yang keluar dari plate processor mengikut kriteria yang ditetapkan diatas
+                               <b> Periksa setiap plate cetak yang keluar dari plate processor mengikut kriteria yang ditetapkan diatas</b>
                             </span>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-12 mt-5">
                             <table class="table" border='1'>
                                 <thead>
                                     <tr>
@@ -166,7 +166,7 @@
                                     <tr>
                                         <td>P4</td>
                                         <td>4C</td>
-                                        <td rowspan="2">
+                                        <td>
                                             28mm
                                         </td>
                                         <td>

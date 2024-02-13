@@ -91,7 +91,7 @@
                                         <td>Item A</td>
                                         <td>Unit</td>
                                         <td>200</td>
-                                        <td><span style="background:Yellow;  border:1px solid yellow; border-radius: 25px; padding:5px;">Transfer</span></td>
+                                        <td><span class="badge badge-warning W-100 p-2 ">Transfer</span></td>
                                     </tr>
                                     <tr>
                                         <td>1.</td>
@@ -103,7 +103,7 @@
                                         <td>Item A</td>
                                         <td>Unit</td>
                                         <td>200</td>
-                                        <td><span style="background:Green; color:White; border:1px solid green; border-radius: 25px; padding:5px;">Transfer</span></td>
+                                        <td><span class="badge badge-success w-100 p-2">Transfer</span></td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h4>A) Informasi</h4>
+                                    <h5><b>A) Informasi</b></h5>
                                 </div>
 
                             </div>
@@ -32,11 +32,11 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">SO-001496</option>
                                         </select>
                                     </div>
@@ -64,7 +64,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kuantiti SO</div>
-                                        <input type="number" readonly value="Auto Display" name="" id=""
+                                        <input type="number" readonly placeholder="Auto Display" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                     <div class="form-group">
                                         <label for="">Jenis Penjilidan</label>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">Perfect Bind</option>
                                             <option value="">Lock Bind</option>
                                             <option value="">Gather</option>
@@ -86,7 +86,7 @@
                                     <div class="form-group">
                                         <label for="">Operator</label>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">User A</option>
                                         </select>
                                     </div>
@@ -96,7 +96,7 @@
                                     <div class="form-group">
                                         <label for="">Pembantu</label>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select Pembantu (multi select)</option>
+                                            <option value="" >select Pembantu (multi select)</option>
                                             <option value="">User A</option>
                                         </select>
                                     </div>
@@ -108,16 +108,16 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
+                            <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                         </div>
                         <div class="col-md-8 mt-5">
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">Kriteria</td>
-                                        <td colspan="4">Status</td>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Kriteria</th>
+                                        <th colspan="4">Status</th>
 
                                     </tr>
                                     <tr>
@@ -191,7 +191,7 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>C) Pemeriksaan semasa proses penjilidan </h5>
+                            <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
                         </div>
 
                         <div class="col-md-12">
@@ -202,13 +202,13 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">Jumlah </td>
-                                        <td colspan="5s">Seksyen 1</td>       
-                                        <td rowspan="2">Check (Operator)</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Verify</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Action</td>
+                                        <th rowspan="2">Jumlah </th>
+                                        <th colspan="5s">Kriteria</th>       
+                                        <th rowspan="2">Check (Operator)</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Verify</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Action</th>
                                     </tr>
                                     <tr>
                                         <th>Kedudukan Kulit buku  dan teks</th>
@@ -229,8 +229,7 @@
                                         <td><button class="btn btn-primary" style="border-radius:5px; ">check</button>
                                         </td>
                                         <td>username / datetime</td>
-                                        <td><button class="btn"
-                                                style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                        <td><button class="btn btn-primary">Verify</button>
                                         </td>
                                         <td>username / datetime</td>
                                         <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>

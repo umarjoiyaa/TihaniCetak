@@ -43,7 +43,7 @@
                                         <td style="font-size:11px;">15cmX21cm</td>
                                         <td style="font-size:11px;">A</td>
                                         <td>B</td>
-                                        <td><span style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:6px;">in-Progress</span></td>
+                                        <td><span class="badge badge-pill badge-warning w-100 p-2">In-progress</span></td>
                                         <td><div class="dropdown">
                                             <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action<i class="fas fa-caret-down ml-1"></i></button>
