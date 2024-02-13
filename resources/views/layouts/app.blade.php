@@ -289,7 +289,7 @@
 										</div>
 									</a>
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/5.jpg">
+										<div class="drop-img cover-image" data-image-src="{{ asset('assets/img/tihani.png') }}">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 										<div class="wd-90p">
@@ -401,10 +401,10 @@
 							<span class="navbar-toggler-icon fe fe-more-vertical "></span>
 						</button>
 						<div class="dropdown main-profile-menu nav nav-item nav-link">
-							<a class="profile-user" href="#"><img alt="" src="assets/img/faces/5.jpg"></a>
+							<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
 							<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
 								<div class="main-header-profile header-img">
-									<div class="main-img-user"><img alt="" src="assets/img/faces/5.jpg"></div>
+									<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 									<h6>Elizabeth Jane</h6><span>Premium Member</span>
 								</div>
 								<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
@@ -513,7 +513,7 @@
 										</div>
 									</a>
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/5.jpg">
+										<div class="drop-img cover-image" data-image-src="{{ asset('assets/img/tihani.png') }}">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 										<div class="wd-90p">
@@ -621,10 +621,10 @@
 							</div>
 						</div>
 						<div class="dropdown main-profile-menu nav nav-item nav-link">
-							<a class="profile-user" href="#"><img alt="" src="assets/img/faces/5.jpg"></a>
+							<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
 							<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
 								<div class="main-header-profile header-img">
-									<div class="main-img-user"><img alt="" src="assets/img/faces/5.jpg"></div>
+									<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 									<h6>Elizabeth Jane</h6><span>Premium Member</span>
 								</div>
 								<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
@@ -967,7 +967,7 @@
 												</div>
 											</a>
 											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="assets/img/faces/5.jpg">
+												<div class="drop-img cover-image" data-image-src="{{ asset('assets/img/tihani.png') }}">
 													<span class="avatar-status bg-teal"></span>
 												</div>
 												<div class="wd-90p">
@@ -1079,10 +1079,10 @@
 									<span class="navbar-toggler-icon fe fe-more-vertical "></span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
-									<a class="profile-user" href="#"><img alt="" src="assets/img/faces/5.jpg"></a>
+									<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
 									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
 										<div class="main-header-profile header-img">
-											<div class="main-img-user"><img alt="" src="assets/img/faces/5.jpg"></div>
+											<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 											<h6>Elizabeth Jane</h6><span>Premium Member</span>
 										</div>
 										<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
@@ -1147,7 +1147,7 @@
 					<div class="tab-pane active" id="tab">
 						<div class="card-body p-0">
 							<div class="header-user text-center mt-4">
-								<span class="avatar avatar-xxl brround mx-auto"><img src="assets/img/faces/5.jpg" alt="Profile-img" class="avatar avatar-xxl brround"></span>
+								<span class="avatar avatar-xxl brround mx-auto"><img src="{{ asset('assets/img/tihani.png') }}" alt="Profile-img" class="avatar avatar-xxl brround"></span>
 								<div class=" text-center font-weight-semibold user mt-3 h6 mb-0">Elizabeth Jane</div>
 								<span class="text-muted">App Developer</span>
 								<div class="card-body">
@@ -1267,7 +1267,7 @@
 									<li>
 										<div class="d-flex bd-highlight w-100">
 											<div class="img_cont">
-												<img src="{{ asset('assets/img/faces/5.jpg') }}" class="rounded-circle user_img" alt="img">
+												<img src="{{ asset('assets/img/tihani.png') }}" class="rounded-circle user_img" alt="img">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
