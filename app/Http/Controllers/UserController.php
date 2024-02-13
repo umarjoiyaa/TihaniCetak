@@ -18,13 +18,13 @@ class UserController extends Controller
     public function index()
     {
         if (
-            Auth::user()->hasPermissionTo('User Registration List') ||
-            Auth::user()->hasPermissionTo('User Registration Create') ||
-            Auth::user()->hasPermissionTo('User Registration Update') ||
-            Auth::user()->hasPermissionTo('User Registration Delete')
+            Auth::user()->hasPermissionTo('User List') ||
+            Auth::user()->hasPermissionTo('User Create') ||
+            Auth::user()->hasPermissionTo('User Update') ||
+            Auth::user()->hasPermissionTo('User Delete')
         ) {
-            Helper::logSystemActivity('User Registration', 'User Registration List');
-            return view("settings.user_registration.index");
+            Helper::logSystemActivity('User', 'User List');
+            return view("Setting.user.index");
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
@@ -205,19 +205,17 @@ class UserController extends Controller
 
     public function create()
     {
-        if (!Auth::user()->hasPermissionTo('User Registration Create')) {
+        if (!Auth::user()->hasPermissionTo('User Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $roles = Role::select('id', 'name')->get();
-        $dashboards = Dashboard::select('id', 'name')->get();
-        $departments = Department::select('id', 'name', 'code')->get();
-        Helper::logSystemActivity('User Registration', 'User Registration Create');
-        return view("settings.user_registration.create", compact("roles", "departments", "dashboards"));
+        Helper::logSystemActivity('User', 'User Create');
+        return view("Setting.user.create", compact("roles"));
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('User Registration Create')) {
+        if (!Auth::user()->hasPermissionTo('User Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -272,8 +270,8 @@ class UserController extends Controller
             $role = Role::find($roleId);
             $user->assignRole([$role->name]);
         }
-        Helper::logSystemActivity('User Registration', 'User Registration Store');
-        return redirect()->route('user.index')->with('custom_success', 'User Registration has been Succesfully Added!');
+        Helper::logSystemActivity('User', 'User Store');
+        return redirect()->route('user.index')->with('custom_success', 'User has been Succesfully Added!');
     }
     /**
      * Display the specified resource.
@@ -290,15 +288,13 @@ class UserController extends Controller
      */
     public function edit(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('User Registration Update')) {
+        if (!Auth::user()->hasPermissionTo('User Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $user = User::find($id);
         $roles = Role::select('id', 'name')->get();
-        $dashboards = Dashboard::select('id', 'name')->get();
-        $departments = Department::select('id', 'name', 'code')->get();
-        Helper::logSystemActivity('User Registration', 'User Registration Edit');
-        return view("settings.user_registration.edit", compact("user", "roles", "departments", "dashboards"));
+        Helper::logSystemActivity('User', 'User Edit');
+        return view("Setting.user.edit", compact("user", "roles"));
     }
 
     /**
@@ -310,7 +306,7 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('User Registration Update')) {
+        if (!Auth::user()->hasPermissionTo('User Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $this->validate($request, [
@@ -365,8 +361,8 @@ class UserController extends Controller
             $role = Role::find($roleId);
             $user->assignRole([$role->name]);
         }
-        Helper::logSystemActivity('User Registration', 'User Registration Update');
-        return redirect()->route('user.index')->with('custom_success', 'User Registration has been Succesfully Updated!');
+        Helper::logSystemActivity('User', 'User Update');
+        return redirect()->route('user.index')->with('custom_success', 'User has been Succesfully Updated!');
     }
 
     /**
@@ -377,7 +373,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if (!Auth::user()->hasPermissionTo('User Registration Delete')) {
+        if (!Auth::user()->hasPermissionTo('User Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         // Prevent from from self deleting
@@ -386,7 +382,7 @@ class UserController extends Controller
             return back()->with('custom_errors', 'You Can`t delete yourself. Ask super admin to do that.');
         }
         $user->delete();
-        Helper::logSystemActivity('User Registration', 'User Registration Delete');
-        return redirect()->route('user.index')->with('custom_success', 'User Registration has been Succesfully Deleted!');
+        Helper::logSystemActivity('User', 'User Delete');
+        return redirect()->route('user.index')->with('custom_success', 'User has been Succesfully Deleted!');
     }
 }

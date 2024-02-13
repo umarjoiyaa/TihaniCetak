@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -71,8 +71,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </form> 
-                    
+                        </form>
+
                </div>
 
                <a href="{{route('user.index')}}" class="btn">Back To List</a>

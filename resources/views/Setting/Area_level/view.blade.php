@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
                         <h4> AREA_LEVEL - View</h4>
                     </div>
                     <div class="card-body">
-                        
+
                         <form action="">
                             <div class="row">
                                     <div class="col-md-4">
@@ -31,8 +31,8 @@
                                     </div>
                                 </div>
                             </div>
-                        </form> 
-                    
+                        </form>
+
                     </div>
 
                <a href="{{route('area_level.index')}}" class="btn ">Back To List</a>

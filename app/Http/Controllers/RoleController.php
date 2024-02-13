@@ -76,27 +76,27 @@ class RoleController extends Controller
                 'recordsFiltered' => $recordsTotal, // Total records after filtering
                 'data' => $roles,
             ]);
-            
+
         }
     }
 
     public function index()
     {
         if (
-            Auth::user()->hasPermissionTo('Role Assign List') ||
-            Auth::user()->hasPermissionTo('Role Assign Create') ||
-            Auth::user()->hasPermissionTo('Role Assign Update') ||
-            Auth::user()->hasPermissionTo('Role Assign Delete')
+            Auth::user()->hasPermissionTo('Role List') ||
+            Auth::user()->hasPermissionTo('Role Create') ||
+            Auth::user()->hasPermissionTo('Role Update') ||
+            Auth::user()->hasPermissionTo('Role Delete')
         ) {
-            Helper::logSystemActivity('Role Assign', 'Role Assign List');
-            return view("settings.role_assign.index");
+            Helper::logSystemActivity('Role', 'Role List');
+            return view("Setting.Role.index");
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create()
     {
-        if (!Auth::user()->hasPermissionTo('Role Assign Create')) {
+        if (!Auth::user()->hasPermissionTo('Role Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $permissions = Permission::get();
@@ -106,13 +106,13 @@ class RoleController extends Controller
         $reportings = Helper::getpermissions('reportings');
         $dashboards = Helper::getpermissions('dashboards');
         $maintenances = Helper::getpermissions('maintenances');
-        Helper::logSystemActivity('Role Assign', 'Role Assign Create');
+        Helper::logSystemActivity('Role', 'Role Create');
         return view("settings.role_assign.create", compact("others", "settings", "permissions", "dashboards", "machines", "maintenances", "reportings"));
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('Role Assign Create')) {
+        if (!Auth::user()->hasPermissionTo('Role Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $this->validate($request, [
@@ -126,8 +126,8 @@ class RoleController extends Controller
         $permissions = $request->input('permission');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
-        Helper::logSystemActivity('Role Assign', 'Role Assign Store');
-        return redirect()->route('role.index')->with('custom_success', 'Role Assign has been Succesfully Added!');
+        Helper::logSystemActivity('Role', 'Role Store');
+        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Added!');
     }
     /**
      * Display the specified resource.
@@ -144,7 +144,7 @@ class RoleController extends Controller
      */
     public function edit(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('Role Assign Update')) {
+        if (!Auth::user()->hasPermissionTo('Role Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $role = Role::find($request->id);
@@ -158,7 +158,7 @@ class RoleController extends Controller
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $request->id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
-        Helper::logSystemActivity('Role Assign', 'Role Assign Edit');
+        Helper::logSystemActivity('Role', 'Role Edit');
         return view("settings.role_assign.edit", compact("others", "settings", "permissions", "dashboards", "machines", "role", "rolePermissions", "maintenances", "reportings"));
     }
 
@@ -171,7 +171,7 @@ class RoleController extends Controller
      */
     public function update(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('Role Assign Update')) {
+        if (!Auth::user()->hasPermissionTo('Role Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $this->validate($request, [
@@ -189,8 +189,8 @@ class RoleController extends Controller
         $permissions = $request->input('permission');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
-        Helper::logSystemActivity('Role Assign', 'Role Assign Update');
-        return redirect()->route('role.index')->with('custom_success', 'Role Assign has been Succesfully Updated!');
+        Helper::logSystemActivity('Role', 'Role Update');
+        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Updated!');
     }
 
     /**
@@ -201,7 +201,7 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        if (!Auth::user()->hasPermissionTo('Role Assign Delete')) {
+        if (!Auth::user()->hasPermissionTo('Role Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         // Prevent from from self deleting
@@ -214,7 +214,7 @@ class RoleController extends Controller
             return back()->with('custom_errors', 'This role has been assigned to someone. You cannot delete it. First Unassign role from user registration');
         }
         DB::table("roles")->where('id', $id)->delete();
-        Helper::logSystemActivity('Role Assign', 'Role Assign Delete');
-        return redirect()->route('role.index')->with('custom_success', 'Role Assign has been Succesfully Deleted!');
+        Helper::logSystemActivity('Role', 'Role Delete');
+        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Deleted!');
     }
 }

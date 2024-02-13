@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,13 +9,13 @@
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">Area-Shelf LIST</h4>
                         </div>
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
                         <a href="{{route('area_Shelf.create')}}" class="btn btn-primary mb-2">Create User</a>
                         </div>
-                    
+
                         <table class="table mt-2" id="example1">
                             <thead>
                                 <tr>
@@ -32,7 +32,7 @@
                                     <td>R1</td>
                                     <td>R1</td>
                                     <td>A1</td>
-                                 
+
                                     <td><div class="dropdown">
                                         <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                         data-toggle="dropdown" id="dropdownMenuButton" type="button">Dropdown Menu <i class="fas fa-caret-down ml-1"></i></button>

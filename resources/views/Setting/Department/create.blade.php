@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -16,7 +16,7 @@
                                         <label for="">Department*</label>
                                         <input type="text" name="department" id="" class="form-control">
                                     </div>
-                                  
+
                                    </div>
                                 </div>
                                 <div class="row">

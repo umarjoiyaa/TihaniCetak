@@ -240,7 +240,7 @@
 								</div>
 								<div class="main-message-list chat-scroll">
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="  drop-img  cover-image  " data-image-src="assets/img/faces/3.jpg">
+										<div class="  drop-img  cover-image  " data-image-src="">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 
@@ -265,7 +265,7 @@
 										</div>
 									</a>
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/9.jpg">
+										<div class="drop-img cover-image" data-image-src="">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 										<div class="wd-90p">
@@ -464,7 +464,7 @@
 								</div>
 								<div class="main-message-list text-scroll">
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="  drop-img  cover-image  " data-image-src="assets/img/faces/3.jpg">
+										<div class="  drop-img  cover-image  " data-image-src="">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 
@@ -477,7 +477,7 @@
 										</div>
 									</a>
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/2.jpg">
+										<div class="drop-img cover-image" data-image-src="">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 										<div class="wd-90p">
@@ -489,7 +489,7 @@
 										</div>
 									</a>
 									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/9.jpg">
+										<div class="drop-img cover-image" data-image-src="">
 											<span class="avatar-status bg-teal"></span>
 										</div>
 										<div class="wd-90p">
@@ -918,7 +918,7 @@
 										</div>
 										<div class="main-message-list chat-scroll">
 											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="  drop-img  cover-image  " data-image-src="assets/img/faces/3.jpg">
+												<div class="  drop-img  cover-image  " data-image-src="">
 													<span class="avatar-status bg-teal"></span>
 												</div>
 
@@ -943,7 +943,7 @@
 												</div>
 											</a>
 											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="assets/img/faces/9.jpg">
+												<div class="drop-img cover-image" data-image-src="">
 													<span class="avatar-status bg-teal"></span>
 												</div>
 												<div class="wd-90p">
@@ -1111,7 +1111,8 @@
 
 				<!-- container -->
 				<div class="container">
-
+                    @include('includes.errors')
+                    @include('includes.success')
                     @yield('content')
 
 
@@ -1190,19 +1191,19 @@
 								<div class="row mt-4">
 									<div class="col-12">
 										<div class="followers">
-											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="assets/img/faces/3.jpg">
+											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="">
 												<span class="avatar-status bg-green"></span>
 											</a>
-											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="assets/img/faces/6.jpg">
+											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="">
 												<span class="avatar-status bg-red"></span>
 											</a>
-											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="assets/img/faces/3.jpg">
+											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="">
 												<span class="avatar-status bg-warning"></span>
 											</a>
-											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="assets/img/faces/4.jpg">
+											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="">
 												<span class="avatar-status bg-green"></span>
 											</a>
-											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="assets/img/faces/9.jpg">
+											<a href="#" class="avatar brround avatar-md cover-image m-1" data-image-src="">
 												<span class="avatar-status bg-warning"></span>
 											</a>
 											<a href="#" class="avatar brround avatar-md cover-image m-1 follwers">+34</a>
@@ -1306,7 +1307,7 @@
 									<li>
 										<div class="d-flex bd-highlight w-100">
 											<div class="img_cont">
-												<img src="{{ asset('assets/img/faces/3.jpg') }}" class="rounded-circle user_img" alt="img">
+												<img src="{{ asset('') }}" class="rounded-circle user_img" alt="img">
 												<span class="online_icon"></span>
 											</div>
 											<div class="user_info">
@@ -1722,7 +1723,7 @@
 		<script src="{{ asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js') }}"></script>
 
 		<!-- Internal Datatable js -->
-		<script src="{{ asset('assets/js/table-data.js') }}"></script>
+		{{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}
 
 
 		<!-- Custom js-->
@@ -1733,7 +1734,7 @@
 
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
-
+        @stack('custom-scripts')
 	</body>
 
 <!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:13 GMT -->
