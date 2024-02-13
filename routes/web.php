@@ -86,8 +86,13 @@ Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role.i
 
 // UOM
 Route::get('/Setting/Uom', [UomController::class, 'Index'])->name('uom');
+Route::get('/Setting/Uom/Data', [UomController::class, 'Data'])->name('uom.data');
 Route::get('/Setting/Uom/Create', [UomController::class, 'Create'])->name('uom.create');
-
+Route::post('/Setting/Uom/Store', [UomController::class, 'Store'])->name('uom.store');
+Route::get('/Setting/Uom/Edit/{id}', [UomController::class, 'Edit'])->name('uom.edit');
+Route::get('/Setting/Uom/View/{id}', [UomController::class, 'View'])->name('uom.view');
+Route::post('/Setting/Uom/Update/{id}', [UomController::class, 'Update'])->name('uom.update');
+Route::get('/Setting/Uom/Delete/{id}', [UomController::class, 'Delete'])->name('uom.delete');
 
 //
 
