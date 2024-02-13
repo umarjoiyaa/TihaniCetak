@@ -22,11 +22,11 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center mt-3">
-                                <h4>Sales order</h4>
+                                <h4><b>SALES ORDER</b></h4>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                            <div class="box" style="width:350px; height:200px; border:1px solid black;">
+                        <div class="col-md-5">
+                            <div class="box" style="width:400px; padding:10px; height:180px; border:1px solid black;">
                                 <p>EDUKID DISTRIBUTORS SDN BHD</p>
                                 <p>
                                     NO 8, JALAN MAHAGONI 9, <br>
@@ -39,31 +39,31 @@
 
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="col-md-6 ">
                             <div class="text-center">
                                 <div class="row mt-2">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <p>Sales order No <span style="margin-left:20px;">:</span>
                                             <snap style="margin-left:20px;">SO-001496</span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <p>PO No <span style="margin-left:20px;">:</span>
                                             <snap style="margin-left:20px;">PO-00308</span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <p>Trems <span style="margin-left:20px;">:</span>
                                             <snap style="margin-left:20px;">Net 120 days</span>
                                         </p>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
-                                    <div class="col-md-6">
+                                    <div class="col-md-12">
                                         <p>Date <span style="margin-left:20px;">:</span>
                                             <snap style="margin-left:20px;">15/09/2023</span>
                                         </p>
@@ -79,12 +79,12 @@
                             <table class="table table-bordered mt-3">
                                 <thead>
                                     <tr>
-                                        <td>Item</td>
-                                        <td>Description</td>
-                                        <td>UOM</td>
-                                        <td>Sales orderQTY</td>
-                                        <td>Deilivery Quantity</td>
-                                        <td>Remaining Quantity</td>
+                                        <th>Item</th>
+                                        <th>Description</th>
+                                        <th>UOM</th>
+                                        <th>Sales orderQTY</th>
+                                        <th>Deilivery Quantity</th>
+                                        <th>Remaining Quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -108,85 +108,73 @@
                                 <tbody>
                                     <tr>
                                         <td>Status</td>
-                                        <td>REPEAT</td>
+                                        <td colspan="2"><b>REPEAT</b></td>
                                     </tr>
                                     <tr>
                                         <td>Kod Buu</td>
-                                        <td>CP-XXXX</td>
+                                        <td colspan="2">CP-XXXX</td>
                                     </tr>
                                     <tr>
                                         <td>Catekan</td>
-                                        <td>4</td>
+                                        <td colspan="2">4</td>
                                     </tr>
                                     <tr>
                                         <td>Size</td>
-                                        <td>15cm X 21cm</td>
+                                        <td colspan="2">15cm X 21cm</td>
                                     </tr>
                                     <tr>
-                                        <td>Pages</td>
-                                        <td>
-                                    <tr>
+                                        <td rowspan="2">Pages</td>
                                         <td>Cover</td>
                                         <td></td>
                                     </tr>
                                     <tr>
-                                        <td>text</td>
-                                        <td>196pp</td>
-                                    </tr>
-                                    </td>
+                                        <td>Text </td>
+                                        <td>1966</td>
                                     </tr>
                                     <tr>
-                                        <td>Papers</td>
-                                        <td>
-                                    <tr>
-                                        <td>Cover</td>
-                                        <td>1/sartcard 260gsm</td>
+                                        <td rowspan="2">Paper</td>
+                                        <td>cover</td>
+                                        <td>1/artcard 260 gsm</td>
                                     </tr>
                                     <tr>
-                                        <td>text</td>
-                                        <td>Simily 70 gsm</td>
-                                    </tr>
-                                    </td>
+                                        <td>text </td>
+                                        <td>Simily 70gsm</td>
                                     </tr>
 
                                     <tr>
-                                        <td>Printer</td>
-                                        <td>
-                                    <tr>
+                                        <td rowspan="2">Priting</td>
                                         <td>Cover</td>
-                                        <td>4c</td>
+                                        <td>4C</td>
                                     </tr>
                                     <tr>
                                         <td>text</td>
-                                        <td>4c</td>
-                                    </tr>
-                                    </td>
+                                        <td>4C</td>
                                     </tr>
                                     <tr>
                                         <td>Finishing</td>
-                                        <td>Matt Lamination + SpotUV</td>
+                                        <td colspan="2">Matt Lamination + SpotUV</td>
                                     </tr>
                                     <tr>
                                         <td>Binding</td>
-                                        <td>Perfect Bind</td>
+                                        <td colspan="2">Perfect Bind</td>
                                     </tr>
                                     <tr>
                                         <td>Shrinking wrapping</td>
-                                        <td>No</td>
+                                        <td colspan="2">No</td>
                                     </tr>
 
                                     <tr>
                                         <td>Extra Stock</td>
-                                        <td></td>
+                                        <td colspan="2"></td>
                                     </tr>
                                     <tr>
                                         <td>Remarks</td>
-                                        <td>Approved By CTP on 20.09.2023</td>
+                                        <td colspan="2">Approved By CTP on 20.09.2023</td>
                                     </tr>
 
                                     <tr>
                                         <td>Deilivery Date</td>
-                                        <td></td>
+                                        <td colspan="2"></td>
                                     </tr>
 
                                 </tbody>
@@ -195,17 +183,23 @@
                         <div class="col-md-2"></div>
                     </div>
 
-                    <div class="row  d-flex justify-content-end ">
-                       <input type="file" name="" id="" class="form-control">
-                       <button></button>
+
+                    <div class="col-md-5 float-left">
+                        <label for="">SoftCopy Upload</label>
+                        <input type="file" name="" id="" class="form-control ">
                     </div>
+                    <div class="col-md-6 d-flex justify-content-end">
+                        <button class="btn btn-primary ">publish</button>
+                    </div>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-12">
-                   
-                            class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> <a href="{{route('SalesOrderList.index')}}" class="btn d-flex"><i
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+
+                <a class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> <a href="{{route('SalesOrderList.index')}}"
+                    class="btn d-flex"><i </div>
             </div>
 
         </div>

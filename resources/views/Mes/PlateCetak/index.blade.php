@@ -77,8 +77,7 @@
                                     <td></td>
                                     <td>Admin</td>
                                     
-                                    <td><span
-                                            style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:5px;">Checked</span>
+                                    <td><span class="badge badge-pill badge-warning w-100 p-2">Checked</span>
                                     </td>
                                     <td>
                                         <div class="dropdown">

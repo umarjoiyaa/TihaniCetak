@@ -31,7 +31,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">SO-001496</option>
                                         </select>
                                     </div>
@@ -51,38 +51,35 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
-                                        <input type="text" readonly value="input text" name="" id=""
-                                            class="form-control">
+                                        <label for="">Mesin</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="" >pilih Mesin</option>
+                                            <option value="">F1</option>
+                                            <option value="">F2</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Kuantiti cetakan</div>
-                                        <input type="number" readonly value="input text" name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Kuantiti waste</label>
-                                        <input type="text" readonly value="input text" name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Operator</label>
                                         <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" >select sales Order no</option>
                                             <option value="">User A</option>
                                             <option value="">User B</option>
                                         </select>
                                     </div>
                                 </div>
+
+
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Seksyen No.</label>
+                                        <input type="text" readonly placeholder="User input (can be change)" name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                
 
                             </div>
                         </div>
@@ -90,15 +87,15 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
+                            <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                         </div>
                         <div class="col-md-8 mt-5">
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td colspan="4">Seksyen</td>
+                                        <th rowspan="2">No</th>
+                                        <th colspan="4">Seksyen</th>
 
                                     </tr>
                                     <tr>
@@ -131,7 +128,7 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>C) Pemeriksaan semasa proses lipat </h5>
+                            <h5><b>C) Pemeriksaan semasa proses lipat</b> </h5>
                             <h5><b>Petunjuk:</b></h5>
                             <span><b>KL = Kedudukan Lipatan</b></span><br>
                             <span><b> K= Koyak/Kotor/Kedut</b></span>
@@ -167,13 +164,13 @@
                                                     <table class="table table-bordered">
                                                         <thead>
                                                             <tr>
-                                                                <td rowspan="2">Jumlah </td>
-                                                                <td colspan="2">Seksyen 1</td>
-                                                                <td rowspan="2">Check</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Verify</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Action</td>
+                                                                <th rowspan="2">Jumlah </th>
+                                                                <th colspan="2">Seksyen 1</th>
+                                                                <th rowspan="2">Check</th>
+                                                                <th rowspan="2">Username / datetime</th>
+                                                                <th rowspan="2">Verify</th>
+                                                                <th rowspan="2">Username / datetime</th>
+                                                                <th rowspan="2">Action</th>
                                                             </tr>
                                                             <tr>
                                                                 <th>KL</th>
@@ -188,8 +185,7 @@
                                                                 <td><button class="btn btn-primary"
                                                                         style="border-radius:5px; ">check</button></td>
                                                                 <td>username / datetime</td>
-                                                                <td><button class="btn"
-                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                                                <td><button class="btn btn-primary">Verify</button>
                                                                 </td>
                                                                 <td>username / datetime</td>
                                                                 <td><button class="btn btn-danger"

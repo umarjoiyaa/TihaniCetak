@@ -37,7 +37,7 @@
                                     <td>Stock</td>
                                     <td>30/5/2023</td>
                                     <td>Admin</td>
-                                    <td><span style="background:Yellow; padding:6px; border:1px solid yellow; border-radius:5px;" class="mt-1">Checked</span></td>
+                                    <td><a class="badge badge-warning w-100 p-3" href="#">Checked</a</td>
                                     <td>
                                     <div class="dropdown">
                                         <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"

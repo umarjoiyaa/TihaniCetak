@@ -47,7 +47,7 @@
                                         <td>A, B, C</td>
                                         <td>5000</td>
                                         <td>200</td>
-                                        <td><span style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:5px;">in-Progress</span></td>
+                                        <td><span class="badge badge-pill badge-warning p-2  mt-3 sw-100">In-progress</span></td>
                                         <td><div class="dropdown">
                                             <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action<i class="fas fa-caret-down ml-1"></i></button>

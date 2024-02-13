@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h4>A) Informasi</h4>
+                                    <h4><b>A) Informasi</b></h4>
                                 </div>
 
                             </div>
@@ -42,8 +42,8 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="" readonly id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="">SO-001496</option>
+                                            <option value="" >select sales Order no</option>
+                                            <option value="" selected>SO-001496</option>
                                         </select>
                                     </div>
                                 </div>
@@ -63,14 +63,14 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Saiz Buku</div>
-                                        <input type="text" readonly value="Auto Display (based SO)" name="" id=""
+                                        <input type="text" readonly placeholder="Auto Display (based SO)" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kuantiti SO</div>
-                                        <input type="number" readonly value="Auto Display (based On SO)" name="" id=""
+                                        <input type="number" readonly placeholder="Auto Display (based On SO)" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -86,8 +86,8 @@
                                     <div class="form-group">
                                         <label for=""> Operator</label>
                                         <select name="" readonly id="" class="form-control">
-                                            <option value="" disabled>Pilih Operator (multi-select)</option>
-                                            <option value="">Operator A</option>
+                                            <option value="" >Pilih Operator (multi-select)</option>
+                                            <option value="" selected>Operator A</option>
                                         </select>
                                     </div>
                                 </div>
@@ -107,9 +107,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">Kriteria</td>
-                                        <td colspan="4">Status</td>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Kriteria</th>
+                                        <th colspan="4">Status</th>
 
                                     </tr>
                                     <tr>
@@ -209,7 +209,7 @@
                         </div>
 
                         <div class="col-md-12">
-                            <button class="btn btn-primary float-right mb-5  mr-5">+ Add</button>
+                            <button class="btn btn-primary float-right mr-5">+ Add</button>
                         </div>
 
                         <div class="col-md-12">
@@ -217,13 +217,13 @@
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
-                                            <td rowspan="2">Jumlah </td>
-                                            <td colspan="10">Kriteria</td>
-                                            <td rowspan="2">Check </td>
-                                            <td rowspan="2">Username / datetime</td>
-                                            <td rowspan="2">Verify</td>
-                                            <td rowspan="2">Username / datetime</td>
-                                            <td rowspan="2">Action</td>
+                                            <th rowspan="2">Jumlah </th>
+                                            <th colspan="10">Kriteria</th>
+                                            <th rowspan="2">Check </th>
+                                            <th rowspan="2">Username / datetime</th>
+                                            <th rowspan="2">Verify</th>
+                                            <th rowspan="2">Username / datetime</th>
+                                            <th rowspan="2">Action</th>
                                         </tr>
                                         <tr>
                                             <th>Kedudukan potongan yang betul</th>

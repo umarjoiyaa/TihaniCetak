@@ -130,7 +130,7 @@
                 <div class="modal-content" style="width:1000px; margin-left:-240px;">
                     <div class="modal-header">
                         <h5 class="modal-title" id="staticBackdropLabel">Receiving Quantity</h5>
-                        <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"><i class="fa fa-xmark"></i></button>
+                        <button type="button" class="btn-close btn-danger" data-dismiss="modal" aria-label="Close">X</button>
                     </div>
                     <div class="modal-body">
                         <div class="row">

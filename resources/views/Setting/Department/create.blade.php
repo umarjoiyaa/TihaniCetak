@@ -9,7 +9,7 @@
                         <h4>Create Department</h4>
                     </div>
                     <div class="card-body">
-                        <form action="">
+                        <form action="" method="post">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">

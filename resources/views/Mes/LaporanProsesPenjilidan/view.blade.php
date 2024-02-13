@@ -115,9 +115,9 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">Kriteria</td>
-                                        <td colspan="4">Status</td>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Kriteria</th>
+                                        <th colspan="4">Status</th>
 
                                     </tr>
                                     <tr>
@@ -191,10 +191,8 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>C) Pemeriksaan semasa proses lipat </h5>
-                            <h5><b>Petunjuk:</b></h5>
-                            <span><b>KL = Kedudukan Lipatan</b></span><br>
-                            <span><b> K= Koyak/Kotor/Kedut</b></span>
+                            <h5><b>C) Pemeriksaan semasa proses lipat </b></h5>
+                           
                         </div>
 
                         <div class="col-md-12">
@@ -205,13 +203,13 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">Jumlah </td>
-                                        <td colspan="5s">Seksyen 1</td>       
-                                        <td rowspan="2">Check (Operator)</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Verify</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Action</td>
+                                        <th rowspan="2">Jumlah </th>
+                                        <th colspan="5s">kriteria</th>       
+                                        <th rowspan="2">Check (Operator)</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Verify</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Action</th>
                                     </tr>
                                     <tr>
                                         <th>Kedudukan Kulit buku  dan teks</th>

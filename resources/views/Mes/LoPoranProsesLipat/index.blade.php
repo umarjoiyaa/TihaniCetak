@@ -41,7 +41,7 @@
                                         <td>CP-2940</td>
                                         <td  style="font-size:12px;">IQRO GENIUS - RUMI (NEW COVER)</td>
                                         <td>A</td>
-                                        <td><span style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:15px;">in-Progress</span></td>
+                                        <td><span class="badge badge-pill badge-warning w-100 p-2">in-Progress</span></td>
                                         <td><div class="dropdown">
                                             <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                             data-toggle="dropdown" id="dropdownMenuButton" type="button">Action<i class="fas fa-caret-down ml-1"></i></button>

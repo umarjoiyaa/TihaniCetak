@@ -24,40 +24,54 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Diterima Oleh</div>
-                                        <input type="text" value="User A" readonly name="" id="" class="form-control">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Select User</option>
+                                            <option value="">User A</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order  No.</div>
-                                        <input type="text" value="SO-001496" readonly name="" id="" class="form-control">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Pilih sales Order</option>
+                                            <option value="">SO-001387</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Jenis</div>
-                                        <input type="text" readonly value="Cover"
-                                            class="form-control">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Pilih Jenis</option>
+                                            <option value="">Cover</option>
+                                            <option value="">Teks</option>
+                                            <option value="">Other</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <input type="text" value="P1" name="" id=""
-                                            class="form-control">
+                                        <select name="" class="form-control" id="">
+                                            <option value="">Pilih Menis</option>
+                                            <option value="">P1</option>
+                                            <option value="">P2</option>
+                                            <option value="">P3</option>
+                                        </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Seksyen No.</div>
-                                        <input type="text" readonly value="1" name="" id="" class="form-control">
+                                        <input type="text" readonly value="User Input" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                     <div class="label">Kuaniti Plate.</div>
-                                        <input type="text" readonly value="2" name="" id="" class="form-control">
+                                        <input type="text" readonly value="User Input" name="" id="" class="form-control">
                                     </div>
                                 </div>
 
@@ -65,7 +79,7 @@
                                 <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">status Job</label>
-                                            <input type="text" readonly value="BAHARU" name="" id="" class="form-control">
+                                            <input type="text" readonly value="Auto display (based SO)" name="" id="" class="form-control">
                                         </div>
                                 </div>
 
@@ -77,15 +91,16 @@
                         <div class="col-md-5">
                             <h5>Bahagian A ( Semakan File)</h5>
                         </div>
-                        <div class="col-md-11">
+                        <div class="col-md-7"></div>
+                        <div class="col-md-5">
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td >item</td>
-                                        <td >
+                                        <th  >item</th   >
+                                        <th  >
                                             <div class="text-center">OK</div>
-                                        </td>
-                                        <td >NG</td>
+                                        </th    >
+                                        <th  >NG</th >
 
                                     </tr>
                                     
@@ -93,13 +108,13 @@
                                <tbody>
                                 <tr>
                                     <td>Dummy Lipat</td>
-                                    <td><input type="checkbox" name="" id="" class="form-control"></td>
-                                    <td><input type="checkbox" name="" id="" class="form-control"></td>
+                                    <td><input type="checkbox" name="" id=""></td>
+                                    <td><input type="checkbox" Checked name="" id=""></td>
                                 </tr>
                                 <tr>
                                     <td>Sample</td>
-                                    <td><input type="checkbox" name="" id="" class="form-control"></td>
-                                    <td><input type="checkbox" name="" id="" class="form-control"></td>
+                                    <td><input type="checkbox" name="" id="" ></td>
+                                    <td><input type="checkbox" checked name="" id="" ></td>
                                 </tr>
                                </tbody>
                             </table>

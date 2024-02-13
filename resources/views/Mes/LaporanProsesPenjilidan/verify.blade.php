@@ -12,7 +12,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4">
-                                    <h4>A) Informasi</h4>
+                                    <h5><b>A) Informasi</b></h5>
                                 </div>
 
                             </div>
@@ -108,16 +108,16 @@
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
+                            <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece </b></h5>
                         </div>
                         <div class="col-md-8 mt-5">
 
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">Kriteria</td>
-                                        <td colspan="4">Status</td>
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">Kriteria</th>
+                                        <th colspan="4">Status</th>
 
                                     </tr>
                                     <tr>
@@ -194,7 +194,7 @@
                             <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
                         </div>
 
-                        <div class="col-md-12 mt-5">
+                        <div class="col-md-12 ">
                             <button class="btn btn-primary float-right mb-5  mr-5">+ Add</button>
                         </div>
 
@@ -202,13 +202,13 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">Jumlah </td>
-                                        <td colspan="5s">Seksyen 1</td>       
-                                        <td rowspan="2">Check (Operator)</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Verify</td>
-                                        <td rowspan="2">Username / datetime</td>
-                                        <td rowspan="2">Action</td>
+                                        <th rowspan="2">Jumlah </th>
+                                        <th colspan="5s">Kriteria</th>       
+                                        <th rowspan="2">Check (Operator)</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Verify</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Action</th>
                                     </tr>
                                     <tr>
                                         <th>Kedudukan Kulit buku  dan teks</th>

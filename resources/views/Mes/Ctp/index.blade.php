@@ -72,8 +72,7 @@
                                     <td><input type="checkbox" name="" id=""></td>
                                     <td><input type="checkbox" name="" id=""></td>
                                     
-                                    <td><span
-                                            style="background:yellow; padding:5px; border:1px solid yellow; border-radius:5px; font-size:5px;">Checked</span>
+                                    <td><span class="badge badge-pill badge-warning w-100 p-2">checked</span>
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -83,11 +82,11 @@
                                                     class="fas fa-caret-down ml-1"></i></button>
                                             <div class="dropdown-menu tx-13">
                                                 <a class="dropdown-item"
-                                                    href="{{route('LoPoranProsesPencetakan.view')}}">View</a>
+                                                    href="{{route('Ctp.view')}}">View</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('LoPoranProsesPencetakan.view')}}">Edit</a>
+                                                    href="{{route('Ctp.edit')}}">Edit</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('LoPoranProsesPencetakan.verify')}}">Verify</a>
+                                                    href="{{route('Ctp.verify')}}">Verify</a>
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>

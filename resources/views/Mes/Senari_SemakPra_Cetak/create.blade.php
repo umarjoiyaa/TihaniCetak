@@ -14,9 +14,9 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Sales Order No</label>
-                                        <select readonly name="" id="" class="form-control">
+                                        <select  name="" id="" class="form-control">
                                             <option value="">Search Sales Order no</option>
-                                            <option value="">SO - 001387</option>
+                                            <option value="">SO-001387</option>
                                         </select>
                                     </div>
                                 </div>
@@ -38,14 +38,14 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" value="auto dispaly(based SO)" name="" id=""
+                                        <input type="text" readonly      value="auto dispaly(based SO)" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Time</div>
-                                        <input type="time" value="10:00 am" name="" id="" class="form-control">
+                                        <input type="time" readonly value="10:00 am" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -68,7 +68,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>cover</td>
-                                                    <td><input type="number" value="1" name="" checked id=""></td>
+                                                    <td><input type="number" class="form-control" value="1" name="" checked id=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -79,7 +79,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Checked By</div>
-                                        <input type="text" value="Admin" class="form-control" name="" id="">
+                                        <input type="text" readonly value="Admin" class="form-control" name="" id="">
                                     </div>
                                 </div>
 
@@ -95,13 +95,13 @@
                             <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <td rowspan="2">No</td>
-                                        <td rowspan="2">
+                                        <th rowspan="2">No</th>
+                                        <th rowspan="2">
                                             <div class="text-center">kriteria</div>
-                                        </td>
-                                        <td colspan="3">cover</td>
-                                        <td colspan="3">text</td>
-                                        <td colspan="3">Endpaper/leftlet</td>
+                                        </th>
+                                        <th colspan="3">cover</th>
+                                        <th colspan="3">text</th>
+                                        <th colspan="3">Endpaper/leftlet</th>
 
                                     </tr>
                                     <tr>
@@ -156,11 +156,11 @@
                                     <tr>
                                         <td>4</td>
                                         <td>Saiz spine (perfect bind)</td>
-                                        <td colspan="3"><input type="text" readonly name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" checked name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td colspan="3"><input type="text" readonly name="" id=""></td>
+                                        <td colspan="3"><input type="text" readonly name="" placeholder="text input" class="form-control" id=""></td>
+                                        <td><input type="checkbox"  name="" id="" ></td>
+                                        <td><input type="checkbox"placeholder="text input" checked name="" id=""></td>
+                                        <td><input type="checkbox" name="" id="" ></td>
+                                        <td colspan="3"><input type="text" placeholder="text input" class="form-control" readonly name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
@@ -203,7 +203,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -214,7 +214,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -225,7 +225,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -236,7 +236,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -247,7 +247,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -258,7 +258,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -269,7 +269,7 @@
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
                                         <td><input type="checkbox" name="" id=""></td>
                                         <td colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
@@ -413,13 +413,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak teks (inci)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -428,26 +428,26 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak cover (inci)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak endpaper (inci)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
@@ -461,19 +461,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan teks (inci)</label>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan cover (inci)</label>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan endpaper (inci)</label>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text" placeholder="input teks" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
@@ -581,29 +581,29 @@
                     <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <td rowspan="2">Item</td>
-                                <td colspan="3">Pemeriksaan dummy lipatan bercetak</td>
-                                <td colspan="3">Front and Back imposition (Rujuk dummy)</td>
-                                <td colspan="3">Kedudukan imposition (Rujuk dummy)</td>
-                                <td colspan="3">Saiz spacing (Bandingkan file imposition dengan rujukan TCSB-AK49)</td>
-                                <td colspan="3">Printing method (straight@Perfecting) (Rujuk file imposition)</td>
-                                <td colspan="2" rowspan="2">No of up/ cavity (Sila nyatakan)</td>
+                                <th rowspan="2">Item</th>
+                                <th colspan="3">Pemeriksaan dummy lipatan bercetak</th>
+                                <th colspan="3">Front and Back imposition (Rujuk dummy)</th>
+                                <th colspan="3">Kedudukan imposition (Rujuk dummy)</th>
+                                <th colspan="3">Saiz spacing (Bandingkan file imposition dengan rujukan TCSB-AK49)</th>
+                                <th colspan="3">Printing method (straight@Perfecting) (Rujuk file imposition)</th>
+                                <th colspan="2" rowspan="2">No of up/ cavity (Sila nyatakan)</th>
                             </tr>
                             <tr>
                                 <td>OK</td>
-                                <td>ND</td>
+                                <td>NG</td>
                                 <td>NA</td>
                                 <td>OK</td>
-                                <td>ND</td>
+                                <td>NG</td>
                                 <td>NA</td>
                                 <td>OK</td>
-                                <td>ND</td>
+                                <td>NG</td>
                                 <td>NA</td>
                                 <td>OK</td>
-                                <td>ND</td>
+                                <td>NG</td>
                                 <td>NA</td>
                                 <td>OK</td>
-                                <td>ND</td>
+                                <td>NG</td>
                                 <td>NA</td>
                             </tr>
                         </thead>
@@ -611,19 +611,19 @@
                             <tr>
                                 <td>Cover</td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
                             </tr>
@@ -631,19 +631,19 @@
                             <tr>
                                 <td>End/Leftlet</td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
                             </tr>
@@ -651,19 +651,19 @@
                             <tr>
                                 <td>Sect 1</td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
-                                <td><input type="checkbox" name="" id=""></td>
+                                <td><input type="checkbox" checked name="" id=""></td>
                                 <td><input type="checkbox" name="" id=""></td>
                                 <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
                             </tr>
