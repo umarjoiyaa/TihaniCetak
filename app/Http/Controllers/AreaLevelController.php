@@ -22,7 +22,7 @@ class AreaLevelController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = AreaLevel::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = AreaLevel::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -119,7 +119,7 @@ class AreaLevelController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = AreaLevel::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = AreaLevel::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -183,7 +183,8 @@ class AreaLevelController extends Controller
             Auth::user()->hasPermissionTo('Area Level List') ||
             Auth::user()->hasPermissionTo('Area Level Create') ||
             Auth::user()->hasPermissionTo('Area Level Update') ||
-            Auth::user()->hasPermissionTo('Area Level Delete')
+            Auth::user()->hasPermissionTo('Area Level Delete') ||
+            Auth::user()->hasPermissionTo('Area Level View')
         ) {
             Helper::logSystemActivity('Area Level', 'Area Level List');
             return view('Setting.AreaLevel.Index');

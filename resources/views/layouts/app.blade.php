@@ -670,7 +670,7 @@
                                                        <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
 													<ul>
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-														<li aria-haspopup="true" ><a href="{{route('SalesOrderList')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
+														<li aria-haspopup="true" ><a href="{{route('sale_order')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
 
 													</ul>
 												</div>

@@ -21,7 +21,7 @@ class MachineController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Machine::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = Machine::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -118,7 +118,7 @@ class MachineController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Machine::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = Machine::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -182,7 +182,8 @@ class MachineController extends Controller
             Auth::user()->hasPermissionTo('Machine List') ||
             Auth::user()->hasPermissionTo('Machine Create') ||
             Auth::user()->hasPermissionTo('Machine Update') ||
-            Auth::user()->hasPermissionTo('Machine Delete')
+            Auth::user()->hasPermissionTo('Machine Delete') ||
+            Auth::user()->hasPermissionTo('Machine View')
         ) {
             Helper::logSystemActivity('Machine', 'Machine List');
             return view('Setting.Machine.Index');

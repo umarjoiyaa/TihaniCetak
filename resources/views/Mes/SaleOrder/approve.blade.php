@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            
+
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
                                     <table class="table table-bordered">
@@ -166,7 +166,7 @@
                                 </div>
                                 <div class="col-md-2"></div>
                             </div>
-                        
+
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-5 mt-3 d-flex justify-content-end">
                                <button class="btn btn-danger mx-2">Decline</button>
@@ -179,7 +179,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{route('SalesOrderList.index')}}">Back to list</a>
+                        <a href="{{route('sale_order')}}">Back to list</a>
                     </div>
                 </div>
             </div>

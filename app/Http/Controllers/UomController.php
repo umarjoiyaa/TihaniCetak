@@ -25,7 +25,7 @@ class UomController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Uom::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Uom::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -117,7 +117,7 @@ class UomController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Uom::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Uom::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -180,7 +180,8 @@ class UomController extends Controller
             Auth::user()->hasPermissionTo('UOM List') ||
             Auth::user()->hasPermissionTo('UOM Create') ||
             Auth::user()->hasPermissionTo('UOM Update') ||
-            Auth::user()->hasPermissionTo('UOM Delete')
+            Auth::user()->hasPermissionTo('UOM Delete') ||
+            Auth::user()->hasPermissionTo('UOM View')
         ) {
             Helper::logSystemActivity('UOM', 'UOM List');
             return view('Setting.Uom.Index');
@@ -456,7 +457,8 @@ class UomController extends Controller
             Auth::user()->hasPermissionTo('UOM Conversion List') ||
             Auth::user()->hasPermissionTo('UOM Conversion Create') ||
             Auth::user()->hasPermissionTo('UOM Conversion Update') ||
-            Auth::user()->hasPermissionTo('UOM Conversion Delete')
+            Auth::user()->hasPermissionTo('UOM Conversion Delete') ||
+            Auth::user()->hasPermissionTo('UOM Conversion View')
         ) {
             Helper::logSystemActivity('UOM Conversion', 'UOM Conversion List');
             return view('Setting.UomConversion.index');

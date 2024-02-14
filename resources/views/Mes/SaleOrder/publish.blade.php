@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -198,8 +198,8 @@
         <div class="row">
             <div class="col-md-12">
 
-                <a class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> <a href="{{route('SalesOrderList.index')}}"
-                    class="btn d-flex"><i </div>
+                <a class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> <a href="{{route('sale_order')}}"
+                    class="btn d-flex"></a>
             </div>
 
         </div>

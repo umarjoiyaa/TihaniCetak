@@ -21,7 +21,7 @@ class DesignationController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Designation::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Designation::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -113,7 +113,7 @@ class DesignationController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Designation::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Designation::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -176,7 +176,8 @@ class DesignationController extends Controller
             Auth::user()->hasPermissionTo('Designation List') ||
             Auth::user()->hasPermissionTo('Designation Create') ||
             Auth::user()->hasPermissionTo('Designation Update') ||
-            Auth::user()->hasPermissionTo('Designation Delete')
+            Auth::user()->hasPermissionTo('Designation Delete') ||
+            Auth::user()->hasPermissionTo('Designation View')
         ) {
             Helper::logSystemActivity('Designation', 'Designation List');
             return view('Setting.Designation.Index');
