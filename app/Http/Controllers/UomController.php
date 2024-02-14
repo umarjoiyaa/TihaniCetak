@@ -239,7 +239,7 @@ class UomController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $uom = Uom::find($id);
-        Helper::logSystemActivity('UOM', 'UOM Edit');
+        Helper::logSystemActivity('UOM', 'UOM View');
         return view('Setting.Uom.View', compact('uom'));
     }
 
@@ -265,6 +265,7 @@ class UomController extends Controller
 
         $Uom =  Uom::find($id);
         $Uom->name = $request->name;
+        $Uom->created_by = Auth::uesr()->id;
         $Uom->save();
         Helper::logSystemActivity('UOM', 'UOM Update');
         return redirect()->route('uom')->with('custom_success', 'UOM has been Updated Successfully !');

@@ -670,7 +670,7 @@
                                                        <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
 													<ul>
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-														<li aria-haspopup="true" ><a href="{{route('SalesOrderList.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
+														<li aria-haspopup="true" ><a href="{{route('SalesOrderList')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
 
 													</ul>
 												</div>
@@ -681,17 +681,17 @@
 
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a href="{{route('SenariSemak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('Senari_SemakPra_Cetak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('REKOD_SERAHANPLATE.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesPencetakan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('SenariSemak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('Senari_SemakPra_Cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('REKOD_SERAHANPLATE')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesPencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
 
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesLipat.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Perfect Bind)</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan(SaddleStitch).index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Saddle stitch)</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesThreeKnife.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses 3 Knife</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesLipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Perfect Bind)</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan(SaddleStitch)')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Saddle stitch)</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('LaporanProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses 3 Knife</a></li>
 
 
                                                             </div>
@@ -706,19 +706,19 @@
 
                                                     <div class="row">
                                                         <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="{{route('Ctp.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('POD.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('PlateCetak.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('Prosespencetakan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesLipat.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanPrefectBind.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('Ctp')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('POD')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('PlateCetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('Prosespencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesLipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanPrefectBind')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
                                                         </div>
                                                         <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanSaddlestitch.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesThreeKnife.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPembungkusan.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemgumpulangathering.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemotonganKulitBuku.index')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pemotongan Kulit Buku/ Teks</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanSaddlestitch')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemgumpulangathering')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemotonganKulitBuku')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pemotongan Kulit Buku/ Teks</a></li>
 
                                                         </div>
                                                     </div>
@@ -800,16 +800,16 @@
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="{{route('Good_Receiving.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Good Receiving</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Material_request.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Material Request</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Manage_tranfer.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Manage Transfer</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Stock_in.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock In</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Stock_Transfer.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Good_Receiving')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Good Receiving</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Material_request')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Material Request</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Manage_tranfer')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Manage Transfer</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Stock_in')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock In</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Stock_Transfer')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer</a></li>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="{{route('stock_Transfer_location.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer (Location)</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Laporan_Pemeriksaan.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Laporan Pemeriksaan <br> Akhir, Pembungkusan & <br> Penghantaran ke Stor</a></li>
-														<li aria-haspopup="true" ><a href="{{route('Pemeriksaan_Penghantaran.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Pemeriksaan Penghantaran</a></li>
+														<li aria-haspopup="true" ><a href="{{route('stock_Transfer_location')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Transfer (Location)</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Laporan_Pemeriksaan')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Laporan Pemeriksaan <br> Akhir, Pembungkusan & <br> Penghantaran ke Stor</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Pemeriksaan_Penghantaran')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Pemeriksaan Penghantaran</a></li>
 
 
                                                     </div>
@@ -820,15 +820,15 @@
 												<div class="col-lg-2 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Dashboard</div>
                                                     <ul>
-                                                        <li aria-haspopup="true" ><a href="{{route('invertory_ShopFloor.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Shopfloor</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('invertory_ShopFloor')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Shopfloor</a></li>
 													</ul>
 												</div>
 												<div class="col-lg-3 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Report</div>
 													<ul>
-                                                        <li aria-haspopup="true" ><a href="{{route('StockCard_report.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Card Report</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('Invertory_report.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Report -  By Location</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('Sub_monitring_report.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Subcon Monitoring Report</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('StockCard_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Card Report</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('Invertory_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Report -  By Location</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('Sub_monitring_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Subcon Monitoring Report</a></li>
 													</ul>
 												</div>
 											</div>
@@ -844,10 +844,10 @@
 												<div class="col-lg-4 col-md-12 col-xs-12 link-list">
                                                        <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Administration</div>
                                                        <ul>
-                                                        <li aria-haspopup="true" ><a href="{{route('role.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Roles</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('department.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Department</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('desgination.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Designation</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('user.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Users</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('role')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Roles</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('department')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Department</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('designation')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Designation</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('user')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Users</a></li>
 													    </ul>
 
 
@@ -859,15 +859,15 @@
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="{{route('Product.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Product</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Product')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Product</a></li>
 														<li aria-haspopup="true" ><a href="{{ route('uom') }}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM</a></li>
-														<li aria-haspopup="true" ><a href="{{route('UOMConversion.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM Conversion </a></li>
-														<li aria-haspopup="true" ><a href="{{route('machine.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine</a></li>
+														<li aria-haspopup="true" ><a href="{{route('UOMConversion')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM Conversion </a></li>
+														<li aria-haspopup="true" ><a href="{{route('machine')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine</a></li>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="{{route('area_level.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area - Level</a></li>
-														<li aria-haspopup="true" ><a href="{{route('area_Shelf.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area - Shelf</a></li>
-														<li aria-haspopup="true" ><a href="{{route('area.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area</a></li>
+														<li aria-haspopup="true" ><a href="{{route('area_level')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area - Level</a></li>
+														<li aria-haspopup="true" ><a href="{{route('area_shelf')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area - Shelf</a></li>
+														<li aria-haspopup="true" ><a href="{{route('area')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Area</a></li>
 
 
                                                     </div>
@@ -1701,7 +1701,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 
 
         	<!-- Internal Data tables -->
@@ -1734,6 +1734,9 @@
 
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
+        <script>
+            $('.form-select').select2();
+        </script>
         @stack('custom-scripts')
 	</body>
 

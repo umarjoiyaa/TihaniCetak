@@ -3,12 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Models\Machine;
+use App\Models\AreaLevel;
+use App\Models\AreaShelf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 
-class MachineController extends Controller
+class AreaShelfController extends Controller
 {
     public function Data(Request $request)
     {
@@ -21,7 +22,7 @@ class MachineController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Machine::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = AreaShelf::select('id', 'name', 'code', 'level_id')->where('created_by', '=', Auth::user()->id)->with('level');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -29,7 +30,10 @@ class MachineController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%');
+                        ->orWhere('code', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('level', function ($query) use ($searchLower) {
+                            $query->where('name', 'like', '%' . $searchLower . '%');
+                        });
                     // Add more columns as needed
                 });
             }
@@ -40,6 +44,7 @@ class MachineController extends Controller
                 $sortableColumns = [
                     1 => 'name',
                     2 => 'code',
+                    3 => 'level_id',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -66,6 +71,11 @@ class MachineController extends Controller
                             case 2:
                                 $q->where('code', 'like', '%' . $searchLower . '%');
                                 break;
+                            case 3:
+                                $q->whereHas('level', function ($query) use ($searchLower) {
+                                    $query->where('name', 'like', '%' . $searchLower . '%');
+                                });
+                                break;
                             default:
                                 break;
                         }
@@ -78,36 +88,36 @@ class MachineController extends Controller
 
             // Check if there are results before applying skip and take
             if ($results->isNotEmpty()) {
-                $machine = $results->skip($start)->take($length)->all();
+                $area_shelf = $results->skip($start)->take($length)->all();
             } else {
-                $machine = [];
+                $area_shelf = [];
             }
 
             $index = 0;
-            foreach ($machine as $row) {
+            foreach ($area_shelf as $row) {
                 $row->sr_no = $start + $index + 1;
                 $row->action = '<div class="dropdown">
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
-                    <a class="dropdown-item" href="' . route('machine.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('machine.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('machine.delete', $row->id) . '">Delete</a>
+                    <a class="dropdown-item" href="' . route('area_shelf.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('area_shelf.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('area_shelf.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
             }
 
             // // Continue with your response
-            $machinesWithoutAction = array_map(function ($row) {
+            $area_shelfsWithoutAction = array_map(function ($row) {
                 return $row;
-            }, $machine);
+            }, $area_shelf);
 
             return response()->json([
                 'draw' => $draw,
                 'recordsTotal' => $recordsTotal,
                 'recordsFiltered' => $recordsTotal, // Total records after filtering
-                'data' => array_values($machinesWithoutAction),
+                'data' => array_values($area_shelfsWithoutAction),
             ]);
         } elseif ($request->ajax()) {
 
@@ -118,7 +128,7 @@ class MachineController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Machine::select('id', 'name', 'code')->where('created_by', '=', Auth::user()->id);
+            $query = AreaShelf::select('id', 'name', 'code', 'level_id')->where('created_by', '=', Auth::user()->id)->with('level');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -126,8 +136,10 @@ class MachineController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%');
-
+                        ->orWhere('code', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('level', function ($query) use ($searchLower) {
+                            $query->where('name', 'like', '%' . $searchLower . '%');
+                        });
                     // Add more columns as needed
                 });
             }
@@ -135,6 +147,7 @@ class MachineController extends Controller
             $sortableColumns = [
                 1 => 'name',
                 2 => 'code',
+                3 => 'level_id',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -149,20 +162,20 @@ class MachineController extends Controller
             }
             $recordsTotal = $query->count();
 
-            $machine = $query
+            $area_shelf = $query
                 ->skip($start)
                 ->take($length)
                 ->get();
 
-            $machine->each(function ($row, $index)  use (&$start) {
+            $area_shelf->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
                 $row->action = '<div class="dropdown">
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
-                        <a class="dropdown-item" href="' . route('machine.edit', $row->id) . '">Edit</a>
-                        <a class="dropdown-item" href="' . route('machine.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('machine.delete', $row->id) . '">Delete</a>
+                        <a class="dropdown-item" href="' . route('area_shelf.edit', $row->id) . '">Edit</a>
+                        <a class="dropdown-item" href="' . route('area_shelf.view', $row->id) . '">View</a>
+                        <a class="dropdown-item" href="' . route('area_shelf.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });
@@ -171,7 +184,7 @@ class MachineController extends Controller
                 'draw' => $draw,
                 'recordsTotal' => $recordsTotal,
                 'recordsFiltered' => $recordsTotal, // Total records after filtering
-                'data' => $machine,
+                'data' => $area_shelf,
             ]);
         }
     }
@@ -179,27 +192,28 @@ class MachineController extends Controller
     public function index()
     {
         if (
-            Auth::user()->hasPermissionTo('Machine List') ||
-            Auth::user()->hasPermissionTo('Machine Create') ||
-            Auth::user()->hasPermissionTo('Machine Update') ||
-            Auth::user()->hasPermissionTo('Machine Delete')
+            Auth::user()->hasPermissionTo('Area Shelf List') ||
+            Auth::user()->hasPermissionTo('Area Shelf Create') ||
+            Auth::user()->hasPermissionTo('Area Shelf Update') ||
+            Auth::user()->hasPermissionTo('Area Shelf Delete')
         ) {
-            Helper::logSystemActivity('Machine', 'Machine List');
-            return view('Setting.Machine.Index');
+            Helper::logSystemActivity('Area Shelf', 'Area Shelf List');
+            return view('Setting.AreaShelf.Index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
     public function create()
     {
-        if (!Auth::user()->hasPermissionTo('Machine Create')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        Helper::logSystemActivity('Machine', 'Machine Create');
-        return view('Setting.Machine.Create');
+        $levels = AreaLevel::select('id', 'name')->get();
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf Create');
+        return view('Setting.AreaShelf.Create', compact('levels'));
     }
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('Machine Create')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $validator = null;
@@ -207,12 +221,13 @@ class MachineController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('machines', 'name')->whereNull('deleted_at'),
+                Rule::unique('area_shelves', 'name')->whereNull('deleted_at'),
             ],
             'code' => [
                 'required',
-                Rule::unique('machines', 'code')->whereNull('deleted_at'),
-            ]
+                Rule::unique('area_shelves', 'code')->whereNull('deleted_at'),
+            ],
+            'level' => 'required'
         ]);
 
         // If validations fail
@@ -221,38 +236,40 @@ class MachineController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $Machine = new Machine();
-        $Machine->name = $request->name;
-        $Machine->code = $request->code;
-        $Machine->created_by = Auth::user()->id;
-        $Machine->save();
-        Helper::logSystemActivity('Machine', 'Machine Store');
-        return redirect()->route('machine')->with('custom_success', 'Machine has been Created Successfully !');
+        $area_Shelf = new AreaShelf();
+        $area_Shelf->name = $request->name;
+        $area_Shelf->code = $request->code;
+        $area_Shelf->level_id = $request->level;
+        $area_Shelf->created_by = Auth::user()->id;
+        $area_Shelf->save();
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf Store');
+        return redirect()->route('area_shelf')->with('custom_success', 'Area Shelf has been Created Successfully !');
     }
 
     public function edit($id)
     {
-        if (!Auth::user()->hasPermissionTo('Machine Update')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $machine = Machine::find($id);
-        Helper::logSystemActivity('Machine', 'Machine Edit');
-        return view('Setting.Machine.Edit', compact('machine'));
+        $area_shelf = AreaShelf::find($id);
+        $levels = AreaLevel::select('id', 'name')->get();
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf Edit');
+        return view('Setting.AreaShelf.Edit', compact('area_shelf', 'levels'));
     }
 
     public function view($id)
     {
-        if (!Auth::user()->hasPermissionTo('Machine View')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $machine = Machine::find($id);
-        Helper::logSystemActivity('Machine', 'Machine View');
-        return view('Setting.Machine.View', compact('machine'));
+        $area_shelf = AreaShelf::find($id);
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf View');
+        return view('Setting.AreaShelf.View', compact('area_shelf'));
     }
 
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('Machine Update')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $validator = null;
@@ -260,12 +277,13 @@ class MachineController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('machines', 'name')->whereNull('deleted_at'),
+                Rule::unique('area_shelves', 'name')->whereNull('deleted_at'),
             ],
             'code' => [
                 'required',
-                Rule::unique('machines', 'code')->whereNull('deleted_at'),
-            ]
+                Rule::unique('area_shelves', 'code')->whereNull('deleted_at'),
+            ],
+            'level' => 'required'
         ]);
 
         // If validations fail
@@ -274,24 +292,25 @@ class MachineController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $Machine =  Machine::find($id);
-        $Machine->name = $request->name;
-        $Machine->code = $request->code;
-        $Machine->created_by = Auth::user()->id;
-        $Machine->save();
-        Helper::logSystemActivity('Machine', 'Machine Update');
-        return redirect()->route('machine')->with('custom_success', 'Machine has been Updated Successfully !');
+        $area_Shelf =  AreaShelf::find($id);
+        $area_Shelf->name = $request->name;
+        $area_Shelf->code = $request->code;
+        $area_Shelf->level_id = $request->level;
+        $area_Shelf->created_by = Auth::user()->id;
+        $area_Shelf->save();
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf Update');
+        return redirect()->route('area_shelf')->with('custom_success', 'Area Shelf has been Updated Successfully !');
     }
 
 
     public function delete($id)
     {
-        if (!Auth::user()->hasPermissionTo('Machine Delete')) {
+        if (!Auth::user()->hasPermissionTo('Area Shelf Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $Machine = Machine::find($id);
-        $Machine->delete();
-        Helper::logSystemActivity('Machine', 'Machine Delete');
-        return redirect()->route('machine')->with('custom_success', 'Machine has been Deleted Successfully !');
+        $area_Shelf = AreaShelf::find($id);
+        $area_Shelf->delete();
+        Helper::logSystemActivity('Area Shelf', 'Area Shelf Delete');
+        return redirect()->route('area_Shelf')->with('custom_success', 'Area Shelf has been Deleted Successfully !');
     }
 }

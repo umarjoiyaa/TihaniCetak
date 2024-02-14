@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('uoms', function (Blueprint $table) {
+        Schema::create('area_levels', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('code')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('uoms');
+        Schema::dropIfExists('area_levels');
     }
 };

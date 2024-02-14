@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title tx-20 mg-b-0 p-2">MACHINE</h4>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">AREA SHELF</h4>
 
                     </div>
                 </div>
@@ -13,16 +13,23 @@
                     <div class="row mt-3">
                         <div class="col-md-12">
                             <div class="control-group form-group">
-                                <label class="form-label">Machine Name</label>
+                                <label class="form-label">Shelf Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
-                                    value="{{ $machine->name }}" placeholder="Machine Name">
+                                    value="{{ $area_shelf->name }}" placeholder="Shelf Name">
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="control-group form-group">
-                                <label class="form-label">Machine Code</label>
+                                <label class="form-label">Shelf Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
-                                    value="{{ $machine->code }}" placeholder="Machine Code">
+                                    value="{{ $area_shelf->code }}" placeholder="Shelf Code">
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="control-group form-group">
+                                <label class="form-label">Level</label>
+                                <input disabled type="text" class="form-control required" name="level"
+                                    value="{{ $area_shelf->level->name }}">
                             </div>
                         </div>
                     </div>
@@ -36,7 +43,8 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{ route('machine') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to list</a>
+                <a href="{{ route('area_shelf') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
+                    list</a>
             </div>
         </div>
     </div>
