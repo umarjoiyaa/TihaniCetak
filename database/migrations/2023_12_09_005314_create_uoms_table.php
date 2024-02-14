@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('uoms', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('name')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();

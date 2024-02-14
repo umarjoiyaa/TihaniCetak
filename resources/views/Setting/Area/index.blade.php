@@ -1,49 +1,46 @@
 @extends('layouts.app')
-
 @section('content')
-<div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card mt-5">
-                    <div class="card-header">
+    <div class="row row-sm">
+        <div class="col-xl-12">
+            <div class="card">
+                <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                            <h4 class="card-title tx-20 mg-b-0 p-2">Area LIST</h4>
-                        </div>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">AREA</h4>
 
                     </div>
-                    <div class="card-body">
-                        <div class="d-flex justify-content-end">
-                        <a href="{{route('area.create')}}" class="btn btn-primary mb-2">Create User</a>
-                        </div>
 
-                        <table class="table mt-2" id="example1">
+                </div>
+                <div class="card-body">
+                    <div class="d-flex justify-content-end">
+                        <a href="{{ route('area.create') }}" class="btn btn-primary  mb-3">Create</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="table text-md-nowrap datatable">
                             <thead>
                                 <tr>
-                                    <td>Sr.</td>
-                                    <td>Area</td>
-                                    <td>Area Code</td>
-                                    <td>Shelf</td>
-                                    <td>Action</td>
+                                    <th class="wd-15p border-bottom-0">Sr.</th>
+                                    <th class="wd-15p border-bottom-0">Shelf name</th>
+                                    <th class="wd-15p border-bottom-0">Shelf code</th>
+                                    <th class="wd-15p border-bottom-0">Shelf</th>
+                                    <th class="wd-25p border-bottom-0">Action</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search name">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search code">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search shelf">
+                                    </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1.</td>
-                                    <td>Store A</td>
-                                    <td>STA</td>
-                                    <td>R1</td>
-
-                                    <td><div class="dropdown">
-                                        <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                                        data-toggle="dropdown" id="dropdownMenuButton" type="button">Dropdown Menu <i class="fas fa-caret-down ml-1"></i></button>
-                                        <div  class="dropdown-menu tx-13">
-                                            <a class="dropdown-item" href="#">View</a>
-                                            <a class="dropdown-item" href="#">Edit</a>
-                                            <a class="dropdown-item" href="#">Delete</a>
-                                        </div>
-                                    </div>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -51,5 +48,10 @@
             </div>
         </div>
     </div>
-
-    @endsection
+@endsection
+@push('custom-scripts')
+    <script>
+        var data = "{{ route('area.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/settings/Area/index.js') }}"></script>
+@endpush

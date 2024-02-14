@@ -1,5 +1,3 @@
-$('.form-select').select2()
-
 $('.submit').on('click', function () {
     if($('#from').val() == $('#to').val()){
         Swal.fire({

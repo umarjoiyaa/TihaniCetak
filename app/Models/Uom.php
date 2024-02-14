@@ -10,5 +10,4 @@ class Uom extends Model
 {
     use HasFactory;
     use SoftDeletes;
-
 }

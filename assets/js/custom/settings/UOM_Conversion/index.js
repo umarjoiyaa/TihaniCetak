@@ -47,20 +47,7 @@ $(document).ready(function () {
                 orderable: false
             },
         ],
-        paging: true,
-        pageLength: 10,
-        pagingType: 'input',
-        info: true,
-        "initComplete": function (settings, json) {
-            handleDeleteRow($('.datatable'));
-            $('.datatable').on('search.dt', function () {
-                // Handle search event
-                typingTimer = setTimeout(() => {
-                    handleDeleteRow($('.datatable'));
-                }, 2000);
-            });
-        }
-        // Other DataTables options go here
+        paging: true
     });
     bool = false;
 });
@@ -117,20 +104,7 @@ function AjaxCall(columnsData) {
                 orderable: false
             },
         ],
-        paging: true,
-        pageLength: 10,
-        pagingType: 'input',
-        info: true,
-        "initComplete": function (settings, json) {
-            handleDeleteRow($('.datatable'));
-            $('.datatable').on('search.dt', function () {
-                // Handle search event
-                typingTimer = setTimeout(() => {
-                    handleDeleteRow($('.datatable'));
-                }, 2000);
-            });
-        }
-        // Other DataTables options go here
+        paging: true
     });
 
 }

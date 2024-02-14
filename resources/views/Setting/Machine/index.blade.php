@@ -5,7 +5,8 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title tx-20 mg-b-0 p-2">Machine LIST</h4>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">MACHINE</h4>
+
                     </div>
 
                 </div>
@@ -14,31 +15,28 @@
                         <a href="{{ route('machine.create') }}" class="btn btn-primary  mb-3">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table" id="example1">
+                        <table class="table text-md-nowrap datatable">
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">Sr.</th>
-                                    <th class="wd-15p border-bottom-0">Machine Name</th>
-                                    <th class="wd-15p border-bottom-0">Machine Code</th>>
-                                    <th class="wd-15p border-bottom-0">Action</th>
+                                    <th class="wd-15p border-bottom-0">Machine name</th>
+                                    <th class="wd-15p border-bottom-0">Machine code</th>
+                                    <th class="wd-25p border-bottom-0">Action</th>
+                                </tr>
+                            </thead>
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search name">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search code">
+                                    </th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>SMZP</td>
-                                    <td>2C</td>
-                                    <td><div class="dropdown">
-                                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
-                                            <div  class="dropdown-menu tx-13">
-                                                <a class="dropdown-item" href="#">Edit</a>
-                                                <a class="dropdown-item" href="#">View</a>
-                                                <a class="dropdown-item" href="#">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
                             </tbody>
                         </table>
                     </div>
@@ -47,3 +45,9 @@
         </div>
     </div>
 @endsection
+@push('custom-scripts')
+    <script>
+        var data = "{{ route('machine.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/settings/Machine/index.js') }}"></script>
+@endpush
