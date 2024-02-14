@@ -6,7 +6,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Sales Order List</h5>
+                        <h5>Sales Order View</h5>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="text-center mt-5">

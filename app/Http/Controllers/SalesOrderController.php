@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\SaleOrder;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -129,23 +130,32 @@ class SalesOrderController extends Controller
             $index = 0;
             foreach ($sale as $row) {
                 $row->sr_no = $start + $index + 1;
-                if($row->order_status == 0){
+                if ($row->order_status == 0) {
                     $row->order_status = '<span class="badge badge-warning">Pending</span>';
-                }else if($row->order_status == 1){
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
+                } else if ($row->order_status == 1) {
                     $row->order_status = '<span class="badge badge-success">Approved</span>';
-                }else if($row->order_status == 2){
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
+                } else if ($row->order_status == 2) {
                     $row->order_status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
+                } else if ($row->order_status == 3) {
+                    $row->order_status = '<span class="badge badge-success">Published</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
+
                 $row->action = '<div class="dropdown">
-                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
-                    <div  class="dropdown-menu tx-13">
-                        <a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
-                        <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>
-                        <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>
-                    </div>
-                </div>';
+                                <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                                data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                                <div  class="dropdown-menu tx-13">
+                                    ' . $actions . '
+                                </div>
+                            </div>';
                 $index++;
             }
 
@@ -218,23 +228,32 @@ class SalesOrderController extends Controller
 
             $sale->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                if($row->order_status == 0){
+                if ($row->order_status == 0) {
                     $row->order_status = '<span class="badge badge-warning">Pending</span>';
-                }else if($row->order_status == 1){
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
+                } else if ($row->order_status == 1) {
                     $row->order_status = '<span class="badge badge-success">Approved</span>';
-                }else if($row->order_status == 2){
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
+                } else if ($row->order_status == 2) {
                     $row->order_status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
+                } else if ($row->order_status == 3) {
+                    $row->order_status = '<span class="badge badge-success">Published</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
+
                 $row->action = '<div class="dropdown">
-                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
-                    <div  class="dropdown-menu tx-13">
-                        <a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
-                        <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>
-                        <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>
-                    </div>
-                </div>';
+                                <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                                data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                                <div  class="dropdown-menu tx-13">
+                                    ' . $actions . '
+                                </div>
+                            </div>';
             });
 
             return response()->json([
@@ -299,6 +318,34 @@ class SalesOrderController extends Controller
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Approve View');
         return view('Mes.SaleOrder.approve', compact('sale_order'));
     }
+
+    public function approve_approve(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('SaleOrder Approve')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $sale_order = SaleOrder::find($id);
+        $sale_order->order_status = 1;
+        $sale_order->approved_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $sale_order->approved_by_user = Auth::user()->user_name;
+        $sale_order->approved_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $sale_order->approved_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $sale_order->save();
+        Helper::logSystemActivity('SaleOrder', 'SaleOrder Approved');
+        return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Approved!');
+    }
+
+    public function approve_decline(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('SaleOrder Approve')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $sale_order = SaleOrder::find($id);
+        $sale_order->order_status = 2;
+        $sale_order->save();
+        Helper::logSystemActivity('SaleOrder', 'SaleOrder Declined');
+        return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Declined!');
+    }
     public function publish($id){
         if (!Auth::user()->hasPermissionTo('SaleOrder Publish')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
@@ -306,5 +353,21 @@ class SalesOrderController extends Controller
         $sale_order = SaleOrder::find($id);
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Publish View');
         return view('Mes.SaleOrder.publish', compact('sale_order'));
+    }
+
+    public function publish_submit(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('SaleOrder Publish')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $sale_order = SaleOrder::find($id);
+        $sale_order->order_status = 3;
+        $sale_order->published_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $sale_order->published_by_user = Auth::user()->user_name;
+        $sale_order->published_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $sale_order->published_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $sale_order->save();
+        Helper::logSystemActivity('SaleOrder', 'SaleOrder Published');
+        return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Published!');
     }
 }

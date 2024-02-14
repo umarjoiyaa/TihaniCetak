@@ -256,7 +256,8 @@ Route::get('/Mes/SalesOrderList/view/{id}', [SalesOrderController::class, 'view'
 Route::get('/Mes/SalesOrderList/upload/{id}', [SalesOrderController::class, 'upload'])->name('sale_order.upload');
 Route::post('/Mes/SalesOrderList/upload/submit/{id}', [SalesOrderController::class, 'upload_submit'])->name('sale_order.upload.submit');
 Route::get('/Mes/SalesOrderList/approve/{id}', [SalesOrderController::class, 'approve'])->name('sale_order.approve');
-Route::post('/Mes/SalesOrderList/approve/submit/{id}', [SalesOrderController::class, 'approve_submit'])->name('sale_order.approve.submit');
+Route::post('/Mes/SalesOrderList/approve/approve/{id}', [SalesOrderController::class, 'approve_approve'])->name('sale_order.approve.approve');
+Route::post('/Mes/SalesOrderList/approve/decline/{id}', [SalesOrderController::class, 'approve_decline'])->name('sale_order.approve.decline');
 Route::get('/Mes/SalesOrderList/publish/{id}', [SalesOrderController::class, 'publish'])->name('sale_order.publish');
 Route::post('/Mes/SalesOrderList/publish/submit/{id}', [SalesOrderController::class, 'publish_submit'])->name('sale_order.publish.submit');
 
