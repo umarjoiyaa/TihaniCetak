@@ -11,14 +11,14 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Level Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
                                     value="{{ $area_level->name }}" placeholder="Level Name">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Level Code</label>
                                 <input disabled type="text" class="form-control required" name="code"

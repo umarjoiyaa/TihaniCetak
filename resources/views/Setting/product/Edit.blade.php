@@ -11,30 +11,34 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <form action="{{ route('product.store') }}" method="post">
+                        <form action="{{ route('product.update', $product->id) }}" method="post">
                             @csrf
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Item Code</label>
-                                    <input type="text" class="form-control required" name="code" value="{{old('code')}}" placeholder="Item Code">
+                                    <input type="text" class="form-control required" name="code"
+                                        value="{{ $product->code }}" placeholder="Item Code">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Description</label>
-                                    <input type="text" class="form-control required" name="description" value="{{old('description')}}" placeholder="Description">
+                                    <input type="text" class="form-control required" name="description"
+                                        value="{{ $product->description }}" placeholder="Description">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Group</label>
-                                    <input type="text" class="form-control required" name="group" value="{{old('group')}}" placeholder="Group">
+                                    <input type="text" class="form-control required" name="group"
+                                        value="{{ $product->group }}" placeholder="Group">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Base UOM</label>
-                                    <input type="text" class="form-control required" name="base_uom" value="{{old('base_uom')}}" placeholder="Base UOM">
+                                    <input type="text" class="form-control required" name="base_uom"
+                                        value="{{ $product->base_uom }}" placeholder="Base UOM">
                                 </div>
                             </div>
                     </div>

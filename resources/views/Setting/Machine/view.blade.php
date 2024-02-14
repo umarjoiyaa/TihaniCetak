@@ -11,14 +11,14 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Machine Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
                                     value="{{ $machine->name }}" placeholder="Machine Name">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Machine Code</label>
                                 <input disabled type="text" class="form-control required" name="code"

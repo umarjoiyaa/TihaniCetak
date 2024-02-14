@@ -66,6 +66,11 @@ class PermissionTableSeeder extends Seeder
             'Area Update',
             'Area View',
             'Area Delete',
+            'Product List',
+            'Product Create',
+            'Product Update',
+            'Product View',
+            'Product Delete',
          ];
 
         foreach ($permissions as $permission) {

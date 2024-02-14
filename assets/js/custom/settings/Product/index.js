@@ -15,6 +15,11 @@ $(document).ready(function () {
                 d.draw = d.draw || 1; // Add 'draw' parameter with a default value
                 d.start = d.start || 0; // Add 'start' parameter with a default value
                 d.length = d.length || 10; // Add 'length' parameter with a default value
+                if (bool) {
+                    d.order = [null, null];
+                } else {
+                    d.order = d.order || [null, null]; // Add sorting information with a default value
+                }
             }
         }, // URL to fetch data
         columns: [{
@@ -22,24 +27,20 @@ $(document).ready(function () {
                 name: 'sr_no',
                 orderable: false
             }, {
-                data: 'from',
-                name: 'from',
-                orderable: false
+                data: 'code',
+                name: 'code',
             },
             {
-                data: 'to',
-                name: 'to',
-                orderable: false
+                data: 'description',
+                name: 'description',
             },
             {
-                data: 'from_value',
-                name: 'from_value',
-                orderable: false
+                data: 'group',
+                name: 'group',
             },
             {
-                data: 'to_value',
-                name: 'to_value',
-                orderable: false
+                data: 'base_uom',
+                name: 'base_uom',
             },
             {
                 data: 'action',
@@ -48,6 +49,7 @@ $(document).ready(function () {
             },
         ],
         paging: true
+        // Other DataTables options go here
     });
     bool = false;
 });
@@ -71,7 +73,9 @@ function AjaxCall(columnsData) {
                 d.draw = d.draw || 1; // Add 'draw' parameter with a default value
                 d.start = d.start || 0; // Add 'start' parameter with a default value
                 d.length = d.length || 10; // Add 'length' parameter with a default value
+                d.order = d.order || [null, null]; // Add sorting information with a default value
                 d.columnsData = columnsData;
+
             }
         }, // URL to fetch data
         columns: [{
@@ -79,24 +83,20 @@ function AjaxCall(columnsData) {
                 name: 'sr_no',
                 orderable: false
             }, {
-                data: 'from',
-                name: 'from',
-                orderable: false
+                data: 'code',
+                name: 'code',
             },
             {
-                data: 'to',
-                name: 'to',
-                orderable: false
+                data: 'description',
+                name: 'description',
             },
             {
-                data: 'from_value',
-                name: 'from_value',
-                orderable: false
+                data: 'group',
+                name: 'group',
             },
             {
-                data: 'to_value',
-                name: 'to_value',
-                orderable: false
+                data: 'base_uom',
+                name: 'base_uom',
             },
             {
                 data: 'action',
@@ -105,6 +105,7 @@ function AjaxCall(columnsData) {
             },
         ],
         paging: true
+        // Other DataTables options go here
     });
 
 }

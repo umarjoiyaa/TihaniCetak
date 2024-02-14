@@ -11,21 +11,21 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Shelf Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
                                     value="{{ $area_shelf->name }}" placeholder="Shelf Name">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Shelf Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
                                     value="{{ $area_shelf->code }}" placeholder="Shelf Code">
                             </div>
                         </div>
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Level</label>
                                 <input disabled type="text" class="form-control required" name="level"

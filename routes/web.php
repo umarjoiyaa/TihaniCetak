@@ -125,9 +125,14 @@ Route::get('/Setting/Product/view', [ProductController::class, 'view'])->name('P
 Route::get('/Setting/product/Create', [ProductController::class, 'Create'])->name('Product.create');
 
 //UOM Conversion
-Route::get('/Setting/UOMConversion', [UOMConverisonController::class, 'index'])->name('UOMConversion');
-Route::get('/Setting/UOMConversion/view', [UOMConverisonController::class, 'view'])->name('UOMConversion.view');
-Route::get('/Setting/UOMConversion/Create', [UOMConverisonController::class, 'Create'])->name('UOMConversion.create');
+Route::get('/Setting/UomConversion', [UomController::class, 'index_conversion'])->name('uom_conversion');
+Route::get('/Setting/UomConversion/Data', [UomController::class, 'Data_conversion'])->name('uom_conversion.data');
+Route::get('/Setting/UomConversion/Create', [UomController::class, 'create_conversion'])->name('uom_conversion.create');
+Route::post('/Setting/UomConversion/Store', [UomController::class, 'store_conversion'])->name('uom_conversion.store');
+Route::get('/Setting/UomConversion/Edit/{id}', [UomController::class, 'edit_conversion'])->name('uom_conversion.edit');
+Route::get('/Setting/UomConversion/View/{id}', [UomController::class, 'view_conversion'])->name('uom_conversion.view');
+Route::post('/Setting/UomConversion/Update/{id}', [UomController::class, 'update_conversion'])->name('uom_conversion.update');
+Route::get('/Setting/UomConversion/Delete/{id}', [UomController::class, 'destroy_conversion'])->name('uom_conversion.delete');
 
 // Machine
 Route::get('/Setting/Machine', [MachineController::class, 'index'])->name('machine');
@@ -159,7 +164,17 @@ Route::get('/Setting/AreaShelf/View/{id}', [AreaShelfController::class, 'View'])
 Route::post('/Setting/AreaShelf/Update/{id}', [AreaShelfController::class, 'Update'])->name('area_shelf.update');
 Route::get('/Setting/AreaShelf/Delete/{id}', [AreaShelfController::class, 'Delete'])->name('area_shelf.delete');
 
-// Area
+// Product
+Route::get('/Setting/Product', [ProductController::class, 'index'])->name('product');
+Route::get('/Setting/Product/Data', [ProductController::class, 'Data'])->name('product.data');
+Route::get('/Setting/Product/Create', [ProductController::class, 'Create'])->name('product.create');
+Route::post('/Setting/Product/Store', [ProductController::class, 'Store'])->name('product.store');
+Route::get('/Setting/Product/Edit/{id}', [ProductController::class, 'Edit'])->name('product.edit');
+Route::get('/Setting/Product/View/{id}', [ProductController::class, 'View'])->name('product.view');
+Route::post('/Setting/Product/Update/{id}', [ProductController::class, 'Update'])->name('product.update');
+Route::get('/Setting/Product/Delete/{id}', [ProductController::class, 'Delete'])->name('product.delete');
+
+// Product
 Route::get('/Setting/Area', [AreaController::class, 'index'])->name('area');
 Route::get('/Setting/Area/Data', [AreaController::class, 'Data'])->name('area.data');
 Route::get('/Setting/Area/Create', [AreaController::class, 'Create'])->name('area.create');

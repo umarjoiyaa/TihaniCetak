@@ -6,7 +6,7 @@ use App\Helpers\Helper;
 use App\Models\CustomParameter;
 use App\Models\Parameter;
 use App\Models\Uom;
-use App\Models\Uom_conversion;
+use App\Models\UomConversion;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -278,6 +278,10 @@ class UomController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $uom = Uom::find($id);
+        $conversion = UomConversion::where('from_unit_id', '=', $uom->id)->orWhere('to_unit_id', '=', $uom->id)->first();
+        if($conversion){
+            return back()->with('custom_errors', 'This UOM is used in CONVERSION!');
+        }
         $uom->delete();
         Helper::logSystemActivity('UOM', 'UOM Delete');
         return redirect()->route('uom')->with('custom_success', 'UOM has been Deleted Successfully !');
@@ -292,7 +296,7 @@ class UomController extends Controller
             $length = $request->input('length');
             $search = $request->input('search.value');
 
-            $query = Uom_conversion::select('id', 'from_unit_id', 'to_unit_id', 'from_value', 'to_value', 'isReverse')->with(['fromUnit', 'toUnit']);
+            $query = UomConversion::select('id', 'from_unit_id', 'to_unit_id', 'from_value', 'to_value', 'isReverse')->with(['fromUnit', 'toUnit']);
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -359,14 +363,14 @@ class UomController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->isReverse == 0) {
                     $row->action = '<div class="dropdown">
-                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Action
-                    </a>
-
-                    <ul class="dropdown-menu">
-                    <li><a class="dropdown-item" href="' . route('uom_conversion.edit', $row->id) . '">Edit</a></li>
-                    <li><a class="dropdown-item" data-delete="' . route('uom_conversion.destroy', $row->id) . '" data-kt-ecommerce-category-filter="delete_row" href="' . route('uom_conversion.destroy', $row->id) . '">Delete</a></li>';
-                    $row->action .= '</ul></div>';
+                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                    <div  class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="' . route('uom_conversion.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('uom_conversion.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('uom_conversion.delete', $row->id) . '">Delete</a>
+                    </div>
+                </div>';
                 } else {
                     $row->action = '';
                 }
@@ -391,7 +395,7 @@ class UomController extends Controller
             $length = $request->input('length');
             $search = $request->input('search.value');
 
-            $query = Uom_conversion::select('id', 'from_unit_id', 'to_unit_id', 'from_value', 'to_value', 'isReverse')->with(['fromUnit', 'toUnit']);
+            $query = UomConversion::select('id', 'from_unit_id', 'to_unit_id', 'from_value', 'to_value', 'isReverse')->with(['fromUnit', 'toUnit']);
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -424,14 +428,14 @@ class UomController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->isReverse == 0) {
                     $row->action = '<div class="dropdown">
-                        <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
-                        </a>
-
-                        <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="' . route('uom_conversion.edit', $row->id) . '">Edit</a></li>
-                        <li><a class="dropdown-item" data-delete="' . route('uom_conversion.destroy', $row->id) . '" data-kt-ecommerce-category-filter="delete_row" href="' . route('uom_conversion.destroy', $row->id) . '">Delete</a></li>';
-                    $row->action .= '</ul></div>';
+                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                    <div  class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="' . route('uom_conversion.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('uom_conversion.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('uom_conversion.delete', $row->id) . '">Delete</a>
+                    </div>
+                </div>';
                 } else {
                     $row->action = '';
                 }
@@ -455,7 +459,7 @@ class UomController extends Controller
             Auth::user()->hasPermissionTo('UOM Conversion Delete')
         ) {
             Helper::logSystemActivity('UOM Conversion', 'UOM Conversion List');
-            return view('Setting.Uom_conversion.index');
+            return view('Setting.UomConversion.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
@@ -466,7 +470,7 @@ class UomController extends Controller
         }
         $uoms = Uom::select('id', 'name')->get();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Create');
-        return view('Setting.Uom_conversion.create', compact('uoms'));
+        return view('Setting.UomConversion.create', compact('uoms'));
     }
     public function store_conversion(Request $request)
     {
@@ -476,11 +480,10 @@ class UomController extends Controller
         $validator = null;
 
         $validatedData = $request->validate([
-            'from_unit_id' => 'required',
-            'to_unit_id' => 'required',
-            'from_value' => 'required',
-            'to_value' => 'required',
-
+            'from' => 'required',
+            'to' => 'required',
+            'base_value' => 'required',
+            'conversion_ratio' => 'required'
         ]);
 
         // If validations fail
@@ -489,25 +492,25 @@ class UomController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $Uom = new Uom_conversion();
-        $Uom->from_unit_id = $request->from_unit_id;
-        $Uom->to_unit_id = $request->to_unit_id;
-        $Uom->to_value = $request->to_value;
-        $Uom->from_value = $request->from_value;
+        $Uom = new UomConversion();
+        $Uom->from_unit_id = $request->from;
+        $Uom->to_unit_id = $request->to;
+        $Uom->to_value = $request->base_value;
+        $Uom->from_value = $request->conversion_ratio;
         $Uom->isReverse = 0;
         $Uom->created_by = Auth::user()->id;
         $Uom->save();
 
-        $UomRev = new Uom_conversion();
-        $UomRev->from_unit_id = $request->to_unit_id;
-        $UomRev->to_unit_id = $request->from_unit_id;
-        $UomRev->to_value = $request->from_value;
-        $UomRev->from_value = $request->to_value;
+        $UomRev = new UomConversion();
+        $UomRev->from_unit_id = $request->to;
+        $UomRev->to_unit_id = $request->from;
+        $UomRev->to_value = $request->base_value;
+        $UomRev->from_value = $request->conversion_ratio;
         $UomRev->isReverse = $Uom->id;
         $UomRev->created_by = Auth::user()->id;
         $UomRev->save();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Store');
-        return redirect()->route('uom_conversion.index')->with('custom_success', 'UOM Conversions has been Create Successfully !');
+        return redirect()->route('uom_conversion')->with('custom_success', 'UOM Conversions has been Create Successfully !');
     }
 
     public function edit_conversion($id)
@@ -515,10 +518,20 @@ class UomController extends Controller
         if (!Auth::user()->hasPermissionTo('UOM Conversion Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $uom_conversion = Uom_conversion::find($id);
+        $UomConversion = UomConversion::find($id);
         $uoms = Uom::select('id', 'name')->get();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Edit');
-        return view('Setting.Uom_conversion.edit', compact('uom_conversion', 'uoms'));
+        return view('Setting.UomConversion.edit', compact('UomConversion', 'uoms'));
+    }
+    public function view_conversion($id)
+    {
+        if (!Auth::user()->hasPermissionTo('UOM Conversion Update')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $UomConversion = UomConversion::find($id);
+        $uoms = Uom::select('id', 'name')->get();
+        Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Edit');
+        return view('Setting.UomConversion.view', compact('UomConversion', 'uoms'));
     }
 
     public function update_conversion(Request $request, $id)
@@ -529,11 +542,10 @@ class UomController extends Controller
         $validator = null;
 
         $validatedData = $request->validate([
-            'from_unit_id' => 'required',
-            'to_unit_id' => 'required',
-            'from_value' => 'required',
-            'to_value' => 'required',
-
+            'from' => 'required',
+            'to' => 'required',
+            'base_value' => 'required',
+            'conversion_ratio' => 'required'
         ]);
 
         // If validations fail
@@ -542,22 +554,23 @@ class UomController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $Uom =  Uom_conversion::find($id);
-        $Uom->from_unit_id = $request->from_unit_id;
-        $Uom->to_unit_id = $request->to_unit_id;
-        $Uom->to_value = $request->to_value;
-        $Uom->from_value = $request->from_value;
-        $Uom->isReverse = 0;
+        $Uom =  UomConversion::find($id);
+        $Uom->from_unit_id = $request->from;
+        $Uom->to_unit_id = $request->to;
+        $Uom->to_value = $request->base_value;
+        $Uom->from_value = $request->conversion_ratio;
+        $Uom->created_by = Auth::user()->id;
         $Uom->save();
 
-        $UomRev = Uom_conversion::where('isReverse', '=', $id)->first();
-        $UomRev->from_unit_id = $request->to_unit_id;
-        $UomRev->to_unit_id = $request->from_unit_id;
-        $UomRev->to_value = $request->from_value;
-        $UomRev->from_value = $request->to_value;
+        $UomRev = UomConversion::where('isReverse', '=', $id)->first();
+        $UomRev->from_unit_id = $request->to;
+        $UomRev->to_unit_id = $request->from;
+        $UomRev->to_value = $request->base_value;
+        $UomRev->from_value = $request->conversion_ratio;
+        $UomRev->created_by = Auth::user()->id;
         $UomRev->save();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Update');
-        return redirect()->route('uom_conversion.index')->with('custom_success', 'UOM Conversions has been Updated Successfully !');
+        return redirect()->route('uom_conversion')->with('custom_success', 'UOM Conversions has been Updated Successfully !');
     }
 
     //
@@ -566,11 +579,11 @@ class UomController extends Controller
         if (!Auth::user()->hasPermissionTo('UOM Conversion Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $uom_conversion = Uom_conversion::find($id);
-        $uom_conversion->delete();
-        $uomRev = Uom_conversion::where('isReverse', '=', $id)->first();
+        $UomConversion = UomConversion::find($id);
+        $UomConversion->delete();
+        $uomRev = UomConversion::where('isReverse', '=', $id)->first();
         $uomRev->delete();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Delete');
-        return redirect()->route('uom_conversion.index')->with('custom_success', 'UOM Conversions has been Deleted Successfully !');
+        return redirect()->route('uom_conversion')->with('custom_success', 'UOM Conversions has been Deleted Successfully !');
     }
 }

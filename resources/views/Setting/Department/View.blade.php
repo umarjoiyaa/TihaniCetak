@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <div class="col-md-12">
+                        <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Department Name</label>
                                 <input disabled type="text" class="form-control required" value="{{ $department->name }}"

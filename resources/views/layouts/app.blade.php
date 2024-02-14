@@ -859,9 +859,9 @@
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="{{route('Product')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Product</a></li>
+														<li aria-haspopup="true" ><a href="{{route('product')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Product</a></li>
 														<li aria-haspopup="true" ><a href="{{ route('uom') }}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM</a></li>
-														<li aria-haspopup="true" ><a href="{{route('UOMConversion')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM Conversion </a></li>
+														<li aria-haspopup="true" ><a href="{{route('uom_conversion')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> UOM Conversion </a></li>
 														<li aria-haspopup="true" ><a href="{{route('machine')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine</a></li>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-xs-12 link-list">
@@ -1702,6 +1702,7 @@
 
         <!-- Select 2 Js-->
         <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+        <script src="{{ asset('assets/js/sweetalert.js') }}"></script>
 
 
         	<!-- Internal Data tables -->
