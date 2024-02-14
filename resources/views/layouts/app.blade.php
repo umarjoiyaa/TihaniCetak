@@ -1110,7 +1110,7 @@
 			<div class="main-content horizontal-content">
 
 				<!-- container -->
-				<div class="container">
+				<div class="container-fluid">
                     @include('includes.errors')
                     @include('includes.success')
                     @yield('content')

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,13 +9,13 @@
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">SENARAI SEMAK PRA CETAK</h4>
                         </div>
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
                         <a href="{{route('Senari_SemakPra_Cetak.create')}}" class="btn btn-primary mb-2">Create</a>
                         </div>
-                    
+
                         <table class="table  mt-2" id="example1">
                             <thead>
                                 <tr>
@@ -68,8 +68,8 @@
         </div>
     </div>
 
-    
 
-    
+
+
 
     @endsection
