@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\Area;
 use App\Models\AreaLevel;
 use App\Models\AreaShelf;
 use Illuminate\Http\Request;
@@ -309,6 +310,10 @@ class AreaShelfController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area_Shelf = AreaShelf::find($id);
+        $shelf = Area::where('shelf_id', '=', $area_Shelf->id)->first();
+        if($shelf){
+            return back()->with('custom_errors', 'This SHELF is used in AREA!');
+        }
         $area_Shelf->delete();
         Helper::logSystemActivity('Area Shelf', 'Area Shelf Delete');
         return redirect()->route('area_Shelf')->with('custom_success', 'Area Shelf has been Deleted Successfully !');

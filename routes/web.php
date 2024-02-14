@@ -159,10 +159,15 @@ Route::get('/Setting/AreaShelf/View/{id}', [AreaShelfController::class, 'View'])
 Route::post('/Setting/AreaShelf/Update/{id}', [AreaShelfController::class, 'Update'])->name('area_shelf.update');
 Route::get('/Setting/AreaShelf/Delete/{id}', [AreaShelfController::class, 'Delete'])->name('area_shelf.delete');
 
-//Area
+// Area
 Route::get('/Setting/Area', [AreaController::class, 'index'])->name('area');
-Route::get('/Setting/Area/view', [AreaController::class, 'view'])->name('area.view');
+Route::get('/Setting/Area/Data', [AreaController::class, 'Data'])->name('area.data');
 Route::get('/Setting/Area/Create', [AreaController::class, 'Create'])->name('area.create');
+Route::post('/Setting/Area/Store', [AreaController::class, 'Store'])->name('area.store');
+Route::get('/Setting/Area/Edit/{id}', [AreaController::class, 'Edit'])->name('area.edit');
+Route::get('/Setting/Area/View/{id}', [AreaController::class, 'View'])->name('area.view');
+Route::post('/Setting/Area/Update/{id}', [AreaController::class, 'Update'])->name('area.update');
+Route::get('/Setting/Area/Delete/{id}', [AreaController::class, 'Delete'])->name('area.delete');
 
 //StockCard Report
 Route::get('/WMS/StockCard_report', [StockCard_ReportController::class, 'index'])->name('StockCard_report');

@@ -11,20 +11,20 @@
                 </div>
                 <div class="card-body">
                     <div class="row mt-3">
-                        <form action="{{ route('area.store') }}" method="post">
+                        <form action="{{ route('area.update', $area->id) }}" method="post">
                             @csrf
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Area Name</label>
                                     <input type="text" class="form-control required" name="name"
-                                        value="{{ old('name') }}" placeholder="Area Name">
+                                        value="{{ $area->name }}" placeholder="Area Name">
                                 </div>
                             </div>
                             <div class="col-md-12">
                                 <div class="control-group form-group">
                                     <label class="form-label">Area Code</label>
                                     <input type="text" class="form-control required" name="code"
-                                        value="{{ old('code') }}" placeholder="Area Code">
+                                        value="{{ $area->code }}" placeholder="Area Code">
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -33,7 +33,7 @@
                                     <select name="shelf" class="form-select">
                                         <option value="" disabled selected>Select any option</option>
                                         @foreach ($shelves as $shelf)
-                                            <option value="{{ $shelf->id }}" @selected(old('shelf') == $shelf->id)>
+                                            <option value="{{ $shelf->id }}" @selected($area->shelf_id == $shelf->id)>
                                                 {{ $shelf->name }}</option>
                                         @endforeach
                                     </select>

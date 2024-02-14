@@ -61,6 +61,11 @@ class PermissionTableSeeder extends Seeder
             'Area Shelf Update',
             'Area Shelf View',
             'Area Shelf Delete',
+            'Area List',
+            'Area Create',
+            'Area Update',
+            'Area View',
+            'Area Delete',
          ];
 
         foreach ($permissions as $permission) {

@@ -5,7 +5,7 @@
             <div class="card">
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title tx-20 mg-b-0 p-2">AREA SHLEF</h4>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">AREA SHELF</h4>
 
                     </div>
 
