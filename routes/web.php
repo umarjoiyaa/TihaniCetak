@@ -114,15 +114,15 @@ Route::get('/Setting/Designation/View/{id}', [DesignationController::class, 'Vie
 Route::post('/Setting/Designation/Update/{id}', [DesignationController::class, 'Update'])->name('designation.update');
 Route::get('/Setting/Designation/Delete/{id}', [DesignationController::class, 'Delete'])->name('designation.delete');
 
-// user
-Route::get('/Setting/user', [UserController::class, 'index'])->name('user');
-Route::get('/Setting/user/view', [UserController::class, 'view'])->name('user.view');
-Route::get('/Setting/user/Create', [UserController::class, 'Create'])->name('user.create');
-
-// Product
-Route::get('/Setting/Product', [ProductController::class, 'index'])->name('Product');
-Route::get('/Setting/Product/view', [ProductController::class, 'view'])->name('Product.view');
-Route::get('/Setting/product/Create', [ProductController::class, 'Create'])->name('Product.create');
+// User
+Route::get('/Setting/User', [UserController::class, 'index'])->name('user');
+Route::get('/Setting/User/Data', [UserController::class, 'Data'])->name('user.data');
+Route::get('/Setting/User/Create', [UserController::class, 'Create'])->name('user.create');
+Route::post('/Setting/User/Store', [UserController::class, 'Store'])->name('user.store');
+Route::get('/Setting/User/Edit/{id}', [UserController::class, 'Edit'])->name('user.edit');
+Route::get('/Setting/User/View/{id}', [UserController::class, 'View'])->name('user.view');
+Route::post('/Setting/User/Update/{id}', [UserController::class, 'Update'])->name('user.update');
+Route::get('/Setting/User/Delete/{id}', [UserController::class, 'Delete'])->name('user.delete');
 
 //UOM Conversion
 Route::get('/Setting/UomConversion', [UomController::class, 'index_conversion'])->name('uom_conversion');
