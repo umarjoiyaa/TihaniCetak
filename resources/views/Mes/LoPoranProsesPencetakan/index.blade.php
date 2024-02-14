@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,7 +9,7 @@
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">LAPORAN PROSES PENCETAKAN</h4>
                         </div>
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
@@ -78,10 +78,9 @@
         </div>
     </div>
 
-    
 
-    
+
+
 
     @endsection
 
-    

@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <input type="date" readonly name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">status Job</label>
@@ -103,7 +103,7 @@
                                         <th  >NG</th >
 
                                     </tr>
-                                    
+
                                 </thead>
                                <tbody>
                                 <tr>
@@ -128,3 +128,4 @@
 </div>
 </div>
 @endsection
+

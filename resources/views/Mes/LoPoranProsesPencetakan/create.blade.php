@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -19,12 +19,12 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <input type="date"  name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Time</label>
-                                    <input type="time" value="Admin" readonly name="" id="" class="form-control">
+                                    <input type="time" name="" id="Currenttime" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
@@ -205,8 +205,10 @@
                                     <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
                                 </div>
                                 <div class="col-md-12 mt-3">
+                                    <button class="btn btn-primary mb-3 float-right" id="AddRow">Add Row</button>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+
+                                        <table class="table table-bordered" id="table">
                                             <thead>
                                                 <tr>
                                                     <th rowspan="2">Jumlah</th>
@@ -243,7 +245,7 @@
                                                     <td><button class="btn btn-primary">Verify</button>
                                                     </td>
                                                     <td>username / datetime</td>
-                                                    <td><button class="btn btn-danger"
+                                                    <td><button class="btn btn-danger remove"
                                                             style="border-radius:5px; ">X</button>
                                                     </td>
                                                 </tr>
@@ -268,8 +270,59 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('LoPoranProsesPencetakan.index')}}">back to list</a>
+        <a href="{{route('LoPoranProsesPencetakan')}}">back to list</a>
     </div>
 </div>
 </div>
 @endsection
+
+@push('custom-scripts')
+
+<script>
+    $(document).ready(function() {
+  // Set current date
+  var currentDate = new Date().toISOString().split('T')[0];
+  $('#Currentdate').val(currentDate);
+
+   // Get current time
+   var now = new Date();
+  var hours = now.getHours().toString().padStart(2, '0');
+  var minutes = now.getMinutes().toString().padStart(2, '0');
+
+  // Combine hours and minutes
+  var currentTime = hours + ':' + minutes;
+  $('#Currenttime').val(currentTime);
+});
+
+
+var increment = 1000;
+$(document).on('click','#AddRow',function(){
+    if($('#table tbody tr').length == 0) {
+        increment = 500;
+    }
+    $('#table tbody ').append(` <tr>
+<td>${increment}</td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><button class="btn btn-primary" style=border-radius:5px>check</button></td>
+<td>username / datetime</td>
+<td><button class="btn btn-primary">Verify</button>
+</td>
+<td>username / datetime</td>
+<td><button class="btn btn-danger remove" style=border-radius:5px>X</button>
+</td>
+</tr>`);
+increment += 500;
+});
+
+$(document).on('click','.remove',function(){
+    increment -= 500;
+    $(this).closest('tr').remove();
+})
+</script>
+@endpush

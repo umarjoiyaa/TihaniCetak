@@ -55,15 +55,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                       <h5> <b>Notes: </b></h5><br>
-                        when creates and save - status show “ Checked” <br>
-                        In action verify, user can click “Decline” or “ Verify” <br>
-                        if Decline : status change to “Decline” and user can edit again the form <br>
-                        if  Verify- status changes to “Verified” [user cannot edit anymore] <br>
-                    </div>
-                </div>
             </div>
         </div>
     </div>

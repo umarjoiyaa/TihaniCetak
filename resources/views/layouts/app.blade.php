@@ -1701,8 +1701,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
-        <script src="{{ asset('assets/js/sweetalert.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
 
 
         	<!-- Internal Data tables -->
@@ -1735,9 +1734,6 @@
 
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
-        <script>
-            $('.form-select').select2();
-        </script>
         @stack('custom-scripts')
 	</body>
 
