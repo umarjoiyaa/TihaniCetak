@@ -21,7 +21,7 @@ class DepartmentController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Department::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Department::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -113,7 +113,7 @@ class DepartmentController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Department::select('id', 'name')->where('created_by', '=', Auth::user()->id);
+            $query = Department::select('id', 'name');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -176,7 +176,8 @@ class DepartmentController extends Controller
             Auth::user()->hasPermissionTo('Department List') ||
             Auth::user()->hasPermissionTo('Department Create') ||
             Auth::user()->hasPermissionTo('Department Update') ||
-            Auth::user()->hasPermissionTo('Department Delete')
+            Auth::user()->hasPermissionTo('Department Delete') ||
+            Auth::user()->hasPermissionTo('Department View')
         ) {
             Helper::logSystemActivity('Department', 'Department List');
             return view('Setting.Department.Index');

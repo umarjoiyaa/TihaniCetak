@@ -22,7 +22,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->where('created_by', '=', Auth::user()->id)->with('shlef');
+            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shlef');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -128,7 +128,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->where('created_by', '=', Auth::user()->id)->with('shelf');
+            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shelf');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -195,7 +195,8 @@ class AreaController extends Controller
             Auth::user()->hasPermissionTo('Area List') ||
             Auth::user()->hasPermissionTo('Area Create') ||
             Auth::user()->hasPermissionTo('Area Update') ||
-            Auth::user()->hasPermissionTo('Area Delete')
+            Auth::user()->hasPermissionTo('Area Delete') ||
+            Auth::user()->hasPermissionTo('Area View')
         ) {
             Helper::logSystemActivity('Area', 'Area List');
             return view('Setting.Area.Index');
