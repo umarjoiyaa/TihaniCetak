@@ -15,23 +15,48 @@
                         <div class="d-flex justify-content-end">
                             <a href="{{ route('senari_semak.create') }}" class="btn btn-primary mb-2">Create</a>
                         </div>
-
-                        <table class="table datatable mt-2">
-                            <thead>
-                                <tr>
-                                    <td>Sr.</td>
-                                    <td>Sales Order No</td>
-                                    <td>Tajuk</td>
-                                    <td>kod Buku</td>
-                                    <td>Date</td>
-                                    <td>Checked By</td>
-                                    <td>Status</td>
-                                    <td>Action</td>
-                                </tr>
-                            </thead>
-                            <tbody>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table datatable mt-2">
+                                <thead>
+                                    <tr>
+                                        <td>Sr.</td>
+                                        <td>Sales Order No</td>
+                                        <td>Tajuk</td>
+                                        <td>kod Buku</td>
+                                        <td>Date</td>
+                                        <td>Checked By</td>
+                                        <td>Status</td>
+                                        <td>Action</td>
+                                    </tr>
+                                </thead>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search sale order no">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search tajuk">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search kod buku">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search date">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search checked by">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search status">
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>

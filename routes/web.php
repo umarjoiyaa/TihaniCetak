@@ -79,7 +79,7 @@ Auth::routes([
 
 Route::middleware('auth')->group(function () {
     //DASHBOARD
-    Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
 
     //PROFILE
     // Route::get('/user/profile', [ProfileController::class, 'index'])->name('user.profile');
