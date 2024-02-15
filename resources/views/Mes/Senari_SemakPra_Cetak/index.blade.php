@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -9,13 +9,13 @@
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">SENARAI SEMAK PRA CETAK</h4>
                         </div>
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
                         <a href="{{route('Senari_SemakPra_Cetak.create')}}" class="btn btn-primary mb-2">Create</a>
                         </div>
-                    
+
                         <table class="table  mt-2" id="example1">
                             <thead>
                                 <tr>
@@ -55,21 +55,12 @@
                         </table>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                       <h5> <b>Notes: </b></h5><br>
-                        when creates and save - status show “ Checked” <br>
-                        In action verify, user can click “Decline” or “ Verify” <br>
-                        if Decline : status change to “Decline” and user can edit again the form <br>
-                        if  Verify- status changes to “Verified” [user cannot edit anymore] <br>
-                    </div>
-                </div>
             </div>
         </div>
     </div>
 
-    
 
-    
+
+
 
     @endsection
