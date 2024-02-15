@@ -22,7 +22,8 @@ class UserController extends Controller
             Auth::user()->hasPermissionTo('User List') ||
             Auth::user()->hasPermissionTo('User Create') ||
             Auth::user()->hasPermissionTo('User Update') ||
-            Auth::user()->hasPermissionTo('User Delete')
+            Auth::user()->hasPermissionTo('User Delete') ||
+            Auth::user()->hasPermissionTo('User View')
         ) {
             Helper::logSystemActivity('User', 'User List');
             return view("Setting.user.index");

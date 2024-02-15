@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
     <div class="container">
@@ -11,7 +11,7 @@
                         <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
                             <div class="row">
-                                
+
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tarikh</div>
@@ -25,7 +25,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Date</div>
-                                        <input type="date" readonly value="Admin" class="form-control">
+                                        <input type="date"  value="Admin" class="form-control" id="Currentdate">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -43,7 +43,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Time</div>
-                                            <input type="time"  value="10am" readonly placeholder="Auto Display" class="form-control">:
+                                            <input type="time" id="Currenttime" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
@@ -54,7 +54,7 @@
                                         <input type="text" value="Admin" readonly class="form-control" name="" id="">
                                     </div>
                                 </div>
-                                
+
                             </div>
                             </div>
                         </div>
@@ -71,7 +71,7 @@
                                             <th rowspan="2"><div class="text-center">kriteria</div></th>
                                             <th colspan="3">cover</th>
                                             <th colspan="3">text</th>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th>OK</th>
@@ -79,7 +79,7 @@
                                             <th>NA</th>
                                             <th>OK</th>
                                             <th>NG</th>
-                                            <th>NA</th>   
+                                            <th>NA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -113,7 +113,7 @@
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
                                         </tr>
-                                        
+
                                         <tr>
                                             <td>4</td>
                                             <td>Alamat pencetak</td>
@@ -153,7 +153,7 @@
                                             <td>Cetakan (Sila nyatakan)</td>
                                             <td colspan="3"></td>
                                             <td colspan="3"><input type="type" class="form-control" value="input text" name="" id=""></td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <td>9</td>
@@ -199,7 +199,7 @@
                                             <th rowspan="2"><div class="text-center">kriteria</div></th>
                                             <th colspan="3">cover</th>
                                             <th colspan="3">text</th>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th>OK</th>
@@ -207,11 +207,11 @@
                                             <th>NA</th>
                                             <th>OK</th>
                                             <th>NG</th>
-                                            <th>NA</th>   
+                                            <th>NA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
+
                                     <tr>
                                             <td>1</td>
                                             <td>Jenis Kertas (Bandingkan SO dan Job Sheet)</td>
@@ -291,7 +291,7 @@
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <td>9</td>
@@ -353,7 +353,7 @@
                                             <th rowspan="2"><div class="text-center">kriteria</div></th>
                                             <th colspan="3">cover</th>
                                             <th colspan="3">text</th>
-                                            
+
                                         </tr>
                                         <tr>
                                             <th>OK</th>
@@ -361,17 +361,17 @@
                                             <th>NA</th>
                                             <th>OK</th>
                                             <th>NG</th>
-                                            <th>NA</th>   
+                                            <th>NA</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    
+
                                     <tr>
                                             <td>1</td>
                                             <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
-                                            <td><input type="checkbox"  name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="flexRadioDefault"   id=""></td>
+                                            <td><input type="checkbox" name="flexRadioDefault" checked  id=""></td>
+                                            <td><input type="checkbox"name="flexRadioDefault"  id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
@@ -445,7 +445,7 @@
                                             <td><input type="checkbox" name="" id=""></td>
                                             <td><input type="checkbox" checked name="" id=""></td>
                                             <td><input type="checkbox" name="" id=""></td>
-                                            
+
                                         </tr>
                                         <tr>
                                             <td>9</td>
@@ -500,8 +500,29 @@
                         <button class="btn btn-primary float-right">Save</button>
                     </div>
                 </div>
-                <a href="{{route('SenariSemak.index')}}">back to list</a>
+                <a href="{{route('SenariSemak')}}">back to list</a>
             </div>
         </div>
     </div>
 @endsection
+
+
+@push('custom-scripts')
+
+<script>
+    $(document).ready(function() {
+  // Set current date
+  var currentDate = new Date().toISOString().split('T')[0];
+  $('#Currentdate').val(currentDate);
+
+   // Get current time
+   var now = new Date();
+  var hours = now.getHours().toString().padStart(2, '0');
+  var minutes = now.getMinutes().toString().padStart(2, '0');
+
+  // Combine hours and minutes
+  var currentTime = hours + ':' + minutes;
+  $('#Currenttime').val(currentTime);
+});
+</script>
+@endpush

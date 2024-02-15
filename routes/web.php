@@ -34,7 +34,6 @@ use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProsespencetakanController;
 use App\Http\Controllers\REKOD_SERAHANPLAteController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\SalesOrder_listController;
 use App\Http\Controllers\Senari_SemakController;
 use App\Http\Controllers\Senari_SemakPra_CetakController;
 use App\Http\Controllers\Stock_InController;
@@ -53,6 +52,7 @@ use App\Http\Controllers\ProsesPemotonganKulitBukuController;
 use App\Http\Controllers\ProsesPenJilidanPrefectBindController;
 use App\Http\Controllers\ProsesPenJilidanSaddlestitchController;
 use App\Http\Controllers\ProsesThreeKnifeController;
+use App\Http\Controllers\SalesOrderController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -259,11 +259,16 @@ Route::get('/WMS/Pemeriksaan_Penghantaran/Create', [Pemeriksaan_PenghantaranCont
 Route::get('/WMS/Pemeriksaan_Penghantaran/senarai', [Pemeriksaan_PenghantaranController::class, 'senarai'])->name('Pemeriksaan_Penghantaran.senarai');
 
 // Sales Order List
-Route::get('/Mes/SalesOrderList', [SalesOrder_listController::class, 'index'])->name('SalesOrderList');
-Route::get('/Mes/SalesOrderList/view', [SalesOrder_listController::class, 'view'])->name('SalesOrderList.view');
-Route::get('/Mes/SalesOrderList/upload', [SalesOrder_listController::class, 'upload'])->name('SalesOrderList.upload');
-Route::get('/Mes/SalesOrderList/approve', [SalesOrder_listController::class, 'approve'])->name('SalesOrderList.approve');
-Route::get('/Mes/SalesOrderList/publish', [SalesOrder_listController::class, 'publish'])->name('SalesOrderList.publish');
+Route::get('/Mes/SalesOrderList', [SalesOrderController::class, 'index'])->name('sale_order');
+Route::get('/Mes/SalesOrderList/data', [SalesOrderController::class, 'data'])->name('sale_order.data');
+Route::get('/Mes/SalesOrderList/view/{id}', [SalesOrderController::class, 'view'])->name('sale_order.view');
+Route::get('/Mes/SalesOrderList/upload/{id}', [SalesOrderController::class, 'upload'])->name('sale_order.upload');
+Route::post('/Mes/SalesOrderList/upload/submit/{id}', [SalesOrderController::class, 'upload_submit'])->name('sale_order.upload.submit');
+Route::get('/Mes/SalesOrderList/approve/{id}', [SalesOrderController::class, 'approve'])->name('sale_order.approve');
+Route::post('/Mes/SalesOrderList/approve/approve/{id}', [SalesOrderController::class, 'approve_approve'])->name('sale_order.approve.approve');
+Route::post('/Mes/SalesOrderList/approve/decline/{id}', [SalesOrderController::class, 'approve_decline'])->name('sale_order.approve.decline');
+Route::get('/Mes/SalesOrderList/publish/{id}', [SalesOrderController::class, 'publish'])->name('sale_order.publish');
+Route::post('/Mes/SalesOrderList/publish/submit/{id}', [SalesOrderController::class, 'publish_submit'])->name('sale_order.publish.submit');
 
 // Sales Order List
 Route::get('/Mes/SenariSemak', [Senari_SemakController::class, 'index'])->name('SenariSemak');

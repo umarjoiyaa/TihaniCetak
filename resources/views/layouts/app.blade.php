@@ -670,7 +670,7 @@
                                                        <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
 													<ul>
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-														<li aria-haspopup="true" ><a href="{{route('SalesOrderList')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
+														<li aria-haspopup="true" ><a href="{{route('sale_order')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
 
 													</ul>
 												</div>
@@ -1110,7 +1110,7 @@
 			<div class="main-content horizontal-content">
 
 				<!-- container -->
-				<div class="container">
+				<div class="container-fluid">
                     @include('includes.errors')
                     @include('includes.success')
                     @yield('content')
@@ -1701,8 +1701,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
-        <script src="{{ asset('assets/js/sweetalert.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
 
 
         	<!-- Internal Data tables -->
@@ -1735,9 +1734,6 @@
 
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
-        <script>
-            $('.form-select').select2();
-        </script>
         @stack('custom-scripts')
 	</body>
 

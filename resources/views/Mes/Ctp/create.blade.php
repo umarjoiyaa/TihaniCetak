@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -12,7 +12,7 @@
                             <p class="float-right">TCBS-B61 (Rev.0)</p>
                         </div>
                     </div>
-                    
+
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">

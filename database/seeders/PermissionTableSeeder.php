@@ -71,6 +71,11 @@ class PermissionTableSeeder extends Seeder
             'Product Update',
             'Product View',
             'Product Delete',
+            'SaleOrder List',
+            'SaleOrder View',
+            'SaleOrder Upload',
+            'SaleOrder Approve',
+            'SaleOrder Publish',
          ];
 
         foreach ($permissions as $permission) {

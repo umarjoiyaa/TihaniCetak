@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -14,7 +14,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" name="" id="" class="form-control">
+                                        <input type="date" name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -75,7 +75,7 @@
                                     </div>
                                 </div>
 
-                                
+
                                 <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">status Job</label>
@@ -103,7 +103,7 @@
                                         <th  >NG</th >
 
                                     </tr>
-                                    
+
                                 </thead>
                                <tbody>
                                 <tr>
@@ -121,9 +121,9 @@
                         </div>
                     </div>
 
-                    
 
-                     
+
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -133,8 +133,21 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('SenariSemak.index')}}">back to list</a>
+        <a href="{{route('SenariSemak')}}">back to list</a>
     </div>
 </div>
 </div>
 @endsection
+
+@push('custom-scripts')
+
+<script>
+    $(document).ready(function() {
+  // Set current date
+  var currentDate = new Date().toISOString().split('T')[0];
+  $('#Currentdate').val(currentDate);
+
+
+});
+</script>
+@endpush
