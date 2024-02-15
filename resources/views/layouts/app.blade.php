@@ -1734,6 +1734,9 @@
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
         @stack('custom-scripts')
+        <script>
+            $('.form-select').select2();
+        </script>
 	</body>
 
 <!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:13 GMT -->
