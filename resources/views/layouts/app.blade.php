@@ -1701,7 +1701,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+        <script rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}"></script>
 
 
         	<!-- Internal Data tables -->

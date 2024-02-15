@@ -118,81 +118,81 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Design clearance 5mm (print to cut dan stitching binding)</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" checked name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" checked name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper1" onchange="handleCheckboxChange('Endpaper1')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper1" onchange="handleCheckboxChange('Endpaper1')" checked name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper1" onchange="handleCheckboxChange('Endpaper1')" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Image artwork (Semak teks & gambar)</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2')" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2')" checked name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2')" name="" id=""></td>
+                                        <td class="text"><input type="checkbox"  class="Text2" onchange="handleCheckboxChange('Text2')"name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2')" checked name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" onchange="handleCheckboxChange('Endpaper2')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" onchange="handleCheckboxChange('Endpaper2')" checked name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" onchange="handleCheckboxChange('Endpaper2')" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>Bleed (3-5mm)</td>
-                                        <td class="cover" colspan="3"><input type="text" placeholder="text input" class="form-control"
+                                        <td class="cover" colspan="3"><input type="text"class="Cover3" onchange="handleCheckboxChange('Cover3')" placeholder="text input" class="form-control"
                                                 name="" id=""></td>
-                                        <td class="text" colspan="3"><input type="text" placeholder="text input" class="form-control"
+                                        <td class="text" colspan="3"><input type="text"class="Text3" onchange="handleCheckboxChange('Text3')" placeholder="text input" class="form-control"
                                                 name="" id=""></td>
-                                        <td class="endpaper" colspan="3"><input type="text" placeholder="text input" class="form-control"
+                                        <td class="endpaper" colspan="3"><input type="text" class="Endpaper3" onchange="handleCheckboxChange('Endpaper3')"placeholder="text input" class="form-control"
                                                 name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
                                         <td>Saiz spine (perfect bind)</td>
-                                        <td class="cover" colspan="3"><input type="text" readonly name="" placeholder="text input" class="form-control" id=""></td>
-                                        <td class="text class="endpaper""><input type="checkbox"  name="" id="" ></td>
-                                        <td class="text class="endpaper""><input type="checkbox"placeholder="text input" checked name="" id=""></td>
-                                        <td class="text class="endpaper""><input type="checkbox" name="" id="" ></td>
-                                        <td class="endpaper" colspan="3"><input type="text" placeholder="text input" class="form-control" readonly name="" id=""></td>
+                                        <td class="cover" colspan="3"><input type="text" class="Cover4" onchange="handleCheckboxChange('Cover4')" readonly name="" placeholder="text input" class="form-control" id=""></td>
+                                        <td class="text class="endpaper""><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4')"  name="" id="" ></td>
+                                        <td class="text class="endpaper""><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4')"placeholder="text input" checked name="" id=""></td>
+                                        <td class="text class="endpaper""><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4')" name="" id="" ></td>
+                                        <td class="endpaper" colspan="3"><input type="text" class="Endpaper4" onchange="handleCheckboxChange('Endpaper4')" placeholder="text input" class="form-control" readonly name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
                                         <td>Kedudukan artwork (hardcover)</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5')" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5')" checked name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5')" name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5')" name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5')" checked name="" id=""></td>
+                                        <td class="text"><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper5" onchange="handleCheckboxChange('Endpaper5')" name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper5" onchange="handleCheckboxChange('Endpaper5')" checked name="" id=""></td>
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper5" onchange="handleCheckboxChange('Endpaper5')" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>6</td>
                                         <td>Alamat pencetak</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text" colspan="3"><input type="text" class="form-control" readonly name="" id="">
+                                        <td class="cover"><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6')" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6')" checked name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6')" name="" id=""></td>
+                                        <td class="text" colspan="3"><input  type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
+                                        <td class="endpaper" colspan="3"><input  type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>7</td>
                                         <td>Alamat pencetak</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text" colspan="3"><input type="text" class="form-control" readonly name="" id="">
+                                        <td class="cover"><input class="Cover7" onchange="handleCheckboxChange('Cover7')" type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover7" onchange="handleCheckboxChange('Cover7')" type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input  class="Cover7" onchange="handleCheckboxChange('Cover7')"type="checkbox" name="" id=""></td>
+                                        <td class="text" colspan="3"><input  type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
+                                        <td class="endpaper" colspan="3"><input  type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
                                     <tr>
@@ -200,9 +200,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text6" onchange="handleCheckboxChange('Text6')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text6" onchange="handleCheckboxChange('Text6')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text6" onchange="handleCheckboxChange('Text6')" type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -211,9 +211,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input  class="Text7" onchange="handleCheckboxChange('Text7')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input  class="Text7" onchange="handleCheckboxChange('Text7')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text7" onchange="handleCheckboxChange('Text7')"  type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -222,9 +222,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input  class="Text8" onchange="handleCheckboxChange('Text8')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text8" onchange="handleCheckboxChange('Text8')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text8" onchange="handleCheckboxChange('Text8')" type="checkbox" name="" id=""></td>
                                         <td  class="endpaper"colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -233,9 +233,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text9" onchange="handleCheckboxChange('Text9')"  type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text9" onchange="handleCheckboxChange('Text9')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text9" onchange="handleCheckboxChange('Text9')" type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -244,9 +244,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text10" onchange="handleCheckboxChange('Text10')"  type="checkbox" name="" id=""></td>
+                                        <td class="text"><input  class="Text10" onchange="handleCheckboxChange('Text10')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text10" onchange="handleCheckboxChange('Text10')"  type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -255,9 +255,9 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text11" onchange="handleCheckboxChange('Text11')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text11" onchange="handleCheckboxChange('Text11')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text11" onchange="handleCheckboxChange('Text11')" type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
@@ -266,37 +266,37 @@
                                         <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text12" onchange="handleCheckboxChange('Text12')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text12" onchange="handleCheckboxChange('Text12')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text12" onchange="handleCheckboxChange('Text12')" type="checkbox" name="" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="form-control" readonly name="" id="">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>15</td>
                                         <td>Kedudukan artwork (hardcover)</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover8" onchange="handleCheckboxChange('Cover8')" type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover8" onchange="handleCheckboxChange('Cover8')" type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover8" onchange="handleCheckboxChange('Cover8')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text13" onchange="handleCheckboxChange('Text13')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text13" onchange="handleCheckboxChange('Text13')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text13" onchange="handleCheckboxChange('Text13')" type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper6" onchange="handleCheckboxChange('Endpaper6')" type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper6" onchange="handleCheckboxChange('Endpaper6')" type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input  class="Endpaper6" onchange="handleCheckboxChange('Endpaper6')" type="checkbox" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>16</td>
                                         <td>Kedudukan artwork (hardcover)</td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover9" onchange="handleCheckboxChange('Cover9')" type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover9" onchange="handleCheckboxChange('Cover9')" type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover9" onchange="handleCheckboxChange('Cover9')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text14" onchange="handleCheckboxChange('Text14')" type="checkbox" name="" id=""></td>
+                                        <td class="text"><input class="Text14" onchange="handleCheckboxChange('Text14')" type="checkbox" checked name="" id=""></td>
+                                        <td class="text"><input class="Text14" onchange="handleCheckboxChange('Text14')" type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper7" onchange="handleCheckboxChange('Endpaper7')" type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper7" onchange="handleCheckboxChange('Endpaper7')" type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper7" onchange="handleCheckboxChange('Endpaper7')" type="checkbox" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>17</td>
@@ -308,15 +308,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text class="endpaper""><input type="checkbox" name="" id=""></td>
-                                        <td class="text class="endpaper""><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text class="endpaper""><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover10" onchange="handleCheckboxChange('Cover10')"  type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover10" onchange="handleCheckboxChange('Cover10')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover10" onchange="handleCheckboxChange('Cover10')"  type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input  class="Text15" onchange="handleCheckboxChange('Text15')" type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text15" onchange="handleCheckboxChange('Text15')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text15" onchange="handleCheckboxChange('Text15')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper8" onchange="handleCheckboxChange('Endpaper8')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper8" onchange="handleCheckboxChange('Endpaper8')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper8" onchange="handleCheckboxChange('Endpaper8')"  type="checkbox" name="" id=""></td>
                                     </tr>
 
                                     <tr>
@@ -329,15 +329,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                       <td class="cover"><input class="Cover11" onchange="handleCheckboxChange('Cover11')"  type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover11" onchange="handleCheckboxChange('Cover11')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover11" onchange="handleCheckboxChange('Cover11')"  type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input  class="Text16" onchange="handleCheckboxChange('Text16')" type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text16" onchange="handleCheckboxChange('Text16')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text16" onchange="handleCheckboxChange('Text16')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>19</td>
@@ -349,15 +349,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                       <td class="cover"><input class="Cover12" onchange="handleCheckboxChange('Cover12')"  type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover12" onchange="handleCheckboxChange('Cover12')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover12" onchange="handleCheckboxChange('Cover12')"  type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input  class="Text17" onchange="handleCheckboxChange('Text17')" type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text17" onchange="handleCheckboxChange('Text17')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text17" onchange="handleCheckboxChange('Text17')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper9" onchange="handleCheckboxChange('Endpaper9')"  type="checkbox" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>20</td>
@@ -369,15 +369,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                       <td class="cover"><input class="Cover13" onchange="handleCheckboxChange('Cover13')"  type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover13" onchange="handleCheckboxChange('Cover13')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover13" onchange="handleCheckboxChange('Cover13')"  type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input  class="Text18" onchange="handleCheckboxChange('Text18')" type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text18" onchange="handleCheckboxChange('Text18')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text18" onchange="handleCheckboxChange('Text18')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper10" onchange="handleCheckboxChange('Endpaper10')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper10" onchange="handleCheckboxChange('Endpaper10')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper10" onchange="handleCheckboxChange('Endpaper10')"  type="checkbox" name="" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>21</td>
@@ -389,15 +389,15 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="text"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="text"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" checked name="" id=""></td>
-                                        <td class="endpaper"><input type="checkbox" name="" id=""></td>
+                                       <td class="cover"><input class="Cover14" onchange="handleCheckboxChange('Cover14')"  type="checkbox" name="" id=""></td>
+                                        <td class="cover"><input class="Cover14" onchange="handleCheckboxChange('Cover14')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="cover"><input class="Cover14" onchange="handleCheckboxChange('Cover14')"  type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input  class="Text19" onchange="handleCheckboxChange('Text19')" type="checkbox" name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text19" onchange="handleCheckboxChange('Text19')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="text endpaper"><input class="Text19" onchange="handleCheckboxChange('Text19')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper11" onchange="handleCheckboxChange('Endpaper11')"  type="checkbox" name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper11" onchange="handleCheckboxChange('Endpaper11')"  type="checkbox" checked name="" id=""></td>
+                                        <td class="endpaper"><input class="Endpaper11" onchange="handleCheckboxChange('Endpaper11')"  type="checkbox" name="" id=""></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -736,6 +736,20 @@
 @push('custom-scripts')
 
 <script>
+
+function handleCheckboxChange(groupClassName) {
+        const checkboxes = document.querySelectorAll(`.${groupClassName}`);
+
+        checkboxes.forEach(checkbox => {
+            checkbox.addEventListener('change', function () {
+                checkboxes.forEach(cb => {
+                    if (cb !== this) {
+                        cb.checked = false;
+                    }
+                });
+            });
+        });
+    }
     $(document).ready(function() {
   // Set current date
   var currentDate = new Date().toISOString().split('T')[0];
