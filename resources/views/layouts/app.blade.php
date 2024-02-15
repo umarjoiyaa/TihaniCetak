@@ -742,17 +742,17 @@
 														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Digital Printing</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Cover  & End Paper</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Textg</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin Lipat</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Staple Bind</a></li>
+														<li aria-haspopup="true" ><a href="{{route('digitalPrinting.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Digital Printing</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Cover_endPaper.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Cover  & End Paper</a></li>
+														<li aria-haspopup="true" ><a href="{{route('ProductionJobSheet_text.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Textg</a></li>
+														<li aria-haspopup="true" ><a href="{{route('ProductionJobSheet_MesinLipat.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin Lipat</a></li>
+														<li aria-haspopup="true" ><a href="{{route('ProductionJobSheet_StapleBIND.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Staple Bind</a></li>
                                                     </div>
                                                     <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin Perfect Bind</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin 3Knife</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Borang Serahan Kerja  (Kulit Buku /Cover)</a></li>
-														<li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Borang Serahan Kerja  (Teks)</a></li>
+														<li aria-haspopup="true" ><a href="{{route('ProductionJobSheet_PrefecBind.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin Perfect Bind</a></li>
+														<li aria-haspopup="true" ><a href="{{route('Production_ThreeKnife.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Mesin 3Knife</a></li>
+														<li aria-haspopup="true" ><a href="{{route('BorangeSerahKerja.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Borang Serahan Kerja  (Kulit Buku /Cover)</a></li>
+														<li aria-haspopup="true" ><a href="{{route('BorangeSerahKerja_Teks.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Borang Serahan Kerja  (Teks)</a></li>
 
 
                                                     </div>
