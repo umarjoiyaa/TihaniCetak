@@ -3,9 +3,13 @@
 use App\Http\Controllers\AreaShelfController;
 use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AreaLevelController;
+use App\Http\Controllers\BorangeSerahKerja_TeksController;
+use App\Http\Controllers\BorangeSerahKerjaController;
+use App\Http\Controllers\Cover_endPaperController;
 use App\Http\Controllers\CTPController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
+use App\Http\Controllers\DigitalPrintingController;
 use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\Inventory_reportController;
 use App\Http\Controllers\invertory_ShopFloorController;
@@ -22,6 +26,11 @@ use App\Http\Controllers\Pemeriksaan_PenghantaranController;
 use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\Production_ThreeKnifeController;
+use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
+use App\Http\Controllers\ProductionJobSheet_PrefecBindController;
+use App\Http\Controllers\ProductionJobSheet_StapleBINDController;
+use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProsespencetakanController;
 use App\Http\Controllers\REKOD_SERAHANPLAteController;
 use App\Http\Controllers\RoleController;
@@ -401,3 +410,68 @@ Route::get('/Mes/ProsesPemotonganKulitBuku/edit', [ProsesPemotonganKulitBukuCont
 Route::get('/Mes/ProsesPemotonganKulitBuku/verify', [ProsesPemotonganKulitBukuController::class, 'verify'])->name('ProsesPemotonganKulitBuku.verify');
 
 });
+
+// Digital Printing
+Route::get('/Production/DigitalPrinting', [DigitalPrintingController::class, 'index'])->name('digitalPrinting.index');
+Route::get('/Production/DigitalPrinting/view', [DigitalPrintingController::class, 'view'])->name('digitalPrinting.view');
+Route::get('/Production/DigitalPrinting/create', [DigitalPrintingController::class, 'create'])->name('digitalPrinting.create');
+Route::get('/Production/DigitalPrinting/edit', [DigitalPrintingController::class, 'edit'])->name('digitalPrinting.edit');
+Route::get('/Production/DigitalPrinting/proses', [DigitalPrintingController::class, 'proses'])->name('digitalPrinting.proses');
+
+// Cover_endPaper
+Route::get('/Production/Cover_endPaper', [Cover_endPaperController::class, 'index'])->name('Cover_endPaper.index');
+Route::get('/Production/Cover_endPaper/view', [Cover_endPaperController::class, 'view'])->name('Cover_endPaper.view');
+Route::get('/Production/Cover_endPaper/create', [Cover_endPaperController::class, 'create'])->name('Cover_endPaper.create');
+Route::get('/Production/Cover_endPaper/edit', [Cover_endPaperController::class, 'edit'])->name('Cover_endPaper.edit');
+Route::get('/Production/Cover_endPaper/proses', [Cover_endPaperController::class, 'proses'])->name('Cover_endPaper.proses');
+
+// ProductionJobSheet - Text
+Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text.index');
+Route::get('/Production/ProductionJobSheet_text/view', [ProductionJobSheet_textController::class, 'view'])->name('ProductionJobSheet_text.view');
+Route::get('/Production/ProductionJobSheet_text/create', [ProductionJobSheet_textController::class, 'create'])->name('ProductionJobSheet_text.create');
+Route::get('/Production/ProductionJobSheet_text/edit', [ProductionJobSheet_textController::class, 'edit'])->name('ProductionJobSheet_text.edit');
+Route::get('/Production/ProductionJobSheet_text/proses', [ProductionJobSheet_textController::class, 'proses'])->name('ProductionJobSheet_text.proses');
+
+// ProductionJobSheet_MesinLipat
+Route::get('/Production/ProductionJobSheet_MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('ProductionJobSheet_MesinLipat.index');
+Route::get('/Production/ProductionJobSheet_MesinLipat/view', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('ProductionJobSheet_MesinLipat.view');
+Route::get('/Production/ProductionJobSheet_MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('ProductionJobSheet_MesinLipat.create');
+Route::get('/Production/ProductionJobSheet_MesinLipat/edit', [ProductionJobSheet_MesinLipatController::class, 'edit'])->name('ProductionJobSheet_MesinLipat.edit');
+Route::get('/Production/ProductionJobSheet_MesinLipat/proses', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('ProductionJobSheet_MesinLipat.proses');
+
+// ProductionJobSheet_StapleBIND
+Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBIND.index');
+Route::get('/Production/ProductionJobSheet_StapleBIND/view', [ProductionJobSheet_StapleBINDController::class, 'view'])->name('ProductionJobSheet_StapleBIND.view');
+Route::get('/Production/ProductionJobSheet_StapleBIND/create', [ProductionJobSheet_StapleBINDController::class, 'create'])->name('ProductionJobSheet_StapleBIND.create');
+Route::get('/Production/ProductionJobSheet_StapleBIND/edit', [ProductionJobSheet_StapleBINDController::class, 'edit'])->name('ProductionJobSheet_StapleBIND.edit');
+Route::get('/Production/ProductionJobSheet_StapleBIND/proses', [ProductionJobSheet_StapleBINDController::class, 'proses'])->name('ProductionJobSheet_StapleBIND.proses');
+
+// ProductionJobSheet_PrefecBind
+Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind.index');
+Route::get('/Production/ProductionJobSheet_PrefecBind/view', [ProductionJobSheet_PrefecBindController::class, 'view'])->name('ProductionJobSheet_PrefecBind.view');
+Route::get('/Production/ProductionJobSheet_PrefecBind/create', [ProductionJobSheet_PrefecBindController::class, 'create'])->name('ProductionJobSheet_PrefecBind.create');
+Route::get('/Production/ProductionJobSheet_PrefecBind/edit', [ProductionJobSheet_PrefecBindController::class, 'edit'])->name('ProductionJobSheet_PrefecBind.edit');
+Route::get('/Production/ProductionJobSheet_PrefecBind/proses', [ProductionJobSheet_PrefecBindController::class, 'proses'])->name('ProductionJobSheet_PrefecBind.proses');
+
+// Production_ThreeKnife
+Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife.index');
+Route::get('/Production/Production_ThreeKnife/view', [Production_ThreeKnifeController::class, 'view'])->name('Production_ThreeKnife.view');
+Route::get('/Production/Production_ThreeKnife/create', [Production_ThreeKnifeController::class, 'create'])->name('Production_ThreeKnife.create');
+Route::get('/Production/Production_ThreeKnife/edit', [Production_ThreeKnifeController::class, 'edit'])->name('Production_ThreeKnife.edit');
+Route::get('/Production/Production_ThreeKnife/proses', [Production_ThreeKnifeController::class, 'proses'])->name('Production_ThreeKnife.proses');
+
+// BorangeSerahKerja
+Route::get('/Production/BorangeSerahKerja', [BorangeSerahKerjaController::class, 'index'])->name('BorangeSerahKerja.index');
+Route::get('/Production/BorangeSerahKerja/view', [BorangeSerahKerjaController::class, 'view'])->name('BorangeSerahKerja.view');
+Route::get('/Production/BorangeSerahKerja/create', [BorangeSerahKerjaController::class, 'create'])->name('BorangeSerahKerja.create');
+Route::get('/Production/BorangeSerahKerja/edit', [BorangeSerahKerjaController::class, 'edit'])->name('BorangeSerahKerja.edit');
+Route::get('/Production/BorangeSerahKerja/purchasing', [BorangeSerahKerjaController::class, 'purchasing'])->name('BorangeSerahKerja.purchasing');
+Route::get('/Production/BorangeSerahKerja/transfer', [BorangeSerahKerjaController::class, 'transfer'])->name('BorangeSerahKerja.transfer');
+Route::get('/Production/BorangeSerahKerja/receive', [BorangeSerahKerjaController::class, 'receive'])->name('BorangeSerahKerja.receive');
+
+//BorangeSerahKerja_Teks
+Route::get('/Production/BorangeSerahKerja_Teks', [BorangeSerahKerja_TeksController::class, 'index'])->name('BorangeSerahKerja_Teks.index');
+Route::get('/Production/BorangeSerahKerja_Teks/view', [BorangeSerahKerja_TeksController::class, 'view'])->name('BorangeSerahKerja_Teks.view');
+Route::get('/Production/BorangeSerahKerja_Teks/create', [BorangeSerahKerja_TeksController::class, 'create'])->name('BorangeSerahKerja_Teks.create');
+Route::get('/Production/BorangeSerahKerja_Teks/edit', [BorangeSerahKerja_TeksController::class, 'edit'])->name('BorangeSerahKerja_Teks.edit');
+Route::get('/Production/BorangeSerahKerja_Teks/verify', [BorangeSerahKerja_TeksController::class, 'verify'])->name('BorangeSerahKerja_Teks.verify');
