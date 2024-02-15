@@ -76,6 +76,12 @@ class PermissionTableSeeder extends Seeder
             'SaleOrder Upload',
             'SaleOrder Approve',
             'SaleOrder Publish',
+            'Senarai Semak Pencetakan Digital List',
+            'Senarai Semak Pencetakan Digital Create',
+            'Senarai Semak Pencetakan Digital Update',
+            'Senarai Semak Pencetakan Digital View',
+            'Senarai Semak Pencetakan Digital Delete',
+            'Senarai Semak Pencetakan Digital Verify',
          ];
 
         foreach ($permissions as $permission) {

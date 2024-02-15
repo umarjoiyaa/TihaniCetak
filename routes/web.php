@@ -25,7 +25,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProsespencetakanController;
 use App\Http\Controllers\REKOD_SERAHANPLAteController;
 use App\Http\Controllers\RoleController;
-use App\Http\Controllers\Senari_SemakController;
+use App\Http\Controllers\SenariSemakController;
 use App\Http\Controllers\Senari_SemakPra_CetakController;
 use App\Http\Controllers\Stock_InController;
 use App\Http\Controllers\Stock_Transfer_locationController;
@@ -261,11 +261,20 @@ Route::post('/Mes/SalesOrderList/approve/decline/{id}', [SalesOrderController::c
 Route::get('/Mes/SalesOrderList/publish/{id}', [SalesOrderController::class, 'publish'])->name('sale_order.publish');
 Route::post('/Mes/SalesOrderList/publish/submit/{id}', [SalesOrderController::class, 'publish_submit'])->name('sale_order.publish.submit');
 
-// Sales Order List
-Route::get('/Mes/SenariSemak', [Senari_SemakController::class, 'index'])->name('SenariSemak');
-Route::get('/Mes/SenariSemak/view', [Senari_SemakController::class, 'view'])->name('SenariSemak.view');
-Route::get('/Mes/SenariSemak/create', [Senari_SemakController::class, 'create'])->name('SenariSemak.create');
-Route::get('/Mes/SenariSemak/edit', [Senari_SemakController::class, 'edit'])->name('SenariSemak.edit');
+// Senari Semak
+Route::get('/Mes/SenariSemak', [SenariSemakController::class, 'index'])->name('senari_semak');
+Route::get('/Mes/SenariSemak/data', [SenariSemakController::class, 'Data'])->name('senari_semak.data');
+Route::get('/Mes/SenariSemak/create', [SenariSemakController::class, 'create'])->name('senari_semak.create');
+Route::get('/Mes/SenariSemak/SaleOrder/get', [SenariSemakController::class, 'sale_order'])->name('sale_order.get');
+Route::get('/Mes/SenariSemak/SaleOrder/detail/get', [SenariSemakController::class, 'sale_order_detail'])->name('sale_order.detail.get');
+Route::post('/Mes/SenariSemak/store', [SenariSemakController::class, 'store'])->name('senari_semak.store');
+Route::get('/Mes/SenariSemak/view/{id}', [SenariSemakController::class, 'view'])->name('senari_semak.view');
+Route::get('/Mes/SenariSemak/edit/{id}', [SenariSemakController::class, 'edit'])->name('senari_semak.edit');
+Route::post('/Mes/SenariSemak/update/{id}', [SenariSemakController::class, 'update'])->name('senari_semak.update');
+Route::get('/Mes/SenariSemak/verify/{id}', [SenariSemakController::class, 'verify'])->name('senari_semak.verify');
+Route::post('/Mes/SenariSemak/approve/approve/{id}', [SenariSemakController::class, 'approve_approve'])->name('senari_semak.approve.approve');
+Route::post('/Mes/SenariSemak/approve/decline/{id}', [SenariSemakController::class, 'approve_decline'])->name('senari_semak.approve.decline');
+Route::get('/Mes/SenariSemak/delete/{id}', [SenariSemakController::class, 'delete'])->name('senari_semak.delete');
 
 // Senari_SemakPra_Cetak
 Route::get('/Mes/Senari_SemakPra_Cetak', [Senari_SemakPra_CetakController::class, 'index'])->name('Senari_SemakPra_Cetak');

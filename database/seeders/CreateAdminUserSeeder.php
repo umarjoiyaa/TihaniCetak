@@ -64,7 +64,7 @@ class CreateAdminUserSeeder extends Seeder
             'extra_stock' => '90',
             'remarks' => 'qwerty',
             'delivery_date' => '01-03-2023',
-            'order_status' => 0,
+            'order_status' => 'pending',
         ]);
     }
 }
