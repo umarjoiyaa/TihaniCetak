@@ -292,10 +292,10 @@
 @endsection
 @push('custom-scripts')
 <script>
-    function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(.${ className }).not(checkbox).prop('checked', false);
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
 </script>
-@endpush
+@endpush 

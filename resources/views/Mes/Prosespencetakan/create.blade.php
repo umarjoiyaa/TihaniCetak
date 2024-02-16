@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -125,144 +125,144 @@
                                         <tbody>
                                             <tr style="background:wheat;">
                                                 <td>Artwork</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
 
                                             </tr>
                                             <tr style="background:wheat;">
                                                 <td>Turutan muka surat</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr style="background:wheat;">
                                                 <td>Kedudukan muka surat </td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr style="background:wheat;">
                                                 <td>Saiz Spine</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr style="background:wheat;">
                                                 <td>Kedudukan nombor muka surat</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr style="background:wheat;">
                                                 <td>Bleed (5mm)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Warna</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Artwork</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Kedudukan warna</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Kedudukan cetakan</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Periksa Powder</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Minyak</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Kotor</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Doubling</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Hickies</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Frontlay & sidelay</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Gambar / teks hilang</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover9" onchange="handleCheckboxChange('Cover9',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Cover9" onchange="handleCheckboxChange('Cover9',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover9" onchange="handleCheckboxChange('Cover9',this)" name="" id=""></td>
 
                                             </tr>
 
                                             <tr>
                                                 <td>Pematuhan SOP</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input checked type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="" id=""></td>
+                                                <td><input checked type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="" id=""></td>
 
                                             </tr>
                                         </tbody>
@@ -292,8 +292,17 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('Prosespencetakan.index')}}">back to list</a>
+        <a href="{{route('Prosespencetakan')}}">back to list</a>
     </div>
 </div>
 </div>
 @endsection
+@push('custom-scripts')
+<script>
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
+        }
+</script>
+@endpush 
