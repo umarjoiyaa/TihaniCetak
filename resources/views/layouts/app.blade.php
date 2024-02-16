@@ -1075,9 +1075,10 @@
 										</div>
 									</div>
 								</div>
+								
 								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical "></span>
+									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
 									<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
