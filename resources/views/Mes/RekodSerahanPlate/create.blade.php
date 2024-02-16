@@ -147,6 +147,7 @@
     </div>
 </form>
 @endsection
+
 @push('custom-scripts')
 <script>
     //function handleCheckboxChange(className, checkbox) {
@@ -155,10 +156,10 @@
     //  }
     //}
     function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(.${ className }).not(checkbox).prop('checked', false);
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
 
 
 
