@@ -27,28 +27,40 @@ $(document).ready(function () {
                 name: 'sr_no',
                 orderable: false
             }, {
+                data: 'date',
+                name: 'date',
+            },
+            {
+                data: 'mesin',
+                name: 'mesin',
+            },
+            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
             {
-                data: 'sale_order.description',
-                name: 'sale_order.description',
+                data: 'seksyen_no',
+                name: 'seksyen_no',
             },
             {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
+                data: 'kuaniti_plate',
+                name: 'kuaniti_plate',
             },
             {
-                data: 'date',
-                name: 'date',
+                data: 'dummy_lipat',
+                name: 'dummy_lipat',
+            },
+            {
+                data: 'sample',
+                name: 'sample',
             },
             {
                 data: 'user.full_name',
                 name: 'user.full_name',
             },
             {
-                data: 'status',
-                name: 'status',
+                data: 'operator.full_name',
+                name: 'operator.full_name',
             },
             {
                 data: 'action',
@@ -91,28 +103,40 @@ function AjaxCall(columnsData) {
                 name: 'sr_no',
                 orderable: false
             }, {
+                data: 'date',
+                name: 'date',
+            },
+            {
+                data: 'mesin',
+                name: 'mesin',
+            },
+            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
             {
-                data: 'sale_order.description',
-                name: 'sale_order.description',
+                data: 'seksyen_no',
+                name: 'seksyen_no',
             },
             {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
+                data: 'kuaniti_plate',
+                name: 'kuaniti_plate',
             },
             {
-                data: 'date',
-                name: 'date',
+                data: 'dummy_lipat',
+                name: 'dummy_lipat',
+            },
+            {
+                data: 'sample',
+                name: 'sample',
             },
             {
                 data: 'user.full_name',
                 name: 'user.full_name',
             },
             {
-                data: 'status',
-                name: 'status',
+                data: 'operator.full_name',
+                name: 'operator.full_name',
             },
             {
                 data: 'action',

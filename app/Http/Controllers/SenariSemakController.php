@@ -84,7 +84,7 @@ class SenariSemakController extends Controller
                             case 2:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('description', 'like', '%' . $searchLower . '%');
-                                });;
+                                });
                                 break;
                             case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
@@ -97,7 +97,7 @@ class SenariSemakController extends Controller
                             case 5:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
                                     $query->where('full_name', 'like', '%' . $searchLower . '%');
-                                });;
+                                });
                                 break;
                             case 6:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
@@ -304,7 +304,7 @@ class SenariSemakController extends Controller
 
     public function sale_order_detail(Request $request)
     {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku')->where('id', $request->id)->first();
+        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'status')->where('id', $request->id)->first();
         return response()->json($sale_order);
     }
 
