@@ -1075,7 +1075,7 @@
 										</div>
 									</div>
 								</div>
-								
+
 								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
 									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
@@ -1703,7 +1703,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 
 
         	<!-- Internal Data tables -->
@@ -1736,6 +1736,9 @@
 
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
+        <script>
+            $('.form-select').select2();
+        </script>
         @stack('custom-scripts')
 	</body>
 

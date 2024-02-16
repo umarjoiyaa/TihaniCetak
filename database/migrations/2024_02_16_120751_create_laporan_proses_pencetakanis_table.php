@@ -17,12 +17,16 @@ return new class extends Migration
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('date')->nullable();
             $table->string('time')->nullable();
+            $table->string('status')->nullable();
             $table->string('user_id')->nullable();
             $table->string('user_text')->nullable();
             $table->string('seksyen_no')->nullable();
             $table->string('kuaniti_waste')->nullable();
             $table->string('kuaniti_cetakan')->nullable();
-            $table->string('status')->nullable();
+            $table->string('verified_by_date')->nullable();
+            $table->string('verified_by_user')->nullable();
+            $table->string('verified_by_designation')->nullable();
+            $table->string('verified_by_department')->nullable();
 
             $table->string('b_1')->nullable();
             $table->string('b_2')->nullable();

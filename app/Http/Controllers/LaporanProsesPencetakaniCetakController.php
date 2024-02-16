@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\LaporanProsesPencetakani;
+use App\Models\LaporanProsesPencetakaniC;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -299,14 +302,9 @@ class LaporanProsesPencetakaniCetakController extends Controller
         if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENCETAKANI Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
+        $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Create');
-        return view('Mes.LaporanProsesPencetakani.create');
-    }
-
-    public function sale_order_detail(Request $request)
-    {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'status')->where('id', $request->id)->first();
-        return response()->json($sale_order);
+        return view('Mes.LaporanProsesPencetakani.create', compact('users'));
     }
 
     public function store(Request $request)
@@ -324,7 +322,8 @@ class LaporanProsesPencetakaniCetakController extends Controller
             'user' => 'required',
             'seksyen_no' => 'required',
             'kuaniti_cetakan' => 'required',
-            'kuaniti_waste' => 'required'
+            'kuaniti_waste' => 'required',
+            'semasa' => 'required'
         ]);
 
         // If validations fail
@@ -333,76 +332,60 @@ class LaporanProsesPencetakaniCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $userIds = $request->user;
+        $userNames = [];
+
+        foreach ($userIds as $userId) {
+            $user = User::find($userId);
+            if ($user) {
+               $userNames[] = $user->full_name;
+            }
+        }
+
+        $userText = implode(', ', $userNames);
+
         $laporan_proses_pencetakani = new LaporanProsesPencetakani();
         $laporan_proses_pencetakani->sale_order_id = $request->sale_order;
         $laporan_proses_pencetakani->date = $request->date;
         $laporan_proses_pencetakani->time = $request->time;
         $laporan_proses_pencetakani->created_by = Auth::user()->id;
 
-        $laporan_proses_pencetakani->bahagian_a_1_cover = $request->behagian_a_1_cover;
-        $laporan_proses_pencetakani->bahagian_a_1_text = $request->behagian_a_1_text;
-        $laporan_proses_pencetakani->bahagian_a_2_cover = $request->behagian_a_2_cover;
-        $laporan_proses_pencetakani->bahagian_a_2_text = $request->behagian_a_2_text;
-        $laporan_proses_pencetakani->bahagian_a_3_cover = $request->behagian_a_3_cover;
-        $laporan_proses_pencetakani->bahagian_a_3_text = $request->behagian_a_3_text;
-        $laporan_proses_pencetakani->bahagian_a_4_cover = $request->behagian_a_4_cover;
-        $laporan_proses_pencetakani->bahagian_a_4_text = $request->behagian_a_4_text;
-        $laporan_proses_pencetakani->bahagian_a_5_cover = $request->behagian_a_5_cover;
-        $laporan_proses_pencetakani->bahagian_a_6_cover = $request->behagian_a_6_cover;
-        $laporan_proses_pencetakani->bahagian_a_7_text = $request->behagian_a_7_text;
-        $laporan_proses_pencetakani->bahagian_a_8_text = $request->behagian_a_8_text;
-        $laporan_proses_pencetakani->bahagian_a_9_text = $request->behagian_a_9_text;
-        $laporan_proses_pencetakani->bahagian_a_10_text = $request->behagian_a_10_text;
+        $laporan_proses_pencetakani->seksyen_no = $request->seksyen_no;
+        $laporan_proses_pencetakani->kuaniti_cetakan = $request->kuaniti_cetakan;
+        $laporan_proses_pencetakani->kuaniti_waste = $request->kuaniti_waste;
+        $laporan_proses_pencetakani->user_id = json_encode($userIds);
+        $laporan_proses_pencetakani->user_text = $userText;
 
-        $laporan_proses_pencetakani->bahagian_b_1_text = $request->behagian_b_1_text;
-        $laporan_proses_pencetakani->bahagian_b_1_cover = $request->behagian_b_1_cover;
-        $laporan_proses_pencetakani->bahagian_b_2_text = $request->behagian_b_2_text;
-        $laporan_proses_pencetakani->bahagian_b_2_cover = $request->behagian_b_2_cover;
-        $laporan_proses_pencetakani->bahagian_b_3_text = $request->behagian_b_3_text;
-        $laporan_proses_pencetakani->bahagian_b_3_cover = $request->behagian_b_3_cover;
-        $laporan_proses_pencetakani->bahagian_b_4_text = $request->behagian_b_4_text;
-        $laporan_proses_pencetakani->bahagian_b_4_cover = $request->behagian_b_4_cover;
-        $laporan_proses_pencetakani->bahagian_b_5_text = $request->behagian_b_5_text;
-        $laporan_proses_pencetakani->bahagian_b_5_cover = $request->behagian_b_5_cover;
-        $laporan_proses_pencetakani->bahagian_b_6_text = $request->behagian_b_6_text;
-        $laporan_proses_pencetakani->bahagian_b_6_cover = $request->behagian_b_6_cover;
-        $laporan_proses_pencetakani->bahagian_b_7_text = $request->behagian_b_7_text;
-        $laporan_proses_pencetakani->bahagian_b_7_cover = $request->behagian_b_7_cover;
-        $laporan_proses_pencetakani->bahagian_b_8_text = $request->behagian_b_8_text;
-        $laporan_proses_pencetakani->bahagian_b_8_cover = $request->behagian_b_8_cover;
-        $laporan_proses_pencetakani->bahagian_b_9_text = $request->behagian_b_9_text;
-        $laporan_proses_pencetakani->bahagian_b_9_cover = $request->behagian_b_9_cover;
-        $laporan_proses_pencetakani->bahagian_b_10_text = $request->behagian_b_10_text;
-        $laporan_proses_pencetakani->bahagian_b_10_cover = $request->behagian_b_10_cover;
-        $laporan_proses_pencetakani->bahagian_b_11_text = $request->behagian_b_11_text;
-        $laporan_proses_pencetakani->bahagian_b_11_cover = $request->behagian_b_11_cover;
-
-        $laporan_proses_pencetakani->bahagian_c_1_text = $request->behagian_c_1_text;
-        $laporan_proses_pencetakani->bahagian_c_1_cover = $request->behagian_c_1_cover;
-        $laporan_proses_pencetakani->bahagian_c_2_text = $request->behagian_c_2_text;
-        $laporan_proses_pencetakani->bahagian_c_2_cover = $request->behagian_c_2_cover;
-        $laporan_proses_pencetakani->bahagian_c_3_text = $request->behagian_c_3_text;
-        $laporan_proses_pencetakani->bahagian_c_3_cover = $request->behagian_c_3_cover;
-        $laporan_proses_pencetakani->bahagian_c_4_text = $request->behagian_c_4_text;
-        $laporan_proses_pencetakani->bahagian_c_4_cover = $request->behagian_c_4_cover;
-        $laporan_proses_pencetakani->bahagian_c_5_text = $request->behagian_c_5_text;
-        $laporan_proses_pencetakani->bahagian_c_5_cover = $request->behagian_c_5_cover;
-        $laporan_proses_pencetakani->bahagian_c_6_text = $request->behagian_c_6_text;
-        $laporan_proses_pencetakani->bahagian_c_6_cover = $request->behagian_c_6_cover;
-        $laporan_proses_pencetakani->bahagian_c_7_text = $request->behagian_c_7_text;
-        $laporan_proses_pencetakani->bahagian_c_7_cover = $request->behagian_c_7_cover;
-        $laporan_proses_pencetakani->bahagian_c_8_text = $request->behagian_c_8_text;
-        $laporan_proses_pencetakani->bahagian_c_8_cover = $request->behagian_c_8_cover;
-        $laporan_proses_pencetakani->bahagian_c_9_text = $request->behagian_c_9_text;
-        $laporan_proses_pencetakani->bahagian_c_9_cover = $request->behagian_c_9_cover;
-        $laporan_proses_pencetakani->bahagian_c_10_text = $request->behagian_c_10_text;
-        $laporan_proses_pencetakani->bahagian_c_10_cover = $request->behagian_c_10_cover;
-        $laporan_proses_pencetakani->bahagian_c_11_input = $request->behagian_c_11_input;
-        $laporan_proses_pencetakani->bahagian_c_11_text = $request->behagian_c_11_text;
-        $laporan_proses_pencetakani->bahagian_c_11_cover = $request->behagian_c_11_cover;
+        $laporan_proses_pencetakani->b_1 = $request->b_1;
+        $laporan_proses_pencetakani->b_2 = $request->b_2;
+        $laporan_proses_pencetakani->b_3 = $request->b_3;
+        $laporan_proses_pencetakani->b_4 = $request->b_4;
+        $laporan_proses_pencetakani->b_5 = $request->b_5;
+        $laporan_proses_pencetakani->b_6 = $request->b_6;
+        $laporan_proses_pencetakani->b_7 = $request->b_7;
+        $laporan_proses_pencetakani->b_8 = $request->b_8;
+        $laporan_proses_pencetakani->b_9 = $request->b_9;
+        $laporan_proses_pencetakani->b_10 = $request->b_10;
 
         $laporan_proses_pencetakani->status = 'checked';
         $laporan_proses_pencetakani->save();
+
+        foreach($request->semasa as $value){
+           $detail = new LaporanProsesPencetakaniC();
+           $detail->laporan_proses = $laporan_proses_pencetakani->id;
+           $detail->c_1 = $value['1'] ?? null;
+           $detail->c_2 = $value['2'] ?? null;
+           $detail->c_3 = $value['3'] ?? null;
+           $detail->c_4 = $value['4'] ?? null;
+           $detail->c_5 = $value['5'] ?? null;
+           $detail->c_6 = $value['6'] ?? null;
+           $detail->c_7 = $value['7'] ?? null;
+           $detail->c_8 = $value['8'] ?? null;
+           $detail->c_9 = $value['9'] ?? null;
+           $detail->c_10 = $value['10'] ?? null;
+           $detail->save();
+        }
+
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Store');
         return redirect()->route('laporan_proses_pencetakani')->with('custom_success', 'LAPORAN PROSES PENCETAKANI has been Created Successfully !');
     }
@@ -412,8 +395,10 @@ class LaporanProsesPencetakaniCetakController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
+        $details = LaporanProsesPencetakaniC::where('laporan_proses', '=', $id)->get();
+        $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Update');
-        return view('Mes.LaporanProsesPencetakani.edit', compact('laporan_proses_pencetakani'));
+        return view('Mes.LaporanProsesPencetakani.edit', compact('laporan_proses_pencetakani', 'users', 'details'));
     }
 
     public function view($id){
@@ -421,8 +406,10 @@ class LaporanProsesPencetakaniCetakController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
+        $details = LaporanProsesPencetakaniC::where('laporan_proses', '=', $id)->get();
+        $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI View');
-        return view('Mes.LaporanProsesPencetakani.view', compact('laporan_proses_pencetakani'));
+        return view('Mes.LaporanProsesPencetakani.view', compact('laporan_proses_pencetakani', 'users', 'details'));
     }
 
     public function update(Request $request, $id)
@@ -440,7 +427,8 @@ class LaporanProsesPencetakaniCetakController extends Controller
             'user' => 'required',
             'seksyen_no' => 'required',
             'kuaniti_cetakan' => 'required',
-            'kuaniti_waste' => 'required'
+            'kuaniti_waste' => 'required',
+            'semasa' => 'required'
         ]);
 
         // If validations fail
@@ -449,76 +437,62 @@ class LaporanProsesPencetakaniCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $userIds = $request->user;
+        $userNames = [];
+
+        foreach ($userIds as $userId) {
+            $user = User::find($userId);
+            if ($user) {
+               $userNames[] = $user->full_name;
+            }
+        }
+
+        $userText = implode(', ', $userNames);
+
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
         $laporan_proses_pencetakani->sale_order_id = $request->sale_order;
         $laporan_proses_pencetakani->date = $request->date;
         $laporan_proses_pencetakani->time = $request->time;
         $laporan_proses_pencetakani->created_by = Auth::user()->id;
 
-        $laporan_proses_pencetakani->bahagian_a_1_cover = $request->behagian_a_1_cover;
-        $laporan_proses_pencetakani->bahagian_a_1_text = $request->behagian_a_1_text;
-        $laporan_proses_pencetakani->bahagian_a_2_cover = $request->behagian_a_2_cover;
-        $laporan_proses_pencetakani->bahagian_a_2_text = $request->behagian_a_2_text;
-        $laporan_proses_pencetakani->bahagian_a_3_cover = $request->behagian_a_3_cover;
-        $laporan_proses_pencetakani->bahagian_a_3_text = $request->behagian_a_3_text;
-        $laporan_proses_pencetakani->bahagian_a_4_cover = $request->behagian_a_4_cover;
-        $laporan_proses_pencetakani->bahagian_a_4_text = $request->behagian_a_4_text;
-        $laporan_proses_pencetakani->bahagian_a_5_cover = $request->behagian_a_5_cover;
-        $laporan_proses_pencetakani->bahagian_a_6_cover = $request->behagian_a_6_cover;
-        $laporan_proses_pencetakani->bahagian_a_7_text = $request->behagian_a_7_text;
-        $laporan_proses_pencetakani->bahagian_a_8_text = $request->behagian_a_8_text;
-        $laporan_proses_pencetakani->bahagian_a_9_text = $request->behagian_a_9_text;
-        $laporan_proses_pencetakani->bahagian_a_10_text = $request->behagian_a_10_text;
+        $laporan_proses_pencetakani->seksyen_no = $request->seksyen_no;
+        $laporan_proses_pencetakani->kuaniti_cetakan = $request->kuaniti_cetakan;
+        $laporan_proses_pencetakani->kuaniti_waste = $request->kuaniti_waste;
+        $laporan_proses_pencetakani->user_id = json_encode($userIds);
+        $laporan_proses_pencetakani->user_text = $userText;
 
-        $laporan_proses_pencetakani->bahagian_b_1_text = $request->behagian_b_1_text;
-        $laporan_proses_pencetakani->bahagian_b_1_cover = $request->behagian_b_1_cover;
-        $laporan_proses_pencetakani->bahagian_b_2_text = $request->behagian_b_2_text;
-        $laporan_proses_pencetakani->bahagian_b_2_cover = $request->behagian_b_2_cover;
-        $laporan_proses_pencetakani->bahagian_b_3_text = $request->behagian_b_3_text;
-        $laporan_proses_pencetakani->bahagian_b_3_cover = $request->behagian_b_3_cover;
-        $laporan_proses_pencetakani->bahagian_b_4_text = $request->behagian_b_4_text;
-        $laporan_proses_pencetakani->bahagian_b_4_cover = $request->behagian_b_4_cover;
-        $laporan_proses_pencetakani->bahagian_b_5_text = $request->behagian_b_5_text;
-        $laporan_proses_pencetakani->bahagian_b_5_cover = $request->behagian_b_5_cover;
-        $laporan_proses_pencetakani->bahagian_b_6_text = $request->behagian_b_6_text;
-        $laporan_proses_pencetakani->bahagian_b_6_cover = $request->behagian_b_6_cover;
-        $laporan_proses_pencetakani->bahagian_b_7_text = $request->behagian_b_7_text;
-        $laporan_proses_pencetakani->bahagian_b_7_cover = $request->behagian_b_7_cover;
-        $laporan_proses_pencetakani->bahagian_b_8_text = $request->behagian_b_8_text;
-        $laporan_proses_pencetakani->bahagian_b_8_cover = $request->behagian_b_8_cover;
-        $laporan_proses_pencetakani->bahagian_b_9_text = $request->behagian_b_9_text;
-        $laporan_proses_pencetakani->bahagian_b_9_cover = $request->behagian_b_9_cover;
-        $laporan_proses_pencetakani->bahagian_b_10_text = $request->behagian_b_10_text;
-        $laporan_proses_pencetakani->bahagian_b_10_cover = $request->behagian_b_10_cover;
-        $laporan_proses_pencetakani->bahagian_b_11_text = $request->behagian_b_11_text;
-        $laporan_proses_pencetakani->bahagian_b_11_cover = $request->behagian_b_11_cover;
-
-        $laporan_proses_pencetakani->bahagian_c_1_text = $request->behagian_c_1_text;
-        $laporan_proses_pencetakani->bahagian_c_1_cover = $request->behagian_c_1_cover;
-        $laporan_proses_pencetakani->bahagian_c_2_text = $request->behagian_c_2_text;
-        $laporan_proses_pencetakani->bahagian_c_2_cover = $request->behagian_c_2_cover;
-        $laporan_proses_pencetakani->bahagian_c_3_text = $request->behagian_c_3_text;
-        $laporan_proses_pencetakani->bahagian_c_3_cover = $request->behagian_c_3_cover;
-        $laporan_proses_pencetakani->bahagian_c_4_text = $request->behagian_c_4_text;
-        $laporan_proses_pencetakani->bahagian_c_4_cover = $request->behagian_c_4_cover;
-        $laporan_proses_pencetakani->bahagian_c_5_text = $request->behagian_c_5_text;
-        $laporan_proses_pencetakani->bahagian_c_5_cover = $request->behagian_c_5_cover;
-        $laporan_proses_pencetakani->bahagian_c_6_text = $request->behagian_c_6_text;
-        $laporan_proses_pencetakani->bahagian_c_6_cover = $request->behagian_c_6_cover;
-        $laporan_proses_pencetakani->bahagian_c_7_text = $request->behagian_c_7_text;
-        $laporan_proses_pencetakani->bahagian_c_7_cover = $request->behagian_c_7_cover;
-        $laporan_proses_pencetakani->bahagian_c_8_text = $request->behagian_c_8_text;
-        $laporan_proses_pencetakani->bahagian_c_8_cover = $request->behagian_c_8_cover;
-        $laporan_proses_pencetakani->bahagian_c_9_text = $request->behagian_c_9_text;
-        $laporan_proses_pencetakani->bahagian_c_9_cover = $request->behagian_c_9_cover;
-        $laporan_proses_pencetakani->bahagian_c_10_text = $request->behagian_c_10_text;
-        $laporan_proses_pencetakani->bahagian_c_10_cover = $request->behagian_c_10_cover;
-        $laporan_proses_pencetakani->bahagian_c_11_input = $request->behagian_c_11_input;
-        $laporan_proses_pencetakani->bahagian_c_11_text = $request->behagian_c_11_text;
-        $laporan_proses_pencetakani->bahagian_c_11_cover = $request->behagian_c_11_cover;
+        $laporan_proses_pencetakani->b_1 = $request->b_1;
+        $laporan_proses_pencetakani->b_2 = $request->b_2;
+        $laporan_proses_pencetakani->b_3 = $request->b_3;
+        $laporan_proses_pencetakani->b_4 = $request->b_4;
+        $laporan_proses_pencetakani->b_5 = $request->b_5;
+        $laporan_proses_pencetakani->b_6 = $request->b_6;
+        $laporan_proses_pencetakani->b_7 = $request->b_7;
+        $laporan_proses_pencetakani->b_8 = $request->b_8;
+        $laporan_proses_pencetakani->b_9 = $request->b_9;
+        $laporan_proses_pencetakani->b_10 = $request->b_10;
 
         $laporan_proses_pencetakani->status = 'checked';
         $laporan_proses_pencetakani->save();
+
+        LaporanProsesPencetakaniC::where('laporan_proses', '=', $id)->delete();
+
+        foreach($request->semasa as $value){
+           $detail = new LaporanProsesPencetakaniC();
+           $detail->laporan_proses = $laporan_proses_pencetakani->id;
+           $detail->c_1 = $value['1'] ?? null;
+           $detail->c_2 = $value['2'] ?? null;
+           $detail->c_3 = $value['3'] ?? null;
+           $detail->c_4 = $value['4'] ?? null;
+           $detail->c_5 = $value['5'] ?? null;
+           $detail->c_6 = $value['6'] ?? null;
+           $detail->c_7 = $value['7'] ?? null;
+           $detail->c_8 = $value['8'] ?? null;
+           $detail->c_9 = $value['9'] ?? null;
+           $detail->c_10 = $value['10'] ?? null;
+           $detail->save();
+        }
+
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Update');
         return redirect()->route('laporan_proses_pencetakani')->with('custom_success', 'LAPORAN PROSES PENCETAKANI has been Updated Successfully !');
     }
@@ -528,8 +502,10 @@ class LaporanProsesPencetakaniCetakController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
+        $details = LaporanProsesPencetakaniC::where('laporan_proses', '=', $id)->get();
+        $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Update');
-        return view('Mes.LaporanProsesPencetakani.verify', compact('laporan_proses_pencetakani'));
+        return view('Mes.LaporanProsesPencetakani.verify', compact('laporan_proses_pencetakani', 'users', 'details'));
     }
 
     public function approve_approve(Request $request, $id){
@@ -544,6 +520,13 @@ class LaporanProsesPencetakaniCetakController extends Controller
         $laporan_proses_pencetakani->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $laporan_proses_pencetakani->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
         $laporan_proses_pencetakani->save();
+
+        foreach($request->semasa as $key => $value){
+            $detail = LaporanProsesPencetakaniC::find($key);
+            $detail->c_10 = $value['1'] ?? null;
+            $detail->save();
+         }
+
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Verified');
         return redirect()->route('laporan_proses_pencetakani')->with('custom_success', 'LAPORAN PROSES PENCETAKANI has been Successfully Verified!');
     }
@@ -565,6 +548,7 @@ class LaporanProsesPencetakaniCetakController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
+        LaporanProsesPencetakaniC::where('laporan_proses', '=', $id)->delete();
         $laporan_proses_pencetakani->delete();
         Helper::logSystemActivity('LAPORAN PROSES PENCETAKANI', 'LAPORAN PROSES PENCETAKANI Delete');
         return redirect()->route('laporan_proses_pencetakani')->with('custom_success', 'LAPORAN PROSES PENCETAKANI has been Successfully Deleted!');

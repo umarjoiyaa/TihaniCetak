@@ -26,8 +26,6 @@ return new class extends Migration
             $table->string('c_8')->nullable();
             $table->string('c_9')->nullable();
             $table->string('c_10')->nullable();
-            $table->string('c_11')->nullable();
-            $table->string('c_12')->nullable();
 
             $table->softDeletes();
             $table->timestamps();
