@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -231,8 +231,17 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('POD.index')}}">back to list</a>
+        <a href="{{route('POD')}}">back to list</a>
     </div>
 </div>
 </div>
 @endsection
+@push('custom-scripts')
+<script>
+    function handleCheckboxChange(className, checkbox) {
+        if ($(checkbox).prop('checked')) {
+            $(.${ className }).not(checkbox).prop('checked', false);
+        }
+    }
+</script>
+@endpush    
