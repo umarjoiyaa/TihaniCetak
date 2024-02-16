@@ -1076,11 +1076,11 @@
 								</div>
 								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical "></span>
+									<span class="navbar-toggler-icon fe fe-more-vertical ">hasam</span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
-									<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
-									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
+									<a class="profile-user" href="#" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" src="{{ asset('assets/img/tihani.png') }}" ></a>
+									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp" aria-labelledby="dropdownMenuLink">
 										<div class="main-header-profile header-img">
 											<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 											<h6>Elizabeth Jane</h6><span>Premium Member</span>
