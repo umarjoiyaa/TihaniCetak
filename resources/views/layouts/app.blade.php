@@ -63,7 +63,8 @@
 		<!-- Switcher css -->
 		<link href="{{ asset('assets/switcher/css/switcher.css') }}" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
-
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		@yield('css')
 	</head>
 	<body class="main-body app sidebar-mini Light-mode">
 
@@ -682,9 +683,9 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a href="{{route('senari_semak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('Senari_SemakPra_Cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('REKOD_SERAHANPLATE')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesPencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('senari_semak_cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('rekod_serahan_plate')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('laporan_proses_pencetakani')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
 
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
@@ -763,9 +764,9 @@
 												<div class="col-lg-2 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Production</div>
                                                     <ul>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Scheduling</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Printing Process</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Call for assistance</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('ProductSCHEDULINIG.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Scheduling</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('PrintingProcess_Text.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Printing Process</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('CallForAssistance.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Call for assistance</a></li>
 
 
 
@@ -774,10 +775,10 @@
 												<div class="col-lg-3 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Dashboard</div>
 													<ul>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine Dashboard</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> OEE</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Report</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('MachineDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine Dashboard</a></li>
+                                                        <li aria-haspopup="true" ><a href=""  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('OEEDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> OEE</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('ProductionReport.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Report</a></li>
 
 
 
@@ -1074,9 +1075,10 @@
 										</div>
 									</div>
 								</div>
+
 								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical ">hasam</span>
+									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
 									<a class="profile-user" href="#" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" src="{{ asset('assets/img/tihani.png') }}" ></a>
@@ -1623,7 +1625,7 @@
 			<!-- Footer closed -->
 		</div>
 		<!--end  Page -->
-
+		@yield('script')
         <!-- Back-to-top -->
 		<a href="#top" id="back-to-top"><i class="la la-chevron-up"></i></a>
 
@@ -1701,7 +1703,8 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+
 
         	<!-- Internal Data tables -->
 		<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>

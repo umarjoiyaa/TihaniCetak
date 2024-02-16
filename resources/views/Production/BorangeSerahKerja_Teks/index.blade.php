@@ -7,13 +7,13 @@
             <div class="card mt-5">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title tx-20 mg-b-0 p-2">JOBSHEET - THREE KNIFE</h4>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">BORANG SERAH KERJA (TEKS)</h4>
                     </div>
 
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
-                        <a href="{{route('Production_ThreeKnife.create')}}" class="btn btn-primary mb-2">Create</a>
+                        <a href="{{route('BorangeSerahKerja_Teks.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-bordered mt-2" id="example1">
@@ -35,8 +35,9 @@
                             <tbody>
                                 <tr class="">
                                     <td>30/5/2023</td>
+                                    <td>123-1</td>
                                     <td>SO-001496</td>
-                                    <td>IQRO"GENIUS RUMI(New Cover)</td>
+                                    <td>IQRO'GENIUS RUMI(New Cover)</td>
                                     <td>Subcon A</td>
                                     <td>3</td>
                                     <td>End Paper</td>
@@ -51,11 +52,11 @@
                                                     class="fas fa-caret-down ml-1"></i></button>
                                             <div class="dropdown-menu tx-13">
                                                 <a class="dropdown-item"
-                                                    href="{{route('Production_ThreeKnife.view')}}">View</a>
+                                                    href="{{route('BorangeSerahKerja_Teks.view')}}">View</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('Production_ThreeKnife.edit')}}">Edit</a>
+                                                    href="{{route('BorangeSerahKerja_Teks.edit')}}">Edit</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('Production_ThreeKnife.proses')}}">Proses</a>
+                                                    href="{{route('BorangeSerahKerja_Teks.verify')}}">verify</a>
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>

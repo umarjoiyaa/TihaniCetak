@@ -55,7 +55,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Checked By</div>
-                                                <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                                <input type="text" value="{{ $senari_semak->user->full_name }}" readonly
                                                     class="form-control" name="" id="">
                                             </div>
                                         </div>
@@ -735,6 +735,32 @@
                                                 </td>
                                                 <td><input type="checkbox" name="behagian_c_11_text"
                                                         @checked($senari_semak->bahagian_c_11_text == 'na') value="na"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <h3><b>Verified By</b></h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Desgination</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $senari_semak->verified_by_date }}</td>
+                                                <td>{{ $senari_semak->verified_by_user }}</td>
+                                                <td>{{ $senari_semak->verified_by_designation }}</td>
+                                                <td>{{ $senari_semak->verified_by_department }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
