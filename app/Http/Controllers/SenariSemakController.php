@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\SaleOrder;
 use App\Models\SenariSemak;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -260,18 +261,18 @@ class SenariSemakController extends Controller
     }
 
     public function index(){
-        // if (
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital List') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Create') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Update') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital View') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Delete') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
-        // ) {
-            // Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital List');
+        if (
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital List') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Create') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Update') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital View') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Delete') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
+        ) {
+            Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital List');
             return view('Mes.SenariSemak.index');
-        // }
-        // return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
@@ -530,6 +531,10 @@ class SenariSemakController extends Controller
 
         $senari_semak = SenariSemak::find($id);
         $senari_semak->status = 'verified';
+        $senari_semak->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $senari_semak->verified_by_user = Auth::user()->user_name;
+        $senari_semak->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $senari_semak->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
         $senari_semak->save();
         Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital Verified');
         return redirect()->route('senari_semak')->with('custom_success', 'Senarai Semak Pencetakan Digital has been Successfully Verified!');

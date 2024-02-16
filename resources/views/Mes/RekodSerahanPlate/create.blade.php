@@ -9,37 +9,36 @@
                     <div class="card-body">
                         <h5>REKOD SERAHAN PLATE CETAK DAN SAMPLE</h5>
 
-                        <div class="card" style="background:#f1f0f0;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Date</label>
-                                            <input type="date" name="date" value="{{ date('Y-m-d') }}" id="Currentdate"
+                            <div class="card" style="background:#f1f0f0;">
+                                <div class="card-body">
+                                    <div class="row">
+                                        <div class="col-md-4 mt-3">
+                                            <div class="form-group">
+                                                <label for="">Date</label>
+                                                <input type="date" name="date" value="{{ date('Y-m-d') }}"
+                                                    id="Currentdate" class="form-control">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 mt-3">
+                                            <label for="">Disediakan Oleh (Unit CTP)</label>
+                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
                                                 class="form-control">
                                         </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <label for="">Disediakan Oleh (Unit CTP)</label>
-                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
-                                            class="form-control">
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Diterima Oleh</div>
-                                            <select name="user" class="form-control form-select" id="">
-                                                <option value="" selected disabled>Select User</option>
-                                                @foreach ($users as $user)
-                                                <option value="{{ $user->id }}" @selected(old('user')==$user->id)>
-                                                    {{ $user->full_name }}</option>
-                                                @endforeach
-                                            </select>
+                                        <div class="col-md-4 mt-3">
+                                            <div class="form-group">
+                                                <div class="label">Diterima Oleh</div>
+                                                <select name="user[]" class="form-control form-select" id="" multiple>
+                                                    @foreach ($users as $user)
+                                                        <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id, old('user')) ? 'selected' : '' }} @endif>
+                                                            {{ $user->full_name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <div class="label">Sales Order No.</div>
+                                                <select name="sale_order" id="sale_order" class="form-control">
 
                                             </select>
                                         </div>

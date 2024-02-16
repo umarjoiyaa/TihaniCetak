@@ -93,6 +93,12 @@ class PermissionTableSeeder extends Seeder
             'REKOD SERAHAN PLATE CETAX DAN SAMPLE Update',
             'REKOD SERAHAN PLATE CETAX DAN SAMPLE View',
             'REKOD SERAHAN PLATE CETAX DAN SAMPLE Delete',
+            'LAPORAN PROSES PENCETAKANI List',
+            'LAPORAN PROSES PENCETAKANI Create',
+            'LAPORAN PROSES PENCETAKANI Update',
+            'LAPORAN PROSES PENCETAKANI Verify',
+            'LAPORAN PROSES PENCETAKANI View',
+            'LAPORAN PROSES PENCETAKANI Delete',
          ];
 
         foreach ($permissions as $permission) {

@@ -31,36 +31,40 @@ $(document).ready(function () {
                 name: 'date',
             },
             {
-                data: 'mesin',
-                name: 'mesin',
+                data: 'time',
+                name: 'time',
             },
             {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
             {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
+            },
+            {
+                data: 'sale_order.description',
+                name: 'sale_order.description',
+            },
+            {
                 data: 'seksyen_no',
                 name: 'seksyen_no',
             },
             {
-                data: 'kuaniti_plate',
-                name: 'kuaniti_plate',
-            },
-            {
-                data: 'dummy_lipat',
-                name: 'dummy_lipat',
-            },
-            {
-                data: 'sample',
-                name: 'sample',
-            },
-            {
-                data: 'user.full_name',
-                name: 'user.full_name',
-            },
-            {
                 data: 'user_text',
                 name: 'user_text',
+            },
+            {
+                data: 'kuaniti_cetakan',
+                name: 'kuaniti_cetakan',
+            },
+            {
+                data: 'kuaniti_waste',
+                name: 'kuaniti_waste',
+            },
+            {
+                data: 'status',
+                name: 'status',
             },
             {
                 data: 'action',
@@ -107,36 +111,40 @@ function AjaxCall(columnsData) {
                 name: 'date',
             },
             {
-                data: 'mesin',
-                name: 'mesin',
+                data: 'time',
+                name: 'time',
             },
             {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
             {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
+            },
+            {
+                data: 'sale_order.description',
+                name: 'sale_order.description',
+            },
+            {
                 data: 'seksyen_no',
                 name: 'seksyen_no',
             },
             {
-                data: 'kuaniti_plate',
-                name: 'kuaniti_plate',
-            },
-            {
-                data: 'dummy_lipat',
-                name: 'dummy_lipat',
-            },
-            {
-                data: 'sample',
-                name: 'sample',
-            },
-            {
-                data: 'user.full_name',
-                name: 'user.full_name',
-            },
-            {
                 data: 'user_text',
                 name: 'user_text',
+            },
+            {
+                data: 'kuaniti_cetakan',
+                name: 'kuaniti_cetakan',
+            },
+            {
+                data: 'kuaniti_waste',
+                name: 'kuaniti_waste',
+            },
+            {
+                data: 'status',
+                name: 'status',
             },
             {
                 data: 'action',

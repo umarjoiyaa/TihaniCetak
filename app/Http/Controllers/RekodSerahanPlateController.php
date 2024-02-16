@@ -21,7 +21,7 @@ class RekodSerahanPlateController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = RekodSerahanPlate::select('id', 'sale_order_id', 'date', 'created_by', 'user_id', 'mesin', 'seksyen_no', 'kuaniti_plate', 'dummy_lipat', 'sample')->with('operator', 'user', 'sale_order');
+            $query = RekodSerahanPlate::select('id', 'sale_order_id', 'date', 'created_by', 'user_text', 'mesin', 'seksyen_no', 'kuaniti_plate', 'dummy_lipat', 'sample')->with('user', 'sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -32,17 +32,15 @@ class RekodSerahanPlateController extends Controller
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('operator', function ($query) use ($searchLower) {
-                            $query->where('user_name', 'like', '%' . $searchLower . '%');
-                        })
+                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('mesin', 'like', '%' . $searchLower . '%')
-                        ->where('seksyen_no', 'like', '%' . $searchLower . '%')
-                        ->where('kuaniti_plate', 'like', '%' . $searchLower . '%')
-                        ->where('dummy_lipat', 'like', '%' . $searchLower . '%')
-                        ->where('sample', 'like', '%' . $searchLower . '%');
+                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->oWhere('seksyen_no', 'like', '%' . $searchLower . '%')
+                        ->oWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
+                        ->oWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
+                        ->oWhere('sample', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -58,7 +56,7 @@ class RekodSerahanPlateController extends Controller
                     5 => 'kuaniti_plate',
                     6 => 'dummy_lipat',
                     7 => 'sample',
-                    8 => 'user_id',
+                    8 => 'user_text',
                     9 => 'created_by',
                     // Add more columns as needed
                 ];
@@ -104,9 +102,7 @@ class RekodSerahanPlateController extends Controller
                                 $q->where('sample', 'like', '%' . $searchLower . '%');
                                 break;
                             case 8:
-                                $q->whereHas('operator', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('user_text', 'like', '%' . $searchLower . '%');
                                 break;
                             case 9:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
@@ -165,7 +161,7 @@ class RekodSerahanPlateController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = RekodSerahanPlate::select('id', 'sale_order_id', 'date', 'created_by', 'user_id', 'mesin', 'seksyen_no', 'kuaniti_plate', 'dummy_lipat', 'sample')->with('operator', 'user', 'sale_order');
+            $query = RekodSerahanPlate::select('id', 'sale_order_id', 'date', 'created_by', 'user_text', 'mesin', 'seksyen_no', 'kuaniti_plate', 'dummy_lipat', 'sample')->with('user', 'sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -176,17 +172,15 @@ class RekodSerahanPlateController extends Controller
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('operator', function ($query) use ($searchLower) {
-                            $query->where('user_name', 'like', '%' . $searchLower . '%');
-                        })
+                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('mesin', 'like', '%' . $searchLower . '%')
-                        ->where('seksyen_no', 'like', '%' . $searchLower . '%')
-                        ->where('kuaniti_plate', 'like', '%' . $searchLower . '%')
-                        ->where('dummy_lipat', 'like', '%' . $searchLower . '%')
-                        ->where('sample', 'like', '%' . $searchLower . '%');
+                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->oWhere('seksyen_no', 'like', '%' . $searchLower . '%')
+                        ->oWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
+                        ->oWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
+                        ->oWhere('sample', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -199,7 +193,7 @@ class RekodSerahanPlateController extends Controller
                 5 => 'kuaniti_plate',
                 6 => 'dummy_lipat',
                 7 => 'sample',
-                8 => 'user_id',
+                8 => 'user_text',
                 9 => 'created_by',
                 // Add more columns as needed
             ];
@@ -287,10 +281,24 @@ class RekodSerahanPlateController extends Controller
             return redirect()->back()
                 ->withErrors($validator)->withInput();
         }
+
+        $userIds = $request->user;
+        $userNames = [];
+
+        foreach ($userIds as $userId) {
+            $user = User::find($userId);
+            if ($user) {
+               $userNames[] = $user->full_name;
+            }
+        }
+
+        $userText = implode(', ', $userNames);
+
         $rekod_serahan_plate = new RekodSerahanPlate();
         $rekod_serahan_plate->sale_order_id = $request->sale_order;
         $rekod_serahan_plate->date = $request->date;
-        $rekod_serahan_plate->user_id = $request->user;
+        $rekod_serahan_plate->user_id = json_encode($userIds);
+        $rekod_serahan_plate->user_text = $userText;
         $rekod_serahan_plate->jenis = $request->jenis;
         $rekod_serahan_plate->mesin = $request->mesin;
         $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
@@ -320,8 +328,9 @@ class RekodSerahanPlateController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
+        $users = User::all();
         Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Edit');
-        return view('Mes.RekodSerahanPlate.view', compact('rekod_serahan_plate'));
+        return view('Mes.RekodSerahanPlate.view', compact('rekod_serahan_plate', 'users'));
     }
 
     public function update(Request $request, $id)
@@ -347,10 +356,23 @@ class RekodSerahanPlateController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $userIds = $request->user;
+        $userNames = [];
+
+        foreach ($userIds as $userId) {
+            $user = User::find($userId);
+            if ($user) {
+               $userNames[] = $user->full_name;
+            }
+        }
+
+        $userText = implode(', ', $userNames);
+
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
         $rekod_serahan_plate->sale_order_id = $request->sale_order;
         $rekod_serahan_plate->date = $request->date;
-        $rekod_serahan_plate->user_id = $request->user;
+        $rekod_serahan_plate->user_id = json_encode($userIds);
+        $rekod_serahan_plate->user_text = $userText;
         $rekod_serahan_plate->jenis = $request->jenis;
         $rekod_serahan_plate->mesin = $request->mesin;
         $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
