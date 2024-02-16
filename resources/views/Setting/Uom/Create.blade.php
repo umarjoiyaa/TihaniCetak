@@ -10,10 +10,10 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('uom.store') }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('uom.store') }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">UOM Name</label>
                                     <input type="text" class="form-control required" name="name" value="{{old('name')}}" placeholder="UOM Name">

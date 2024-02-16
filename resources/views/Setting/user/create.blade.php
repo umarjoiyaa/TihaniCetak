@@ -10,8 +10,12 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
                                 <h4>User Information </h4>
+                            </div>
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <div class="form-group">
+                                    <label class="ckbox"><input checked="" type="checkbox" name="is_active"><span class="tx-17">Is Active</span></label>
                             </div>
                         </div>
                         <form action="{{route('user.store')}}" method="post">
@@ -84,9 +88,9 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <button class="btn btn-sm btn-primary float-end">Submit</button>
+                            <div class="row d-flex justify-content-end">
+                                <div class="col-md-4 d-flex justify-content-end">
+                                    <button class="btn btn-sm btn-primary ">Submit</button>
                                 </div>
                             </div>
                     </div>
@@ -94,8 +98,8 @@
 
                 </div>
 
-                <a href="{{ route('user') }}" class="btn">Back To List</a>
             </div>
+            <a href="{{ route('user') }}" class="btn">Back To List</a>
         </div>
     </div>
 @endsection

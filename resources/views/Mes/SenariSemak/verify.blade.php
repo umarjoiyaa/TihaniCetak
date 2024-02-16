@@ -751,19 +751,25 @@
                             </div>
                         </div>
 
-                        <form action="{{ route('senari_semak.approve.decline', $senari_semak->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <button class="btn btn-danger mx-2" type="submit">Decline</button>
-                        </form>
-                        <form action="{{ route('senari_semak.approve.approve', $senari_semak->id) }}" method="POST"
-                            enctype="multipart/form-data">
-                            @csrf
-                            <button class="btn btn-primary" type="submit"> Verify</button>
-                        </form>
+                        <div class="row d-flex justify-content-end">
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <form action="{{ route('senari_semak.approve.decline', $senari_semak->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                </form>
+                                <form action="{{ route('senari_semak.approve.approve', $senari_semak->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <button class="btn btn-primary" type="submit"> Verify</button>
+                                </form>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
-                <a href="{{ route('senari_semak') }}">back to list</a>
+                <a href="{{ route('senari_semak') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
+                    list</a>
             </div>
         </div>
     </div>

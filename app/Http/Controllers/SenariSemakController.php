@@ -260,18 +260,18 @@ class SenariSemakController extends Controller
     }
 
     public function index(){
-        if (
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital List') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Create') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Update') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital View') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Delete') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
-        ) {
-            Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital List');
+        // if (
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital List') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Create') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Update') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital View') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Delete') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
+        // ) {
+            // Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital List');
             return view('Mes.SenariSemak.index');
-        }
-        return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
+        // return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
