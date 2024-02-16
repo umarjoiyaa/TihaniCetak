@@ -1075,9 +1075,10 @@
 										</div>
 									</div>
 								</div>
+								
 								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
 									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical "></span>
+									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
 									<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
@@ -1702,7 +1703,8 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <script src="{{ asset('assets/js/select2.min.js') }}"></script>
+        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+
 
         	<!-- Internal Data tables -->
 		<script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
@@ -1735,9 +1737,6 @@
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
         @stack('custom-scripts')
-        <script>
-            $('.form-select').select2();
-        </script>
 	</body>
 
 <!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:13 GMT -->

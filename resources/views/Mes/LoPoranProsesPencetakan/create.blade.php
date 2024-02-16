@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
+                            <h5 class="float-left"><b>LAPORAN PROSES PENCETAKANl</b></h5>
                             <p class="float-right">TCBS-B61 (Rev.0)</p>
                         </div>
                     </div>
@@ -19,12 +19,12 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <input type="date"  name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Time</label>
-                                    <input type="time" value="Admin" readonly name="" id="" class="form-control">
+                                    <input type="time" name="" id="Currenttime" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
@@ -35,9 +35,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="" id="" readonly class="form-control">
+                                        <select name="" id="" class="form-control">
                                             <option value="">select sales Order no</option>
-                                            <option value="" selected>SO-001496</option>
+                                            <option value="">SO-001496</option>
                                         </select>
                                     </div>
                                 </div>
@@ -57,14 +57,14 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Seksyen No.</div>
-                                        <input type="text" readonly value="input text" name="" id=""
+                                        <input type="text" readonly placeholder="input text" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kuantiti cetakan</div>
-                                        <input type="number" readonly value="input text" name="" id=""
+                                        <input type="number" readonly placeholder="input text" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -73,7 +73,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Kuantiti waste</label>
-                                        <input type="text" readonly value="input text" name="" id=""
+                                        <input type="text" readonly placeholder="input text" name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -81,9 +81,9 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Operator</label>
-                                        <select name="" id="" readonly class="form-control">
+                                        <select name="" id="" class="form-control">
                                             <option value="">select sales Order no</option>
-                                            <option value="" selected>User A</option>
+                                            <option value="">User A</option>
                                             <option value="">User B</option>
                                         </select>
                                     </div>
@@ -93,14 +93,15 @@
                         </div>
                     </div>
 
+
                     <div class="card">
                         <div class="card-body">
-                            <div class="row" style="background:#f1f0f0;">
-                                <div class="col-md-5 mt-3">
-                                    <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece </b></h5>
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                                 </div>
-                                <div class="col-md-7"></div>
-                                <div class="col-md-6 mt-5">
+                                <div class="col-md-6"></div>
+                                <div class="col-md-7 mt-3">
 
                                     <table class="table table-bordered">
                                         <thead>
@@ -121,73 +122,73 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Artwork (Semak gambar dan teks)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Kotor, calar (Periksa setiap muka surat)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
                                                 <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
                                                 <td>Turutan mukasurat (Berturutan)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
                                                 <td>Kelekatan matt/gloss lamination</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
                                                 <td>Koyak (Terkoyak / Rosak)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
 
                                             </tr>
                                             <tr>
                                                 <td>9</td>
                                                 <td>Imej/artwork terpotong</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
                                                 <td>Cop (Cop pada setiap mockup)</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
                                             </tr>
 
                                         </tbody>
@@ -197,25 +198,26 @@
                         </div>
                     </div>
 
-
                     <div class="card">
                         <div class="card-body">
-                            <div class="row mt-5" style="background:#f1f0f0;">
-                                <div class="col-md-12 mt-3">
-                                    <h5><b>C) Pemeriksaan semasa proses Pencetakan</b></h5>
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
                                 </div>
-                                <div class="col-md-12 mt-5">
+                                <div class="col-md-12 mt-3">
+                                    <button class="btn btn-primary mb-3 float-right" id="AddRow">Add Row</button>
                                     <div class="table-responsive">
-                                        <table class="table table-bordered">
+
+                                        <table class="table table-bordered" id="table">
                                             <thead>
                                                 <tr>
-                                                    <td rowspan="2">Jumlah</td>
-                                                    <td colspan="7">Kriteria</td>
-                                                    <td rowspan="2">Check</td>
-                                                    <td rowspan="2">Check (Operator)</td>
-                                                    <td rowspan="2">Verify (QC)</td>
-                                                    <td rowspan="2">Verify</td>
-                                                    <td rowspan="2">Action</td>
+                                                    <th rowspan="2">Jumlah</th>
+                                                    <th colspan="7">Kriteria</th>
+                                                    <th rowspan="2">Check</th>
+                                                    <th rowspan="2">Check (Operator)</th>
+                                                    <th rowspan="2">Verify (QC)</th>
+                                                    <th rowspan="2">Verify</th>
+                                                    <th rowspan="2">Action</th>
                                                 </tr>
                                                 <tr>
                                                     <th>Gambar/teks</th>
@@ -239,12 +241,11 @@
                                                     <td><input type="checkbox" name="" id=""></td>
                                                     <td><button class="btn btn-primary"
                                                             style="border-radius:5px; ">check</button></td>
-                                                    <td>XX/13/12/2023 10:00Am</td>
-                                                    <td><button class="btn"
-                                                            style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                                    <td>username / datetime</td>
+                                                    <td><button class="btn btn-primary">Verify</button>
                                                     </td>
-                                                    <td>XB/13/12/2024 10:10Am</td>
-                                                    <td><button class="btn btn-danger"
+                                                    <td>username / datetime</td>
+                                                    <td><button class="btn btn-danger remove"
                                                             style="border-radius:5px; ">X</button>
                                                     </td>
                                                 </tr>
@@ -257,19 +258,77 @@
                     </div>
 
 
-                    <div class="row d-flex justify-content-end mt-5">
-                        <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn btn-danger mx-2">Decline</button>
-                            <button class="btn btn-primary ">Approve</button>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary float-right">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="{{route('LoPoranProsesPencetakan')}}">back to list</a>
     </div>
-
-    <a href="{{route('Ctp.index')}}">back to list</a>
-</div>
 </div>
 </div>
 @endsection
+
+@push('custom-scripts')
+
+<script>
+    function handleCheckboxChange(className, checkbox) {
+        if ($(checkbox).prop('checked')) {
+            $(.${ className }).not(checkbox).prop('checked', false);
+        }
+    }
+
+    $(document).ready(function() {
+  // Set current date
+  var currentDate = new Date().toISOString().split('T')[0];
+  $('#Currentdate').val(currentDate);
+
+   // Get current time
+   var now = new Date();
+  var hours = now.getHours().toString().padStart(2, '0');
+  var minutes = now.getMinutes().toString().padStart(2, '0');
+
+  // Combine hours and minutes
+  var currentTime = hours + ':' + minutes;
+  $('#Currenttime').val(currentTime);
+});
+
+
+var increment = 1000;
+$(document).on('click','#AddRow',function(){
+    if($('#table tbody tr').length == 0) {
+        increment = 500;
+    }
+    $('#table tbody ').append(` <tr>
+<td>${increment}</td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><input type=checkbox name=""></td>
+<td><button class="btn btn-primary" style=border-radius:5px>check</button></td>
+<td>username / datetime</td>
+<td><button class="btn btn-primary">Verify</button>
+</td>
+<td>username / datetime</td>
+<td><button class="btn btn-danger remove" style=border-radius:5px>X</button>
+</td>
+</tr>`);
+increment += 500;
+});
+
+$(document).on('click','.remove',function(){
+    increment -= 500;
+    $(this).closest('tr').remove();
+})
+</script>
+@endpush

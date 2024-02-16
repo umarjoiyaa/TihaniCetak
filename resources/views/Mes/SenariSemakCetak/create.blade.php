@@ -13,7 +13,7 @@
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Tarikh</div>
+                                            <div class="label">Sale Order NO.</div>
                                             <select name="sale_order" id="sale_order" class="form-control">
 
                                             </select>
@@ -906,61 +906,61 @@
                                     <tbody>
                                         <tr class="cover">
                                             <td>Cover</td>
-                                            <td><input type="checkbox" name="bahagianC[1][1]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[1][1]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][1]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][2]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[1][2]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][2]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][3]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[1][3]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][3]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][4]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[1][4]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][4]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][5]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[1][5]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[1][5]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Cover16" onchange="handleCheckboxChange('Cover16',this)" name="bahagianC[1][1]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Cover16" onchange="handleCheckboxChange('Cover16',this)" checked name="bahagianC[1][1]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Cover16" onchange="handleCheckboxChange('Cover16',this)"  name="bahagianC[1][1]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" name="bahagianC[1][2]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" checked name="bahagianC[1][2]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" name="bahagianC[1][2]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Endpapee12" onchange="handleCheckboxChange('Endpapee12',this)" name="bahagianC[1][3]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Endpapee12" onchange="handleCheckboxChange('Endpapee12',this)" checked name="bahagianC[1][3]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Endpapee12" onchange="handleCheckboxChange('Endpapee12',this)" name="bahagianC[1][3]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Cover17" onchange="handleCheckboxChange('Cover17',this)" name="bahagianC[1][4]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Cover17" onchange="handleCheckboxChange('Cover17',this)" checked name="bahagianC[1][4]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Cover17" onchange="handleCheckboxChange('Cover17',this)" name="bahagianC[1][4]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Text21" onchange="handleCheckboxChange('Text21',this)" name="bahagianC[1][5]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Text21" onchange="handleCheckboxChange('Text21',this)" checked name="bahagianC[1][5]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Text21" onchange="handleCheckboxChange('Text21',this)" name="bahagianC[1][5]" id="" value="na"></td>
                                             <td><input type="text" placeholder="input text" name="bahagianC[1][6]" id="" class="form-control"></td>
                                         </tr>
 
                                         <tr class="endpaper">
                                             <td>End/Leftlet</td>
-                                            <td><input type="checkbox" name="bahagianC[2][1]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[2][1]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][1]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][2]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[2][2]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][2]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][3]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[2][3]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][3]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][4]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[2][4]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][4]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][5]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[2][5]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[2][5]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Endpaper13" onchange="handleCheckboxChange('Endpaper13',this)" name="bahagianC[2][1]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Endpaper13" onchange="handleCheckboxChange('Endpaper13',this)" checked name="bahagianC[2][1]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Endpaper13" onchange="handleCheckboxChange('Endpaper13',this)" name="bahagianC[2][1]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Cover18" onchange="handleCheckboxChange('Cover18',this)" name="bahagianC[2][2]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Cover18" onchange="handleCheckboxChange('Cover18',this)" checked name="bahagianC[2][2]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Cover18" onchange="handleCheckboxChange('Cover18',this)" name="bahagianC[2][2]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Text22" onchange="handleCheckboxChange('Text22',this)" name="bahagianC[2][3]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Text22" onchange="handleCheckboxChange('Text22',this)" checked name="bahagianC[2][3]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Text22" onchange="handleCheckboxChange('Text22',this)" name="bahagianC[2][3]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Endpaper14" onchange="handleCheckboxChange('Endpaper14',this)" name="bahagianC[2][4]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Endpaper14" onchange="handleCheckboxChange('Endpaper14',this)" checked name="bahagianC[2][4]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Endpaper14" onchange="handleCheckboxChange('Endpaper14',this)" name="bahagianC[2][4]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Cover19" onchange="handleCheckboxChange('Cover19',this)" name="bahagianC[2][5]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Cover19" onchange="handleCheckboxChange('Cover19',this)" checked name="bahagianC[2][5]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Cover19" onchange="handleCheckboxChange('Cover19',this)" name="bahagianC[2][5]" id="" value="na"></td>
                                             <td><input type="text" placeholder="input text" name="bahagianC[2][6]" id="" class="form-control"></td>
                                         </tr>
 
                                         <tr class="section">
                                             <td>Section 1</td>
-                                            <td><input type="checkbox" name="bahagianC[3][1]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[3][1]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][1]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][2]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[3][2]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][2]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][3]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[3][3]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][3]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][4]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[3][4]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][4]" id="" value="na"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][5]" id="" value="ok"></td>
-                                            <td><input type="checkbox" checked name="bahagianC[3][5]" id="" value="ng"></td>
-                                            <td><input type="checkbox" name="bahagianC[3][5]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Text23" onchange="handleCheckboxChange('Text23',this)" name="bahagianC[3][1]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Text23" onchange="handleCheckboxChange('Text23',this)" checked name="bahagianC[3][1]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Text23" onchange="handleCheckboxChange('Text23',this)" name="bahagianC[3][1]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Endpaper15" onchange="handleCheckboxChange('Endpaper15',this)" name="bahagianC[3][2]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Endpaper15" onchange="handleCheckboxChange('Endpaper15',this)" checked name="bahagianC[3][2]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Endpaper15" onchange="handleCheckboxChange('Endpaper15',this)" name="bahagianC[3][2]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Cover20" onchange="handleCheckboxChange('Cover20',this)" name="bahagianC[3][3]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Cover20" onchange="handleCheckboxChange('Cover20',this)" checked name="bahagianC[3][3]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Cover20" onchange="handleCheckboxChange('Cover20',this)" name="bahagianC[3][3]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Text24" onchange="handleCheckboxChange('Text24',this)" name="bahagianC[3][4]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Text24" onchange="handleCheckboxChange('Text24',this)" checked name="bahagianC[3][4]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Text24" onchange="handleCheckboxChange('Text24',this)" name="bahagianC[3][4]" id="" value="na"></td>
+                                            <td><input type="checkbox" class="Endpaper16" onchange="handleCheckboxChange('Endpaper16',this)" name="bahagianC[3][5]" id="" value="ok"></td>
+                                            <td><input type="checkbox" class="Endpaper16" onchange="handleCheckboxChange('Endpaper16',this)" checked name="bahagianC[3][5]" id="" value="ng"></td>
+                                            <td><input type="checkbox" class="Endpaper16" onchange="handleCheckboxChange('Endpaper16',this)" name="bahagianC[3][5]" id="" value="na"></td>
                                             <td><input type="text" placeholder="input text" name="bahagianC[3][6]" id="" class="form-control"></td>
                                         </tr>
                                     </tbody>
@@ -1023,20 +1023,11 @@
 
 @push('custom-scripts')
     <script>
-        function handleCheckboxChange(groupClassName) {
-            const checkboxes = document.querySelectorAll(`.${groupClassName}`);
-
-            checkboxes.forEach(checkbox => {
-                checkbox.addEventListener('change', function() {
-                    checkboxes.forEach(cb => {
-                        if (cb !== this) {
-                            cb.checked = false;
-                        }
-                    });
-                });
-            });
+        function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-
         $(document).ready(function() {
             $('#sale_order').select2({
                 ajax: {
