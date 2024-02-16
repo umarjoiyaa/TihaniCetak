@@ -63,7 +63,8 @@
 		<!-- Switcher css -->
 		<link href="{{ asset('assets/switcher/css/switcher.css') }}" rel="stylesheet">
 		<link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
-
+		<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+		@yield('css')
 	</head>
 	<body class="main-body app sidebar-mini Light-mode">
 
@@ -763,9 +764,9 @@
 												<div class="col-lg-2 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Production</div>
                                                     <ul>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Scheduling</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Printing Process</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Call for assistance</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('ProductSCHEDULINIG.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Scheduling</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('PrintingProcess_Text.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Printing Process</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('CallForAssistance.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Call for assistance</a></li>
 
 
 
@@ -774,10 +775,10 @@
 												<div class="col-lg-3 col-md-12 col-xs-12 link-list">
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Dashboard</div>
 													<ul>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine Dashboard</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> OEE</a></li>
-                                                        <li aria-haspopup="true" ><a href="alerts.html"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Report</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('MachineDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine Dashboard</a></li>
+                                                        <li aria-haspopup="true" ><a href=""  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('OEEDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> OEE</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('ProductionReport.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Report</a></li>
 
 
 
@@ -1623,7 +1624,7 @@
 			<!-- Footer closed -->
 		</div>
 		<!--end  Page -->
-
+		@yield('script')
         <!-- Back-to-top -->
 		<a href="#top" id="back-to-top"><i class="la la-chevron-up"></i></a>
 
