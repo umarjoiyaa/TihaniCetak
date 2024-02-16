@@ -682,7 +682,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a href="{{route('senari_semak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pencetakan  <br> Digita</a></li>
-                                                                <li aria-haspopup="true"><a href="{{route('Senari_SemakPra_Cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('senari_semak_cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Senarai Semak Pra Cetak</a></li>
                                                                 <li aria-haspopup="true"><a href="{{route('REKOD_SERAHANPLATE')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Rekod serahan plate cetak <br> serta Sample</a></li>
                                                                 <li aria-haspopup="true"><a href="{{route('LoPoranProsesPencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Pencetakan </a></li>
 

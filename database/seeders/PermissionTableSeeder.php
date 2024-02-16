@@ -82,6 +82,12 @@ class PermissionTableSeeder extends Seeder
             'Senarai Semak Pencetakan Digital View',
             'Senarai Semak Pencetakan Digital Delete',
             'Senarai Semak Pencetakan Digital Verify',
+            'Senarai Semak Pra Cetak List',
+            'Senarai Semak Pra Cetak Create',
+            'Senarai Semak Pra Cetak Update',
+            'Senarai Semak Pra Cetak View',
+            'Senarai Semak Pra Cetak Delete',
+            'Senarai Semak Pra Cetak Verify',
          ];
 
         foreach ($permissions as $permission) {
