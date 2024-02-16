@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -191,7 +191,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('PlateCetak.index')}}">back to list</a>
+        <a href="{{route('PlateCetak')}}">back to list</a>
     </div>
 </div>
 </div>
