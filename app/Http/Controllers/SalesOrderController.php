@@ -130,21 +130,21 @@ class SalesOrderController extends Controller
             $index = 0;
             foreach ($sale as $row) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->order_status == 0) {
+                if ($row->order_status == 'pending') {
                     $row->order_status = '<span class="badge badge-warning">Pending</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 1) {
+                } else if ($row->order_status == 'approved') {
                     $row->order_status = '<span class="badge badge-success">Approved</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                                 <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
-                } else if ($row->order_status == 2) {
+                } else if ($row->order_status == 'declined') {
                     $row->order_status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 3) {
+                } else if ($row->order_status == 'published') {
                     $row->order_status = '<span class="badge badge-success">Published</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
@@ -228,21 +228,21 @@ class SalesOrderController extends Controller
 
             $sale->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->order_status == 0) {
+                if ($row->order_status == 'pending') {
                     $row->order_status = '<span class="badge badge-warning">Pending</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 1) {
+                } else if ($row->order_status == 'approved') {
                     $row->order_status = '<span class="badge badge-success">Approved</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                                 <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
-                } else if ($row->order_status == 2) {
+                } else if ($row->order_status == 'declined') {
                     $row->order_status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 3) {
+                } else if ($row->order_status == 'published') {
                     $row->order_status = '<span class="badge badge-success">Published</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
@@ -325,7 +325,7 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 1;
+        $sale_order->order_status = 'approved';
         $sale_order->approved_by_date = Carbon::now()->format('Y-m-d H:i:s');
         $sale_order->approved_by_user = Auth::user()->user_name;
         $sale_order->approved_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
@@ -341,7 +341,7 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 2;
+        $sale_order->order_status = 'declined';
         $sale_order->save();
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Declined');
         return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Declined!');
@@ -361,7 +361,7 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 3;
+        $sale_order->order_status = 'published';
         $sale_order->published_by_date = Carbon::now()->format('Y-m-d H:i:s');
         $sale_order->published_by_user = Auth::user()->user_name;
         $sale_order->published_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';

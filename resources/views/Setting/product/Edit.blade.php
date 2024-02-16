@@ -10,31 +10,33 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('product.update', $product->id) }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('product.update', $product->id) }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Item Code</label>
                                     <input type="text" class="form-control required" name="code"
                                         value="{{ $product->code }}" placeholder="Item Code">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Description</label>
                                     <input type="text" class="form-control required" name="description"
                                         value="{{ $product->description }}" placeholder="Description">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Group</label>
                                     <input type="text" class="form-control required" name="group"
                                         value="{{ $product->group }}" placeholder="Group">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Base UOM</label>
                                     <input type="text" class="form-control required" name="base_uom"

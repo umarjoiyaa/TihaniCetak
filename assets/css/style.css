@@ -17,6 +17,9 @@
   background-color: transparent;
   font-weight: 500;
 }
+.form-select{
+    width:100% !important;
+}
 .accordion .card-header a {
   display: block;
   padding: 14px 20px;

@@ -10,24 +10,24 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('area_shelf.store') }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('area_shelf.store') }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf Name</label>
                                     <input type="text" class="form-control required" name="name"
                                         value="{{ old('name') }}" placeholder="Shelf Name">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf Code</label>
                                     <input type="text" class="form-control required" name="code"
                                         value="{{ old('code') }}" placeholder="Shelf Code">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Level</label>
                                     <select name="level" class="form-select">
