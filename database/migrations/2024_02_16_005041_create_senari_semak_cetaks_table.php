@@ -18,6 +18,10 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('time')->nullable();
             $table->string('status')->nullable();
+            $table->string('verified_by_date')->nullable();
+            $table->string('verified_by_user')->nullable();
+            $table->string('verified_by_designation')->nullable();
+            $table->string('verified_by_department')->nullable();
 
             $table->string('item_cover_availibility')->nullable();
             $table->string('item_leaflet_availibility')->nullable();

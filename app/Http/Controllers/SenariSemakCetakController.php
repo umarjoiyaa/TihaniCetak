@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\SenariSemakCetak;
 use App\Models\SenariSemakCetakBahagiaA;
 use App\Models\SenariSemakCetakBahagiaC;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -538,6 +539,10 @@ class SenariSemakCetakController extends Controller
 
         $senari_semak_cetak = SenariSemakCetak::find($id);
         $senari_semak_cetak->status = 'verified';
+        $senari_semak_cetak->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $senari_semak_cetak->verified_by_user = Auth::user()->user_name;
+        $senari_semak_cetak->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $senari_semak_cetak->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
         $senari_semak_cetak->save();
         Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak Verified');
         return redirect()->route('senari_semak_cetak')->with('custom_success', 'Senarai Semak Pra Cetak has been Successfully Verified!');
