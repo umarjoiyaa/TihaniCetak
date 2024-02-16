@@ -7,42 +7,42 @@
             <div class="card mt-5">
                 <div class="card-header">
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title tx-20 mg-b-0 p-2">BORANG SERAH KERJA (TEKS)</h4>
+                        <h4 class="card-title tx-20 mg-b-0 p-2">PRODUCTION JOBSHEET LIST- COVER & ENDPAPER </h4>
                     </div>
 
                 </div>
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a href="{{route('BorangeSerahKerja_Teks.create')}}" class="btn btn-primary mb-2">Create</a>
-                    </div>
+                   
                     <div class="table-responsive">
-                        <table class="table table-bordered mt-2" id="example1">
+                        <table class="table table-bordered table-striped mt-2" id="example1">
                             <thead>
                                 <tr>
-                                    <th>Tarikh</th>
-                                    <th>Po No</th>
-                                    <th>Sales Order no</th>
-                                    <th>Tajuk</th>
-                                    <th>Nama Subkontraktor</th>
-                                    <th>Jumlah Seksyen</th>
-                                    <th>Jenis</th>
-                                    <th>Dateline</th>
+                                    <th>Sr.</th>
+                                    <th>Machine</th>
+                                    <th>Calling Datetime</th>
+                                    <th>Attended Datetime</th>
+                                    <th>Attended PIC</th>
+                                    <th>Remarks</th>
+                                    <th>Submitted Datetime</th>
                                     <th>Status</th>
+                                    <th>Image</th>
                                     <th>Action</th>
                                 </tr>
-                               
+
                             </thead>
                             <tbody>
                                 <tr class="">
-                                    <td>30/5/2023</td>
-                                    <td>123-1</td>
-                                    <td>SO-001496</td>
-                                    <td>IQRO'GENIUS RUMI(New Cover)</td>
+                                    <td>1</td>
+                                    <td>TK1</td>
+                                    <td>12/12/2023 10:30 Am</td>
+                                    <td>12/12/2023 10:50 Am</td>
                                     <td>Subcon A</td>
-                                    <td>3</td>
-                                    <td>End Paper</td>
-                                    <td>12/12/2024</td>
-                                    <td><span class="badge badge-pill badge-success w-100 p-2 mt-2  ">requested</span>
+                                    <td>XX</td>
+                                    <td>12/12/2023 4:30 PM</td>
+                                    <td><span class="badge badge-pill badge-success w-100 p-2 mt-2  ">Completed</span>
+                                    </td>
+                                    
+                                    <td><i class="fa fa-image" style="font-size:20px;"></i>
                                     </td>
                                     <td>
                                         <div class="dropdown">
@@ -52,16 +52,16 @@
                                                     class="fas fa-caret-down ml-1"></i></button>
                                             <div class="dropdown-menu tx-13">
                                                 <a class="dropdown-item"
-                                                    href="{{route('BorangeSerahKerja_Teks.view')}}">View</a>
+                                                    href="{{route('CallForAssistance.view')}}">View</a>
                                                 <a class="dropdown-item"
-                                                    href="{{route('BorangeSerahKerja_Teks.edit')}}">Edit</a>
-                                                <a class="dropdown-item"
-                                                    href="{{route('BorangeSerahKerja_Teks.verify')}}">verify</a>
+                                                    href="{{route('CallForAssistance.edit')}}">Edit</a>
+                                               
                                                 <a class="dropdown-item" href="">Delete</a>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
+                                
                             </tbody>
                         </table>
                     </div>

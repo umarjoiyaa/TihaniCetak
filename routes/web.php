@@ -5,6 +5,7 @@ use App\Http\Controllers\AreaController;
 use App\Http\Controllers\AreaLevelController;
 use App\Http\Controllers\BorangeSerahKerja_TeksController;
 use App\Http\Controllers\BorangeSerahKerjaController;
+use App\Http\Controllers\CallForAssistanceController;
 use App\Http\Controllers\Cover_endPaperController;
 use App\Http\Controllers\CTPController;
 use App\Http\Controllers\DepartmentController;
@@ -20,17 +21,22 @@ use App\Http\Controllers\LaporanProsesThreeKnifeController;
 use App\Http\Controllers\LoPoranProsesLipatController;
 use App\Http\Controllers\LoPoranProsesPencetakanController;
 use App\Http\Controllers\MachineController;
+use App\Http\Controllers\MachineDashboardController;
 use App\Http\Controllers\Manage_TransferController;
 use App\Http\Controllers\Material_requestController;
+use App\Http\Controllers\OEEDashboardController;
 use App\Http\Controllers\Pemeriksaan_PenghantaranController;
 use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
+use App\Http\Controllers\PrintingProcess_TextController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Production_ThreeKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
 use App\Http\Controllers\ProductionJobSheet_PrefecBindController;
 use App\Http\Controllers\ProductionJobSheet_StapleBINDController;
 use App\Http\Controllers\ProductionJobSheet_textController;
+use App\Http\Controllers\ProductionReportController;
+use App\Http\Controllers\ProductSCHEDULINIGController;
 use App\Http\Controllers\ProsespencetakanController;
 use App\Http\Controllers\REKOD_SERAHANPLAteController;
 use App\Http\Controllers\RoleController;
@@ -466,3 +472,27 @@ Route::get('/Production/BorangeSerahKerja_Teks/view', [BorangeSerahKerja_TeksCon
 Route::get('/Production/BorangeSerahKerja_Teks/create', [BorangeSerahKerja_TeksController::class, 'create'])->name('BorangeSerahKerja_Teks.create');
 Route::get('/Production/BorangeSerahKerja_Teks/edit', [BorangeSerahKerja_TeksController::class, 'edit'])->name('BorangeSerahKerja_Teks.edit');
 Route::get('/Production/BorangeSerahKerja_Teks/verify', [BorangeSerahKerja_TeksController::class, 'verify'])->name('BorangeSerahKerja_Teks.verify');
+
+// ProductSCHEDULINIG
+Route::get('/Production/ProductSCHEDULINIG', [ProductSCHEDULINIGController::class, 'index'])->name('ProductSCHEDULINIG.index');
+
+// PrintingProcess_Text
+Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text.index');
+Route::get('/Production/PrintingProcess_Text/view', [PrintingProcess_TextController::class, 'view'])->name('PrintingProcess_Text.view');
+Route::get('/Production/PrintingProcess_Text/edit', [PrintingProcess_TextController::class, 'edit'])->name('PrintingProcess_Text.edit');
+
+// CallForAssistance
+Route::get('/Production/CallForAssistance',[CallForAssistanceController::class, 'index'])->name('CallForAssistance.index');
+Route::get('/Production/CallForAssistance/edit',[CallForAssistanceController::class, 'edit'])->name('CallForAssistance.edit');
+Route::get('/Production/CallForAssistance/view',[CallForAssistanceController::class, 'view'])->name('CallForAssistance.view');
+
+// MachineDashboard
+Route::get('/Production/MachineDashboard',[MachineDashboardController::class, 'index'])->name('MachineDashboard.index');
+
+// OEEDashboard
+Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])->name('OEEDashboard.index');
+
+// ProductionReport
+Route::get('/Production/ProductionReport',[ProductionReportController::class, 'index'])->name('ProductionReport.index');
+
+

@@ -277,9 +277,10 @@
                             </div>
                         </div>
 
-                        <div class="row mt-2">
-                            <div class="col-md-12">
-                                <button class="btn btn-primary float-right">print</button>
+                        <div class="row mt-2 d-flex justify-content-end">
+                            <div class="col-md-12 d-flex justify-content-end">
+                                <button class="btn btn-danger mx-2">Decline</button>
+                                <button class="btn btn-primary">Approved</button>
                             </div>
                         </div>
                     </div>
