@@ -27,10 +27,9 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Diterima Oleh</div>
-                                                <select name="user" class="form-control form-select" id="">
-                                                    <option value="" selected disabled>Select User</option>
+                                                <select name="user[]" class="form-control form-select" id="" multiple>
                                                     @foreach ($users as $user)
-                                                        <option value="{{ $user->id }}" @selected(old('user') == $user->id)>
+                                                        <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id, old('user')) ? 'selected' : '' }} @endif>
                                                             {{ $user->full_name }}</option>
                                                     @endforeach
                                                 </select>

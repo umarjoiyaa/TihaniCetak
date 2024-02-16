@@ -59,8 +59,8 @@ $(document).ready(function () {
                 name: 'user.full_name',
             },
             {
-                data: 'operator.full_name',
-                name: 'operator.full_name',
+                data: 'user_text',
+                name: 'user_text',
             },
             {
                 data: 'action',
@@ -135,8 +135,8 @@ function AjaxCall(columnsData) {
                 name: 'user.full_name',
             },
             {
-                data: 'operator.full_name',
-                name: 'operator.full_name',
+                data: 'user_text',
+                name: 'user_text',
             },
             {
                 data: 'action',

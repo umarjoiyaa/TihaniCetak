@@ -22,16 +22,20 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <label for="">Disediakan Oleh (Unit CTP)</label>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
-                                                class="form-control">
+                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                                id="" class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Diterima Oleh</div>
-                                                <select name="user" class="form-control form-select" id="">
-                                                    <option value="" selected disabled>Select User</option>
+                                                @php
+                                                    $item = json_decode($rekod_serahan_plate->user_id);
+                                                @endphp
+                                                <select name="user[]" class="form-control form-select" id=""
+                                                    multiple>
                                                     @foreach ($users as $user)
-                                                        <option value="{{ $user->id }}" @selected($rekod_serahan_plate->user_id == $user->id)>
+                                                        <option value="{{ $user->id }}" @if ($item)
+                                                            {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
                                                             {{ $user->full_name }}</option>
                                                     @endforeach
                                                 </select>
@@ -40,8 +44,9 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
-                                                <select name="sale_order" data-id="{{ $rekod_serahan_plate->sale_order_id }}"
-                                                    id="sale_order" class="form-control">
+                                                <select name="sale_order"
+                                                    data-id="{{ $rekod_serahan_plate->sale_order_id }}" id="sale_order"
+                                                    class="form-control">
                                                     <option value="{{ $rekod_serahan_plate->sale_order_id }}" selected
                                                         style="color: black; !important">
                                                         {{ $rekod_serahan_plate->sale_order->order_no }}</option>
@@ -72,15 +77,15 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Seksyen No.</div>
-                                                <input type="text" name="seksyen_no"
-                                                    id="" class="form-control" value="{{ $rekod_serahan_plate->seksyen_no }}">
+                                                <input type="text" name="seksyen_no" id="" class="form-control"
+                                                    value="{{ $rekod_serahan_plate->seksyen_no }}">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Kuaniti Plate.</div>
-                                                <input type="text" name="kuaniti_plate"
-                                                    id="" class="form-control" value="{{ $rekod_serahan_plate->kuaniti_plate }}">
+                                                <input type="text" name="kuaniti_plate" id=""
+                                                    class="form-control" value="{{ $rekod_serahan_plate->kuaniti_plate }}">
                                             </div>
                                         </div>
 
@@ -115,17 +120,19 @@
                                         <tbody>
                                             <tr>
                                                 <td>Dummy Lipat</td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ok') name="dummy_lipat" id="" value="ok">
+                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ok') name="dummy_lipat"
+                                                        id="" value="ok">
                                                 </td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ng') name="dummy_lipat" value="ng"
-                                                        id=""></td>
+                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ng') name="dummy_lipat"
+                                                        value="ng" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Sample</td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ok') name="sample" id="" value="ok">
+                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ok') name="sample"
+                                                        id="" value="ok">
                                                 </td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ng') name="sample" id=""
-                                                        value="ng"></td>
+                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ng') name="sample"
+                                                        id="" value="ng"></td>
                                             </tr>
                                         </tbody>
                                     </table>
