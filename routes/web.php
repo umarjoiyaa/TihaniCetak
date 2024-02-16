@@ -19,7 +19,7 @@ use App\Http\Controllers\LaporanProsesPenjilidanController;
 use App\Http\Controllers\LaporanProsesPenjilidanSaddleStitchController;
 use App\Http\Controllers\LaporanProsesThreeKnifeController;
 use App\Http\Controllers\LoPoranProsesLipatController;
-use App\Http\Controllers\LoPoranProsesPencetakanController;
+use App\Http\Controllers\LaporanProsesPencetakaniCetakController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboardController;
 use App\Http\Controllers\Manage_TransferController;
@@ -313,12 +313,18 @@ Route::get('/Mes/RekodSerahanPlate/View/{id}', [RekodSerahanPlateController::cla
 Route::post('/Mes/RekodSerahanPlate/Update/{id}', [RekodSerahanPlateController::class, 'Update'])->name('rekod_serahan_plate.update');
 Route::get('/Mes/RekodSerahanPlate/Delete/{id}', [RekodSerahanPlateController::class, 'Delete'])->name('rekod_serahan_plate.delete');
 
-// LoPoranProsesPencetakan
-Route::get('/Mes/LoPoranProsesPencetakan', [LoPoranProsesPencetakanController::class, 'index'])->name('LoPoranProsesPencetakan');
-Route::get('/Mes/LoPoranProsesPencetakan/view', [LoPoranProsesPencetakanController::class, 'view'])->name('LoPoranProsesPencetakan.view');
-Route::get('/Mes/LoPoranProsesPencetakan/create', [LoPoranProsesPencetakanController::class, 'create'])->name('LoPoranProsesPencetakan.create');
-Route::get('/Mes/LoPoranProsesPencetakan/edit', [LoPoranProsesPencetakanController::class, 'edit'])->name('LoPoranProsesPencetakan.edit');
-Route::get('/Mes/LoPoranProsesPencetakan/verify', [LoPoranProsesPencetakanController::class, 'verify'])->name('LoPoranProsesPencetakan.verify');
+// Laporan Proses Pencetakani
+Route::get('/Mes/LaporanProsesPencetakani', [LaporanProsesPencetakaniCetakController::class, 'index'])->name('laporan_proses_pencetakani');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/data', [LaporanProsesPencetakaniCetakController::class, 'Data'])->name('laporan_proses_pencetakani.data');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/create', [LaporanProsesPencetakaniCetakController::class, 'create'])->name('laporan_proses_pencetakani.create');
+Route::post('/Mes/LaporanProsesPencetakaniCetak/store', [LaporanProsesPencetakaniCetakController::class, 'store'])->name('laporan_proses_pencetakani.store');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/view/{id}', [LaporanProsesPencetakaniCetakController::class, 'view'])->name('laporan_proses_pencetakani.view');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/edit/{id}', [LaporanProsesPencetakaniCetakController::class, 'edit'])->name('laporan_proses_pencetakani.edit');
+Route::post('/Mes/LaporanProsesPencetakaniCetak/update/{id}', [LaporanProsesPencetakaniCetakController::class, 'update'])->name('laporan_proses_pencetakani.update');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/verify/{id}', [LaporanProsesPencetakaniCetakController::class, 'verify'])->name('laporan_proses_pencetakani.verify');
+Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/approve/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_approve'])->name('laporan_proses_pencetakani.approve.approve');
+Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/decline/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_decline'])->name('laporan_proses_pencetakani.approve.decline');
+Route::get('/Mes/LaporanProsesPencetakaniCetak/delete/{id}', [LaporanProsesPencetakaniCetakController::class, 'delete'])->name('laporan_proses_pencetakani.delete');
 
 // LoPoranProsesLipat
 Route::get('/Mes/LoPoranProsesLipat', [LoPoranProsesLipatController::class, 'index'])->name('LoPoranProsesLipat');
