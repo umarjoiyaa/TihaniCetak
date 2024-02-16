@@ -32,6 +32,8 @@
                                     value="{{ $product->group }}" placeholder="Group">
                             </div>
                         </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Base UOM</label>

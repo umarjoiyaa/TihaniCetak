@@ -118,9 +118,9 @@
                                     <tr>
                                         <td>1</td>
                                         <td>Design clearance 5mm (print to cut dan stitching binding)</td>
-                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" checked name="" id=""></td>
-                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1')" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" checked name="" id=""></td>
+                                        <td class="cover"><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
                                         <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" name="" id=""></td>
                                         <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" checked name="" id=""></td>
                                         <td class="text"><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1')" name="" id=""></td>
@@ -720,15 +720,15 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="btn btn-primary float-right">Save</button>
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-md-4 d-flex justify-content-end">
+                            <button class="btn btn-primary ">Save</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="{{route('SenariSemak')}}">back to list</a>
+        <a href="{{route('Senari_SemakPra_Cetak')}}">back to list</a>
     </div>
 </div>
 @endsection
@@ -737,19 +737,11 @@
 
 <script>
 
-function handleCheckboxChange(groupClassName) {
-        const checkboxes = document.querySelectorAll(`.${groupClassName}`);
-
-        checkboxes.forEach(checkbox => {
-            checkbox.addEventListener('change', function () {
-                checkboxes.forEach(cb => {
-                    if (cb !== this) {
-                        cb.checked = false;
-                    }
-                });
-            });
-        });
-    }
+function handleCheckboxChange(className,checkbox) {
+  if ($(checkbox).prop('checked')) {
+    $(`.${className}`).not(checkbox).prop('checked', false);
+  }
+}
     $(document).ready(function() {
   // Set current date
   var currentDate = new Date().toISOString().split('T')[0];
@@ -781,7 +773,7 @@ $(document).on('change','#Endpaper',function(){
     }
 })
 
-$(document).on('change keyup','#Text',function(){
+$(document).on('change','#Text',function(){
     var value = +$(this).val();
     if(value == 0){
         $('.text').css('display', 'none');
@@ -806,7 +798,7 @@ $(document).on('change keyup','#Text',function(){
             for (let i = length; i <= value; i++) {
               $('#table tbody').append(`<tr class="section">
                                      <td>Section ${i}</td>
-                                     <td><input type="checkbox" name="" id=""></td>
+                                     <td><input type="checkbox" class="" name="" id=""></td>
                                      <td><input type="checkbox" checked name="" id=""></td>
                                      <td><input type="checkbox" name="" id=""></td>
                                      <td><input type="checkbox" name="" id=""></td>

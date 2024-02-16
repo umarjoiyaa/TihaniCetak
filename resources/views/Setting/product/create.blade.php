@@ -10,28 +10,30 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('product.store') }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('product.store') }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Item Code</label>
                                     <input type="text" class="form-control required" name="code" value="{{old('code')}}" placeholder="Item Code">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Description</label>
                                     <input type="text" class="form-control required" name="description" value="{{old('description')}}" placeholder="Description">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Group</label>
                                     <input type="text" class="form-control required" name="group" value="{{old('group')}}" placeholder="Group">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Base UOM</label>
                                     <input type="text" class="form-control required" name="base_uom" value="{{old('base_uom')}}" placeholder="Base UOM">

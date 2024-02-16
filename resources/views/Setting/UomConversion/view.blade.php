@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                         <div class="row mt-3">
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">From</label>
                                     <select disabled name="from" class="form-select" id="from">
@@ -23,7 +23,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">To</label>
                                     <select disabled name="to" class="form-select" id="to">
@@ -35,14 +35,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Base Value</label>
                                     <input disabled type="number" class="form-control required" name="base_value"
                                         value="{{ $UomConversion->from_value }}" placeholder="Base Value">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                        </div>
+
+                            <div class="row">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Conversion Ratio</label>
                                     <input disabled type="number" class="form-control required" name="conversion_ratio"

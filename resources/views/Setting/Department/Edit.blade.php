@@ -10,10 +10,10 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('department.update', $department->id) }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('department.update', $department->id) }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Department Name</label>
                                     <input type="text" class="form-control required" value="{{$department->name}}" name="name" placeholder="Department Name">

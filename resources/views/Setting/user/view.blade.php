@@ -10,9 +10,15 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-12">
+                            <div class="col-md-8">
                                 <h4>User Information </h4>
                             </div>
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <div class="form-group">
+                                    <label class="ckbox"><input disabled @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Is Active</span></label>
+                                </div>
+                        </div>
+
                         </div>
                         <div class="row">
                             <div class="col-md-4">
@@ -100,8 +106,8 @@
 
                 </div>
 
-                <a href="{{ route('user') }}" class="btn">Back To List</a>
             </div>
+            <a href="{{ route('user') }}" class="btn">Back To List</a>
         </div>
     </div>
 @endsection

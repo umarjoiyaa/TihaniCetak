@@ -10,16 +10,16 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('area_level.update', $area_level->id) }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('area_level.update', $area_level->id) }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Level Name</label>
                                     <input type="text" class="form-control required" name="name" value="{{$area_level->name}}" placeholder="Level Name">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Level Code</label>
                                     <input type="text" class="form-control required" name="code" value="{{$area_level->code}}" placeholder="Level Code">

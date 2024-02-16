@@ -1,4 +1,4 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
 <div class="container">
@@ -721,7 +721,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('SenariSemak.index')}}">back to list</a>
+        <a href="{{route('Senari_SemakPra_Cetak')}}">back to list</a>
     </div>
 </div>
 </div>

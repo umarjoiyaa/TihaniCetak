@@ -10,16 +10,16 @@
                     </div>
                 </div>
                 <div class="card-body">
+                    <form action="{{ route('machine.update', $machine->id) }}" method="post">
                     <div class="row mt-3">
-                        <form action="{{ route('machine.update', $machine->id) }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Machine Name</label>
                                     <input type="text" class="form-control required" name="name" value="{{$machine->name}}" placeholder="Machine Name">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Machine Code</label>
                                     <input type="text" class="form-control required" name="code" value="{{$machine->code}}" placeholder="Machine Code">
