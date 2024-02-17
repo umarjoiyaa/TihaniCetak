@@ -194,7 +194,8 @@
                                                                                 readonly value="{{ $value1->c_5 }}">
                                                                         </td>
                                                                         <td><button type="button"
-                                                                                class="btn btn-primary verify_btn" disabled>Verify</button>
+                                                                                class="btn btn-primary verify_btn"
+                                                                                disabled>Verify</button>
                                                                         </td>
                                                                         <td><input type="text"
                                                                                 name="section[{{ $key1 + 1 }}][{{ $key2 + 1 }}][1]"
@@ -211,9 +212,35 @@
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
+
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <h3><b>Verified By</b></h3>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Username</th>
+                                        <th>Desgination</th>
+                                        <th>Department</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $laporan_proses_lipat->verified_by_date }}</td>
+                                        <td>{{ $laporan_proses_lipat->verified_by_user }}</td>
+                                        <td>{{ $laporan_proses_lipat->verified_by_designation }}</td>
+                                        <td>{{ $laporan_proses_lipat->verified_by_department }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
