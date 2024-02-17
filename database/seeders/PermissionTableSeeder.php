@@ -111,6 +111,12 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PROSES PENJILIDAN Verify',
             'LAPORAN PROSES PENJILIDAN View',
             'LAPORAN PROSES PENJILIDAN Delete',
+            'LAPORAN PROSES PENJILIDAN SADDLE List',
+            'LAPORAN PROSES PENJILIDAN SADDLE Create',
+            'LAPORAN PROSES PENJILIDAN SADDLE Update',
+            'LAPORAN PROSES PENJILIDAN SADDLE Verify',
+            'LAPORAN PROSES PENJILIDAN SADDLE View',
+            'LAPORAN PROSES PENJILIDAN SADDLE Delete',
          ];
 
         foreach ($permissions as $permission) {

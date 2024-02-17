@@ -261,7 +261,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">Jumlah </th>
-                                            <th colspan="5s">Kriteria</th>
+                                            <th colspan="5">Kriteria</th>
                                             <th rowspan="2">Check (Operator)</th>
                                             <th rowspan="2">Username / datetime</th>
                                             <th rowspan="2">Verify</th>

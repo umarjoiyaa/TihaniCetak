@@ -3,16 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Models\LaporanProsesPenjilidan;
-use App\Models\LaporanProsesPenjilidanC;
+use App\Models\LaporanProsesPenjilidanSaddle;
+use App\Models\LaporanProsesPenjilidanSaddleC;
 use App\Models\User;
-use App\Models\SenariSemakCetak;
-use App\Models\SaleOrder;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class LaporanProsesPenjilidanController extends Controller
+class LaporanProsesPenjilidanSaddleController extends Controller
 {
     public function Data(Request $request)
     {
@@ -25,7 +23,7 @@ class LaporanProsesPenjilidanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id', 'date', 'user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
+            $query = LaporanProsesPenjilidanSaddle::select('id', 'sale_order_id', 'date', 'time', 'user_text', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -33,8 +31,8 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->oWhere('user_text', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->oWhere('pembantu_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -44,6 +42,9 @@ class LaporanProsesPenjilidanController extends Controller
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('size', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
                             $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
@@ -58,14 +59,15 @@ class LaporanProsesPenjilidanController extends Controller
             if (!empty($columnsData)) {
                 $sortableColumns = [
                     1 => 'date',
-                    2 => 'sale_order_id',
+                    2 => 'time',
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'jenis',
-                    7 => 'user_text',
-                    8 => 'pembantu_text',
-                    9 => 'status',
+                    6 => 'sale_order_id',
+                    7 => 'sale_order_id',
+                    8 => 'user_text',
+                    9 => 'pembantu_text',
+                    10 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -90,35 +92,40 @@ class LaporanProsesPenjilidanController extends Controller
                                 $q->where('date', 'like', '%' . $searchLower . '%');
                                 break;
                             case 2:
+                                $q->where('time', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 3:
+                            case 4:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 4:
+                            case 5:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 5:
+                            case 6:
                                 $q->whereHas('senari_semak', function ($query) use ($searchLower) {
                                     $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 6:
-                                $q->where('jenis', 'like', '%' . $searchLower . '%');
-                                break;
                             case 7:
-                                $q->where('user_text', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
+                                    $query->where('size', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 8:
-                                $q->where('pembantu_text', 'like', '%' . $searchLower . '%');
+                                $q->where('user_text', 'like', '%' . $searchLower . '%');
                                 break;
                             case 9:
+                                $q->where('pembantu_text', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 10:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -143,20 +150,20 @@ class LaporanProsesPenjilidanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -189,7 +196,7 @@ class LaporanProsesPenjilidanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id', 'date', 'user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
+            $query = LaporanProsesPenjilidanSaddle::select('id', 'sale_order_id', 'date', 'time', 'user_text', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -197,8 +204,8 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->oWhere('user_text', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->oWhere('pembantu_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -208,6 +215,9 @@ class LaporanProsesPenjilidanController extends Controller
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('size', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
                             $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
@@ -219,14 +229,15 @@ class LaporanProsesPenjilidanController extends Controller
 
             $sortableColumns = [
                 1 => 'date',
-                2 => 'sale_order_id',
+                2 => 'time',
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'jenis',
-                7 => 'user_text',
-                8 => 'pembantu_text',
-                9 => 'status',
+                6 => 'sale_order_id',
+                7 => 'sale_order_id',
+                8 => 'user_text',
+                9 => 'pembantu_text',
+                10 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -250,20 +261,20 @@ class LaporanProsesPenjilidanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_proses_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -286,38 +297,31 @@ class LaporanProsesPenjilidanController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN List') ||
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Create') ||
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Update') ||
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN View') ||
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Delete') ||
-            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Verify')
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE List') ||
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Create') ||
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Update') ||
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE View') ||
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Delete') ||
+            Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Verify')
         ) {
-            Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN List');
-            return view('Mes.LaporanProsesPenjilidan.index');
+            Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE List');
+            return view('Mes.LaporanProsesPenjilidanSaddle.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $users = User::all();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Create');
-        return view('Mes.LaporanProsesPenjilidan.create', compact('users'));
-    }
-
-    public function sale_order_detail(Request $request)
-    {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'size')->where('id', $request->id)->first();
-        $section = SenariSemakCetak::select('id', 'item_cover_text')->where('sale_order_id', $request->id)->first();
-        return response()->json(['sale_order' => $sale_order, 'section' => $section]);
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Create');
+        return view('Mes.LaporanProsesPenjilidanSaddle.create', compact('users'));
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -328,7 +332,6 @@ class LaporanProsesPenjilidanController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'jenis' => 'required',
             'pembantu' => 'required',
             'semasa' => 'required'
         ]);
@@ -363,33 +366,32 @@ class LaporanProsesPenjilidanController extends Controller
 
         $pembantuText = implode(', ', $pembantuNames);
 
-        $laporan_proses_penjilidan = new LaporanProsesPenjilidan();
-        $laporan_proses_penjilidan->sale_order_id = $request->sale_order;
-        $laporan_proses_penjilidan->date = $request->date;
-        $laporan_proses_penjilidan->time = $request->time;
-        $laporan_proses_penjilidan->created_by = Auth::user()->id;
+        $laporan_proses_penjilidan_saddle = new LaporanProsesPenjilidanSaddle();
+        $laporan_proses_penjilidan_saddle->sale_order_id = $request->sale_order;
+        $laporan_proses_penjilidan_saddle->date = $request->date;
+        $laporan_proses_penjilidan_saddle->time = $request->time;
+        $laporan_proses_penjilidan_saddle->created_by = Auth::user()->id;
 
-        $laporan_proses_penjilidan->jenis = $request->jenis;
-        $laporan_proses_penjilidan->user_id = json_encode($userIds);
-        $laporan_proses_penjilidan->user_text = $userText;
-        $laporan_proses_penjilidan->pembantu = json_encode($pembantuIds);
-        $laporan_proses_penjilidan->pembantu_text = $pembantuText;
+        $laporan_proses_penjilidan_saddle->user_id = json_encode($userIds);
+        $laporan_proses_penjilidan_saddle->user_text = $userText;
+        $laporan_proses_penjilidan_saddle->pembantu = json_encode($pembantuIds);
+        $laporan_proses_penjilidan_saddle->pembantu_text = $pembantuText;
 
-        $laporan_proses_penjilidan->b_1 = $request->b_1;
-        $laporan_proses_penjilidan->b_2 = $request->b_2;
-        $laporan_proses_penjilidan->b_3 = $request->b_3;
-        $laporan_proses_penjilidan->b_4 = $request->b_4;
-        $laporan_proses_penjilidan->b_5 = $request->b_5;
-        $laporan_proses_penjilidan->b_6 = $request->b_6;
-        $laporan_proses_penjilidan->b_7 = $request->b_7;
-        $laporan_proses_penjilidan->b_8 = $request->b_8;
+        $laporan_proses_penjilidan_saddle->b_1 = $request->b_1;
+        $laporan_proses_penjilidan_saddle->b_2 = $request->b_2;
+        $laporan_proses_penjilidan_saddle->b_3 = $request->b_3;
+        $laporan_proses_penjilidan_saddle->b_4 = $request->b_4;
+        $laporan_proses_penjilidan_saddle->b_5 = $request->b_5;
+        $laporan_proses_penjilidan_saddle->b_6 = $request->b_6;
+        $laporan_proses_penjilidan_saddle->b_7 = $request->b_7;
+        $laporan_proses_penjilidan_saddle->b_8 = $request->b_8;
 
-        $laporan_proses_penjilidan->status = 'checked';
-        $laporan_proses_penjilidan->save();
+        $laporan_proses_penjilidan_saddle->status = 'checked';
+        $laporan_proses_penjilidan_saddle->save();
 
         foreach($request->semasa as $value){
-           $detail = new LaporanProsesPenjilidanC();
-           $detail->proses_penjilidan_id = $laporan_proses_penjilidan->id;
+           $detail = new LaporanProsesPenjilidanSaddleC();
+           $detail->penjilidan_id = $laporan_proses_penjilidan_saddle->id;
            $detail->c_1 = $value['1'] ?? null;
            $detail->c_2 = $value['2'] ?? null;
            $detail->c_3 = $value['3'] ?? null;
@@ -398,38 +400,40 @@ class LaporanProsesPenjilidanController extends Controller
            $detail->c_6 = $value['6'] ?? null;
            $detail->c_7 = $value['7'] ?? null;
            $detail->c_8 = $value['8'] ?? null;
+           $detail->c_9 = $value['9'] ?? null;
+           $detail->c_10 = $value['10'] ?? null;
            $detail->save();
         }
 
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Store');
-        return redirect()->route('laporan_proses_penjilidan')->with('custom_success', 'LAPORAN PROSES PENJILIDAN has been Created Successfully !');
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Store');
+        return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Created Successfully !');
     }
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $details = LaporanProsesPenjilidanC::where('proses_penjilidan_id', '=', $id)->get();
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $details = LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->get();
         $users = User::all();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Update');
-        return view('Mes.LaporanProsesPenjilidan.edit', compact('laporan_proses_penjilidan', 'users', 'details'));
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Update');
+        return view('Mes.LaporanProsesPenjilidanSaddle.edit', compact('laporan_proses_penjilidan_saddle', 'users', 'details'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN View')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $details = LaporanProsesPenjilidanC::where('proses_penjilidan_id', '=', $id)->get();
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $details = LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->get();
         $users = User::all();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN View');
-        return view('Mes.LaporanProsesPenjilidan.view', compact('laporan_proses_penjilidan', 'users', 'details'));
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE View');
+        return view('Mes.LaporanProsesPenjilidanSaddle.view', compact('laporan_proses_penjilidan_saddle', 'users', 'details'));
     }
 
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -440,7 +444,6 @@ class LaporanProsesPenjilidanController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'jenis' => 'required',
             'pembantu' => 'required',
             'semasa' => 'required'
         ]);
@@ -475,35 +478,34 @@ class LaporanProsesPenjilidanController extends Controller
 
         $pembantuText = implode(', ', $pembantuNames);
 
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $laporan_proses_penjilidan->sale_order_id = $request->sale_order;
-        $laporan_proses_penjilidan->date = $request->date;
-        $laporan_proses_penjilidan->time = $request->time;
-        $laporan_proses_penjilidan->created_by = Auth::user()->id;
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $laporan_proses_penjilidan_saddle->sale_order_id = $request->sale_order;
+        $laporan_proses_penjilidan_saddle->date = $request->date;
+        $laporan_proses_penjilidan_saddle->time = $request->time;
+        $laporan_proses_penjilidan_saddle->created_by = Auth::user()->id;
 
-        $laporan_proses_penjilidan->jenis = $request->jenis;
-        $laporan_proses_penjilidan->user_id = json_encode($userIds);
-        $laporan_proses_penjilidan->user_text = $userText;
-        $laporan_proses_penjilidan->pembantu = json_encode($pembantuIds);
-        $laporan_proses_penjilidan->pembantu_text = $pembantuText;
+        $laporan_proses_penjilidan_saddle->user_id = json_encode($userIds);
+        $laporan_proses_penjilidan_saddle->user_text = $userText;
+        $laporan_proses_penjilidan_saddle->pembantu = json_encode($pembantuIds);
+        $laporan_proses_penjilidan_saddle->pembantu_text = $pembantuText;
 
-        $laporan_proses_penjilidan->b_1 = $request->b_1;
-        $laporan_proses_penjilidan->b_2 = $request->b_2;
-        $laporan_proses_penjilidan->b_3 = $request->b_3;
-        $laporan_proses_penjilidan->b_4 = $request->b_4;
-        $laporan_proses_penjilidan->b_5 = $request->b_5;
-        $laporan_proses_penjilidan->b_6 = $request->b_6;
-        $laporan_proses_penjilidan->b_7 = $request->b_7;
-        $laporan_proses_penjilidan->b_8 = $request->b_8;
+        $laporan_proses_penjilidan_saddle->b_1 = $request->b_1;
+        $laporan_proses_penjilidan_saddle->b_2 = $request->b_2;
+        $laporan_proses_penjilidan_saddle->b_3 = $request->b_3;
+        $laporan_proses_penjilidan_saddle->b_4 = $request->b_4;
+        $laporan_proses_penjilidan_saddle->b_5 = $request->b_5;
+        $laporan_proses_penjilidan_saddle->b_6 = $request->b_6;
+        $laporan_proses_penjilidan_saddle->b_7 = $request->b_7;
+        $laporan_proses_penjilidan_saddle->b_8 = $request->b_8;
 
-        $laporan_proses_penjilidan->status = 'checked';
-        $laporan_proses_penjilidan->save();
+        $laporan_proses_penjilidan_saddle->status = 'checked';
+        $laporan_proses_penjilidan_saddle->save();
 
-        LaporanProsesPenjilidanC::where('proses_penjilidan_id', '=', $id)->delete();
+        LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->delete();
 
         foreach($request->semasa as $value){
-           $detail = new LaporanProsesPenjilidanC();
-           $detail->proses_penjilidan_id = $laporan_proses_penjilidan->id;
+           $detail = new LaporanProsesPenjilidanSaddleC();
+           $detail->penjilidan_id = $laporan_proses_penjilidan_saddle->id;
            $detail->c_1 = $value['1'] ?? null;
            $detail->c_2 = $value['2'] ?? null;
            $detail->c_3 = $value['3'] ?? null;
@@ -512,67 +514,69 @@ class LaporanProsesPenjilidanController extends Controller
            $detail->c_6 = $value['6'] ?? null;
            $detail->c_7 = $value['7'] ?? null;
            $detail->c_8 = $value['8'] ?? null;
+           $detail->c_9 = $value['9'] ?? null;
+           $detail->c_10 = $value['10'] ?? null;
            $detail->save();
         }
 
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Update');
-        return redirect()->route('laporan_proses_penjilidan')->with('custom_success', 'LAPORAN PROSES PENJILIDAN has been Updated Successfully !');
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Update');
+        return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Updated Successfully !');
     }
 
     public function verify($id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $details = LaporanProsesPenjilidanC::where('proses_penjilidan_id', '=', $id)->get();
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $details = LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->get();
         $users = User::all();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Update');
-        return view('Mes.LaporanProsesPenjilidan.verify', compact('laporan_proses_penjilidan', 'users', 'details'));
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Update');
+        return view('Mes.LaporanProsesPenjilidanSaddle.verify', compact('laporan_proses_penjilidan_saddle', 'users', 'details'));
     }
 
     public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $laporan_proses_penjilidan->status = 'verified';
-        $laporan_proses_penjilidan->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
-        $laporan_proses_penjilidan->verified_by_user = Auth::user()->user_name;
-        $laporan_proses_penjilidan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $laporan_proses_penjilidan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
-        $laporan_proses_penjilidan->save();
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $laporan_proses_penjilidan_saddle->status = 'verified';
+        $laporan_proses_penjilidan_saddle->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $laporan_proses_penjilidan_saddle->verified_by_user = Auth::user()->user_name;
+        $laporan_proses_penjilidan_saddle->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $laporan_proses_penjilidan_saddle->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_proses_penjilidan_saddle->save();
 
         foreach($request->semasa as $key => $value){
-            $detail = LaporanProsesPenjilidanC::find($key);
-            $detail->c_8 = $value['1'] ?? null;
+            $detail = LaporanProsesPenjilidanSaddleC::find($key);
+            $detail->c_10 = $value['1'] ?? null;
             $detail->save();
          }
 
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Verified');
-        return redirect()->route('laporan_proses_penjilidan')->with('custom_success', 'LAPORAN PROSES PENJILIDAN has been Successfully Verified!');
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Verified');
+        return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Successfully Verified!');
     }
 
     public function approve_decline(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        $laporan_proses_penjilidan->status = 'declined';
-        $laporan_proses_penjilidan->save();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Declined');
-        return redirect()->route('laporan_proses_penjilidan')->with('custom_success', 'LAPORAN PROSES PENJILIDAN has been Successfully Declined!');
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        $laporan_proses_penjilidan_saddle->status = 'declined';
+        $laporan_proses_penjilidan_saddle->save();
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Declined');
+        return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Successfully Declined!');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN Delete')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PROSES PENJILIDAN SADDLE Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
-        LaporanProsesPenjilidanC::where('proses_penjilidan_id', '=', $id)->delete();
-        $laporan_proses_penjilidan->delete();
-        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN', 'LAPORAN PROSES PENJILIDAN Delete');
-        return redirect()->route('laporan_proses_penjilidan')->with('custom_success', 'LAPORAN PROSES PENJILIDAN has been Successfully Deleted!');
+        $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
+        LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->delete();
+        $laporan_proses_penjilidan_saddle->delete();
+        Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Delete');
+        return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Successfully Deleted!');
     }
 }
