@@ -487,10 +487,12 @@
                                             <td>17</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][17]"
-                                                            id="" class="form-control">
+                                                    <div class="col-md-4"><input class="form-check-input inputChecked"
+                                                        type="checkbox"
+                                                       id=""> Others: </div>
+                                                    <div class="col-md-8"><input type="text" width=""
+                                                             name="bahagianA[1][21]"
+                                                            id="" class="form-control textInput" disabled>
                                                     </div>
                                                 </div>
                                             </td>
@@ -527,10 +529,12 @@
                                             <td>18</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][18]"
-                                                            id="" class="form-control">
+                                                    <div class="col-md-4"><input class="form-check-input inputChecked"
+                                                        type="checkbox"
+                                                       id=""> Others: </div>
+                                                    <div class="col-md-8"><input type="text" width=""
+                                                             name="bahagianA[1][21]"
+                                                            id="" class="form-control textInput" disabled>
                                                     </div>
                                                 </div>
                                             </td>
@@ -566,10 +570,12 @@
                                             <td>19</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][19]"
-                                                            id="" class="form-control">
+                                                    <div class="col-md-4"><input class="form-check-input inputChecked"
+                                                        type="checkbox"
+                                                       id=""> Others: </div>
+                                                    <div class="col-md-8"><input type="text" width=""
+                                                             name="bahagianA[1][21]"
+                                                            id="" class="form-control textInput" disabled>
                                                     </div>
                                                 </div>
                                             </td>
@@ -605,10 +611,12 @@
                                             <td>20</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][20]"
-                                                            id="" class="form-control">
+                                                    <div class="col-md-4"><input class="form-check-input inputChecked"
+                                                        type="checkbox"
+                                                       id=""> Others: </div>
+                                                    <div class="col-md-8"><input type="text" width=""
+                                                             name="bahagianA[1][21]"
+                                                            id="" class="form-control textInput" disabled>
                                                     </div>
                                                 </div>
                                             </td>
@@ -644,10 +652,12 @@
                                             <td>21</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][21]"
-                                                            id="" class="form-control">
+                                                    <div class="col-md-4"><input class="form-check-input inputChecked"
+                                                        type="checkbox"
+                                                       id=""> Others: </div>
+                                                    <div class="col-md-8"><input type="text" width=""
+                                                             name="bahagianA[1][21]"
+                                                            id="" class="form-control textInput" disabled>
                                                     </div>
                                                 </div>
                                             </td>
@@ -1023,6 +1033,19 @@
 
 @push('custom-scripts')
     <script>
+
+$(".inputChecked").on("change", function() {
+    // Check if the checkbox is checked
+    if ($(this).prop("checked")) {
+        // Find the closest td and then find the textInput within that td
+        $(this).closest("td").find(".textInput").removeAttr("disabled");
+    } else {
+        // If the checkbox is not checked, you might want to handle this case accordingly
+        // For example, you can add logic to disable the textInput
+        $(this).closest("td").find(".textInput").prop("disabled", true);
+    }
+});
+
         function handleCheckboxChange(className, checkbox) {
             if ($(checkbox).prop('checked')) {
               $(`.${ className }`).not(checkbox).prop('checked', false);
@@ -1061,7 +1084,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.order_no || null;
                 }
             });
 
@@ -1097,7 +1120,7 @@
             }
         })
 
-        $(document).on('change keyup', '#Text', function() {
+        $(document).on('change ', '#Text', function() {
             var value = +$(this).val();
             if (value == 0) {
                 $('.text').css('display', 'none');
@@ -1123,21 +1146,21 @@
                         $key = $('#table tbody tr').length + 1;
                         $('#table tbody').append(`<tr class="section">
                                      <td>Section ${i}</td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][1]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][2]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][3]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][4]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" name="bahagianC[${$key}][1]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" checked name="bahagianC[${$key}][1]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" name="bahagianC[${$key}][1]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" name="bahagianC[${$key}][2]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" checked name="bahagianC[${$key}][2]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" name="bahagianC[${$key}][2]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" name="bahagianC[${$key}][3]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" checked name="bahagianC[${$key}][3]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" name="bahagianC[${$key}][3]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" name="bahagianC[${$key}][4]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" checked name="bahagianC[${$key}][4]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" name="bahagianC[${$key}][4]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="na"></td>
                                      <td><input type="text" placeholder="input text" name="bahagianC[${$key}][6]" id="" class="form-control"></td>
                                  </tr>`);
 

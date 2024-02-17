@@ -599,7 +599,7 @@
             if ($(checkbox).prop('checked')) {
               $(`.${ className }`).not(checkbox).prop('checked', false);
             }
-        }   
+        }
         $(document).ready(function() {
             $('#sale_order').select2({
                 ajax: {
@@ -633,7 +633,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.order_no || null;
                 }
             });
 

@@ -262,18 +262,18 @@ class SenariSemakCetakController extends Controller
     }
 
     public function index(){
-        if (
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak List') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Create') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Update') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak View') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Delete') ||
-            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Verify')
-        ) {
-            Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak List');
+        // if (
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak List') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Create') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Update') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak View') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Delete') ||
+        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Verify')
+        // ) {
+        //     Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak List');
             return view('Mes.SenariSemakCetak.index');
-        }
-        return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
+        // return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){

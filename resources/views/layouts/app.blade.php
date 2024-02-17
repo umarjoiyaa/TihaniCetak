@@ -1081,16 +1081,13 @@
 									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
 								</button>
 								<div class="dropdown main-profile-menu nav nav-item nav-link">
-									<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
-									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
+									<a class="profile-user" href="#" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" src="{{ asset('assets/img/tihani.png') }}" ></a>
+									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp" aria-labelledby="dropdownMenuLink">
 										<div class="main-header-profile header-img">
 											<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 											<h6>Elizabeth Jane</h6><span>Premium Member</span>
 										</div>
-										<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
-										<a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit Profile</a>
-										<a class="dropdown-item" href="#"><i class="far fa-clock"></i> Activity Logs</a>
-										<a class="dropdown-item" href="#"><i class="fas fa-sliders-h"></i> Account Settings</a>
+
 										<a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
 									</div>
 								</div>
