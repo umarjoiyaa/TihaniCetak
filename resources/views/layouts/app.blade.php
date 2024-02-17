@@ -762,7 +762,7 @@
                                                                             style="color: #a41843"></iconify-icon>Laporan
                                                                         Proses Penjilidan <br> (Saddle stitch)</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('LaporanProsesThreeKnife') }}"
+                                                                        href="{{ route('laporan_proses_three') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

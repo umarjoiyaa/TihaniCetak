@@ -117,6 +117,12 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PROSES PENJILIDAN SADDLE Verify',
             'LAPORAN PROSES PENJILIDAN SADDLE View',
             'LAPORAN PROSES PENJILIDAN SADDLE Delete',
+            'LAPORAN PROSES THREE KNIFE List',
+            'LAPORAN PROSES THREE KNIFE Create',
+            'LAPORAN PROSES THREE KNIFE Update',
+            'LAPORAN PROSES THREE KNIFE Verify',
+            'LAPORAN PROSES THREE KNIFE View',
+            'LAPORAN PROSES THREE KNIFE Delete',
          ];
 
         foreach ($permissions as $permission) {

@@ -17,7 +17,7 @@ use App\Http\Controllers\invertory_ShopFloorController;
 use App\Http\Controllers\Laporan_PemeriksaanController;
 use App\Http\Controllers\LaporanProsesPenjilidanController;
 use App\Http\Controllers\LaporanProsesPenjilidanSaddleController;
-use App\Http\Controllers\LaporanProsesThreeKnifeController;
+use App\Http\Controllers\LaporanProsesThreeController;
 use App\Http\Controllers\LaporanProsesLipatController;
 use App\Http\Controllers\LaporanProsesPencetakaniCetakController;
 use App\Http\Controllers\MachineController;
@@ -366,12 +366,18 @@ Route::post('/Mes/LaporanProsesPenjilidanSaddle/approve/approve/{id}', [LaporanP
 Route::post('/Mes/LaporanProsesPenjilidanSaddle/approve/decline/{id}', [LaporanProsesPenjilidanSaddleController::class, 'approve_decline'])->name('laporan_proses_penjilidan_saddle.approve.decline');
 Route::get('/Mes/LaporanProsesPenjilidanSaddle/delete/{id}', [LaporanProsesPenjilidanSaddleController::class, 'delete'])->name('laporan_proses_penjilidan_saddle.delete');
 
-// LaporanProsesThreeKnife
-Route::get('/Mes/LaporanProsesThreeKnife', [LaporanProsesThreeKnifeController::class, 'index'])->name('LaporanProsesThreeKnife');
-Route::get('/Mes/LaporanProsesThreeKnife/view', [LaporanProsesThreeKnifeController::class, 'view'])->name('LaporanProsesThreeKnife.view');
-Route::get('/Mes/LaporanProsesThreeKnife/create', [LaporanProsesThreeKnifeController::class, 'create'])->name('LaporanProsesThreeKnife.create');
-Route::get('/Mes/LaporanProsesThreeKnife/edit', [LaporanProsesThreeKnifeController::class, 'edit'])->name('LaporanProsesThreeKnife.edit');
-Route::get('/Mes/LaporanProsesThreeKnife/verify', [LaporanProsesThreeKnifeController::class, 'verify'])->name('LaporanProsesThreeKnife.verify');
+// Laporan Proses Three
+Route::get('/Mes/LaporanProsesThree', [LaporanProsesThreeController::class, 'index'])->name('laporan_proses_three');
+Route::get('/Mes/LaporanProsesThree/data', [LaporanProsesThreeController::class, 'Data'])->name('laporan_proses_three.data');
+Route::get('/Mes/LaporanProsesThree/create', [LaporanProsesThreeController::class, 'create'])->name('laporan_proses_three.create');
+Route::post('/Mes/LaporanProsesThree/store', [LaporanProsesThreeController::class, 'store'])->name('laporan_proses_three.store');
+Route::get('/Mes/LaporanProsesThree/view/{id}', [LaporanProsesThreeController::class, 'view'])->name('laporan_proses_three.view');
+Route::get('/Mes/LaporanProsesThree/edit/{id}', [LaporanProsesThreeController::class, 'edit'])->name('laporan_proses_three.edit');
+Route::post('/Mes/LaporanProsesThree/update/{id}', [LaporanProsesThreeController::class, 'update'])->name('laporan_proses_three.update');
+Route::get('/Mes/LaporanProsesThree/verify/{id}', [LaporanProsesThreeController::class, 'verify'])->name('laporan_proses_three.verify');
+Route::post('/Mes/LaporanProsesThree/approve/approve/{id}', [LaporanProsesThreeController::class, 'approve_approve'])->name('laporan_proses_three.approve.approve');
+Route::post('/Mes/LaporanProsesThree/approve/decline/{id}', [LaporanProsesThreeController::class, 'approve_decline'])->name('laporan_proses_three.approve.decline');
+Route::get('/Mes/LaporanProsesThree/delete/{id}', [LaporanProsesThreeController::class, 'delete'])->name('laporan_proses_three.delete');
 
 // CTP
 Route::get('/Mes/Ctp', [CTPController::class, 'index'])->name('Ctp');
