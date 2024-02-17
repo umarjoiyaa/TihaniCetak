@@ -24,7 +24,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Checked By (Operator)</div>
-                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
+                                        <input type="text" value="{{ $laporan_proses_lipat->user->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>

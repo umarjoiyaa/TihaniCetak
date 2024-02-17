@@ -339,12 +339,19 @@ Route::post('/Mes/LaporanProsesLipat/approve/approve/{id}', [LaporanProsesLipatC
 Route::post('/Mes/LaporanProsesLipat/approve/decline/{id}', [LaporanProsesLipatController::class, 'approve_decline'])->name('laporan_proses_lipat.approve.decline');
 Route::get('/Mes/LaporanProsesLipat/delete/{id}', [LaporanProsesLipatController::class, 'delete'])->name('laporan_proses_lipat.delete');
 
-// LaporanProsesPenjilidan
-Route::get('/Mes/LaporanProsesPenjilidan', [LaporanProsesPenjilidanController::class, 'index'])->name('LaporanProsesPenjilidan');
-Route::get('/Mes/LaporanProsesPenjilidan/view', [LaporanProsesPenjilidanController::class, 'view'])->name('LaporanProsesPenjilidan.view');
-Route::get('/Mes/LaporanProsesPenjilidan/create', [LaporanProsesPenjilidanController::class, 'create'])->name('LaporanProsesPenjilidan.create');
-Route::get('/Mes/LaporanProsesPenjilidan/edit', [LaporanProsesPenjilidanController::class, 'edit'])->name('LaporanProsesPenjilidan.edit');
-Route::get('/Mes/LaporanProsesPenjilidan/verify', [LaporanProsesPenjilidanController::class, 'verify'])->name('LaporanProsesPenjilidan.verify');
+// Laporan Proses Penjilidan
+Route::get('/Mes/LaporanProsesPenjilidan', [LaporanProsesPenjilidanController::class, 'index'])->name('laporan_proses_penjilidan');
+Route::get('/Mes/LaporanProsesPenjilidan/data', [LaporanProsesPenjilidanController::class, 'Data'])->name('laporan_proses_penjilidan.data');
+Route::get('/Mes/LaporanProsesPenjilidan/create', [LaporanProsesPenjilidanController::class, 'create'])->name('laporan_proses_penjilidan.create');
+Route::get('/Mes/LaporanProsesPenjilidan/SaleOrder/detail/get', [LaporanProsesPenjilidanController::class, 'sale_order_detail'])->name('sale_order_penjilidan.detail.get');
+Route::post('/Mes/LaporanProsesPenjilidan/store', [LaporanProsesPenjilidanController::class, 'store'])->name('laporan_proses_penjilidan.store');
+Route::get('/Mes/LaporanProsesPenjilidan/view/{id}', [LaporanProsesPenjilidanController::class, 'view'])->name('laporan_proses_penjilidan.view');
+Route::get('/Mes/LaporanProsesPenjilidan/edit/{id}', [LaporanProsesPenjilidanController::class, 'edit'])->name('laporan_proses_penjilidan.edit');
+Route::post('/Mes/LaporanProsesPenjilidan/update/{id}', [LaporanProsesPenjilidanController::class, 'update'])->name('laporan_proses_penjilidan.update');
+Route::get('/Mes/LaporanProsesPenjilidan/verify/{id}', [LaporanProsesPenjilidanController::class, 'verify'])->name('laporan_proses_penjilidan.verify');
+Route::post('/Mes/LaporanProsesPenjilidan/approve/approve/{id}', [LaporanProsesPenjilidanController::class, 'approve_approve'])->name('laporan_proses_penjilidan.approve.approve');
+Route::post('/Mes/LaporanProsesPenjilidan/approve/decline/{id}', [LaporanProsesPenjilidanController::class, 'approve_decline'])->name('laporan_proses_penjilidan.approve.decline');
+Route::get('/Mes/LaporanProsesPenjilidan/delete/{id}', [LaporanProsesPenjilidanController::class, 'delete'])->name('laporan_proses_penjilidan.delete');
 
 // LaporanProsesPenjilidanSaddleStitch
 Route::get('/Mes/LaporanProsesPenjilidan(SaddleStitch)', [LaporanProsesPenjilidanSaddleStitchController::class, 'index'])->name('LaporanProsesPenjilidan(SaddleStitch)');
