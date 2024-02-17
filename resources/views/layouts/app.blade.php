@@ -1087,10 +1087,7 @@
 											<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
 											<h6>Elizabeth Jane</h6><span>Premium Member</span>
 										</div>
-										<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
-										<a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit Profile</a>
-										<a class="dropdown-item" href="#"><i class="far fa-clock"></i> Activity Logs</a>
-										<a class="dropdown-item" href="#"><i class="fas fa-sliders-h"></i> Account Settings</a>
+
 										<a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
 									</div>
 								</div>
@@ -1703,7 +1700,7 @@
 		<script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
         <!-- Select 2 Js-->
-        <link rel="stylesheet" href="{{ asset('assets/js/select2.min.js') }}">
+        <script rel="stylesheet" src="{{ asset('assets/js/select2.min.js') }}"></script>
 
 
         	<!-- Internal Data tables -->
