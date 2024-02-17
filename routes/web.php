@@ -18,7 +18,7 @@ use App\Http\Controllers\Laporan_PemeriksaanController;
 use App\Http\Controllers\LaporanProsesPenjilidanController;
 use App\Http\Controllers\LaporanProsesPenjilidanSaddleStitchController;
 use App\Http\Controllers\LaporanProsesThreeKnifeController;
-use App\Http\Controllers\LoPoranProsesLipatController;
+use App\Http\Controllers\LaporanProsesLipatController;
 use App\Http\Controllers\LaporanProsesPencetakaniCetakController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboardController;
@@ -290,7 +290,7 @@ Route::post('/Mes/SenariSemak/approve/approve/{id}', [SenariSemakController::cla
 Route::post('/Mes/SenariSemak/approve/decline/{id}', [SenariSemakController::class, 'approve_decline'])->name('senari_semak.approve.decline');
 Route::get('/Mes/SenariSemak/delete/{id}', [SenariSemakController::class, 'delete'])->name('senari_semak.delete');
 
-// Senari Semak
+// Senari Semak Cetak
 Route::get('/Mes/SenariSemakCetak', [SenariSemakCetakController::class, 'index'])->name('senari_semak_cetak');
 Route::get('/Mes/SenariSemakCetak/data', [SenariSemakCetakController::class, 'Data'])->name('senari_semak_cetak.data');
 Route::get('/Mes/SenariSemakCetak/create', [SenariSemakCetakController::class, 'create'])->name('senari_semak_cetak.create');
@@ -326,12 +326,18 @@ Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/approve/{id}', [LaporanP
 Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/decline/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_decline'])->name('laporan_proses_pencetakani.approve.decline');
 Route::get('/Mes/LaporanProsesPencetakaniCetak/delete/{id}', [LaporanProsesPencetakaniCetakController::class, 'delete'])->name('laporan_proses_pencetakani.delete');
 
-// LoPoranProsesLipat
-Route::get('/Mes/LoPoranProsesLipat', [LoPoranProsesLipatController::class, 'index'])->name('LoPoranProsesLipat');
-Route::get('/Mes/LoPoranProsesLipat/view', [LoPoranProsesLipatController::class, 'view'])->name('LoPoranProsesLipat.view');
-Route::get('/Mes/LoPoranProsesLipat/create', [LoPoranProsesLipatController::class, 'create'])->name('LoPoranProsesLipat.create');
-Route::get('/Mes/LoPoranProsesLipat/edit', [LoPoranProsesLipatController::class, 'edit'])->name('LoPoranProsesLipat.edit');
-Route::get('/Mes/LoPoranProsesLipat/verify', [LoPoranProsesLipatController::class, 'verify'])->name('LoPoranProsesLipat.verify');
+// Laporan Proses Lipat
+Route::get('/Mes/LaporanProsesLipat', [LaporanProsesLipatController::class, 'index'])->name('laporan_proses_lipat');
+Route::get('/Mes/LaporanProsesLipat/data', [LaporanProsesLipatController::class, 'Data'])->name('laporan_proses_lipat.data');
+Route::get('/Mes/LaporanProsesLipat/create', [LaporanProsesLipatController::class, 'create'])->name('laporan_proses_lipat.create');
+Route::post('/Mes/LaporanProsesLipat/store', [LaporanProsesLipatController::class, 'store'])->name('laporan_proses_lipat.store');
+Route::get('/Mes/LaporanProsesLipat/view/{id}', [LaporanProsesLipatController::class, 'view'])->name('laporan_proses_lipat.view');
+Route::get('/Mes/LaporanProsesLipat/edit/{id}', [LaporanProsesLipatController::class, 'edit'])->name('laporan_proses_lipat.edit');
+Route::post('/Mes/LaporanProsesLipat/update/{id}', [LaporanProsesLipatController::class, 'update'])->name('laporan_proses_lipat.update');
+Route::get('/Mes/LaporanProsesLipat/verify/{id}', [LaporanProsesLipatController::class, 'verify'])->name('laporan_proses_lipat.verify');
+Route::post('/Mes/LaporanProsesLipat/approve/approve/{id}', [LaporanProsesLipatController::class, 'approve_approve'])->name('laporan_proses_lipat.approve.approve');
+Route::post('/Mes/LaporanProsesLipat/approve/decline/{id}', [LaporanProsesLipatController::class, 'approve_decline'])->name('laporan_proses_lipat.approve.decline');
+Route::get('/Mes/LaporanProsesLipat/delete/{id}', [LaporanProsesLipatController::class, 'delete'])->name('laporan_proses_lipat.delete');
 
 // LaporanProsesPenjilidan
 Route::get('/Mes/LaporanProsesPenjilidan', [LaporanProsesPenjilidanController::class, 'index'])->name('LaporanProsesPenjilidan');

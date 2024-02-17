@@ -689,7 +689,7 @@
 
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a href="{{route('LoPoranProsesLipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
+                                                                <li aria-haspopup="true"><a href="{{route('laporan_proses_lipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Lipat</a></li>
                                                                 <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Perfect Bind)</a></li>
                                                                 <li aria-haspopup="true"><a href="{{route('LaporanProsesPenjilidan(SaddleStitch)')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses Penjilidan  <br> (Saddle stitch)</a></li>
                                                                 <li aria-haspopup="true"><a href="{{route('LaporanProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Laporan Proses 3 Knife</a></li>

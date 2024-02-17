@@ -99,6 +99,12 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PROSES PENCETAKANI Verify',
             'LAPORAN PROSES PENCETAKANI View',
             'LAPORAN PROSES PENCETAKANI Delete',
+            'LAPORAN PROSES LIPAT List',
+            'LAPORAN PROSES LIPAT Create',
+            'LAPORAN PROSES LIPAT Update',
+            'LAPORAN PROSES LIPAT Verify',
+            'LAPORAN PROSES LIPAT View',
+            'LAPORAN PROSES LIPAT Delete',
          ];
 
         foreach ($permissions as $permission) {

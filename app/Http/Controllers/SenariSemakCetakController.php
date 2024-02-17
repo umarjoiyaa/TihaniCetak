@@ -286,7 +286,6 @@ class SenariSemakCetakController extends Controller
 
     public function store(Request $request)
     {
-        // dd($request->all());
         if (!Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
