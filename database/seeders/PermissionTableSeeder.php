@@ -123,6 +123,12 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PROSES THREE KNIFE Verify',
             'LAPORAN PROSES THREE KNIFE View',
             'LAPORAN PROSES THREE KNIFE Delete',
+            'PROSES PENCETAKAN List',
+            'PROSES PENCETAKAN Create',
+            'PROSES PENCETAKAN Update',
+            'PROSES PENCETAKAN Verify',
+            'PROSES PENCETAKAN View',
+            'PROSES PENCETAKAN Delete',
          ];
 
         foreach ($permissions as $permission) {

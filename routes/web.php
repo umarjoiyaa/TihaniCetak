@@ -37,7 +37,7 @@ use App\Http\Controllers\ProductionJobSheet_StapleBINDController;
 use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProductionReportController;
 use App\Http\Controllers\ProductSCHEDULINIGController;
-use App\Http\Controllers\ProsespencetakanController;
+use App\Http\Controllers\ProsesPencetakanController;
 use App\Http\Controllers\RekodSerahanPlateController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
@@ -378,6 +378,19 @@ Route::get('/Mes/LaporanProsesThree/verify/{id}', [LaporanProsesThreeController:
 Route::post('/Mes/LaporanProsesThree/approve/approve/{id}', [LaporanProsesThreeController::class, 'approve_approve'])->name('laporan_proses_three.approve.approve');
 Route::post('/Mes/LaporanProsesThree/approve/decline/{id}', [LaporanProsesThreeController::class, 'approve_decline'])->name('laporan_proses_three.approve.decline');
 Route::get('/Mes/LaporanProsesThree/delete/{id}', [LaporanProsesThreeController::class, 'delete'])->name('laporan_proses_three.delete');
+
+// Proses Pencetakan
+Route::get('/Mes/ProsesPencetakan', [ProsesPencetakanController::class, 'index'])->name('proses_pencetakan');
+Route::get('/Mes/ProsesPencetakan/data', [ProsesPencetakanController::class, 'Data'])->name('proses_pencetakan.data');
+Route::get('/Mes/ProsesPencetakan/create', [ProsesPencetakanController::class, 'create'])->name('proses_pencetakan.create');
+Route::post('/Mes/ProsesPencetakan/store', [ProsesPencetakanController::class, 'store'])->name('proses_pencetakan.store');
+Route::get('/Mes/ProsesPencetakan/view/{id}', [ProsesPencetakanController::class, 'view'])->name('proses_pencetakan.view');
+Route::get('/Mes/ProsesPencetakan/edit/{id}', [ProsesPencetakanController::class, 'edit'])->name('proses_pencetakan.edit');
+Route::post('/Mes/ProsesPencetakan/update/{id}', [ProsesPencetakanController::class, 'update'])->name('proses_pencetakan.update');
+Route::get('/Mes/ProsesPencetakan/verify/{id}', [ProsesPencetakanController::class, 'verify'])->name('proses_pencetakan.verify');
+Route::post('/Mes/ProsesPencetakan/approve/approve/{id}', [ProsesPencetakanController::class, 'approve_approve'])->name('proses_pencetakan.approve.approve');
+Route::post('/Mes/ProsesPencetakan/approve/decline/{id}', [ProsesPencetakanController::class, 'approve_decline'])->name('proses_pencetakan.approve.decline');
+Route::get('/Mes/ProsesPencetakan/delete/{id}', [ProsesPencetakanController::class, 'delete'])->name('proses_pencetakan.delete');
 
 // CTP
 Route::get('/Mes/Ctp', [CTPController::class, 'index'])->name('Ctp');
