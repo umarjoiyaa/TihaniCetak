@@ -159,6 +159,12 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verify',
             'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE View',
             'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Delete',
+            'PLATE CETAK List',
+            'PLATE CETAK Create',
+            'PLATE CETAK Update',
+            'PLATE CETAK Verify',
+            'PLATE CETAK View',
+            'PLATE CETAK Delete',
          ];
 
         foreach ($permissions as $permission) {

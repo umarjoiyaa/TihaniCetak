@@ -296,8 +296,3 @@
         });
 </script>
 @endpush
-
-
-
-
-

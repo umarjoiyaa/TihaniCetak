@@ -33,6 +33,11 @@
     <!--- Animations css-->
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 
+    <!-- Quill css-->
+    <link rel="stylesheet" href="{{asset('assets/css/quill.css')}}">
+
+    <!-- Internal Datatable css-->
+    <link href="{{ asset('assets/plugins/datatable/css/dataTables.dataTables.css') }}" rel="stylesheet">
 
     <!-- Internal Chart-Morris css-->
     <link href="{{ asset('assets/plugins/morris.js/morris.css') }}" rel="stylesheet">
@@ -2054,22 +2059,10 @@
 
 
     <!-- Internal Data tables -->
-    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/dataTables.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/responsive.dataTables.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/dataTables.bootstrap4.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/dataTables.buttons.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/buttons.bootstrap4.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/jszip.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/pdfmake.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/vfs_fonts.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/buttons.html5.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/buttons.print.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/buttons.colVis.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/dataTables.responsive.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/datatable/js/responsive.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
+
+    <!-- Quill js -->
+    <script src="{{asset('/assets/js/quill.js')}}"></script>
 
     <!-- Internal Datatable js -->
     {{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}

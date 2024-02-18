@@ -15,7 +15,7 @@
                         <a href="{{route('ctp.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table datatable table-striped mt-2" id="example1">
+                        <table class="table table-striped mt-2" id="example1">
                             <thead>
                                 <tr>
                                     <td rowspan="2">Date</td>
@@ -193,6 +193,5 @@
     <script>
         var data = "{{ route('ctp.data') }}";
     </script>
-    <script src="{{ asset('assets/js/custom/mes/Ctp/index.js') }}"></script>
+   <script src="{{ asset('assets/js/custom/mes/Ctp/index.js') }}"></script>
 @endpush
-

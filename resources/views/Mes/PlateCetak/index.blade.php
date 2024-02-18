@@ -12,7 +12,7 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('PlateCetak.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('plate_cetak.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table mt-2" border="1" id="example1">
@@ -26,7 +26,7 @@
                                 <td rowspan="2">Kod Buku</td>
                                 <td rowspan="2">Mesin</td>
                                 <td rowspan="2">Seksyen</td>
-                                <td colspan="2" class="text-center">Bahagian Plate </td>
+                                <td colspan="3" class="text-center">Bahagian Plate </td>
                                 <td colspan="6" class="text-center">Warna</td>
                                 <td rowspan="2">Gripper</td>
                                 <td rowspan="2">Spacing</td>
@@ -39,19 +39,19 @@
                                 <td rowspan="2">Action</td>
                             </tr>
                             <tr>
-                                <td>Desgin clearance (5mm)</td>
-                                <td>Image artwork</td>
-                                <td>Bleed</td>
-                                <td>Saiz spine (perfect bind)</td>
-                                <td>Alamat pencetak</td>
-                                <td>Jumlah muka surat</td>
-                                <td>Turutan muka surat</td>
-                                <td>Jenis kertas</td>
-
+                                <td>A</td>
+                                <td>B</td>
+                                <td>A/B</td>
+                                <td>C</td>
+                                <td>M</td>
+                                <td>Y</td>
+                                <td>K</td>
+                                <td>P1</td>
+                                <td>P2</td>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="">
+                            {{-- <tr class="">
                                 <td>1</td>
                                 <td>12/12/2023</td>
                                 <td>11:35 am</td>
@@ -61,6 +61,7 @@
                                 <td>P4</td>
                                 <td>1</td>
                                 <td><i class="fa fa-check"></i></td>
+                                <td></td>
                                 <td></td>
                                 <td><i class="fa fa-check"></td>
                                 <td><i class="fa fa-check"></td>
@@ -92,7 +93,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -106,3 +107,9 @@
 
 
 @endsection
+@push('custom-scripts')
+    <script>
+        var data = "{{ route('plate_cetak.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/mes/PlateCetak/index.js') }}"></script>
+@endpush

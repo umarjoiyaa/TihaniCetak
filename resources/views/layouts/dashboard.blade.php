@@ -38,6 +38,17 @@
             display:block;
         }
     }
+    @media only screen and (min-device-width: 430px) and (max-device-width: 932px) {
+        .card .card1 {
+            margin-inline: 0px;
+            width:350px;
+            height:200px;
+        }
+        .c1{
+            margin-inline: -50px;
+            width:300px;
+        }
+    }
 </style>
 @endsection
 @section('content')
@@ -339,7 +350,7 @@
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-4 offset-2">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
+                                        <div class="card p-2 c1" style="border-radius:17px;background:#7dc4d5;">
                                             <a href="">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>

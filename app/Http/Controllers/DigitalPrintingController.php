@@ -14,6 +14,10 @@ class DigitalPrintingController extends Controller
         return view('Production.DigitalPrinting.create');
     }
 
+    public function edit(){
+        return view('Production.DigitalPrinting.edit');
+    }
+
     public function proses(){
         return view('Production.DigitalPrinting.proses');
     }
