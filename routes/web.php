@@ -11,6 +11,7 @@ use App\Http\Controllers\CTPController;
 use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\DigitalPrintingController;
+use App\Http\Controllers\LaporanPemeriksaanKualitiController;
 use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\Inventory_reportController;
 use App\Http\Controllers\invertory_ShopFloorController;
@@ -403,6 +404,19 @@ Route::get('/Mes/ProsesPencetakan/verify/{id}', [ProsesPencetakanController::cla
 Route::post('/Mes/ProsesPencetakan/approve/approve/{id}', [ProsesPencetakanController::class, 'approve_approve'])->name('proses_pencetakan.approve.approve');
 Route::post('/Mes/ProsesPencetakan/approve/decline/{id}', [ProsesPencetakanController::class, 'approve_decline'])->name('proses_pencetakan.approve.decline');
 Route::get('/Mes/ProsesPencetakan/delete/{id}', [ProsesPencetakanController::class, 'delete'])->name('proses_pencetakan.delete');
+
+// Laporan Pemeriksaan
+Route::get('/Mes/LaporanPemeriksaanKualiti', [LaporanPemeriksaanKualitiController::class, 'index'])->name('laporan_pemeriksaan_kualiti');
+Route::get('/Mes/LaporanPemeriksaanKualiti/data', [LaporanPemeriksaanKualitiController::class, 'Data'])->name('laporan_pemeriksaan_kualiti.data');
+Route::get('/Mes/LaporanPemeriksaanKualiti/create', [LaporanPemeriksaanKualitiController::class, 'create'])->name('laporan_pemeriksaan_kualiti.create');
+Route::post('/Mes/LaporanPemeriksaanKualiti/store', [LaporanPemeriksaanKualitiController::class, 'store'])->name('laporan_pemeriksaan_kualiti.store');
+Route::get('/Mes/LaporanPemeriksaanKualiti/view/{id}', [LaporanPemeriksaanKualitiController::class, 'view'])->name('laporan_pemeriksaan_kualiti.view');
+Route::get('/Mes/LaporanPemeriksaanKualiti/edit/{id}', [LaporanPemeriksaanKualitiController::class, 'edit'])->name('laporan_pemeriksaan_kualiti.edit');
+Route::post('/Mes/LaporanPemeriksaanKualiti/update/{id}', [LaporanPemeriksaanKualitiController::class, 'update'])->name('laporan_pemeriksaan_kualiti.update');
+Route::get('/Mes/LaporanPemeriksaanKualiti/verify/{id}', [LaporanPemeriksaanKualitiController::class, 'verify'])->name('laporan_pemeriksaan_kualiti.verify');
+Route::post('/Mes/LaporanPemeriksaanKualiti/approve/approve/{id}', [LaporanPemeriksaanKualitiController::class, 'approve_approve'])->name('laporan_pemeriksaan_kualiti.approve.approve');
+Route::post('/Mes/LaporanPemeriksaanKualiti/approve/decline/{id}', [LaporanPemeriksaanKualitiController::class, 'approve_decline'])->name('laporan_pemeriksaan_kualiti.approve.decline');
+Route::get('/Mes/LaporanPemeriksaanKualiti/delete/{id}', [LaporanPemeriksaanKualitiController::class, 'delete'])->name('laporan_pemeriksaan_kualiti.delete');
 
 // CTP
 Route::get('/MES/Ctp', [CtpController::class, 'index'])->name('ctp');

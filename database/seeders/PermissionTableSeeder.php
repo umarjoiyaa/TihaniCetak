@@ -141,6 +141,12 @@ class PermissionTableSeeder extends Seeder
             'POD Verify',
             'POD View',
             'POD Delete',
+            'LAPORAN PEMERIKSAAN KUALITI List',
+            'LAPORAN PEMERIKSAAN KUALITI Create',
+            'LAPORAN PEMERIKSAAN KUALITI Update',
+            'LAPORAN PEMERIKSAAN KUALITI Verify',
+            'LAPORAN PEMERIKSAAN KUALITI View',
+            'LAPORAN PEMERIKSAAN KUALITI Delete',
          ];
 
         foreach ($permissions as $permission) {

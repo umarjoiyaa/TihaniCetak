@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
-use App\Models\ProsesPencetakan;
+use App\Models\LaporanPemeriksaanKualiti;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
-class ProsesPencetakanController extends Controller
+class LaporanPemeriksaanKualitiController extends Controller
 {
     public function Data(Request $request)
     {
@@ -20,7 +19,7 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -30,6 +29,7 @@ class ProsesPencetakanController extends Controller
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -54,7 +54,8 @@ class ProsesPencetakanController extends Controller
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
                     6 => 'sale_order_id',
-                    7 => 'status',
+                    7 => 'jenis',
+                    8 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -100,6 +101,9 @@ class ProsesPencetakanController extends Controller
                                 });
                                 break;
                             case 7:
+                                $q->where('jenis', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 8:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -124,20 +128,20 @@ class ProsesPencetakanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -170,7 +174,7 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -180,6 +184,7 @@ class ProsesPencetakanController extends Controller
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -201,7 +206,8 @@ class ProsesPencetakanController extends Controller
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
                 6 => 'sale_order_id',
-                7 => 'status',
+                7 => 'jenis',
+                8 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -225,20 +231,20 @@ class ProsesPencetakanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -261,30 +267,30 @@ class ProsesPencetakanController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN List') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN View') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Delete') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI List') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Create') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Update') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI View') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Delete') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Verify')
         ) {
-            Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN List');
-            return view('Mes.ProsesPencetakan.index');
+            Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI List');
+            return view('Mes.LaporanPemeriksaanKualiti.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Create');
-        return view('Mes.ProsesPencetakan.create');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Create');
+        return view('Mes.LaporanPemeriksaanKualiti.create');
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -297,7 +303,6 @@ class ProsesPencetakanController extends Controller
             'mesin' => 'required',
             'jenis' => 'required',
             'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail
@@ -306,64 +311,51 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $proses_pencetakan = new ProsesPencetakan();
-        $proses_pencetakan->sale_order_id = $request->sale_order;
-        $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
-        $proses_pencetakan->created_by = Auth::user()->id;
+        $laporan_pemeriksaan_kualiti = new LaporanPemeriksaanKualiti();
+        $laporan_pemeriksaan_kualiti->sale_order_id = $request->sale_order;
+        $laporan_pemeriksaan_kualiti->date = $request->date;
+        $laporan_pemeriksaan_kualiti->time = $request->time;
+        $laporan_pemeriksaan_kualiti->created_by = Auth::user()->id;
 
-        $proses_pencetakan->seksyen_no = $request->seksyen_no;
-        $proses_pencetakan->mesin = $request->mesin;
-        $proses_pencetakan->jenis = $request->jenis;
-        $proses_pencetakan->side = $request->side;
+        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no;
+        $laporan_pemeriksaan_kualiti->mesin = $request->mesin;
+        $laporan_pemeriksaan_kualiti->jenis = $request->jenis;
 
-        $proses_pencetakan->b_1 = $request->b_1;
-        $proses_pencetakan->b_2 = $request->b_2;
-        $proses_pencetakan->b_3 = $request->b_3;
-        $proses_pencetakan->b_4 = $request->b_4;
-        $proses_pencetakan->b_5 = $request->b_5;
-        $proses_pencetakan->b_6 = $request->b_6;
-        $proses_pencetakan->b_7 = $request->b_7;
-        $proses_pencetakan->b_8 = $request->b_8;
-        $proses_pencetakan->b_9 = $request->b_9;
-        $proses_pencetakan->b_10 = $request->b_10;
-        $proses_pencetakan->b_11 = $request->b_11;
-        $proses_pencetakan->b_12 = $request->b_12;
-        $proses_pencetakan->b_13 = $request->b_13;
-        $proses_pencetakan->b_14 = $request->b_14;
-        $proses_pencetakan->b_15 = $request->b_15;
-        $proses_pencetakan->b_16 = $request->b_16;
-        $proses_pencetakan->b_17 = $request->b_17;
-        $proses_pencetakan->b_18 = $request->b_18;
+        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1;
+        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2;
+        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3;
+        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4;
+        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5;
+        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6;
 
-        $proses_pencetakan->status = 'checked';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti->status = 'checked';
+        $laporan_pemeriksaan_kualiti->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Store');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Created Successfully !');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Store');
+        return redirect()->route('laporan_pemeriksaan_kualiti')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI has been Created Successfully !');
     }
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return view('Mes.ProsesPencetakan.edit', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Update');
+        return view('Mes.LaporanPemeriksaanKualiti.edit', compact('laporan_pemeriksaan_kualiti'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN View')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN View');
-        return view('Mes.ProsesPencetakan.view', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI View');
+        return view('Mes.LaporanPemeriksaanKualiti.view', compact('laporan_pemeriksaan_kualiti'));
     }
 
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -376,7 +368,6 @@ class ProsesPencetakanController extends Controller
             'mesin' => 'required',
             'jenis' => 'required',
             'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail
@@ -385,88 +376,75 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->sale_order_id = $request->sale_order;
-        $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
-        $proses_pencetakan->created_by = Auth::user()->id;
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        $laporan_pemeriksaan_kualiti->sale_order_id = $request->sale_order;
+        $laporan_pemeriksaan_kualiti->date = $request->date;
+        $laporan_pemeriksaan_kualiti->time = $request->time;
+        $laporan_pemeriksaan_kualiti->created_by = Auth::user()->id;
 
-        $proses_pencetakan->seksyen_no = $request->seksyen_no;
-        $proses_pencetakan->mesin = $request->mesin;
-        $proses_pencetakan->jenis = $request->jenis;
-        $proses_pencetakan->side = $request->side;
+        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no;
+        $laporan_pemeriksaan_kualiti->mesin = $request->mesin;
+        $laporan_pemeriksaan_kualiti->jenis = $request->jenis;
 
-        $proses_pencetakan->b_1 = $request->b_1;
-        $proses_pencetakan->b_2 = $request->b_2;
-        $proses_pencetakan->b_3 = $request->b_3;
-        $proses_pencetakan->b_4 = $request->b_4;
-        $proses_pencetakan->b_5 = $request->b_5;
-        $proses_pencetakan->b_6 = $request->b_6;
-        $proses_pencetakan->b_7 = $request->b_7;
-        $proses_pencetakan->b_8 = $request->b_8;
-        $proses_pencetakan->b_9 = $request->b_9;
-        $proses_pencetakan->b_10 = $request->b_10;
-        $proses_pencetakan->b_11 = $request->b_11;
-        $proses_pencetakan->b_12 = $request->b_12;
-        $proses_pencetakan->b_13 = $request->b_13;
-        $proses_pencetakan->b_14 = $request->b_14;
-        $proses_pencetakan->b_15 = $request->b_15;
-        $proses_pencetakan->b_16 = $request->b_16;
-        $proses_pencetakan->b_17 = $request->b_17;
-        $proses_pencetakan->b_18 = $request->b_18;
+        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1;
+        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2;
+        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3;
+        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4;
+        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5;
+        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6;
 
-        $proses_pencetakan->status = 'checked';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti->status = 'checked';
+        $laporan_pemeriksaan_kualiti->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Updated Successfully !');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Update');
+        return redirect()->route('laporan_pemeriksaan_kualiti')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI has been Updated Successfully !');
     }
 
     public function verify($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return view('Mes.ProsesPencetakan.verify', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Update');
+        return view('Mes.LaporanPemeriksaanKualiti.verify', compact('laporan_pemeriksaan_kualiti'));
     }
 
     public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->status = 'verified';
-        $proses_pencetakan->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
-        $proses_pencetakan->verified_by_user = Auth::user()->user_name;
-        $proses_pencetakan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $proses_pencetakan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        $laporan_pemeriksaan_kualiti->status = 'verified';
+        $laporan_pemeriksaan_kualiti->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $laporan_pemeriksaan_kualiti->verified_by_user = Auth::user()->user_name;
+        $laporan_pemeriksaan_kualiti->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $laporan_pemeriksaan_kualiti->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_pemeriksaan_kualiti->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Verified');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Verified!');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Verified');
+        return redirect()->route('laporan_pemeriksaan_kualiti')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI has been Successfully Verified!');
     }
 
     public function approve_decline(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->status = 'declined';
-        $proses_pencetakan->save();
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Declined');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Declined!');
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        $laporan_pemeriksaan_kualiti->status = 'declined';
+        $laporan_pemeriksaan_kualiti->save();
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Declined');
+        return redirect()->route('laporan_pemeriksaan_kualiti')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI has been Successfully Declined!');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Delete')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->delete();
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Delete');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Deleted!');
+        $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
+        $laporan_pemeriksaan_kualiti->delete();
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI', 'LAPORAN PEMERIKSAAN KUALITI Delete');
+        return redirect()->route('laporan_pemeriksaan_kualiti')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI has been Successfully Deleted!');
     }
 }

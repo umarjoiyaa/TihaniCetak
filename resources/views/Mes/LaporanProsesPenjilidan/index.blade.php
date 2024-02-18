@@ -1,24 +1,25 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-5">
                     <div class="card-header">
-                    <div class="d-flex justify-content-between">
+                        <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">LAPORAN PROSES PENJILIDAN (PERFECT BIND)</h4>
                         </div>
 
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
-                        <a href="{{route('LaporanProsesPenjilidan.create')}}" class="btn btn-primary mb-2">Create</a>
+                            <a href="{{ route('laporan_proses_penjilidan.create') }}" class="btn btn-primary mb-2">Create</a>
                         </div>
                         <div class="table-responsive">
-                            <table class="table mt-2" id="example1">
+                            <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
+                                        <td style="font-size:13px;">Sr #</td>
                                         <td style="font-size:13px;">Tarikh</td>
                                         <td style="font-size:13px;">Sales Order No. </td>
                                         <td style="font-size:13px;">Kod Buku</td>
@@ -31,50 +32,52 @@
                                         <td style="font-size:13px;">Action</td>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="">
-                                        <td>30/5/2023 </td>
-                                        <td style="font-size:11px;">SO-001496</td>
-                                        <td style="font-size:11px;">CP-2940</td>
-                                        <td style="font-size:11px;">IQRO GENIUS - RUMI (NEW COVER)</td>
-                                        <td style="font-size:11px;">7</td>
-                                        <td style="font-size:11px;">15cmX21cm</td>
-                                        <td style="font-size:11px;">A</td>
-                                        <td style="font-size:11px;">B</td>
-                                        <td><span class="badge badge-pill badge-warning w-100 p-2">In-progress</span></td>
-                                        <td><div class="dropdown">
-                                            <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                                            data-toggle="dropdown" id="dropdownMenuButton" type="button">Action<i class="fas fa-caret-down ml-1"></i></button>
-                                            <div  class="dropdown-menu tx-13">
-                                                <a class="dropdown-item" href="{{route('LaporanProsesPenjilidan.view')}}">View</a>
-                                                <a class="dropdown-item" href="{{route('LaporanProsesPenjilidan.edit')}}">Edit</a>
-                                                <a class="dropdown-item" href="{{route('LaporanProsesPenjilidan.verify')}}">Verify</a>
-                                                <a class="dropdown-item" href="">Delete</a>
-                                            </div>
-                                        </div>
-                                        </td>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search tarikh">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search sale order no">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search kod_buku">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search tajuk">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search jumlah seksyen">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search jenis penjilidan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search operator">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search pamabantu">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search status">
+                                        </th>
+                                        <th></th>
                                     </tr>
+                                </thead>
+                                <tbody>
                                 </tbody>
                             </table>
                         </div>
                     </div>
                 </div>
-                <!-- <div class="row">
-                    <div class="col-md-12">
-                       <h5> <b>Notes: </b></h5><br>
-                        when creates and save - status show “ Checked” <br>
-                        In action verify, user can click “Decline” or “ Verify” <br>
-                        if Decline : status change to “Decline” and user can edit again the form <br>
-                        if  Verify- status changes to “Verified” [user cannot edit anymore] <br>
-                    </div>
-                </div> -->
             </div>
         </div>
     </div>
-
-
-
-
-
-    @endsection
-
+@endsection
+@push('custom-scripts')
+    <script>
+        var data = "{{ route('laporan_proses_penjilidan.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/mes/LaporanProsesPenjilidan/index.js') }}"></script>
+@endpush
