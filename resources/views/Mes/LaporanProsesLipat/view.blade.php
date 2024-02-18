@@ -1,5 +1,7 @@
-@extends('layouts.app')
+@extends('app')
+
 @section('content')
+<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -12,160 +14,166 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" name="date" value="{{ $laporan_proses_lipat->date }}"
-                                            id="Currentdate" class="form-control">
+                                        <input type="date" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Time</label>
-                                    <input type="time" name="time" value="{{ $laporan_proses_lipat->time }}"
-                                        id="Currenttime" class="form-control">
+                                    <input type="time" value="Admin" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Checked By (Operator)</div>
-                                        <input type="text" value="{{ $laporan_proses_lipat->user->full_name }}" readonly name=""
-                                            id="checked_by" class="form-control">
+                                        <input type="text" value="Admin" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <input type="text" value="{{ $laporan_proses_lipat->sale_order->order_no }}"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Tajuk</div>
-                                        <input type="text" value="{{ $laporan_proses_lipat->sale_order->description }}"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Kod Buku</div>
-                                        <input type="text" value="{{ $laporan_proses_lipat->sale_order->kod_buku }}"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Mesin</label>
-                                        <input type="text" value="{{ $laporan_proses_lipat->mesin }}"
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Operator</label>
-                                        @php
-                                            $item = json_decode($laporan_proses_lipat->user_id);
-                                        @endphp
-                                        <select disabled name="user[]" class="form-control form-select" id=""
-                                            multiple>
-                                            @foreach ($users as $user)
-                                                <option value="{{ $user->id }}"
-                                                    @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                    {{ $user->full_name }}</option>
-                                            @endforeach
+                                        <select name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="">SO-001496</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
-                                        <input type="text" name="seksyen_no" id=""
-                                            value="{{ $laporan_proses_lipat->seksyen_no }}" class="form-control">
+                                        <div class="label">Tajuk</div>
+                                        <input type="text" readonly value="auto Display" class="form-control">
                                     </div>
                                 </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Kod Buku</div>
+                                        <input type="text" value="auto Display" readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Seksyen No.</div>
+                                        <input type="text" readonly value="input text" name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Kuantiti cetakan</div>
+                                        <input type="number" readonly value="input text" name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Kuantiti waste</label>
+                                        <input type="text" readonly value="input text" name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Operator</label>
+                                        <select name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="">User A</option>
+                                            <option value="">User B</option>
+                                        </select>
+                                    </div>
+                                </div>
+
                             </div>
                         </div>
                     </div>
 
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
+                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
                         </div>
                         <div class="col-md-8 mt-5">
 
-                            <table class="table table-bordered text-center" id="tableSection">
+                            <table class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th rowspan="2">Seksyen</th>
-                                        <th colspan="4">kriteria</th>
+                                        <td rowspan="2">No</td>
+                                        <td colspan="4">Seksyen</td>
 
                                     </tr>
                                     <tr>
                                         <th>Jenis lipatan</th>
                                         <th>Kedudukan lipatan</th>
                                         <th>Turutan muka surat</th>
-                                        <th>kotor / koyak</th>
+                                        <th>kotor/koyak</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($details as $key => $detail)
-                                        <tr>
-                                            <td>{{ $detail->b_1 }} <input type="hidden" value="{{ $detail->b_1 }}"
-                                                    name="pengesahan[{{ $key + 1 }}][1]">
-                                            </td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][2]"
-                                                    @checked($detail->b_2 != null)></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][3]"
-                                                    @checked($detail->b_3 != null) id=""></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][4]"
-                                                    @checked($detail->b_4 != null) id=""></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][5]"
-                                                    @checked($detail->b_5 != null) id=""></td>
-                                        </tr>
-                                    @endforeach
+
+                                    <tr>
+                                        <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Artwork (Semak gambar dan teks)</td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                        <td><input type="checkbox" name="" id=""></td>
+                                    </tr>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+
                     <div class="row mt-5" style="background:#f1f0f0;">
                         <div class="col-md-12 mt-5">
-                            <h5><b>C) Pemeriksaan semasa proses lipat</b> </h5>
+                            <h5>C) Pemeriksaan semasa proses lipat </h5>
                             <h5><b>Petunjuk:</b></h5>
                             <span><b>KL = Kedudukan Lipatan</b></span><br>
                             <span><b> K= Koyak/Kotor/Kedut</b></span>
                         </div>
 
+                            <div class="col-md-12">
+                                <button class="btn btn-primary float-right  mr-5">+ Add</button>
+                            </div>
+
                         <div class="col-md-12">
 
-
-                            <div class="row mt-3">
-                                <div class="col-md-2">
-                                    <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
-                                        role="tablist">
-                                        @foreach ($sections as $key1 => $section)
+                            <div class="container mt-5">
+                                <div class="row">
+                                    <div class="col-md-1">
+                                        <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
+                                            role="tablist">
                                             <li class="nav-item">
-                                                <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
-                                                    id="tab{{ $key1 }}" data-toggle="tab"
-                                                    href="#Seksyen{{ $section->c_1 }}" role="tab"
-                                                    aria-controls="Seksyen{{ $section->c_1 }}"
-                                                    aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
-                                                    {{ $section->c_1 }}</a>
+                                                <a class="nav-link " id="home-tab" data-toggle="tab" href="#home"
+                                                    role="tab" aria-controls="home" aria-selected="true">Home</a>
                                             </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <div class="col-md-10">
-                                    <div class="tab-content" id="myTabContent">
-                                        @foreach ($sections as $key1 => $section)
-                                            <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                id="Seksyen{{ $section->c_1 }}" role="tabpanel"
-                                                aria-labelledby="tab{{ $key1 }}">
+                                            <li class="nav-item">
+                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
+                                                    role="tab" aria-controls="profile" aria-selected="false">Profile</a>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-11">
+                                        <div class="tab-content" id="myTabContent">
+                                            <div class="tab-pane fade show active" id="home" role="tabpanel"
+                                                aria-labelledby="home-tab">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>
                                                             <tr>
-                                                                <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen {{ $section->c_1 }}</th>
-                                                                <th rowspan="2">Check</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Verify</th>
-                                                                <th rowspan="2">Username / datetime</th>
+                                                                <td rowspan="2">Jumlah </td>
+                                                                <td colspan="2">Seksyen 1</td>
+                                                                <td rowspan="2">Check</td>
+                                                                <td rowspan="2">Username / datetime</td>
+                                                                <td rowspan="2">Verify</td>
+                                                                <td rowspan="2">Username / datetime</td>
+                                                                <td rowspan="2">Action</td>
                                                             </tr>
                                                             <tr>
                                                                 <th>KL</th>
@@ -173,85 +181,87 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                            @foreach ($detailss as $key2 => $value1)
-                                                                @if ($value1->c_1 == $section->c_1)
-                                                                    <tr>
-                                                                        <td>{{ $value1->c_2 }} <input type="hidden"
-                                                                                value="{{ $value1->c_2 }}"></td>
-                                                                        <td><input type="checkbox"
-                                                                                @checked($value1->c_3 != null)>
-                                                                        </td>
-                                                                        <td><input type="checkbox"
-                                                                                @checked($value1->c_4 != null)>
-                                                                        </td>
-                                                                        <td><button type="button"
-                                                                                class="btn btn-primary check_btn"
-                                                                                style="border-radius:5px;"
-                                                                                disabled>check</button>
-                                                                        </td>
-                                                                        <td><input type="text"
-                                                                                class="check_operator form-control"
-                                                                                readonly value="{{ $value1->c_5 }}">
-                                                                        </td>
-                                                                        <td><button type="button"
-                                                                                class="btn btn-primary verify_btn"
-                                                                                disabled>Verify</button>
-                                                                        </td>
-                                                                        <td><input type="text"
-                                                                                name="section[{{ $key1 + 1 }}][{{ $key2 + 1 }}][1]"
-                                                                                class="verify_operator form-control"
-                                                                                readonly value="{{ $value1->c_6 }}"></td>
-                                                                    </tr>
-                                                                @endif
-                                                            @endforeach
+                                                            <tr>
+                                                                <td>1000</td>
+                                                                <td><input type="checkbox" name="" id=""></td>
+                                                                <td><input type="checkbox" name="" id=""></td>
+                                                                <td><button class="btn btn-primary"
+                                                                        style="border-radius:5px; ">check</button></td>
+                                                                <td>username / datetime</td>
+                                                                <td><button class="btn"
+                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                                                </td>
+                                                                <td>username / datetime</td>
+                                                                <td><button class="btn btn-danger"
+                                                                        style="border-radius:5px; ">X</button></td>
+                                                            </tr>
                                                         </tbody>
                                                     </table>
                                                 </div>
                                             </div>
-                                        @endforeach
+                                            <div class="tab-pane fade" id="profile" role="tabpanel"
+                                                aria-labelledby="profile-tab">
+                                                <table class="table table-bordered">
+                                                        <thead>
+                                                            <tr>
+                                                                <td rowspan="2">Jumlah </td>
+                                                                <td colspan="2">Seksyen 1</td>
+                                                                <td rowspan="2">Check</td>
+                                                                <td rowspan="2">Username / datetime</td>
+                                                                <td rowspan="2">Verify</td>
+                                                                <td rowspan="2">Username / datetime</td>
+                                                                <td rowspan="2">Action</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <th>KL</th>
+                                                                <th>K</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td>1000</td>
+                                                                <td><input type="checkbox" name="" id=""></td>
+                                                                <td><input type="checkbox" name="" id=""></td>
+                                                                <td><button class="btn btn-primary"
+                                                                        style="border-radius:5px; ">check</button></td>
+                                                                <td>username / datetime</td>
+                                                                <td><button class="btn"
+                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
+                                                                </td>
+                                                                <td>username / datetime</td>
+                                                                <td><button class="btn btn-danger"
+                                                                        style="border-radius:5px; ">X</button></td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                            </div>
+
+                                        </div>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="row mt-5">
+
+
+
+
+                    <div class="row">
                         <div class="col-md-12">
-                            <h3><b>Verified By</b></h3>
-                        </div>
-                        <div class="col-md-12">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Username</th>
-                                        <th>Desgination</th>
-                                        <th>Department</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $laporan_proses_lipat->verified_by_date }}</td>
-                                        <td>{{ $laporan_proses_lipat->verified_by_user }}</td>
-                                        <td>{{ $laporan_proses_lipat->verified_by_designation }}</td>
-                                        <td>{{ $laporan_proses_lipat->verified_by_department }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                            <button class="btn btn-primary float-right mt-3">Save</button>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
-        <a href="{{ route('laporan_proses_lipat') }}">back to list</a>
+        <a href="{{route('LoPoranProsesLipat.index')}}">back to list</a>
     </div>
-    </div>
+</div>
+</div>
 @endsection
-@push('custom-scripts')
-    <script>
-        $(document).ready(function() {
-            $('input').attr('disabled', 'disabled');
-        });
-    </script>
-@endpush
+
+@section('Script')
+
+@endsection

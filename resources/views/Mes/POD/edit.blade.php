@@ -1,4 +1,5 @@
 @extends('layouts.app')
+@extends('layouts.app')
 
 @section('content')
 <form action="{{ route('pod.update', $pod->id) }}" method="POST">
@@ -64,165 +65,179 @@
                             </div>
 
 
-                            <div class="row mt-5">
-                                <div class="col-md-5">
-                                    <h6><b>File Artwork</b></h6>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="2">kriteria</th>
-                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
-
-                                            </tr>
-                                            <tr>
-                                                <th>OK</th>
-                                                <th>NG</th>
-                                                <th>NA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                <td>Format file</td>
-                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Saiz Product</td>
-                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2"  @checked($pod->file_artwork_2 == 'ok') value="ok"  id=""></td>
-                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bleed</td>
-                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($pod->file_artwork_3 == 'ok') value="ok"id=""></td>
-                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($pod->file_artwork_3 == 'ng') value="ng"id=""></td>
-                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($pod->file_artwork_3 == 'na') value="na"id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Saiz Spine</td>
-                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng')value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Alamat pencetak</td>
-                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($pod->file_artwork_5 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($pod->file_artwork_5 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($pod->file_artwork_5 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jumlah muka surat</td>
-                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($pod->file_artwork_6 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($pod->file_artwork_6 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($pod->file_artwork_6 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Turutan muka surat</td>
-                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" @checked($pod->file_artwork_7 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" @checked($pod->file_artwork_7 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" @checked($pod->file_artwork_7 == 'na') value="na" id=""></td>
-                                            </tr>
-
-
-                                        </tbody>
-                                    </table>
+                                <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Kuantiti waste</label>
+                                            <input type="text" readonly value="input text" name="" id="" class="form-control">
+                                        </div>
                                 </div>
-                                <div class="col-md-5">
-                                    <h6><b>first_piece</b></h6>
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="2">kriteria</th>
-                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
-                                            </tr>
-                                            <tr>
-                                                <th>OK</th>
-                                                <th>NG</th>
-                                                <th>NA</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-                                            <tr>
-                                                <td>Jenis kertasn</td>
-                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Saiz produk</td>
-                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Artwork (gambar, teks)</td>
-                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Design clearance (5mm)</td>
-                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Warna</td>
-                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jumlah muka surat</td>
-                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'ok') value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'ng') value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'na') value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Turutan muka surat</td>
-                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'ok')  value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'ng')  value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'na')  value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bleed</td>
-                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'ok')  value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'ng')  value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'na')  value="na" id=""></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Crop mark</td>
-                                                <td><input type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'ok')  value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'ng')  value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'na')  value="na" id=""></td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Kedudukan cetakan depan belakang / print register</td>
-                                                <td><input type="checkbox" class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'ok')  value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'ng')  value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'na')  value="na" id=""></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Jenis penjilidan</td>
-                                                <td><input type="checkbox" class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'ok')  value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'ng')  value="ng" id=""></td>
-                                                <td><input type="checkbox" class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'na')  value="na" id=""></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Operator</label>
+                                            <select name="" id="" class="form-control">
+                                                <option value="" disabled>select sales Order no</option>
+                                                <option value="">User A</option>
+                                                <option value="">User B</option>
+                                            </select>
+                                        </div>
                                 </div>
-                                {{-- <div class="col-md-2">
-                                    <a href="" class="float-right" style="color:blue;"><b>RUJUKAN</b></a>
-                                </div> --}}
+
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
+                        </div>
+                        <div class="col-md-11">
+
+                            <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td rowspan="2">No</td>
+                                            <td rowspan="2">kriteria</td>
+                                            <td colspan="3">cover</td>
+
+                                        </tr>
+                                        <tr>
+                                            <th>OK</th>
+                                            <th>NG</th>
+                                            <th>NA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr>
+                                            <td>1</td>
+                                            <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
+                                            <td><input type="checkbox"  name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Artwork (Semak gambar dan teks)</td>
+                                            <td><input type="checkbox"  name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Kotor, calar (Periksa setiap muka surat)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Turutan mukasurat (Berturutan)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Kelekatan matt/gloss lamination</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Koyak (Terkoyak / Rosak)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Imej/artwork terpotong</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Cop (Cop pada setiap mockup)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+
+                                    </tbody>
+                                 </table>
+                        </div>
+                    </div>
+
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td rowspan="2">Jumlah</td>
+                                            <td colspan="7">Kriteria</td>
+                                            <td rowspan="2">Check</td>
+                                            <td rowspan="2">Check (Operator)</td>
+                                            <td rowspan="2">Verify (QC)</td>
+                                            <td rowspan="2">Verify</td>
+                                            <td rowspan="2">Action</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Gambar/teks</th>
+                                            <th>warna</th>
+                                            <th>Register depan belakang</th>
+                                            <th>Tiada set off, kotor, hickies</th>
+                                            <th>Tiada doubling</th>
+                                            <th>Periksa powder</th>
+                                            <th>Frontlay & sidelay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>500</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><button class="btn btn-primary" style="border-radius:5px; ">check</button></td>
+                                            <td>username / datetime</td>
+                                            <td><button class="btn" style="border-radius:25px; background:#000; color:white; ">Verify</button></td>
+                                            <td>username / datetime</td>
+                                            <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -232,9 +247,10 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('pod')}}">back to list</a>
+        <a href="{{route('SenariSemak.index')}}">back to list</a>
     </div>
-</form>
+</div>
+</div>
 @endsection
 @push('custom-scripts')
 <script>

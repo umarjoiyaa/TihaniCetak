@@ -2,7 +2,6 @@
 
 @section('content')
 <form action="" method="post">
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -288,6 +287,6 @@
                 <a href="{{route('BorangeSerahKerja_Teks.index')}}">back to list</a>
             </div>
         </div>
-    </div>
+    
 </form>
 @endsection

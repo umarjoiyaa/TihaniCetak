@@ -395,64 +395,11 @@
     </form>
 @endsection
 @push('custom-scripts')
-    <script>
-        function handleCheckboxChange(className, checkbox) {
+<script>
+     function handleCheckboxChange(className, checkbox) {
             if ($(checkbox).prop('checked')) {
-                $(`.${ className }`).not(checkbox).prop('checked', false);
+              $(`.${ className }`).not(checkbox).prop('checked', false);
             }
         }
-
-        $(document).ready(function() {
-            $('#sale_order').select2({
-                ajax: {
-                    url: '{{ route('sale_order.get') }}',
-                    dataType: 'json',
-                    delay: 1000,
-                    data: function(params) {
-                        return {
-                            q: params.term,
-                            page: params.page || 1,
-                        };
-                    },
-                    processResults: function(data, params) {
-                        params.page = params.page || 1;
-
-                        return {
-                            results: data.results,
-                            pagination: {
-                                more: data.pagination.more
-                            }
-                        };
-                    },
-                    cache: true
-                },
-                containerCssClass: 'form-control',
-                templateResult: function(data) {
-                    if (data.loading) {
-                        return "Loading...";
-                    }
-
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-                },
-                templateSelection: function(data) {
-                    return data.name || null;
-                }
-            });
-
-            $('#sale_order').on('change', function() {
-                const id = $(this).val();
-                $.ajax({
-                    type: 'GET',
-                    url: '{{ route('sale_order_penjilidan.detail.get') }}',
-                    data: {
-                        "id": id
-                    },
-                    success: function(data) {
-                        $('#kod_buku').val(data.sale_order.kod_buku);
-                        $('#tajuk').val(data.sale_order.description);
-                    }
-                });
-            });
-        });
-    </script>
+</script>
 @endpush

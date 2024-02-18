@@ -76,30 +76,30 @@
                                                 readonly id="sale_order_qty" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Jenis Penjilidan</label>
-                                            <input type="text" class="form-control"
-                                                value="{{ $laporan_proses_penjilidan->jenis }}">
-                                        </div>
-                                    </div>
+                                </div> -->
 
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Operator</label>
-                                            @php
-                                                $item = json_decode($laporan_proses_penjilidan->user_id);
-                                            @endphp
-                                            <select disabled name="user[]" class="form-control form-select" id=""
-                                                multiple>
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
-                                                @endforeach
-                                            </select>
-                                        </div>
+
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Jenis Penjilidan</label>
+                                        <select readonly name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" selected>Perfect Bind</option>
+                                            <option value="">Lock Bind</option>
+                                            <option value="">Gather</option>
+                                        </select>
                                     </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Operator</label>
+                                        <select readonly name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" selected>User A</option>
+                                        </select>
+                                    </div>
+                                </div>
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
@@ -253,66 +253,84 @@
                             </div>
                         </div>
 
-                        <form
-                            action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
-                            method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <div class="row mt-5" style="background:#f1f0f0;">
-                                <div class="col-md-12 mt-5">
-                                    <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
-                                </div>
-                                <div class="col-md-12">
-                                    <table class="table table-bordered" id="table">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="2">Jumlah </th>
-                                                <th colspan="5">Kriteria</th>
-                                                <th rowspan="2">Check (Operator)</th>
-                                                <th rowspan="2">Username / datetime</th>
-                                                <th rowspan="2">Verify</th>
-                                                <th rowspan="2">Username / datetime</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Kedudukan Kulit buku dan teks</th>
-                                                <th>Artwork Kulit buku dan teks</th>
-                                                <th>Turutan Seksyen/ muta surat</th>
-                                                <th>Rosak/Koyak</th>
-                                                <th>Kotor</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($details as $key => $detail)
-                                                <tr>
-                                                    <td>{{ $detail->c_1 }}</td>
-                                                    <td><input type="hidden" value="{{ $detail->c_1 }}"><input
-                                                            type="checkbox" id="" @checked($detail->c_2 != null)>
-                                                    </td>
-                                                    <td><input type="checkbox" id=""
-                                                            @checked($detail->c_3 != null)>
-                                                    </td>
-                                                    <td><input type="checkbox" id=""
-                                                            @checked($detail->c_4 != null)>
-                                                    </td>
-                                                    <td><input type="checkbox" id=""
-                                                            @checked($detail->c_5 != null)>
-                                                    </td>
-                                                    <td><input type="checkbox" id=""
-                                                            @checked($detail->c_6 != null)>
-                                                    </td>
-                                                    <td><button type="button" class="btn btn-primary check_btn"
-                                                            style="border-radius:5px;"
-                                                            @disabled($detail->c_7 != null)>check</button></td>
-                                                    <td><input type="text" class="check_operator form-control"
-                                                            value="{{ $detail->c_7 }}" readonly></td>
-                                                    <td><button type="button"
-                                                            class="btn btn-primary verify_btn">Verify</button>
-                                                    </td>
-                                                    <td><input type="text" name="semasa[{{ $detail->id }}][1]"
-                                                            class="verify_operator form-control" readonly></td>
-                                                </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
+                    <div class="row mt-5" style="background:#f1f0f0;">
+                        <div class="col-md-12 mt-5">
+                            <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
+                        </div>
+
+                        <div class="col-md-12 ">
+                            <button class="btn btn-primary float-right mb-5  mr-5">+ Add</button>
+                        </div>
+
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2">Jumlah </th>
+                                        <th colspan="5s">Kriteria</th>
+                                        <th rowspan="2">Check (Operator)</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Verify</th>
+                                        <th rowspan="2">Username / datetime</th>
+                                        <th rowspan="2">Action</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Kedudukan Kulit buku  dan teks</th>
+                                        <th>Artwork Kulit buku  dan teks</th>
+                                        <th>Turutan Seksyen/ muta surat</th>
+                                        <th>Rosak/Koyak</th>
+                                        <th>Kotor</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500</td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><button class="btn" style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
+                                        </td>
+                                        <td>A/12/12/2023 10:10Am</td>
+                                        <td><button class="btn"
+                                        style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
+                                        </td>
+                                        <td>A/12/12/2023 10:30Am</td>
+                                        <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1000</td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><button class="btn" style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
+                                        </td>
+                                        <td>A/12/12/2023 10:30Am</td>
+                                        <td><button class="btn" style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
+                                        </td>
+                                        <td>A/12/12/2023 10:50Am</td>
+                                        <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>1500</td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><input type="checkbox" checked name="" id=""></td>
+                                        <td><button class="btn " style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
+                                        </td>
+                                        <td>A/12/12/2023 11:05Am</td>
+                                        <td><button class="btn" style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
+                                        </td>
+                                        <td>A/12/12/2023 10:50Am</td>
+                                        <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
 
                                 </div>
                             </div>

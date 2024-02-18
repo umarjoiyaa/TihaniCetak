@@ -415,6 +415,7 @@
                                 </div>
                             </div>
 
+
                             <form action="{{ route('proses_pencetakan.approve.approve', $proses_pencetakan->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
@@ -450,3 +451,4 @@
             });
         </script>
     @endpush
+

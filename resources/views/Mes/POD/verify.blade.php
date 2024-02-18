@@ -146,6 +146,7 @@
                                         </thead>
                                         <tbody>
 
+
                                             <tr>
                                                 <td>Front and Back imposition</td>
                                                 <td><input type="checkbox" disabled class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ok') value="ok" id=""></td>

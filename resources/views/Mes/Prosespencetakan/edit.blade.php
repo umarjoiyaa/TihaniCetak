@@ -89,13 +89,13 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <div class="label">Seksyen No.</div>
-                                                <input type="text" value="{{ $proses_pencetakan->seksyen_no }}"
-                                                    name="seksyen_no" class="form-control">
-                                            </div>
+
+                                <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <label for="">Kuantiti waste</label>
+                                            <input type="text" readonly value="input text" name="" id="" class="form-control">
                                         </div>
+                                </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
@@ -113,278 +113,151 @@
                                     <div class="row">
 
 
-                                        <div class="col-md-5 mt-3">
-                                            <table class="table" border="1">
-                                                <thead>
-                                                    <tr>
-                                                        <td rowspan="2">Kriteria</td>
-                                                        <td colspan="3">Tanda bagi yang berkenaan</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>Ok</th>
-                                                        <th>NG</th>
-                                                        <th>NA</th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr style="background:wheat;">
-                                                        <td>Artwork</td>
-                                                        <td><input type="checkbox" class="Cover1"
-                                                                onchange="handleCheckboxChange('Cover1',this)"
-                                                                name="b_1" value="ok" id="" @checked($proses_pencetakan->b_1 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover1"
-                                                                onchange="handleCheckboxChange('Cover1',this)"
-                                                                name="b_1" value="ng" id="" @checked($proses_pencetakan->b_1 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover1"
-                                                                onchange="handleCheckboxChange('Cover1',this)"
-                                                                name="b_1" value="na" id="" @checked($proses_pencetakan->b_1 == 'na')></td>
+                            <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td rowspan="2">No</td>
+                                            <td rowspan="2">kriteria</td>
+                                            <td colspan="3">cover</td>
 
-                                                    </tr>
-                                                    <tr style="background:wheat;">
-                                                        <td>Turutan muka surat</td>
-                                                        <td><input type="checkbox" class="Text1"
-                                                                onchange="handleCheckboxChange('Text1',this)"
-                                                                name="b_2" value="ok" id="" @checked($proses_pencetakan->b_2 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text1"
-                                                                onchange="handleCheckboxChange('Text1',this)"
-                                                                name="b_2" value="ng" id="" @checked($proses_pencetakan->b_2 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text1"
-                                                                onchange="handleCheckboxChange('Text1',this)"
-                                                                name="b_2" value="na" id="" @checked($proses_pencetakan->b_2 == 'na')></td>
+                                        </tr>
+                                        <tr>
+                                            <th>OK</th>
+                                            <th>NG</th>
+                                            <th>NA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                                    </tr>
+                                    <tr>
+                                            <td>1</td>
+                                            <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
+                                            <td><input type="checkbox"  name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>2</td>
+                                            <td>Artwork (Semak gambar dan teks)</td>
+                                            <td><input type="checkbox"  name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>3</td>
+                                            <td>Kotor, calar (Periksa setiap muka surat)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>4</td>
+                                            <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>5</td>
+                                            <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>6</td>
+                                            <td>Turutan mukasurat (Berturutan)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>7</td>
+                                            <td>Kelekatan matt/gloss lamination</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>8</td>
+                                            <td>Koyak (Terkoyak / Rosak)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
 
-                                                    <tr style="background:wheat;">
-                                                        <td>Kedudukan muka surat </td>
-                                                        <td><input type="checkbox" class="Cover2"
-                                                                onchange="handleCheckboxChange('Cover2',this)"
-                                                                name="b_3" value="ok" id="" @checked($proses_pencetakan->b_3 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover2"
-                                                                onchange="handleCheckboxChange('Cover2',this)"
-                                                                name="b_3" value="ng" id="" @checked($proses_pencetakan->b_3 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover2"
-                                                                onchange="handleCheckboxChange('Cover2',this)"
-                                                                name="b_3" value="na" id="" @checked($proses_pencetakan->b_3 == 'na')></td>
+                                        </tr>
+                                        <tr>
+                                            <td>9</td>
+                                            <td>Imej/artwork terpotong</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
+                                        <tr>
+                                            <td>10</td>
+                                            <td>Cop (Cop pada setiap mockup)</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" checked name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                        </tr>
 
-                                                    </tr>
+                                    </tbody>
+                                 </table>
+                        </div>
+                    </div>
 
-                                                    <tr style="background:wheat;">
-                                                        <td>Saiz Spine</td>
-                                                        <td><input type="checkbox" class="Text2"
-                                                                onchange="handleCheckboxChange('Text2',this)"
-                                                                name="b_4" value="ok" id="" @checked($proses_pencetakan->b_4 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text2"
-                                                                onchange="handleCheckboxChange('Text2',this)"
-                                                                name="b_4" value="ng" id="" @checked($proses_pencetakan->b_4 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text2"
-                                                                onchange="handleCheckboxChange('Text2',this)"
-                                                                name="b_4" value="na" id="" @checked($proses_pencetakan->b_4 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr style="background:wheat;">
-                                                        <td>Kedudukan nombor muka surat</td>
-                                                        <td><input type="checkbox" class="Cover3"
-                                                                onchange="handleCheckboxChange('Cover3',this)"
-                                                                name="b_5" value="ok" id="" @checked($proses_pencetakan->b_5 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover3"
-                                                                onchange="handleCheckboxChange('Cover3',this)"
-                                                                name="b_5" value="ng" id="" @checked($proses_pencetakan->b_5 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover3"
-                                                                onchange="handleCheckboxChange('Cover3',this)"
-                                                                name="b_5" value="na" id="" @checked($proses_pencetakan->b_5 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr style="background:wheat;">
-                                                        <td>Bleed (5mm)</td>
-                                                        <td><input type="checkbox" class="Text3"
-                                                                onchange="handleCheckboxChange('Text3',this)"
-                                                                name="b_6" value="ok" id="" @checked($proses_pencetakan->b_6 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text3"
-                                                                onchange="handleCheckboxChange('Text3',this)"
-                                                                name="b_6" value="ng" id="" @checked($proses_pencetakan->b_6 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text3"
-                                                                onchange="handleCheckboxChange('Text3',this)"
-                                                                name="b_6" value="na" id="" @checked($proses_pencetakan->b_6 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Warna</td>
-                                                        <td><input type="checkbox" class="Cover4"
-                                                                onchange="handleCheckboxChange('Cover4',this)"
-                                                                name="b_7" value="ok" id="" @checked($proses_pencetakan->b_7 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover4"
-                                                                onchange="handleCheckboxChange('Cover4',this)"
-                                                                name="b_7" value="ng" id="" @checked($proses_pencetakan->b_7 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover4"
-                                                                onchange="handleCheckboxChange('Cover4',this)"
-                                                                name="b_7" value="na" id="" @checked($proses_pencetakan->b_7 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Artwork</td>
-                                                        <td><input type="checkbox" class="Text4"
-                                                                onchange="handleCheckboxChange('Text4',this)"
-                                                                name="b_8" value="ok" id="" @checked($proses_pencetakan->b_8 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text4"
-                                                                onchange="handleCheckboxChange('Text4',this)"
-                                                                name="b_8" value="ng" id="" @checked($proses_pencetakan->b_8 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text4"
-                                                                onchange="handleCheckboxChange('Text4',this)"
-                                                                name="b_8" value="na" id="" @checked($proses_pencetakan->b_8 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Kedudukan warna</td>
-                                                        <td><input type="checkbox" class="Cover5"
-                                                                onchange="handleCheckboxChange('Cover5',this)"
-                                                                name="b_9" value="ok" id="" @checked($proses_pencetakan->b_9 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover5"
-                                                                onchange="handleCheckboxChange('Cover5',this)"
-                                                                name="b_9" value="ng" id="" @checked($proses_pencetakan->b_9 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover5"
-                                                                onchange="handleCheckboxChange('Cover5',this)"
-                                                                name="b_9" value="na" id="" @checked($proses_pencetakan->b_9 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Kedudukan cetakan</td>
-                                                        <td><input type="checkbox" class="Text5"
-                                                                onchange="handleCheckboxChange('Text5',this)"
-                                                                name="b_10" value="ok" id="" @checked($proses_pencetakan->b_10 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text5"
-                                                                onchange="handleCheckboxChange('Text5',this)"
-                                                                name="b_10" value="ng" id="" @checked($proses_pencetakan->b_10 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text5"
-                                                                onchange="handleCheckboxChange('Text5',this)"
-                                                                name="b_10" value="na" id="" @checked($proses_pencetakan->b_10 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Periksa Powder</td>
-                                                        <td><input type="checkbox" class="Cover6"
-                                                                onchange="handleCheckboxChange('Cover6',this)"
-                                                                name="b_11" value="ok" id="" @checked($proses_pencetakan->b_11 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover6"
-                                                                onchange="handleCheckboxChange('Cover6',this)"
-                                                                name="b_11" value="ng" id="" @checked($proses_pencetakan->b_11 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover6"
-                                                                onchange="handleCheckboxChange('Cover6',this)"
-                                                                name="b_11" value="na" id="" @checked($proses_pencetakan->b_11 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Minyak</td>
-                                                        <td><input type="checkbox" class="Text6"
-                                                                onchange="handleCheckboxChange('Text6',this)"
-                                                                name="b_12" value="ok" id="" @checked($proses_pencetakan->b_12 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text6"
-                                                                onchange="handleCheckboxChange('Text6',this)"
-                                                                name="b_12" value="ng" id="" @checked($proses_pencetakan->b_12 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text6"
-                                                                onchange="handleCheckboxChange('Text6',this)"
-                                                                name="b_12" value="na" id="" @checked($proses_pencetakan->b_12 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Kotor</td>
-                                                        <td><input type="checkbox" class="Cover7"
-                                                                onchange="handleCheckboxChange('Cover7',this)"
-                                                                name="b_13" value="ok" id="" @checked($proses_pencetakan->b_13 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover7"
-                                                                onchange="handleCheckboxChange('Cover7',this)"
-                                                                name="b_13" value="ng" id="" @checked($proses_pencetakan->b_13 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover7"
-                                                                onchange="handleCheckboxChange('Cover7',this)"
-                                                                name="b_13" value="na" id="" @checked($proses_pencetakan->b_13 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Doubling</td>
-                                                        <td><input type="checkbox" class="Text7"
-                                                                onchange="handleCheckboxChange('Text7',this)"
-                                                                name="b_14" value="ok" id="" @checked($proses_pencetakan->b_14 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text7"
-                                                                onchange="handleCheckboxChange('Text7',this)"
-                                                                name="b_14" value="ng" id="" @checked($proses_pencetakan->b_14 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text7"
-                                                                onchange="handleCheckboxChange('Text7',this)"
-                                                                name="b_14" value="na" id="" @checked($proses_pencetakan->b_14 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Hickies</td>
-                                                        <td><input type="checkbox" class="Cover8"
-                                                                onchange="handleCheckboxChange('Cover8',this)"
-                                                                name="b_15" value="ok" id="" @checked($proses_pencetakan->b_15 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover8"
-                                                                onchange="handleCheckboxChange('Cover8',this)"
-                                                                name="b_15" value="ng" id="" @checked($proses_pencetakan->b_15 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover8"
-                                                                onchange="handleCheckboxChange('Cover8',this)"
-                                                                name="b_15" value="na" id="" @checked($proses_pencetakan->b_15 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Frontlay & sidelay</td>
-                                                        <td><input type="checkbox" class="Text8"
-                                                                onchange="handleCheckboxChange('Text8',this)"
-                                                                name="b_16" value="ok" id="" @checked($proses_pencetakan->b_16 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text8"
-                                                                onchange="handleCheckboxChange('Text8',this)"
-                                                                name="b_16" value="ng" id="" @checked($proses_pencetakan->b_16 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text8"
-                                                                onchange="handleCheckboxChange('Text8',this)"
-                                                                name="b_16" value="na" id="" @checked($proses_pencetakan->b_16 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Gambar / teks hilang</td>
-                                                        <td><input type="checkbox" class="Cover9"
-                                                                onchange="handleCheckboxChange('Cover9',this)"
-                                                                name="b_17" value="ok" id="" @checked($proses_pencetakan->b_17 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Cover9"
-                                                                onchange="handleCheckboxChange('Cover9',this)"
-                                                                name="b_17" value="ng" id="" @checked($proses_pencetakan->b_17 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Cover9"
-                                                                onchange="handleCheckboxChange('Cover9',this)"
-                                                                name="b_17" value="na" id="" @checked($proses_pencetakan->b_17 == 'na')></td>
-
-                                                    </tr>
-
-                                                    <tr>
-                                                        <td>Pematuhan SOP</td>
-                                                        <td><input type="checkbox" class="Text9"
-                                                                onchange="handleCheckboxChange('Text9',this)"
-                                                                name="b_18" value="ok" id="" @checked($proses_pencetakan->b_18 == 'ok')></td>
-                                                        <td><input checked type="checkbox" class="Text9"
-                                                                onchange="handleCheckboxChange('Text9',this)"
-                                                                name="b_18" value="ng" id="" @checked($proses_pencetakan->b_18 == 'ng')></td>
-                                                        <td><input type="checkbox" class="Text9"
-                                                                onchange="handleCheckboxChange('Text9',this)"
-                                                                name="b_18" value="na" id="" @checked($proses_pencetakan->b_18 == 'na')></td>
-
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-
-
-                                </div>
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <td rowspan="2">Jumlah</td>
+                                            <td colspan="7">Kriteria</td>
+                                            <td rowspan="2">Check</td>
+                                            <td rowspan="2">Check (Operator)</td>
+                                            <td rowspan="2">Verify (QC)</td>
+                                            <td rowspan="2">Verify</td>
+                                            <td rowspan="2">Action</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Gambar/teks</th>
+                                            <th>warna</th>
+                                            <th>Register depan belakang</th>
+                                            <th>Tiada set off, kotor, hickies</th>
+                                            <th>Tiada doubling</th>
+                                            <th>Periksa powder</th>
+                                            <th>Frontlay & sidelay</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>500</td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><input type="checkbox" name="" id=""></td>
+                                            <td><button class="btn btn-primary" style="border-radius:5px; ">check</button></td>
+                                            <td>username / datetime</td>
+                                            <td><button class="btn" style="border-radius:25px; background:#000; color:white; ">Verify</button></td>
+                                            <td>username / datetime</td>
+                                            <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
+                        </div>
+                    </div>
+
+
+
+
 
                             <div class="row">
                                 <div class="col-md-12">
