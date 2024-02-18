@@ -33,6 +33,9 @@
     <!--- Animations css-->
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 
+    <!-- Quill css-->
+    <link rel="stylesheet" href="{{asset('assets/css/quill.css')}}">
+
     <!-- Internal Datatable css-->
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.dataTables.css') }}" rel="stylesheet">
 
@@ -2058,7 +2061,8 @@
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
 
-
+    <!-- Quill js -->
+    <script src="{{asset('/assets/js/quill.js')}}"></script>
 
     <!-- Internal Datatable js -->
     {{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}
