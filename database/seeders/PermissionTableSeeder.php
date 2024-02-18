@@ -141,6 +141,12 @@ class PermissionTableSeeder extends Seeder
             'POD Verify',
             'POD View',
             'POD Delete',
+            'PLATE CETAK List',
+            'PLATE CETAK Create',
+            'PLATE CETAK Update',
+            'PLATE CETAK Verify',
+            'PLATE CETAK View',
+            'PLATE CETAK Delete',
          ];
 
         foreach ($permissions as $permission) {

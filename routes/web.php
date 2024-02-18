@@ -439,11 +439,19 @@ Route::get('/MES/Pod/delete/{id}', [PodController::class, 'delete'])->name('pod.
 
 
 // PlateCetak
-Route::get('/MES/PlateCetak', [PlateCetakController::class, 'index'])->name('PlateCetak');
-Route::get('/MES/PlateCetak/view', [PlateCetakController::class, 'view'])->name('PlateCetak.view');
-Route::get('/MES/PlateCetak/create', [PlateCetakController::class, 'create'])->name('PlateCetak.create');
-Route::get('/MES/PlateCetak/edit', [PlateCetakController::class, 'edit'])->name('PlateCetak.edit');
-Route::get('/MES/PlateCetak/verify', [PlateCetakController::class, 'verify'])->name('PlateCetak.verify');
+Route::get('/MES/PlateCetak', [PlateCetakController::class, 'index'])->name('plate_cetak');
+Route::get('/MES/PlateCetak/data', [PlateCetakController::class, 'Data'])->name('plate_cetak.data');
+Route::get('/MES/PlateCetak/create', [PlateCetakController::class, 'create'])->name('plate_cetak.create');
+Route::get('/MES/PlateCetak/SaleOrder/get', [PlateCetakController::class, 'sale_order'])->name('sale_order.get');
+Route::get('/MES/PlateCetak/SaleOrder/detail/get', [PlateCetakController::class, 'sale_order_detail'])->name('sale_order.detail.get');
+Route::post('/MES/PlateCetak/store', [PlateCetakController::class, 'store'])->name('plate_cetak.store');
+Route::get('/MES/PlateCetak/view/{id}', [PlateCetakController::class, 'view'])->name('plate_cetak.view');
+Route::get('/MES/PlateCetak/edit/{id}', [PlateCetakController::class, 'edit'])->name('plate_cetak.edit');
+Route::post('/MES/PlateCetak/update/{id}', [PlateCetakController::class, 'update'])->name('plate_cetak.update');
+Route::get('/MES/PlateCetak/verify/{id}', [PlateCetakController::class, 'verify'])->name('plate_cetak.verify');
+Route::post('/MES/PlateCetak/approve/approve/{id}', [PlateCetakController::class, 'approve_approve'])->name('plate_cetak.approve.approve');
+Route::post('/MES/PlateCetak/approve/decline/{id}', [PlateCetakController::class, 'approve_decline'])->name('plate_cetak.approve.decline');
+Route::get('/MES/PlateCetak/delete/{id}', [PlateCetakController::class, 'delete'])->name('plate_cetak.delete');
 
 // Prosespencetakan
 Route::get('/MES/Prosespencetakan', [ProsespencetakanController::class, 'index'])->name('Prosespencetakan');
