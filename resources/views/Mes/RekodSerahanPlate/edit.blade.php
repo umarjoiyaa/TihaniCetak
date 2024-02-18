@@ -154,6 +154,13 @@
 @endsection
 @push('custom-scripts')
     <script>
+
+function handleCheckboxChange(className, checkbox) {
+        if ($(checkbox).prop('checked')) {
+            $(`.${ className }`).not(checkbox).prop('checked', false);
+        }
+    }
+
         $(document).ready(function() {
             $('#sale_order').trigger('change');
             $('#sale_order').select2({
@@ -188,7 +195,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.text || null;
                 }
             });
 

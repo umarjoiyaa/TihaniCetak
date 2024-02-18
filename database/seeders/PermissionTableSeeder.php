@@ -129,6 +129,18 @@ class PermissionTableSeeder extends Seeder
             'PROSES PENCETAKAN Verify',
             'PROSES PENCETAKAN View',
             'PROSES PENCETAKAN Delete',
+            'CTP List',
+            'CTP Create',
+            'CTP Update',
+            'CTP Verify',
+            'CTP View',
+            'CTP Delete',
+            'POD List',
+            'POD Create',
+            'POD Update',
+            'POD Verify',
+            'POD View',
+            'POD Delete',
          ];
 
         foreach ($permissions as $permission) {

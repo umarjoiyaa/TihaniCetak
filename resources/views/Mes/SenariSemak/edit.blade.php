@@ -16,7 +16,7 @@
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Tarikh</div>
+                                            <div class="label">Sale Order</div>
                                             <select name="sale_order" data-id="{{ $senari_semak->sale_order_id }}"
                                                 id="sale_order" class="form-control">
                                                 <option value="{{ $senari_semak->sale_order_id }}" selected
@@ -1118,11 +1118,11 @@
 
 @push('custom-scripts')
 <script>
-    function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(.${ className }).not(checkbox).prop('checked', false);
+   function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
     $(document).ready(function () {
         $('#sale_order').trigger('change');
 
@@ -1162,7 +1162,7 @@
                 }
             },
             templateSelection: function (data) {
-                return data.name || null;
+                return data.text || null;
             }
         });
     });

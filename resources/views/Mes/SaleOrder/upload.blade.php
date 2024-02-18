@@ -43,37 +43,34 @@
                                 </div>
                                 <div class="col-md-6 ">
                                     <div class="text-center">
-                                        <div class="row mt-2">
-                                            <div class="col-md-12">
-                                                <p>Sales order No <span style="margin-left:20px;">:</span>
-                                                    <snap style="margin-left:20px;">{{ $sale_order->order_no }}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-12">
-                                                <p>PO No <span style="margin-left:20px;">:</span>
-                                                    <snap style="margin-left:20px;">{{ $sale_order->po_no }}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-12">
-                                                <p>Trems <span style="margin-left:20px;">:</span>
-                                                    <snap style="margin-left:20px;">{{ $sale_order->terms }}</span>
-                                                </p>
-                                            </div>
-                                        </div>
-                                        <div class="row mt-2">
-                                            <div class="col-md-12">
-                                                <p>Date <span style="margin-left:20px;">:</span>
-                                                    <snap style="margin-left:20px;">{{ $sale_order->date }}</span>
-                                                </p>
-                                            </div>
-                                        </div>
 
-                                    </div>
-                                </div>
+                                                <table class="table table-borderless">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td> Sales order No </td>
+                                                            <td>:</td>
+                                                            <td> {{ $sale_order->order_no }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> PO No </td>
+                                                            <td> : </td>
+                                                            <td> {{ $sale_order->po_no }} </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> Terms </td>
+                                                            <td> : </td>
+                                                            <td>{{ $sale_order->terms }}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td> Date </td>
+                                                            <td> : </td>
+                                                            <td>{{ $sale_order->date }}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
+                                            </div>
+                                        </div>
                             </div>
 
                             <div class="row">

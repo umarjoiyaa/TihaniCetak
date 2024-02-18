@@ -95,7 +95,7 @@
 							<div class="swichermainleft">
 								<h4>Versions</h4>
 								<div class="pl-3 pr-3">
-									<a class="btn btn-success btn-block" href="index.html">
+									<a class="btn btn-success btn-block" href="{{ route('home') }}">
 										LTR
 									</a>
 									<a class="btn btn-warning btn-block" href="https://laravel.spruko.com/xino/rtl/index">
@@ -109,7 +109,7 @@
 									<a class="btn btn-primary btn-block" href="horizontal.html">
 										Horizontal
 									</a>
-									<a class="btn btn-secondary btn-block" href="index.html">
+									<a class="btn btn-secondary btn-block" href="{{ route('home') }}">
 										Left-menu
 									</a>
 								</div>
@@ -199,7 +199,7 @@
 			<div class="container">
 				<div class="main-header-left ">
 					<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-					<a class="header-brand" href="index.html">
+					<a class="header-brand" href="{{ route('home') }}">
 						<img src="assets/img/brand/logo-theme-dark.png" class="desktop-dark">
 						<img src="assets/img/brand/logo.png" class="desktop-logo">
 					</a>
@@ -661,42 +661,32 @@
         </div>
         <!-- mobile-header -->
 
-        <!--Horizontal-main -->
-        <div class="sticky">
-            <div class="horizontal-main hor-menu clearfix side-header">
-                <div class="horizontal-mainwrapper container clearfix">
-                    <!--Nav-->
-                    <nav class="horizontalMenu clearfix d-flex">
-                        <div class="main-header-left ">
-                            <a
-                                class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-                            <a class="header-brand" href="index.html">
-                                <img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
-                                <div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}"
-                                        class="desktop-logo"> <span class="text-white mx-2 text"
-                                        style="font-size: 26px;">Tihani Cetak</span></div>
-                            </a>
+			<!--Horizontal-main -->
+		<div class="sticky">
+			<div class="horizontal-main hor-menu clearfix side-header">
+				<div class="horizontal-mainwrapper container clearfix">
+					<!--Nav-->
+					<nav class="horizontalMenu clearfix d-flex">
+						<div class="main-header-left ">
+							<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
+							<a class="header-brand" href="{{ route('dashboard') }}">
+								<img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
+								<div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}" class="desktop-logo"> <span class="text-white mx-2 text" style="font-size: 26px;">Tihani Cetak</span></div>
+							</a>
 
-                        </div>
-                        <ul class="horizontalMenu-list">
-                            <li aria-haspopup="true"><a href="index.html" class=""><i
-                                        class="ti-home menu-icon"></i> Home</a></li>
-                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i
-                                        class="ti-bar-chart-alt"></i> MES </a>
-                                <div class="horizontal-megamenu clearfix">
-                                    <div class="container-fluid">
-                                        <div class="mega-menubg hor-mega-menu">
-                                            <div class="row">
-                                                <div class="col-lg-2 col-md-12 col-xs-12 link-list">
-                                                    <div class="bg-black-9 text-center p-1"
-                                                        style="color: white; border-radius:5px;">Management</div>
-                                                    <ul>
-                                                        {{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-                                                        <li aria-haspopup="true"><a href="{{ route('sale_order') }}"
-                                                                class="slide-item"><iconify-icon
-                                                                    icon="ph:arrow-square-right" width="17"
-                                                                    style="color: #a41843"></iconify-icon> Sales
-                                                                Order</a></li>
+						</div>
+						<ul class="horizontalMenu-list">
+							<li aria-haspopup="true"><a href="{{ route('dashboard') }}" class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
+							<li aria-haspopup="true"><a href="#" class="sub-icon" id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
+								<div class="horizontal-megamenu clearfix">
+									<div class="container-fluid">
+										<div class="mega-menubg hor-mega-menu">
+											<div class="row">
+												<div class="col-lg-2 col-md-12 col-xs-12 link-list">
+                                                       <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
+													<ul>
+														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
+														<li aria-haspopup="true" ><a href="{{route('sale_order')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
 
                                                     </ul>
                                                 </div>
@@ -782,101 +772,34 @@
                                                         Kualiti</div>
                                                     <ul>
 
-                                                        <div class="row">
-                                                            <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('Ctp') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>CTP</a>
-                                                                </li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('POD') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>POD</a>
-                                                                </li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('PlateCetak') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Plate
-                                                                        Cetak</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('Prosespencetakan') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Proses
-                                                                        Pencetakan</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesLipat') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Proses
-                                                                        Lipat</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesPenJilidanPrefectBind') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Proses
-                                                                        Penjilidan <br> (Perfect Bind)</a></li>
-                                                            </div>
-                                                            <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesPenJilidanSaddlestitch') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Prosess
-                                                                        Penjilidan <br> (Saddle Stitch)</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesThreeKnife') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Proses
-                                                                        Three Knife</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesPembungkusan') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Proses
-                                                                        Pembungkusan</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesPemgumpulangathering') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Pengumpulan/
-                                                                        Gathering</a></li>
-                                                                <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProsesPemotonganKulitBuku') }}"
-                                                                        class="slide-item"><iconify-icon
-                                                                            icon="ph:arrow-square-right"
-                                                                            width="17"
-                                                                            style="color: #a41843"></iconify-icon>Pemotongan
-                                                                        Kulit Buku/ Teks</a></li>
+                                                    <div class="row">
+                                                        <div class="col-lg-6 col-md-12 col-xs-12 link-list">
+                                                            <li aria-haspopup="true"><a href="{{route('ctp')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('pod')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('PlateCetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('Prosespencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesLipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanPrefectBind')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
+                                                        </div>
+                                                        <div class="col-lg-6 col-md-12 col-xs-12 link-list">
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanSaddlestitch')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemgumpulangathering')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('ProsesPemotonganKulitBuku')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pemotongan Kulit Buku/ Teks</a></li>
 
                                                             </div>
                                                         </div>
 
 
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="ti-layers"></i>
-                                    Production</a>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li aria-haspopup="true"><a href="#" class="sub-icon" id="production"><i class="ti-layers"></i> Production</a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1018,15 +941,14 @@
 
 
 
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i class="ti-write"></i> WMS
-                                </a>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li aria-haspopup="true"><a href="#" class="sub-icon" id="wms"><i class="ti-write"></i> WMS </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1108,45 +1030,23 @@
                                                     <div class="bg-black-9 text-center p-1"
                                                         style="color: white; border-radius:5px;">Dashboard</div>
                                                     <ul>
-                                                        <li aria-haspopup="true"><a
-                                                                href="{{ route('invertory_ShopFloor') }}"
-                                                                class="slide-item"><iconify-icon
-                                                                    icon="ph:arrow-square-right" width="17"
-                                                                    style="color: #a41843"></iconify-icon> Inventory
-                                                                Shopfloor</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="col-lg-3 col-md-12 col-xs-12 link-list">
-                                                    <div class="bg-black-9 text-center p-1"
-                                                        style="color: white; border-radius:5px;">Report</div>
-                                                    <ul>
-                                                        <li aria-haspopup="true"><a
-                                                                href="{{ route('StockCard_report') }}"
-                                                                class="slide-item"><iconify-icon
-                                                                    icon="ph:arrow-square-right" width="17"
-                                                                    style="color: #a41843"></iconify-icon> Stock Card
-                                                                Report</a></li>
-                                                        <li aria-haspopup="true"><a
-                                                                href="{{ route('Invertory_report') }}"
-                                                                class="slide-item"><iconify-icon
-                                                                    icon="ph:arrow-square-right" width="17"
-                                                                    style="color: #a41843"></iconify-icon> Inventory
-                                                                Report - By Location</a></li>
-                                                        <li aria-haspopup="true"><a
-                                                                href="{{ route('Sub_monitring_report') }}"
-                                                                class="slide-item"><iconify-icon
-                                                                    icon="ph:arrow-square-right" width="17"
-                                                                    style="color: #a41843"></iconify-icon> Subcon
-                                                                Monitoring Report</a></li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </li>
-                            <li aria-haspopup="true"><a href="#" class="sub-icon"><i
-                                        class="icon ion-ios-settings"></i> Setting </a>
+                                                        <li aria-haspopup="true" ><a href="{{route('invertory_ShopFloor')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Shopfloor</a></li>
+													</ul>
+												</div>
+												<div class="col-lg-3 col-md-12 col-xs-12 link-list">
+                                                    <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Report</div>
+													<ul>
+                                                        <li aria-haspopup="true" ><a href="{{route('StockCard_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Card Report</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('Invertory_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Report -  By Location</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('Sub_monitring_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Subcon Monitoring Report</a></li>
+													</ul>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</li>
+							<li aria-haspopup="true"><a href="#" class="sub-icon" id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1448,29 +1348,21 @@
                                     </div>
                                 </div>
 
-                                <button class="navbar-toggler navresponsive-toggler d-sm-none" type="button"
-                                    data-toggle="collapse" data-target="#navbarSupportedContent-4"
-                                    aria-controls="navbarSupportedContent-4" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                    <span class="navbar-toggler-icon fe fe-more-vertical"></span>
-                                </button>
-                                <div class="dropdown main-profile-menu nav nav-item nav-link">
-                                    <a class="profile-user" href="#" id="dropdownMenuLink"
-                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                            alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
-                                    <div class="dropdown-menu dropdown-menu-arrow animated fadeInUp"
-                                        aria-labelledby="dropdownMenuLink">
-                                        <div class="main-header-profile header-img">
-                                            <div class="main-img-user"><img alt=""
-                                                    src="{{ asset('assets/img/tihani.png') }}"></div>
-                                            <h6>Elizabeth Jane</h6><span>Premium Member</span>
-                                        </div>
+								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
+									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
+									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
+								</button>
+								<div class="dropdown main-profile-menu nav nav-item nav-link">
+									<a class="profile-user" href="#" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" src="{{ asset('assets/img/tihani.png') }}" ></a>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
-                                        <a class="dropdown-item" href="page-signin.html"><i
-                                                class="fas fa-sign-out-alt"></i> Sign Out</a>
-                                    </div>
-                                </div>
-                                {{-- <div class="dropdown main-header-message right-toggle ">
+                                        <a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                      </div>
+
+
+
+								</div>
+								{{-- <div class="dropdown main-header-message right-toggle ">
 									<a class="nav-link " data-toggle="sidebar-right" data-target=".sidebar-right">
 										<i class="ti-menu tx-20 bg-transparent"></i>
 									</a>
@@ -2189,13 +2081,54 @@
     <!-- Switcher js -->
     <script src="{{ asset('assets/switcher/js/switcher.js') }}"></script>
 
-    <!-- Iconify Download Library -->
-    <script src="{{ asset('assets/js/iconify-icon.min.js') }}"></script>
-    <script>
-        $('.form-select').select2();
-    </script>
-    @stack('custom-scripts')
-</body>
+        <!-- Iconify Download Library -->
+		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
+        <script>
+            $('.form-select').select2();
+
+            $(document).ready(function() {
+
+
+                 var currentURL = window.location.href;
+
+                 if (currentURL.includes('home')) {
+                     $('#mes').removeClass('active');
+                     $('#production').removeClass('active');
+                     $('#wms').removeClass('active');
+                     $('#setting').removeClass('active');
+                     $('#home').addClass('active');
+                 } else if (currentURL.includes('MES')) {
+                    $('#home').removeClass('active');
+                     $('#production').removeClass('active');
+                     $('#wms').removeClass('active');
+                     $('#setting').removeClass('active');
+                     $('#mes').addClass('active');
+                    } else if (currentURL.includes('Production')) {
+                    $('#home').removeClass('active');
+                     $('#mes').removeClass('active');
+                     $('#wms').removeClass('active');
+                     $('#setting').removeClass('active');
+                     $('#production').addClass('active');
+                    } else if (currentURL.includes('WMS')) {
+                    $('#home').removeClass('active');
+                     $('#mes').removeClass('active');
+                     $('#production').removeClass('active');
+                     $('#setting').removeClass('active');
+                     $('#wms').addClass('active');
+                    } else if (currentURL.includes('Setting')) {
+                    $('#home').removeClass('active');
+                     $('#mes').removeClass('active');
+                     $('#production').removeClass('active');
+                     $('#wms').removeClass('active');
+                     $('#setting').addClass('active');
+                 }
+
+             });
+
+
+        </script>
+        @stack('custom-scripts')
+	</body>
 
 <!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:13 GMT -->
 
