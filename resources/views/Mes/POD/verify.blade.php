@@ -1,19 +1,18 @@
 @extends('app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
                 <div class="row">
-                        <div class="col-md-12">
-                            <h5 class="float-left">LAPORAN PEMERIKSAAN KUALITI -POD </h5>
-                            <p class="float-right">TCSB-B23 (Rev.5)</p>
-                        </div>
+                    <div class="col-md-12">
+                        <h5 class="float-left">LAPORAN PEMERIKSAAN KUALITI -POD </h5>
+                        <p class="float-right">TCSB-B23 (Rev.5)</p>
                     </div>
-                    <div class="card" style="background:#f1f0f0;">
-                        <<div class="card" style="background:#f1f0f0;">
+                </div>
+                <div class="card" style="background:#f1f0f0;">
+                    <<div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mt-3">
@@ -36,7 +35,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="" id="" readonly class="form-control">
-                                            <option value="" >select sales Order no</option>
+                                            <option value="">select sales Order no</option>
                                             <option value="" selected>SO-001496</option>
                                         </select>
                                     </div>
@@ -117,7 +116,7 @@
                                                 <td><input type="checkbox" checked name="" id=""></td>
                                                 <td><input type="checkbox" name="" id=""></td>
                                             </tr>
-                                          
+
 
 
                                         </tbody>
@@ -140,7 +139,7 @@
                                         </thead>
                                         <tbody>
 
-                                            
+
                                             <tr>
                                                 <td>Jenis kertasn</td>
                                                 <td><input type="checkbox" name="" id=""></td>
@@ -178,7 +177,7 @@
                                                 <td><input type="checkbox" name="" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Turutan muka surat  </td>
+                                                <td>Turutan muka surat </td>
                                                 <td><input type="checkbox" name="" id=""></td>
                                                 <td><input type="checkbox" checked name="" id=""></td>
                                                 <td><input type="checkbox" name="" id=""></td>
@@ -199,7 +198,7 @@
 
                                             </tr>
                                             <tr>
-                                                <td>Kedudukan cetakan depan  belakang / print register</td>
+                                                <td>Kedudukan cetakan depan belakang / print register</td>
                                                 <td><input type="checkbox" name="" id=""></td>
                                                 <td><input type="checkbox" checked name="" id=""></td>
                                                 <td><input type="checkbox" name="" id=""></td>
@@ -217,24 +216,22 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                
+
                             </div>
                         </div>
-                    </div>
+                </div>
 
-                    <div class="row d-flex justify-content-end ">
-                        <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn btn-danger mx-2">Decline</button>
-                            <button class="btn btn-primary ">Approve</button>
-                        </div>
+                <div class="row d-flex justify-content-end ">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <button class="btn btn-danger mx-2">Decline</button>
+                        <button class="btn btn-primary ">Approve</button>
                     </div>
                 </div>
             </div>
         </div>
+        <a href="{{route('POD.index')}}">back to list</a>
     </div>
+</div>
 
-    <a href="{{route('POD.index')}}">back to list</a>
-</div>
-</div>
-</div>
+
 @endsection

@@ -2,171 +2,170 @@
 
 @section('content')
 <form action="" method="post">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="float-left"><b>PRODUCTION JOBSHEET - TEXT</b></h5>
-                                <p class="float-right">TCBS-B16 (Rev.2)</p>
-                            </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>PRODUCTION JOBSHEET - TEXT</b></h5>
+                            <p class="float-right">TCBS-B16 (Rev.2)</p>
                         </div>
+                    </div>
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
-                                    <div class="row">
-                                        <div class="col-md-2"></div>
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h5 style="font-size:35px;">AMARAN : <br>
-                                                <span style="color:black;">
-                                                    TIADA SAMPLE JANGAN CETAK <br>
-                                                    FIRST PIECE JANGAN LUPA
-                                                </span>
-                                            </h5>
-                                        </div>
-
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-1"></div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card" style="background:#f1f0f0;">
-                            <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
                                 <div class="row">
-                                    <div class="col-md-12">
-                                        <h5><b>Production Button</b></h5>
+                                    <div class="col-md-2"></div>
+                                    <div class="col-md-1">
+                                        <i class="fe fe-alert-triangle"></i>
                                     </div>
-                                    <div class="col-md-4 ">
+                                    <div class="col-md-6">
+                                        <h5 style="font-size:35px;">AMARAN : <br>
+                                            <span style="color:black;">
+                                                TIADA SAMPLE JANGAN CETAK <br>
+                                                FIRST PIECE JANGAN LUPA
+                                            </span>
+                                        </h5>
+                                    </div>
+
+                                    <div class="col-md-1">
+                                        <i class="fe fe-alert-triangle"></i>
+                                    </div>
+                                    <div class="col-md-1"></div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f1f0f0;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><b>Production Button</b></h5>
+                                </div>
+                                <div class="col-md-4 ">
+                                    <button class="btn btn-light w-100" style="border:1px solid black;"><i
+                                            class="la la-play" style="font-size:20px;"></i>Start</button>
+                                </div>
+                                <div class="col-md-4">
+                                    <button class="btn  w-100" style="border:1px solid black;"><i class="la la-pause"
+                                            style="font-size:20px;"></i>Start</button>
+                                </div>
+                                <div class="col-md-4  ">
+                                    <div class="box">
                                         <button class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-play" style="font-size:20px;"></i>Start</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn  w-100" style="border:1px solid black;"><i
-                                                class="la la-pause" style="font-size:20px;"></i>Start</button>
-                                    </div>
-                                    <div class="col-md-4  ">
-                                        <div class="box">
-                                            <button class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                    class="la la-stop-circle" style="font-size:20px;"></i>Start</button>
-                                        </div>
+                                                class="la la-stop-circle" style="font-size:20px;"></i>Start</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-                        <div class="card" style="background:#f1f0f0;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Tarikh</label>
-                                            <input type="date" readonly name="" id="" class="form-control">
-                                        </div>
+                    <div class="card" style="background:#f1f0f0;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Tarikh</label>
+                                        <input type="date" readonly name="" id="" class="form-control">
                                     </div>
-                                    <div class="col-md-4 mt-3">
-                                        <label for="">Disediakan Oleh</label>
-                                        <input type="text" value="Admin" readonly name="" id="" class="form-control">
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <label>Operator</label>
-                                        <select name="" value="Admin" id="" class="form-control">
-                                            <option value="">Admin</option>
-                                            <option value="" selected>Admin</option>
-                                            <option value="">User A</option>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="">Disediakan Oleh</label>
+                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label>Operator</label>
+                                    <select name="" value="Admin" id="" class="form-control">
+                                        <option value="">Admin</option>
+                                        <option value="" selected>Admin</option>
+                                        <option value="">User A</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Sales Order No.</div>
+                                        <select name="" readonly id="" class="form-control">
+                                            <option value="">select sales Order no</option>
+                                            <option value="" selected>SO-001496</option>
                                         </select>
                                     </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
-                                            <select name="" readonly id="" class="form-control">
-                                                <option value="">select sales Order no</option>
-                                                <option value="" selected>SO-001496</option>
-                                            </select>
-                                        </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Kod Buku</div>
+                                        <input type="text" readonly value="CP 2940" class="form-control">
                                     </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Kod Buku</div>
-                                            <input type="text" readonly value="CP 2940" class="form-control">
-                                        </div>
-                                    </div>  
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Tajuk</div>
-                                            <input type="text" value="IQRO' GENIUS -RUMI (NEW COVER)" readonly name=""
-                                                id="" class="form-control">
-                                        </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Tajuk</div>
+                                        <input type="text" value="IQRO' GENIUS -RUMI (NEW COVER)" readonly name="" id=""
+                                            class="form-control">
                                     </div>
+                                </div>
 
-                                    
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Pelanggan</div>
-                                            <input type="text" value="EDUKID DISTRIBUTOR SDN BHD" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kuantiti SO</div>
-                                            <input type="text" value="5000" readonly name="" id="" class="form-control">
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Pelanggan</div>
+                                        <input type="text" value="EDUKID DISTRIBUTOR SDN BHD" readonly name="" id=""
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kuantiti Waste</div>
-                                            <input type="text" value="200" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
+                                </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Lebihan Stok</label>
-                                            <input type="text" readonly value="0" name="" id="" class="form-control">
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kuantiti SO</div>
+                                        <input type="text" value="5000" readonly name="" id="" class="form-control">
                                     </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"></div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kuantiti Waste</div>
+                                        <input type="text" value="200" readonly name="" id="" class="form-control">
+                                    </div>
+                                </div>
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Mesin</div>
-                                            <select name="" id="" readonly placeholder="Pilih Kategori Job" class="form-control">
-                                                <option value="">SMZP (2C)</option>
-                                                <option value="" selected>RYOBI (4C)</option>
-                                            </select>
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Lebihan Stok</label>
+                                        <input type="text" readonly value="0" name="" id="" class="form-control">
                                     </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kertas: </div>
-                                            <input type="text" placeholder="User Input" value="XXX"
-                                                readonly name="" id="" class="form-control">
-                                        </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Mesin</div>
+                                        <select name="" id="" readonly placeholder="Pilih Kategori Job"
+                                            class="form-control">
+                                            <option value="">SMZP (2C)</option>
+                                            <option value="" selected>RYOBI (4C)</option>
+                                        </select>
                                     </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Saiz Potong:</div>
-                                            <input type="text" value="XXX" placeholder="User Input" readonly
-                                                name="" id="" class="form-control">
-                                        </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kertas: </div>
+                                        <input type="text" placeholder="User Input" value="XXX" readonly name="" id=""
+                                            class="form-control">
                                     </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Saiz Potong:</div>
+                                        <input type="text" value="XXX" placeholder="User Input" readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- <div class="row mt-5">
@@ -226,7 +225,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="card" style="background:#f1f0f0; border-radius:5px;">
                         <div class="card-body">
@@ -246,12 +245,12 @@
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">status</label>
-                                    <input type="text" value="NEW" readonly name="" id=""
-                                        class="form-control">
+                                    <input type="text" value="NEW" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">Plate</label>
-                                    <select name="" id="" readonly placeholder="pilih Plate (lama/Baru)" class="form-control">
+                                    <select name="" id="" readonly placeholder="pilih Plate (lama/Baru)"
+                                        class="form-control">
                                         <option value="">pilih Plate (lama/Baru)</option>
                                         <option value="">Plate lama</option>
                                         <option value="" selected>Plate BARU</option>
@@ -259,8 +258,7 @@
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">Saiz Produk</label>
-                                    <input type="text" value="15cm X 21cm" readonly name="" id=""
-                                        class="form-control">
+                                    <input type="text" value="15cm X 21cm" readonly name="" id="" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -272,7 +270,7 @@
                                 <div class="col-md-12">
                                     <h5><b>Teks</b></h5>
                                 </div>
-                                
+
                                 <div class="col-md-4">
                                     <label for=""></label>
                                     <input type="text" class="form-control" readonly value="4UP" name="" id="">
@@ -306,24 +304,26 @@
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-4">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Seksyen No</th>
-                                            <th>Side</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td><input type="text" value="AB" name="" id="" class="form-control"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td><input type="text" value="AB" name="" id="" class="form-control"></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Seksyen No</th>
+                                                <th>Side</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1</td>
+                                                <td><input type="text" value="AB" name="" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2</td>
+                                                <td><input type="text" value="AB" name="" id="" class="form-control">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -358,41 +358,50 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Perfect Bind</td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
 
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Lock Bind</td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
 
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Wire O
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover - Square Back
+                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover -
+                                                    Square Back
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover - Round Back
-                                                    
+                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover -
+                                                    Round Back
+
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Sewing
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Round corner
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id="" class="form-control"></td>
+                                                <td><input type="text" placeholder="input text" name="" id=""
+                                                        class="form-control"></td>
                                             </tr>
-                                            
+
 
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
@@ -419,7 +428,7 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -529,11 +538,8 @@
 
 
             </div>
+            <a href="{{route('digitalPrinting.index')}}">back to list</a>
         </div>
-    </div>
-    <a href="{{route('digitalPrinting.index')}}">back to list</a>
-    </div>
-    </div>
     </div>
 </form>
 @endsection

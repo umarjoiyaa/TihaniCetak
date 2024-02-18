@@ -1,7 +1,6 @@
 @extends('app')
 
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -194,6 +193,5 @@
         </div>
         <a href="{{route('PlateCetak.index')}}">back to list</a>
     </div>
-</div>
 </div>
 @endsection

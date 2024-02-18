@@ -125,7 +125,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-6">
-                                    <h6><b>impositions</b></h6>
+                                    <h6><b>First piece</b></h6>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

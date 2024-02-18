@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('rekod_serahan_plate.update', $rekod_serahan_plate->id) }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -148,8 +147,6 @@
                 </div>
                 <a href="{{ route('rekod_serahan_plate') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')

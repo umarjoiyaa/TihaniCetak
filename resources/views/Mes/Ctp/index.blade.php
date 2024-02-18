@@ -55,22 +55,22 @@
                                     <td>30/5/2023</td>
                                     <td>30/5/2023</td>
                                     <td>SO-001496</td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
+                                    <td>OK</td>
                                     
                                     <td><span class="badge badge-pill badge-warning w-100 p-2">checked</span>
                                     </td>

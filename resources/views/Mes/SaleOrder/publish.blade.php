@@ -3,7 +3,6 @@
 @section('content')
     <form action="{{ route('sale_order.publish.submit', $sale_order->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -235,7 +234,5 @@
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
     </form>
 @endsection

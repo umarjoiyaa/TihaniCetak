@@ -9,7 +9,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h5 class="float-left"><b>LAPORAN PROSES PENCETAKANl</b></h5>
+                                    <h5 class="float-left"><b>LAPORAN PROSES PENCETAKAN</b></h5>
                                     <p class="float-right">TCBS-B61 (Rev.0)</p>
                                 </div>
                             </div>
@@ -39,7 +39,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
-                                                <select name="sale_order" id="sale_order" class="form-control">
+                                                <select name="sale_order" id="sale_order" class="form-control form-select">
 
                                                 </select>
                                             </div>

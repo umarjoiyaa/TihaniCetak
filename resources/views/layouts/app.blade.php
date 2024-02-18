@@ -661,7 +661,7 @@
 
 						</div>
 						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true"><a href="index.html" class=""><i class="ti-home menu-icon"></i> Home</a></li>
+							<li aria-haspopup="true"><a href="{{route('dashboard')}}" class=""><i class="ti-home menu-icon"></i> Home</a></li>
 							<li aria-haspopup="true"><a href="#" class="sub-icon"><i class="ti-bar-chart-alt"></i> MES </a>
 								<div class="horizontal-megamenu clearfix">
 									<div class="container-fluid">

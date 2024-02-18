@@ -2,85 +2,85 @@
 
 @section('content')
 <form action="" method="post">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5 class="float-left"><b>JOBSHEET - THREE KNIFE</b></h5>
-                                <p class="float-right">TCBS-B52 (Rev. 1)</p>
-                            </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>JOBSHEET - THREE KNIFE</b></h5>
+                            <p class="float-right">TCBS-B52 (Rev. 1)</p>
                         </div>
+                    </div>
 
 
-                        <div class="card" style="background:#f1f0f0;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Tarikh</label>
-                                            <input type="date" readonly name="" id="" class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <label for="">Disediakan Oleh</label>
-                                        <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                    <div class="card" style="background:#f1f0f0;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Tarikh</label>
+                                        <input type="date" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">select sales Order no</option>
-                                                <option value="">SO-001496</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label"> Tajuk </div>
-                                            <input type="text" value="Auto Display " readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Kod Buku</div>
-                                            <input type="text" readonly value="auto Display" class="form-control">
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="row">  
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Pelanggan</div>
-                                            <input type="text" value="auto Display" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kuantiti So </div>
-                                            <input type="text" value="auto Display " readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Saiz Buku</div>
-                                            <input type="text" value="auto Display " readonly name="" id=""
-                                                class="form-control">
-                                        </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="">Disediakan Oleh</label>
+                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Sales Order No.</div>
+                                        <select name="" id="" class="form-control">
+                                            <option value="">select sales Order no</option>
+                                            <option value="">SO-001496</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <!-- <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label"> Tajuk </div>
+                                        <input type="text" value="Auto Display " readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Kod Buku</div>
+                                        <input type="text" readonly value="auto Display" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Pelanggan</div>
+                                        <input type="text" value="auto Display" readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kuantiti So </div>
+                                        <input type="text" value="auto Display " readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Saiz Buku</div>
+                                        <input type="text" value="auto Display " readonly name="" id=""
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <!-- <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Jenis Penjilidan</div>
                                             <input type="text" placeholder="Pilih Jenis Penjilidan" readonly name="" id="" class="form-control">
@@ -88,16 +88,16 @@
                                     </div> -->
 
 
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Mesin</div>
-                                            <input type="text" readonly value="3 Knife" name="" id="" class="form-control">
-                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Mesin</div>
+                                        <input type="text" readonly value="3 Knife" name="" id="" class="form-control">
                                     </div>
-                                    
                                 </div>
 
-                                <!-- <div class="row mt-5">
+                            </div>
+
+                            <!-- <div class="row mt-5">
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Mesin</label>
@@ -149,44 +149,44 @@
                                     </div>
 
                                 </div> -->
-                            </div>
-                        </div>
-
-                       
-
-
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
-                                    <div class="row">
-                                       
-                                        <div class="col-md-12">
-                                            <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
-                                                <span style="color:black; font-size:14px;">
-                                                <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
-                                                </span>
-                                            </h5>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <button class="btn btn-primary float-right mt-3">Save</button>
-                            </div>
                         </div>
                     </div>
 
 
+
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
+                                <div class="row">
+
+                                    <div class="col-md-12">
+                                        <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
+                                            <span style="color:black; font-size:14px;">
+                                                <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA
+                                                    OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
+                                            </span>
+                                        </h5>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary float-right mt-3">Save</button>
+                        </div>
+                    </div>
                 </div>
+
+
             </div>
+            <a href="{{route('ProductionJobSheet_PrefecBind.index')}}">back to list</a>
         </div>
-        <a href="{{route('ProductionJobSheet_PrefecBind.index')}}">back to list</a>
     </div>
-    </div>
-    </div>
+    
+  
 </form>
 @endsection
