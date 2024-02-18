@@ -776,7 +776,7 @@
                                                     <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Dashboard</div>
 													<ul>
                                                         <li aria-haspopup="true" ><a href="{{route('MachineDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Machine Dashboard</a></li>
-                                                        <li aria-haspopup="true" ><a href=""  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
+                                                        <li aria-haspopup="true" ><a href="{{route('ShopFloor')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Shopfloor</a></li>
                                                         <li aria-haspopup="true" ><a href="{{route('OEEDashboard.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> OEE</a></li>
                                                         <li aria-haspopup="true" ><a href="{{route('ProductionReport.index')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Production Report</a></li>
 

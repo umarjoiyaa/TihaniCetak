@@ -24,7 +24,7 @@
                             <h4><b>SALES ORDER</b></h4>
                         </div>
                     </div>
-                    <div class="col-md-5">
+                    <div class="col-md-4">
                         <div class="box" style="width:400px; padding:10px; height:180px; border:1px solid black;">
                             <p>EDUKID DISTRIBUTORS SDN BHD</p>
                             <p>
@@ -38,52 +38,72 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6 ">
-                        <div class="text-center">
+                    <div class="col-md-8">
+                        <div class="text-center" style="margin-left:200px; width:600px;">
                             <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <p>Sales order No <span style="margin-left:20px;">:</span>
-                                        <snap style="margin-left:20px;">{{ $sale_order->order_no }}</span>
-                                    </p>
+                                <div class="col-sm-5 col-md-2">
+                                    <p>Your Ref No. </p>
                                 </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <p>PO No <span style="margin-left:20px;">:</span>
-                                        <snap style="margin-left:20px;">{{ $sale_order->po_no }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <p>Trems <span style="margin-left:20px;">:</span>
-                                        <snap style="margin-left:20px;">{{ $sale_order->terms }}</span>
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <p>Date <span style="margin-left:20px;">:</span>
-                                        <snap style="margin-left:20px;">{{ $sale_order->date }}</span>
-                                    </p>
+                                <div class="col-sm-4 offset-sm-2 col-md-3 offset-md-0"><span>:</span>
+                                <snap >{{ $sale_order->order_no }}</span>
+
                                 </div>
                             </div>
 
+                            <div class="row mt-2">
+                                <div class="col-sm-5 col-md-2">
+                                    <p>Our Ref No</p>
+                                </div>
+                                <div class="col-sm-4 offset-sm-2 col-md-3 offset-md-0"><span style="margin-left:-40px;">:</span>
+                                </div>
+                            </div>
+
+                            <!-- <div class="row">
+                                <div class="col-sm-5 col-md-6">
+                                    <p>Term</p>
+                                </div>
+                                <div class="col-sm-5 offset-sm-2 col-md-6 offset-md-0"> <span
+                                        >:</span>
+                                    <snap >{{ $sale_order->po_no }}</span>
+                                </div>
+                            </div> -->
+
+                            <div class="row mt-2">
+                                <div class="col-sm-5 col-md-2">
+                                    <p>Terms </p>
+                                </div>
+                                <div class="col-sm-5 offset-sm-2 col-md-3 offset-md-0"><span
+                                style="margin-left:-10px;" >:</span>
+                                    <snap>{{ $sale_order->terms }}</span>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-5 col-md-2">Date</div>
+                                <div class="col-sm-3 offset-sm-2 col-md-3 offset-md-0"><span style="margin-left:40px;">:</span>
+                                    <snap>{{ $sale_order->date }}</span></div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-sm-5 col-md-2">Page</div>
+                                <div class="col-sm-5 offset-sm-2 col-md-3 offset-md-0"><span style="margin-left:-30px;">:</span>
+                                    <!-- <snap>{{ $sale_order->date }}</span></div>  -->
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row">
+                <div class="row w-100">
                     <div class="col-md-12">
-                        <table class="table table-bordered mt-3">
+                        <table class="table table-bordered mt-3 w-100">
                             <thead>
                                 <tr>
                                     <th>Item</th>
                                     <th>Description</th>
+                                    <th>QTY</th>
                                     <th>UOM</th>
-                                    <th>Sales Order QTY</th>
-                                    <th>Delivery Quantity</th>
-                                    <th>Remaining Quantity</th>
+                                    <th>U/price</th>
+                                    <th>Disc</th>
+                                    <th>Total RM</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -93,13 +113,16 @@
                                     <td>{{ $sale_order->uom }}</td>
                                     <td>{{ $sale_order->sale_order_qty }}</td>
                                     <td>{{ $sale_order->delivery_qty }}</td>
+                                    <td></td>
                                     <td>{{ $sale_order->remaining_qty }}</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <div class="row">
+
+                
+                <div class="row w-100">
 
                     <div class="col-md-2"></div>
                     <div class="col-md-8">

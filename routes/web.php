@@ -41,6 +41,8 @@ use App\Http\Controllers\ProsespencetakanController;
 use App\Http\Controllers\RekodSerahanPlateController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
+use App\Http\Controllers\ShoopFloorController;
+use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\Stock_InController;
 use App\Http\Controllers\Stock_Transfer_locationController;
 use App\Http\Controllers\Stock_TransferController;
@@ -513,6 +515,10 @@ Route::get('/Production/CallForAssistance/view',[CallForAssistanceController::cl
 
 // MachineDashboard
 Route::get('/Production/MachineDashboard',[MachineDashboardController::class, 'index'])->name('MachineDashboard.index');
+
+// ShoopFloor
+Route::get('/Production/ShoopFloor',[ShopFloorController::class, 'index'])->name('ShopFloor');
+
 
 // OEEDashboard
 Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])->name('OEEDashboard.index');
