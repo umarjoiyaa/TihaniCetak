@@ -7,7 +7,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - pod</b></h5>
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - POD</b></h5>
                             <p class="float-right">TCBS-B61 (Rev.0)</p>
                         </div>
                     </div>
@@ -50,13 +50,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" readonly  class="form-control" id="tajuk">
+                                        <input type="text" value="{{ $pod->sale_order->description }}  class="form-control" id="tajuk">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text"  readonly name="" id="kod_buku"
+                                        <input type="text"  readonly value="{{ $pod->sale_order->kod_buku }} name="" id="kod_buku"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -313,4 +313,3 @@ $.ajax({
 
 </script> --}}
 @endpush
-

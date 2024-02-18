@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let bool = true;
-    $('.datatable').DataTable({
+    $('.table').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
@@ -125,9 +125,9 @@ $(document).ready(function () {
 
 function AjaxCall(columnsData) {
 
-    $('.datatable').DataTable().destroy();
+    $('.table').DataTable().destroy();
 
-    $('.datatable').DataTable({
+    $('.table').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
@@ -251,13 +251,13 @@ function AjaxCall(columnsData) {
 var typingTimer;
 var doneTypingInterval = 1000; // Adjust the time interval as needed (in milliseconds)
 
-$('.datatable .all_column').on('keyup', function () {
+$('.table .all_column').on('keyup', function () {
     clearTimeout(typingTimer);
     typingTimer = setTimeout(() => {
         var columnIndex = $(this).closest('th').index();
 
         // Collect all column indices and values in an array
-        var columnsData = $('.datatable .all_column').map(function () {
+        var columnsData = $('.table .all_column').map(function () {
             var index = $(this).closest('th').index();
             var value = $(this).val();
             return {

@@ -20,6 +20,12 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
+            $table->text('verified_by_date')->nullable();
+            $table->text('verified_by_user')->nullable();
+            $table->text('verified_by_designation')->nullable();
+            $table->text('verified_by_department')->nullable();
+
+
 
 
             $table->string('file_artwork_1')->nullable();

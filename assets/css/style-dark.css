@@ -44,11 +44,11 @@ body.dark-theme {
 .dark-theme .border {
   border: 1px solid rgba(234, 236, 241, 0.1) !important;
 }
-.dark-theme .table-bordered thead th,
+/* .dark-theme .table-bordered thead th,
 .dark-theme .table tbody tr,
 .table-bordered thead td {
   background-color: #191f3a;
-}
+} */
 .dark-theme .table {
   color: hsla(0, 0%, 100%, 0.7);
 }

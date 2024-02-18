@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - pod</b></h5>
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - POD</b></h5>
                             <p class="float-right">TCBS-B61 (Rev.0)</p>
                         </div>
                     </div>
@@ -20,26 +20,26 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date"  name="date" id="" value="{{ $pod->date }}" class="form-control">
+                                        <input type="date" disabled name="date" id="" value="{{ $pod->date }}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Masa</label>
-                                    <input name="time" type="time" id="Currenttime"
+                                    <input name="time" disabled type="time" id="Currenttime"
                                     value="{{ $pod->time }}"
                                     class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Disemak Oleh</div>
-                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                        <input type="text"  value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="sale_order" data-id="{{ $pod->sale_order_id }}"
+                                        <select name="sale_order" disabled data-id="{{ $pod->sale_order_id }}"
                                             id="sale_order" class="form-control">
                                             <option value="{{ $pod->sale_order_id }}" selected
                                                 style="color: black; !important">
@@ -145,7 +145,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-
 
                                             <tr>
                                                 <td>Front and Back imposition</td>
@@ -317,4 +316,3 @@ $.ajax({
 });
 </script>
 @endpush
-
