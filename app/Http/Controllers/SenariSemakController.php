@@ -269,7 +269,7 @@ class SenariSemakController extends Controller
             Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Delete') ||
             Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
         ) {
-            Helper::logSystemActivity('Senarai Semak Pencetakan Digital', 'Senarai Semak Pencetakan Digital List');
+            Helper::logSystemActivity('Senarai Semak Pencetakan Digital List', 'Senarai Semak Pencetakan Digital List');
             return view('Mes.SenariSemak.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');

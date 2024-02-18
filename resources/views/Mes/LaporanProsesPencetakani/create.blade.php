@@ -32,8 +32,8 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Checked By (Operator)</div>
-                                                <input type="text" value="{{ Auth::user()->name }}" readonly
-                                                    name="" id="" class="form-control">
+                                                <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                                    name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -47,13 +47,14 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Tajuk</div>
-                                                <input type="text" readonly value="" class="form-control">
+                                                <input type="text" readonly value="" id="tajuk"
+                                                    class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Kod Buku</div>
-                                                <input type="text" value="" readonly name="" id=""
+                                                <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -250,7 +251,7 @@
                                             <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
                                         </div>
                                         <div class="col-md-12 mt-3">
-                                            <button class="btn btn-primary mb-3 float-right" id="AddRow">Add
+                                            <button class="btn btn-primary mb-3 float-right" type="button" id="AddRow">Add
                                                 Row</button>
                                             <div class="table-responsive">
 
@@ -278,27 +279,38 @@
                                                     <tbody>
                                                         <tr>
                                                             <td>500</td>
-                                                            <td><input type="hidden" value="500" name="C[0][1]"><input type="checkbox" name="C[0][2]" id="">
+                                                            <td><input type="hidden" value="500"
+                                                                    name="semasa[0][1]"><input type="checkbox"
+                                                                    name="semasa[0][2]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][3]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][3]"
+                                                                    id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][4]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][4]"
+                                                                    id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][5]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][5]"
+                                                                    id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][6]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][6]"
+                                                                    id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][7]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][7]"
+                                                                    id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="C[0][8]" id="">
+                                                            <td><input type="checkbox" name="semasa[0][8]"
+                                                                    id="">
                                                             </td>
-                                                            <td><button class="btn btn-primary"
+                                                            <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td>username / datetime</td>
-                                                            <td><button class="btn btn-primary">Verify</button>
+                                                            <td><input type="text" name="semasa[0][9]"
+                                                                    class="check_operator form-control" readonly></td>
+                                                            <td><button type="button" class="btn btn-primary verify_btn"
+                                                                    disabled>Verify</button>
                                                             </td>
-                                                            <td>username / datetime</td>
-                                                            <td><button class="btn btn-danger remove"
+                                                            <td><input type="text" name="semasa[0][10]"
+                                                                    class="verify_operator form-control" readonly></td>
+                                                            <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button>
                                                             </td>
                                                         </tr>
@@ -326,50 +338,114 @@
 
 @push('custom-scripts')
     <script>
-        $(document).ready(function() {
-            // Set current date
-            var currentDate = new Date().toISOString().split('T')[0];
-            $('#Currentdate').val(currentDate);
-
-            // Get current time
-            var now = new Date();
-            var hours = now.getHours().toString().padStart(2, '0');
-            var minutes = now.getMinutes().toString().padStart(2, '0');
-
-            // Combine hours and minutes
-            var currentTime = hours + ':' + minutes;
-            $('#Currenttime').val(currentTime);
-        });
-
-
         var increment = 1000;
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
             }
-            $('#table tbody ').append(` <tr>
-<td>${increment}</td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><input type=checkbox name=""></td>
-<td><button class="btn btn-primary" style=border-radius:5px>check</button></td>
-<td>username / datetime</td>
-<td><button class="btn btn-primary">Verify</button>
-</td>
-<td>username / datetime</td>
-<td><button class="btn btn-danger remove" style=border-radius:5px>X</button>
-</td>
-</tr>`);
+            let length = $('#table tbody tr').length + 1;
+            $('#table tbody').append(`<tr>
+                                                            <td>${increment}</td>
+                                                            <td><input type="hidden" value="${increment}" name="semasa[${length}][1]"><input type="checkbox" name="semasa[${length}][2]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][3]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][4]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][5]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][6]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][7]" id="">
+                                                            </td>
+                                                            <td><input type="checkbox" name="semasa[${length}][8]" id="">
+                                                            </td>
+                                                            <td><button class="btn btn-primary check_btn"
+                                                                    style="border-radius:5px; " type="button">check</button></td>
+                                                            <td><input type="text" name="semasa[${length}][9]" class="check_operator form-control" readonly></td>
+                                                            <td><button type="button" class="btn btn-primary verify_btn" disabled>Verify</button>
+                                                            </td>
+                                                            <td><input type="text" name="semasa[${length}][10]" class="verify_operator form-control" readonly></td>
+                                                            <td><button type="button" class="btn btn-danger remove"
+                                                                    style="border-radius:5px; ">X</button>
+                                                            </td>`);
             increment += 500;
         });
 
         $(document).on('click', '.remove', function() {
             increment -= 500;
             $(this).closest('tr').remove();
-        })
+        });
+
+        $(document).ready(function() {
+            $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.name || null;
+                }
+            });
+
+            function formatDate(date) {
+                const day = String(date.getDate()).padStart(2, '0');
+                const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+                const year = date.getFullYear();
+                const hours = String(date.getHours()).padStart(2, '0');
+                const minutes = String(date.getMinutes()).padStart(2, '0');
+
+                return `${day}-${month}-${year} ${hours}:${minutes}`;
+            }
+
+            $(document).on('click', '.check_btn', function() {
+                $(this).attr('disabled', 'disabled');
+                const currentDate = new Date();
+                const formattedDate = formatDate(currentDate);
+                let checked_by = $('#checked_by').val();
+                $(this).closest('tr').find('.check_operator').val(checked_by + '/' + formattedDate);
+            });
+
+            $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                        $('#kod_buku').val(data.kod_buku);
+                        $('#tajuk').val(data.description);
+                    }
+                });
+            });
+        });
     </script>
 @endpush

@@ -37,10 +37,10 @@ class CreateAdminUserSeeder extends Seeder
         $user->assignRole([$role->id]);
 
         $sale_order = SaleOrder::create([
-            'order_no' => 'admin',
+            'order_no' => 'SO-001496',
             'customer' => 'Mr admin',
-            'po_no' => 'admin@gmail.com',
-            'terms' => 'yes',
+            'po_no' => 'PO-001123',
+            'terms' => 'ok',
             'date' => '01-03-2023',
             'item' => '1',
             'description' => 'qwerty',
@@ -57,10 +57,10 @@ class CreateAdminUserSeeder extends Seeder
             'paper_cover' => '34',
             'paper_text' => '334',
             'printing_cover' => '234',
-            'printing_text' => '234rfes',
-            'finishing' => 'qweeqwe',
-            'binding' => 'qwe',
-            'shrinking_wrapping' => 'awwqd',
+            'printing_text' => 'qwerty',
+            'finishing' => 'qwerty',
+            'binding' => 'qwerty',
+            'shrinking_wrapping' => 'qwerty',
             'extra_stock' => '90',
             'remarks' => 'qwerty',
             'delivery_date' => '01-03-2023',

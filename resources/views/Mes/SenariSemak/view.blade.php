@@ -13,7 +13,7 @@
 
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Tarikh</div>
+                                                <div class="label">Sale Order</div>
                                                 <input type="text" value="{{ $senari_semak->sale_order->order_no }}"
                                                     class="form-control">
                                             </div>

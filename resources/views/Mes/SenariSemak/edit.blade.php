@@ -13,53 +13,55 @@
                         <div class="card-body">
                             <div class="row">
 
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Tarikh</div>
-                                        <select name="sale_order" data-id="{{ $senari_semak->sale_order_id }}"
-                                            id="sale_order" class="form-control">
-                                            <option value="{{ $senari_semak->sale_order_id }}" selected
-                                                style="color: black; !important">
-                                                {{ $senari_semak->sale_order->order_no }}</option>
-                                        </select>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Sale Order</div>
+                                            <select name="sale_order" data-id="{{ $senari_semak->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $senari_semak->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $senari_semak->sale_order->order_no }}</option>
+                                            </select>
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Date</div>
-                                        <input type="date" name="date" value="{{ $senari_semak->date }}"
-                                            class="form-control" id="Currentdate">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Date</div>
+                                            <input type="date" name="date" value="{{ $senari_semak->date }}"
+                                                class="form-control" id="Currentdate">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">kod Buku</div>
-                                        <input type="text" readonly value="" name="" id="kod_buku" class="form-control">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">kod Buku</div>
+                                            <input type="text" readonly value="" name="" id="kod_buku"
+                                                class="form-control">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Tajuk</div>
-                                        <input type="text" readonly value="" name="" id="tajuk" class="form-control">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Tajuk</div>
+                                            <input type="text" readonly value="" name="" id="tajuk"
+                                                class="form-control">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Time</div>
-                                        <input name="time" type="time" id="Currenttime"
-                                            value="{{ $senari_semak->time }}" class="form-control">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Time</div>
+                                            <input name="time" type="time" id="Currenttime"
+                                                value="{{ $senari_semak->time }}" class="form-control">
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Checked By</div>
-                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
-                                            class="form-control" name="" id="">
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Checked By</div>
+                                            <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                                class="form-control" name="" id="">
+                                        </div>
                                     </div>
-                                </div>
 
                             </div>
                         </div>
@@ -1108,18 +1110,18 @@
             <a href="{{ route('senari_semak') }}">back to list</a>
         </div>
     </div>
-   
+
 </form>
 @endsection
 
 
 @push('custom-scripts')
 <script>
-    function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(.${ className }).not(checkbox).prop('checked', false);
+   function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
     $(document).ready(function () {
         $('#sale_order').trigger('change');
 
@@ -1159,7 +1161,7 @@
                 }
             },
             templateSelection: function (data) {
-                return data.name || null;
+                return data.text || null;
             }
         });
     });

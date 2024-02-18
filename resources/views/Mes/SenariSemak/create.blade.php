@@ -879,26 +879,26 @@
 
 
 @push('custom-scripts')
-<script>
-    function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(`.${className}`).not(checkbox).prop('checked', false);
+    <script>
+        function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
-    $(document).ready(function () {
-        $('#sale_order').select2({
-            ajax: {
-                url: '{{ route('sale_order.get') }}',
-                dataType: 'json',
-                delay: 1000,
-                data: function (params) {
-                    return {
-                        q: params.term,
-                        page: params.page || 1,
-                    };
-                },
-                processResults: function (data, params) {
-                    params.page = params.page || 1;
+        $(document).ready(function() {
+            $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
 
                     return {
                         results: data.results,
@@ -915,12 +915,12 @@
                     return "Loading...";
                 }
 
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-            },
-            templateSelection: function (data) {
-                return data.name || null;
-            }
-        });
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.order_no || null;
+                }
+            });
 
         $('#sale_order').on('change', function () {
             const id = $(this).val();

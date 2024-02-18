@@ -1,59 +1,66 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="row">
-    <div class="col-md-12">
-        <div class="card">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
-                        <p class="float-right">TCBS-B61 (Rev.0)</p>
-                    </div>
-                </div>
 
-
-                <div class="card" style="background:#f1f0f0;">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-4 mt-3">
-                                <div class="form-group">
-                                    <label for="">Date</label>
-                                    <input type="date" readonly name="" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <label for="">time</label>
-                                <input type="time" value="Admin" readonly name="" id="" class="form-control">
-                            </div>
-                            <div class="col-md-4 mt-3">
-                                <div class="form-group">
-                                    <div class="label">Disemak Oleh</div>
-                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <div class="label">Sales Order No.</div>
-                                    <select name="" id="" class="form-control form-select">
-                                        <option value="">select sales Order no</option>
-                                        <option value="">SO-001496</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <div class="label">Tajuk</div>
-                                    <input type="text" readonly value="auto Display" class="form-control">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <div class="label">Kod Buku</div>
-                                    <input type="text" value="auto Display" readonly name="" id="" class="form-control">
-                                </div>
-                            </div>
+    <form action="{{ route('ctp.store') }}" method="POST">
+        @csrf
+        <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
+                            <p class="float-right">TCBS-B61 (Rev.0)</p>
                         </div>
+                    </div>
+
+
+                    <div class="card" style="background:#f1f0f0;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Tarikh</label>
+                                        <input type="date"  name="date" id="" value="{{ date('Y-m-d') }}" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <label for="">Masa</label>
+                                    <input name="time" type="time" id="Currenttime"
+                                    value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
+                                    class="form-control">
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Disemak Oleh</div>
+                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                        class="form-control" name="" id="">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Sales Order No.</div>
+                                        <select name="sale_order" id="sale_order" class="form-control">
+
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Tajuk</div>
+                                        <input type="text" readonly  class="form-control" id="tajuk">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kod Buku</div>
+                                        <input type="text"  readonly name="" id="kod_buku"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
 
 
                         <div class="row mt-5">
@@ -74,85 +81,53 @@
                                     </thead>
                                     <tbody>
 
-                                        <tr>
-                                            <td>Format file</td>
-                                            <td><input type="checkbox" class="Cover1"
-                                                    onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Cover1"
-                                                    onchange="handleCheckboxChange('Cover1',this)" checked name=""
-                                                    id=""></td>
-                                            <td><input type="checkbox" class="Cover1"
-                                                    onchange="handleCheckboxChange('Cover1',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saiz Product</td>
-                                            <td><input type="checkbox" class="Text1"
-                                                    onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Text1"
-                                                    onchange="handleCheckboxChange('Text1',this)" checked name="" id="">
-                                            </td>
-                                            <td><input type="checkbox" class="Text1"
-                                                    onchange="handleCheckboxChange('Text1',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Bleed</td>
-                                            <td><input type="checkbox" class="Cover2"
-                                                    onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Cover2"
-                                                    onchange="handleCheckboxChange('Cover2',this)" checked name=""
-                                                    id=""></td>
-                                            <td><input type="checkbox" class="Cover2"
-                                                    onchange="handleCheckboxChange('Cover2',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Saiz Spine</td>
-                                            <td><input type="checkbox" class="Text2"
-                                                    onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Text2"
-                                                    onchange="handleCheckboxChange('Text2',this)" checked name="" id="">
-                                            </td>
-                                            <td><input type="checkbox" class="Text2"
-                                                    onchange="handleCheckboxChange('Text2',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Alamat pencetak</td>
-                                            <td><input type="checkbox" class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3',this)" checked name=""
-                                                    id=""></td>
-                                            <td><input type="checkbox" class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Jumlah muka surat</td>
-                                            <td><input type="checkbox" class="Text3"
-                                                    onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Text3"
-                                                    onchange="handleCheckboxChange('Text3',this)" checked name="" id="">
-                                            </td>
-                                            <td><input type="checkbox" class="Text3"
-                                                    onchange="handleCheckboxChange('Text3',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Turutan muka surat</td>
-                                            <td><input type="checkbox" class="Cover4"
-                                                    onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Cover4"
-                                                    onchange="handleCheckboxChange('Cover4',this)" checked name=""
-                                                    id=""></td>
-                                            <td><input type="checkbox" class="Cover4"
-                                                    onchange="handleCheckboxChange('Cover4',this)" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>Kedudukan Artwork Cover (hardcover)</td>
-                                            <td><input type="checkbox" class="Text4"
-                                                    onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
-                                            <td><input type="checkbox" class="Text4"
-                                                    onchange="handleCheckboxChange('Text4',this)" checked name="" id="">
-                                            </td>
-                                            <td><input type="checkbox" class="Text4"
-                                                    onchange="handleCheckboxChange('Text4',this)" name="" id=""></td>
+                                            <tr>
+                                                <td>Format file</td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" checked name="file_artwork_1" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saiz Product</td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" value="ok"  id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" checked name="file_artwork_2" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bleed</td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" value="ok"id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" checked name="file_artwork_3" value="ng"id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" value="na"id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saiz Spine</td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" checked name="file_artwork_4" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alamat pencetak</td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" checked name="file_artwork_5" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jumlah muka surat</td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" checked name="file_artwork_6" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Turutan muka surat</td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" checked name="file_artwork_7" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kedudukan Artwork Cover (hardcover)</td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="file_artwork_8" value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" checked name="file_artwork_8" value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="file_artwork_8" value="na" id=""></td>
 
                                         </tr>
 
@@ -180,105 +155,105 @@
                                         <tr>
                                             <td>Front and Back imposition</td>
                                             <td><input type="checkbox" class="Cover5"
-                                                    onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover5',this)" name="impositions_1" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Cover5"
-                                                    onchange="handleCheckboxChange('Cover5',this)" checked name=""
+                                                    onchange="handleCheckboxChange('Cover5',this)" checked name="impositions_1" value="ng"
                                                     id=""></td>
                                             <td><input type="checkbox" class="Cover5"
-                                                    onchange="handleCheckboxChange('Cover5',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover5',this)" name="impositions_1" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Kedudukan imposition</td>
                                             <td><input type="checkbox" class="Text5"
-                                                    onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text5',this)" name="impositions_2" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Text5"
-                                                    onchange="handleCheckboxChange('Text5',this)" checked name="" id="">
+                                                    onchange="handleCheckboxChange('Text5',this)" checked name="impositions_2" value="ng" id="">
                                             </td>
                                             <td><input type="checkbox" class="Text5"
-                                                    onchange="handleCheckboxChange('Text5',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text5',this)" name="impositions_2" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Saiz spacing</td>
                                             <td><input type="checkbox" class="Cover6"
-                                                    onchange="handleCheckboxChange('Cover6',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover6',this)" name="impositions_3" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Cover6"
-                                                    onchange="handleCheckboxChange('Cover6',this)" checked name=""
+                                                    onchange="handleCheckboxChange('Cover6',this)" checked name="impositions_3" value="ng"
                                                     id=""></td>
                                             <td><input type="checkbox" class="Cover6"
-                                                    onchange="handleCheckboxChange('Cover6',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover6',this)" name="impositions_3" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Printing method (Straight @ Perfecting)</td>
                                             <td><input type="checkbox" class="Text6"
-                                                    onchange="handleCheckboxChange('Text6',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text6',this)" name="impositions_4" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Text6"
-                                                    onchange="handleCheckboxChange('Text6',this)" checked name="" id="">
+                                                    onchange="handleCheckboxChange('Text6',this)" checked name="impositions_4" value="ng" id="">
                                             </td>
                                             <td><input type="checkbox" class="Text6"
-                                                    onchange="handleCheckboxChange('Text6',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text6',this)" name="impositions_4" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Jumlah Up</td>
                                             <td><input type="checkbox" class="Cover7"
-                                                    onchange="handleCheckboxChange('Cover7',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover7',this)" name="impositions_5" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Cover7"
-                                                    onchange="handleCheckboxChange('Cover7',this)" checked name=""
+                                                    onchange="handleCheckboxChange('Cover7',this)" checked name="impositions_5" value="ng"
                                                     id=""></td>
                                             <td><input type="checkbox" class="Cover7"
-                                                    onchange="handleCheckboxChange('Cover7',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover7',this)" name="impositions_5" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Dummy Lipat</td>
                                             <td><input type="checkbox" class="Text7"
-                                                    onchange="handleCheckboxChange('Text7',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text7',this)" name="impositions_6" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Text7"
-                                                    onchange="handleCheckboxChange('Text7',this)" checked name="" id="">
+                                                    onchange="handleCheckboxChange('Text7',this)" checked name="impositions_6" value="ng" id="">
                                             </td>
                                             <td><input type="checkbox" class="Text7"
-                                                    onchange="handleCheckboxChange('Text7',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text7',this)" name="impositions_6" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Jenis Penjilidan </td>
                                             <td><input type="checkbox" class="Cover8"
-                                                    onchange="handleCheckboxChange('Cover8',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover8',this)" name="impositions_7" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Cover8"
-                                                    onchange="handleCheckboxChange('Cover8',this)" checked name=""
+                                                    onchange="handleCheckboxChange('Cover8',this)" checked name="impositions_7" value="ng"
                                                     id=""></td>
                                             <td><input type="checkbox" class="Cover8"
-                                                    onchange="handleCheckboxChange('Cover8',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Cover8',this)" name="impositions_7" value="na" id=""></td>
                                         </tr>
                                         <tr>
                                             <td>Jenis Kertas</td>
                                             <td><input type="checkbox" class="Text8"
-                                                    onchange="handleCheckboxChange('Text8',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text8',this)" name="impositions_8" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Text8"
-                                                    onchange="handleCheckboxChange('Text8',this)" checked name="" id="">
+                                                    onchange="handleCheckboxChange('Text8',this)" checked name="impositions_8" value="ng" id="">
                                             </td>
                                             <td><input type="checkbox" class="Text8"
-                                                    onchange="handleCheckboxChange('Text8',this)" name="" id=""></td>
+                                                    onchange="handleCheckboxChange('Text8',this)" name="impositions_8" value="na" id=""></td>
 
                                         </tr>
 
 
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="col-md-2">
-                                <a href="" class="float-right" style="color:blue;" data-toggle="modal"
-                                    data-target="#exampleModal"><b>RUJUKAN</b></a>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="" class="float-right" style="color:blue;"><b>RUJUKAN</b></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-md-12">
-                        <button class="btn btn-primary float-right">Save</button>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <button class="btn btn-primary float-right">Save</button>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="{{route('Ctp')}}">back to list</a>
+    </form>
+        <a href="{{route('ctp')}}">back to list</a>
     </div>
 </div>
 
@@ -578,17 +553,17 @@
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
+            </div>
 </div>
 
 @endsection
 @push('custom-scripts')
 <script>
-    function handleCheckboxChange(className, checkbox) {
-        if ($(checkbox).prop('checked')) {
-            $(`.${className}`).not(checkbox).prop('checked', false);
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
         }
-    }
 </script>
 @endpush
+
