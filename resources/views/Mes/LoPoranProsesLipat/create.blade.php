@@ -106,20 +106,7 @@
                                 </thead>
                                 <tbody>
 
-                                    <tr>
-                                        <td>Seksyen 1</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Seksyen 2</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -144,92 +131,13 @@
                                     <div class="col-md-2">
                                         <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
                                             role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#Seksyen1"
-                                                    role="tab" aria-controls="Seksyen1" aria-selected="true">Seksyen 1</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#Seksyen2"
-                                                    role="tab" aria-controls="Seksyen2" aria-selected="false">Seksyen 2</a>
-                                            </li>
+
 
                                         </ul>
                                     </div>
                                     <div class="col-md-10">
                                         <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="Seksyen1" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen 1</th>
-                                                                <th rowspan="2">Check</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Verify</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Action</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1000</td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><button class="btn btn-primary"
-                                                                        style="border-radius:5px; ">check</button></td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn btn-primary">Verify</button>
-                                                                </td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn btn-danger remove"
-                                                                        style="border-radius:5px; ">X</button></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="Seksyen2" role="tabpanel"
-                                                aria-labelledby="profile-tab">
-                                                <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <td rowspan="2">Jumlah </td>
-                                                                <td colspan="2">Seksyen 1</td>
-                                                                <td rowspan="2">Check</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Verify</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Action</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1000</td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><button class="btn btn-primary"
-                                                                        style="border-radius:5px; ">check</button></td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn"
-                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
-                                                                </td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn btn-danger remove"
-                                                                        style="border-radius:5px; ">X</button></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                            </div>
+
 
                                         </div>
                                     </div>
@@ -341,7 +249,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen 1</th>
+                                                                <th colspan="2">Seksyen ${i}</th>
                                                                 <th rowspan="2">Check</th>
                                                                 <th rowspan="2">Username / datetime</th>
                                                                 <th rowspan="2">Verify</th>
@@ -400,7 +308,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen 1</th>
+                                                                <th colspan="2">Seksyen ${value}</th>
                                                                 <th rowspan="2">Check</th>
                                                                 <th rowspan="2">Username / datetime</th>
                                                                 <th rowspan="2">Verify</th>

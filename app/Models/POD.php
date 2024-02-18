@@ -6,10 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class CTP extends Model
+class POD extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
     public function sale_order()
     {
         return $this->belongsTo(SaleOrder::class, 'sale_order_id', 'id');

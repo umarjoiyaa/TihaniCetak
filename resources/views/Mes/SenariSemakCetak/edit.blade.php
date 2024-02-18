@@ -1098,7 +1098,7 @@
                     }
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.text || null;
                 }
             });
         });
