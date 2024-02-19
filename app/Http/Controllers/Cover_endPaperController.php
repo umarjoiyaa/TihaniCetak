@@ -13,6 +13,9 @@ class Cover_endPaperController extends Controller
     public function create(){
         return view('Production.Cover_endPaper.create');
     }
+    public function edit(){
+        return view('Production.Cover_endPaper.edit');
+    }
 
     public function proses(){
         return view('Production.Cover_endPaper.proses');

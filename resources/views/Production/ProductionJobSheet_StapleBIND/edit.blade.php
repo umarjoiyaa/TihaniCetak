@@ -2,15 +2,14 @@
 
 @section('content')
 <form action="" method="post">
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>JOBSHEET - MESIN LIPAT</b></h5>
-                            <p class="float-right">TCBS-B46 (Rev. 1)</p>
+                            <h5 class="float-left"><b>JOBSHEET -STAPLE BIND</b></h5>
+                            <p class="float-right">TCBS-B51 (Rev. 1)</p>
                         </div>
                     </div>
 
@@ -21,7 +20,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" readonly  value="{{date('Y-m-d')}}" name="" id="Currentdate" class="form-control">
+                                        <input type="date" readonly value="{{date('Y-m-d')}}" name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -32,7 +31,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="" id="sales" class="form-control form-select">
+                                        <select name="" id="Sales" class="form-control form-select">
                                             <option value="">select sales Order no</option>
                                             <option value="">SO-001496</option>
                                         </select>
@@ -49,7 +48,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text"  class="form-control">
+                                        <input type="text" readonly  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -63,7 +62,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti So </div>
-                                        <input type="text"  readonly name="" id=""
+                                        <input type="text" readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -71,22 +70,16 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Jumlah Seksyen</div>
-                                        <input type="text"  readonly name="" id=""
+                                        <input type="text" readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jenis Lipatan</div>
-                                        <select name="" id="jenis" placeholder="" class="form-control form-select">
-                                            
-                                            <option value="">Prefect Bind</option>
-                                            <option value="">Lock Bind</option>
-                                            <option value="">Staple Bind</option>
-                                            <!-- <option value="">order</option> -->
-                                            <!-- <option value="">PENEGELUAREN</option> -->
-                                        </select>
+                                        <div class="label">Saiz buku</div>
+                                        <input type="text" readonly name="" id=""
+                                            class="form-control">
                                     </div>
                                 </div>
 
@@ -94,10 +87,10 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <select name="" id="mesin" class="form-control form-select">
-                                          
-                                            <option value="">F1</option>
-                                            <option value="">F2</option>
+                                        <select name="" id="mesin"  class="form-control form-select">
+                                            <!-- <option value="">Pilih Mesin</option> -->
+                                            <option value="">ST1</option>
+                                            <option value="">SS1</option>
                                             <!-- <option value="">F3</option> -->
                                             <!-- <option value="">order</option> -->
                                             <!-- <option value="">PENEGELUAREN</option> -->
@@ -167,7 +160,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="text-center" style="font-size:20px; color:red; dispaly:inline-block;">
+                            <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
                                 <div class="row">
 
                                     <div class="col-md-12">
@@ -186,12 +179,14 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12">
-                            <button class="btn btn-primary float-right">Save</button>
+                            <button class="btn btn-primary float-right mt-3">Save</button>
                         </div>
                     </div>
                 </div>
+
+
             </div>
-            <a href="{{route('ProductionJobSheet_MesinLipat.index')}}">back to list</a>
+            <a href="{{route('ProductionJobSheet_StapleBIND.index')}}">back to list</a>
         </div>
     </div>
 </form>

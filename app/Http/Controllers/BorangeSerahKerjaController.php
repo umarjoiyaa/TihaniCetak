@@ -14,6 +14,10 @@ class BorangeSerahKerjaController extends Controller
         return view('Production.BorangeSerahKerja.create');
     }
 
+    public function edit(){
+        return view('Production.BorangeSerahKerja.edit');
+    }
+
     public function view(){
         return view('Production.BorangeSerahKerja.view');
     }

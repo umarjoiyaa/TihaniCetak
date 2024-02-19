@@ -14,6 +14,10 @@ class Production_ThreeKnifeController extends Controller
         return view('Production.Production_ThreeKnife.create');
     }
 
+    public function edit(){
+        return view('Production.Production_ThreeKnife.edit');
+    }
+
     public function proses(){
         return view('Production.Production_ThreeKnife.proses');
     }

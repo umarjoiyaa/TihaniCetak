@@ -14,6 +14,10 @@ class ProductionJobSheet_MesinLipatController extends Controller
         return view('Production.ProductionJobSheet_MesinLipat.create');
     }
 
+    public function edit(){
+        return view('Production.ProductionJobSheet_MesinLipat.edit');
+    }
+
     public function proses(){
         return view('Production.ProductionJobSheet_MesinLipat.proses');
     }

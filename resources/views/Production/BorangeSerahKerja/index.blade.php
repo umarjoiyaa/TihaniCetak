@@ -51,15 +51,13 @@
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">
                                             <a class="dropdown-item"
-                                                href="{{route('Production_ThreeKnife.view')}}">View</a>
+                                                href="{{route('BorangeSerahKerja.view')}}">View</a>
                                             <a class="dropdown-item"
-                                                href="{{route('Production_ThreeKnife.edit')}}">Edit</a>
-                                            <!-- <a class="dropdown-item"
-                                                    href="{{route('Production_ThreeKnife.proses')}}">Proses</a> -->
+                                                href="{{route('BorangeSerahKerja.edit')}}">Edit</a>
                                             <a class="dropdown-item" href="">Delete</a>
-                                            <a class="dropdown-item" href="BorangeSerahKerja.purchasing">purchasing</a>
-                                            <a class="dropdown-item" href="BorangeSerahKerja.transfer">transfer</a>
-                                            <a class="dropdown-item" href="BorangeSerahKerja.receive">receive</a>
+                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.purchasing')}}">purchasing</a>
+                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.transfer')}}">transfer</a>
+                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.receive')}}">receive</a>
                                         </div>
                                     </div>
                                 </td>
@@ -81,3 +79,10 @@
     </div>
 </div>
 @endsection
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

@@ -14,6 +14,10 @@ class ProductionJobSheet_PrefecBindController extends Controller
         return view('Production.ProductionJobSheet_PrefecBind.create');
     }
 
+    public function edit(){
+        return view('Production.ProductionJobSheet_PrefecBind.edit');
+    }
+
     public function proses(){
         return view('Production.ProductionJobSheet_PrefecBind.proses');
     }

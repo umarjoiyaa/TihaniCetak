@@ -13,6 +13,9 @@ class ProductionJobSheet_textController extends Controller
     public function create(){
         return view('Production.ProductionJobSheet_text.create');
     }
+    public function edit(){
+        return view('Production.ProductionJobSheet_text.edit');
+    }
 
     public function proses(){
         return view('Production.ProductionJobSheet_text.proses');

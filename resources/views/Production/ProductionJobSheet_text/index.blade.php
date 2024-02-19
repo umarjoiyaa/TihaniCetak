@@ -48,8 +48,8 @@
                                             id="dropdownMenuButton" type="button">Action<i
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">
-                                            <a class="dropdown-item" href="{{route('Cover_endPaper.view')}}">View</a>
-                                            <a class="dropdown-item" href="{{route('Cover_endPaper.edit')}}">Edit</a>
+                                            <a class="dropdown-item" href="{{route('ProductionJobSheet_text.view')}}">View</a>
+                                            <a class="dropdown-item" href="{{route('ProductionJobSheet_text.edit')}}">Edit</a>
                                             <!-- <a class="dropdown-item"
                                                     href="{{route('Cover_endPaper.proses')}}">Proses</a> -->
                                             <a class="dropdown-item" href="">Delete</a>

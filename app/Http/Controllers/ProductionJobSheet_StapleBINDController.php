@@ -14,6 +14,10 @@ class ProductionJobSheet_StapleBINDController extends Controller
         return view('Production.ProductionJobSheet_StapleBIND.create');
     }
 
+    public function edit(){
+        return view('Production.ProductionJobSheet_StapleBIND.edit');
+    }
+
     public function proses(){
         return view('Production.ProductionJobSheet_StapleBIND.proses');
     }

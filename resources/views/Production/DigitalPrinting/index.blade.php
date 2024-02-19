@@ -16,7 +16,7 @@
                     <a href="{{route('digitalPrinting.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped mt-2" id="example1">
+                    <table class="table table-bordered table-striped mt-2" id="example2">
                         <thead>
                             <tr>
                                 <th>Sr.</th>

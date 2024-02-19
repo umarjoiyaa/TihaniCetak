@@ -8,7 +8,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>JOBSHEET - MESIN LIPAT</b></h5>
+                            <h5 class="float-left"><b>JOBSHEET - STAPLE BIND</b></h5>
                             <p class="float-right">TCBS-B51 (Rev. 1)</p>
                         </div>
                     </div>
@@ -20,18 +20,18 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <input type="date" readonly value="{{date('Y-m-d')}}" name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Disediakan Oleh</label>
-                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="" id="" class="form-control">
+                                        <select name="" id="Sales" class="form-control form-select">
                                             <option value="">select sales Order no</option>
                                             <option value="">SO-001496</option>
                                         </select>
@@ -40,7 +40,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label"> Tajuk </div>
-                                        <input type="text" value="Auto Display " readonly name="" id=""
+                                        <input type="text"  readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -48,13 +48,13 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly value="auto Display" class="form-control">
+                                        <input type="text" readonly  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Pelanggan</div>
-                                        <input type="text" value="auto Display" readonly name="" id=""
+                                        <input type="text"  readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -62,7 +62,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti So </div>
-                                        <input type="text" value="auto Display " readonly name="" id=""
+                                        <input type="text" readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -70,7 +70,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Jumlah Seksyen</div>
-                                        <input type="text" value="auto Display " readonly name="" id=""
+                                        <input type="text" readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Saiz buku</div>
-                                        <input type="text" placeholder="Auto display" readonly name="" id=""
+                                        <input type="text" readonly name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -87,8 +87,8 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <select name="" id="" placeholder="Pilih Kategori Job" class="form-control">
-                                            <option value="">Pilih Mesin</option>
+                                        <select name="" id="mesin"  class="form-control form-select">
+                                            <!-- <option value="">Pilih Mesin</option> -->
                                             <option value="">ST1</option>
                                             <option value="">SS1</option>
                                             <!-- <option value="">F3</option> -->

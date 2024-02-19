@@ -71,16 +71,17 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <input type="date" readonly value="{{ date('Y-m-d') }}" name="" id="Currentdate"
+                                            class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Disediakan Oleh</label>
-                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label>Operator</label>
-                                    <select name="" value="Admin" id="" class="form-control">
+                                    <select name="" id="operator" class="form-control form-select">
                                         <option value="">Admin</option>
                                         <option value="" selected>Admin</option>
                                         <option value="">User A</option>
@@ -89,23 +90,22 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="" readonly id="" class="form-control">
+                                        <select name="" id="sales" class="form-control form-select">
                                             <option value="">select sales Order no</option>
-                                            <option value="" selected>SO-001496</option>
+                                            <option value="">SO-001496</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly value="CP 2940" class="form-control">
+                                        <input type="text" readonly class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" value="IQRO' GENIUS -RUMI (NEW COVER)" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
@@ -113,28 +113,27 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Pelanggan</div>
-                                        <input type="text" value="EDUKID DISTRIBUTOR SDN BHD" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti SO</div>
-                                        <input type="text" value="5000" readonly name="" id="" class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti Waste</div>
-                                        <input type="text" value="200" readonly name="" id="" class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Lebihan Stok</label>
-                                        <input type="text" readonly value="0" name="" id="" class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4"></div>
@@ -143,10 +142,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <select name="" id="" readonly placeholder="Pilih Kategori Job"
-                                            class="form-control">
+                                        <select name="" id="mesin1" class="form-control form-select">
                                             <option value="">SMZP (2C)</option>
-                                            <option value="" selected>RYOBI (4C)</option>
+                                            <option value="">RYOBI (4C)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -155,15 +153,13 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kertas: </div>
-                                        <input type="text" placeholder="User Input" value="XXX" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Saiz Potong:</div>
-                                        <input type="text" value="XXX" placeholder="User Input" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                             </div>
@@ -227,11 +223,20 @@
 
 
 
-                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                    <div class="card w-100" style="background:#f1f0f0; border-radius:5px;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h5><b>Arahan Kerja</b></h5>
+                                    <h5><b>Arahan</b></h5>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="editor"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -245,20 +250,19 @@
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">status</label>
-                                    <input type="text" value="NEW" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">Plate</label>
-                                    <select name="" id="" readonly placeholder="pilih Plate (lama/Baru)"
-                                        class="form-control">
+                                    <select name="" id="plate" class="form-control form-select">
                                         <option value="">pilih Plate (lama/Baru)</option>
                                         <option value="">Plate lama</option>
-                                        <option value="" selected>Plate BARU</option>
+                                        <option value="">Plate BARU</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <label for="">Saiz Produk</label>
-                                    <input type="text" value="15cm X 21cm" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -272,8 +276,8 @@
                                 </div>
 
                                 <div class="col-md-4">
-                                    <label for=""></label>
-                                    <input type="text" class="form-control" readonly value="4UP" name="" id="">
+                                    <label for="">Print</label>
+                                    <input type="text" class="form-control" readonly name="" id="">
                                 </div>
 
                             </div>
@@ -286,20 +290,11 @@
                                 <div class="col-md-8">
                                     <h4><b>Seksyen</b></h4>
                                 </div>
-                                <div class="col-md-3">
-                                    <div class="card" style="background:wheat;">
-                                        <div class="card-body text-warning">
-                                            <h4>Notes:</h4>
-                                            <span>1. section no. taken from senarai semak pra cetak</span>
-
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="row" style="margin-top:-80px;">
                                 <div class="col-md-4">
                                     <label for="">Seksyen NO</label>
-                                    <input type="text" value="7" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                             </div>
                             <div class="row mt-3">
@@ -314,12 +309,12 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td><input type="text" value="AB" name="" id="" class="form-control">
+                                                <td><input type="text" name="" id="" class="form-control">
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td><input type="text" value="AB" name="" id="" class="form-control">
+                                                <td><input type="text" name="" id="" class="form-control">
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -335,7 +330,7 @@
                                 <div class="col-md-12">
                                     <h5><b>Binding</b></h5>
                                 </div>
-                                <div class="col-md-12">
+                                <div class="col-md-7">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -347,9 +342,9 @@
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Staple Bind</td>
                                                 <td>
-                                                    <select name="" placeholder="Select Supplierplier" id=""
-                                                        class="form-control">
-                                                        <option>select Supplier</option>
+                                                    <select name="" id="staple" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <!-- <option>select Supplier</option> -->
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
                                                         <option value="SupplierB">Supplier B</option>
@@ -358,55 +353,49 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Perfect Bind</td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
 
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Lock Bind</td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
 
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Wire O
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover -
                                                     Square Back
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover -
                                                     Round Back
 
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Sewing
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="" class=" mr-5">Round corner
                                                 </td>
-                                                <td><input type="text" placeholder="input text" name="" id=""
-                                                        class="form-control"></td>
+                                                <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
 
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
-                                                    <input type="text" placeholder="User input" name="" id=""
-                                                        class="form-control w-75 float-right">
+                                                <td><input type="checkbox" name="" id="enableInputCheckbox"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" name="" id="targetInput"
+                                                        class="form-control w-50 float-right" disabled>
                                                 </td>
                                                 <td><input type="text" name="" id="" class="form-control"></td>
                                             </tr>
@@ -428,7 +417,11 @@
 
                             <div class="row">
                                 <div class="col-md-6">
-
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div id="editor1"></div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -454,7 +447,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><button class="btn btn-primary">+</button></td>
+                                                <td><button type="button"  data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">+</button></td>
                                                 <td>Start_time</td>
                                                 <td>Pause_time</td>
                                                 <td>auto_calculate</td>
@@ -541,5 +534,82 @@
             <a href="{{route('digitalPrinting.index')}}">back to list</a>
         </div>
     </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="width:1300px; margin-left:-400px;">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Productio Output Detaial</h5>
+                    <select id="seksyen" class="form-control form-select">
+                        <option value="">seksyen1</option>
+                        <option value="">seksyen2</option>
+                        <option value="">seksyen3</option>
+                    </select>
+                </div>
+                <div class="modal-body">
+                    <table class="table" id="table">
+                        <thead>
+                            <tr>
+                                <td>Action</td>
+                                <td>Section no</td>
+                                <td>Side</td>
+                                <td>Last Input</td>
+                                <td>Waste Input</td>
+                                <td>Rejection</td>
+                                <td>Good Count</td>
+                                <td>check</td>
+                                <td>dateTime/user</td>
+                                <td>verify</td>
+                                <td>dateTime/user</td>
+                            </tr> 
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><button class="btn btn-primary">-</button></td>
+                                <td>1</td>
+                                <td> <select name="" id="sales1" class="form-control form-select">
+                                            <option value="">A</option>
+                                            <option value="">B</option>
+                                            <option value="">A/B</option>
+                                        </select></td>
+                                <td><input type="text" name="" id="" class="form-control"></td>
+                                <td><input type="text" name="" id="" class="form-control"></td>
+                                <td><input type="text" name="" id="" class="form-control"></td>
+                                <td><input type="text" name="" id="" class="form-control"></td>
+                                <td><button class="btn btn-primary">Check</button></td>
+                                <td></td>
+                                <td><button class="btn btn-primary">Verify</button></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Closed</button>
+                    <button type="button" class="btn btn-primary">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </form>
 @endsection
+@push('custom-scripts')
+<script>
+    // $('#table').DateTable();
+    const enableInputCheckbox = $('#enableInputCheckbox');
+    const targetInput = $('#targetInput');
+
+    // Event handler for checkbox change
+    enableInputCheckbox.change(function () {
+        // Enable/disable input based on checkbox status
+        targetInput.prop('disabled', !enableInputCheckbox.prop('checked'));
+    });
+    var quill = new Quill('#editor', {
+        theme: 'snow'
+    });
+
+    var quill1 = new Quill('#editor1', {
+        theme: 'snow'
+    });
+</script>
+@endpush

@@ -20,7 +20,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" value="{{date('Y-m-d')}}" readonly name="" id="" class="form-control">
+                                        <input type="date" value="{{date('Y-m-d')}}" readonly name="" id="Currentdate" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">

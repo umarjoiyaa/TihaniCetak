@@ -172,6 +172,60 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Print</label>
+                                    <select name="" id="print0" placeholder="Pilih print" class="form-control form-select">
+                                        <option value="">1C</option>
+                                        <option value="">4C</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Jumlah Up</label>
+                                        <input type="text" name="" id="" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Print Cut</label>
+                                    <select name="printCut" id="printSelect1" class="form-control form-select">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="6">6</option>
+                                        <option value="8">8</option>
+                                        <option value="10">10</option>
+                                        <option value="12">12</option>
+                                        <option value="14">14</option>
+                                        <option value="16">16</option>
+                                        <option value="" id="newInputOption1">OTHERS</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-4 mt-2" >
+                                    <label for=""></label>
+                                    <div id="box2"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card-body">
+                            <div class="row mt-3">
+                                <div class="col-md-12">
+                                    <h5><b>Cover</b></h5>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-1"><input type="checkbox" name="" id=""></div>
+                                            <div class="col-md-2">Front</div>
+                                            <div class="col-md-1"><input type="checkbox" name="" id=""></div>
+                                            <div class="col-md-2">back</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Print</label>
                                     <select name="" id="print1" placeholder="Pilih print" class="form-control form-select">
                                         <option value="">1C</option>
                                         <option value="">4C</option>
@@ -490,6 +544,20 @@
 
                 // Clear existing content in #box and append the new input element
                 $("#box").empty().append(newInput);
+                // $("#box1").empty().append(newInput);
+            } 
+        });
+
+        $('#printSelect1').change(function () {
+            if ($(this).val() === "") {
+                var newInput = $("<input>", {
+                    type: "text",
+                    class: "form-control",
+                    id: "newInput"
+                });
+
+                // Clear existing content in #box and append the new input element
+                $("#box2").empty().append(newInput);
                 // $("#box1").empty().append(newInput);
             } 
         });
