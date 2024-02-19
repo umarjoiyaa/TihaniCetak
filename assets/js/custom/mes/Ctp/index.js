@@ -5,7 +5,9 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         language: {
-            processing: 'Processing' // Custom processing text
+            processing: 'Processing',
+            zeroRecords: "No results found",
+            emptyTable: "No data available in the table" // Custom processing text
         },
         ajax: {
             url: data, // URL for your server-side data endpoint
@@ -132,7 +134,9 @@ function AjaxCall(columnsData) {
         processing: true,
         serverSide: true,
         language: {
-            processing: 'Processing' // Custom processing text
+            processing: 'Processing',
+            zeroRecords: 'No results found',
+            emptyTable: 'No data available in the table' // Custom processing text
         },
         ajax: {
             url: data, // URL for your server-side data endpoint
