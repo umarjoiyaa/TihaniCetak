@@ -788,8 +788,8 @@
                                                         </div>
                                                         <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                             <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti_penjilidan_saddle')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('proses_three_knife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('proses_pembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('ProsesPemgumpulangathering')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('ProsesPemotonganKulitBuku')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pemotongan Kulit Buku/ Teks</a></li>
 

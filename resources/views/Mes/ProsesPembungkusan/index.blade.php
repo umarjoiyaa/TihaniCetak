@@ -13,10 +13,10 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('ProsesPembungkusan.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('proses_pembungkusan.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table mt-2" id="example1">
+                    <table class="table datatable mt-2" id="example1">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -29,12 +29,49 @@
                                 <th>Koyak</th>
                                 <th>Kotor</th>
                                 <th>Pematuhan SOP</th>
-                                <th>Sataus</th>
+                                <th>Status</th>
                                 <th>Action</th>
+                            </tr>
+                            <tr>
+                                <th><input type="text" class="all_column" placeholder="search Date"></th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search time">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search mesin">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search sale order no">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kod buku">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search tajuk">
+                                </th>
+
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kuantiti yang betul">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search koyak">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Kotor">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Pematuhan SOP">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Status">
+                                </th>
+
+
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="">
+                            {{-- <tr class="">
                                 <td>30/5/2023 </td>
                                 <td>10:00 am</td>
                                 <td>F1</td>
@@ -63,7 +100,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -77,3 +114,9 @@
 
 
 @endsection
+@push('custom-scripts')
+    <script>
+        var data = "{{ route('proses_pembungkusan.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/mes/ProsesPembungkusan/index.js') }}"></script>
+@endpush
