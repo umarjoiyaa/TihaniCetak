@@ -30,7 +30,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Diperiksa oleh</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            <input type="text" value="{{ $proses_pencetakan->user->full_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>
@@ -407,6 +407,31 @@
                                                             value="na" id="" @checked($proses_pencetakan->b_18 == 'na')>
                                                     </td>
 
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                <div class="row mt-5">
+                                    <div class="col-md-12">
+                                        <h3><b>Verified By</b></h3>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Date</th>
+                                                    <th>Username</th>
+                                                    <th>Desgination</th>
+                                                    <th>Department</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>{{ $proses_pencetakan->verified_by_date }}</td>
+                                                    <td>{{ $proses_pencetakan->verified_by_user }}</td>
+                                                    <td>{{ $proses_pencetakan->verified_by_designation }}</td>
+                                                    <td>{{ $proses_pencetakan->verified_by_department }}</td>
                                                 </tr>
                                             </tbody>
                                         </table>

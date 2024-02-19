@@ -16,7 +16,11 @@ $(document).ready(function () {
                 d.start = d.start || 0; // Add 'start' parameter with a default value
                 d.length = d.length || 10; // Add 'length' parameter with a default value
                 d.order = d.order || [null, null]; // Add sorting information with a default value
-                d.columnsData = columnsData;
+                if (bool) {
+                    d.order = [null, null];
+                } else {
+                    d.order = d.order || [null, null]; // Add sorting information with a default value
+                }
 
             }
         }, // URL to fetch data
@@ -24,9 +28,6 @@ $(document).ready(function () {
                 data: 'sr_no',
                 name: 'sr_no',
                 orderable: false
-            }, {
-                data: 'date',
-                name: 'date',
             },
             {
                 data: 'time',
@@ -256,9 +257,6 @@ function AjaxCall(columnsData) {
                 data: 'sr_no',
                 name: 'sr_no',
                 orderable: false
-            }, {
-                data: 'date',
-                name: 'date',
             },
             {
                 data: 'time',

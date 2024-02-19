@@ -15,11 +15,10 @@
                     <a href="{{route('plate_cetak.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table mt-2" border="1" id="example1">
+                    <table class="table datatable text-center table-bordered mt-2" border="1" id="example1">
                         <thead>
                             <tr>
-                                <td>sr</td>
-                                <td rowspan="2">Tarikh.</td>
+                                <td rowspan="2">Sr.</td>
                                 <td rowspan="2">Masa</td>
                                 <td rowspan="2">Sales Order No.</td>
                                 <td rowspan="2">Tajuk Buku</td>
@@ -33,7 +32,7 @@
                                 <td rowspan="2">Kedudukan Image/gambar</td>
                                 <td rowspan="2">Calar</td>
                                 <td rowspan="2">Kotor</td>
-                                <td rowspan="2">Lain-lain (nyatakan)</td>
+                                <td rowspan="2">PEMERIKSAAN ARTWORK (UNTUK CETAKAN YANG MELEBIHI 1 UP)</td>
                                 <td rowspan="2">Diperiksa oleh</td>
                                 <td rowspan="2">status</td>
                                 <td rowspan="2">Action</td>
@@ -48,6 +47,59 @@
                                 <td>K</td>
                                 <td>P1</td>
                                 <td>P2</td>
+                            </tr>
+                            <tr>
+                                <th></th>
+
+
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search masa">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search sale order no">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search tajuk buku">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kod buku">
+                                </th>
+
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search mesin">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search seksyen">
+                                </th>
+                                <th colspan="3" style="background-color: #E8E7EF"></th>
+                                <th colspan="6" style="background-color: #E8E7EF"></th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search gripper">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search spacing">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kedudukan image/gambar">
+                                </th>
+                                <th style="background-color: #E8E7EF"></th>
+                                <th style="background-color: #E8E7EF"></th>
+                                <th style="background-color: #E8E7EF">
+
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search diperiksa oleh">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search status">
+                                </th>
+
+
+
+
+
+                                <th>
+                                </th>
                             </tr>
                         </thead>
                         <tbody>

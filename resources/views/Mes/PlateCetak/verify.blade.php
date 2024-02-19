@@ -116,18 +116,18 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_1" @checked($plate_cetak->warna_1 == yes)  value="{{ $plate_cetak->warna_1 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_2" @checked($plate_cetak->warna_2 == yes)  value="{{ $plate_cetak->warna_2 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_3" @checked($plate_cetak->warna_3 == yes)  value="{{ $plate_cetak->warna_3 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_4" @checked($plate_cetak->warna_4 == yes)  value="{{ $plate_cetak->warna_4 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_5" @checked($plate_cetak->warna_5 == yes)  value="{{ $plate_cetak->warna_5 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox"  name="warna_6" @checked($plate_cetak->warna_6 == yes)  value="{{ $plate_cetak->warna_6 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_1" @checked($plate_cetak->warna_1 == "yes")  value="{{ $plate_cetak->warna_1 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_2" @checked($plate_cetak->warna_2 == "yes")  value="{{ $plate_cetak->warna_2 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_3" @checked($plate_cetak->warna_3 == "yes")  value="{{ $plate_cetak->warna_3 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_4" @checked($plate_cetak->warna_4 == "yes")  value="{{ $plate_cetak->warna_4 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_5" @checked($plate_cetak->warna_5 == "yes")  value="{{ $plate_cetak->warna_5 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox"  name="warna_6" @checked($plate_cetak->warna_6 == "yes")  value="{{ $plate_cetak->warna_6 }}" id=""></td>
                                     <td><input type="text" disabled name="warna_7" id="" value="${{ $plate_cetak->warna_7 }}" class="form-control"></td>
                                     <td><input type="text" disabled name="warna_8" id="" value="${{ $plate_cetak->warna_8 }}" class="form-control"></td>
                                     <td><input type="text" disabled name="warna_9" id="" value="${{ $plate_cetak->warna_9 }}" class="form-control"></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_10" @checked($plate_cetak->warna_10 == yes)  value="{{ $plate_cetak->warna_10 }}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox"  name="warna_11" @checked($plate_cetak->warna_11 == yes)  value="{{ $plate_cetak->warna_11}}" id=""></td>
-                                    <td><input type="checkbox" disabled class="checkbox" name="warna_12" @checked($plate_cetak->warna_12 == yes)  value="{{ $plate_cetak->warna_12 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_10" @checked($plate_cetak->warna_10 == "yes")  value="{{ $plate_cetak->warna_10 }}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox"  name="warna_11" @checked($plate_cetak->warna_11 == "yes")  value="{{ $plate_cetak->warna_11}}" id=""></td>
+                                    <td><input type="checkbox" disabled class="checkbox" name="warna_12" @checked($plate_cetak->warna_12 == "yes")  value="{{ $plate_cetak->warna_12 }}" id=""></td>
                                 </tr>
                             </tbody>
                         </table>
