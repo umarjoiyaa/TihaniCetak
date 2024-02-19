@@ -7,21 +7,22 @@
                 <div class="card mt-5">
                     <div class="card-header">
                         <div class="d-flex justify-content-between">
-                            <h4 class="card-title tx-20 mg-b-0 p-2">LAPORAN PEMERIKSAAN KUALITI (PROSES PENCETAKAN) </h4>
+                            <h4 class="card-title tx-20 mg-b-0 p-2">LAPORAN PEMERIKSAAN KUALITI - PROSES PENJILIDAN PERFECT
+                                BIND</h4>
                         </div>
 
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
-                            <a href="{{ route('proses_pencetakan.create') }}" class="btn btn-primary mb-2">Create</a>
+                            <a href="{{ route('laporan_pemeriksaan_kualiti_penjilidan.create') }}" class="btn btn-primary mb-2">Create</a>
                         </div>
                         <div class="table-responsive">
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
                                         <td>sr</td>
-                                        <td>Tarikh.</td>
-                                        <td>Masa</td>
+                                        <td>Date</td>
+                                        <td>Time</td>
                                         <td>Mesin</td>
                                         <td>Sales Order No. </td>
                                         <td>Kod Buku</td>
@@ -34,10 +35,10 @@
                                     <tr>
                                         <th></th>
                                         <th>
-                                            <input type="text" class="all_column" placeholder="search tarikh">
+                                            <input type="text" class="all_column" placeholder="search date">
                                         </th>
                                         <th>
-                                            <input type="text" class="all_column" placeholder="search masa">
+                                            <input type="text" class="all_column" placeholder="search time">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search mesin">
@@ -69,7 +70,7 @@
 @endsection
 @push('custom-scripts')
     <script>
-        var data = "{{ route('proses_pencetakan.data') }}";
+        var data = "{{ route('laporan_pemeriksaan_kualiti_penjilidan.data') }}";
     </script>
-    <script src="{{ asset('assets/js/custom/mes/ProsesPencetakan/index.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/mes/LaporanPemeriksaanKualitiPenjilidan/index.js') }}"></script>
 @endpush

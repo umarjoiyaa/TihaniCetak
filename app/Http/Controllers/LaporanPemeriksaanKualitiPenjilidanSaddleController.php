@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
-use App\Models\ProsesPencetakan;
+use App\Models\LaporanPemeriksaanKualitiPenjilidanSaddle;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProsesPencetakanController extends Controller
+class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
 {
     public function Data(Request $request)
     {
@@ -20,7 +20,7 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualitiPenjilidanSaddle::select('id', 'so_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -51,9 +51,9 @@ class ProsesPencetakanController extends Controller
                     1 => 'date',
                     2 => 'time',
                     3 => 'mesin',
-                    4 => 'sale_order_id',
-                    5 => 'sale_order_id',
-                    6 => 'sale_order_id',
+                    4 => 'so_id',
+                    5 => 'so_id',
+                    6 => 'so_id',
                     7 => 'status',
                     // Add more columns as needed
                 ];
@@ -124,20 +124,20 @@ class ProsesPencetakanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -170,7 +170,7 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualitiPenjilidanSaddle::select('id', 'so_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -198,9 +198,9 @@ class ProsesPencetakanController extends Controller
                 1 => 'date',
                 2 => 'time',
                 3 => 'mesin',
-                4 => 'sale_order_id',
-                5 => 'sale_order_id',
-                6 => 'sale_order_id',
+                4 => 'so_id',
+                5 => 'so_id',
+                6 => 'so_id',
                 7 => 'status',
                 // Add more columns as needed
             ];
@@ -225,20 +225,20 @@ class ProsesPencetakanController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('proses_pencetakan.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('proses_pencetakan.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -261,30 +261,30 @@ class ProsesPencetakanController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN List') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN View') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Delete') ||
-            Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE List') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Create') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE View') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Delete') ||
+            Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verify')
         ) {
-            Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN List');
-            return view('Mes.ProsesPencetakan.index');
+            Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE List');
+            return view('Mes.LaporanPemeriksaanKualitiPenjilidanSaddle.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Create');
-        return view('Mes.ProsesPencetakan.create');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Create');
+        return view('Mes.LaporanPemeriksaanKualitiPenjilidanSaddle.create');
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Create')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -295,9 +295,6 @@ class ProsesPencetakanController extends Controller
             'date' => 'required',
             'time' => 'required',
             'mesin' => 'required',
-            'jenis' => 'required',
-            'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail
@@ -306,64 +303,53 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $proses_pencetakan = new ProsesPencetakan();
-        $proses_pencetakan->sale_order_id = $request->sale_order;
-        $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
-        $proses_pencetakan->created_by = Auth::user()->id;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = new LaporanPemeriksaanKualitiPenjilidanSaddle();
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id = $request->sale_order;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->date = $request->date;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $request->time;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->created_by = Auth::user()->id;
 
-        $proses_pencetakan->seksyen_no = $request->seksyen_no;
-        $proses_pencetakan->mesin = $request->mesin;
-        $proses_pencetakan->jenis = $request->jenis;
-        $proses_pencetakan->side = $request->side;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
 
-        $proses_pencetakan->b_1 = $request->b_1;
-        $proses_pencetakan->b_2 = $request->b_2;
-        $proses_pencetakan->b_3 = $request->b_3;
-        $proses_pencetakan->b_4 = $request->b_4;
-        $proses_pencetakan->b_5 = $request->b_5;
-        $proses_pencetakan->b_6 = $request->b_6;
-        $proses_pencetakan->b_7 = $request->b_7;
-        $proses_pencetakan->b_8 = $request->b_8;
-        $proses_pencetakan->b_9 = $request->b_9;
-        $proses_pencetakan->b_10 = $request->b_10;
-        $proses_pencetakan->b_11 = $request->b_11;
-        $proses_pencetakan->b_12 = $request->b_12;
-        $proses_pencetakan->b_13 = $request->b_13;
-        $proses_pencetakan->b_14 = $request->b_14;
-        $proses_pencetakan->b_15 = $request->b_15;
-        $proses_pencetakan->b_16 = $request->b_16;
-        $proses_pencetakan->b_17 = $request->b_17;
-        $proses_pencetakan->b_18 = $request->b_18;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10;
 
-        $proses_pencetakan->status = 'checked';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'checked';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Store');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Created Successfully !');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Store');
+        return redirect()->route('laporan_pemeriksaan_kualiti_penjilidan_saddle')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE has been Created Successfully !');
     }
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return view('Mes.ProsesPencetakan.edit', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update');
+        return view('Mes.LaporanPemeriksaanKualitiPenjilidanSaddle.edit', compact('laporan_pemeriksaan_kualiti_penjilidan_saddle'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN View')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN View');
-        return view('Mes.ProsesPencetakan.view', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE View');
+        return view('Mes.LaporanPemeriksaanKualitiPenjilidanSaddle.view', compact('laporan_pemeriksaan_kualiti_penjilidan_saddle'));
     }
 
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Update')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -374,9 +360,6 @@ class ProsesPencetakanController extends Controller
             'date' => 'required',
             'time' => 'required',
             'mesin' => 'required',
-            'jenis' => 'required',
-            'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail
@@ -385,88 +368,77 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->sale_order_id = $request->sale_order;
-        $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
-        $proses_pencetakan->created_by = Auth::user()->id;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id = $request->sale_order;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->date = $request->date;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $request->time;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->created_by = Auth::user()->id;
 
-        $proses_pencetakan->seksyen_no = $request->seksyen_no;
-        $proses_pencetakan->mesin = $request->mesin;
-        $proses_pencetakan->jenis = $request->jenis;
-        $proses_pencetakan->side = $request->side;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
 
-        $proses_pencetakan->b_1 = $request->b_1;
-        $proses_pencetakan->b_2 = $request->b_2;
-        $proses_pencetakan->b_3 = $request->b_3;
-        $proses_pencetakan->b_4 = $request->b_4;
-        $proses_pencetakan->b_5 = $request->b_5;
-        $proses_pencetakan->b_6 = $request->b_6;
-        $proses_pencetakan->b_7 = $request->b_7;
-        $proses_pencetakan->b_8 = $request->b_8;
-        $proses_pencetakan->b_9 = $request->b_9;
-        $proses_pencetakan->b_10 = $request->b_10;
-        $proses_pencetakan->b_11 = $request->b_11;
-        $proses_pencetakan->b_12 = $request->b_12;
-        $proses_pencetakan->b_13 = $request->b_13;
-        $proses_pencetakan->b_14 = $request->b_14;
-        $proses_pencetakan->b_15 = $request->b_15;
-        $proses_pencetakan->b_16 = $request->b_16;
-        $proses_pencetakan->b_17 = $request->b_17;
-        $proses_pencetakan->b_18 = $request->b_18;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10;
 
-        $proses_pencetakan->status = 'checked';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'checked';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Updated Successfully !');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update');
+        return redirect()->route('laporan_pemeriksaan_kualiti_penjilidan_saddle')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE has been Updated Successfully !');
     }
 
     public function verify($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Update');
-        return view('Mes.ProsesPencetakan.verify', compact('proses_pencetakan'));
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Update');
+        return view('Mes.LaporanPemeriksaanKualitiPenjilidanSaddle.verify', compact('laporan_pemeriksaan_kualiti_penjilidan_saddle'));
     }
 
     public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->status = 'verified';
-        $proses_pencetakan->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
-        $proses_pencetakan->verified_by_user = Auth::user()->user_name;
-        $proses_pencetakan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $proses_pencetakan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
-        $proses_pencetakan->save();
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'verified';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->verified_by_user = Auth::user()->user_name;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();
 
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Verified');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Verified!');
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verified');
+        return redirect()->route('laporan_pemeriksaan_kualiti_penjilidan_saddle')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE has been Successfully Verified!');
     }
 
     public function approve_decline(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Verify')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->status = 'declined';
-        $proses_pencetakan->save();
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Declined');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Declined!');
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'declined';
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Declined');
+        return redirect()->route('laporan_pemeriksaan_kualiti_penjilidan_saddle')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE has been Successfully Declined!');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('PROSES PENCETAKAN Delete')) {
+        if (!Auth::user()->hasPermissionTo('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $proses_pencetakan = ProsesPencetakan::find($id);
-        $proses_pencetakan->delete();
-        Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Delete');
-        return redirect()->route('proses_pencetakan')->with('custom_success', 'PROSES PENCETAKAN has been Successfully Deleted!');
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->delete();
+        Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE Delete');
+        return redirect()->route('laporan_pemeriksaan_kualiti_penjilidan_saddle')->with('custom_success', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN SADDLE has been Successfully Deleted!');
     }
 }

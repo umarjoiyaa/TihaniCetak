@@ -33,6 +33,9 @@
     <!--- Animations css-->
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 
+    <!-- Quill css-->
+    <link rel="stylesheet" href="{{asset('assets/css/quill.css')}}">
+
     <!-- Internal Datatable css-->
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.dataTables.css') }}" rel="stylesheet">
 
@@ -779,12 +782,12 @@
                                                             <li aria-haspopup="true"><a href="{{route('ctp')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('pod')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('plate_cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('Prosespencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesLipat')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanPrefectBind')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('proses_pencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti_penjilidan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
                                                         </div>
                                                         <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="{{route('ProsesPenJilidanSaddlestitch')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
+                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti_penjilidan_saddle')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('ProsesThreeKnife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('ProsesPembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
                                                             <li aria-haspopup="true"><a href="{{route('ProsesPemgumpulangathering')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
@@ -2058,7 +2061,8 @@
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
 
-
+    <!-- Quill js -->
+    <script src="{{asset('/assets/js/quill.js')}}"></script>
 
     <!-- Internal Datatable js -->
     {{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}

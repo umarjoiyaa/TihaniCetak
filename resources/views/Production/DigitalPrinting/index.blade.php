@@ -52,7 +52,7 @@
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">
                                             <a class="dropdown-item" href="{{route('digitalPrinting.view')}}">View</a>
-                                            <a class="dropdown-item" href="">Edit</a>
+                                            <a class="dropdown-item" href="{{route('digitalPrinting.edit')}}">Edit</a>
                                             <a class="dropdown-item"
                                                 href="{{route('digitalPrinting.proses')}}">Proses</a>
                                             <a class="dropdown-item" href="">Delete</a>
