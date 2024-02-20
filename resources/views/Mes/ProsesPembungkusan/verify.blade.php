@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSAN</b></h5>
+                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSANE</b></h5>
                         <p class="float-right">TCBS-B23 (Rev.5)</p>
                     </div>
                 </div>
@@ -18,47 +19,56 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <label for="">Date</label>
-                                    <input type="date" readonly name="" id="" class="form-control">
+                                    <input type="date"  name="date" disabled value="{{ $proses_pembungkusan->date }}" id="" class="form-control">
                                 </div>
                             </div>
 
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Time</div>
-                                    <input type="time" value="Admin" readonly name="" id="" class="form-control mt-1">
+                                    <input name="time" type="time" disabled id="Currenttime"
+                                    value="{{ $proses_pembungkusan->time }}"
+                                    class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <div class="label">Checked By</div>
-                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                    <div class="label">By</div>
+                                    <input type="text"  value="{{ Auth::user()->user_name }}" readonly
+                                    class="form-control" name="" id="">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Sales Order No</div>
-                                    <select name="" id="" readonly class="form-control">
-                                        <option value="" disabled>select sales Order no</option>
-                                        <option value="" selected>SO-001496</option>
+                                    <select name="sale_order" disabled data-id="{{ $proses_pembungkusan->sale_order_id }}"
+                                        id="sale_order" class="form-control">
+                                        <option value="{{ $proses_pembungkusan->sale_order_id }}" selected
+                                            style="color: black; !important">
+                                            {{ $proses_pembungkusan->sale_order->order_no }}</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Tajuk</div>
-                                    <input type="text" value="auto Display" readonly name="" id="" class="form-control">
+                                    <input type="text" value="auto Display" readonly name="" id="tajuk" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Kod Buku</div>
-                                    <input type="text" readonly value="auto Display" name="" id="" class="form-control">
+                                    <input type="text" readonly value="auto Display" name="" id="kod_buku" class="form-control">
                                 </div>
                             </div>
+                        </div>
+                        <div class="row">
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Mesin</div>
-                                    <input type="text" value="ST1" readonly name="" id="" class="form-control">
+                                    <input type="text" value="ST1" readonly name="machine" id="machine" class="form-control">
                                 </div>
                             </div>
 
@@ -66,11 +76,11 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <label for="">Kategori</label>
-                                    <select name="" readonly class="form-control" id="">
-                                        <option value="">pilih Kategori</option>
-                                        <option value="">Shrink Wrap + Packing</option>
-                                        <option value="" selected>Packing</option>
-                                        <option value="">Kotak</option>
+                                    <select name="kategori" disabled class="form-control form-select" id="kategori">
+                                        <option value="-1">pilih Kategori</option>
+                                        <option value="Shrink Wrap + Packing" @selected($proses_pembungkusan->kategori == "Shrink Wrap + Packing" )>Shrink Wrap + Packing</option>
+                                        <option value="Packing" @selected($proses_pembungkusan->kategori == "Packing" )>Packing</option>
+                                        <option value="Kotak" @selected($proses_pembungkusan->kategori == "Kotak" )>Kotak</option>
                                     </select>
                                 </div>
                             </div>
@@ -94,24 +104,40 @@
                                         <tbody>
 
                                             <tr>
-                                                <td style="background:wheat;">Kuantiti yang betul </td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td >Kuantiti yang betul </td>
+                                                <td><input type="checkbox" class="Cover1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" disabled  @checked($proses_pembungkusan->checklist_1 == "ok")  name="checklist_1" value="ok" id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Cover1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" disabled @checked($proses_pembungkusan->checklist_1 == "ng") value="ng" name="checklist_1"
+                                                        id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Koyak</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text1"
+                                                        onchange="handleCheckboxChange('Text1',this)" disabled name="checklist_2" @checked($proses_pembungkusan->checklist_2 == "ok") value="ok"  id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Text1"
+                                                        onchange="handleCheckboxChange('Text1',this)" disabled @checked($proses_pembungkusan->checklist_2 == "ng") value="ng" name="checklist_2"
+                                                        id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Kotor</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Cover2"
+                                                        onchange="handleCheckboxChange('Cover2',this)" disabled name="checklist_3" @checked($proses_pembungkusan->checklist_3 == "ok") value="ok" id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Cover2"
+                                                        onchange="handleCheckboxChange('Cover2',this)" disabled @checked($proses_pembungkusan->checklist_3 == "ng") value="ng" name="checklist_3"
+                                                        id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Pematuhan Sop</td>
-                                                <td><input type="checkbox" name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" class="Text2"
+                                                        onchange="handleCheckboxChange('Text2',this)" disabled name="checklist_4" @checked($proses_pembungkusan->checklist_4 == "ok") value="ok"  id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Text2"
+                                                        onchange="handleCheckboxChange('Text2',this)" disabled @checked($proses_pembungkusan->checklist_4 == "ng") value="ng" name="checklist_4"
+                                                        id=""></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -123,26 +149,94 @@
                     </div>
                 </div>
 
-                <div class="row d-flex justify-content-end">
-
-                    <div class="col-md-12 mb-4 d-flex justify-content-end">
-                        <button class="btn btn-danger mx-2">Decline</button>
-                        <button class="btn btn-primary">Approve</button>
+                <div class="row d-flex justify-content-end mt-5">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <form action="{{ route('proses_pembungkusan.approve.decline', $proses_pembungkusan->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                        </form>
+                        <form action="{{ route('proses_pembungkusan.approve.approve', $proses_pembungkusan->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"> Verify</button>
+                        </form>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('ProsesPembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
+            <a href="{{route('proses_pembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
                 back to list</a>
         </div>
     </div>
 </div>
 @endsection
 
-@section('Script')
+@push('custom-scripts')
+<script>
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
+        }
 
-@endsection
+        $(document).ready(function() {
+            $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.text || null;
+                }
+            });
+
+            $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                        $('#kod_buku').val(data.kod_buku);
+                        $('#tajuk').val(data.description);
+                        $('#size').val(data.size);
+
+                    }
+                });
+            });
+        });
+
+</script>
+@endpush

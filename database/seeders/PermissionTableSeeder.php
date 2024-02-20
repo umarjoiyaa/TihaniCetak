@@ -165,6 +165,18 @@ class PermissionTableSeeder extends Seeder
             'PLATE CETAK Verify',
             'PLATE CETAK View',
             'PLATE CETAK Delete',
+            'PROSES THREE KNIFE List',
+            'PROSES THREE KNIFE Create',
+            'PROSES THREE KNIFE Update',
+            'PROSES THREE KNIFE Verify',
+            'PROSES THREE KNIFE View',
+            'PROSES THREE KNIFE Delete',
+            'PROSES PEMBUNGKUSAN List',
+            'PROSES PEMBUNGKUSAN Create',
+            'PROSES PEMBUNGKUSAN Update',
+            'PROSES PEMBUNGKUSAN Verify',
+            'PROSES PEMBUNGKUSAN View',
+            'PROSES PEMBUNGKUSAN Delete',
          ];
 
         foreach ($permissions as $permission) {

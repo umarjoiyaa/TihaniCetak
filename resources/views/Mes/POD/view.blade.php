@@ -220,10 +220,10 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{{ $senari_semak->verified_by_date }}</td>
-                                        <td>{{ $senari_semak->verified_by_user }}</td>
-                                        <td>{{ $senari_semak->verified_by_designation }}</td>
-                                        <td>{{ $senari_semak->verified_by_department }}</td>
+                                        <td>{{ $pod->verified_by_date }}</td>
+                                        <td>{{ $pod->verified_by_user }}</td>
+                                        <td>{{ $pod->verified_by_designation }}</td>
+                                        <td>{{ $pod->verified_by_department }}</td>
                                     </tr>
                                 </tbody>
                             </table>
