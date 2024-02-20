@@ -165,6 +165,9 @@ class PermissionTableSeeder extends Seeder
             'PLATE CETAK Verify',
             'PLATE CETAK View',
             'PLATE CETAK Delete',
+         ];
+
+         $permissionss = [
             'PROSES THREE KNIFE List',
             'PROSES THREE KNIFE Create',
             'PROSES THREE KNIFE Update',
@@ -177,11 +180,29 @@ class PermissionTableSeeder extends Seeder
             'PROSES PEMBUNGKUSAN Verify',
             'PROSES PEMBUNGKUSAN View',
             'PROSES PEMBUNGKUSAN Delete',
+            'PENGUMPULAN GATHERING List',
+            'PENGUMPULAN GATHERING Create',
+            'PENGUMPULAN GATHERING Update',
+            'PENGUMPULAN GATHERING Verify',
+            'PENGUMPULAN GATHERING View',
+            'PENGUMPULAN GATHERING Delete',
+            'KULIT BUKU List',
+            'KULIT BUKU Create',
+            'KULIT BUKU Update',
+            'KULIT BUKU Verify',
+            'KULIT BUKU View',
+            'KULIT BUKU Delete',
          ];
 
         foreach ($permissions as $permission) {
             if (!Permission::where('name', $permission)->exists()) {
                 Permission::create(['name' => $permission]);
+            }
+        }
+
+        foreach ($permissionss as $perm) {
+            if (!Permission::where('name', $perm)->exists()) {
+                Permission::create(['name' => $perm]);
             }
         }
     }

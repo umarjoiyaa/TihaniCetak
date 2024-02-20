@@ -9,6 +9,7 @@ use App\Http\Controllers\CallForAssistanceController;
 use App\Http\Controllers\Cover_endPaperController;
 use App\Http\Controllers\CTPController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PengumpulanGatheringController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\DigitalPrintingController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\Inventory_reportController;
 use App\Http\Controllers\invertory_ShopFloorController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanController;
+use App\Http\Controllers\KulitBukuController;
 use App\Http\Controllers\LaporanProsesPenjilidanController;
 use App\Http\Controllers\LaporanProsesPenjilidanSaddleController;
 use App\Http\Controllers\LaporanProsesThreeController;
@@ -448,6 +450,32 @@ Route::post('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/approve/approve/{id}
 Route::post('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/approve/decline/{id}', [LaporanPemeriksaanKualitiPenjilidanSaddleController::class, 'approve_decline'])->name('laporan_pemeriksaan_kualiti_penjilidan_saddle.approve.decline');
 Route::get('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/delete/{id}', [LaporanPemeriksaanKualitiPenjilidanSaddleController::class, 'delete'])->name('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete');
 
+// Pengumpulan Gathering
+Route::get('/Mes/PengumpulanGathering', [PengumpulanGatheringController::class, 'index'])->name('pengumpulan_gathering');
+Route::get('/Mes/PengumpulanGathering/data', [PengumpulanGatheringController::class, 'Data'])->name('pengumpulan_gathering.data');
+Route::get('/Mes/PengumpulanGathering/create', [PengumpulanGatheringController::class, 'create'])->name('pengumpulan_gathering.create');
+Route::post('/Mes/PengumpulanGathering/store', [PengumpulanGatheringController::class, 'store'])->name('pengumpulan_gathering.store');
+Route::get('/Mes/PengumpulanGathering/view/{id}', [PengumpulanGatheringController::class, 'view'])->name('pengumpulan_gathering.view');
+Route::get('/Mes/PengumpulanGathering/edit/{id}', [PengumpulanGatheringController::class, 'edit'])->name('pengumpulan_gathering.edit');
+Route::post('/Mes/PengumpulanGathering/update/{id}', [PengumpulanGatheringController::class, 'update'])->name('pengumpulan_gathering.update');
+Route::get('/Mes/PengumpulanGathering/verify/{id}', [PengumpulanGatheringController::class, 'verify'])->name('pengumpulan_gathering.verify');
+Route::post('/Mes/PengumpulanGathering/approve/approve/{id}', [PengumpulanGatheringController::class, 'approve_approve'])->name('pengumpulan_gathering.approve.approve');
+Route::post('/Mes/PengumpulanGathering/approve/decline/{id}', [PengumpulanGatheringController::class, 'approve_decline'])->name('pengumpulan_gathering.approve.decline');
+Route::get('/Mes/PengumpulanGathering/delete/{id}', [PengumpulanGatheringController::class, 'delete'])->name('pengumpulan_gathering.delete');
+
+// Kulit Buku
+Route::get('/Mes/KulitBuku', [KulitBukuController::class, 'index'])->name('kulit_buku');
+Route::get('/Mes/KulitBuku/data', [KulitBukuController::class, 'Data'])->name('kulit_buku.data');
+Route::get('/Mes/KulitBuku/create', [KulitBukuController::class, 'create'])->name('kulit_buku.create');
+Route::post('/Mes/KulitBuku/store', [KulitBukuController::class, 'store'])->name('kulit_buku.store');
+Route::get('/Mes/KulitBuku/view/{id}', [KulitBukuController::class, 'view'])->name('kulit_buku.view');
+Route::get('/Mes/KulitBuku/edit/{id}', [KulitBukuController::class, 'edit'])->name('kulit_buku.edit');
+Route::post('/Mes/KulitBuku/update/{id}', [KulitBukuController::class, 'update'])->name('kulit_buku.update');
+Route::get('/Mes/KulitBuku/verify/{id}', [KulitBukuController::class, 'verify'])->name('kulit_buku.verify');
+Route::post('/Mes/KulitBuku/approve/approve/{id}', [KulitBukuController::class, 'approve_approve'])->name('kulit_buku.approve.approve');
+Route::post('/Mes/KulitBuku/approve/decline/{id}', [KulitBukuController::class, 'approve_decline'])->name('kulit_buku.approve.decline');
+Route::get('/Mes/KulitBuku/delete/{id}', [KulitBukuController::class, 'delete'])->name('kulit_buku.delete');
+
 // CTP
 Route::get('/MES/Ctp', [CtpController::class, 'index'])->name('ctp');
 Route::get('/MES/Ctp/data', [CtpController::class, 'Data'])->name('ctp.data');
@@ -659,5 +687,3 @@ Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])-
 
 // ProductionReport
 Route::get('/Production/ProductionReport',[ProductionReportController::class, 'index'])->name('ProductionReport.index');
-
-
