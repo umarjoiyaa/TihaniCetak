@@ -2077,10 +2077,12 @@
         <!-- Iconify Download Library -->
 		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
         <script>
-            $('.form-select').select2();
 
             $(document).ready(function() {
-
+                $('.form-select').select2();
+                $("#datepicker").datepicker({
+                    dateFormat: 'dd-mm-yy'
+                });
 
                  var currentURL = window.location.href;
 
