@@ -15,7 +15,7 @@
                     <a href="{{ route('senari_semak.create') }}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table datatable mt-2">
+                    <table class="table datatable mt-2" style="width: 100% !important">
                         <thead>
                             <tr>
                                 <td>Sr.</td>

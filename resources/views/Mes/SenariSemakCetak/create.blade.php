@@ -1084,7 +1084,7 @@ $(".inputChecked").on("change", function() {
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.text || null;
+                    return data.order_no || null;
                 }
             });
 

@@ -839,7 +839,7 @@
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>
-                                                                        Textg</a></li>
+                                                                        Text</a></li>
                                                                 <li aria-haspopup="true"><a
                                                                         href="{{ route('ProductionJobSheet_MesinLipat.index') }}"
                                                                         class="slide-item"><iconify-icon
