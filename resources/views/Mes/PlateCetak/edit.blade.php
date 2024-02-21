@@ -18,7 +18,7 @@
                     <div class="col-md-4 mt-3">
                         <div class="form-group">
                             <label for="">Tarikh</label>
-                            <input type="date"  name="date" id="" value="{{ $plate_cetak->date }}" class="form-control">
+                            <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($plate_cetak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                         </div>
                     </div>
                     <div class="col-md-4 mt-3">
@@ -219,6 +219,7 @@ $(document).on('change','.checkbox',function() {
       $(this).val($(this).prop('checked') ? 'yes' : 'no');
     });
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',

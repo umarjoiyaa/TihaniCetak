@@ -17,8 +17,11 @@
                             <div class="row">
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
+                                        @php
+                                            use Carbon\Carbon;
+                                        @endphp
                                         <label for="">Date</label>
-                                        <input type="date" disabled name="date" value="{{ \Carbon\Carbon::parse($proses_three_knife->date)->format('d-m-Y') }}" id="" class="form-control">
+                                        <input type="text" class="form-control" disabled value="{{ optional(Carbon::parse($proses_three_knife->date))->format('d-m-Y') }}">
                                     </div>
                                 </div>
 
@@ -40,25 +43,23 @@
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No</div>
-                                        <select name="sale_order" disabled data-id="{{ $proses_three_knife->sale_order_id }}"
-                                            id="sale_order" class="form-control">
-                                            <option value="{{ $proses_three_knife->sale_order_id }}" selected
-                                                style="color: black; !important">
-                                                {{ $proses_three_knife->sale_order->order_no }}</option>
-                                        </select>
+                                        <input type="text" disabled
+                                                value="{{ $proses_three_knife->sale_order->order_no }}"
+                                                class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" disabled value="auto Display" readonly value="{{ $proses_three_knife->sale_order->tajuk }}" id="tajuk"
-                                            class="form-control">
+                                        <input type="text" disabled
+                                                value="{{ $proses_three_knife->sale_order->description }}"
+                                                class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly value="auto Display" value="{{ $proses_three_knife->sale_order->kod_buku }}" id="kod_buku"
+                                        <input type="text" disabled  value="auto Display" value="{{ $proses_three_knife->sale_order->kod_buku }}" id="kod_buku"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -124,7 +125,7 @@
                                                 <tr>
                                                     <td>Turutan muka surat</td>
                                                     <td><input type="checkbox" disabled  name="b_6" class="b_6" onchange="handleCheckboxChange('b_6',this)" value="ok" @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                    <td><input type="checkbox"  disabledname="b_6" class="b_6" onchange="handleCheckboxChange('b_6',this)" value="ng" @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                    <td><input type="checkbox"  disabled name="b_6" class="b_6" onchange="handleCheckboxChange('b_6',this)" value="ng" @checked($proses_three_knife->b_1 == "ng") id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kotor</td>
@@ -208,4 +209,8 @@
     </div>
 </div>
 @endsection
-
+@push('custom-scripts')
+$(document).ready(function() {
+    $('input').attr('disabled', 'disabled');
+});
+@endpush

@@ -206,7 +206,13 @@
 .sweet-alert.show-input input {
 	display: block;
 }
-
+.sweet-alert .confirm {
+    background-color: red !important;
+}
+.sweet-alert .cancel {
+    background-color: #E7E7F1 !important;
+    color: #000 !important;
+}
 .sweet-alert .sa-confirm-button-container {
 	display: inline-block;
 	position: relative;

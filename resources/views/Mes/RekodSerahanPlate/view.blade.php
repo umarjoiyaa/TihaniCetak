@@ -12,8 +12,8 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Date</label>
-                                            <input type="date" name="date" value="{{ $rekod_serahan_plate->date }}"
-                                                id="Currentdate" class="form-control">
+                                            <input type="text"  name="date"  disabled value="{{ \Carbon\Carbon::parse($rekod_serahan_plate->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">

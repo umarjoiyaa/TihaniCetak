@@ -39,6 +39,9 @@
     <!-- Internal Datatable css-->
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.dataTables.css') }}" rel="stylesheet">
 
+    {{-- sweet alert --}}
+    <link href="{{ asset('/assets/plugins/sweet-alert/sweetalert.css') }}" rel="stylesheet">
+
     <!-- Internal Chart-Morris css-->
     <link href="{{ asset('assets/plugins/morris.js/morris.css') }}" rel="stylesheet">
 
@@ -1387,7 +1390,9 @@
             <!-- container -->
             <div class="container-fluid">
                 @include('includes.errors')
-                @include('includes.success')
+                <div class="section-messages">
+                    @include('includes.success')
+                </div>
                 @yield('content')
 
 
@@ -2057,6 +2062,11 @@
     <!-- Select 2 Js-->
     <script src="{{ asset('assets/js/select2.min.js') }}"></script>
 
+    {{-- sweet alert --}}
+    <script src="{{ asset('/assets/plugins/sweet-alert/jquery.sweet-alert.js') }}"></script>
+    <script src="{{ asset('/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
+
+
 
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
@@ -2083,6 +2093,10 @@
                 $("#datepicker").datepicker({
                     dateFormat: 'dd-mm-yy'
                 });
+
+                setTimeout(function() {
+                    $('.section-messages').fadeOut();
+                }, 5000);
 
                  var currentURL = window.location.href;
 

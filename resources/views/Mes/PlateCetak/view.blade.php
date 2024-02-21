@@ -17,14 +17,14 @@
                     <div class="col-md-4 mt-3">
                         <div class="form-group">
                             <label for="">Tarikh</label>
-                            <input type="date" readonly name="date" id="" value="{{ $pod->date }}" class="form-control">
+                            <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($plate_cetak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                         </div>
                     </div>
                     <div class="col-md-4 mt-3">
                         <label for="">Masa</label>
                         <input readonly name="time" type="time" id="Currenttime"
-                                    value="{{ $pod->time }}"
+                                    value="{{ $plate_cetak->time }}"
                                     class="form-control">
                     </div>
                     <div class="col-md-4 mt-3">
@@ -37,11 +37,11 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Sales Order No.</div>
-                            <select name="sale_order" disabled data-id="{{ $pod->sale_order_id }}"
+                            <select name="sale_order" disabled data-id="{{ $plate_cetak->sale_order_id }}"
                                 id="sale_order" class="form-control">
-                                <option value="{{ $pod->sale_order_id }}" selected
+                                <option value="{{ $plate_cetak->sale_order_id }}" selected
                                     style="color: black; !important">
-                                    {{ $pod->sale_order->order_no }}</option>
+                                    {{ $plate_cetak->sale_order->order_no }}</option>
                             </select>
                         </div>
                     </div>
@@ -212,10 +212,10 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>{{ $senari_semak->verified_by_date }}</td>
-                                    <td>{{ $senari_semak->verified_by_user }}</td>
-                                    <td>{{ $senari_semak->verified_by_designation }}</td>
-                                    <td>{{ $senari_semak->verified_by_department }}</td>
+                                    <td>{{ $plate_cetak->verified_by_date }}</td>
+                                    <td>{{ $plate_cetak->verified_by_user }}</td>
+                                    <td>{{ $plate_cetak->verified_by_designation }}</td>
+                                    <td>{{ $plate_cetak->verified_by_department }}</td>
                                 </tr>
                             </tbody>
                         </table>

@@ -20,7 +20,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" disabled  name="date" id="" value="{{ $ctp->date }}" class="form-control">
+                                        <input type="text" disabled name="date" value="{{ \Carbon\Carbon::parse($ctp->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -95,8 +95,8 @@
                                             </tr>
                                             <tr>
                                                 <td>Saiz Spine</td>
-                                                <td><input type="checkbox"readonly class="Text2" onchange="handleCheckboxChange('Text2',this)" disabled  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ok')value="ok" id=""></td>
-                                                <td><input type="checkbox"readonly class="Text2" onchange="handleCheckboxChange('Text2',this)" disabled  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ng')value="ng" id=""></td>
+                                                <td><input type="checkbox"readonly class="Text2" onchange="handleCheckboxChange('Text2',this)" disabled  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox"readonly class="Text2" onchange="handleCheckboxChange('Text2',this)" disabled  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox"readonly class="Text2" onchange="handleCheckboxChange('Text2',this)" disabled  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>

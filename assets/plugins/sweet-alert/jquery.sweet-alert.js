@@ -28,20 +28,35 @@ $(function(e) {
 	});
 
 	//Warning Message
-	$('#swal-warning').click(function () {
-		swal({
-		  title: "Are you sure?",
-		  text: "Your will not be able to recover this imaginary file!",
-		  type: "warning",
-		  showCancelButton: true,
-		  confirmButtonClass: "btn btn-danger",
-		  confirmButtonText: "Yes, delete it!",
-		  closeOnConfirm: false
-		},
-		function(){
-		  swal("Deleted!", "Your imaginary file has been deleted.", "success");
-		});
-	});
+	$(document).on('click','#swal-warning',function (e) {
+        const Url = e.target.getAttribute('data-delete');
+        swal({
+            title: "Are you sure?",
+            text: "Your will not be able to recover this record!",
+            type: "warning",
+            showCancelButton: true,
+            confirmButtonClass: "btn btn-danger",
+            confirmButtonText: "Yes, delete it!",
+            closeOnConfirm: false,
+            customClass: {
+                confirmButton: "btn btn-danger", // Add your custom class for the confirm button
+                cancelButton: "btn btn-secondary" // Add your custom class for the cancel button
+            }
+        },
+        function(isConfirmed) {
+            if (isConfirmed) {
+                swal("Deleted!", "Your record has been deleted.", "success");
+                var anchor = document.createElement("a");
+                anchor.href = Url;
+                anchor.click();
+                // console.log("File deleted successfully!");
+            } else {
+                // swal("Cancelled", "Record was not deleted", "error");
+                // swal("Cancelled", "Your imaginary file is safe :)", "error");
+            }
+        });
+    });
+
 
 	//Parameter
 	$('#swal-parameter').click(function () {

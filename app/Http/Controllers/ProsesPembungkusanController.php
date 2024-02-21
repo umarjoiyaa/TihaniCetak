@@ -320,33 +320,6 @@ class ProsesPembungkusanController extends Controller
         return view('Mes.ProsesPembungkusan.create');
     }
 
-    public function sale_order(Request $request)
-    {
-        $perPage = 10;
-        $page = $request->input('page', 1);
-        $search = $request->input('q');
-
-        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published');
-        if ($search) {
-            $query->where('order_no', 'like', '%' . $search . '%');
-        }
-        $heads = $query->paginate($perPage, ['*'], 'page', $page);
-
-        return response()->json([
-            'results' => $heads->items(),
-            'pagination' => [
-                'more' => $heads->hasMorePages(),
-            ],
-        ]);
-    }
-
-    public function sale_order_detail(Request $request)
-    {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'status','size')->where('id', $request->id)->first();
-        return response()->json($sale_order);
-    }
-
-
     public function store(Request $request)
     {
         // dd($request);

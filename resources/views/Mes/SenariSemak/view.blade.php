@@ -22,8 +22,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Date</div>
-                                                <input type="date" name="date" value="{{ $senari_semak->date }}"
-                                                    class="form-control" id="Currentdate">
+                                                <input type="text"  name="date" disabled  value="{{ \Carbon\Carbon::parse($senari_semak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">

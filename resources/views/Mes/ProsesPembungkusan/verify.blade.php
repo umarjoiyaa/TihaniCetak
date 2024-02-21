@@ -19,7 +19,8 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <label for="">Date</label>
-                                    <input type="date"  name="date" disabled value="{{ $proses_pembungkusan->date }}" id="" class="form-control">
+
+                                    <input type="text" disabled  name="date" value="{{ \Carbon\Carbon::parse($proses_pembungkusan->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                 </div>
                             </div>
 

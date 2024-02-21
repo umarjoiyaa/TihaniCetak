@@ -128,17 +128,17 @@ class SenariSemakController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('senari_semak.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('senari_semak.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('senari_semak.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('senari_semak.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">
@@ -229,17 +229,17 @@ class SenariSemakController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('senari_semak.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('senari_semak.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('senari_semak.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('senari_semak.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('senari_semak.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown">

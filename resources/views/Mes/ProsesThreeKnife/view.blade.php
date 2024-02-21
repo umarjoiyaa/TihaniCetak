@@ -18,7 +18,8 @@
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" disabled name="date" value="{{ \Carbon\Carbon::parse($proses_three_knife->date)->format('d-m-Y') }}" id="" class="form-control">
+                                        <input type="text" disabled name="date" value="{{ $proses_three_knife->date }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                        {{-- <input type="date" disabled name="date" value="{{ \Carbon\Carbon::parse($proses_three_knife->date)->format('d-m-Y') }}" id="" class="form-control"> --}}
                                     </div>
                                 </div>
 
@@ -40,25 +41,22 @@
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No</div>
-                                        <select name="sale_order" disabled data-id="{{ $proses_three_knife->sale_order_id }}"
-                                            id="sale_order" class="form-control">
-                                            <option value="{{ $proses_three_knife->sale_order_id }}" selected
-                                                style="color: black; !important">
-                                                {{ $proses_three_knife->sale_order->order_no }}</option>
-                                        </select>
+                                        <input type="text" readonly
+                                                value="{{ $proses_three_knife->sale_order->order_no }}"
+                                                class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" disabled value="auto Display" readonly value="{{ $proses_three_knife->sale_order->tajuk }}" id="tajuk"
+                                        <input type="text"  readonly  value="{{ $proses_three_knife->sale_order->description }}" id="tajuk"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly value="auto Display" value="{{ $proses_three_knife->sale_order->kod_buku }}" id="kod_buku"
+                                        <input type="text" readonly  value="{{ $proses_three_knife->sale_order->kod_buku }}" id="kod_buku"
                                             class="form-control">
                                     </div>
                                 </div>

@@ -20,8 +20,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <label for="">Tarikh</label>
-                                                <input type="date" name="date" value="{{ $proses_pencetakan->date }}"
-                                                    id="Currentdate" class="form-control">
+                                                <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($proses_pencetakan->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">

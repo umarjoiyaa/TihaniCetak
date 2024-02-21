@@ -1,11 +1,15 @@
 $(document).ready(function () {
     let bool = true;
+
+
     $('.datatable').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
         language: {
-            processing: 'Processing' // Custom processing text
+            processing: 'Processing', // Custom processing text
+            zeroRecords: 'No data available in the table',
+            emptyTable: "No data available"
         },
         ajax: {
             url: data, // URL for your server-side data endpoint
@@ -56,7 +60,7 @@ $(document).ready(function () {
                 orderable: false
             },
         ],
-        paging: true
+        paging: true,
         // Other DataTables options go here
     });
     bool = false;
@@ -71,7 +75,9 @@ function AjaxCall(columnsData) {
         processing: true,
         serverSide: true,
         language: {
-            processing: 'Processing' // Custom processing text
+            processing: 'Processing', // Custom processing text
+            zeroRecords: 'No data available in the table',
+            emptyTable: "No data available"
         },
         ajax: {
             url: data, // URL for your server-side data endpoint
