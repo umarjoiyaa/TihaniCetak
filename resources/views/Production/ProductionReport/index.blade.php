@@ -14,11 +14,11 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Date Range</label>
-                                            <input type="text" placeholder="Start date" name="" id=""
+                                            <input type="text"  name="" id=""
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-4">
                                         <input type="text" name="" id="" class="form-control">
                                     </div>
                                     <div class="col-md-4">
@@ -49,7 +49,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Description</label>
-                                        <input type="text" placeholder="auto Display" name="" id=""
+                                        <input type="text"  name="" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -65,7 +65,7 @@
                 </div>
                 <div class="row mt-5">
                     <div class="col-md-12 mt-5">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="example1">
                             <thead>
                                 <tr>
                                     <th>Sr.</th>
@@ -115,7 +115,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <button class="btn btn-primary float-right"><i
-                                class="fa fa-magnifying-glass"></i>download</button>
+                                class="fa fa-magnifying-glass"></i>Download</button>
                     </div>
                 </div>
             </div>
@@ -123,3 +123,10 @@
     </div>
 </div>
 @endsection
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

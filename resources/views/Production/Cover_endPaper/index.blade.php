@@ -16,7 +16,7 @@
                     <a href="{{route('Cover_endPaper.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped mt-2" id="example3">
+                    <table class="table table-bordered table-striped mt-2" id="example1">
                         <thead>
                             <tr>
                                 <th>Sr.</th>
@@ -76,10 +76,11 @@
                 </div> -->
     </div>
 </div>
-
-
-
-
-
-
 @endsection
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

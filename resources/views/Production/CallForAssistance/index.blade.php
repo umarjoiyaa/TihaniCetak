@@ -7,7 +7,7 @@
         <div class="card mt-5">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title tx-20 mg-b-0 p-2">PRODUCTION JOBSHEET LIST- COVER & ENDPAPER </h4>
+                    <h4 class="card-title tx-20 mg-b-0 p-2">CALL FOR ASSISTANCE </h4>
                 </div>
 
             </div>
@@ -76,9 +76,12 @@
                 </div> -->
     </div>
 </div>
-
-
-
-
-
 @endsection
+
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

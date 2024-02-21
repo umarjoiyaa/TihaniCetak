@@ -97,11 +97,12 @@ Route::middleware('auth')->group(function () {
     // Route::post('/user/profile/password', [ProfileController::class, 'password'])->name('profile.password.update');
 
     // Role
-Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role');
+    Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role');
+    Route::get('/Setting/role/create', [RoleController::class,'create'])->name('role.create');
 
 
 // Role
-Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role');
+// Route::get('/Setting/role/index', [RoleController::class,'index'])->name('role');
 
 // UOM
 Route::get('/Setting/Uom', [UomController::class, 'Index'])->name('uom');

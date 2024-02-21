@@ -69,8 +69,11 @@
     </div>
 </div>
 
-
-
-
-
 @endsection
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

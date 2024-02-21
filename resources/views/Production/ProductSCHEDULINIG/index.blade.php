@@ -108,7 +108,7 @@
 
             </div>
             <div class="modal-body">
-                <table class="table table-bordered" id="example1">
+                <table class="table table-bordered w-100" id="example1">
                     <thead>
                         <tr>
                             <th>Sales Order No</th>
@@ -136,3 +136,10 @@
     </div>
 </div>
 @endsection
+@push('custom-scripts')
+<script>
+     $(document).ready(function () {
+        $('#example1').DataTable();
+    });
+</script>
+@endpush

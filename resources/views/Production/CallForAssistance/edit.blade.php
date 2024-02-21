@@ -14,18 +14,18 @@
                 <div class="row">
                     <div class="col-md-4">
                         <label for="">Attended PIC</label>
-                        <input type="text" readonly value="Admin" name="" id="" class="form-control">
+                        <input type="text" readonly  name="" id="" class="form-control">
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Calling DateTime</label>
-                            <input type="text" readonly value="12/12/2023 10:30 Am" name="" id="" class="form-control">
+                            <input type="date" readonly name="" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Attended date</label>
-                            <input type="text" readonly value="12/12/2023" name="" id="" class="form-control">
+                            <input type="date" readonly  name="" id="" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Submitted date</label>
-                            <input type="text" readonly value="12/12/2023" name="" id="" class="form-control">
+                            <input type="date" readonly  name="" id="" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
@@ -47,8 +47,7 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <label for="">Remarks</label>
-                            <textarea name="" id="" cols="30" placeholder="UserInput" rows="5"
-                                class="form-control"></textarea>
+                            <div id="editor"></div>
                         </div>
                     </div>
                     <div class="col-md-2 mt-3" style="border:1px solid gray; width:150px; ">
@@ -68,3 +67,12 @@
     </div>
 </div>
 @endsection
+
+@push('custom-scripts')
+<script>
+     var quill = new Quill('#editor', {
+            theme: 'snow'
+        });
+
+</script>
+@endpush

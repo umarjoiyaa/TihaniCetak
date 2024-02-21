@@ -107,7 +107,7 @@ class RoleController extends Controller
         $dashboards = Helper::getpermissions('dashboards');
         $maintenances = Helper::getpermissions('maintenances');
         Helper::logSystemActivity('Role', 'Role Create');
-        return view("settings.role_assign.create", compact("others", "settings", "permissions", "dashboards", "machines", "maintenances", "reportings"));
+        return view("Setting.Role.create", compact("others", "settings", "permissions", "dashboards", "machines", "maintenances", "reportings"));
     }
 
     public function store(Request $request)

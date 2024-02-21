@@ -272,10 +272,10 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Gloss
+                                                <td><input type="checkbox" name="" id="Form20" class=" mr-5">Gloss
                                                     Lamination</td>
                                                 <td>
-                                                    <select name="" placeholder="select Supplier" id="form20"
+                                                    <select name="" disabled placeholder="select Supplier" id="form20"
                                                         class="form-control form-select " style="width:250px;">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -284,9 +284,9 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Matt
+                                                <td><input type="checkbox"  name="" id="Form1" class=" mr-5">Matt
                                                     Lamination</td>
-                                                <td><select name="" placeholder="select Supplier" id="form1"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form1"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -295,8 +295,8 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">SPOT UV</td>
-                                                <td><select name="" placeholder="select Supplier" id="form2"
+                                                <td><input type="checkbox" name="" id="Form2" class=" mr-5">SPOT UV</td>
+                                                <td><select name="" disabled placeholder="select Supplier" id="form2"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -305,9 +305,9 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hot Stamping
+                                                <td><input type="checkbox" name="" id="Form3" class=" mr-5">Hot Stamping
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form3"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form3"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -315,8 +315,8 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Emboss</td>
-                                                <td><select name="" placeholder="select Supplier" id="form4"
+                                                <td><input type="checkbox"  name="" id="Form4" class=" mr-5">Emboss</td>
+                                                <td><select name="" disabled placeholder="select Supplier" id="form4"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -324,8 +324,8 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Diecut</td>
-                                                <td><select name="" placeholder="select Supplier" id="form5"
+                                                <td><input type="checkbox" name="" id="Form5" class=" mr-5">Diecut</td>
+                                                <td><select name="" disabled placeholder="select Supplier" id="form5"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -333,9 +333,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Round corner
+                                                <td><input type="checkbox" name="" id="Form6" class=" mr-5">Round corner
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form6"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form6"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -343,9 +343,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Round back
+                                                <td><input type="checkbox" name="" id="Form7" class=" mr-5">Round back
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form7"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form7"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -353,9 +353,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Square Back
+                                                <td><input type="checkbox" name="" id="Form8" class=" mr-5">Square Back
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form8"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form8"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -363,11 +363,11 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
-                                                    <input type="text" placeholder="User Input" name="" id=""
+                                                <td><input type="checkbox" name="" id="Form9" class=" mr-5"> Others:
+                                                    <input type="text" disabled placeholder="User Input" name="" id="input1"
                                                         class="form-control w-50 float-right">
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form9"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form9"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -399,9 +399,9 @@
 
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Perfect Bind
+                                                <td><input type="checkbox" name="" id="Form10" class=" mr-5">Perfect Bind
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form10"
+                                                <td><select disabled name="" placeholder="select Supplier" id="form10"
                                                         class="form-control form-select" style="width:250px;">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -410,9 +410,9 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Staple Bind
+                                                <td><input type="checkbox" name="" id="Form11" class=" mr-5">Staple Bind
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form11"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form11"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -420,8 +420,8 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Wire 0</td>
-                                                <td><select name="" placeholder="select Supplier" id="form12"
+                                                <td><input type="checkbox" name="" id="Form12" class=" mr-5">Wire 0</td>
+                                                <td><select name="" disabled placeholder="select Supplier" id="form12"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -429,9 +429,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover
+                                                <td><input type="checkbox" name="" id="Form13" class=" mr-5">Hard Cover
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form13"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form13"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -439,9 +439,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Creasing Line
+                                                <td><input type="checkbox" name="" id="Form14" class=" mr-5">Creasing Line
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form14"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form14"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -449,9 +449,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Cut to Size
+                                                <td><input type="checkbox" name="" id="Form15" class=" mr-5">Cut to Size
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form15"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form15"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -459,9 +459,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Folding
+                                                <td><input type="checkbox" name="" id="Form16" class=" mr-5">Folding
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form16"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form16"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -469,11 +469,11 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
-                                                    <input type="text" placeholder="User Input" name="" id=""
+                                                <td><input type="checkbox" name="" id="Form17" class=" mr-5"> Others:
+                                                    <input type="text" disabled placeholder="User Input" name="" id="input"
                                                         class="form-control w-50 float-right">
                                                 </td>
-                                                <td><select name="" placeholder="select Supplier" id="form17"
+                                                <td><select name="" disabled placeholder="select Supplier" id="form17"
                                                         class="form-control form-select">
                                                         <option value="In-house">In-house</option>
                                                         <option value="SupplierA">Supplier A</option>
@@ -581,12 +581,154 @@
                 $("#box1").empty().append(newLabel, newInput);
             }
         });
+        
+        $("#Form1").change(function() {
+            if($(this).is(":checked")) {
+                $("#form1").prop("disabled", false);
+            } else {
+                $("#form1").prop("disabled", true);
+            }
+        });
 
-        // var currentDate = new Date();
+        $("#Form2").change(function() {
+            if($(this).is(":checked")) {
+                $("#form2").prop("disabled", false);
+            } else {
+                $("#form2").prop("disabled", true);
+            }
+        });
 
-        // var formattedDate = currentDate.toISOString().slice(0, 10);
+        $("#Form3").change(function() {
+            if($(this).is(":checked")) {
+                $("#form3").prop("disabled", false);
+            } else {
+                $("#form3").prop("disabled", true);
+            }
+        });
 
-        // $("#currentDateInput").val(formattedDate);
+        $("#Form4").change(function() {
+            if($(this).is(":checked")) {
+                $("#form4").prop("disabled", false);
+            } else {
+                $("#form4").prop("disabled", true);
+            }
+        });
+
+        $("#Form5").change(function() {
+            if($(this).is(":checked")) {
+                $("#form5").prop("disabled", false);
+            } else {
+                $("#form5").prop("disabled", true);
+            }
+        });
+
+         $("#Form6").change(function() {
+            if($(this).is(":checked")) {
+                $("#form6").prop("disabled", false);
+            } else {
+                $("#form6").prop("disabled", true);
+            }
+        });
+
+        $("#Form7").change(function() {
+            if($(this).is(":checked")) {
+                $("#form7").prop("disabled", false);
+            } else {
+                $("#form7").prop("disabled", true);
+            }
+        });
+
+        $("#Form8").change(function() {
+            if($(this).is(":checked")) {
+                $("#form8").prop("disabled", false);
+            } else {
+                $("#form8").prop("disabled", true);
+            }
+        });
+        
+        $("#Form9").change(function() {
+            if($(this).is(":checked")) {
+                $("#form9").prop("disabled", false);
+                $("#input1").prop("disabled", false);
+            } else {
+                $("#form9").prop("disabled", true);
+                $("#input1").prop("disabled", true);
+            }
+        });
+
+        $("#Form10").change(function() {
+            if($(this).is(":checked")) {
+                $("#form10").prop("disabled", false);
+            } else {
+                $("#form10").prop("disabled", true);
+            }
+        });
+
+        $("#Form11").change(function() {
+            if($(this).is(":checked")) {
+                $("#form11").prop("disabled", false);
+            } else {
+                $("#form11").prop("disabled", true);
+            }
+        });
+
+        $("#Form12").change(function() {
+            if($(this).is(":checked")) {
+                $("#form12").prop("disabled", false);
+            } else {
+                $("#form12").prop("disabled", true);
+            }
+        });
+
+        $("#Form13").change(function() {
+            if($(this).is(":checked")) {
+                $("#form13").prop("disabled", false);
+            } else {
+                $("#form13").prop("disabled", true);
+            }
+        });
+
+        $("#Form14").change(function() {
+            if($(this).is(":checked")) {
+                $("#form14").prop("disabled", false);
+            } else {
+                $("#form14").prop("disabled", true);
+            }
+        });
+
+        $("#Form15").change(function() {
+            if($(this).is(":checked")) {
+                $("#form15").prop("disabled", false);
+            } else {
+                $("#form15").prop("disabled", true);
+            }
+        });
+
+        $("#Form16").change(function() {
+            if($(this).is(":checked")) {
+                $("#form16").prop("disabled", false);
+            } else {
+                $("#form16").prop("disabled", true);
+            }
+        });
+
+        $("#Form17").change(function() {
+            if($(this).is(":checked")) {
+                $("#form17").prop("disabled", false);
+                $("#input").prop("disabled", false);
+            } else {
+                $("#form17").prop("disabled", true);
+                $("#input").prop("disabled", true);
+            }
+        });
     });
+
+    $("#Form20").change(function() {
+            if($(this).is(":checked")) {
+                $("#form20").prop("disabled", false);
+            } else {
+                $("#form20").prop("disabled", true);
+            }
+        });
 </script>
 @endpush
