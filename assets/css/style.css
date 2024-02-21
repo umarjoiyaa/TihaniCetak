@@ -213,8 +213,9 @@
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 3px;
+  border: 1px solid #a3cfbb;
+  border-radius: 9px;
+  border-color: inherit;
 }
 .alert-heading {
   color: inherit;
@@ -255,9 +256,9 @@
   color: #292e37;
 }
 .alert-success {
-  color: #1f5c01;
-  background-color: #d8efcc;
-  border-color: #c8e9b8;
+  color: #50cd89;
+  background-color:  #e8fff3;
+  border-color: #50cd89;
 }
 .alert-success hr {
   border-top-color: #b9e3a5;
@@ -324,6 +325,8 @@
   border-width: 0;
   padding: 12px 15px;
   border-radius: 0;
+  border: 1px solid #a3cfbb;
+  border-radius: 9px;
 }
 .alert .close {
   text-shadow: none;

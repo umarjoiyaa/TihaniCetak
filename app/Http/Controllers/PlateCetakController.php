@@ -486,6 +486,7 @@ class PlateCetakController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $plate_cetak = PlateCetak::find($id);
+        // dd($plate_cetak->sale_order->description);
         Helper::logSystemActivity('PLATE CETAK', 'PLATE CETAK View');
         return view('Mes.PlateCetak.view', compact('plate_cetak'));
     }

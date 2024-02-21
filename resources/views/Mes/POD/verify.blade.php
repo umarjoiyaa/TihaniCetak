@@ -20,8 +20,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" disabled name="date" id="" value="{{ $pod->date }}" class="form-control">
-                                    </div>
+                                        <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($pod->date)->format('d-m-Y') }}" class="form-control" disabled id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">                                    </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Masa</label>

@@ -9,6 +9,7 @@ use App\Http\Controllers\CallForAssistanceController;
 use App\Http\Controllers\Cover_endPaperController;
 use App\Http\Controllers\CTPController;
 use App\Http\Controllers\DepartmentController;
+use App\Http\Controllers\PengumpulanGatheringController;
 use App\Http\Controllers\DesignationController;
 use App\Http\Controllers\DigitalPrintingController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiController;
@@ -17,6 +18,7 @@ use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\Inventory_reportController;
 use App\Http\Controllers\invertory_ShopFloorController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanController;
+use App\Http\Controllers\KulitBukuController;
 use App\Http\Controllers\LaporanProsesPenjilidanController;
 use App\Http\Controllers\LaporanProsesPenjilidanSaddleController;
 use App\Http\Controllers\LaporanProsesThreeController;
@@ -449,12 +451,36 @@ Route::post('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/approve/approve/{id}
 Route::post('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/approve/decline/{id}', [LaporanPemeriksaanKualitiPenjilidanSaddleController::class, 'approve_decline'])->name('laporan_pemeriksaan_kualiti_penjilidan_saddle.approve.decline');
 Route::get('/Mes/LaporanPemeriksaanKualitiPenjilidanSaddle/delete/{id}', [LaporanPemeriksaanKualitiPenjilidanSaddleController::class, 'delete'])->name('laporan_pemeriksaan_kualiti_penjilidan_saddle.delete');
 
+// Pengumpulan Gathering
+Route::get('/Mes/PengumpulanGathering', [PengumpulanGatheringController::class, 'index'])->name('pengumpulan_gathering');
+Route::get('/Mes/PengumpulanGathering/data', [PengumpulanGatheringController::class, 'Data'])->name('pengumpulan_gathering.data');
+Route::get('/Mes/PengumpulanGathering/create', [PengumpulanGatheringController::class, 'create'])->name('pengumpulan_gathering.create');
+Route::post('/Mes/PengumpulanGathering/store', [PengumpulanGatheringController::class, 'store'])->name('pengumpulan_gathering.store');
+Route::get('/Mes/PengumpulanGathering/view/{id}', [PengumpulanGatheringController::class, 'view'])->name('pengumpulan_gathering.view');
+Route::get('/Mes/PengumpulanGathering/edit/{id}', [PengumpulanGatheringController::class, 'edit'])->name('pengumpulan_gathering.edit');
+Route::post('/Mes/PengumpulanGathering/update/{id}', [PengumpulanGatheringController::class, 'update'])->name('pengumpulan_gathering.update');
+Route::get('/Mes/PengumpulanGathering/verify/{id}', [PengumpulanGatheringController::class, 'verify'])->name('pengumpulan_gathering.verify');
+Route::post('/Mes/PengumpulanGathering/approve/approve/{id}', [PengumpulanGatheringController::class, 'approve_approve'])->name('pengumpulan_gathering.approve.approve');
+Route::post('/Mes/PengumpulanGathering/approve/decline/{id}', [PengumpulanGatheringController::class, 'approve_decline'])->name('pengumpulan_gathering.approve.decline');
+Route::get('/Mes/PengumpulanGathering/delete/{id}', [PengumpulanGatheringController::class, 'delete'])->name('pengumpulan_gathering.delete');
+
+// Kulit Buku
+Route::get('/Mes/KulitBuku', [KulitBukuController::class, 'index'])->name('kulit_buku');
+Route::get('/Mes/KulitBuku/data', [KulitBukuController::class, 'Data'])->name('kulit_buku.data');
+Route::get('/Mes/KulitBuku/create', [KulitBukuController::class, 'create'])->name('kulit_buku.create');
+Route::post('/Mes/KulitBuku/store', [KulitBukuController::class, 'store'])->name('kulit_buku.store');
+Route::get('/Mes/KulitBuku/view/{id}', [KulitBukuController::class, 'view'])->name('kulit_buku.view');
+Route::get('/Mes/KulitBuku/edit/{id}', [KulitBukuController::class, 'edit'])->name('kulit_buku.edit');
+Route::post('/Mes/KulitBuku/update/{id}', [KulitBukuController::class, 'update'])->name('kulit_buku.update');
+Route::get('/Mes/KulitBuku/verify/{id}', [KulitBukuController::class, 'verify'])->name('kulit_buku.verify');
+Route::post('/Mes/KulitBuku/approve/approve/{id}', [KulitBukuController::class, 'approve_approve'])->name('kulit_buku.approve.approve');
+Route::post('/Mes/KulitBuku/approve/decline/{id}', [KulitBukuController::class, 'approve_decline'])->name('kulit_buku.approve.decline');
+Route::get('/Mes/KulitBuku/delete/{id}', [KulitBukuController::class, 'delete'])->name('kulit_buku.delete');
+
 // CTP
 Route::get('/MES/Ctp', [CtpController::class, 'index'])->name('ctp');
 Route::get('/MES/Ctp/data', [CtpController::class, 'Data'])->name('ctp.data');
 Route::get('/MES/Ctp/create', [CtpController::class, 'create'])->name('ctp.create');
-Route::get('/MES/Ctp/SaleOrder/get', [CtpController::class, 'sale_order'])->name('sale_order.get');
-Route::get('/MES/Ctp/SaleOrder/detail/get', [CtpController::class, 'sale_order_detail'])->name('sale_order.detail.get');
 Route::post('/MES/Ctp/store', [CtpController::class, 'store'])->name('ctp.store');
 Route::get('/MES/Ctp/view/{id}', [CtpController::class, 'view'])->name('ctp.view');
 Route::get('/MES/Ctp/edit/{id}', [CtpController::class, 'edit'])->name('ctp.edit');
@@ -469,8 +495,6 @@ Route::get('/MES/Ctp/delete/{id}', [CtpController::class, 'delete'])->name('ctp.
 Route::get('/MES/Pod', [PodController::class, 'index'])->name('pod');
 Route::get('/MES/Pod/data', [PodController::class, 'Data'])->name('pod.data');
 Route::get('/MES/Pod/create', [PodController::class, 'create'])->name('pod.create');
-Route::get('/MES/Pod/SaleOrder/get', [PodController::class, 'sale_order'])->name('sale_order.get');
-Route::get('/MES/Pod/SaleOrder/detail/get', [PodController::class, 'sale_order_detail'])->name('sale_order.detail.get');
 Route::post('/MES/Pod/store', [PodController::class, 'store'])->name('pod.store');
 Route::get('/MES/Pod/view/{id}', [PodController::class, 'view'])->name('pod.view');
 Route::get('/MES/Pod/edit/{id}', [PodController::class, 'edit'])->name('pod.edit');
@@ -485,8 +509,6 @@ Route::get('/MES/Pod/delete/{id}', [PodController::class, 'delete'])->name('pod.
 Route::get('/MES/PlateCetak', [PlateCetakController::class, 'index'])->name('plate_cetak');
 Route::get('/MES/PlateCetak/data', [PlateCetakController::class, 'Data'])->name('plate_cetak.data');
 Route::get('/MES/PlateCetak/create', [PlateCetakController::class, 'create'])->name('plate_cetak.create');
-Route::get('/MES/PlateCetak/SaleOrder/get', [PlateCetakController::class, 'sale_order'])->name('sale_order.get');
-Route::get('/MES/PlateCetak/SaleOrder/detail/get', [PlateCetakController::class, 'sale_order_detail'])->name('sale_order.detail.get');
 Route::post('/MES/PlateCetak/store', [PlateCetakController::class, 'store'])->name('plate_cetak.store');
 Route::get('/MES/PlateCetak/view/{id}', [PlateCetakController::class, 'view'])->name('plate_cetak.view');
 Route::get('/MES/PlateCetak/edit/{id}', [PlateCetakController::class, 'edit'])->name('plate_cetak.edit');
@@ -524,19 +546,31 @@ Route::get('/MES/ProsesPenJilidanSaddlestitch/create', [ProsesPenJilidanSaddlest
 Route::get('/MES/ProsesPenJilidanSaddlestitch/edit', [ProsesPenJilidanSaddlestitchController::class, 'edit'])->name('ProsesPenJilidanSaddlestitch.edit');
 Route::get('/MES/ProsesPenJilidanSaddlestitch/verify', [ProsesPenJilidanSaddlestitchController::class, 'verify'])->name('ProsesPenJilidanSaddlestitch.verify');
 
-// ProsesThreeKnife
-Route::get('/MES/ProsesThreeKnife', [ProsesThreeKnifeController::class, 'index'])->name('ProsesThreeKnife');
-Route::get('/MES/ProsesThreeKnife/view', [ProsesThreeKnifeController::class, 'view'])->name('ProsesThreeKnife.view');
-Route::get('/MES/ProsesThreeKnife/create', [ProsesThreeKnifeController::class, 'create'])->name('ProsesThreeKnife.create');
-Route::get('/MES/ProsesThreeKnife/edit', [ProsesThreeKnifeController::class, 'edit'])->name('ProsesThreeKnife.edit');
-Route::get('/MES/ProsesThreeKnife/verify', [ProsesThreeKnifeController::class, 'verify'])->name('ProsesThreeKnife.verify');
+// PlateCetak
+Route::get('/MES/ProsesThreeKnife', [ProsesThreeKnifeController::class, 'index'])->name('proses_three_knife');
+Route::get('/MES/ProsesThreeKnife/data', [ProsesThreeKnifeController::class, 'Data'])->name('proses_three_knife.data');
+Route::get('/MES/ProsesThreeKnife/create', [ProsesThreeKnifeController::class, 'create'])->name('proses_three_knife.create');
+Route::post('/MES/ProsesThreeKnife/store', [ProsesThreeKnifeController::class, 'store'])->name('proses_three_knife.store');
+Route::get('/MES/ProsesThreeKnife/view/{id}', [ProsesThreeKnifeController::class, 'view'])->name('proses_three_knife.view');
+Route::get('/MES/ProsesThreeKnife/edit/{id}', [ProsesThreeKnifeController::class, 'edit'])->name('proses_three_knife.edit');
+Route::post('/MES/ProsesThreeKnife/update/{id}', [ProsesThreeKnifeController::class, 'update'])->name('proses_three_knife.update');
+Route::get('/MES/ProsesThreeKnife/verify/{id}', [ProsesThreeKnifeController::class, 'verify'])->name('proses_three_knife.verify');
+Route::post('/MES/ProsesThreeKnife/approve/approve/{id}', [ProsesThreeKnifeController::class, 'approve_approve'])->name('proses_three_knife.approve.approve');
+Route::post('/MES/ProsesThreeKnife/approve/decline/{id}', [ProsesThreeKnifeController::class, 'approve_decline'])->name('proses_three_knife.approve.decline');
+Route::get('/MES/ProsesThreeKnife/delete/{id}', [ProsesThreeKnifeController::class, 'delete'])->name('proses_three_knife.delete');
 
-// ProsesPembungkusan
-Route::get('/MES/ProsesPembungkusan', [ProsesPembungkusanController::class, 'index'])->name('ProsesPembungkusan');
-Route::get('/MES/ProsesPembungkusan/view', [ProsesPembungkusanController::class, 'view'])->name('ProsesPembungkusan.view');
-Route::get('/MES/ProsesPembungkusan/create', [ProsesPembungkusanController::class, 'create'])->name('ProsesPembungkusan.create');
-Route::get('/MES/ProsesPembungkusan/edit', [ProsesPembungkusanController::class, 'edit'])->name('ProsesPembungkusan.edit');
-Route::get('/MES/ProsesPembungkusan/verify', [ProsesPembungkusanController::class, 'verify'])->name('ProsesPembungkusan.verify');
+// PlateCetak
+Route::get('/MES/ProsesPembungkusan', [ProsesPembungkusanController::class, 'index'])->name('proses_pembungkusan');
+Route::get('/MES/ProsesPembungkusan/data', [ProsesPembungkusanController::class, 'Data'])->name('proses_pembungkusan.data');
+Route::get('/MES/ProsesPembungkusan/create', [ProsesPembungkusanController::class, 'create'])->name('proses_pembungkusan.create');
+Route::post('/MES/ProsesPembungkusan/store', [ProsesPembungkusanController::class, 'store'])->name('proses_pembungkusan.store');
+Route::get('/MES/ProsesPembungkusan/view/{id}', [ProsesPembungkusanController::class, 'view'])->name('proses_pembungkusan.view');
+Route::get('/MES/ProsesPembungkusan/edit/{id}', [ProsesPembungkusanController::class, 'edit'])->name('proses_pembungkusan.edit');
+Route::post('/MES/ProsesPembungkusan/update/{id}', [ProsesPembungkusanController::class, 'update'])->name('proses_pembungkusan.update');
+Route::get('/MES/ProsesPembungkusan/verify/{id}', [ProsesPembungkusanController::class, 'verify'])->name('proses_pembungkusan.verify');
+Route::post('/MES/ProsesPembungkusan/approve/approve/{id}', [ProsesPembungkusanController::class, 'approve_approve'])->name('proses_pembungkusan.approve.approve');
+Route::post('/MES/ProsesPembungkusan/approve/decline/{id}', [ProsesPembungkusanController::class, 'approve_decline'])->name('proses_pembungkusan.approve.decline');
+Route::get('/MES/ProsesPembungkusan/delete/{id}', [ProsesPembungkusanController::class, 'delete'])->name('proses_pembungkusan.delete');
 
 // ProsesPemgumpulangathering
 Route::get('/MES/ProsesPemgumpulangathering', [ProsesPemgumpulangatheringController::class, 'index'])->name('ProsesPemgumpulangathering');
@@ -644,5 +678,3 @@ Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])-
 
 // ProductionReport
 Route::get('/Production/ProductionReport',[ProductionReportController::class, 'index'])->name('ProductionReport.index');
-
-

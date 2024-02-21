@@ -262,18 +262,18 @@ class SenariSemakCetakController extends Controller
     }
 
     public function index(){
-        // if (
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak List') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Create') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Update') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak View') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Delete') ||
-        //     Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Verify')
-        // ) {
-        //     Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak List');
+        if (
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak List') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Create') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Update') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak View') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Delete') ||
+            Auth::user()->hasPermissionTo('Senarai Semak Pra Cetak Verify')
+        ) {
+            Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak List');
             return view('Mes.SenariSemakCetak.index');
-        // }
-        // return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
@@ -345,28 +345,28 @@ class SenariSemakCetakController extends Controller
             $senari_semak_cetak_detail_1 = new SenariSemakCetakBahagiaA();
             $senari_semak_cetak_detail_1->senari_semak_cetak_id = $senari_semak_cetak->id;
         if($key != 1){
-            $senari_semak_cetak_detail_1->bahagian_a_1 = $value['1'];
-            $senari_semak_cetak_detail_1->bahagian_a_2 = $value['2'];
-            $senari_semak_cetak_detail_1->bahagian_a_3 = $value['3'];
-            $senari_semak_cetak_detail_1->bahagian_a_4 = $value['4'];
-            $senari_semak_cetak_detail_1->bahagian_a_5 = $value['5'];
-            $senari_semak_cetak_detail_1->bahagian_a_6 = $value['6'];
-            $senari_semak_cetak_detail_1->bahagian_a_7 = $value['7'];
-            $senari_semak_cetak_detail_1->bahagian_a_8 = $value['8'];
-            $senari_semak_cetak_detail_1->bahagian_a_9 = $value['9'];
-            $senari_semak_cetak_detail_1->bahagian_a_10 = $value['10'];
-            $senari_semak_cetak_detail_1->bahagian_a_11 = $value['11'];
-            $senari_semak_cetak_detail_1->bahagian_a_12 = $value['12'];
-            $senari_semak_cetak_detail_1->bahagian_a_13 = $value['13'];
-            $senari_semak_cetak_detail_1->bahagian_a_14 = $value['14'];
-            $senari_semak_cetak_detail_1->bahagian_a_15 = $value['15'];
-            $senari_semak_cetak_detail_1->bahagian_a_16 = $value['16'];
+            $senari_semak_cetak_detail_1->bahagian_a_1 = $value['1'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_2 = $value['2'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_3 = $value['3'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_4 = $value['4'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_5 = $value['5'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_6 = $value['6'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_7 = $value['7'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_8 = $value['8'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_9 = $value['9'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_10 = $value['10'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_11 = $value['11'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_12 = $value['12'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_13 = $value['13'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_14 = $value['14'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_15 = $value['15'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_16 = $value['16'] ?? null;
         }
-            $senari_semak_cetak_detail_1->bahagian_a_17 = $value['17'];
-            $senari_semak_cetak_detail_1->bahagian_a_18 = $value['18'];
-            $senari_semak_cetak_detail_1->bahagian_a_19 = $value['19'];
-            $senari_semak_cetak_detail_1->bahagian_a_20 = $value['20'];
-            $senari_semak_cetak_detail_1->bahagian_a_21 = $value['21'];
+            $senari_semak_cetak_detail_1->bahagian_a_17 = $value['17'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_18 = $value['18'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_19 = $value['19'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_20 = $value['20'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_21 = $value['21'] ?? null;
             $senari_semak_cetak_detail_1->save();
         }
 
@@ -376,12 +376,12 @@ class SenariSemakCetakController extends Controller
         foreach($bahagianC as $key => $value){
             $senari_semak_cetak_detail_2 = new SenariSemakCetakBahagiaC();
             $senari_semak_cetak_detail_2->senari_semak_cetak_id = $senari_semak_cetak->id;
-            $senari_semak_cetak_detail_2->bahagian_c_1 = $value['1'];
-            $senari_semak_cetak_detail_2->bahagian_c_2 = $value['2'];
-            $senari_semak_cetak_detail_2->bahagian_c_3 = $value['3'];
-            $senari_semak_cetak_detail_2->bahagian_c_4 = $value['4'];
-            $senari_semak_cetak_detail_2->bahagian_c_5 = $value['5'];
-            $senari_semak_cetak_detail_2->bahagian_c_6 = $value['6'];
+            $senari_semak_cetak_detail_2->bahagian_c_1 = $value['1'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_2 = $value['2'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_3 = $value['3'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_4 = $value['4'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_5 = $value['5'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_6 = $value['6'] ?? null;
             $senari_semak_cetak_detail_2->save();
         }
 
@@ -474,28 +474,28 @@ class SenariSemakCetakController extends Controller
             $senari_semak_cetak_detail_1 = new SenariSemakCetakBahagiaA();
             $senari_semak_cetak_detail_1->senari_semak_cetak_id = $senari_semak_cetak->id;
         if($key != 1){
-            $senari_semak_cetak_detail_1->bahagian_a_1 = $value['1'];
-            $senari_semak_cetak_detail_1->bahagian_a_2 = $value['2'];
-            $senari_semak_cetak_detail_1->bahagian_a_3 = $value['3'];
-            $senari_semak_cetak_detail_1->bahagian_a_4 = $value['4'];
-            $senari_semak_cetak_detail_1->bahagian_a_5 = $value['5'];
-            $senari_semak_cetak_detail_1->bahagian_a_6 = $value['6'];
-            $senari_semak_cetak_detail_1->bahagian_a_7 = $value['7'];
-            $senari_semak_cetak_detail_1->bahagian_a_8 = $value['8'];
-            $senari_semak_cetak_detail_1->bahagian_a_9 = $value['9'];
-            $senari_semak_cetak_detail_1->bahagian_a_10 = $value['10'];
-            $senari_semak_cetak_detail_1->bahagian_a_11 = $value['11'];
-            $senari_semak_cetak_detail_1->bahagian_a_12 = $value['12'];
-            $senari_semak_cetak_detail_1->bahagian_a_13 = $value['13'];
-            $senari_semak_cetak_detail_1->bahagian_a_14 = $value['14'];
-            $senari_semak_cetak_detail_1->bahagian_a_15 = $value['15'];
-            $senari_semak_cetak_detail_1->bahagian_a_16 = $value['16'];
+            $senari_semak_cetak_detail_1->bahagian_a_1 = $value['1'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_2 = $value['2'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_3 = $value['3'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_4 = $value['4'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_5 = $value['5'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_6 = $value['6'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_7 = $value['7'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_8 = $value['8'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_9 = $value['9'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_10 = $value['10'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_11 = $value['11'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_12 = $value['12'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_13 = $value['13'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_14 = $value['14'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_15 = $value['15'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_16 = $value['16'] ?? null;
         }
-            $senari_semak_cetak_detail_1->bahagian_a_17 = $value['17'];
-            $senari_semak_cetak_detail_1->bahagian_a_18 = $value['18'];
-            $senari_semak_cetak_detail_1->bahagian_a_19 = $value['19'];
-            $senari_semak_cetak_detail_1->bahagian_a_20 = $value['20'];
-            $senari_semak_cetak_detail_1->bahagian_a_21 = $value['21'];
+            $senari_semak_cetak_detail_1->bahagian_a_17 = $value['17'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_18 = $value['18'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_19 = $value['19'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_20 = $value['20'] ?? null;
+            $senari_semak_cetak_detail_1->bahagian_a_21 = $value['21'] ?? null;
             $senari_semak_cetak_detail_1->save();
         }
 
@@ -507,12 +507,12 @@ class SenariSemakCetakController extends Controller
         foreach($bahagianC as $key => $value){
             $senari_semak_cetak_detail_2 = new SenariSemakCetakBahagiaC();
             $senari_semak_cetak_detail_2->senari_semak_cetak_id = $senari_semak_cetak->id;
-            $senari_semak_cetak_detail_2->bahagian_c_1 = $value['1'];
-            $senari_semak_cetak_detail_2->bahagian_c_2 = $value['2'];
-            $senari_semak_cetak_detail_2->bahagian_c_3 = $value['3'];
-            $senari_semak_cetak_detail_2->bahagian_c_4 = $value['4'];
-            $senari_semak_cetak_detail_2->bahagian_c_5 = $value['5'];
-            $senari_semak_cetak_detail_2->bahagian_c_6 = $value['6'];
+            $senari_semak_cetak_detail_2->bahagian_c_1 = $value['1'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_2 = $value['2'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_3 = $value['3'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_4 = $value['4'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_5 = $value['5'] ?? null;
+            $senari_semak_cetak_detail_2->bahagian_c_6 = $value['6'] ?? null;
             $senari_semak_cetak_detail_2->save();
         }
 
