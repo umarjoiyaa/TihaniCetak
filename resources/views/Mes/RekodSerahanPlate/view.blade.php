@@ -46,11 +46,15 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Jenis</div>
-                                            <input type="text" class="form-control"
+                                            <input type="text" id="jenis" class="form-control"
                                                 value="{{ $rekod_serahan_plate->jenis }}">
                                         </div>
                                     </div>
-                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 OtherSection " style="display: none" >
+                                        <div class="label">Other (Input)</div>
+                                        <input type="text" placeholder="User Input" value="{{ $rekod_serahan_plate->user_input }}" name="user_input" id=""
+                                            class="form-control">
+                                    </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Mesin</div>
@@ -134,6 +138,13 @@
     <script>
         $(document).ready(function() {
             $('input').attr('disabled', 'disabled');
+
+            var value = $('#jenis').val();
+            if (value == "Other") {
+                $('.OtherSection').css('display','')
+            }else{
+                $('.OtherSection').css('display','none')
+            }
         });
     </script>
 @endpush

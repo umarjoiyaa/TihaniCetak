@@ -300,6 +300,11 @@ class RekodSerahanPlateController extends Controller
         $rekod_serahan_plate->user_id = json_encode($userIds);
         $rekod_serahan_plate->user_text = $userText;
         $rekod_serahan_plate->jenis = $request->jenis;
+        if($request->jenis == "Other"){
+            $rekod_serahan_plate->user_input = $request->user_input;
+        }else{
+            $rekod_serahan_plate->user_input = '';
+        }
         $rekod_serahan_plate->mesin = $request->mesin;
         $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
         $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate;
@@ -374,6 +379,11 @@ class RekodSerahanPlateController extends Controller
         $rekod_serahan_plate->user_id = json_encode($userIds);
         $rekod_serahan_plate->user_text = $userText;
         $rekod_serahan_plate->jenis = $request->jenis;
+        if($request->jenis == "Other"){
+            $rekod_serahan_plate->user_input = $request->user_input;
+        }else{
+            $rekod_serahan_plate->user_input = '';
+        }
         $rekod_serahan_plate->mesin = $request->mesin;
         $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
         $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate;
