@@ -2070,6 +2070,7 @@
 
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
+    {{-- <script src="{{ asset('/assets/plugins/datatable/js/dataTables.semanticui.js') }}"></script> --}}
 
     <!-- Quill js -->
     <script src="{{asset('/assets/js/quill.js')}}"></script>

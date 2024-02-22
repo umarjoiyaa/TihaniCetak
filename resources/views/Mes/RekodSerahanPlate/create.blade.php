@@ -10,20 +10,20 @@
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4 mt-3">
+                            <div class="row mt-2">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label for="">Date</label>
                                         <input type="text" name="date" value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <label for="">Disediakan Oleh (Unit CTP)</label>
                                     <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
                                         class="form-control">
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Diterima Oleh</div>
                                         <select name="user[]" class="form-control form-select" id="" multiple>
@@ -35,6 +35,9 @@
                                         </select>
                                     </div>
                                 </div>
+                            </div>
+
+                            <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
@@ -43,18 +46,24 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Jenis</div>
-                                        <select name="jenis" class="form-control form-select">
+                                        <select name="jenis" class="form-control form-select" id="jenis">
                                             <option value="Cover" @selected(old('jenis')=='Cover' )>Cover</option>
                                             <option value="Teks" @selected(old('jenis')=='Teks' )>Teks</option>
                                             <option value="Other" @selected(old('jenis')=='Other' )>Other</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 OtherSection " style="display: none" >
+                                    <div class="label">Other (Input)</div>
+                                    <input type="text" placeholder="User Input" name="other_input" id=""
+                                        class="form-control">
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
                                         <select name="mesin" class="form-control form-select" id="">
@@ -64,23 +73,25 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Seksyen No.</div>
                                         <input type="text" value="" name="seksyen_no" id="" class="form-control"
                                             value="{{ old('seksyen_no') }}">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Kuaniti Plate.</div>
                                         <input type="text" value="" name="kuaniti_plate" id="" class="form-control"
                                             value="{{ old('kuaniti_plate') }}">
                                     </div>
                                 </div>
+                            </div>
 
 
-                                <div class="col-md-4 mt-3">
+                                <div class="row mt-2">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label for="">status Job</label>
                                         <input type="text" readonly id="status" class="form-control">
@@ -97,7 +108,7 @@
                         </div>
                         <div class="col-md-7"></div>
                         <div class="col-md-5">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" id="Status_tbl">
                                 <thead>
                                     <tr>
                                         <th>item</th>
@@ -199,6 +210,16 @@
             }
         });
 
+
+        $('#jenis').on('change', function () {
+            var value = $(this).val();
+            if (value == "Other") {
+                $('.OtherSection').css('display','')
+            }else{
+                $('.OtherSection').css('display','none')
+            }
+        });
+
         $('#sale_order').on('change', function () {
             const id = $(this).val();
             $.ajax({
@@ -209,6 +230,11 @@
                 },
                 success: function (data) {
                     $('#status').val(data.status);
+                    if (data.status == "Repeat") {
+                        $('#Status_tbl').css('display','none')
+                    }else if (data.status == "New"){
+                        $('#Status_tbl').css('display','')
+                    }
                 }
             });
         });
