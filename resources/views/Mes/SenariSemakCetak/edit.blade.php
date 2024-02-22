@@ -133,76 +133,76 @@
                                             <td>Design clearance 5mm (print to cut dan stitching binding)</td>
                                             <td class="cover"><input type="checkbox" class="Cover1"
                                                     onchange="handleCheckboxChange('Cover1')" name="bahagianA[2][1]"
-                                                    value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_1 == 'ok') @endif>
+                                                    value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_1 == 'ok') @endif>
                                             </td>
                                             <td class="cover"><input type="checkbox" class="Cover1"
                                                     onchange="handleCheckboxChange('Cover1')"
-                                                    name="bahagianA[2][1]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_1 == 'ng') @endif></td>
+                                                    name="bahagianA[2][1]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_1 == 'ng') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover1"
                                                     onchange="handleCheckboxChange('Cover1')" name="bahagianA[2][1]"
-                                                    id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_1 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_1 == 'na') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text1"
                                                     onchange="handleCheckboxChange('Text1')" name="bahagianA[3][1]"
-                                                    id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_1 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_1 == 'ok') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text1"
                                                     onchange="handleCheckboxChange('Text1')"
-                                                    name="bahagianA[3][1]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_1 == 'ng') @endif></td>
+                                                    name="bahagianA[3][1]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_1 == 'ng') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text1"
                                                     onchange="handleCheckboxChange('Text1')" name="bahagianA[3][1]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_1 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_1 == 'na') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper1"
                                                     onchange="handleCheckboxChange('Endpaper1')" name="bahagianA[4][1]"
-                                                    id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_1 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_1 == 'ok') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper1"
                                                     onchange="handleCheckboxChange('Endpaper1')"
-                                                    name="bahagianA[4][1]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_1 == 'ng') @endif></td>
+                                                    name="bahagianA[4][1]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_1 == 'ng') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper1"
                                                     onchange="handleCheckboxChange('Endpaper1')" name="bahagianA[4][1]"
-                                                    id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_1 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_1 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>2</td>
                                             <td>Image artwork (Semak teks & gambar)</td>
                                             <td class="cover"><input type="checkbox" class="Cover2"
                                                     onchange="handleCheckboxChange('Cover2')" name="bahagianA[2][2]"
-                                                    id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_2 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_2 == 'ok') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover2"
                                                     onchange="handleCheckboxChange('Cover2')"
-                                                    name="bahagianA[2][2]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_2 == 'ng') @endif></td>
+                                                    name="bahagianA[2][2]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_2 == 'ng') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover2"
                                                     onchange="handleCheckboxChange('Cover2')" name="bahagianA[2][2]"
-                                                    id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_2 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_2 == 'na') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text2"
                                                     onchange="handleCheckboxChange('Text2')"name="bahagianA[3][2]"
-                                                    id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_2 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_2 == 'ok') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text2"
                                                     onchange="handleCheckboxChange('Text2')"
-                                                    name="bahagianA[3][2]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_2 == 'ng') @endif></td>
+                                                    name="bahagianA[3][2]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_2 == 'ng') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text2"
                                                     onchange="handleCheckboxChange('Text2')" name="bahagianA[3][2]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_2 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_2 == 'na') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper2"
                                                     onchange="handleCheckboxChange('Endpaper2')" name="bahagianA[4][2]"
-                                                    id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_2 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_2 == 'ok') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper2"
                                                     onchange="handleCheckboxChange('Endpaper2')"
-                                                    name="bahagianA[4][2]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_2 == 'ng') @endif></td>
+                                                    name="bahagianA[4][2]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_2 == 'ng') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper2"
                                                     onchange="handleCheckboxChange('Endpaper2')" name="bahagianA[4][2]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[2])) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
                                             <td>Bleed (3-5mm)</td>
                                             <td class="cover" colspan="3"><input type="text"class="Cover3"
                                                     onchange="handleCheckboxChange('Cover3')" placeholder="text input"
-                                                    class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
+                                                    class="form-control" name="bahagianA[2][3]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
                                             <td class="text" colspan="3"><input type="text"class="Text3"
                                                     onchange="handleCheckboxChange('Text3')" placeholder="text input"
-                                                    class="form-control" name="bahagianA[3][3]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
+                                                    class="form-control" name="bahagianA[3][3]" id="" @if(isset($detail1[2])) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
                                                     onchange="handleCheckboxChange('Endpaper3')"placeholder="text input"
-                                                    class="form-control" name="bahagianA[4][3]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_3}}" @endif></td>
+                                                    class="form-control" name="bahagianA[4][3]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_3}}" @endif></td>
                                         </tr>
                                         <tr>
                                             <td>4</td>
@@ -210,19 +210,19 @@
                                             <td class="cover" colspan="3"><input type="text" class="Cover4"
                                                     onchange="handleCheckboxChange('Cover4')" readonly
                                                     name="bahagianA[2][4]" placeholder="text input" class="form-control"
-                                                    id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_4}}" @endif></td>
+                                                    id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_4}}" @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
-                                                    id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_4 == 'ok') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')"placeholder="text input"
-                                                    name="bahagianA[3][4]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ng') @endif></td>
+                                                    name="bahagianA[3][4]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_4 == 'ng') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_4 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper4"
                                                     onchange="handleCheckboxChange('Endpaper4')" placeholder="text input"
-                                                    class="form-control" readonly name="bahagianA[4][4]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_4}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][4]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_4}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
@@ -230,49 +230,49 @@
                                             <td>Kedudukan artwork (hardcover)</td>
                                             <td class="cover"><input type="checkbox" class="Cover5"
                                                     onchange="handleCheckboxChange('Cover5')" name="bahagianA[2][5]"
-                                                    id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_5 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_5 == 'ok') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover5"
                                                     onchange="handleCheckboxChange('Cover5')"
-                                                    name="bahagianA[2][5]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_5 == 'ng') @endif></td>
+                                                    name="bahagianA[2][5]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_5 == 'ng') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover5"
                                                     onchange="handleCheckboxChange('Cover5')" name="bahagianA[2][5]"
-                                                    id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_5 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_5 == 'na') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text5"
                                                     onchange="handleCheckboxChange('Text5')" name="bahagianA[3][5]"
-                                                    id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_5 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_5 == 'ok') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text5"
                                                     onchange="handleCheckboxChange('Text5')"
-                                                    name="bahagianA[3][5]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_5 == 'ng') @endif></td>
+                                                    name="bahagianA[3][5]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_5 == 'ng') @endif></td>
                                             <td class="text"><input type="checkbox" class="Text5"
                                                     onchange="handleCheckboxChange('Text5')" name="bahagianA[3][5]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_5 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_5 == 'na') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper5"
                                                     onchange="handleCheckboxChange('Endpaper5')" name="bahagianA[4][5]"
-                                                    id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_5 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_5 == 'ok') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper5"
                                                     onchange="handleCheckboxChange('Endpaper5')"
-                                                    name="bahagianA[4][5]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_5 == 'ng') @endif></td>
+                                                    name="bahagianA[4][5]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_5 == 'ng') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper5"
                                                     onchange="handleCheckboxChange('Endpaper5')" name="bahagianA[4][5]"
-                                                    id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_5 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_5 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>6</td>
                                             <td>Alamat pencetak</td>
                                             <td class="cover"><input type="checkbox" class="Cover6"
                                                     onchange="handleCheckboxChange('Cover6')" name="bahagianA[2][6]"
-                                                    id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_6 == 'ok') @endif></td>
+                                                    id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_6 == 'ok') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover6"
                                                     onchange="handleCheckboxChange('Cover6')"
-                                                    name="bahagianA[2][6]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_6 == 'ng') @endif></td>
+                                                    name="bahagianA[2][6]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_6 == 'ng') @endif></td>
                                             <td class="cover"><input type="checkbox" class="Cover6"
                                                     onchange="handleCheckboxChange('Cover6')" name="bahagianA[2][6]"
-                                                    id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_6 == 'na') @endif></td>
+                                                    id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_6 == 'na') @endif></td>
                                             <td class="text" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[3][6]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_6}}" @endif>
+                                                    readonly name="bahagianA[3][6]" id="" @if(isset($detail1[2])) value="{{$detail1[2]->bahagian_a_6}}" @endif>
                                             </td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][6]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_6}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][6]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_6}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
@@ -280,151 +280,151 @@
                                             <td>Alamat pencetak</td>
                                             <td class="cover"><input class="Cover7"
                                                     onchange="handleCheckboxChange('Cover7')" type="checkbox"
-                                                    name="bahagianA[2][7]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_7 == 'ok') @endif></td>
+                                                    name="bahagianA[2][7]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_7 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover7"
                                                     onchange="handleCheckboxChange('Cover7')" type="checkbox"
-                                                    name="bahagianA[2][7]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_7 == 'ng') @endif></td>
+                                                    name="bahagianA[2][7]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_7 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover7"
                                                     onchange="handleCheckboxChange('Cover7')"type="checkbox"
-                                                    name="bahagianA[2][7]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_7 == 'na') @endif></td>
+                                                    name="bahagianA[2][7]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_7 == 'na') @endif></td>
                                             <td class="text" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[3][7]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_7}}" @endif>
+                                                    readonly name="bahagianA[3][7]" id="" @if(isset($detail1[2])) value="{{$detail1[2]->bahagian_a_7}}" @endif>
                                             </td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][7]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_7}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][7]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_7}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>8</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][8]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_8}}" @endif>
+                                                    readonly name="bahagianA[2][8]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_8}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text6"
                                                     onchange="handleCheckboxChange('Text6')" type="checkbox"
-                                                    name="bahagianA[3][8]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_8 == 'ok') @endif></td>
+                                                    name="bahagianA[3][8]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_8 == 'ok') @endif></td>
                                             <td class="text"><input class="Text6"
                                                     onchange="handleCheckboxChange('Text6')" type="checkbox"
-                                                    name="bahagianA[3][8]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_8 == 'ng') @endif></td>
+                                                    name="bahagianA[3][8]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_8 == 'ng') @endif></td>
                                             <td class="text"><input class="Text6"
                                                     onchange="handleCheckboxChange('Text6')" type="checkbox"
-                                                    name="bahagianA[3][8]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_8 == 'na') @endif></td>
+                                                    name="bahagianA[3][8]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_8 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][8]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_8}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][8]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_8}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>9</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][9]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_9}}" @endif>
+                                                    readonly name="bahagianA[2][9]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_9}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text7"
                                                     onchange="handleCheckboxChange('Text7')" type="checkbox"
-                                                    name="bahagianA[3][9]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_9 == 'ok') @endif></td>
+                                                    name="bahagianA[3][9]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_9 == 'ok') @endif></td>
                                             <td class="text"><input class="Text7"
                                                     onchange="handleCheckboxChange('Text7')" type="checkbox"
-                                                    name="bahagianA[3][9]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_9 == 'ng') @endif></td>
+                                                    name="bahagianA[3][9]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_9 == 'ng') @endif></td>
                                             <td class="text"><input class="Text7"
                                                     onchange="handleCheckboxChange('Text7')" type="checkbox"
-                                                    name="bahagianA[3][9]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_9 == 'na') @endif></td>
+                                                    name="bahagianA[3][9]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_9 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][9]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_9}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][9]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_9}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>10</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][10]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_10}}" @endif>
+                                                    readonly name="bahagianA[2][10]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_10}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text8"
                                                     onchange="handleCheckboxChange('Text8')" type="checkbox"
-                                                    name="bahagianA[3][10]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_10 == 'ok') @endif></td>
+                                                    name="bahagianA[3][10]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_10 == 'ok') @endif></td>
                                             <td class="text"><input class="Text8"
                                                     onchange="handleCheckboxChange('Text8')" type="checkbox"
-                                                    name="bahagianA[3][10]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_10 == 'ng') @endif></td>
+                                                    name="bahagianA[3][10]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_10 == 'ng') @endif></td>
                                             <td class="text"><input class="Text8"
                                                     onchange="handleCheckboxChange('Text8')" type="checkbox"
-                                                    name="bahagianA[3][10]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_10 == 'na') @endif></td>
+                                                    name="bahagianA[3][10]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_10 == 'na') @endif></td>
                                             <td class="endpaper"colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[4][10]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_10}}" @endif>
+                                                    readonly name="bahagianA[4][10]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_10}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>11</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][11]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_11}}" @endif>
+                                                    readonly name="bahagianA[2][11]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_11}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text9"
                                                     onchange="handleCheckboxChange('Text9')" type="checkbox"
-                                                    name="bahagianA[3][11]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_11 == 'ok') @endif></td>
+                                                    name="bahagianA[3][11]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_11 == 'ok') @endif></td>
                                             <td class="text"><input class="Text9"
                                                     onchange="handleCheckboxChange('Text9')" type="checkbox"
-                                                    name="bahagianA[3][11]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_11 == 'ng') @endif></td>
+                                                    name="bahagianA[3][11]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_11 == 'ng') @endif></td>
                                             <td class="text"><input class="Text9"
                                                     onchange="handleCheckboxChange('Text9')" type="checkbox"
-                                                    name="bahagianA[3][11]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_11 == 'na') @endif></td>
+                                                    name="bahagianA[3][11]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_11 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][11]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_11}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][11]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_11}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>12</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][12]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_12}}" @endif>
+                                                    readonly name="bahagianA[2][12]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_12}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text10"
                                                     onchange="handleCheckboxChange('Text10')" type="checkbox"
-                                                    name="bahagianA[3][12]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_12 == 'ok') @endif></td>
+                                                    name="bahagianA[3][12]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_12 == 'ok') @endif></td>
                                             <td class="text"><input class="Text10"
                                                     onchange="handleCheckboxChange('Text10')" type="checkbox"
-                                                    name="bahagianA[3][12]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_12 == 'ng') @endif></td>
+                                                    name="bahagianA[3][12]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_12 == 'ng') @endif></td>
                                             <td class="text"><input class="Text10"
                                                     onchange="handleCheckboxChange('Text10')" type="checkbox"
-                                                    name="bahagianA[3][12]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_12 == 'na') @endif></td>
+                                                    name="bahagianA[3][12]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_12 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][12]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_12}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][12]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_12}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>13</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][13]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_13}}" @endif>
+                                                    readonly name="bahagianA[2][13]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_13}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text11"
                                                     onchange="handleCheckboxChange('Text11')" type="checkbox"
-                                                    name="bahagianA[3][13]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_13 == 'ok') @endif></td>
+                                                    name="bahagianA[3][13]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_13 == 'ok') @endif></td>
                                             <td class="text"><input class="Text11"
                                                     onchange="handleCheckboxChange('Text11')" type="checkbox"
-                                                    name="bahagianA[3][13]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_13 == 'ng') @endif></td>
+                                                    name="bahagianA[3][13]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_13 == 'ng') @endif></td>
                                             <td class="text"><input class="Text11"
                                                     onchange="handleCheckboxChange('Text11')" type="checkbox"
-                                                    name="bahagianA[3][13]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_13 == 'na') @endif></td>
+                                                    name="bahagianA[3][13]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_13 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][13]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_13}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][13]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_13}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td>14</td>
                                             <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
-                                                    readonly name="bahagianA[2][14]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_14}}" @endif>
+                                                    readonly name="bahagianA[2][14]" id="" @if(isset($detail1[1])) value="{{$detail1[1]->bahagian_a_14}}" @endif>
                                             </td>
                                             <td class="text"><input class="Text12"
                                                     onchange="handleCheckboxChange('Text12')" type="checkbox"
-                                                    name="bahagianA[3][14]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_14 == 'ok') @endif></td>
+                                                    name="bahagianA[3][14]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_14 == 'ok') @endif></td>
                                             <td class="text"><input class="Text12"
                                                     onchange="handleCheckboxChange('Text12')" type="checkbox"
-                                                    name="bahagianA[3][14]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_14 == 'ng') @endif></td>
+                                                    name="bahagianA[3][14]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_14 == 'ng') @endif></td>
                                             <td class="text"><input class="Text12"
                                                     onchange="handleCheckboxChange('Text12')" type="checkbox"
-                                                    name="bahagianA[3][14]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_14 == 'na') @endif></td>
+                                                    name="bahagianA[3][14]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_14 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text"
-                                                    class="form-control" readonly name="bahagianA[4][14]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_14}}" @endif>
+                                                    class="form-control" readonly name="bahagianA[4][14]" id="" @if(isset($detail1[3])) value="{{$detail1[3]->bahagian_a_14}}" @endif>
                                             </td>
                                         </tr>
                                         <tr>
@@ -432,62 +432,62 @@
                                             <td>Kedudukan artwork (hardcover)</td>
                                             <td class="cover"><input class="Cover8"
                                                     onchange="handleCheckboxChange('Cover8')" type="checkbox"
-                                                    name="bahagianA[2][15]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_15 == 'ok') @endif></td>
+                                                    name="bahagianA[2][15]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_15 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover8"
                                                     onchange="handleCheckboxChange('Cover8')" type="checkbox"
-                                                    name="bahagianA[2][15]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_15 == 'ng') @endif></td>
+                                                    name="bahagianA[2][15]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_15 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover8"
                                                     onchange="handleCheckboxChange('Cover8')" type="checkbox"
-                                                    name="bahagianA[2][15]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_15 == 'na') @endif></td>
+                                                    name="bahagianA[2][15]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_15 == 'na') @endif></td>
                                             <td class="text"><input class="Text13"
                                                     onchange="handleCheckboxChange('Text13')" type="checkbox"
-                                                    name="bahagianA[3][15]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_15 == 'ok') @endif></td>
+                                                    name="bahagianA[3][15]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_15 == 'ok') @endif></td>
                                             <td class="text"><input class="Text13"
                                                     onchange="handleCheckboxChange('Text13')" type="checkbox"
-                                                    name="bahagianA[3][15]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_15 == 'ng') @endif></td>
+                                                    name="bahagianA[3][15]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_15 == 'ng') @endif></td>
                                             <td class="text"><input class="Text13"
                                                     onchange="handleCheckboxChange('Text13')" type="checkbox"
-                                                    name="bahagianA[3][15]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_15 == 'na') @endif></td>
+                                                    name="bahagianA[3][15]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_15 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper6"
                                                     onchange="handleCheckboxChange('Endpaper6')" type="checkbox"
-                                                    name="bahagianA[4][15]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_15 == 'ok') @endif></td>
+                                                    name="bahagianA[4][15]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_15 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper6"
                                                     onchange="handleCheckboxChange('Endpaper6')" type="checkbox"
-                                                    name="bahagianA[4][15]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_15 == 'ng') @endif></td>
+                                                    name="bahagianA[4][15]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_15 == 'ng') @endif></td>
                                             <td class="endpaper"><input class="Endpaper6"
                                                     onchange="handleCheckboxChange('Endpaper6')" type="checkbox"
-                                                    name="bahagianA[4][15]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_15 == 'na') @endif></td>
+                                                    name="bahagianA[4][15]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_15 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>16</td>
                                             <td>Kedudukan artwork (hardcover)</td>
                                             <td class="cover"><input class="Cover9"
                                                     onchange="handleCheckboxChange('Cover9')" type="checkbox"
-                                                    name="bahagianA[2][16]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_16 == 'ok') @endif></td>
+                                                    name="bahagianA[2][16]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_16 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover9"
                                                     onchange="handleCheckboxChange('Cover9')" type="checkbox"
-                                                    name="bahagianA[2][16]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_16 == 'ng') @endif></td>
+                                                    name="bahagianA[2][16]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_16 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover9"
                                                     onchange="handleCheckboxChange('Cover9')" type="checkbox"
-                                                    name="bahagianA[2][16]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_16 == 'na') @endif></td>
+                                                    name="bahagianA[2][16]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_16 == 'na') @endif></td>
                                             <td class="text"><input class="Text14"
                                                     onchange="handleCheckboxChange('Text14')" type="checkbox"
-                                                    name="bahagianA[3][16]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_16 == 'ok') @endif></td>
+                                                    name="bahagianA[3][16]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_16 == 'ok') @endif></td>
                                             <td class="text"><input class="Text14"
                                                     onchange="handleCheckboxChange('Text14')" type="checkbox"
-                                                    name="bahagianA[3][16]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_16 == 'ng') @endif></td>
+                                                    name="bahagianA[3][16]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_16 == 'ng') @endif></td>
                                             <td class="text"><input class="Text14"
                                                     onchange="handleCheckboxChange('Text14')" type="checkbox"
-                                                    name="bahagianA[3][16]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_16 == 'na') @endif></td>
+                                                    name="bahagianA[3][16]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_16 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper7"
                                                     onchange="handleCheckboxChange('Endpaper7')" type="checkbox"
-                                                    name="bahagianA[4][16]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_16 == 'ok') @endif></td>
+                                                    name="bahagianA[4][16]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_16 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper7"
                                                     onchange="handleCheckboxChange('Endpaper7')" type="checkbox"
-                                                    name="bahagianA[4][16]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_16 == 'ng') @endif></td>
+                                                    name="bahagianA[4][16]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_16 == 'ng') @endif></td>
                                             <td class="endpaper"><input class="Endpaper7"
                                                     onchange="handleCheckboxChange('Endpaper7')" type="checkbox"
-                                                    name="bahagianA[4][16]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_16 == 'na') @endif></td>
+                                                    name="bahagianA[4][16]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_16 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>17</td>
@@ -502,31 +502,31 @@
                                             </td>
                                             <td class="cover"><input class="Cover10"
                                                     onchange="handleCheckboxChange('Cover10')" type="checkbox"
-                                                    name="bahagianA[2][17]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_17 == 'ok') @endif></td>
+                                                    name="bahagianA[2][17]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_17 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover10"
                                                     onchange="handleCheckboxChange('Cover10')" type="checkbox"
-                                                    name="bahagianA[2][17]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_17 == 'ng') @endif></td>
+                                                    name="bahagianA[2][17]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_17 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover10"
                                                     onchange="handleCheckboxChange('Cover10')" type="checkbox"
-                                                    name="bahagianA[2][17]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_17 == 'na') @endif></td>
+                                                    name="bahagianA[2][17]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_17 == 'na') @endif></td>
                                             <td class="text endpaper"><input class="Text15"
                                                     onchange="handleCheckboxChange('Text15')" type="checkbox"
-                                                    name="bahagianA[3][17]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_17 == 'ok') @endif></td>
+                                                    name="bahagianA[3][17]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_17 == 'ok') @endif></td>
                                             <td class="text endpaper"><input class="Text15"
                                                     onchange="handleCheckboxChange('Text15')" type="checkbox"
-                                                    name="bahagianA[3][17]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_17 == 'ng') @endif></td>
+                                                    name="bahagianA[3][17]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_17 == 'ng') @endif></td>
                                             <td class="text endpaper"><input class="Text15"
                                                     onchange="handleCheckboxChange('Text15')" type="checkbox"
-                                                    name="bahagianA[3][17]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_17 == 'na') @endif></td>
+                                                    name="bahagianA[3][17]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_17 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper8"
                                                     onchange="handleCheckboxChange('Endpaper8')" type="checkbox"
-                                                    name="bahagianA[4][17]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_17 == 'ok') @endif></td>
+                                                    name="bahagianA[4][17]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_17 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper8"
                                                     onchange="handleCheckboxChange('Endpaper8')" type="checkbox"
-                                                    name="bahagianA[4][17]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_17 == 'ng') @endif></td>
+                                                    name="bahagianA[4][17]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_17 == 'ng') @endif></td>
                                             <td class="endpaper"><input class="Endpaper8"
                                                     onchange="handleCheckboxChange('Endpaper8')" type="checkbox"
-                                                    name="bahagianA[4][17]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_17 == 'na') @endif></td>
+                                                    name="bahagianA[4][17]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_17 == 'na') @endif></td>
                                         </tr>
 
                                         <tr>
@@ -542,31 +542,31 @@
                                             </td>
                                             <td class="cover"><input class="Cover11"
                                                     onchange="handleCheckboxChange('Cover11')" type="checkbox"
-                                                    name="bahagianA[2][18]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_18 == 'ok') @endif></td>
+                                                    name="bahagianA[2][18]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_18 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover11"
                                                     onchange="handleCheckboxChange('Cover11')" type="checkbox"
-                                                    name="bahagianA[2][18]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_18 == 'ng') @endif></td>
+                                                    name="bahagianA[2][18]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_18 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover11"
                                                     onchange="handleCheckboxChange('Cover11')" type="checkbox"
-                                                    name="bahagianA[2][18]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_18 == 'na') @endif></td>
+                                                    name="bahagianA[2][18]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_18 == 'na') @endif></td>
                                             <td class="text endpaper"><input class="Text16"
                                                     onchange="handleCheckboxChange('Text16')" type="checkbox"
-                                                    name="bahagianA[3][18]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_18 == 'ok') @endif></td>
+                                                    name="bahagianA[3][18]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_18 == 'ok') @endif></td>
                                             <td class="text endpaper"><input class="Text16"
                                                     onchange="handleCheckboxChange('Text16')" type="checkbox"
-                                                    name="bahagianA[3][18]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_18 == 'ng') @endif></td>
+                                                    name="bahagianA[3][18]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_18 == 'ng') @endif></td>
                                             <td class="text endpaper"><input class="Text16"
                                                     onchange="handleCheckboxChange('Text16')" type="checkbox"
-                                                    name="bahagianA[3][18]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_18 == 'na') @endif></td>
+                                                    name="bahagianA[3][18]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_18 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][18]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_18 == 'ok') @endif></td>
+                                                    name="bahagianA[4][18]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_18 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][18]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_18 == 'ng') @endif></td>
+                                                    name="bahagianA[4][18]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_18 == 'ng') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][18]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_18 == 'na') @endif></td>
+                                                    name="bahagianA[4][18]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_18 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>19</td>
@@ -581,31 +581,31 @@
                                             </td>
                                             <td class="cover"><input class="Cover12"
                                                     onchange="handleCheckboxChange('Cover12')" type="checkbox"
-                                                    name="bahagianA[2][19]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_19 == 'ok') @endif></td>
+                                                    name="bahagianA[2][19]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_19 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover12"
                                                     onchange="handleCheckboxChange('Cover12')" type="checkbox"
-                                                    name="bahagianA[2][19]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_19 == 'ng') @endif></td>
+                                                    name="bahagianA[2][19]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_19 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover12"
                                                     onchange="handleCheckboxChange('Cover12')" type="checkbox"
-                                                    name="bahagianA[2][19]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_19 == 'na') @endif></td>
+                                                    name="bahagianA[2][19]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_19 == 'na') @endif></td>
                                             <td class="text endpaper"><input class="Text17"
                                                     onchange="handleCheckboxChange('Text17')" type="checkbox"
-                                                    name="bahagianA[3][19]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_19 == 'ok') @endif></td>
+                                                    name="bahagianA[3][19]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_19 == 'ok') @endif></td>
                                             <td class="text endpaper"><input class="Text17"
                                                     onchange="handleCheckboxChange('Text17')" type="checkbox"
-                                                    name="bahagianA[3][19]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_19 == 'ng') @endif></td>
+                                                    name="bahagianA[3][19]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_19 == 'ng') @endif></td>
                                             <td class="text endpaper"><input class="Text17"
                                                     onchange="handleCheckboxChange('Text17')" type="checkbox"
-                                                    name="bahagianA[3][19]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_19 == 'na') @endif></td>
+                                                    name="bahagianA[3][19]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_19 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][19]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_19 == 'ok') @endif></td>
+                                                    name="bahagianA[4][19]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_19 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][19]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_19 == 'ng') @endif></td>
+                                                    name="bahagianA[4][19]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_19 == 'ng') @endif></td>
                                             <td class="endpaper"><input class="Endpaper9"
                                                     onchange="handleCheckboxChange('Endpaper9')" type="checkbox"
-                                                    name="bahagianA[4][19]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_19 == 'na') @endif></td>
+                                                    name="bahagianA[4][19]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_19 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>20</td>
@@ -620,32 +620,32 @@
                                             </td>
                                             <td class="cover"><input class="Cover13"
                                                     onchange="handleCheckboxChange('Cover13')" type="checkbox"
-                                                    name="bahagianA[2][20]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_20 == 'ok') @endif></td>
+                                                    name="bahagianA[2][20]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_20 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover13"
                                                     onchange="handleCheckboxChange('Cover13')" type="checkbox"
-                                                    name="bahagianA[2][20]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_20 == 'ng') @endif></td>
+                                                    name="bahagianA[2][20]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_20 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover13"
                                                     onchange="handleCheckboxChange('Cover13')" type="checkbox"
-                                                    name="bahagianA[2][20]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_20 == 'na') @endif></td>
+                                                    name="bahagianA[2][20]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_20 == 'na') @endif></td>
                                             <td class="text endpaper"><input class="Text18"
                                                     onchange="handleCheckboxChange('Text18')" type="checkbox"
-                                                    name="bahagianA[3][20]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_20 == 'ok') @endif></td>
+                                                    name="bahagianA[3][20]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_20 == 'ok') @endif></td>
                                             <td class="text endpaper"><input class="Text18"
                                                     onchange="handleCheckboxChange('Text18')" type="checkbox"
-                                                    name="bahagianA[3][20]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_20 == 'ng') @endif></td>
+                                                    name="bahagianA[3][20]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_20 == 'ng') @endif></td>
                                             <td class="text endpaper"><input class="Text18"
                                                     onchange="handleCheckboxChange('Text18')" type="checkbox"
-                                                    name="bahagianA[3][20]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_20 == 'na') @endif></td>
+                                                    name="bahagianA[3][20]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_20 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper10"
                                                     onchange="handleCheckboxChange('Endpaper10')" type="checkbox"
-                                                    name="bahagianA[4][20]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_20 == 'ok') @endif></td>
+                                                    name="bahagianA[4][20]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_20 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper10"
                                                     onchange="handleCheckboxChange('Endpaper10')" type="checkbox"
-                                                    name="bahagianA[4][20]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_20 == 'ng') @endif>
+                                                    name="bahagianA[4][20]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_20 == 'ng') @endif>
                                             </td>
                                             <td class="endpaper"><input class="Endpaper10"
                                                     onchange="handleCheckboxChange('Endpaper10')" type="checkbox"
-                                                    name="bahagianA[4][20]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_20 == 'na') @endif></td>
+                                                    name="bahagianA[4][20]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_20 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>21</td>
@@ -660,32 +660,32 @@
                                             </td>
                                             <td class="cover"><input class="Cover14"
                                                     onchange="handleCheckboxChange('Cover14')" type="checkbox"
-                                                    name="bahagianA[2][21]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_21 == 'ok') @endif></td>
+                                                    name="bahagianA[2][21]" id="" value="ok" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_21 == 'ok') @endif></td>
                                             <td class="cover"><input class="Cover14"
                                                     onchange="handleCheckboxChange('Cover14')" type="checkbox"
-                                                    name="bahagianA[2][21]" id="" value="ng" @if($detail1[1]) @checked($detail1[1]->bahagian_a_21 == 'ng') @endif></td>
+                                                    name="bahagianA[2][21]" id="" value="ng" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_21 == 'ng') @endif></td>
                                             <td class="cover"><input class="Cover14"
                                                     onchange="handleCheckboxChange('Cover14')" type="checkbox"
-                                                    name="bahagianA[2][21]" id="" value="na" @if($detail1[1]) @checked($detail1[1]->bahagian_a_21 == 'na') @endif></td>
+                                                    name="bahagianA[2][21]" id="" value="na" @if(isset($detail1[1])) @checked($detail1[1]->bahagian_a_21 == 'na') @endif></td>
                                             <td class="text endpaper"><input class="Text19"
                                                     onchange="handleCheckboxChange('Text19')" type="checkbox"
-                                                    name="bahagianA[3][21]" id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_21 == 'ok') @endif></td>
+                                                    name="bahagianA[3][21]" id="" value="ok" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_21 == 'ok') @endif></td>
                                             <td class="text endpaper"><input class="Text19"
                                                     onchange="handleCheckboxChange('Text19')" type="checkbox"
-                                                    name="bahagianA[3][21]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_21 == 'ng') @endif></td>
+                                                    name="bahagianA[3][21]" id="" value="ng" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_21 == 'ng') @endif></td>
                                             <td class="text endpaper"><input class="Text19"
                                                     onchange="handleCheckboxChange('Text19')" type="checkbox"
-                                                    name="bahagianA[3][21]" id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_21 == 'na') @endif></td>
+                                                    name="bahagianA[3][21]" id="" value="na" @if(isset($detail1[2])) @checked($detail1[2]->bahagian_a_21 == 'na') @endif></td>
                                             <td class="endpaper"><input class="Endpaper11"
                                                     onchange="handleCheckboxChange('Endpaper11')" type="checkbox"
-                                                    name="bahagianA[4][21]" id="" value="ok" @if($detail1[3]) @checked($detail1[3]->bahagian_a_21 == 'ok') @endif></td>
+                                                    name="bahagianA[4][21]" id="" value="ok" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_21 == 'ok') @endif></td>
                                             <td class="endpaper"><input class="Endpaper11"
                                                     onchange="handleCheckboxChange('Endpaper11')" type="checkbox"
-                                                    name="bahagianA[4][21]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_21 == 'ng') @endif>
+                                                    name="bahagianA[4][21]" id="" value="ng" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_21 == 'ng') @endif>
                                             </td>
                                             <td class="endpaper"><input class="Endpaper11"
                                                     onchange="handleCheckboxChange('Endpaper11')" type="checkbox"
-                                                    name="bahagianA[4][21]" id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_21 == 'na') @endif></td>
+                                                    name="bahagianA[4][21]" id="" value="na" @if(isset($detail1[3])) @checked($detail1[3]->bahagian_a_21 == 'na') @endif></td>
                                         </tr>
                                     </tbody>
                                 </table>

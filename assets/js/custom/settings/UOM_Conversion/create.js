@@ -1,17 +1,16 @@
 $('.submit').on('click', function () {
-    if($('#from').val() == $('#to').val()){
-        Swal.fire({
+    if ($('#from').val() == $('#to').val()) {
+        swal({
+            title: "",
             text: "From and To UOM should be unique!",
-            icon: "warning",
+            type: "warning",
             buttonsStyling: false,
             confirmButtonText: "Okay!",
             customClass: {
                 confirmButton: "btn fw-bold btn-danger",
             }
-        }).then(function (result) {
-            if (result.value) {}
         });
-    }else{
+    } else {
         $(this).closest('form').submit();
     }
 });
