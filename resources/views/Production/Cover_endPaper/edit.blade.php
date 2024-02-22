@@ -300,13 +300,13 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5"
+                                                        <td><input type="checkbox" name="" id="Print3" class=" mr-5"
                                                                 style="font-size:14px;">UV+Texture
-                                                            Emboss <input type="text" placeholder="user Input" name=""
-                                                                id="" class="form-control float-right w-50">
+                                                            Emboss <input type="text" disabled placeholder="user Input" name=""
+                                                                id="input1" class="form-control float-right w-25">
                                                         </td>
                                                         <td>
-                                                            <select name="" id="print3" class="form-control form-select"
+                                                            <select name="" id="print3" disabled  class="form-control form-select"
                                                                 style="width:250px;">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -315,9 +315,9 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Gloss
+                                                        <td><input type="checkbox" name=""  id="Print4" class=" mr-5">Gloss
                                                             Lamination</td>
-                                                        <td><select name="" id="print4"
+                                                        <td><select name="" disabled id="print4"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -326,9 +326,9 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Matt
+                                                        <td><input type="checkbox" name="" id="Print5" class=" mr-5">Matt
                                                             Lamination</td>
-                                                        <td><select name="" id="print5"
+                                                        <td><select name="" disabled id="print5"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -337,10 +337,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Spot
+                                                        <td><input type="checkbox"  name="" id="Print6" class=" mr-5">Spot
                                                             UV
                                                         </td>
-                                                        <td><select name="" id="print6"
+                                                        <td><select name="" disabled id="print6"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -348,10 +348,10 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Spot
+                                                        <td><input type="checkbox" name="" id="Print7" class=" mr-5">Spot
                                                             Miraval
                                                         </td>
-                                                        <td><select name="" id="print7"
+                                                        <td><select name="" disabled  id="print7"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -359,12 +359,12 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Hot
+                                                        <td><input type="checkbox" name="" id="Print8" class=" mr-5">Hot
                                                             Stamping
-                                                            <input type="text" name="" placeholder="user Input" id=""
+                                                            <input type="text" disabled  name="" placeholder="user Input" id="input2"
                                                                 class="form-control float-right w-50">
                                                         </td>
-                                                        <td><select name="" id="print8"
+                                                        <td><select name="" disabled id="print8"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -372,9 +372,9 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Emboss
+                                                        <td><input type="checkbox" name="" id="Print9" class=" mr-5">Emboss
                                                         </td>
-                                                        <td><select name="" id="print9"
+                                                        <td><select name="" disabled id="print9"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -382,9 +382,9 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Deboss
+                                                        <td><input type="checkbox" name="" id="Print10" class=" mr-5">Deboss
                                                         </td>
-                                                        <td><select name="" id="print10"
+                                                        <td><select name="" disabled id="print10"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -392,10 +392,10 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">UV
+                                                        <td><input type="checkbox" name="" id="Print11" class=" mr-5">UV
                                                             Vanish
                                                         </td>
-                                                        <td><select name="" id="print11"
+                                                        <td><select name="" disabled id="print11"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -404,10 +404,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Spot
+                                                        <td><input type="checkbox" name="" id="Print12" class=" mr-5">Spot
                                                             corse UV
                                                         </td>
-                                                        <td><select name="" id="print12"
+                                                        <td><select name="" disabled id="print12"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -416,10 +416,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Creasing
+                                                        <td><input type="checkbox"  name="" id="Print13" class=" mr-5">Creasing
                                                             line
                                                         </td>
-                                                        <td><select name="" id="print13"
+                                                        <td><select name="" disabled id="print13"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -428,10 +428,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Die
+                                                        <td><input type="checkbox" name="" id="Print14" class=" mr-5">Die
                                                             Cut
                                                         </td>
-                                                        <td><select name="" id="print14"
+                                                        <td><select name="" disabled id="print14"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -440,10 +440,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id=""
+                                                        <td><input type="checkbox" name="" id="Print15"
                                                                 class=" mr-5">Perforation
                                                         </td>
-                                                        <td><select name="" id="print15"
+                                                        <td><select name="" disabled id="print15"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -452,9 +452,9 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Numbering
+                                                        <td><input type="checkbox" name="" id="Print16" class=" mr-5">Numbering
                                                         </td>
-                                                        <td><select name="" id="print16"
+                                                        <td><select name="" disabled id="print16"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -463,10 +463,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Punch
+                                                        <td><input type="checkbox" name="" id="Print17" class=" mr-5">Punch
                                                             Hole
                                                         </td>
-                                                        <td><select name="" id="print17"
+                                                        <td><select name="" disabled id="print17"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -475,10 +475,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">Round
+                                                        <td><input type="checkbox" name="" id="Print18" class=" mr-5">Round
                                                             Corner
                                                         </td>
-                                                        <td><select name="" id="print18"
+                                                        <td><select name="" disabled id="print18"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -487,12 +487,12 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="" class=" mr-5">
+                                                        <td><input type="checkbox"  name="" id="Print19" class=" mr-5">
                                                             Others:
-                                                            <input type="text" placeholder="User Input" name="" id=""
+                                                            <input type="text" disabled placeholder="User Input" name="" id="input"
                                                                 class="form-control w-50 float-right">
                                                         </td>
-                                                        <td><select name="" id="print19"
+                                                        <td><select name="" disabled id="print19"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -620,6 +620,150 @@
 
         var quill1 = new Quill('#editor1', {
             theme: 'snow'
+        });
+
+        $("#Print3").change(function() {
+            if($(this).is(":checked")) {
+                $("#print3").prop("disabled", false);
+                $("#input1").prop("disabled", false);
+            } else {
+                $("#print3").prop("disabled", true);
+                $("#input1").prop("disabled", true);
+            }
+        });
+
+        $("#Print4").change(function() {
+            if($(this).is(":checked")) {
+                $("#print4").prop("disabled", false);
+            } else {
+                $("#print4").prop("disabled", true);
+            }
+        });
+
+        $("#Print5").change(function() {
+            if($(this).is(":checked")) {
+                $("#print5").prop("disabled", false);
+            } else {
+                $("#print5").prop("disabled", true);
+            }
+        });
+
+        $("#Print6").change(function() {
+            if($(this).is(":checked")) {
+                $("#print6").prop("disabled", false);
+            } else {
+                $("#print6").prop("disabled", true);
+            }
+        });
+
+        $("#Print7").change(function() {
+            if($(this).is(":checked")) {
+                $("#print7").prop("disabled", false);
+            } else {
+                $("#print7").prop("disabled", true);
+            }
+        });
+
+         $("#Print8").change(function() {
+            if($(this).is(":checked")) {
+                $("#Print8").prop("disabled", false);
+                $("#input2").prop("disabled", false);
+            } else {
+                $("#Print8").prop("disabled", true);
+                $("#input2").prop("disabled", true);
+            }
+        });
+
+        $("#Print9").change(function() {
+            if($(this).is(":checked")) {
+                $("#print9").prop("disabled", false);
+            } else {
+                $("#print9").prop("disabled", true);
+            }
+        });
+
+        $("#Print10").change(function() {
+            if($(this).is(":checked")) {
+                $("#print10").prop("disabled", false);
+            } else {
+                $("#print10").prop("disabled", true);
+            }
+        });
+        
+        $("#Print11").change(function() {
+            if($(this).is(":checked")) {
+                $("#print11").prop("disabled", false);
+                // $("#input1").prop("disabled", false);
+            } else {
+                $("#print11").prop("disabled", true);
+                // $("#input1").prop("disabled", true);
+            }
+        });
+
+        $("#Print12").change(function() {
+            if($(this).is(":checked")) {
+                $("#print12").prop("disabled", false);
+            } else {
+                $("#print12").prop("disabled", true);
+            }
+        });
+
+        $("#Print13").change(function() {
+            if($(this).is(":checked")) {
+                $("#print13").prop("disabled", false);
+            } else {
+                $("#print13").prop("disabled", true);
+            }
+        });
+
+        $("#Print14").change(function() {
+            if($(this).is(":checked")) {
+                $("#print14").prop("disabled", false);
+            } else {
+                $("#print14").prop("disabled", true);
+            }
+        });
+
+        $("#Print15").change(function() {
+            if($(this).is(":checked")) {
+                $("#print15").prop("disabled", false);
+            } else {
+                $("#print15").prop("disabled", true);
+            }
+        });
+
+        $("#Print16").change(function() {
+            if($(this).is(":checked")) {
+                $("#print16").prop("disabled", false);
+            } else {
+                $("#print16").prop("disabled", true);
+            }
+        });
+
+        $("#Print17").change(function() {
+            if($(this).is(":checked")) {
+                $("#print17").prop("disabled", false);
+            } else {
+                $("#print17").prop("disabled", true);
+            }
+        });
+
+        $("#Print18").change(function() {
+            if($(this).is(":checked")) {
+                $("#print18").prop("disabled", false);
+            } else {
+                $("#print18").prop("disabled", true);
+            }
+        });
+
+        $("#Print19").change(function() {
+            if($(this).is(":checked")) {
+                $("#print19").prop("disabled", false);
+                $("#input").prop("disabled", false);
+            } else {
+                $("#print19").prop("disabled", true);
+                $("#input").prop("disabled", true);
+            }
         });
     });
 </script>

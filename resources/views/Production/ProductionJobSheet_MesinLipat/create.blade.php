@@ -21,7 +21,9 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" readonly  value="{{date('Y-m-d')}}" name="" id="Currentdate" class="form-control">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -49,7 +51,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text"  class="form-control">
+                                        <input type="text" readonly  class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -171,8 +173,8 @@
                                 <div class="row">
 
                                     <div class="col-md-12">
-                                        <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
-                                            <span style="color:black; font-size:14px;">
+                                        <h5 style="font-size:30px;"><b>PERINGATAN :</b> <br>
+                                            <span style="color:black; font-size:16px;">
                                                 <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA
                                                     OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
                                             </span>

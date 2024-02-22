@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('laporan_pemeriksaan_kualiti_penjilidan_saddle.store') }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -35,7 +34,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
@@ -211,8 +210,6 @@
                 </div>
                 <a href="{{ route('laporan_pemeriksaan_kualiti_penjilidan_saddle') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')
@@ -256,7 +253,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.order_no || null;
                 }
             });
 

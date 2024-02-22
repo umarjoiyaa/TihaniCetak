@@ -141,7 +141,7 @@ class SenariSemakController extends Controller
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
@@ -242,7 +242,7 @@ class SenariSemakController extends Controller
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('senari_semak.delete', $row->id) . '">Delete</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
@@ -305,7 +305,7 @@ class SenariSemakController extends Controller
 
     public function sale_order_detail(Request $request)
     {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'status')->where('id', $request->id)->first();
+        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'size' , 'status')->where('id', $request->id)->first();
         return response()->json($sale_order);
     }
 

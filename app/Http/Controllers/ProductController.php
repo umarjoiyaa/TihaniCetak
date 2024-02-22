@@ -102,7 +102,7 @@ class ProductController extends Controller
                     <div  class="dropdown-menu tx-13">
                     <a class="dropdown-item" href="' . route('product.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('product.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('product.delete', $row->id) . '">Delete</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('product.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
@@ -175,7 +175,7 @@ class ProductController extends Controller
                     <div  class="dropdown-menu tx-13">
                         <a class="dropdown-item" href="' . route('product.edit', $row->id) . '">Edit</a>
                         <a class="dropdown-item" href="' . route('product.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('product.delete', $row->id) . '">Delete</a>
+                        <a class="dropdown-item" id="swal-warning" data-delete="' . route('product.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });

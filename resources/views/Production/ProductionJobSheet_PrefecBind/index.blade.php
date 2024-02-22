@@ -1,9 +1,16 @@
 @extends('layouts.app')
 
+@section('css')
+<style>
+    table td{
+        font-size:10px;
+    }
+</style>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-md-12">
-        <div class="card mt-5">
+        <div class="card ">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title tx-20 mg-b-0 p-2">JOBSHEET - PERFECT BIND</h4>
@@ -35,9 +42,9 @@
                             <tr class="">
                                 <td>30/5/2023</td>
                                 <td>SO-001496</td>
-                                <td>EDUKID DISTRIBUTORS SDN BHD</td>
+                                <td >EDUKID DISTRIBUTORS SDN BHD</td>
                                 <td>CP-2940</td>
-                                <td>IQRO Genius - Rumi</td>
+                                <td >IQRO Genius - Rumi</td>
                                 <td>7</td>
                                 <td>5000</td>
                                 <td>Perfect Bind</td>

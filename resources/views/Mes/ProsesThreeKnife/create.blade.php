@@ -53,14 +53,14 @@
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" value="auto Display (based SO)" readonly name="" id="tajuk"
+                                        <input type="text"  readonly name="" id="tajuk"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly value="auto Display (based SO)" name="" id="kod_buku"
+                                        <input type="text" readonly  name="" id="kod_buku"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <label for="">Saiz Buku</label>
-                                        <input type="text" readonly value="auto Display (based SO)" name="" id="size"
+                                        <input type="text" readonly  name="" id="size"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -177,13 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12 mt-3">
-                            <h5><b>Nota :</b></h5>
-                            <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu
-                                dilakukan semasa proses</span>
-                        </div>
-                    </div>
+                    
                     <div class="row">
                         <div class="col-md-12">
                             <button class="btn btn-primary float-right mt-3">Save</button>

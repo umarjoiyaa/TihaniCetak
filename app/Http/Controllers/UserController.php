@@ -128,7 +128,7 @@ class UserController extends Controller
                     <div  class="dropdown-menu tx-13">
                     <a class="dropdown-item" href="' . route('user.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('user.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('user.delete', $row->id) . '">Delete</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('user.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
@@ -207,7 +207,7 @@ class UserController extends Controller
                     <div  class="dropdown-menu tx-13">
                         <a class="dropdown-item" href="' . route('user.edit', $row->id) . '">Edit</a>
                         <a class="dropdown-item" href="' . route('user.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('user.delete', $row->id) . '">Delete</a>
+                        <a class="dropdown-item"  id="swal-warning" data-delete="' . route('user.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });

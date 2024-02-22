@@ -133,14 +133,8 @@
                     </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5><b>Nota</b></h5>
-                        <span>
-                            Periksa setiap plate cetak yang keluar dari plate processor mengikut kriteria yang
-                            ditetapkan diatas
-                        </span>
-                    </div>
+                <div class="row mt-5s">
+                    
                     <div class="col-md-12">
                         <table class="table text-center table-bordered" border='1'>
                             <thead>

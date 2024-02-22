@@ -86,13 +86,13 @@ class MachineController extends Controller
             $index = 0;
             foreach ($machine as $row) {
                 $row->sr_no = $start + $index + 1;
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
                     <a class="dropdown-item" href="' . route('machine.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('machine.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('machine.delete', $row->id) . '">Delete</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('machine.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
@@ -156,13 +156,13 @@ class MachineController extends Controller
 
             $machine->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
                         <a class="dropdown-item" href="' . route('machine.edit', $row->id) . '">Edit</a>
                         <a class="dropdown-item" href="' . route('machine.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('machine.delete', $row->id) . '">Delete</a>
+                        <a class="dropdown-item"  id="swal-warning" data-delete="' . route('machine.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });

@@ -14,7 +14,9 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="text" name="date" value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                     </div>
                                 </div>
@@ -23,10 +25,10 @@
                                     <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
                                         class="form-control">
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 mt-4">
                                     <div class="form-group">
                                         <div class="label">Diterima Oleh</div>
-                                        <select name="user[]" class="form-control form-select" id="" multiple>
+                                        <select name="user[]" class="form-control form-select" id="Oleh" multiple>
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id,
                                                 old('user')) ? 'selected' : '' }} @endif>
@@ -35,7 +37,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
@@ -46,14 +48,16 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Jenis</div>
-                                        <select name="jenis" class="form-control form-select">
+                                        <select name="jenis" id="printSelect" class="form-control form-select">
                                             <option value="Cover" @selected(old('jenis')=='Cover' )>Cover</option>
                                             <option value="Teks" @selected(old('jenis')=='Teks' )>Teks</option>
                                             <option value="Other" @selected(old('jenis')=='Other' )>Other</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4"></div>
+                                <div class="col-md-4 mt-0">
+                                    <div class="box" id="box"></div>
+                                </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
@@ -64,6 +68,7 @@
                                         </select>
                                     </div>
                                 </div>
+
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Seksyen No.</div>
@@ -154,9 +159,30 @@
     //}
     function handleCheckboxChange(className, checkbox) {
         if ($(checkbox).prop('checked')) {
-            $(`.${ className }`).not(checkbox).prop('checked', false);
+            $(`.${className}`).not(checkbox).prop('checked', false);
         }
     }
+
+    $('#printSelect').change(function () {
+        if ($(this).val() === "Other") {
+            var newLabel = $("<label>", {
+                    for: "newInput",
+                    text: "Other (please input)"
+                });
+
+            var newInput = $("<input>", {
+                type: "text",
+                class: "form-control",
+                id: "newInput"
+            });
+
+            // Clear existing content in #box and append the new input element
+            $("#box").empty().append(newLabel, newInput);
+        } else {
+            // Clear the content of #box if an option other than "Other" is selected
+            $("#box").empty();
+        }
+    });
 
 
 

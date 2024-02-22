@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('laporan_proses_three.store') }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -37,7 +36,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
@@ -123,7 +122,7 @@
                                                 <td>1</td>
                                                 <td>Saiz yg betul</td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover',this)" name="b_1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="ok" id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" checked
@@ -353,8 +352,6 @@
                 </div>
                 <a href="{{ route('laporan_proses_three') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')
@@ -443,7 +440,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.order_no || null;
                 }
             });
 

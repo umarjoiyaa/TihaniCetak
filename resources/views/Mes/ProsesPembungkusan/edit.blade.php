@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('proses_pembungkusan.store',$proses_pembungkusan->id) }}" method="POST">
+<form action="{{ route('proses_pembungkusan.update',$proses_pembungkusan->id) }}" method="POST">
     @csrf
 <div class="row">
     <div class="col-md-12">
@@ -162,7 +162,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('ProsesPembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
+            <a href="{{route('proses_pembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
                 back to list</a>
         </div>
     </div>

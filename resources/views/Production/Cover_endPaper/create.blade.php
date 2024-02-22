@@ -21,8 +21,9 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
-                                        <input type="date" readonly value="{{ date('Y-m-d') }}" name="" id="Currentdate"
-                                            class="form-control">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -75,17 +76,20 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jenis : </div>
+                                        <label for="">Jenis produk</label>
                                         <select name="" id="printCutSelect1" class="form-control form-select">
-                                            <option value="">Cover</option>
-                                            <option value="">EndPaper</option>
-                                            <option value="">Bookmark</option>
-                                            <option value="">Divider</option>
-                                            <option value="" id="selectBox">other</option>
-                                            <!-- <option value="">PENEGELUAREN</option> -->
+                                            <option value="Cover">Cover</option>
+                                            <option value="Endpaper">Endpaper</option>
+                                            <option value="Bookmark">Bookmark</option>
+                                            <option value="Divider">Divider</option>
+                                            <!-- <option value="O">O</option>
+                                            <option value="STICKERS">STICKERS</option> -->
+                                            <option value="OTHERS" id="selectBox1">OTHERS</option>
                                         </select>
                                     </div>
+
                                 </div>
+
 
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -98,7 +102,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <!-- <label for="">Other (Please state)</label> -->
-                                    <div id="box1"></div>
+                                    <div id="box2"></div>
+
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -221,17 +226,17 @@
                                         <div class="col-md-4 mt-2">
                                             <label for="">Print Cut</label>
                                             <select name="" id="printSelect" class="form-control form-select">
-                                                <option value="">1</option>
-                                                <option value="">2</option>
-                                                <option value="">3</option>
-                                                <option value="">4</option>
-                                                <option value="">6</option>
-                                                <option value="">8</option>
-                                                <option value="">10</option>
-                                                <option value="">12</option>
-                                                <option value="">14</option>
-                                                <option value="">16</option>
-                                                <option value="" id="newInputOption">Other</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="6">6</option>
+                                                <option value="8">8</option>
+                                                <option value="10">10</option>
+                                                <option value="12">12</option>
+                                                <option value="14">14</option>
+                                                <option value="16">16</option>
+                                                <option value="OTHERS" id="newInputOption">Other</option>
                                             </select>
                                         </div>
 
@@ -242,9 +247,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <label for=""></label>
-                                            <div id="box">
-                                                </div?>
-                                            </div>
+                                            <div id="box"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -302,12 +305,13 @@
                                                     <tr>
                                                         <td><input type="checkbox" name="" id="Print3" class=" mr-5"
                                                                 style="font-size:14px;">UV+Texture
-                                                            Emboss <input type="text" disabled placeholder="user Input" name=""
-                                                                id="input1" class="form-control float-right w-25">
+                                                            Emboss <input type="text" disabled 
+                                                                name="" id="input1" class="form-control float-right"
+                                                                style="width:150px;">
                                                         </td>
                                                         <td>
-                                                            <select name="" id="print3" disabled  class="form-control form-select"
-                                                                style="width:250px;">
+                                                            <select name="" id="print3" disabled
+                                                                class="form-control form-select" style="width:250px;">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
                                                                 <option value="SupplierB">Supplier B</option>
@@ -315,7 +319,8 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name=""  id="Print4" class=" mr-5">Gloss
+                                                        <td><input type="checkbox" name="" id="Print4"
+                                                                class=" mr-5">Gloss
                                                             Lamination</td>
                                                         <td><select name="" disabled id="print4"
                                                                 class="form-control form-select">
@@ -326,7 +331,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print5" class=" mr-5">Matt
+                                                        <td><input type="checkbox" name="" id="Print5"
+                                                                class=" mr-5">Matt
                                                             Lamination</td>
                                                         <td><select name="" disabled id="print5"
                                                                 class="form-control form-select">
@@ -337,7 +343,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox"  name="" id="Print6" class=" mr-5">Spot
+                                                        <td><input type="checkbox" name="" id="Print6"
+                                                                class=" mr-5">Spot
                                                             UV
                                                         </td>
                                                         <td><select name="" disabled id="print6"
@@ -348,10 +355,11 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print7" class=" mr-5">Spot
+                                                        <td><input type="checkbox" name="" id="Print7"
+                                                                class=" mr-5">Spot
                                                             Miraval
                                                         </td>
-                                                        <td><select name="" disabled  id="print7"
+                                                        <td><select name="" disabled id="print7"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
                                                                 <option value="SupplierA">Supplier A</option>
@@ -361,8 +369,8 @@
                                                     <tr>
                                                         <td><input type="checkbox" name="" id="Print8" class=" mr-5">Hot
                                                             Stamping
-                                                            <input type="text" disabled  name="" placeholder="user Input" id="input2"
-                                                                class="form-control float-right w-50">
+                                                            <input type="text" disabled name="" 
+                                                                id="input2" class="form-control float-right w-50">
                                                         </td>
                                                         <td><select name="" disabled id="print8"
                                                                 class="form-control form-select">
@@ -372,7 +380,8 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print9" class=" mr-5">Emboss
+                                                        <td><input type="checkbox" name="" id="Print9"
+                                                                class=" mr-5">Emboss
                                                         </td>
                                                         <td><select name="" disabled id="print9"
                                                                 class="form-control form-select">
@@ -382,7 +391,8 @@
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print10" class=" mr-5">Deboss
+                                                        <td><input type="checkbox" name="" id="Print10"
+                                                                class=" mr-5">Deboss
                                                         </td>
                                                         <td><select name="" disabled id="print10"
                                                                 class="form-control form-select">
@@ -404,7 +414,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print12" class=" mr-5">Spot
+                                                        <td><input type="checkbox" name="" id="Print12"
+                                                                class=" mr-5">Spot
                                                             corse UV
                                                         </td>
                                                         <td><select name="" disabled id="print12"
@@ -416,7 +427,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox"  name="" id="Print13" class=" mr-5">Creasing
+                                                        <td><input type="checkbox" name="" id="Print13"
+                                                                class=" mr-5">Creasing
                                                             line
                                                         </td>
                                                         <td><select name="" disabled id="print13"
@@ -428,7 +440,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print14" class=" mr-5">Die
+                                                        <td><input type="checkbox" name="" id="Print14"
+                                                                class=" mr-5">Die
                                                             Cut
                                                         </td>
                                                         <td><select name="" disabled id="print14"
@@ -452,7 +465,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print16" class=" mr-5">Numbering
+                                                        <td><input type="checkbox" name="" id="Print16"
+                                                                class=" mr-5">Numbering
                                                         </td>
                                                         <td><select name="" disabled id="print16"
                                                                 class="form-control form-select">
@@ -463,7 +477,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print17" class=" mr-5">Punch
+                                                        <td><input type="checkbox" name="" id="Print17"
+                                                                class=" mr-5">Punch
                                                             Hole
                                                         </td>
                                                         <td><select name="" disabled id="print17"
@@ -475,7 +490,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print18" class=" mr-5">Round
+                                                        <td><input type="checkbox" name="" id="Print18"
+                                                                class=" mr-5">Round
                                                             Corner
                                                         </td>
                                                         <td><select name="" disabled id="print18"
@@ -487,10 +503,10 @@
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox"  name="" id="Print19" class=" mr-5">
+                                                        <td><input type="checkbox" name="" id="Print19" class=" mr-5">
                                                             Others:
-                                                            <input type="text" disabled placeholder="User Input" name="" id="input"
-                                                                class="form-control w-50 float-right">
+                                                            <input type="text" disabled  name=""
+                                                                id="input" class="form-control w-50 float-right">
                                                         </td>
                                                         <td><select name="" disabled id="print19"
                                                                 class="form-control form-select">
@@ -575,26 +591,30 @@
 </form>
 @endsection
 @push('custom-scripts')
-<script>     $(document).ready(function () {
+<script>
+    $(document).ready(function () {
         $('#printSelect').change(function () {
-            if ($(this).val() === "") {
+            if ($(this).val() === "OTHERS") {
                 var newInput = $("<input>", {
                     type: "text",
                     class: "form-control",
-                    id: "newInput"
+                    id: "newInput",
+                    placeholder: "Enter Other Print Cut"
                 });
 
                 // Clear existing content in #box and append the new input element
                 $("#box").empty().append(newInput);
-                // $("#box1").empty().append(newInput);
+            } else {
+                // Clear the content of #box if an option other than "OTHERS" is selected
+                $("#box").empty();
             }
         });
 
         $('#printCutSelect1').change(function () {
-            if ($(this).val() === "") {
+            if ($(this).val() === "OTHERS") {
                 var newLabel = $("<label>", {
                     for: "newInput",
-                    text: "Lain-lain (Nyatakan)"
+                    text: "Lain-lain(Nyatakan)"
                 });
 
                 var newInput = $("<input>", {
@@ -602,10 +622,14 @@
                     class: "form-control",
                     id: "newInput",
                     name: "otherProduct",
-                    placeholder: "Enter Other Product"
+
                 });
-                // Clear existing content in #box and append the new label and input elements
-                $("#box1").empty().append(newLabel, newInput);
+
+                // Clear existing content in #box1 and append the new label and input elements
+                $("#box2").empty().append(newLabel, newInput);
+            } else {
+                // Clear the content of #box1 if an option other than "OTHERS" is selected
+                $("#box2").empty();
             }
         });
 
@@ -622,8 +646,8 @@
             theme: 'snow'
         });
 
-        $("#Print3").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print3").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print3").prop("disabled", false);
                 $("#input1").prop("disabled", false);
             } else {
@@ -632,66 +656,66 @@
             }
         });
 
-        $("#Print4").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print4").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print4").prop("disabled", false);
             } else {
                 $("#print4").prop("disabled", true);
             }
         });
 
-        $("#Print5").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print5").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print5").prop("disabled", false);
             } else {
                 $("#print5").prop("disabled", true);
             }
         });
 
-        $("#Print6").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print6").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print6").prop("disabled", false);
             } else {
                 $("#print6").prop("disabled", true);
             }
         });
 
-        $("#Print7").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print7").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print7").prop("disabled", false);
             } else {
                 $("#print7").prop("disabled", true);
             }
         });
 
-         $("#Print8").change(function() {
-            if($(this).is(":checked")) {
-                $("#Print8").prop("disabled", false);
+        $("#Print8").change(function () {
+            if ($(this).is(":checked")) {
+                $("#print8").prop("disabled", false);
                 $("#input2").prop("disabled", false);
             } else {
-                $("#Print8").prop("disabled", true);
+                $("#print8").prop("disabled", true);
                 $("#input2").prop("disabled", true);
             }
         });
 
-        $("#Print9").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print9").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print9").prop("disabled", false);
             } else {
                 $("#print9").prop("disabled", true);
             }
         });
 
-        $("#Print10").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print10").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print10").prop("disabled", false);
             } else {
                 $("#print10").prop("disabled", true);
             }
         });
-        
-        $("#Print11").change(function() {
-            if($(this).is(":checked")) {
+
+        $("#Print11").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print11").prop("disabled", false);
                 // $("#input1").prop("disabled", false);
             } else {
@@ -700,64 +724,64 @@
             }
         });
 
-        $("#Print12").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print12").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print12").prop("disabled", false);
             } else {
                 $("#print12").prop("disabled", true);
             }
         });
 
-        $("#Print13").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print13").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print13").prop("disabled", false);
             } else {
                 $("#print13").prop("disabled", true);
             }
         });
 
-        $("#Print14").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print14").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print14").prop("disabled", false);
             } else {
                 $("#print14").prop("disabled", true);
             }
         });
 
-        $("#Print15").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print15").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print15").prop("disabled", false);
             } else {
                 $("#print15").prop("disabled", true);
             }
         });
 
-        $("#Print16").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print16").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print16").prop("disabled", false);
             } else {
                 $("#print16").prop("disabled", true);
             }
         });
 
-        $("#Print17").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print17").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print17").prop("disabled", false);
             } else {
                 $("#print17").prop("disabled", true);
             }
         });
 
-        $("#Print18").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print18").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print18").prop("disabled", false);
             } else {
                 $("#print18").prop("disabled", true);
             }
         });
 
-        $("#Print19").change(function() {
-            if($(this).is(":checked")) {
+        $("#Print19").change(function () {
+            if ($(this).is(":checked")) {
                 $("#print19").prop("disabled", false);
                 $("#input").prop("disabled", false);
             } else {

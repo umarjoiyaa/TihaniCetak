@@ -103,7 +103,7 @@ class AreaShelfController extends Controller
                     <div  class="dropdown-menu tx-13">
                     <a class="dropdown-item" href="' . route('area_shelf.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('area_shelf.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('area_shelf.delete', $row->id) . '">Delete</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('area_shelf.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
@@ -176,7 +176,7 @@ class AreaShelfController extends Controller
                     <div  class="dropdown-menu tx-13">
                         <a class="dropdown-item" href="' . route('area_shelf.edit', $row->id) . '">Edit</a>
                         <a class="dropdown-item" href="' . route('area_shelf.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" href="' . route('area_shelf.delete', $row->id) . '">Delete</a>
+                        <a class="dropdown-item" id="swal-warning" data-delete="' . route('area_shelf.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });

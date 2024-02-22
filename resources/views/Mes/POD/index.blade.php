@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('css')
+<style>
+    .dropdownwidth{
+        width:100px;
+    }
+</style>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">

@@ -267,7 +267,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card" style="background:#f1f0f0;">
+                                <!-- <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -285,9 +285,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="row">
+                                <div class="row mt-4">
                                     <div class="col-md-12">
                                         <h5><b>Bahagian B (Pemeriksaan Dan Pengesahan 1st Piece)</b></h5>
                                     </div>
@@ -562,7 +562,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card" style="background:#f1f0f0;">
+                                <!-- <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -578,9 +578,9 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
-                                <div class="row">
+                                <div class="row mt-4">
                                     <div class="col-md-12">
                                         <h5><b>Bahagian C (Pemeriksaan Dan Pengesahan Mock Up) - Untuk Mock Up Sahaja</b>
                                         </h5>
@@ -863,7 +863,7 @@
                                     </div>
                                 </div>
 
-                                <div class="card" style="background:#f1f0f0;">
+                                <!-- <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -873,7 +873,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
 
                                 <button class="btn btn-primary float-right">Save</button>
                             </div>

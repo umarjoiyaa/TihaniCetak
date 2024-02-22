@@ -476,7 +476,7 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><button class="btn btn-primary">+</button></td>
+                                                <td><button type="button" data-toggle="modal" data-target="#exampleModal" class="btn btn-primary">+</button></td>
                                                 <td>Start_time</td>
                                                 <td>Pause_time</td>
                                                 <td>auto_calculate</td>
@@ -563,5 +563,59 @@
             <a href="{{route('digitalPrinting.index')}}">back to list</a>
         </div>
     </div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content" style="width:1000px; margin-left:-350px;">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
+        <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <table class="table table-bordered">
+             <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>Last Print</th>
+                    <th>Waste Print</th>
+                    <th>Rejection</th>
+                    <th>Good count</th>
+                    <th>Meter Click</th>
+                    <th>Check</th>
+                    <th></th>
+                    <th>Verify</th>
+                    <th></th>
+                </tr>
+             </thead>
+             <tbody>
+                <tr>
+                    <td><button class="btn-primary">-</button></td>
+                    <td><input type="text" name="" id="" class="form-control"></td>
+                    <td><input type="text" name="" id="" class="form-control"></td>
+                    <td><input type="text" name="" id="" class="form-control"></td>
+                    <td><input type="text" name="" id="" class="form-control"></td>
+                    <td><input type="text" name="" id="" class="form-control"></td>
+                    <td><button class="btn btn-primary">Check</button></td>
+                    <td>datetime / username</td>
+                    <td><button class="btn btn-primary">Verify</button></td>
+                    <td>datetime / username</td>
+                </tr>
+             </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
 </form>
 @endsection

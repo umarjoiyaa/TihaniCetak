@@ -21,12 +21,14 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="date" readonly value="{{ date('Y-m-d') }}" name="" id="Currentdate" class="form-control">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">By</label>
-                                    <input type="text"  readonly name="" id="" class="form-control">
+                                    <input type="text" readonly name="" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
@@ -40,22 +42,20 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text"  readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" readonly  class="form-control">
+                                        <input type="text" readonly class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Pelanggan</div>
-                                        <input type="text"  readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
@@ -100,17 +100,19 @@
                                     <div class="form-group">
                                         <label for="">Mesin</label>
                                         <select name="" id="Mesin1" class="form-control form-select">
-                                            <option value="">REVORIA SC170 FUJIFIILM</option>
-                                            <option value="" id="selectBox">Others</option>
+                                            <option value="REVORIA SC170 FUJIFIILM">REVORIA SC170 FUJIFIILM</option>
+                                            <option value="OTHERS" id="selectBox">Others</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4"></div>
+                                <div class="col-md-4">
+                                    <div id="box1"></div>
+                                </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-2">
                                     <div class="form-group">
                                         <div class="label">Kategori job</div>
-                                        <select name="" id="kategori1"  class="form-select form-control">
+                                        <select name="" id="kategori1" class="form-select form-control">
                                             <option value="">MOCK UP</option>
                                             <option value="">PENEGELUAREN</option>
                                         </select>
@@ -119,33 +121,33 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Jenis produk</label>
-                                        <select name="" id="printCutSelect1"  class="form-control form-select">
-                                            <option value="">BUKU</option>
-                                            <option value="">FLYERS</option>
-                                            <option value="">POSTER</option>
-                                            <option value="">BUSINESS CARD</option>
-                                            <option value="">KAD KAHWIN</option>
-                                            <option value="">STICKERS</option>
-                                            <option value="" id="selectBox">OTHERS</option>
+                                        <select name="" id="printCutSelect1" class="form-control form-select">
+                                            <option value="BUKU">BUKU</option>
+                                            <option value="FLYERS">FLYERS</option>
+                                            <option value="POSTER">POSTER</option>
+                                            <option value="BUSINESS CARD">BUSINESS CARD</option>
+                                            <option value="KAD KAHWIN">KAD KAHWIN</option>
+                                            <option value="STICKERS">STICKERS</option>
+                                            <option value="OTHERS" id="selectBox1">OTHERS</option>
                                         </select>
                                     </div>
+
                                 </div>
-                                <div class="col-md-4" >
+                                <div class="col-md-4">
                                     <!-- <label for="">Other (Please state)</label> -->
-                                    <div id="box1"></div>
+                                    <div id="box2"></div>
+
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kertas: teks</div>
-                                        <input type="text" value="Input teks" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kertas: Cover</div>
-                                        <input type="text" value="input teks" readonly name="" id=""
-                                            class="form-control">
+                                        <input type="text" readonly name="" id="" class="form-control">
                                     </div>
                                 </div>
 
@@ -172,7 +174,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Print</label>
-                                    <select name="" id="print0" placeholder="Pilih print" class="form-control form-select">
+                                    <select name="" id="print0" placeholder="Pilih print"
+                                        class="form-control form-select">
                                         <option value="">1C</option>
                                         <option value="">4C</option>
                                     </select>
@@ -183,9 +186,9 @@
                                         <input type="text" name="" id="" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-2">
                                     <label for="">Print Cut</label>
-                                    <select name="printCut" id="printSelect1" class="form-control form-select">
+                                    <select name="" id="printSelect" class="form-control form-select">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -196,12 +199,12 @@
                                         <option value="12">12</option>
                                         <option value="14">14</option>
                                         <option value="16">16</option>
-                                        <option value="" id="newInputOption1">OTHERS</option>
+                                        <option value="OTHERS" id="newInputOption">Other</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4 mt-2" >
+                                <div class="col-md-4 mt-3">
                                     <label for=""></label>
-                                    <div id="box2"></div>
+                                    <div id="box"></div>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +229,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Print</label>
-                                    <select name="" id="print1" placeholder="Pilih print" class="form-control form-select">
+                                    <select name="" id="print1" placeholder="Pilih print"
+                                        class="form-control form-select">
                                         <option value="">1C</option>
                                         <option value="">4C</option>
                                     </select>
@@ -234,7 +238,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
                                     <label for="">Print Cut</label>
-                                    <select name="printCut" id="printSelect" class="form-control form-select">
+                                    <select name="printCut" id="printSelect1" class="form-control form-select">
                                         <option value="1">1</option>
                                         <option value="2">2</option>
                                         <option value="3">3</option>
@@ -245,12 +249,12 @@
                                         <option value="12">12</option>
                                         <option value="14">14</option>
                                         <option value="16">16</option>
-                                        <option value="" id="newInputOption">OTHERS</option>
+                                        <option value="OTHERS" id="newInputOption1">OTHERS</option>
                                     </select>
                                 </div>
-                                <div class="col-md-4 mt-2" >
+                                <div class="col-md-4 mt-2">
                                     <label for=""></label>
-                                    <div id="box"></div>
+                                    <div id="box4"></div>
                                 </div>
                             </div>
                         </div>
@@ -284,7 +288,7 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox"  name="" id="Form1" class=" mr-5">Matt
+                                                <td><input type="checkbox" name="" id="Form1" class=" mr-5">Matt
                                                     Lamination</td>
                                                 <td><select name="" disabled placeholder="select Supplier" id="form1"
                                                         class="form-control form-select w-100">
@@ -315,7 +319,7 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox"  name="" id="Form4" class=" mr-5">Emboss</td>
+                                                <td><input type="checkbox" name="" id="Form4" class=" mr-5">Emboss</td>
                                                 <td><select name="" disabled placeholder="select Supplier" id="form4"
                                                         class="form-control form-select w-100">
                                                         <option value="In-house">In-house</option>
@@ -364,8 +368,8 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="Form9" class=" mr-5"> Others:
-                                                    <input type="text" disabled placeholder="User Input" name="" id="input1"
-                                                        class="form-control w-50 float-right">
+                                                    <input type="text" disabled placeholder="User Input" name=""
+                                                        id="input1" class="form-control w-50 float-right">
                                                 </td>
                                                 <td><select name="" disabled placeholder="select Supplier" id="form9"
                                                         class="form-control form-select w-100">
@@ -399,7 +403,8 @@
 
 
                                             <tr>
-                                                <td><input type="checkbox" name="" id="Form10" class=" mr-5">Perfect Bind
+                                                <td><input type="checkbox" name="" id="Form10" class=" mr-5">Perfect
+                                                    Bind
                                                 </td>
                                                 <td><select disabled name="" placeholder="select Supplier" id="form10"
                                                         class="form-control form-select" style="width:250px;">
@@ -439,7 +444,8 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="" id="Form14" class=" mr-5">Creasing Line
+                                                <td><input type="checkbox" name="" id="Form14" class=" mr-5">Creasing
+                                                    Line
                                                 </td>
                                                 <td><select name="" disabled placeholder="select Supplier" id="form14"
                                                         class="form-control form-select">
@@ -470,8 +476,8 @@
                                             </tr>
                                             <tr>
                                                 <td><input type="checkbox" name="" id="Form17" class=" mr-5"> Others:
-                                                    <input type="text" disabled placeholder="User Input" name="" id="input"
-                                                        class="form-control w-50 float-right">
+                                                    <input type="text" disabled placeholder="User Input" name=""
+                                                        id="input" class="form-control w-50 float-right">
                                                 </td>
                                                 <td><select name="" disabled placeholder="select Supplier" id="form17"
                                                         class="form-control form-select">
@@ -522,7 +528,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
             <a href="{{route('digitalPrinting.index')}}">back to list</a>
         </div>
@@ -533,37 +539,66 @@
 @endsection
 @push('custom-scripts')
 <script>
-     $(document).ready(function () {
+    $(document).ready(function () {
         $('#printSelect').change(function () {
-            if ($(this).val() === "") {
+            if ($(this).val() === "OTHERS") {
                 var newInput = $("<input>", {
                     type: "text",
                     class: "form-control",
-                    id: "newInput"
+                    id: "newInput",
+
                 });
 
                 // Clear existing content in #box and append the new input element
                 $("#box").empty().append(newInput);
-                // $("#box1").empty().append(newInput);
-            } 
+            } else {
+                // Clear the content of #box if an option other than "OTHERS" is selected
+                $("#box").empty();
+            }
         });
 
         $('#printSelect1').change(function () {
-            if ($(this).val() === "") {
+            if ($(this).val() === "OTHERS") {
                 var newInput = $("<input>", {
                     type: "text",
                     class: "form-control",
-                    id: "newInput"
+                    id: "newInput",
+                    
                 });
 
-                // Clear existing content in #box and append the new input element
-                $("#box2").empty().append(newInput);
-                // $("#box1").empty().append(newInput);
-            } 
+                // Clear existing content in #box1 and append the new input element
+                $("#box4").empty().append(newInput);
+            } else {
+                // Clear the content of #box4 if an option other than "OTHERS" is selected
+                $("#box4").empty();
+            }
+        });
+
+        $('#Mesin1').change(function () {
+            if ($(this).val() === "OTHERS") {
+                var newLabel = $("<label>", {
+                    for: "newInput",
+                    text: "Lain-lain mesin (Sila nyatakan)"
+                });
+
+                var newInput = $("<input>", {
+                    type: "text",
+                    class: "form-control",
+                    id: "newInput",
+                    name: "otherProduct",
+
+                });
+
+                // Clear existing content in #box1 and append the new label and input elements
+                $("#box1").empty().append(newLabel, newInput);
+            } else {
+                // Clear the content of #box1 if an option other than "OTHERS" is selected
+                $("#box1").empty();
+            }
         });
 
         $('#printCutSelect1').change(function () {
-            if ($(this).val() === "") {
+            if ($(this).val() === "OTHERS") {
                 var newLabel = $("<label>", {
                     for: "newInput",
                     text: "Other (please state)"
@@ -574,80 +609,85 @@
                     class: "form-control",
                     id: "newInput",
                     name: "otherProduct",
-                    placeholder: "Enter Other Product"
+
                 });
-            
-                // Clear existing content in #box and append the new label and input elements
-                $("#box1").empty().append(newLabel, newInput);
+
+                // Clear existing content in #box1 and append the new label and input elements
+                $("#box2").empty().append(newLabel, newInput);
+            } else {
+                // Clear the content of #box1 if an option other than "OTHERS" is selected
+                $("#box2").empty();
             }
         });
-        
-        $("#Form1").change(function() {
-            if($(this).is(":checked")) {
+
+
+
+        $("#Form1").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form1").prop("disabled", false);
             } else {
                 $("#form1").prop("disabled", true);
             }
         });
 
-        $("#Form2").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form2").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form2").prop("disabled", false);
             } else {
                 $("#form2").prop("disabled", true);
             }
         });
 
-        $("#Form3").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form3").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form3").prop("disabled", false);
             } else {
                 $("#form3").prop("disabled", true);
             }
         });
 
-        $("#Form4").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form4").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form4").prop("disabled", false);
             } else {
                 $("#form4").prop("disabled", true);
             }
         });
 
-        $("#Form5").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form5").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form5").prop("disabled", false);
             } else {
                 $("#form5").prop("disabled", true);
             }
         });
 
-         $("#Form6").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form6").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form6").prop("disabled", false);
             } else {
                 $("#form6").prop("disabled", true);
             }
         });
 
-        $("#Form7").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form7").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form7").prop("disabled", false);
             } else {
                 $("#form7").prop("disabled", true);
             }
         });
 
-        $("#Form8").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form8").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form8").prop("disabled", false);
             } else {
                 $("#form8").prop("disabled", true);
             }
         });
-        
-        $("#Form9").change(function() {
-            if($(this).is(":checked")) {
+
+        $("#Form9").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form9").prop("disabled", false);
                 $("#input1").prop("disabled", false);
             } else {
@@ -656,64 +696,64 @@
             }
         });
 
-        $("#Form10").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form10").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form10").prop("disabled", false);
             } else {
                 $("#form10").prop("disabled", true);
             }
         });
 
-        $("#Form11").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form11").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form11").prop("disabled", false);
             } else {
                 $("#form11").prop("disabled", true);
             }
         });
 
-        $("#Form12").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form12").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form12").prop("disabled", false);
             } else {
                 $("#form12").prop("disabled", true);
             }
         });
 
-        $("#Form13").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form13").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form13").prop("disabled", false);
             } else {
                 $("#form13").prop("disabled", true);
             }
         });
 
-        $("#Form14").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form14").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form14").prop("disabled", false);
             } else {
                 $("#form14").prop("disabled", true);
             }
         });
 
-        $("#Form15").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form15").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form15").prop("disabled", false);
             } else {
                 $("#form15").prop("disabled", true);
             }
         });
 
-        $("#Form16").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form16").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form16").prop("disabled", false);
             } else {
                 $("#form16").prop("disabled", true);
             }
         });
 
-        $("#Form17").change(function() {
-            if($(this).is(":checked")) {
+        $("#Form17").change(function () {
+            if ($(this).is(":checked")) {
                 $("#form17").prop("disabled", false);
                 $("#input").prop("disabled", false);
             } else {
@@ -723,12 +763,12 @@
         });
     });
 
-    $("#Form20").change(function() {
-            if($(this).is(":checked")) {
-                $("#form20").prop("disabled", false);
-            } else {
-                $("#form20").prop("disabled", true);
-            }
-        });
+    $("#Form20").change(function () {
+        if ($(this).is(":checked")) {
+            $("#form20").prop("disabled", false);
+        } else {
+            $("#form20").prop("disabled", true);
+        }
+    });
 </script>
 @endpush

@@ -131,20 +131,20 @@ class LaporanPemeriksaanKualitiController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
@@ -234,20 +234,20 @@ class LaporanPemeriksaanKualitiController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" href="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('laporan_pemeriksaan_kualiti.delete', $row->id) . '">Delete</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">

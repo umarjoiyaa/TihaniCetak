@@ -1,5 +1,12 @@
 @extends('layouts.app')
 
+@section('css')
+<style>
+    table td{
+        font-size:15px;
+    }
+</style>
+@endsection
 @section('content')
 
 <div class="row">
@@ -45,9 +52,9 @@
                                 <td><span class="badge badge-pill badge-success w-100 p-2 mt-2  ">Completed</span>
                                 </td>
                                 <td>
-                                    <div class="dropdown">
+                                    <div class="dropdown dropdownbtn">
                                         <button aria-expanded="false" aria-haspopup="true"
-                                            class="btn ripple btn-primary" data-toggle="dropdown"
+                                            class="btn ripple btn-primary dropdownbtn" data-toggle="dropdown"
                                             id="dropdownMenuButton" type="button">Action<i
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">

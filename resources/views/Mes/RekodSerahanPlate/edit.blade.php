@@ -119,18 +119,22 @@
                                         <tbody>
                                             <tr>
                                                 <td>Dummy Lipat</td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ok') name="dummy_lipat"
+                                                <td><input type="checkbox" class="Cover1"
+                                                onchange="handleCheckboxChange('Cover1',this)" @checked($rekod_serahan_plate->dummy_lipat == 'ok') name="dummy_lipat"
                                                         id="" value="ok">
                                                 </td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->dummy_lipat == 'ng') name="dummy_lipat"
+                                                <td><input type="checkbox" class="Cover1"
+                                                onchange="handleCheckboxChange('Cover1',this)" @checked($rekod_serahan_plate->dummy_lipat == 'ng') name="dummy_lipat"
                                                         value="ng" id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Sample</td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ok') name="sample"
+                                                <td><input type="checkbox" class="Cover2"
+                                                onchange="handleCheckboxChange('Cover2',this)" @checked($rekod_serahan_plate->sample == 'ok') name="sample"
                                                         id="" value="ok">
                                                 </td>
-                                                <td><input type="checkbox" @checked($rekod_serahan_plate->sample == 'ng') name="sample"
+                                                <td><input type="checkbox" class="Cover2"
+                                                onchange="handleCheckboxChange('Cover2',this)" @checked($rekod_serahan_plate->sample == 'ng') name="sample"
                                                         id="" value="ng"></td>
                                             </tr>
                                         </tbody>
