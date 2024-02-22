@@ -256,9 +256,9 @@
   color: #292e37;
 }
 .alert-success {
-  color: #50cd89;
-  background-color:  #e8fff3;
-  border-color: #50cd89;
+  color: #ffffff;
+  background-color:  #18002D;
+  border-color: #18002D;
 }
 .alert-success hr {
   border-top-color: #b9e3a5;
@@ -13024,6 +13024,13 @@ body {
 .bg-transparent {
   background: transparent;
 }
+
+table.datatable {
+    width: 100% !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
 .arrow-ribbon {
   padding: 6px 8px;
   position: absolute;

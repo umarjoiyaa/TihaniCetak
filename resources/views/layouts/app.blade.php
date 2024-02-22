@@ -845,7 +845,7 @@
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>
-                                                                        Textg</a></li>
+                                                                        Text</a></li>
                                                                 <li aria-haspopup="true"><a
                                                                         href="{{ route('ProductionJobSheet_MesinLipat.index') }}"
                                                                         class="slide-item"><iconify-icon
@@ -2076,6 +2076,7 @@
 
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
+    {{-- <script src="{{ asset('/assets/plugins/datatable/js/dataTables.semanticui.js') }}"></script> --}}
 
     <!-- Quill js -->
     <script src="{{asset('/assets/js/quill.js')}}"></script>

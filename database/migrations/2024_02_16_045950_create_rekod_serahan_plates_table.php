@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user_id')->nullable();
             $table->string('user_text')->nullable();
             $table->string('jenis')->nullable();
+            $table->string('user_input')->nullable();
             $table->string('mesin')->nullable();
             $table->string('seksyen_no')->nullable();
             $table->string('kuaniti_plate')->nullable();

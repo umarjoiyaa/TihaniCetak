@@ -17,7 +17,7 @@
                     <div class="col-md-4 mt-3">
                         <div class="form-group">
                             <label for="">Tarikh</label>
-                            <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($plate_cetak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                            <input type="text"  name="date" disabled value="{{ \Carbon\Carbon::parse($plate_cetak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                         </div>
                     </div>
@@ -122,9 +122,9 @@
                                     <td><input type="checkbox" disabled class="checkbox" name="warna_4" @checked($plate_cetak->warna_4 == "yes")  value="{{ $plate_cetak->warna_4 }}" id=""></td>
                                     <td><input type="checkbox" disabled class="checkbox" name="warna_5" @checked($plate_cetak->warna_5 == "yes")  value="{{ $plate_cetak->warna_5 }}" id=""></td>
                                     <td><input type="checkbox" disabled class="checkbox"  name="warna_6" @checked($plate_cetak->warna_6 == "yes")  value="{{ $plate_cetak->warna_6 }}" id=""></td>
-                                    <td><input type="text" disabled name="warna_7" id="" value="${{ $plate_cetak->warna_7 }}" class="form-control"></td>
-                                    <td><input type="text" disabled name="warna_8" id="" value="${{ $plate_cetak->warna_8 }}" class="form-control"></td>
-                                    <td><input type="text" disabled name="warna_9" id="" value="${{ $plate_cetak->warna_9 }}" class="form-control"></td>
+                                    <td><input type="text" disabled name="warna_7" id="" value="{{ $plate_cetak->warna_7 }}" class="form-control"></td>
+                                    <td><input type="text" disabled name="warna_8" id="" value="{{ $plate_cetak->warna_8 }}" class="form-control"></td>
+                                    <td><input type="text" disabled name="warna_9" id="" value="{{ $plate_cetak->warna_9 }}" class="form-control"></td>
                                     <td><input type="checkbox" disabled class="checkbox" name="warna_10" @checked($plate_cetak->warna_10 == "yes")  value="{{ $plate_cetak->warna_10 }}" id=""></td>
                                     <td><input type="checkbox" disabled class="checkbox"  name="warna_11" @checked($plate_cetak->warna_11 == "yes")  value="{{ $plate_cetak->warna_11}}" id=""></td>
                                     <td><input type="checkbox" disabled class="checkbox" name="warna_12" @checked($plate_cetak->warna_12 == "yes")  value="{{ $plate_cetak->warna_12 }}" id=""></td>

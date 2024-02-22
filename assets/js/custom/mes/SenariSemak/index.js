@@ -74,6 +74,7 @@ function AjaxCall(columnsData) {
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
+        responsive: true,
         language: {
             processing: 'Processing', // Custom processing text
             zeroRecords: 'No data available in the table',

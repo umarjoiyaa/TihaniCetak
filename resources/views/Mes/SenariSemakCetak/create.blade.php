@@ -1164,12 +1164,12 @@
                     return "Loading...";
                 }
 
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-            },
-            templateSelection: function (data) {
-                return data.order_no || null;
-            }
-        });
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.order_no || null;
+                }
+            });
 
         $('#sale_order').on('change', function () {
             const id = $(this).val();

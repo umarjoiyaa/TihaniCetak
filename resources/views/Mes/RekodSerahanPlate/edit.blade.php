@@ -15,7 +15,7 @@
                                             <div class="form-group">
                                                 <label for="">Date</label>
                                                 <input type="text"  name="date"  value="{{ \Carbon\Carbon::parse($rekod_serahan_plate->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
-                                                
+
 
                                             </div>
                                         </div>
@@ -62,7 +62,11 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4"></div>
+                                        <div class="col-md-4 OtherSection " style="display: none" >
+                                            <div class="label">Other (Input)</div>
+                                            <input type="text" placeholder="User Input" value="{{ $rekod_serahan_plate->user_input }}" name="user_input" id=""
+                                                class="form-control">
+                                        </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Mesin</div>
@@ -106,7 +110,7 @@
                                 </div>
                                 <div class="col-md-7"></div>
                                 <div class="col-md-5">
-                                    <table class="table table-bordered">
+                                    <table class="table table-bordered" id="Status_tbl">
                                         <thead>
                                             <tr>
                                                 <th>item</th>
@@ -163,6 +167,13 @@ function handleCheckboxChange(className, checkbox) {
     }
 
         $(document).ready(function() {
+            var value = $('#jenis').val();
+            if (value == "Other") {
+                $('.OtherSection').css('display','')
+            }else{
+                $('.OtherSection').css('display','none')
+            }
+            
             $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {
@@ -211,6 +222,11 @@ function handleCheckboxChange(className, checkbox) {
                 },
                 success: function(data) {
                     $('#status').val(data.status);
+                    if (data.status == "Repeat") {
+                        $('#Status_tbl').css('display','none')
+                    }else if (data.status == "New"){
+                        $('#Status_tbl').css('display','')
+                    }
                 }
             });
         });
