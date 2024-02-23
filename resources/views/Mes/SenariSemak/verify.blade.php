@@ -751,7 +751,7 @@
                         </div>
 
                         <div class="row d-flex justify-content-end">
-                            <div class="col-md-4 d-flex justify-content-end">
+                            <div class="col-md-12 d-flex justify-content-end">
                                 <form action="{{ route('senari_semak.approve.decline', $senari_semak->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf

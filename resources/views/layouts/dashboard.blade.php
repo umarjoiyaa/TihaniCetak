@@ -1,6 +1,19 @@
 @extends('layouts.app')
 @section('css')
 <style>
+    .card a{
+        color:black;
+        font-size:12px;
+    }
+    .card a span{
+        font-size:13px;
+    }
+    .card a:hover{
+        text-decoration:none;
+    }
+    .card1{
+        height:200px;
+    }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
             margin-inline: 200px;
@@ -87,10 +100,10 @@
                                 <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
                                 <div class="card " style="border-radius:17px;background:#ddcdf0;">
                                     <div class="card-body">
-                                        <a href="">
+                                        <a href="{{route('sale_order')}}">
                                             <iconify-icon icon="pepicons-pop:file" width="24"
                                                 height="24"></iconify-icon><br>
-                                            <span style="font-size:14px !important;font-weight: bold;">Sales Order
+                                            <span style="font-weight: bold;">Sales Order
                                                 List</span>
                                         </a>
                                     </div>
@@ -107,10 +120,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('digital_printing')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Digital
+                                                    <span style=" font-weight: bold;">Digital
                                                         printing</span><br><br>
                                                 </a>
                                             </div>
@@ -119,10 +132,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('Cover_endPaper.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Cover &
+                                                    <span style=" font-weight: bold;">Cover &
                                                         Endpaper</span>
                                                 </a>
                                             </div>
@@ -131,11 +144,11 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('ProductionJobSheet_text.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span
-                                                        style="font-size:14px !important;font-weight: bold;">Text</span>
+                                                        style="font-weight: bold;">Text</span>
                                                     <br>
                                                     <br>
 
@@ -148,10 +161,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('ProductionJobSheet_MesinLipat.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Mesin
+                                                    <span style=" font-weight: bold;">Mesin
                                                         Lipat</span><br><br>
                                                 </a>
                                             </div>
@@ -160,10 +173,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('ProductionJobSheet_StapleBIND.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Staple
+                                                    <span style=" font-weight: bold;">Staple
                                                         Bind</span><br><br>
                                                 </a>
                                             </div>
@@ -172,10 +185,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('ProductionJobSheet_PrefecBind.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important;font-weight: bold;">Mesin
+                                                    <span style="font-weight: bold;">Mesin
                                                         Perfect Bind</span>
 
                                                 </a>
@@ -187,10 +200,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('Production_ThreeKnife.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Mesin
+                                                    <span style=" font-weight: bold;">Mesin
                                                         Three Knife</span>
                                                 </a>
                                             </div>
@@ -199,7 +212,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('BorangeSerahKerja.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-size:10px !important; font-weight: bold;">Borang
@@ -211,7 +224,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('BorangeSerahKerja_Teks.index')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-size:10px !important;font-weight: bold;">Borang
@@ -236,11 +249,11 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('ProductSCHEDULINIG.index')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span
-                                                        style="font-size:14px !important; font-weight: bold;">Production
+                                                        style=" font-weight: bold;">Production
                                                         Scheduling</span>
                                                 </a>
                                             </div>
@@ -249,10 +262,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('PrintingProcess_Text.index')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important; font-weight: bold;">Printing
+                                                    <span style=" font-weight: bold;">Printing
                                                         Process</span>
                                                 </a>
                                             </div>
@@ -261,10 +274,10 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="">
+                                                <a href="{{route('CallForAssistance.index')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
-                                                    <span style="font-size:14px !important;font-weight: bold;">Call for
+                                                    <span style="font-weight: bold;">Call for
                                                         assistance</span>
 
 
@@ -285,30 +298,30 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('senari_semak')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Senarai
+                                                <span style=" font-weight: bold;">Senarai
                                                     semak Pencetakan Digital</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('senari_semak_cetak')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Senarai
+                                                <span style=" font-weight: bold;">Senarai
                                                     semak Pra Cetak</span>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4 w-100">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('rekod_serahan_plate')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Rekod serahan
+                                                <span style="font-weight: bold;">Rekod serahan
                                                     plate cetak serta sample</span>
                                             </a>
                                         </div>
@@ -318,27 +331,27 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_pencetakani')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Laporan
+                                                <span style=" font-weight: bold;">Laporan
                                                     Process Pencetakan</span><br><br>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_lipat')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Laporan
+                                                <span style=" font-weight: bold;">Laporan
                                                     Proses Lipat</span><br><br>
                                             </a>
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_penjilidan')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span style="font-size:12px !important;font-weight: bold;">Laporan
@@ -351,7 +364,7 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-4 offset-2">
                                         <div class="card p-2 c1" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_penjilidan_saddle')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span style="font-size:12px !important; font-weight: bold;">Laporan
@@ -361,7 +374,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_three')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span style="font-size:12px !important; font-weight: bold;">Laporan
@@ -387,21 +400,21 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('ctp')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span
-                                                    style="font-size:14px !important; font-weight: bold;">CTP</span><br><br>
+                                                    style=" font-weight: bold;">CTP</span><br><br>
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('pod')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">POD</span>
+                                                <span style=" font-weight: bold;">POD</span>
                                                 <br><br>
                                             </a>
                                         </div>
@@ -409,10 +422,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('plate_cetak')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Plate
+                                                <span style="font-weight: bold;">Plate
                                                     Cetak</span><br><br>
                                             </a>
                                         </div>
@@ -420,11 +433,11 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('proses_pencetakan')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Plate
-                                                    Cetak</span><br><br>
+                                                <span style="font-weight: bold;">Proses
+                                                    Pencetakan</span><br><br>
                                             </a>
                                         </div>
                                     </div>
@@ -432,10 +445,10 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_lipat')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Proses
+                                                <span style=" font-weight: bold;">Proses
                                                     Lipat</span><br><br>
                                             </a>
                                         </div>
@@ -443,10 +456,10 @@
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_penjilidan')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Penjilidan
+                                                <span style=" font-weight: bold;">Penjilidan
                                                     Perfect Bind</span>
                                             </a>
                                         </div>
@@ -454,10 +467,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_penjilidan_saddle')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Penjilidan
+                                                <span style="font-weight: bold;">Penjilidan
                                                     Saddle Stitch</span>
                                             </a>
                                         </div>
@@ -465,10 +478,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('laporan_proses_three')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Proses Three
+                                                <span style="font-weight: bold;">Proses Three
                                                     Knife</span>
                                             </a>
                                         </div>
@@ -477,21 +490,21 @@
                                 <div class="row mt-2 d-flex justify-content-center ">
                                     <div class="col-md-3 ">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('proses_pembungkusan')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span
-                                                    style="font-size:14px !important; font-weight: bold;">Pembungkusan</span><br><br>
+                                                    style=" font-weight: bold;">Pembungkusan</span><br><br>
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('pengumpulan_gathering')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Pengumpulan
+                                                <span style=" font-weight: bold;">Pengumpulan
                                                     / Gathering</span>
                                             </a>
                                         </div>
@@ -499,10 +512,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="">
+                                            <a href="{{route('kulit_buku')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Pemotongan
+                                                <span style="font-weight: bold;">Pemotongan
                                                     Kulit Buku/ Teks</span>
                                             </a>
                                         </div>
@@ -522,10 +535,10 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Good_Receiving')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Good
+                                                <span style=" font-weight: bold;">Good
                                                     Receiving</span><br><br>
                                             </a>
                                         </div>
@@ -533,10 +546,10 @@
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Material_request')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Material
+                                                <span style=" font-weight: bold;">Material
                                                     Request</span> <br><br>
                                             </a>
                                         </div>
@@ -544,10 +557,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Manage_tranfer')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Manage
+                                                <span style="font-weight: bold;">Manage
                                                     Transfer</span><br><br>
                                             </a>
                                         </div>
@@ -555,10 +568,10 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Stock_in')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Stock
+                                                <span style="font-weight: bold;">Stock
                                                     In</span><br><br>
                                             </a>
                                         </div>
@@ -567,10 +580,10 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Stock_Transfer')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Stock
+                                                <span style=" font-weight: bold;">Stock
                                                     Transfer</span><br><br>
                                             </a>
                                         </div>
@@ -578,10 +591,10 @@
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('stock_Transfer_location')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Stock
+                                                <span style=" font-weight: bold;">Stock
                                                     Transfer (Location)</span>
                                             </a>
                                         </div>
@@ -589,10 +602,10 @@
 
                                     <div class="col-md-6 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Laporan_Pemeriksaan')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Laporan
+                                                <span style="font-weight: bold;">Laporan
                                                     Pemeriksaan Akhir, Pembungkusan & Penghantaran ke stor</span>
                                             </a>
                                         </div>
@@ -605,10 +618,10 @@
 
                                     <div class="col-md-4 d-flex justify-content-center ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="">
+                                            <a href="{{route('Pemeriksaan_Penghantaran')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Pemeriksaan
+                                                <span style="font-weight: bold;">Pemeriksaan
                                                     penghantaran</span>
                                             </a>
                                         </div>
@@ -631,10 +644,10 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="">
+                                            <a href="{{route('MachineDashboard.index')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Machine
+                                                <span style=" font-weight: bold;">Machine
                                                     Dashboard</span><br><br>
                                             </a>
                                         </div>
@@ -642,10 +655,10 @@
 
                                     <div class="col-md-3">
                                         <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="">
+                                            <a href="{{route('ShopFloor')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important; font-weight: bold;">Production
+                                                <span style=" font-weight: bold;">Production
                                                     Shopfloor</span> <br><br>
                                             </a>
                                         </div>
@@ -653,21 +666,21 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="">
+                                            <a href="{{route('OEEDashboard.index')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span
-                                                    style="font-size:14px !important;font-weight: bold;">OEE</span><br><br><br>
+                                                    style="font-weight: bold;">OEE</span><br><br><br>
                                             </a>
                                         </div>
                                     </div>
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="">
+                                            <a href="{{route('invertory_ShopFloor')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
-                                                <span style="font-size:14px !important;font-weight: bold;">Inventory
+                                                <span style="font-weight: bold;">Inventory
                                                     Shopfloor</span><br><br>
                                             </a>
                                         </div>

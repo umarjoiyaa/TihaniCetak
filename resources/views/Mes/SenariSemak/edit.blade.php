@@ -1023,7 +1023,7 @@
                                             <div class="row">
                                                 <div class="col-md-5"> Lain-lain (nyatakan): </div>
                                                 <div class="col-md-7"><input type="text" width=""
-                                                        placeholder="Text input"
+                                                        
                                                         value="{{$senari_semak->bahagian_c_11_input}}"
                                                         name="behagian_c_11_input" id="" class="form-control"></div>
                                             </div>
