@@ -1,7 +1,7 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card mt-5">
@@ -9,13 +9,13 @@
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">Good Receiving</h4>
                         </div>
-                        
+
                     </div>
                     <div class="card-body">
                         <div class="d-flex justify-content-end">
                         <!-- <a href="" class="btn btn-primary mb-2">Create User</a> -->
                         </div>
-                    
+
                         <table class="table  mt-2" id="example1">
                             <thead>
                                 <tr>
@@ -51,10 +51,10 @@
                 </div>
             </div>
         </div>
-    </div>
 
-    
 
-    
+
+
+
 
     @endsection

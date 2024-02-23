@@ -1,242 +1,219 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
+<form action="{{ route('ctp.update', $ctp->id) }}" method="POST">
+    @csrf
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>LAPORAN PROSES PENCETAKANl</h5>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
+                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                        </div>
+                    </div>
+
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
+                                        <label for="">Tarikh</label>
+                                        <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($ctp->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Time</label>
-                                    <input type="time" value="Admin" readonly name="" id="" class="form-control">
+                                    <label for="">Masa</label>
+                                    <input name="time"  type="time" id="Currenttime"
+                                    value="{{ $ctp->time }}"
+                                    class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Checked By (Operator)</div>
-                                        <input type="text" value="Admin" readonly name="" id="" class="form-control">
+                                        <div class="label">Disemak Oleh</div>
+                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                        class="form-control" name="" id="">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order  No.</div>
-                                        <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="">SO-001496</option>
+                                        <div class="label">Sales Order No.</div>
+                                        <select name="sale_order" data-id="{{ $ctp->sale_order_id }}"
+                                            id="sale_order" class="form-control">
+                                            <option value="{{ $ctp->sale_order_id }}" selected
+                                                style="color: black; !important">
+                                                {{ $ctp->sale_order->order_no }}</option>
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
-                                        <input type="text" readonly value="auto Display"
-                                            class="form-control">
+                                        <input type="text" readonly  class="form-control" id="tajuk">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text" value="auto Display" readonly name="" id=""
+                                        <input type="text"  readonly name="" id="kod_buku"
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
-                                        <input type="text" readonly value="input text" name="" id="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                    <div class="label">Kuantiti cetakan</div>
-                                        <input type="number" readonly value="input text" name="" id="" class="form-control">
-                                    </div>
-                                </div>
+                            </div>
 
-                                
-                                <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Kuantiti waste</label>
-                                            <input type="text" readonly value="input text" name="" id="" class="form-control">
-                                        </div>
-                                </div>
 
-                                <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <label for="">Operator</label>
-                                            <select name="" id="" class="form-control">
-                                                <option value="" disabled>select sales Order no</option>
-                                                <option value="">User A</option>
-                                                <option value="">User B</option>
-                                            </select>
-                                        </div>
-                                </div>
+                            <div class="row mt-5">
+                                <div class="col-md-5">
+                                    <h6><b>File Artwork</b></h6>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
 
+                                            </tr>
+                                            <tr>
+                                                <th>OK</th>
+                                                <th>NG</th>
+                                                <th>NA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>Format file</td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($ctp->file_artwork_1 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)"  name="file_artwork_1" @checked($ctp->file_artwork_1 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($ctp->file_artwork_1 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saiz Product</td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2"  @checked($ctp->file_artwork_2 == 'ok') value="ok"  id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)"  name="file_artwork_2" @checked($ctp->file_artwork_2 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($ctp->file_artwork_2 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bleed</td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($ctp->file_artwork_3 == 'ok') value="ok"id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)"  name="file_artwork_3" @checked($ctp->file_artwork_3 == 'ng') value="ng"id=""></td>
+                                                <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($ctp->file_artwork_3 == 'na') value="na"id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saiz Spine</td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)"  name="file_artwork_4" @checked($ctp->file_artwork_4 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($ctp->file_artwork_4 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Alamat pencetak</td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($ctp->file_artwork_5 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)"  name="file_artwork_5" @checked($ctp->file_artwork_5 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($ctp->file_artwork_5 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jumlah muka surat</td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($ctp->file_artwork_6 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)"  name="file_artwork_6" @checked($ctp->file_artwork_6 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($ctp->file_artwork_6 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Turutan muka surat</td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" @checked($ctp->file_artwork_7 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)"  name="file_artwork_7" @checked($ctp->file_artwork_7 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover4" onchange="handleCheckboxChange('Cover4',this)" name="file_artwork_7" @checked($ctp->file_artwork_7 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kedudukan Artwork Cover (hardcover)</td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="file_artwork_8" @checked($ctp->file_artwork_7 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)"  name="file_artwork_8" @checked($ctp->file_artwork_7 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text4" onchange="handleCheckboxChange('Text4',this)" name="file_artwork_8" @checked($ctp->file_artwork_7 == 'na') value="na" id=""></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-5">
+                                    <h6><b>impositions</b></h6>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">kriteria</th>
+                                                <th colspan="3">Tanda bagi Yang bekenaan</th>
+
+                                            </tr>
+                                            <tr>
+                                                <th>OK</th>
+                                                <th>NG</th>
+                                                <th>NA</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td>Front and Back imposition</td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="impositions_1" @checked($ctp->impositions_1 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)"  name="impositions_1" @checked($ctp->impositions_1 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="impositions_1" @checked($ctp->impositions_1 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kedudukan imposition</td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="impositions_2" @checked($ctp->impositions_2 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)"  name="impositions_2" @checked($ctp->impositions_2 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text5" onchange="handleCheckboxChange('Text5',this)" name="impositions_2" @checked($ctp->impositions_2 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Saiz spacing</td>
+                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="impositions_3" @checked($ctp->impositions_3 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)"  name="impositions_3" @checked($ctp->impositions_3 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="impositions_3" @checked($ctp->impositions_3 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Printing method (Straight @ Perfecting)</td>
+                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="impositions_4" @checked($ctp->impositions_4 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)"  name="impositions_4" @checked($ctp->impositions_4 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text6" onchange="handleCheckboxChange('Text6',this)" name="impositions_4" @checked($ctp->impositions_4 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jumlah Up</td>
+                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="impositions_5" @checked($ctp->impositions_5 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)"  name="impositions_5" @checked($ctp->impositions_5 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="impositions_5" @checked($ctp->impositions_5 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Dummy Lipat</td>
+                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="impositions_6" @checked($ctp->impositions_6 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)"  name="impositions_6" @checked($ctp->impositions_6 == 'ng') value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text7" onchange="handleCheckboxChange('Text7',this)" name="impositions_6" @checked($ctp->impositions_6 == 'na') value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jenis Penjilidan </td>
+                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="impositions_7" @checked($ctp->impositions_7 == 'ok')  value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)"  name="impositions_7" @checked($ctp->impositions_7 == 'ng')  value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="impositions_7" @checked($ctp->impositions_7 == 'na')  value="na" id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Jenis Kertas</td>
+                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="impositions_8" @checked($ctp->impositions_8 == 'ok')  value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)"  name="impositions_8" @checked($ctp->impositions_8 == 'ng')  value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text8" onchange="handleCheckboxChange('Text8',this)" name="impositions_8" @checked($ctp->impositions_8 == 'na')  value="na" id=""></td>
+
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-2">
+                                    <a href="" class="float-right" style="color:blue;"><b>RUJUKAN</b></a>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-md-5">
-                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
-                        </div>
-                        <div class="col-md-11">
-
-                            <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <td rowspan="2">No</td>
-                                            <td rowspan="2">kriteria</td>
-                                            <td colspan="3">cover</td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <th>OK</th>
-                                            <th>NG</th>
-                                            <th>NA</th>  
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    
-                                    <tr>
-                                            <td>1</td>
-                                            <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
-                                            <td><input type="checkbox"  name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Artwork (Semak gambar dan teks)</td>
-                                            <td><input type="checkbox"  name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Kotor, calar (Periksa setiap muka surat)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>5</td>
-                                            <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>6</td>
-                                            <td>Turutan mukasurat (Berturutan)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>7</td>
-                                            <td>Kelekatan matt/gloss lamination</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>8</td>
-                                            <td>Koyak (Terkoyak / Rosak)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            
-                                        </tr>
-                                        <tr>
-                                            <td>9</td>
-                                            <td>Imej/artwork terpotong</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        <tr>
-                                            <td>10</td>
-                                            <td>Cop (Cop pada setiap mockup)</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" checked name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                 </table>
-                        </div>
-                    </div>
-
-                    <div class="row mt-5">
-                        <div class="col-md-12">
-                            <h5>C) Pemeriksaan semasa proses Pencetakan</h5>
-                        </div>
-                        <div class="col-md-12 mt-3">
-                            <div class="table-responsive">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <td rowspan="2">Jumlah</td>
-                                            <td colspan="7">Kriteria</td>
-                                            <td rowspan="2">Check</td>
-                                            <td rowspan="2">Check (Operator)</td>
-                                            <td rowspan="2">Verify (QC)</td>
-                                            <td rowspan="2">Verify</td>
-                                            <td rowspan="2">Action</td>
-                                        </tr>
-                                        <tr>
-                                            <th>Gambar/teks</th>
-                                            <th>warna</th>
-                                            <th>Register depan belakang</th>
-                                            <th>Tiada set off, kotor, hickies</th>
-                                            <th>Tiada doubling</th>
-                                            <th>Periksa powder</th>
-                                            <th>Frontlay & sidelay</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>500</td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><input type="checkbox" name="" id=""></td>
-                                            <td><button class="btn btn-primary" style="border-radius:5px; ">check</button></td>
-                                            <td>username / datetime</td>
-                                            <td><button class="btn" style="border-radius:25px; background:#000; color:white; ">Verify</button></td>
-                                            <td>username / datetime</td>
-                                            <td><button class="btn btn-danger" style="border-radius:5px; ">X</button></td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                    
-
-                     
 
                     <div class="row">
                         <div class="col-md-12">
@@ -246,8 +223,70 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('SenariSemak.index')}}">back to list</a>
+        <a href="{{route('ctp')}}">back to list</a>
     </div>
-</div>
-</div>
+</form>
 @endsection
+@push('custom-scripts')
+<script>
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
+        }
+
+        $(document).ready(function() {
+            $('#sale_order').trigger('change');
+            $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.text || null;
+                }
+            });
+        });
+
+        $('#sale_order').on('change', function() {
+            const id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '{{ route('sale_order_penjilidan.detail.get') }}',
+                data: {
+                    "id": id
+                },
+                success: function(data) {
+                    $('#kod_buku').val(data.sale_order.kod_buku);
+                    $('#tajuk').val(data.sale_order.description);
+                }
+            });
+        });
+</script>
+@endpush

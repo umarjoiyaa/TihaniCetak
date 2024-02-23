@@ -1,265 +1,237 @@
-@extends('app')
+@extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <div class="card">
-                <div class="card-body">
-                    <h5>LAPORAN PROSES PENJILIDAN (PERFECT BIND)</h5>
-
-                    <div class="card" style="background:#f1f0f0;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <label for="">Time</label>
-                                    <input type="time" value="Admin" readonly name="" id="" class="form-control">
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Checked By (Operator)</div>
-                                        <input type="text" value="Admin" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
-                                        <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="">SO-001496</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Tajuk</div>
-                                        <input type="text" readonly value="auto Display" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Kod Buku</div>
-                                        <input type="text" value="auto Display" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
-                                        <input type="text" readonly value="input text" name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Kuantiti cetakan</div>
-                                        <input type="number" readonly value="input text" name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Kuantiti waste</label>
-                                        <input type="text" readonly value="input text" name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Operator</label>
-                                        <select name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="">User A</option>
-                                            <option value="">User B</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
+<form action="{{ route('proses_pembungkusan.update',$proses_pembungkusan->id) }}" method="POST">
+    @csrf
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSANE</b></h5>
+                        <p class="float-right">TCBS-B23 (Rev.5)</p>
                     </div>
+                </div>
+                <div class="card" style="background:#f1f0f0;">
+                    <div class="card-body">
 
-                    <div class="row mt-5" style="background:#f1f0f0;">
-                        <div class="col-md-12 mt-5">
-                            <h5>B) Pemeriksaan dan Pengesahan 1st Piece </h5>
-                        </div>
-                        <div class="col-md-8 mt-5">
+                        <div class="row">
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <label for="">Date</label>
+                                    <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($proses_pembungkusan->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <td rowspan="2">No</td>
-                                        <td colspan="4">Seksyen</td>
-
-                                    </tr>
-                                    <tr>
-                                        <th>Jenis lipatan</th>
-                                        <th>Kedudukan lipatan</th>
-                                        <th>Turutan muka surat</th>
-                                        <th>kotor/koyak</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                    <tr>
-                                        <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Artwork (Semak gambar dan teks)</td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <div class="row mt-5" style="background:#f1f0f0;">
-                        <div class="col-md-12 mt-5">
-                            <h5>Pemeriksaan semasa proses penjilidan </h5>
-                            
-                        </div>
-                        
-                            <div class="col-md-12">
-                                <button class="btn btn-primary float-right  mr-5">+ Add</button>
+                                   
+                                </div>
                             </div>
-                        
-                        <div class="col-md-12">
 
-                            <div class="container mt-5">
-                                <div class="row">
-                                    <div class="col-md-1">
-                                        <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
-                                            role="tablist">
-                                            <li class="nav-item">
-                                                <a class="nav-link " id="home-tab" data-toggle="tab" href="#home"
-                                                    role="tab" aria-controls="home" aria-selected="true">Home</a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile"
-                                                    role="tab" aria-controls="profile" aria-selected="false">Profile</a>
-                                            </li>
-
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-11">
-                                        <div class="tab-content" id="myTabContent">
-                                            <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <td rowspan="2">Jumlah </td>
-                                                                <td colspan="2">Seksyen 1</td>
-                                                                <td rowspan="2">Check</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Verify</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Action</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1000</td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><button class="btn btn-primary"
-                                                                        style="border-radius:5px; ">check</button></td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn"
-                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
-                                                                </td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn btn-danger"
-                                                                        style="border-radius:5px; ">X</button></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                            <div class="tab-pane fade" id="profile" role="tabpanel"
-                                                aria-labelledby="profile-tab">
-                                                <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <td rowspan="2">Jumlah </td>
-                                                                <td colspan="2">Seksyen 1</td>
-                                                                <td rowspan="2">Check</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Verify</td>
-                                                                <td rowspan="2">Username / datetime</td>
-                                                                <td rowspan="2">Action</td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                <td>1000</td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><input type="checkbox" name="" id=""></td>
-                                                                <td><button class="btn btn-primary"
-                                                                        style="border-radius:5px; ">check</button></td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn"
-                                                                        style="border-radius:25px; background:#000; color:white; ">Verify</button>
-                                                                </td>
-                                                                <td>username / datetime</td>
-                                                                <td><button class="btn btn-danger"
-                                                                        style="border-radius:5px; ">X</button></td>
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">Time</div>
+                                    <input name="time" type="time" id="Currenttime"
+                                    value="{{ $proses_pembungkusan->time }}"
+                                    class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">By</div>
+                                    <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                    class="form-control" name="" id="">
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-
-
-
-
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="btn btn-primary float-right mt-3">Save</button>
+                        <div class="row">
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">Sales Order No</div>
+                                    <select name="sale_order" data-id="{{ $proses_pembungkusan->sale_order_id }}"
+                                        id="sale_order" class="form-control">
+                                        <option value="{{ $proses_pembungkusan->sale_order_id }}" selected
+                                            style="color: black; !important">
+                                            {{ $proses_pembungkusan->sale_order->order_no }}</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">Tajuk</div>
+                                    <input type="text" value="auto Display" readonly name="" id="tajuk" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">Kod Buku</div>
+                                    <input type="text" readonly value="auto Display" name="" id="kod_buku" class="form-control">
+                                </div>
+                            </div>
                         </div>
+                        <div class="row">
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <div class="label">Mesin</div>
+                                    <input type="text" value="ST1" readonly name="machine" id="machine" class="form-control">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4 mt-4">
+                                <div class="form-group">
+                                    <label for="">Kategori</label>
+                                    <select name="kategori" class="form-control form-select" id="kategori">
+                                        <option value="-1" selected disabled>pilih Kategori</option>
+                                        <option value="Shrink Wrap + Packing" @selected($proses_pembungkusan->kategori == "Shrink Wrap + Packing" )>Shrink Wrap + Packing</option>
+                                        <option value="Packing" @selected($proses_pembungkusan->kategori == "Packing" )>Packing</option>
+                                        <option value="Kotak" @selected($proses_pembungkusan->kategori == "Kotak" )>Kotak</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-5 mt-5">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th rowspan="2">Kriteria</th>
+                                                <th colspan="2">Tanda bagi yang berkenaan</th>
+
+                                            </tr>
+                                            <tr>
+                                                <th>OK</th>
+                                                <th>NG</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td >Kuantiti yang betul </td>
+                                                <td><input type="checkbox" class="Cover1"
+                                                        onchange="handleCheckboxChange('Cover1',this)"  @checked($proses_pembungkusan->checklist_1 == "ok")  name="checklist_1" value="ok" id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Cover1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" @checked($proses_pembungkusan->checklist_1 == "ng") value="ng" name="checklist_1"
+                                                        id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Koyak</td>
+                                                <td><input type="checkbox" class="Text1"
+                                                        onchange="handleCheckboxChange('Text1',this)" name="checklist_2" @checked($proses_pembungkusan->checklist_2 == "ok") value="ok"  id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Text1"
+                                                        onchange="handleCheckboxChange('Text1',this)" @checked($proses_pembungkusan->checklist_2 == "ng") value="ng" name="checklist_2"
+                                                        id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Kotor</td>
+                                                <td><input type="checkbox" class="Cover2"
+                                                        onchange="handleCheckboxChange('Cover2',this)" name="checklist_3" @checked($proses_pembungkusan->checklist_3 == "ok") value="ok" id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Cover2"
+                                                        onchange="handleCheckboxChange('Cover2',this)" @checked($proses_pembungkusan->checklist_3 == "ng") value="ng" name="checklist_3"
+                                                        id=""></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Pematuhan Sop</td>
+                                                <td><input type="checkbox" class="Text2"
+                                                        onchange="handleCheckboxChange('Text2',this)" name="checklist_4" @checked($proses_pembungkusan->checklist_4 == "ok") value="ok"  id="">
+                                                </td>
+                                                <td><input type="checkbox" class="Text2"
+                                                        onchange="handleCheckboxChange('Text2',this)" @checked($proses_pembungkusan->checklist_4 == "ng") value="ng" name="checklist_4"
+                                                        id=""></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <button class="btn btn-primary float-right mt-3">Save</button>
                     </div>
                 </div>
             </div>
         </div>
-        <a href="{{route('LoPoranProsesLipat.index')}}">back to list</a>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{route('proses_pembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
+                back to list</a>
+        </div>
     </div>
 </div>
-</div>
+</form>
 @endsection
 
-@section('Script')
+@push('custom-scripts')
+<script>
+     function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+              $(`.${ className }`).not(checkbox).prop('checked', false);
+            }
+        }
 
-@endsection
+        $(document).ready(function() {
+            $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.order_no || null;
+                }
+            });
+
+            $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                        $('#kod_buku').val(data.kod_buku);
+                        $('#tajuk').val(data.description);
+                        $('#size').val(data.size);
+
+                    }
+                });
+            });
+        });
+
+</script>
+@endpush

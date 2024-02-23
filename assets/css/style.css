@@ -17,6 +17,9 @@
   background-color: transparent;
   font-weight: 500;
 }
+.form-select{
+    width:100% !important;
+}
 .accordion .card-header a {
   display: block;
   padding: 14px 20px;
@@ -210,8 +213,9 @@
   position: relative;
   padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
-  border: 1px solid transparent;
-  border-radius: 3px;
+  border: 1px solid #a3cfbb;
+  border-radius: 9px;
+  border-color: inherit;
 }
 .alert-heading {
   color: inherit;
@@ -252,9 +256,9 @@
   color: #292e37;
 }
 .alert-success {
-  color: #1f5c01;
-  background-color: #d8efcc;
-  border-color: #c8e9b8;
+  color: #ffffff;
+  background-color:  #18002D;
+  border-color: #18002D;
 }
 .alert-success hr {
   border-top-color: #b9e3a5;
@@ -321,6 +325,8 @@
   border-width: 0;
   padding: 12px 15px;
   border-radius: 0;
+  border: 1px solid #a3cfbb;
+  border-radius: 9px;
 }
 .alert .close {
   text-shadow: none;
@@ -5355,6 +5361,7 @@ a.close.disabled {
   color: #1c273c;
   font-weight: 500;
   letter-spacing: -0.1px;
+  border-left:3px solid #18002D;
 }
 @media (min-width: 768px) {
   .nav-tabs .nav-link {
@@ -13017,6 +13024,13 @@ body {
 .bg-transparent {
   background: transparent;
 }
+
+table.datatable {
+    width: 100% !important;
+    margin: 0 auto;
+    border-spacing: 0;
+}
+
 .arrow-ribbon {
   padding: 6px 8px;
   position: absolute;
