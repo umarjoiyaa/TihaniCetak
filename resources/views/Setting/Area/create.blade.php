@@ -6,7 +6,6 @@
                 <div class="card-header pb-0">
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title tx-20 mg-b-0 p-2">AREA</h4>
-
                     </div>
                 </div>
                 <div class="card-body">
