@@ -318,7 +318,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -686,7 +686,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -1062,7 +1062,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <button class="btn btn-primary float-right">Save</button>
                 </div>

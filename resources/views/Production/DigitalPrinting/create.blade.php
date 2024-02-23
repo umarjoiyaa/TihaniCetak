@@ -187,8 +187,8 @@
                                         <label for="">Print</label>
                                         <select name="text_print" id="print0" placeholder="Pilih print"
                                             class="form-control form-select">
-                                            <option value="">1C</option>
-                                            <option value="">4C</option>
+                                            <option value="1C">1C</option>
+                                            <option value="4C">4C</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">
@@ -245,8 +245,8 @@
                                         <label for="">Print</label>
                                         <select name="cover_print" id="print1" placeholder="Pilih print"
                                             class="form-control form-select">
-                                            <option value="">1C</option>
-                                            <option value="">4C</option>
+                                            <option value="1C">1C</option>
+                                            <option value="4C">4C</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4"></div>
@@ -672,11 +672,9 @@
 
                     var newInput = $("<input>", {
                         type: "text",
-                        name: "machine_others",
+                        name: "mesin_others",
                         class: "form-control",
                         id: "newInput",
-                        name: "otherProduct",
-
                     });
 
                     // Clear existing content in #box1 and append the new label and input elements
@@ -699,8 +697,6 @@
                         name: "jenis_produk_others",
                         class: "form-control",
                         id: "newInput",
-                        name: "otherProduct",
-
                     });
 
                     // Clear existing content in #box1 and append the new label and input elements
@@ -852,17 +848,15 @@
                     $("#input").prop("disabled", true);
                 }
             });
-        });
 
-        $("#Form20").change(function() {
-            if ($(this).is(":checked")) {
-                $("#form20").prop("disabled", false);
-            } else {
-                $("#form20").prop("disabled", true);
-            }
-        });
+            $("#Form20").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form20").prop("disabled", false);
+                } else {
+                    $("#form20").prop("disabled", true);
+                }
+            });
 
-        $(document).ready(function() {
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',

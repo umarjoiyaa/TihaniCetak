@@ -128,23 +128,44 @@ class DigitalPrintingController extends Controller
             $index = 0;
             foreach ($uom as $row) {
                 $row->sr_no = $start + $index + 1;
-                $badge = 'warning';
-                if($row->status == 'Started'){
-                    $badge = 'info';
-                }else if($row->status == 'Paused'){
-                    $badge = 'danger';
-                }else if($row->status == 'Completed'){
-                    $badge = 'success';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Started') {
+                    $row->status = '<span class="badge badge-success">Started</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Paused') {
+                    $row->status = '<span class="badge badge-info">Paused</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Completed') {
+                    $row->status = '<span class="badge badge-success">Completed</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Declined') {
+                    $row->status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Verified') {
+                    $row->status = '<span class="badge badge-success">Verified</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
                 }
-                $row->status = '<span class="badge badge-'.$badge.'">'.$row->status.'</span>';
+
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
-                                <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>
+                                    ' . $actions . '
                                 </div>
                             </div>';
                 $index++;
@@ -225,23 +246,44 @@ class DigitalPrintingController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                $badge = 'warning';
-                if($row->status == 'Started'){
-                    $badge = 'info';
-                }else if($row->status == 'Paused'){
-                    $badge = 'danger';
-                }else if($row->status == 'Completed'){
-                    $badge = 'success';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Started') {
+                    $row->status = '<span class="badge badge-success">Started</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Paused') {
+                    $row->status = '<span class="badge badge-info">Paused</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Completed') {
+                    $row->status = '<span class="badge badge-success">Completed</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Declined') {
+                    $row->status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'Verified') {
+                    $row->status = '<span class="badge badge-success">Verified</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
                 }
-                $row->status = '<span class="badge badge-'.$badge.'">'.$row->status.'</span>';
+
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
-                                <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>
+                                    ' . $actions . '
                                 </div>
                             </div>';
             });
@@ -409,7 +451,7 @@ class DigitalPrintingController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $digital_printing = new DigitalPrinting();
+        $digital_printing = DigitalPrinting::find($id);
         $digital_printing->sale_order_id = $request->sale_order;
         $digital_printing->date = $request->date;
         $digital_printing->jumlah_mukasurat = $request->jumlah_mukasurat;
@@ -473,8 +515,9 @@ class DigitalPrintingController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $digital_printing = DigitalPrinting::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.proses', compact('digital_printing'));
+        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers'));
     }
 
     public function delete($id){
