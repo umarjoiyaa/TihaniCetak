@@ -317,6 +317,6 @@ class AreaShelfController extends Controller
         }
         $area_Shelf->delete();
         Helper::logSystemActivity('Area Shelf', 'Area Shelf Delete');
-        return redirect()->route('area_Shelf')->with('custom_success', 'Area Shelf has been Deleted Successfully !');
+        return redirect()->route('area_shelf')->with('custom_success', 'Area Shelf has been Deleted Successfully !');
     }
 }
