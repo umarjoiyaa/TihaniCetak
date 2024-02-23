@@ -13,21 +13,21 @@
                     <div class="row mt-3">
                         <form action="{{ route('area.update', $area->id) }}" method="post">
                             @csrf
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Area Name</label>
                                     <input type="text" class="form-control required" name="name"
                                         value="{{ $area->name }}" >
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Area Code</label>
                                     <input type="text" class="form-control required" name="code"
                                         value="{{ $area->code }}" >
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf</label>
                                     <select name="shelf" class="form-select">
