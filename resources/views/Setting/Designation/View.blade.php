@@ -15,7 +15,7 @@
                             <div class="control-group form-group">
                                 <label class="form-label">Designation Name</label>
                                 <input disabled type="text" class="form-control required" value="{{ $designation->name }}"
-                                    name="name" placeholder="Designation Name">
+                                    name="name">
                             </div>
                         </div>
                     </div>

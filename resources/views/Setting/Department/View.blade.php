@@ -15,7 +15,7 @@
                             <div class="control-group form-group">
                                 <label class="form-label">Department Name</label>
                                 <input disabled type="text" class="form-control required" value="{{ $department->name }}"
-                                    name="name" placeholder="Department Name">
+                                    name="name">
                             </div>
                         </div>
                     </div>

@@ -16,7 +16,7 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Department Name</label>
-                                    <input type="text" class="form-control required" name="name" value="{{old('name')}}" placeholder="Department Name">
+                                    <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                 </div>
                             </div>
                     </div>

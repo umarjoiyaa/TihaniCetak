@@ -17,14 +17,14 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf Name</label>
                                     <input type="text" class="form-control required" name="name"
-                                        value="{{ $area_shelf->name }}" placeholder="Shelf Name">
+                                        value="{{ $area_shelf->name }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf Code</label>
                                     <input type="text" class="form-control required" name="code"
-                                        value="{{ $area_shelf->code }}" placeholder="Shelf Code">
+                                        value="{{ $area_shelf->code }}">
                                 </div>
                             </div>
                             <div class="col-md-4">

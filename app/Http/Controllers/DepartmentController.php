@@ -180,7 +180,7 @@ class DepartmentController extends Controller
             Auth::user()->hasPermissionTo('Department View')
         ) {
             Helper::logSystemActivity('Department', 'Department List');
-            return view('Setting.Department.Index');
+            return view('Setting.Department.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
@@ -190,7 +190,7 @@ class DepartmentController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         Helper::logSystemActivity('Department', 'Department Create');
-        return view('Setting.Department.Create');
+        return view('Setting.Department.create');
     }
     public function store(Request $request)
     {

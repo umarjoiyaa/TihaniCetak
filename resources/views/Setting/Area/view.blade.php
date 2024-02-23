@@ -15,14 +15,14 @@
                             <div class="control-group form-group">
                                 <label class="form-label">Area Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
-                                    value="{{ $area->name }}" placeholder="Area Name">
+                                    value="{{ $area->name }}" >
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Area Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
-                                    value="{{ $area->code }}" placeholder="Area Code">
+                                    value="{{ $area->code }}" >
                             </div>
                         </div>
                         <div class="col-md-4">
