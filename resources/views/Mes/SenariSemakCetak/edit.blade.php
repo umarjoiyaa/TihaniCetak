@@ -189,7 +189,7 @@
                                                     name="bahagianA[4][2]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_2 == 'ng') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper2"
                                                     onchange="handleCheckboxChange('Endpaper2')" name="bahagianA[4][2]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
+                                                    id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -761,7 +761,7 @@
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan teks (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_7"
+                                        <input type="text" name="bahagian_b_7"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_7 }}">
                                     </div>
@@ -769,7 +769,7 @@
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan cover (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_8"
+                                        <input type="text" name="bahagian_b_8"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_8 }}">
                                     </div>
@@ -777,7 +777,7 @@
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan endpaper (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_9"
+                                        <input type="text" name="bahagian_b_9"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_9 }}">
                                     </div>

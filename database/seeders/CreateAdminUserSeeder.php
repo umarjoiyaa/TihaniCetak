@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use App\Models\Department;
 use App\Models\SaleOrder;
+use App\Models\Supplier;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use Spatie\Permission\Models\Role;
@@ -65,6 +66,21 @@ class CreateAdminUserSeeder extends Seeder
             'remarks' => 'qwerty',
             'delivery_date' => '01-03-2023',
             'order_status' => 'published',
+        ]);
+
+        Supplier::create([
+            'name' => 'Supplier A',
+            'code' => 'SPA'
+        ]);
+
+        Supplier::create([
+            'name' => 'Supplier B',
+            'code' => 'SPB'
+        ]);
+
+        Supplier::create([
+            'name' => 'Supplier C',
+            'code' => 'SPC'
         ]);
     }
 }

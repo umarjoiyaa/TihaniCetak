@@ -192,6 +192,12 @@ class PermissionTableSeeder extends Seeder
             'KULIT BUKU Verify',
             'KULIT BUKU View',
             'KULIT BUKU Delete',
+            'DIGITAL PRINTING List',
+            'DIGITAL PRINTING Create',
+            'DIGITAL PRINTING Update',
+            'DIGITAL PRINTING Proses',
+            'DIGITAL PRINTING View',
+            'DIGITAL PRINTING Delete',
          ];
 
         foreach ($permissions as $permission) {

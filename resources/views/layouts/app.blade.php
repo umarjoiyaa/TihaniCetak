@@ -18,7 +18,7 @@
     <!-- Title -->
     <title> Tihani Cetak </title>
 
-    
+
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/img/tihani.png') }}" type="image/x-icon" />
 
@@ -75,13 +75,13 @@
     <!-- Switcher css -->
     <link href="{{ asset('assets/switcher/css/switcher.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
- 
+
     @yield('css')
-    
+
 </head>
 
 <body class="main-body app sidebar-mini Light-mode">
@@ -826,7 +826,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('digitalPrinting.index') }}"
+                                                                        href="{{ route('digital_printing') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
