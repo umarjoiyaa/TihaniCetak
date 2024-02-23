@@ -39,7 +39,7 @@
                                 <div class="form-group">
                                     <label for="">Phone Num.</label>
                                     <input disabled type="text" name="phone_no" id="" class="form-control"
-                                        value="{{ $user->phone_no }}">
+                                        value="{{ $user->contact_no }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -47,13 +47,6 @@
                                     <label for="">User Name</label>
                                     <input disabled type="text" name="user_name" id="" class="form-control"
                                         value="{{ $user->user_name }}">
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label for="">Password</label>
-                                    <input disabled type="password" name="password" id="" class="form-control"
-                                        value="">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -87,7 +80,6 @@
                                         $item = json_decode($user->role_ids);
                                     @endphp
                                     <select disabled name="role" class="form-select" multiple>
-                                        <option value="" disabled selected>Select any option</option>
                                         @foreach ($roles as $role)
                                             <option value="{{ $role->id }}"
                                                 @if ($item) {{ in_array($role->id, $item) ? 'selected' : '' }} @endif>

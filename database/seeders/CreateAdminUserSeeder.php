@@ -37,9 +37,40 @@ class CreateAdminUserSeeder extends Seeder
 
         $user->assignRole([$role->id]);
 
-        $sale_order = SaleOrder::create([
+        SaleOrder::create([
+            'order_no' => 'SO-001497',
+            'customer' => 'EDUKID DISTRIBUTORS SDN BHD',
+            'po_no' => 'PO-001124',
+            'terms' => 'ok',
+            'date' => '02-03-2023',
+            'item' => '1',
+            'description' => 'abc',
+            'uom' => 'Temperature',
+            'sale_order_qty' => '124',
+            'delivery_qty' => '90',
+            'remaining_qty' => '08',
+            'status' => 'New',
+            'kod_buku' => '250',
+            'catekan' => '9',
+            'size' => '123',
+            'pages_cover' => '21',
+            'pages_text' => '32',
+            'paper_cover' => '43',
+            'paper_text' => '343',
+            'printing_cover' => '432',
+            'printing_text' => 'abc',
+            'finishing' => 'abc',
+            'binding' => 'abc',
+            'shrinking_wrapping' => 'abc',
+            'extra_stock' => '100',
+            'remarks' => 'abc',
+            'delivery_date' => '02-03-2023',
+            'order_status' => 'published',
+        ]);
+
+        SaleOrder::create([
             'order_no' => 'SO-001496',
-            'customer' => 'Mr admin',
+            'customer' => 'EDUKID DISTRIBUTORS SDN BHD',
             'po_no' => 'PO-001123',
             'terms' => 'ok',
             'date' => '01-03-2023',

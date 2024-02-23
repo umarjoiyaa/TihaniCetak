@@ -13,14 +13,14 @@
                             <div class="col-md-8">
                                 <h4>User Information </h4>
                             </div>
+                        </div>
+                        <form action="{{route('user.update', $user->id)}}" method="post">
+                            @csrf
                             <div class="col-md-4 d-flex justify-content-end">
                                 <div class="form-group">
                                     <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Is Active</span></label>
                             </div>
                             </div>
-                        </div>
-                        <form action="{{route('user.update', $user->id)}}" method="post">
-                            @csrf
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
