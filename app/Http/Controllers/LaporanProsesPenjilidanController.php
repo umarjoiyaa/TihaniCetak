@@ -310,7 +310,7 @@ class LaporanProsesPenjilidanController extends Controller
 
     public function sale_order_detail(Request $request)
     {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'size')->where('id', $request->id)->first();
+        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'customer', 'pages_text', 'size')->where('id', $request->id)->first();
         $section = SenariSemakCetak::select('id', 'item_cover_text')->where('sale_order_id', $request->id)->first();
         return response()->json(['sale_order' => $sale_order, 'section' => $section]);
     }
