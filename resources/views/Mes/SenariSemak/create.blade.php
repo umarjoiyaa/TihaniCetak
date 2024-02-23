@@ -195,7 +195,7 @@
                                                     <td><input type="checkbox" class="Cover5"
                                                             onchange="handleCheckboxChange('Cover5',this)"
                                                             name="behagian_a_5_cover" value="na"></td>
-                                                    <td colspan="3"></td>
+                                                    <td colspan="3" readonly></td>
                                                 </tr>
                                                 <tr>
                                                     <td>6</td>
@@ -209,7 +209,7 @@
                                                     <td><input type="checkbox" class="Text5"
                                                             onchange="handleCheckboxChange('Text5',this)"
                                                             name="behagian_a_6_cover" value="na"></td>
-                                                    <td colspan="3"></td>
+                                                    <td colspan="3" readonly></td>
                                                 </tr>
                                                 <tr>
                                                     <td>7</td>
@@ -228,9 +228,9 @@
                                                 <tr>
                                                     <td>8</td>
                                                     <td>Cetakan (Sila nyatakan)</td>
-                                                    <td colspan="3"></td>
+                                                    <td colspan="3" readonly></td>
                                                     <td colspan="3"><input type="type" class="form-control"
-                                                            value="input text" name="behagian_a_8_text" id="">
+                                                             name="behagian_a_8_text" id="">
                                                     </td>
 
                                                 </tr>
@@ -835,7 +835,7 @@
                                                         <div class="row">
                                                             <div class="col-md-5"> Lain-lain (nyatakan): </div>
                                                             <div class="col-md-7"><input type="text" width=""
-                                                                    placeholder="Text input" name="behagian_c_11_input"
+                                                                    name="behagian_c_11_input"
                                                                     id="" class="form-control"></div>
                                                         </div>
                                                     </td>

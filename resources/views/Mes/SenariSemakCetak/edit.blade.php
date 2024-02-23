@@ -942,37 +942,53 @@
                                             Section {{ $key - 1 }}
                                         @endif
                                     </td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]" class="Cover1"
+                                        onchange="handleCheckboxChange('Cover1',this)"
                                             id="" value="ok" @checked($bahagian_c->bahagian_c_1 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]" class="Cover2"
+                                        onchange="handleCheckboxChange('Cover2',this)"
                                             id="" value="ng" @checked($bahagian_c->bahagian_c_1 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]" class="Cover3"
+                                        onchange="handleCheckboxChange('Cover3',this)"
                                             id="" value="na" @checked($bahagian_c->bahagian_c_1 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]" class="Cover4"
+                                        onchange="handleCheckboxChange('Cover4',this)"
                                             id="" value="ok" @checked($bahagian_c->bahagian_c_2 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"class="Cover5"
+                                        onchange="handleCheckboxChange('Cover5',this)"
                                             id="" value="ng" @checked($bahagian_c->bahagian_c_2 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]" class="Cover6"
+                                        onchange="handleCheckboxChange('Cover6',this)"
                                             id="" value="na" @checked($bahagian_c->bahagian_c_2 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]" class="Cover7"
+                                        onchange="handleCheckboxChange('Cover7',this)"
                                             id="" value="ok" @checked($bahagian_c->bahagian_c_3 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]" class="Cover8"
+                                        onchange="handleCheckboxChange('Cover8',this)"
                                             id="" value="ng" @checked($bahagian_c->bahagian_c_3 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]" class="Cover9"
+                                        onchange="handleCheckboxChange('Cover9',this)"
                                             id="" value="na" @checked($bahagian_c->bahagian_c_3 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]" class="Cover10"
+                                        onchange="handleCheckboxChange('Cover10',this)"
                                             id="" value="ok" @checked($bahagian_c->bahagian_c_4 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]" class="Cover11"
+                                        onchange="handleCheckboxChange('Cover11',this)"
                                             id="" value="ng" @checked($bahagian_c->bahagian_c_4 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]" class="Cover12"
+                                        onchange="handleCheckboxChange('Cover12',this)"
                                             id="" value="na" @checked($bahagian_c->bahagian_c_4 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]" class="Cover13"
+                                        onchange="handleCheckboxChange('Cover13',this)"
                                             id="" value="ok" @checked($bahagian_c->bahagian_c_5 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]" class="Cover14"
+                                        onchange="handleCheckboxChange('Cover14',this)"
                                             id="" value="ng" @checked($bahagian_c->bahagian_c_5 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]" class="Cover15"
+                                        onchange="handleCheckboxChange('Cover15',this)"
                                             id="" value="na" @checked($bahagian_c->bahagian_c_5 == 'na')></td>
-                                    <td><input type="text" placeholder="input text"
+                                    <td><input type="text" placeholder="input text"class="Cover16"
+                                        onchange="handleCheckboxChange('Cover16',this)"
                                             name="bahagianC[{{ $key + 1 }}][6]" id=""
                                             class="form-control" value="{{ $bahagian_c->bahagian_c_6 }}"></td>
                                 </tr>
@@ -1043,6 +1059,12 @@
 
 @push('custom-scripts')
     <script>
+        function handleCheckboxChange(className, checkbox) {
+            if ($(checkbox).prop('checked')) {
+                $(`.${className}`).not(checkbox).prop('checked', false);
+            }
+        }
+
         function handleCheckboxChange(groupClassName) {
             const checkboxes = document.querySelectorAll(`.${groupClassName}`);
 

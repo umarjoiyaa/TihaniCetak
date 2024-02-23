@@ -190,13 +190,13 @@
                                             <td>3</td>
                                             <td>Bleed (3-5mm)</td>
                                             <td class="cover" colspan="3"><input type="text"class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3')" placeholder="text input"
+                                                    onchange="handleCheckboxChange('Cover3')" 
                                                     class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
                                             <td class="text" colspan="3"><input type="text"class="Text3"
-                                                    onchange="handleCheckboxChange('Text3')" placeholder="text input"
+                                                    onchange="handleCheckboxChange('Text3')" 
                                                     class="form-control" name="bahagianA[3][3]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
-                                                    onchange="handleCheckboxChange('Endpaper3')"placeholder="text input"
+                                                    onchange="handleCheckboxChange('Endpaper3')"
                                                     class="form-control" name="bahagianA[4][3]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_3}}" @endif></td>
                                         </tr>
                                         <tr>
@@ -204,7 +204,7 @@
                                             <td>Saiz spine (perfect bind)</td>
                                             <td class="cover" colspan="3"><input type="text" class="Cover4"
                                                     onchange="handleCheckboxChange('Cover4')" readonly
-                                                    name="bahagianA[2][4]" placeholder="text input" class="form-control"
+                                                    name="bahagianA[2][4]" class="form-control"
                                                     id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_4}}" @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
@@ -216,7 +216,7 @@
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
                                                     id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper4"
-                                                    onchange="handleCheckboxChange('Endpaper4')" placeholder="text input"
+                                                    onchange="handleCheckboxChange('Endpaper4')"
                                                     class="form-control" readonly name="bahagianA[4][4]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_4}}" @endif>
                                             </td>
                                         </tr>
