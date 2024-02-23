@@ -266,7 +266,7 @@ class UomController extends Controller
 
         $Uom =  Uom::find($id);
         $Uom->name = $request->name;
-        $Uom->created_by = Auth::uesr()->id;
+        $Uom->created_by = Auth::user()->id;
         $Uom->save();
         Helper::logSystemActivity('UOM', 'UOM Update');
         return redirect()->route('uom')->with('custom_success', 'UOM has been Updated Successfully !');
