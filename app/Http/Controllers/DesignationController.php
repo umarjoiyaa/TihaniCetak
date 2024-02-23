@@ -250,7 +250,7 @@ class DesignationController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('Designations', 'name')->whereNull('deleted_at')->ignore($id),
+                Rule::unique('designations', 'name')->whereNull('deleted_at')->ignore($id),
             ]
         ]);
 
