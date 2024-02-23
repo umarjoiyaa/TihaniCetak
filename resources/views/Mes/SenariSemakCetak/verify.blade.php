@@ -1022,8 +1022,8 @@
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-12">
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-md-12 d-flex justify-content-end">
                             <form action="{{ route('senari_semak_cetak.approve.decline', $senari_semak_cetak->id) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf

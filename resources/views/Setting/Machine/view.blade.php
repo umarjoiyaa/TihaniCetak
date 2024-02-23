@@ -15,14 +15,14 @@
                             <div class="control-group form-group">
                                 <label class="form-label">Machine Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
-                                    value="{{ $machine->name }}" placeholder="Machine Name">
+                                    value="{{ $machine->name }}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Machine Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
-                                    value="{{ $machine->code }}" placeholder="Machine Code">
+                                    value="{{ $machine->code }}">
                             </div>
                         </div>
                     </div>

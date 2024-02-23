@@ -17,21 +17,21 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Item Code</label>
                                     <input type="text" class="form-control required" name="code"
-                                        value="{{ $product->code }}" placeholder="Item Code">
+                                        value="{{ $product->code }}" >
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Description</label>
                                     <input type="text" class="form-control required" name="description"
-                                        value="{{ $product->description }}" placeholder="Description">
+                                        value="{{ $product->description }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Group</label>
                                     <input type="text" class="form-control required" name="group"
-                                        value="{{ $product->group }}" placeholder="Group">
+                                        value="{{ $product->group }}">
                                 </div>
                             </div>
                         </div>
@@ -40,7 +40,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Base UOM</label>
                                     <input type="text" class="form-control required" name="base_uom"
-                                        value="{{ $product->base_uom }}" placeholder="Base UOM">
+                                        value="{{ $product->base_uom }}">
                                 </div>
                             </div>
                     </div>

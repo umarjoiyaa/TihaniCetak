@@ -16,7 +16,7 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Designation Name</label>
-                                    <input type="text" class="form-control required" value="{{$designation->name}}" name="name" placeholder="Designation Name">
+                                    <input type="text" class="form-control required" value="{{$designation->name}}" name="name">
                                 </div>
                             </div>
                     </div>

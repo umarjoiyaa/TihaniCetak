@@ -16,13 +16,13 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Machine Name</label>
-                                    <input type="text" class="form-control required" name="name" value="{{$machine->name}}" placeholder="Machine Name">
+                                    <input type="text" class="form-control required" name="name" value="{{$machine->name}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Machine Code</label>
-                                    <input type="text" class="form-control required" name="code" value="{{$machine->code}}" placeholder="Machine Code">
+                                    <input type="text" class="form-control required" name="code" value="{{$machine->code}}">
                                 </div>
                             </div>
                     </div>
