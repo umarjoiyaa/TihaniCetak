@@ -41,7 +41,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Base Value</label>
                                     <input type="number" class="form-control required" name="base_value"
-                                        value="{{ old('base_value') }}" placeholder="Base Value">
+                                        value="{{ old('base_value') }}" >
                                 </div>
                             </div>
                         </div>
@@ -50,7 +50,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Conversion Ratio</label>
                                     <input type="number" class="form-control required" name="conversion_ratio"
-                                        value="{{ old('conversion_ratio') }}" placeholder="Conversion Ratio">
+                                        value="{{ old('conversion_ratio') }}">
                                 </div>
                             </div>
                         </div>

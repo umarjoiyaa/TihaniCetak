@@ -39,7 +39,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Base Value</label>
                                     <input disabled type="number" class="form-control required" name="base_value"
-                                        value="{{ $UomConversion->from_value }}" placeholder="Base Value">
+                                        value="{{ $UomConversion->from_value }}">
                                 </div>
                             </div>
                         </div>
@@ -49,7 +49,7 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Conversion Ratio</label>
                                     <input disabled type="number" class="form-control required" name="conversion_ratio"
-                                        value="{{ $UomConversion->to_value }}" placeholder="Conversion Ratio">
+                                        value="{{ $UomConversion->to_value }}">
                                 </div>
                             </div>
                         </div>

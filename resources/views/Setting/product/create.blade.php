@@ -16,19 +16,19 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Item Code</label>
-                                    <input type="text" class="form-control required" name="code" value="{{old('code')}}" placeholder="Item Code">
+                                    <input type="text" class="form-control required" name="code" value="{{old('code')}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Description</label>
-                                    <input type="text" class="form-control required" name="description" value="{{old('description')}}" placeholder="Description">
+                                    <input type="text" class="form-control required" name="description" value="{{old('description')}}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Group</label>
-                                    <input type="text" class="form-control required" name="group" value="{{old('group')}}" placeholder="Group">
+                                    <input type="text" class="form-control required" name="group" value="{{old('group')}}" >
                                 </div>
                             </div>
                         </div>
@@ -36,7 +36,7 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Base UOM</label>
-                                    <input type="text" class="form-control required" name="base_uom" value="{{old('base_uom')}}" placeholder="Base UOM">
+                                    <input type="text" class="form-control required" name="base_uom" value="{{old('base_uom')}}">
                                 </div>
                             </div>
                     </div>
