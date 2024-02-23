@@ -489,11 +489,9 @@
                                         <td>17</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4"><input class="form-check-input inputChecked"
-                                                        type="checkbox" id=""> Others: </div>
                                                 <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        disabled>
+                                                        name="bahagianA[1][17]" id="" class="form-control textInput"
+                                                        >
                                                 </div>
                                             </div>
                                         </td>
@@ -530,11 +528,9 @@
                                         <td>18</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4"><input class="form-check-input inputChecked"
-                                                        type="checkbox" id=""> Others: </div>
                                                 <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        disabled>
+                                                        name="bahagianA[1][18]" id="" class="form-control textInput"
+                                                        >
                                                 </div>
                                             </div>
                                         </td>
@@ -570,11 +566,9 @@
                                         <td>19</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4"><input class="form-check-input inputChecked"
-                                                        type="checkbox" id=""> Others: </div>
                                                 <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        disabled>
+                                                        name="bahagianA[1][19]" id="" class="form-control textInput"
+                                                        >
                                                 </div>
                                             </div>
                                         </td>
@@ -610,11 +604,9 @@
                                         <td>20</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4"><input class="form-check-input inputChecked"
-                                                        type="checkbox" id=""> Others: </div>
                                                 <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        disabled>
+                                                        name="bahagianA[1][20]" id="" class="form-control textInput"
+                                                        >
                                                 </div>
                                             </div>
                                         </td>
@@ -650,11 +642,9 @@
                                         <td>21</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-4"><input class="form-check-input inputChecked"
-                                                        type="checkbox" id=""> Others: </div>
                                                 <div class="col-md-8"><input type="text" width=""
                                                         name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        disabled>
+                                                        >
                                                 </div>
                                             </div>
                                         </td>
@@ -754,21 +744,21 @@
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan teks (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_7" id=""
+                                        <input type="text" name="bahagian_b_7" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan cover (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_8" id=""
+                                        <input type="text" name="bahagian_b_8" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan endpaper (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_9" id=""
+                                        <input type="text" name="bahagian_b_9" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -1103,14 +1093,14 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>
 
         </div>
-        
+
     </div>
     <a href="{{ route('senari_semak_cetak') }}">back to list</a>
-   
+
 </form>
 @endsection
 

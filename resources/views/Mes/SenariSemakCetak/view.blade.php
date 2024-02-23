@@ -184,7 +184,7 @@
                                                     name="bahagianA[4][2]" id="" value="ng" @if($detail1[3]) @checked($detail1[3]->bahagian_a_2 == 'ng') @endif></td>
                                             <td class="endpaper"><input type="checkbox" class="Endpaper2"
                                                     onchange="handleCheckboxChange('Endpaper2')" name="bahagianA[4][2]"
-                                                    id="" value="na" @if($detail1[2]) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
+                                                    id="" value="na" @if($detail1[3]) @checked($detail1[3]->bahagian_a_3 == 'na') @endif></td>
                                         </tr>
                                         <tr>
                                             <td>3</td>
@@ -756,7 +756,7 @@
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan teks (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_7"
+                                        <input type="text" name="bahagian_b_7"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_7 }}">
                                     </div>
@@ -764,7 +764,7 @@
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan cover (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_8"
+                                        <input type="text" name="bahagian_b_8"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_8 }}">
                                     </div>
@@ -772,7 +772,7 @@
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Saiz kawasan cetakan endpaper (inci)</label>
-                                        <input type="text" placeholder="input teks" readonly name="bahagian_b_9"
+                                        <input type="text" name="bahagian_b_9"
                                             id="" class="form-control"
                                             value="{{ $senari_semak_cetak->bahagian_b_9 }}">
                                     </div>
@@ -1059,8 +1059,79 @@
 @push('custom-scripts')
     <script>
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
+            $('#Cover').trigger('change');
+            $('#Endpaper').trigger('change');
             $('input').attr('disabled', 'disabled');
             $('input[type="hidden"]').removeAttr('disabled');
         });
+
+        $(document).on('change', '#Cover', function() {
+            if (!$(this).prop('checked')) {
+                $('.cover').css('display', 'none')
+            } else {
+                $('.cover').css('display', '')
+            }
+        })
+
+        $(document).on('change', '#Endpaper', function() {
+            if (!$(this).prop('checked')) {
+                $('.endpaper').css('display', 'none')
+            } else {
+                $('.endpaper').css('display', '')
+            }
+        })
+
+        $(document).on('change keyup', '#Text', function() {
+            var value = +$(this).val();
+            if (value == 0) {
+                $('.text').css('display', 'none');
+                $('.section').css('display', 'none');
+            } else if (value > 0) {
+                $('.text').css('display', '');
+                $('.section').css('display', '');
+                if ($("#table tbody tr.section").length > 0) {
+                    length = $("#table tbody tr.section").length;
+                    if (length == 1 || length < value) {
+                        length = length + 1
+                    }
+                } else {
+                    length = 1;
+                }
+                if (value > 0 && value < length) {
+                    var currentLength = length - value;
+                    for (let i = currentLength; i > 0; i--) {
+                        $('#table tbody tr.section:last').remove();
+                    }
+                } else {
+                    for (let i = length; i <= value; i++) {
+                        $key = $('#table tbody tr').length + 1;
+                        $('#table tbody').append(`<tr class="section">
+                                     <td>Section ${i}</td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="ok"></td>
+                                     <td><input type="checkbox" checked name="bahagianC[${$key}][1]" id="" value="ng"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="na"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="ok"></td>
+                                     <td><input type="checkbox" checked name="bahagianC[${$key}][2]" id="" value="ng"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="na"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="ok"></td>
+                                     <td><input type="checkbox" checked name="bahagianC[${$key}][3]" id="" value="ng"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="na"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="ok"></td>
+                                     <td><input type="checkbox" checked name="bahagianC[${$key}][4]" id="" value="ng"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="na"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="ok"></td>
+                                     <td><input type="checkbox" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
+                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="na"></td>
+                                     <td><input type="text" placeholder="input text" name="bahagianC[${$key}][6]" id="" class="form-control"></td>
+                                 </tr>`);
+
+
+
+                    }
+                }
+
+            }
+        })
     </script>
 @endpush
