@@ -255,7 +255,7 @@ class AreaController extends Controller
         $area = Area::find($id);
         $shelves = AreaShelf::select('id', 'name')->get();
         Helper::logSystemActivity('Area', 'Area Shelf Edit');
-        return view('Setting.Area\.Edit', compact('area', 'shelves'));
+        return view('Setting.Area.Edit', compact('area', 'shelves'));
     }
 
     public function view($id)

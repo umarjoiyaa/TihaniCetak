@@ -19,8 +19,8 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">Sr.</th>
-                                    <th class="wd-15p border-bottom-0">Shelf name</th>
-                                    <th class="wd-15p border-bottom-0">Shelf code</th>
+                                    <th class="wd-15p border-bottom-0">Area name</th>
+                                    <th class="wd-15p border-bottom-0">Area code</th>
                                     <th class="wd-15p border-bottom-0">Shelf</th>
                                     <th class="wd-25p border-bottom-0">Action</th>
                                 </tr>

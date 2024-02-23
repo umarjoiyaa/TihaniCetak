@@ -266,7 +266,7 @@ class UomController extends Controller
 
         $Uom =  Uom::find($id);
         $Uom->name = $request->name;
-        $Uom->created_by = Auth::uesr()->id;
+        $Uom->created_by = Auth::user()->id;
         $Uom->save();
         Helper::logSystemActivity('UOM', 'UOM Update');
         return redirect()->route('uom')->with('custom_success', 'UOM has been Updated Successfully !');
@@ -506,8 +506,8 @@ class UomController extends Controller
         $UomRev = new UomConversion();
         $UomRev->from_unit_id = $request->to;
         $UomRev->to_unit_id = $request->from;
-        $UomRev->to_value = $request->base_value;
-        $UomRev->from_value = $request->conversion_ratio;
+        $UomRev->to_value = $request->conversion_ratio;
+        $UomRev->from_value = $request->base_value;
         $UomRev->isReverse = $Uom->id;
         $UomRev->created_by = Auth::user()->id;
         $UomRev->save();
@@ -567,8 +567,8 @@ class UomController extends Controller
         $UomRev = UomConversion::where('isReverse', '=', $id)->first();
         $UomRev->from_unit_id = $request->to;
         $UomRev->to_unit_id = $request->from;
-        $UomRev->to_value = $request->base_value;
-        $UomRev->from_value = $request->conversion_ratio;
+        $UomRev->to_value = $request->conversion_ratio;
+        $UomRev->from_value = $request->base_value;
         $UomRev->created_by = Auth::user()->id;
         $UomRev->save();
         Helper::logSystemActivity('UOM Conversion', 'UOM Conversion Update');
