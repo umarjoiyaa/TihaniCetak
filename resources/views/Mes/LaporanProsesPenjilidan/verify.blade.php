@@ -39,8 +39,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <input type="text"
-                                            value="{{ $laporan_proses_penjilidan->sale_order->order_no }}"
+                                        <input type="text" value="{{ $laporan_proses_penjilidan->sale_order->order_no }}"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -55,8 +54,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
-                                        <input type="text"
-                                            value="{{ $laporan_proses_penjilidan->sale_order->kod_buku }}"
+                                        <input type="text" value="{{ $laporan_proses_penjilidan->sale_order->kod_buku }}"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -72,11 +70,11 @@
                                     <div class="form-group">
                                         <div class="label">Kuantiti SO</div>
                                         <input type="number"
-                                            value="{{ $laporan_proses_penjilidan->sale_order->sale_order_qty }}"
-                                            readonly id="sale_order_qty" class="form-control">
+                                            value="{{ $laporan_proses_penjilidan->sale_order->sale_order_qty }}" readonly
+                                            id="sale_order_qty" class="form-control">
                                     </div>
                                 </div>
-                            
+
 
 
                                 <div class="col-md-4 mt-3">
@@ -104,13 +102,14 @@
                                     <div class="form-group">
                                         <label for="">Pembantu</label>
                                         @php
-                                        $item1 = json_decode($laporan_proses_penjilidan->pembantu);
+                                            $item1 = json_decode($laporan_proses_penjilidan->pembantu);
                                         @endphp
-                                        <select disabled name="pembantu[]" class="form-control form-select" id="" multiple>
+                                        <select disabled name="pembantu[]" class="form-control form-select" id=""
+                                            multiple>
                                             @foreach ($users as $user)
-                                            <option value="{{ $user->id }}" @if ($item1) {{ in_array($user->id, $item1) ?
-                                                'selected' : '' }} @endif>
-                                                {{ $user->full_name }}</option>
+                                                <option value="{{ $user->id }}"
+                                                    @if ($item1) {{ in_array($user->id, $item1) ? 'selected' : '' }} @endif>
+                                                    {{ $user->full_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -150,128 +149,104 @@
                                                 <td>Koyakan fiber</td>
                                                 <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover',this)" name="b_1"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_1 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_1 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" name="b_1"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_1 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_1 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" name="b_1"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_1 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_1 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>2</td>
                                                 <td>Kedudukan Kulit buku dan teks</td>
                                                 <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_2 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_2 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_2 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_2 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_2 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_2 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>3</td>
                                                 <td>Artwork Kulit buku dan Teks</td>
                                                 <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_3 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_3 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_3 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_3 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_3 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_3 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>4</td>
                                                 <td>Turutan Seksyen/muka surat</td>
                                                 <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_4 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_4 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_4 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_4 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_4 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_4 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>5</td>
                                                 <td>Kedudukan gam (side gam)</td>
                                                 <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_5 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_5 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_5 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_5 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_5 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_5 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>6</td>
                                                 <td>Rosak/koyak</td>
                                                 <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_6 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_6 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_6 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_6 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_6 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_6 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>7</td>
                                                 <td>Kotor</td>
                                                 <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_7 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_7 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_7 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_7 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_7 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_7 == 'na') id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>8</td>
                                                 <td>Lain-lain</td>
                                                 <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
-                                                        value="ok" @checked($laporan_proses_penjilidan->b_8 == 'ok')
-                                                    id=""></td>
+                                                        value="ok" @checked($laporan_proses_penjilidan->b_8 == 'ok') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
-                                                        value="ng" @checked($laporan_proses_penjilidan->b_8 == 'ng')
-                                                    id=""></td>
+                                                        value="ng" @checked($laporan_proses_penjilidan->b_8 == 'ng') id=""></td>
                                                 <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
-                                                        value="na" @checked($laporan_proses_penjilidan->b_8 == 'na')
-                                                    id=""></td>
+                                                        value="na" @checked($laporan_proses_penjilidan->b_8 == 'na') id=""></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -313,11 +288,16 @@
                                         <tbody>
                                             <tr>
                                                 <td>500</td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
                                                 <td><button class="btn"
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -326,16 +306,21 @@
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
                                                 </td>
                                                 <td>A/12/12/2023 10:30Am</td>
-                                                <td><button class="btn btn-danger"
-                                                        style="border-radius:5px; ">X</button></td>
+                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>1000</td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
                                                 <td><button class="btn"
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -344,16 +329,21 @@
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
                                                 </td>
                                                 <td>A/12/12/2023 10:50Am</td>
-                                                <td><button class="btn btn-danger"
-                                                        style="border-radius:5px; ">X</button></td>
+                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>1500</td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
-                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
+                                                <td><input type="checkbox" readonly checked name=""
+                                                        id=""></td>
                                                 <td><button class="btn "
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -362,8 +352,8 @@
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
                                                 </td>
                                                 <td>A/12/12/2023 10:50Am</td>
-                                                <td><button class="btn btn-danger"
-                                                        style="border-radius:5px; ">X</button></td>
+                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -376,7 +366,7 @@
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <button class="btn btn-primary" type="submit"> Verify</button>
-                </form>
+                            </form>
                             <form
                                 action="{{ route('laporan_proses_penjilidan.approve.decline', $laporan_proses_penjilidan->id) }}"
                                 method="POST" enctype="multipart/form-data">
@@ -398,26 +388,9 @@
     </div>
 @endsection
 @push('custom-scripts')
-<script>
-    $(do y(function () {
-        $('input').attr('        disabled');
-        $('.verify_operator').remo        bled');
-        $('input[type="hidden"]').removeAt    bled'    );
-
-        function formatDate(            const day = String(date.getDate()).padStart(2, '0        const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-        t year = date.getFullYear();
-        urs = String(date.getHours()).padStart(2, '0');
-        s = String(date.getMinutes()).padStart(2, '0');
-
-        retu        { month } -${ year } ${ hours }:${ minutes }`;
-    }
-
-    $(doc    n('    '.verify_btn', function () {
-        $(this).at tr('d        isabled');
-        const currentDate =        
-        const formattedDate = f        rrentDate);
-        let checked_by = $('#checke        ;
-        $(this).closest('tr').find('.ve        r').val(checked_by + '/' + formattedDate);
-    });
-</script>
+    <script>
+        $(document).ready(function() {
+            $('input').attr('disabled', 'disabled');
+        });
+    </script>
 @endpush
