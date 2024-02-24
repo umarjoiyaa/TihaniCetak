@@ -60,7 +60,7 @@
                                 </div>
                                 <div class="col-md-4 OtherSection " style="display: none" >
                                     <div class="label">Other (Input)</div>
-                                    <input type="text" placeholder="User Input" name="user_input" id=""
+                                    <input type="text" name="user_input" id=""
                                         class="form-control">
                                 </div>
                             </div>

@@ -489,9 +489,7 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                         <div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -537,9 +535,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -584,9 +580,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -631,9 +625,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -678,9 +670,7 @@
                                         <td>
                                             <div class="row">
                                                         <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>

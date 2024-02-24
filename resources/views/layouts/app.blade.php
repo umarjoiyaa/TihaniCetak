@@ -81,6 +81,14 @@
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
 
     @yield('css')
+    <style>
+        .dropdown{
+            cursor:pointer;
+        }
+        .horizontalMenu-list .box a:hover{
+            color:#fff;
+        }
+    </style>
 
 </head>
 
@@ -690,8 +698,8 @@
 
 						</div>
 						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true"><a href="{{ route('dashboard') }}" class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
-							<li aria-haspopup="true"><a href="#" class="sub-icon" id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
+							<li aria-haspopup="true" class="box"><a href="{{ route('dashboard') }}" class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
+							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
 								<div class="horizontal-megamenu clearfix">
 									<div class="container-fluid">
 										<div class="mega-menubg hor-mega-menu">
@@ -813,7 +821,7 @@
 									</div>
 								</div>
 							</li>
-							<li aria-haspopup="true"><a href="#" class="sub-icon" id="production"><i class="ti-layers"></i> Production</a>
+							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="production"><i class="ti-layers"></i> Production</a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -962,7 +970,7 @@
 									</div>
 								</div>
 							</li>
-							<li aria-haspopup="true"><a href="#" class="sub-icon" id="wms"><i class="ti-write"></i> WMS </a>
+							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="wms"><i class="ti-write"></i> WMS </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1060,7 +1068,7 @@
 									</div>
 								</div>
 							</li>
-							<li aria-haspopup="true"><a href="#" class="sub-icon" id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
+							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">

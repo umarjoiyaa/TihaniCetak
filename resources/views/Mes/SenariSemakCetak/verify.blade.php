@@ -4,7 +4,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Senarai Semak Pencetakan Digital</h5>
+                        <h5>Senarai Semak Pra Cetak</h5>
 
                         <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
@@ -125,7 +125,7 @@
                                     <tbody>
                                         <tr>
                                             <td>1</td>
-                                            <td>Design clearance 5mm (print to cut dan stitching binding)</td>
+                                            <td>File Format - CMYK (buat preflight inspection)</td>
                                             <td class="cover"><input type="checkbox" class="Cover1"
                                                     onchange="handleCheckboxChange('Cover1')" name="bahagianA[2][1]"
                                                     value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_1 == 'ok') @endif>
@@ -157,7 +157,7 @@
                                         </tr>
                                         <tr>
                                             <td>2</td>
-                                            <td>Image artwork (Semak teks & gambar)</td>
+                                            <td>Jumlah Warna (bandingkan TMS dan file artwork)</td>
                                             <td class="cover"><input type="checkbox" class="Cover2"
                                                     onchange="handleCheckboxChange('Cover2')" name="bahagianA[2][2]"
                                                     id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_2 == 'ok') @endif></td>
@@ -188,7 +188,7 @@
                                         </tr>
                                         <tr>
                                             <td>3</td>
-                                            <td>Bleed (3-5mm)</td>
+                                            <td>Saiz product (bandingkan TMS dan file artwork)</td>
                                             <td class="cover" colspan="3"><input type="text"class="Cover3"
                                                     onchange="handleCheckboxChange('Cover3')" 
                                                     class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
@@ -201,7 +201,7 @@
                                         </tr>
                                         <tr>
                                             <td>4</td>
-                                            <td>Saiz spine (perfect bind)</td>
+                                            <td>Design clearance 8mm (stitching binding)</td>
                                             <td class="cover" colspan="3"><input type="text" class="Cover4"
                                                     onchange="handleCheckboxChange('Cover4')" readonly
                                                     name="bahagianA[2][4]" class="form-control"
@@ -222,7 +222,7 @@
                                         </tr>
                                         <tr>
                                             <td>5</td>
-                                            <td>Kedudukan artwork (hardcover)</td>
+                                            <td>Bleed (3mm keatas)</td>
                                             <td class="cover"><input type="checkbox" class="Cover5"
                                                     onchange="handleCheckboxChange('Cover5')" name="bahagianA[2][5]"
                                                     id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_5 == 'ok') @endif></td>
@@ -253,7 +253,7 @@
                                         </tr>
                                         <tr>
                                             <td>6</td>
-                                            <td>Alamat pencetak</td>
+                                            <td>Hotstamping/Spot UV Image overprint</td>
                                             <td class="cover"><input type="checkbox" class="Cover6"
                                                     onchange="handleCheckboxChange('Cover6')" name="bahagianA[2][6]"
                                                     id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_6 == 'ok') @endif></td>
@@ -272,7 +272,7 @@
                                         </tr>
                                         <tr>
                                             <td>7</td>
-                                            <td>Alamat pencetak</td>
+                                            <td>Saiz spine (buat kiraan mengikut formula)</td>
                                             <td class="cover"><input class="Cover7"
                                                     onchange="handleCheckboxChange('Cover7')" type="checkbox"
                                                     name="bahagianA[2][7]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_7 == 'ok') @endif></td>
@@ -291,7 +291,7 @@
                                         </tr>
                                         <tr>
                                             <td>8</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Alamat pencetak</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][8]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_8}}" @endif>
                                             </td>
@@ -310,7 +310,7 @@
                                         </tr>
                                         <tr>
                                             <td>9</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Cetakan (Sila nyatakan)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][9]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_9}}" @endif>
                                             </td>
@@ -329,7 +329,7 @@
                                         </tr>
                                         <tr>
                                             <td>10</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Jumlah mukasurat (bandingkan TMS dan file artwork)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][10]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_10}}" @endif>
                                             </td>
@@ -348,7 +348,7 @@
                                         </tr>
                                         <tr>
                                             <td>11</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Turutan mukasurat (berturutan)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][11]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_11}}" @endif>
                                             </td>
@@ -367,7 +367,7 @@
                                         </tr>
                                         <tr>
                                             <td>12</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Dummy lipat (dummy kosong untuk job baharu sahaja)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][12]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_12}}" @endif>
                                             </td>
@@ -386,7 +386,7 @@
                                         </tr>
                                         <tr>
                                             <td>13</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Kedudukan artwork cover yang centre (softcover)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][13]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_13}}" @endif>
                                             </td>
@@ -405,7 +405,7 @@
                                         </tr>
                                         <tr>
                                             <td>14</td>
-                                            <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                            <td>Kedudukan artwork cover yang centre (hardcover)</td>
                                             <td class="cover" colspan="3"><input type="text" class="form-control"
                                                     readonly name="bahagianA[2][14]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_14}}" @endif>
                                             </td>
@@ -424,7 +424,7 @@
                                         </tr>
                                         <tr>
                                             <td>15</td>
-                                            <td>Kedudukan artwork (hardcover)</td>
+                                            <td>Jenis Penjilidan</td>
                                             <td class="cover"><input class="Cover8"
                                                     onchange="handleCheckboxChange('Cover8')" type="checkbox"
                                                     name="bahagianA[2][15]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_15 == 'ok') @endif></td>
@@ -455,7 +455,7 @@
                                         </tr>
                                         <tr>
                                             <td>16</td>
-                                            <td>Kedudukan artwork (hardcover)</td>
+                                            <td>Jenis Kertas</td>
                                             <td class="cover"><input class="Cover9"
                                                     onchange="handleCheckboxChange('Cover9')" type="checkbox"
                                                     name="bahagianA[2][16]" id="" value="ok" @if($detail1[1]) @checked($detail1[1]->bahagian_a_16 == 'ok') @endif></td>
@@ -491,9 +491,7 @@
                                                     
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                        <div class="col-md-1">
-                                                        <input type="checkbox" name="" id="">
-                                                        </div>    
+                                                            
                                                         <div class="col-md-3">
                                                                 <p>Other</p>
                                                         </div>
@@ -544,9 +542,7 @@
                                                     
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                                <div class="col-md-1">
-                                                                <input type="checkbox" name="" id="">
-                                                                </div>    
+                                                                    
                                                                 <div class="col-md-3">
                                                                         <p>Other</p>
                                                                 </div>
@@ -596,9 +592,7 @@
                                                     
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                        <div class="col-md-1">
-                                                                <input type="checkbox" name="" id="">
-                                                        </div>  
+                                                         
                                                         <div class="col-md-3">
                                                                 <p>Other</p>
                                                         </div>  
@@ -648,9 +642,7 @@
                                                     
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                        <div class="col-md-1">
-                                                        <input type="checkbox" name="" id="">
-                                                    </div> 
+                                                         
                                                     <div class="col-md-3">
                                                         <p>Other</p>
                                                     </div>   
@@ -700,9 +692,7 @@
                                                     
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <p>Other</p>
                                                                 </div>
