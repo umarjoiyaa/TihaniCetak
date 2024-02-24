@@ -36,7 +36,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order"
@@ -131,7 +131,7 @@
                                                 <td>1</td>
                                                 <td>Saiz yg betul</td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover',this)" name="b_1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="ok" @checked($laporan_proses_three->b_1 == 'ok') id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" 
@@ -384,8 +384,9 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('laporan_proses_three') }}">back to list</a>
                 </div>
-                <a href="{{ route('laporan_proses_three') }}">back to list</a>
+               
             </div>
     </form>
 @endsection
@@ -476,7 +477,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.text || null;
                 }
             });
 

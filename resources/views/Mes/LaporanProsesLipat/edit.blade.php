@@ -31,7 +31,7 @@
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
                                             <select name="sale_order" data-id="{{ $laporan_proses_lipat->sale_order_id }}"
@@ -500,7 +500,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.text || null;
                 }
             });
 

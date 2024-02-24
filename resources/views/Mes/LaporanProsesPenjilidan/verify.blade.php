@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -77,44 +76,44 @@
                                             readonly id="sale_order_qty" class="form-control">
                                     </div>
                                 </div>
-                            </div>
+                            
 
 
-                            <div class="col-md-4 mt-3">
-                                <div class="form-group">
-                                    <label for="">Jenis Penjilidan</label>
-                                    <select readonly name="" id="" class="form-control">
-                                        <option value="" disabled>select sales Order no</option>
-                                        <option value="" selected>Perfect Bind</option>
-                                        <option value="">Lock Bind</option>
-                                        <option value="">Gather</option>
-                                    </select>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Jenis Penjilidan</label>
+                                        <select readonly name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" selected>Perfect Bind</option>
+                                            <option value="">Lock Bind</option>
+                                            <option value="">Gather</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-md-4"></div>
-                            <div class="col-md-4 mt-3">
-                                <div class="form-group">
-                                    <label for="">Operator</label>
-                                    <select readonly name="" id="" class="form-control">
-                                        <option value="" disabled>select sales Order no</option>
-                                        <option value="" selected>User A</option>
-                                    </select>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Operator</label>
+                                        <select readonly name="" id="" class="form-control">
+                                            <option value="" disabled>select sales Order no</option>
+                                            <option value="" selected>User A</option>
+                                        </select>
+                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="col-md-4 mt-3">
-                                <div class="form-group">
-                                    <label for="">Pembantu</label>
-                                    @php
-                                    $item1 = json_decode($laporan_proses_penjilidan->pembantu);
-                                    @endphp
-                                    <select disabled name="pembantu[]" class="form-control form-select" id="" multiple>
-                                        @foreach ($users as $user)
-                                        <option value="{{ $user->id }}" @if ($item1) {{ in_array($user->id, $item1) ?
-                                            'selected' : '' }} @endif>
-                                            {{ $user->full_name }}</option>
-                                        @endforeach
-                                    </select>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <label for="">Pembantu</label>
+                                        @php
+                                        $item1 = json_decode($laporan_proses_penjilidan->pembantu);
+                                        @endphp
+                                        <select disabled name="pembantu[]" class="form-control form-select" id="" multiple>
+                                            @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" @if ($item1) {{ in_array($user->id, $item1) ?
+                                                'selected' : '' }} @endif>
+                                                {{ $user->full_name }}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
 
@@ -149,15 +148,15 @@
                                             <tr>
                                                 <td>1</td>
                                                 <td>Koyakan fiber</td>
-                                                <td><input type="checkbox" class="Cover1"
+                                                <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover',this)" name="b_1"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_1 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover1"
+                                                <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_1 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover1"
+                                                <td><input type="checkbox" readonly class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="na" @checked($laporan_proses_penjilidan->b_1 == 'na')
                                                     id=""></td>
@@ -165,15 +164,15 @@
                                             <tr>
                                                 <td>2</td>
                                                 <td>Kedudukan Kulit buku dan teks</td>
-                                                <td><input type="checkbox" class="Text1"
+                                                <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_2 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text1"
+                                                <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_2 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text1"
+                                                <td><input type="checkbox" readonly class="Text1"
                                                         onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                         value="na" @checked($laporan_proses_penjilidan->b_2 == 'na')
                                                     id=""></td>
@@ -181,15 +180,15 @@
                                             <tr>
                                                 <td>3</td>
                                                 <td>Artwork Kulit buku dan Teks</td>
-                                                <td><input type="checkbox" class="Cover2"
+                                                <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_3 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover2"
+                                                <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_3 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover2"
+                                                <td><input type="checkbox" readonly class="Cover2"
                                                         onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                         value="na" @checked($laporan_proses_penjilidan->b_3 == 'na')
                                                     id=""></td>
@@ -197,15 +196,15 @@
                                             <tr>
                                                 <td>4</td>
                                                 <td>Turutan Seksyen/muka surat</td>
-                                                <td><input type="checkbox" class="Text2"
+                                                <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_4 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text2"
+                                                <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_4 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text2"
+                                                <td><input type="checkbox" readonly class="Text2"
                                                         onchange="handleCheckboxChange('Text2',this)" name="b_4"
                                                         value="na" @checked($laporan_proses_penjilidan->b_4 == 'na')
                                                     id=""></td>
@@ -213,15 +212,15 @@
                                             <tr>
                                                 <td>5</td>
                                                 <td>Kedudukan gam (side gam)</td>
-                                                <td><input type="checkbox" class="Cover3"
+                                                <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_5 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover3"
+                                                <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_5 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover3"
+                                                <td><input type="checkbox" readonly class="Cover3"
                                                         onchange="handleCheckboxChange('Cover3',this)" name="b_5"
                                                         value="na" @checked($laporan_proses_penjilidan->b_5 == 'na')
                                                     id=""></td>
@@ -229,15 +228,15 @@
                                             <tr>
                                                 <td>6</td>
                                                 <td>Rosak/koyak</td>
-                                                <td><input type="checkbox" class="Text3"
+                                                <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_6 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text3"
+                                                <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_6 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text3"
+                                                <td><input type="checkbox" readonly class="Text3"
                                                         onchange="handleCheckboxChange('Text3',this)" name="b_6"
                                                         value="na" @checked($laporan_proses_penjilidan->b_6 == 'na')
                                                     id=""></td>
@@ -245,15 +244,15 @@
                                             <tr>
                                                 <td>7</td>
                                                 <td>Kotor</td>
-                                                <td><input type="checkbox" class="Cover4"
+                                                <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_7 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover4"
+                                                <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_7 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Cover4"
+                                                <td><input type="checkbox" readonly class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                         value="na" @checked($laporan_proses_penjilidan->b_7 == 'na')
                                                     id=""></td>
@@ -261,15 +260,15 @@
                                             <tr>
                                                 <td>8</td>
                                                 <td>Lain-lain</td>
-                                                <td><input type="checkbox" class="Text8"
+                                                <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
                                                         value="ok" @checked($laporan_proses_penjilidan->b_8 == 'ok')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text8"
+                                                <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
                                                         value="ng" @checked($laporan_proses_penjilidan->b_8 == 'ng')
                                                     id=""></td>
-                                                <td><input type="checkbox" class="Text8"
+                                                <td><input type="checkbox" readonly class="Text8"
                                                         onchange="handleCheckboxChange('Text8',this)" name="b_8"
                                                         value="na" @checked($laporan_proses_penjilidan->b_8 == 'na')
                                                     id=""></td>
@@ -314,11 +313,11 @@
                                         <tbody>
                                             <tr>
                                                 <td>500</td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
                                                 <td><button class="btn"
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -332,11 +331,11 @@
                                             </tr>
                                             <tr>
                                                 <td>1000</td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
                                                 <td><button class="btn"
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -350,11 +349,11 @@
                                             </tr>
                                             <tr>
                                                 <td>1500</td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
-                                                <td><input type="checkbox" checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
+                                                <td><input type="checkbox" readonly checked name="" id=""></td>
                                                 <td><button class="btn "
                                                         style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
                                                 </td>
@@ -397,8 +396,6 @@
         </div>
         <a href="{{ route('laporan_proses_penjilidan') }}">back to list</a>
     </div>
-</div>
-</div>
 @endsection
 @push('custom-scripts')
 <script>

@@ -27,7 +27,7 @@
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->order_no }}"
@@ -217,19 +217,21 @@
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="row d-flex justify-content-end mt-3">
+                            <div class="col-md-12 d-flex justify-content-end">
                                 <button class="btn btn-primary" type="submit"> Verify</button>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form action="{{ route('laporan_proses_lipat.approve.decline', $laporan_proses_lipat->id) }}"
+                                </form>
+                                <form action="{{ route('laporan_proses_lipat.approve.decline', $laporan_proses_lipat->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <button class="btn btn-danger mx-2" type="submit">Decline</button>
                             </form>
+                            </div>
+                        </div>
+                    
+                    <div class="row">
+                        <div class="col-md-12">
+                            
                         </div>
                     </div>
                 </div>

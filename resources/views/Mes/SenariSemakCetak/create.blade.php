@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>Senarai Semak Pencetakan Digital</h5>
+                    <h5>Senarai Semak Pra Cetak</h5>
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
@@ -124,7 +124,7 @@
                                 <tbody>
                                     <tr>
                                         <td>1</td>
-                                        <td>Design clearance 5mm (print to cut dan stitching binding)</td>
+                                        <td>File Format - CMYK (buat preflight inspection)</td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
                                                 onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
                                                 value="ok">
@@ -156,7 +156,7 @@
                                     </tr>
                                     <tr>
                                         <td>2</td>
-                                        <td>Image artwork (Semak teks & gambar)</td>
+                                        <td>Jumlah Warna (bandingkan TMS dan file artwork)</td>
                                         <td class="cover"><input type="checkbox" class="Cover2"
                                                 onchange="handleCheckboxChange('Cover2',this)" name="bahagianA[2][2]"
                                                 id="" value="ok"></td>
@@ -187,43 +187,41 @@
                                     </tr>
                                     <tr>
                                         <td>3</td>
-                                        <td>Bleed (3-5mm)</td>
+                                        <td>Saiz product (bandingkan TMS dan file artwork)</td>
                                         <td class="cover" colspan="3"><input type="text" class="Cover3"
-                                                onchange="handleCheckboxChange('Cover3',this)" placeholder="text input"
+                                                onchange="handleCheckboxChange('Cover3',this)"
                                                 class="form-control" name="bahagianA[2][3]" id=""></td>
                                         <td class="text" colspan="3"><input type="text" class="Text3"
-                                                onchange="handleCheckboxChange('Text3',this)" placeholder="text input"
+                                                onchange="handleCheckboxChange('Text3',this)"
                                                 class="form-control" name="bahagianA[3][3]" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
                                                 onchange="handleCheckboxChange('Endpaper3',this)"
-                                                placeholder="text input" class="form-control" name="bahagianA[4][3]"
+                                                class="form-control" name="bahagianA[4][3]"
                                                 id=""></td>
                                     </tr>
                                     <tr>
                                         <td>4</td>
-                                        <td>Saiz spine (perfect bind)</td>
-                                        <td class="cover" colspan="3"><input type="text" class="Cover4"
-                                                onchange="handleCheckboxChange('Cover4',this)" readonly
-                                                name="bahagianA[2][4]" placeholder="text input" class="form-control"
+                                        <td>Design clearance 8mm (stitching binding)</td>
+                                        <td class="cover" colspan="3"><input type="text" readonly
+                                                name="bahagianA[2][4]" class="form-control"
                                                 id=""></td>
                                         <td class="text endpaper"><input type="checkbox" class="Text4"
                                                 onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                 id="" value="ok"></td>
                                         <td class="text endpaper"><input type="checkbox" class="Text4"
-                                                onchange="handleCheckboxChange('Text4',this)" placeholder="text input"
+                                                onchange="handleCheckboxChange('Text4',this)"
                                                 checked name="bahagianA[3][4]" id="" value="ng"></td>
                                         <td class="text endpaper"><input type="checkbox" class="Text4"
                                                 onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                 id="" value="na"></td>
-                                        <td class="endpaper" colspan="3"><input type="text" class="Endpaper4"
-                                                onchange="handleCheckboxChange('Endpaper4',this)"
-                                                placeholder="text input" class="form-control" readonly
+                                        <td class="endpaper" colspan="3"><input readonly type="text" 
+                                               class="form-control" 
                                                 name="bahagianA[4][4]" id="">
                                         </td>
                                     </tr>
                                     <tr>
                                         <td>5</td>
-                                        <td>Kedudukan artwork (hardcover)</td>
+                                        <td>Bleed (3mm keatas)</td>
                                         <td class="cover"><input type="checkbox" class="Cover5"
                                                 onchange="handleCheckboxChange('Cover5',this)" name="bahagianA[2][5]"
                                                 id="" value="ok"></td>
@@ -254,7 +252,7 @@
                                     </tr>
                                     <tr>
                                         <td>6</td>
-                                        <td>Alamat pencetak</td>
+                                        <td>Hotstamping/Spot UV Image overprint</td>
                                         <td class="cover"><input type="checkbox" class="Cover6"
                                                 onchange="handleCheckboxChange('Cover6',this)" name="bahagianA[2][6]"
                                                 id="" value="ok"></td>
@@ -273,7 +271,7 @@
                                     </tr>
                                     <tr>
                                         <td>7</td>
-                                        <td>Alamat pencetak</td>
+                                        <td>Saiz spine (buat kiraan mengikut formula)</td>
                                         <td class="cover"><input class="Cover7"
                                                 onchange="handleCheckboxChange('Cover7',this)" type="checkbox"
                                                 name="bahagianA[2][7]" id="" value="ok"></td>
@@ -292,7 +290,7 @@
                                     </tr>
                                     <tr>
                                         <td>8</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Alamat pencetak</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][8]" id="">
                                         </td>
@@ -311,7 +309,7 @@
                                     </tr>
                                     <tr>
                                         <td>9</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Cetakan (Sila nyatakan)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][9]" id="">
                                         </td>
@@ -330,7 +328,7 @@
                                     </tr>
                                     <tr>
                                         <td>10</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Jumlah mukasurat (bandingkan TMS dan file artwork)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][10]" id="">
                                         </td>
@@ -349,7 +347,7 @@
                                     </tr>
                                     <tr>
                                         <td>11</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Turutan mukasurat (berturutan)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][11]" id="">
                                         </td>
@@ -368,7 +366,7 @@
                                     </tr>
                                     <tr>
                                         <td>12</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Dummy lipat (dummy kosong untuk job baharu sahaja)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][12]" id="">
                                         </td>
@@ -387,7 +385,7 @@
                                     </tr>
                                     <tr>
                                         <td>13</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Kedudukan artwork cover yang centre (softcover)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][13]" id="">
                                         </td>
@@ -406,7 +404,7 @@
                                     </tr>
                                     <tr>
                                         <td>14</td>
-                                        <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                        <td>Kedudukan artwork cover yang centre (hardcover)</td>
                                         <td class="cover" colspan="3"><input type="text" class="form-control" readonly
                                                 name="bahagianA[2][14]" id="">
                                         </td>
@@ -425,7 +423,7 @@
                                     </tr>
                                     <tr>
                                         <td>15</td>
-                                        <td>Kedudukan artwork (hardcover)</td>
+                                        <td>Jenis Penjilidan</td>
                                         <td class="cover"><input class="Cover8"
                                                 onchange="handleCheckboxChange('Cover8',this)" type="checkbox"
                                                 name="bahagianA[2][15]" id="" value="ok"></td>
@@ -456,7 +454,7 @@
                                     </tr>
                                     <tr>
                                         <td>16</td>
-                                        <td>Kedudukan artwork (hardcover)</td>
+                                        <td>Jenis Kertas</td>
                                         <td class="cover"><input class="Cover9"
                                                 onchange="handleCheckboxChange('Cover9',this)" type="checkbox"
                                                 name="bahagianA[2][16]" id="" value="ok"></td>
@@ -489,9 +487,19 @@
                                         <td>17</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][17]" id="" class="form-control textInput"
-                                                        >
+                                                <div class="col-md-8">
+                                                        <div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <label for="">Others</label>
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                <input type="text" width="150px"
+                                                                name="bahagianA[1][17]" id="" class="form-control textInput" style="width:200px;">
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -528,9 +536,18 @@
                                         <td>18</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][18]" id="" class="form-control textInput"
-                                                        >
+                                                <div class="col-md-8"><div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <label for="">Others</label>
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                <input type="text" width="150px"
+                                                                name="bahagianA[1][18]" id="" class="form-control textInput" style="width:200px;">
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -566,9 +583,18 @@
                                         <td>19</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][19]" id="" class="form-control textInput"
-                                                        >
+                                                <div class="col-md-8"><div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <label for="">Others</label>
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                <input type="text" width="150px"
+                                                                name="bahagianA[1][19]" id="" class="form-control textInput" style="width:200px;">
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -604,9 +630,18 @@
                                         <td>20</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][20]" id="" class="form-control textInput"
-                                                        >
+                                                <div class="col-md-8"><div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <label for="">Others</label>
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                <input type="text" width="150px"
+                                                                name="bahagianA[1][20]" id="" class="form-control textInput" style="width:200px;">
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -642,9 +677,18 @@
                                         <td>21</td>
                                         <td>
                                             <div class="row">
-                                                <div class="col-md-8"><input type="text" width=""
-                                                        name="bahagianA[1][21]" id="" class="form-control textInput"
-                                                        >
+                                                        <div class="col-md-8"><div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <label for="">Others</label>
+                                                                </div>
+                                                                <div class="col-md-7">
+                                                                        <input type="text" width="150px"
+                                                                        name="bahagianA[1][21]" id="" class="form-control textInput" style="width:200px;">
+                                                                </div>
+                                                        </div>
                                                 </div>
                                             </div>
                                         </td>
@@ -681,21 +725,25 @@
                         </div>
                     </div>
 
-                    <h5>Bahagian B (Semakan imposition)</h5>
+                    <div class="row mt-3 mb-5">
+                        <div class="col-md-12">
+                            <h5>Bahagian B (Semakan imposition)</h5>
+                        </div>
+                    </div>
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row mt-2">
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak teks (inci)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_1" id=""
+                                        <input type="text" name="bahagian_b_1" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_2" id=""
+                                        <input type="text" name="bahagian_b_2" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -705,14 +753,14 @@
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak cover (inci)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_3" id=""
+                                        <input type="text" name="bahagian_b_3" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_4" id=""
+                                        <input type="text" name="bahagian_b_4" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -722,14 +770,14 @@
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Saiz kertas cetak endpaper (inci)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_5" id=""
+                                        <input type="text" name="bahagian_b_5" id=""
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Saiz spacing (mm)</label>
-                                        <input type="text" placeholder="input teks" name="bahagian_b_6" id=""
+                                        <input type="text" name="bahagian_b_6" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -944,7 +992,7 @@
                                         checked name="bahagianC[1][5]" id="" value="ng"></td>
                                 <td><input type="checkbox" class="Text21" onchange="handleCheckboxChange('Text21',this)"
                                         name="bahagianC[1][5]" id="" value="na"></td>
-                                <td><input type="text" placeholder="input text" name="bahagianC[1][6]" id=""
+                                <td><input type="text"  name="bahagianC[1][6]" id=""
                                         class="form-control"></td>
                             </tr>
 
@@ -992,7 +1040,7 @@
                                 <td><input type="checkbox" class="Cover19"
                                         onchange="handleCheckboxChange('Cover19',this)" name="bahagianC[2][5]" id=""
                                         value="na"></td>
-                                <td><input type="text" placeholder="input text" name="bahagianC[2][6]" id=""
+                                <td><input type="text"  name="bahagianC[2][6]" id=""
                                         class="form-control"></td>
                             </tr>
 
@@ -1037,7 +1085,7 @@
                                 <td><input type="checkbox" class="Endpaper16"
                                         onchange="handleCheckboxChange('Endpaper16',this)" name="bahagianC[3][5]" id=""
                                         value="na"></td>
-                                <td><input type="text" placeholder="input text" name="bahagianC[3][6]" id=""
+                                <td><input type="text"  name="bahagianC[3][6]" id=""
                                         class="form-control"></td>
                             </tr>
                         </tbody>
@@ -1053,28 +1101,28 @@
                                 <div class="col-md-4 cover">
                                     <div class="form-group">
                                         <label for="">Cover</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
+                                        <input type="text" class="form-control"
                                             name="gripper_margin_cover" id="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 text">
                                     <div class="form-group">
                                         <label for="">Teks</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
+                                        <input type="text" class="form-control"
                                             name="gripper_margin_teks" id="">
                                     </div>
                                 </div>
                                 <div class="col-md-4 endpaper">
                                     <div class="form-group">
                                         <label for="">Endpaper/Leaflet</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
+                                        <input type="text" class="form-control"
                                             name="gripper_margin_leaflet" id="">
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -1085,7 +1133,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div> -->
+                    </div>
 
                     <div class="row">
                         <div class="col-md-12">

@@ -105,12 +105,9 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-5">
-                                    <h5>Bahagian A ( Semakan File)</h5>
-                                </div>
-                                <div class="col-md-7"></div>
-                                <div class="col-md-5">
-                                    <table class="table table-bordered" id="Status_tbl">
+                                <div class="col-md-5" id="Status_tbl">
+                                <h5>Bahagian A ( Semakan File)</h5>
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>item</th>
