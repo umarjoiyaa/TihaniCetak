@@ -141,10 +141,10 @@
                                             <li class="nav-item">
                                                 <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
                                                     id="tab{{ $key1 }}" data-toggle="tab"
-                                                    href="#Seksyen{{ $section->c_1 }}" role="tab"
-                                                    aria-controls="Seksyen{{ $section->c_1 }}"
+                                                    href="#Seksyen{{ $section->row }}" role="tab"
+                                                    aria-controls="Seksyen{{ $section->row }}"
                                                     aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
-                                                    {{ $section->c_1 }}</a>
+                                                    {{ $section->row }}</a>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -153,14 +153,14 @@
                                     <div class="tab-content" id="myTabContent">
                                         @foreach ($sections as $key1 => $section)
                                             <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                id="Seksyen{{ $section->c_1 }}" role="tabpanel"
+                                                id="Seksyen{{ $section->row }}" role="tabpanel"
                                                 aria-labelledby="tab{{ $key1 }}">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>
                                                             <tr>
                                                                 <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen {{ $section->c_1 }}</th>
+                                                                <th colspan="2">Seksyen {{ $section->row }}</th>
                                                                 <th rowspan="2">Check</th>
                                                                 <th rowspan="2">Username / datetime</th>
                                                                 <th rowspan="2">Verify</th>
@@ -173,7 +173,7 @@
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($detailss as $key2 => $value1)
-                                                                @if ($value1->c_1 == $section->c_1)
+                                                                @if ($value1->row == $section->row)
                                                                     <tr>
                                                                         <td>{{ $value1->c_2 }} <input type="hidden"
                                                                                 value="{{ $value1->c_2 }}"></td>
@@ -197,7 +197,6 @@
                                                                                 disabled>Verify</button>
                                                                         </td>
                                                                         <td><input type="text"
-                                                                                name="section[{{ $key1 + 1 }}][{{ $key2 + 1 }}][1]"
                                                                                 class="verify_operator form-control"
                                                                                 readonly value="{{ $value1->c_6 }}"></td>
                                                                     </tr>

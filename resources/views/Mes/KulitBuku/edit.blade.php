@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('kulit_buku.update', $kulit_buku->id) }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -35,7 +34,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" data-id="{{ $kulit_buku->sale_order_id }}" id="sale_order"
@@ -131,11 +130,10 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('kulit_buku') }}">back to list</a>
+
                 </div>
-                <a href="{{ route('kulit_buku') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')

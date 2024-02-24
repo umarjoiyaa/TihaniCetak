@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -177,18 +176,21 @@
 
                             </div>
 
-                            <form
-                                action="{{ route('laporan_pemeriksaan_kualiti.approve.approve', $laporan_pemeriksaan_kualiti->id) }}"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-primary" type="submit"> Verify</button>
+                            
+                            
+                        </div>
+                            <div class="row d-flex justify-content-end">
+                                <div class="col-md-12  d-flex justify-content-end">
+                                    <form
+                                    action="{{ route('laporan_pemeriksaan_kualiti.approve.approve', $laporan_pemeriksaan_kualiti->id) }}"
+                                    method="POST" enctype="multipart/form-data">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button class="btn btn-primary" type="submit"> Verify</button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
-                            <div class="row">
-                                <div class="col-md-12">
+                                    </form>
                                     <form
                                         action="{{ route('laporan_pemeriksaan_kualiti.approve.decline', $laporan_pemeriksaan_kualiti->id) }}"
                                         method="POST" enctype="multipart/form-data">
@@ -197,13 +199,11 @@
                                     </form>
                                 </div>
                             </div>
-                        </div>
                     </div>
                 </div>
                 <a href="{{ route('laporan_pemeriksaan_kualiti') }}">back to list</a>
             </div>
         </div>
-    </div>
 @endsection
 @push('custom-scripts')
     <script>

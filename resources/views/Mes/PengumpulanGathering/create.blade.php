@@ -168,8 +168,8 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
                 </div>
-                <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
             </div>
     </form>
 @endsection

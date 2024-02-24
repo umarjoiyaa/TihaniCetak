@@ -36,7 +36,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4 mt-4">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">

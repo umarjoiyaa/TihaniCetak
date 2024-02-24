@@ -107,7 +107,7 @@
                                             <label for="">Mesin</label>
                                             <select name="mesin" id="Mesin1" class="form-control form-select">
                                                 <option value="REVORIA SC170 FUJIFIILM">REVORIA SC170 FUJIFIILM</option>
-                                                <option value="OTHERS" id="selectBox">Others</option>
+                                                <option value="OTHERS" id="selectBox">OTHERS</option>
                                             </select>
                                         </div>
                                     </div>

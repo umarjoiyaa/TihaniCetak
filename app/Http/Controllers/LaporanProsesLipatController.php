@@ -393,7 +393,7 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('c_1')->distinct()->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return view('Mes.LaporanProsesLipat.edit', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
@@ -406,7 +406,7 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('c_1')->distinct()->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT View');
         return view('Mes.LaporanProsesLipat.view', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
@@ -485,7 +485,6 @@ class LaporanProsesLipatController extends Controller
         ksort($section);
 
         foreach($section as $key => $value){
-
             $section_b = $value;
             ksort($section_b);
 
@@ -493,7 +492,7 @@ class LaporanProsesLipatController extends Controller
 
                 $detail_b = new LaporanProsesLipatC();
                 $detail_b->proses_lipat_id = $laporan_proses_lipat->id;
-                $detail_b->c_1 = $key;
+                $detail_b->row = $key;
                 $detail_b->c_1 = $key1;
                 $detail_b->c_2 = $value1['1'] ?? null;
                 $detail_b->c_3 = $value1['2'] ?? null;
@@ -515,7 +514,7 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('c_1')->distinct()->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return view('Mes.LaporanProsesLipat.verify', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
@@ -543,7 +542,7 @@ class LaporanProsesLipatController extends Controller
             ksort($section_b);
 
             foreach($section_b as $key1 => $value1){
-                $detail_b = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->where('c_1', '=', $key)->where('row', '=', $key1)->first();
+                $detail_b = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->where('row', '=', $key)->where('c_1', '=', $key1)->first();
                 $detail_b->c_6 = $value1['1'] ?? null;
                 $detail_b->save();
             }

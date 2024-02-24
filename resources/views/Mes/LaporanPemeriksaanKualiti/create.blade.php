@@ -182,8 +182,9 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('laporan_pemeriksaan_kualiti') }}">back to list</a>
                 </div>
-                <a href="{{ route('laporan_pemeriksaan_kualiti') }}">back to list</a>
+                
             </div>
     </form>
 @endsection

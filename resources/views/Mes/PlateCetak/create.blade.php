@@ -6,13 +6,16 @@
 <div class="row">
     <div class="col-md-12">
         <div class="card">
-            <div class="card-body">
-                <div class="row">
+            <div class="card-header">
+            <div class="row">
                     <div class="col-md-12">
                         <h5 class="float-left">REKOD PEMERIKSAAN PLATE CETAK </h5>
                         <p class="float-right">TCSB-B44 (Rev .2)</p>
                     </div>
                 </div>
+            </div>
+            <div class="card-body">
+
 
                 <div class="row">
                     <div class="col-md-4 mt-3">
@@ -47,13 +50,13 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Tajuk</div>
-                            <input type="text" readonly value="auto display Tajuk" id="tajuk" class="form-control">
+                            <input type="text" readonly  id="tajuk" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Kod Buku</div>
-                            <input type="text" value="auto Display Kod Buku" readonly name="" id="kod_buku" class="form-control">
+                            <input type="text"  readonly name="" id="kod_buku" class="form-control">
                         </div>
                     </div>
                 </div>
@@ -67,7 +70,7 @@
                         <div class="form-group">
                             <label for="">Mesin</label>
                             <select name="machine" id="Mesin" class="form-control form-select">
-                                <option selected disabled value="">Select any Mesin</option>
+                                <!-- <option selected disabled value="">Select any Mesin</option> -->
                                 <option value="P1">P1</option>
                                 <option value="P2">P2</option>
                                 <option value="P3">P3</option>
@@ -84,7 +87,7 @@
                         <div class="form-group">
                             <label for="">Bahagain plate</label>
                             <select  name="section_plate" id="" class="form-control form-select">
-                                <option selected disabled value="">Select any Bahagain plate</option>
+                                <!-- <option selected disabled value="">Select any Bahagain plate</option> -->
                                 <option value="A">A</option>
                                 <option value="B">B</option>
                                 <option value="A/B">A/B</option>

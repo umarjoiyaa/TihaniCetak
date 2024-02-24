@@ -217,17 +217,17 @@
                                     <tr>
                                         <td>5</td>
                                         <td>Saiz spine (perfect bind)</td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'ok') value="ok"></td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'ng') value="ng">
                                         </td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'na') value="na"></td>
                                         <td colspan="3"></td>

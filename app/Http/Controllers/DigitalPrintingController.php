@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\DigitalPrinting;
+use App\Models\DigitalPrintingDetail;
+use App\Models\User;
 use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -515,9 +517,52 @@ class DigitalPrintingController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $digital_printing = DigitalPrinting::find($id);
+        $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers'));
+        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers', 'users', 'check_machines'));
+    }
+
+    public function verify($id){
+        // if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
+        //     return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
+        $digital_printing = DigitalPrinting::find($id);
+        $users = User::all();
+        $suppliers = Supplier::select('id', 'name')->get();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
+        return view('Production.DigitalPrinting.verify', compact('digital_printing', 'suppliers', 'users', 'check_machines'));
+    }
+
+    public function approve_approve(Request $request, $id){
+        // if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
+        //     return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
+
+        $digital_printing = DigitalPrinting::find($id);
+        $digital_printing->status = 'verified';
+        $digital_printing->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $digital_printing->verified_by_user = Auth::user()->user_name;
+        $digital_printing->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $digital_printing->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $digital_printing->save();
+
+        Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Verified');
+        return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Verified!');
+    }
+
+    public function approve_decline(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $digital_printing = DigitalPrinting::find($id);
+        $digital_printing->status = 'declined';
+        $digital_printing->save();
+        Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Declined');
+        return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Declined!');
     }
 
     public function delete($id){
@@ -528,5 +573,68 @@ class DigitalPrintingController extends Controller
         $digital_printing->delete();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Delete');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Deleted!');
+    }
+
+    public function machine_starter(Request $request)
+    {
+        $ismachinestart = null;
+
+        $JustSelected = DigitalPrinting::where('id', '=', $request->digital_id)->where('mesin' ,'=' , $request->machine)->orWhere('mesin_others' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+
+        if(!empty($JustSelected)){
+            $ismachinestart = DigitalPrintingDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('digital_id', '!=', $request->digital_id)->orderby('id', 'DESC')->first();
+        }
+
+        $alreadyexist = DigitalPrintingDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('digital_id', '=', $request->digital_id)->orderby('id', 'DESC')->first();
+        $alreadypaused = DigitalPrintingDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('digital_id', '=', $request->digital_id)->orderby('id', 'DESC')->first();
+        $stopped = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id', '=', $request->digital_id)->where('status', '=', 3)->first();
+
+        if (!$ismachinestart) {
+
+            if ($request->status == 1 && !$alreadyexist && !$stopped) {
+
+                DigitalPrintingDetail::create([
+                    'machine' => $request->machine,
+                    'digital_id' => $request->digital_id,
+                    'status' => $request->status,
+                    'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
+                ]);
+                $digital = DigitalPrinting::find($request->digital_id);
+                $digital->status = 'Started';
+                $digital->save();
+                $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                return response()->json([
+                    'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine
+                ]);
+            } else if ($request->status == 2 && $alreadypaused && !$stopped) {
+
+                $mpo = DigitalPrintingDetail::where('machine', $request->machine)->where('digital_id', $request->digital_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $digital = DigitalPrinting::find($request->digital_id);
+                $digital->status = 'Paused';
+                $digital->save();
+                $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                return response()->json([
+                    'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine
+                ]);
+            } else if ($request->status == 3 && !$stopped) {
+                $mpo = DigitalPrintingDetail::where('machine', $request->machine)->where('digital_id', $request->digital_id)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $digital = DigitalPrinting::find($request->digital_id);
+                $digital->status = 'Completed';
+                $digital->save();
+                $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                return response()->json([
+                    'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine
+                ]);
+            }
+        }
     }
 }

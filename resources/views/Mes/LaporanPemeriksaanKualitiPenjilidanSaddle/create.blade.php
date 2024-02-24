@@ -209,8 +209,9 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <a href="{{ route('laporan_pemeriksaan_kualiti_penjilidan_saddle') }}">back to list</a>
+
+                </div>
             </div>
     </form>
 @endsection

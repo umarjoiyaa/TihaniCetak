@@ -207,6 +207,7 @@ class PermissionTableSeeder extends Seeder
             'DIGITAL PRINTING Create',
             'DIGITAL PRINTING Update',
             'DIGITAL PRINTING Proses',
+            'DIGITAL PRINTING Verify',
             'DIGITAL PRINTING View',
             'DIGITAL PRINTING Delete',
          ];

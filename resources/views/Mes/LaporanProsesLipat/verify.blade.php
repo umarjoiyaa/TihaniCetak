@@ -12,7 +12,10 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}" class="form-control" disabled id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}"
+                                            class="form-control" disabled id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                            placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -27,7 +30,7 @@
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->order_no }}"
@@ -145,10 +148,10 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
                                                         id="tab{{ $key1 }}" data-toggle="tab"
-                                                        href="#Seksyen{{ $section->c_1 }}" role="tab"
-                                                        aria-controls="Seksyen{{ $section->c_1 }}"
+                                                        href="#Seksyen{{ $section->row }}" role="tab"
+                                                        aria-controls="Seksyen{{ $section->row }}"
                                                         aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
-                                                        {{ $section->c_1 }}</a>
+                                                        {{ $section->row }}</a>
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -157,14 +160,14 @@
                                         <div class="tab-content" id="myTabContent">
                                             @foreach ($sections as $key1 => $section)
                                                 <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                    id="Seksyen{{ $section->c_1 }}" role="tabpanel"
+                                                    id="Seksyen{{ $section->row }}" role="tabpanel"
                                                     aria-labelledby="tab{{ $key1 }}">
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered">
                                                             <thead>
                                                                 <tr>
                                                                     <th rowspan="2">Jumlah </th>
-                                                                    <th colspan="2">Seksyen {{ $section->c_1 }}</th>
+                                                                    <th colspan="2">Seksyen {{ $section->row }}</th>
                                                                     <th rowspan="2">Check</th>
                                                                     <th rowspan="2">Username / datetime</th>
                                                                     <th rowspan="2">Verify</th>
@@ -176,8 +179,11 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                @php
+                                                                    $newKey = 1;
+                                                                @endphp
                                                                 @foreach ($detailss as $key2 => $value1)
-                                                                    @if ($value1->c_1 == $section->c_1)
+                                                                    @if ($value1->row == $section->row)
                                                                         <tr>
                                                                             <td>{{ $value1->c_2 }} <input type="hidden"
                                                                                     value="{{ $value1->c_2 }}"></td>
@@ -197,15 +203,22 @@
                                                                                     readonly value="{{ $value1->c_5 }}">
                                                                             </td>
                                                                             <td><button type="button"
-                                                                                    class="btn btn-primary verify_btn"
-                                                                                    >Verify</button></td>
+                                                                                    class="btn btn-primary verify_btn">Verify</button>
+                                                                            </td>
                                                                             <td><input type="text"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2+1 }}][1]"
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][1]"
                                                                                     class="verify_operator form-control"
                                                                                     readonly></td>
                                                                         </tr>
+                                                                        @php
+                                                                            $newKey++;
+                                                                        @endphp
+                                                                    @else
+                                                                        @php
+                                                                            $newKey = 1;
+                                                                        @endphp
                                                                     @endif
-                                                                @endforeach
+                                                                    @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -217,25 +230,27 @@
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-12">
+                        <div class="row d-flex justify-content-end mt-3">
+                            <div class="col-md-12 d-flex justify-content-end">
                                 <button class="btn btn-primary" type="submit"> Verify</button>
-                            </div>
-                        </div>
                     </form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <form action="{{ route('laporan_proses_lipat.approve.decline', $laporan_proses_lipat->id) }}"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
-                            </form>
-                        </div>
-                    </div>
+                    <form action="{{ route('laporan_proses_lipat.approve.decline', $laporan_proses_lipat->id) }}"
+                        method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+
                 </div>
             </div>
         </div>
-        <a href="{{ route('laporan_proses_lipat') }}">back to list</a>
+    </div>
+    </div>
+    <a href="{{ route('laporan_proses_lipat') }}">back to list</a>
     </div>
     </div>
 @endsection

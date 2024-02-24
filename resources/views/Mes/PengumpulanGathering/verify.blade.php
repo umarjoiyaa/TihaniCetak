@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -193,11 +192,10 @@
                     </div>
                 </div>
             </div>
+            <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
+
         </div>
-        <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
     </div>
-</div>
-</div>
 @endsection
 @push('custom-scripts')
 <script>
