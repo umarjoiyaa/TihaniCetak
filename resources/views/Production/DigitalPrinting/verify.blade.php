@@ -47,20 +47,20 @@
                                     <h5><b>Production Button</b></h5>
                                 </div>
                                 <div class="col-md-4 ">
-                                    <button id="play" onclick="machineStarter(1, {{ $digital_printing->id }})"
-                                        type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                            class="la la-play" style="font-size:20px;"></i>Start</button>
+                                    <button id="play" type="button" class="btn btn-light w-100"
+                                        style="border:1px solid black;"><i class="la la-play"
+                                            style="font-size:20px;"></i>Start</button>
                                 </div>
                                 <div class="col-md-4">
-                                    <button id="pause" onclick="machineStarter(2, {{ $digital_printing->id }})"
-                                        type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                            class="la la-pause" style="font-size:20px;"></i>Pause</button>
+                                    <button id="pause" type="button" class="btn btn-light w-100"
+                                        style="border:1px solid black;"><i class="la la-pause"
+                                            style="font-size:20px;"></i>Pause</button>
                                 </div>
                                 <div class="col-md-4  ">
                                     <div class="box">
-                                        <button id="stop" onclick="machineStarter(3, {{ $digital_printing->id }})"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-stop-circle" style="font-size:20px;"></i>Stop</button>
+                                        <button id="stop" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-stop-circle"
+                                                style="font-size:20px;"></i>Stop</button>
                                     </div>
                                 </div>
                             </div>
@@ -735,14 +735,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <button class="btn btn-primary float-right">Save</button>
+                    <div class="row d-flex justify-content-end">
+                        <div class="col-md-12 d-flex justify-content-end">
+                            <form action="{{ route('digital_printing.approve.approve', $digital_printing->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button class="btn btn-primary" type="submit"> Verify</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {{-- <form action="{{ route('digital_printing.approve.decline', $digital_printing->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                            </form> --}}
                         </div>
                     </div>
                 </div>
-
-
             </div>
             <a href="{{ route('digital_printing') }}">back to list</a>
         </div>
@@ -753,6 +764,7 @@
         $(document).ready(function() {
             $('input,select').attr('disabled', 'disabled');
             $('#operator').removeAttr('disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
             check_machines(@json($check_machines));
         });
 
@@ -794,30 +806,6 @@
                 $('#pause').attr('disabled', 'disabled');
                 $('#stop').attr('disabled', 'disabled');
             }
-        }
-
-        function machineStarter(status, digital_id) {
-            var machine = $("#machine").val();
-
-            $.ajaxSetup({
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('machine.starter') }}',
-                data: {
-                    "digital_id": digital_id,
-                    "machine": machine,
-                    "status": status,
-                },
-                success: function(data) {
-                    $("#msg").html(data.message);
-                    check_machines(data.check_machine);
-                }
-            });
         }
     </script>
 @endpush

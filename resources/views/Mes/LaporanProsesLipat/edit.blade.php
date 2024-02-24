@@ -14,9 +14,12 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Date</label>
-                                            <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                            <input type="text" name="date"
+                                                value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}"
+                                                class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                                placeholder="dd-mm-yyyy">
 
-                                     
+
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -157,12 +160,12 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
                                                         id="tab{{ $key1 }}" data-toggle="tab"
-                                                        href="#Seksyen{{ $section->c_1 }}" role="tab"
-                                                        aria-controls="Seksyen{{ $section->c_1 }}"
+                                                        href="#Seksyen{{ $section->row }}" role="tab"
+                                                        aria-controls="Seksyen{{ $section->row }}"
                                                         aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
-                                                        {{ $section->c_1 }}</a>
-                                                    <input type="hidden" name="section[{{ $key1 }}]"
-                                                        value="Seksyen {{ $section->c_1 }}">
+                                                        {{ $section->row }}</a>
+                                                    <input type="hidden" name="section[{{ $key1 + 1 }}]"
+                                                        value="Seksyen {{ $section->row }}">
                                                 </li>
                                             @endforeach
                                         </ul>
@@ -171,14 +174,14 @@
                                         <div class="tab-content" id="myTabContent">
                                             @foreach ($sections as $key1 => $section)
                                                 <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                    id="Seksyen{{ $section->c_1 }}" role="tabpanel"
+                                                    id="Seksyen{{ $section->row }}" role="tabpanel"
                                                     aria-labelledby="tab{{ $key1 }}">
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered">
                                                             <thead>
                                                                 <tr>
                                                                     <th rowspan="2">Jumlah </th>
-                                                                    <th colspan="2">Seksyen {{ $section->c_1 }}</th>
+                                                                    <th colspan="2">Seksyen {{ $section->row }}</th>
                                                                     <th rowspan="2">Check</th>
                                                                     <th rowspan="2">Username / datetime</th>
                                                                     <th rowspan="2">Verify</th>
@@ -191,31 +194,38 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
+                                                                @php
+                                                                    $newKey = 1;
+                                                                @endphp
                                                                 @foreach ($detailss as $key2 => $value1)
-                                                                    @if ($value1->c_1 == $section->c_1)
+                                                                    @if ($value1->row == $section->row)
                                                                         <tr>
-                                                                            <td>{{$value1->c_2}} <input type="hidden"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2 }}][1]"
-                                                                                    value="{{$value1->c_2}}"></td>
+                                                                            <td>{{ $value1->c_2 }} <input type="hidden"
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][1]"
+                                                                                    value="{{ $value1->c_2 }}"></td>
                                                                             <td><input type="checkbox"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2 }}][2]" @checked($value1->c_3 != null)>
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][2]"
+                                                                                    @checked($value1->c_3 != null)>
                                                                             </td>
                                                                             <td><input type="checkbox"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2 }}][3]" @checked($value1->c_4 != null)>
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][3]"
+                                                                                    @checked($value1->c_4 != null)>
                                                                             </td>
                                                                             <td><button type="button"
                                                                                     class="btn btn-primary check_btn"
-                                                                                    style="border-radius:5px;" @disabled($value1->c_5 != null)>check</button>
+                                                                                    style="border-radius:5px;"
+                                                                                    @disabled($value1->c_5 != null)>check</button>
                                                                             </td>
                                                                             <td><input type="text"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2 }}][4]"
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][4]"
                                                                                     class="check_operator form-control"
-                                                                                    readonly value="{{$value1->c_5}}"></td>
+                                                                                    readonly value="{{ $value1->c_5 }}">
+                                                                            </td>
                                                                             <td><button type="button"
                                                                                     class="btn btn-primary verify_btn"
                                                                                     disabled>Verify</button></td>
                                                                             <td><input type="text"
-                                                                                    name="section[{{ $key1+1 }}][{{ $key2 }}][5]"
+                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][5]"
                                                                                     class="verify_operator form-control"
                                                                                     readonly></td>
                                                                             <td><button type="button"
@@ -223,6 +233,13 @@
                                                                                     style="border-radius:5px;">X</button>
                                                                             </td>
                                                                         </tr>
+                                                                        @php
+                                                                            $newKey++;
+                                                                        @endphp
+                                                                    @else
+                                                                        @php
+                                                                            $newKey = 1;
+                                                                        @endphp
                                                                     @endif
                                                                 @endforeach
                                                             </tbody>

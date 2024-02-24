@@ -416,7 +416,7 @@ class LaporanPemeriksaanKualitiController extends Controller
 
         $laporan_pemeriksaan_kualiti = LaporanPemeriksaanKualiti::find($id);
         $laporan_pemeriksaan_kualiti->status = 'verified';
-        $laporan_pemeriksaan_kualiti->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $laporan_pemeriksaan_kualiti->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $laporan_pemeriksaan_kualiti->verified_by_user = Auth::user()->user_name;
         $laporan_pemeriksaan_kualiti->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $laporan_pemeriksaan_kualiti->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';

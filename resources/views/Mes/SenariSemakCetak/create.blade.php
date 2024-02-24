@@ -15,6 +15,7 @@
                                     <div class="form-group">
                                         <div class="label">Sale Order NO.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
+                                            <option value="" selected disabled>Select any Sale Order</option>
 
                                         </select>
                                     </div>

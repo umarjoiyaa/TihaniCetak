@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\SaleOrder;
 use App\Models\SenariSemak;
+use App\Models\SenariSemakCetak;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -306,6 +307,7 @@ class SenariSemakController extends Controller
     public function sale_order_detail(Request $request)
     {
         $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'size' , 'status')->where('id', $request->id)->first();
+      
         return response()->json($sale_order);
     }
 
@@ -531,7 +533,7 @@ class SenariSemakController extends Controller
 
         $senari_semak = SenariSemak::find($id);
         $senari_semak->status = 'verified';
-        $senari_semak->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $senari_semak->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $senari_semak->verified_by_user = Auth::user()->user_name;
         $senari_semak->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $senari_semak->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';

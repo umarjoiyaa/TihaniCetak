@@ -63,6 +63,10 @@ return new class extends Migration
             $table->string('binding_8')->nullable();
             $table->string('binding_9')->nullable();
 
+            $table->string('verified_by_date')->nullable();
+            $table->string('verified_by_user')->nullable();
+            $table->string('verified_by_designation')->nullable();
+            $table->string('verified_by_department')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();

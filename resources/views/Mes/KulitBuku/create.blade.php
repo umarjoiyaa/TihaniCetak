@@ -23,8 +23,9 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <label for="">Time</label>
-                                            <input type="time" name="time" value="{{ date('H:i') }}"
-                                                id="Currenttime" class="form-control">
+                                            <input name="time" type="time" id="Currenttime"
+                                            value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
+                                            class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
@@ -37,6 +38,7 @@
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
+                                                    <option value="" selected disabled>Select any Sale Order</option>
 
                                                 </select>
                                             </div>
