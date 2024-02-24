@@ -210,7 +210,7 @@
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
                                                     id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ok') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
-                                                    onchange="handleCheckboxChange('Text4')"placeholder="text input"
+                                                    onchange="handleCheckboxChange('Text4')" 
                                                     name="bahagianA[3][4]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ng') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
@@ -488,10 +488,23 @@
                                             <td>17</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][17]"
-                                                            id="" class="form-control" value="{{$detail1[0]->bahagian_a_17}}">
+                                                    
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="checkbox" name="" id="">
+                                                        </div>    
+                                                        <div class="col-md-3">
+                                                                <p>Other</p>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                        <input type="text" width="" style="width:250px;"
+                                                                name="bahagianA[1][17]"
+                                                                id="" class="form-control" value="{{$detail1[0]->bahagian_a_17}}">
+                                                        </div>
+                                                       
+                                                                </div>
+                                                    
                                                     </div>
                                                 </div>
                                             </td>
@@ -528,10 +541,23 @@
                                             <td>18</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][18]"
-                                                            id="" class="form-control" value="{{$detail1[0]->bahagian_a_18}}">
+                                                    
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                                <div class="col-md-1">
+                                                                <input type="checkbox" name="" id="">
+                                                                </div>    
+                                                                <div class="col-md-3">
+                                                                        <p>Other</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                <input type="text" width="" style="width:250px;"
+                                                                        name="bahagianA[1][18]"
+                                                                        id="" class="form-control" value="{{$detail1[0]->bahagian_a_18}}">
+                                                                </div>
+                                                        </div>
+                                                    
+                                                    
                                                     </div>
                                                 </div>
                                             </td>
@@ -567,10 +593,23 @@
                                             <td>19</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][19]"
+                                                    
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                        <div class="col-md-1">
+                                                                <input type="checkbox" name="" id="">
+                                                        </div>  
+                                                        <div class="col-md-3">
+                                                                <p>Other</p>
+                                                        </div>  
+                                                        <div class="col-md-6">
+                                                        <input type="text" width="" style="width:250px;"
+                                                             name="bahagianA[1][19]"
                                                             id="" class="form-control" value="{{$detail1[0]->bahagian_a_19}}">
+                                                        </div>
+                                                    
+                                                        </div>
+                                                    
                                                     </div>
                                                 </div>
                                             </td>
@@ -606,11 +645,23 @@
                                             <td>20</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][20]"
+                                                    
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                        <div class="col-md-1">
+                                                        <input type="checkbox" name="" id="">
+                                                    </div> 
+                                                    <div class="col-md-3">
+                                                        <p>Other</p>
+                                                    </div>   
+                                                    <div class="col-md-6">
+                                                    <input type="text" width="" style="width:250px;"
+                                                             name="bahagianA[1][20]"
                                                             id="" class="form-control" value="{{$detail1[0]->bahagian_a_20}}">
                                                     </div>
+                                                        </div>
+                                                    </div>
+                                                    
                                                 </div>
                                             </td>
                                             <td class="cover"><input class="Cover13"
@@ -646,11 +697,23 @@
                                             <td>21</td>
                                             <td>
                                                 <div class="row">
-                                                    <div class="col-md-3"> Lain-lain Other: </div>
-                                                    <div class="col-md-9"><input type="text" width=""
-                                                            placeholder="Text input" name="bahagianA[1][21]"
-                                                            id="" class="form-control" value="{{$detail1[0]->bahagian_a_21}}">
-                                                    </div>
+                                                    
+                                                    <div class="col-md-9">
+                                                        <div class="row">
+                                                                <div class="col-md-1">
+                                                                        <input type="checkbox" name="" id="">
+                                                                </div>
+                                                                <div class="col-md-3">
+                                                                        <p>Other</p>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                <input type="text" width="" style="width:250px;"
+                                                                        name="bahagianA[1][21]"
+                                                                        id="" class="form-control" value="{{$detail1[0]->bahagian_a_21}}">
+                                                                </div> 
+                                                        </div>     
+                                                    </div>    
+                                                    
                                                 </div>
                                             </td>
                                             <td class="cover"><input class="Cover14"
@@ -694,7 +757,7 @@
                                     <div class="col-md-4 text">
                                         <div class="form-group">
                                             <label for="">Saiz kertas cetak teks (inci)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_1"
+                                            <input type="text" name="bahagian_b_1"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_1 }}">
                                         </div>
@@ -702,7 +765,7 @@
                                     <div class="col-md-4 text">
                                         <div class="form-group">
                                             <label for="">Saiz spacing (mm)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_2"
+                                            <input type="text" name="bahagian_b_2"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_2 }}">
                                         </div>
@@ -713,7 +776,7 @@
                                     <div class="col-md-4 cover">
                                         <div class="form-group">
                                             <label for="">Saiz kertas cetak cover (inci)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_3"
+                                            <input type="text" name="bahagian_b_3"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_3 }}">
                                         </div>
@@ -721,7 +784,7 @@
                                     <div class="col-md-4 cover">
                                         <div class="form-group">
                                             <label for="">Saiz spacing (mm)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_4"
+                                            <input type="text" name="bahagian_b_4"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_4 }}">
                                         </div>
@@ -732,7 +795,7 @@
                                     <div class="col-md-4 endpaper">
                                         <div class="form-group">
                                             <label for="">Saiz kertas cetak endpaper (inci)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_5"
+                                            <input type="text" name="bahagian_b_5"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_5 }}">
                                         </div>
@@ -740,7 +803,7 @@
                                     <div class="col-md-4 endpaper">
                                         <div class="form-group">
                                             <label for="">Saiz spacing (mm)</label>
-                                            <input type="text" placeholder="input teks" name="bahagian_b_6"
+                                            <input type="text" name="bahagian_b_6"
                                                 id="" class="form-control"
                                                 value="{{ $senari_semak_cetak->bahagian_b_6 }}">
                                         </div>
@@ -748,300 +811,306 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    
 
-                    <div class="card" style="background:#f1f0f0;">
-                        <div class="card-body">
-                            <div class="row mt-2">
-                                <div class="col-md-4 text">
-                                    <div class="form-group">
-                                        <label for="">Saiz kawasan cetakan teks (inci)</label>
-                                        <input type="text" name="bahagian_b_7"
-                                            id="" class="form-control"
-                                            value="{{ $senari_semak_cetak->bahagian_b_7 }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 cover">
-                                    <div class="form-group">
-                                        <label for="">Saiz kawasan cetakan cover (inci)</label>
-                                        <input type="text" name="bahagian_b_8"
-                                            id="" class="form-control"
-                                            value="{{ $senari_semak_cetak->bahagian_b_8 }}">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 endpaper">
-                                    <div class="form-group">
-                                        <label for="">Saiz kawasan cetakan endpaper (inci)</label>
-                                        <input type="text" name="bahagian_b_9"
-                                            id="" class="form-control"
-                                            value="{{ $senari_semak_cetak->bahagian_b_9 }}">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-2">
-                                <div class="col-md-4 text">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p4_1" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p4_1 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P4</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 900mm X 615mm</div>
+                        <div class="card" style="background:#f1f0f0;">
+                                <div class="card-body">
+                                <div class="row mt-2">
+                                        <div class="col-md-4 text">
+                                        <div class="form-group">
+                                                <label for="">Saiz kawasan cetakan teks (inci)</label>
+                                                <input type="text" name="bahagian_b_7"
+                                                id="" class="form-control"
+                                                value="{{ $senari_semak_cetak->bahagian_b_7 }}">
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 cover">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p4_2" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p4_2 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P4</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 900mm X 615mm</div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 endpaper">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p4_3" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p4_3 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P4</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 900mm X 615mm</div>
+                                        <div class="col-md-4 cover">
+                                        <div class="form-group">
+                                                <label for="">Saiz kawasan cetakan cover (inci)</label>
+                                                <input type="text" name="bahagian_b_8"
+                                                id="" class="form-control"
+                                                value="{{ $senari_semak_cetak->bahagian_b_8 }}">
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row mt-2">
-
-                                <div class="col-md-4 text">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p3_1" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p3_1 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P3</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 1010mm X 715mm</div>
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 cover">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p3_2" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p3_2 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P3</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                        <div class="col-md-4 endpaper">
+                                        <div class="form-group">
+                                                <label for="">Saiz kawasan cetakan endpaper (inci)</label>
+                                                <input type="text" name="bahagian_b_9"
+                                                id="" class="form-control"
+                                                value="{{ $senari_semak_cetak->bahagian_b_9 }}">
                                         </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 endpaper">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p3_3" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p3_3 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P3</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 1010mm X 715mm</div>
                                         </div>
-                                    </div>
                                 </div>
-                            </div>
 
-                            <div class="row mt-2">
-
-                                <div class="col-md-4 text">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1">
-                                                <input type="checkbox" name="bahagian_b_p1_1" id=""
-                                                    @checked($senari_semak_cetak->bahagian_b_p1_1 != null)>
-                                            </div>
-                                            <div class="col-md-2">
-                                                <p>P1</p>
-                                            </div>
-                                            <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                <div class="row mt-2">
+                                        <div class="col-md-4 text">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p4_1" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p4_1 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P4</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 900mm X 615mm</div>
+                                                </div>
                                         </div>
-                                    </div>
+                                        </div>
+
+                                        <div class="col-md-4 cover">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p4_2" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p4_2 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P4</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 900mm X 615mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-4 endpaper">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p4_3" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p4_3 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P4</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 900mm X 615mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
                                 </div>
 
-                            </div>
+                                <div class="row mt-2">
+
+                                        <div class="col-md-4 text">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p3_1" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p3_1 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P3</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-4 cover">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p3_2" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p3_2 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P3</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                        <div class="col-md-4 endpaper">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p3_3" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p3_3 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P3</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
+                                </div>
+
+                                <div class="row mt-2">
+
+                                        <div class="col-md-4 text">
+                                        <div class="form-group">
+                                                <div class="row">
+                                                <div class="col-md-1">
+                                                        <input type="checkbox" name="bahagian_b_p1_1" id=""
+                                                        @checked($senari_semak_cetak->bahagian_b_p1_1 != null)>
+                                                </div>
+                                                <div class="col-md-2">
+                                                        <p>P1</p>
+                                                </div>
+                                                <div class="col-md-6">Max: 1010mm X 715mm</div>
+                                                </div>
+                                        </div>
+                                        </div>
+
+                                </div>
+                                </div>
                         </div>
-                    </div>
 
-                    <table class="table table-bordered" id="table">
-                        <thead>
-                            <tr>
-                                <th rowspan="2">Item</th>
-                                <th colspan="3">Pemeriksaan dummy lipatan bercetak</th>
-                                <th colspan="3">Front and Back imposition (Rujuk dummy)</th>
-                                <th colspan="3">Kedudukan imposition (Rujuk dummy)</th>
-                                <th colspan="3">Saiz spacing (Bandingkan file imposition dengan rujukan TCSB-AK49)</th>
-                                <th colspan="3">Printing method (straight@Perfecting) (Rujuk file imposition)</th>
-                                <th colspan="2" rowspan="2">No of up/ cavity (Sila nyatakan)</th>
-                            </tr>
-                            <tr>
-                                <td>OK</td>
-                                <td>NG</td>
-                                <td>NA</td>
-                                <td>OK</td>
-                                <td>NG</td>
-                                <td>NA</td>
-                                <td>OK</td>
-                                <td>NG</td>
-                                <td>NA</td>
-                                <td>OK</td>
-                                <td>NG</td>
-                                <td>NA</td>
-                                <td>OK</td>
-                                <td>NG</td>
-                                <td>NA</td>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($detail2 as $key => $bahagian_c)
-                                <tr
-                                    @if ($key == 0) class="cover" @elseif($key == 1)  class="endpaper" @else  class="section" @endif>
-                                    <td>
-                                        @if ($key == 0)
-                                            Cover
-                                        @elseif($key == 1)
-                                            End/Leftlet
-                                        @else
-                                            Section {{ $key - 1 }}
-                                        @endif
-                                    </td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
-                                            id="" value="ok" @checked($bahagian_c->bahagian_c_1 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
-                                            id="" value="ng" @checked($bahagian_c->bahagian_c_1 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
-                                            id="" value="na" @checked($bahagian_c->bahagian_c_1 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
-                                            id="" value="ok" @checked($bahagian_c->bahagian_c_2 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
-                                            id="" value="ng" @checked($bahagian_c->bahagian_c_2 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
-                                            id="" value="na" @checked($bahagian_c->bahagian_c_2 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
-                                            id="" value="ok" @checked($bahagian_c->bahagian_c_3 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
-                                            id="" value="ng" @checked($bahagian_c->bahagian_c_3 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
-                                            id="" value="na" @checked($bahagian_c->bahagian_c_3 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
-                                            id="" value="ok" @checked($bahagian_c->bahagian_c_4 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
-                                            id="" value="ng" @checked($bahagian_c->bahagian_c_4 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
-                                            id="" value="na" @checked($bahagian_c->bahagian_c_4 == 'na')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
-                                            id="" value="ok" @checked($bahagian_c->bahagian_c_5 == 'ok')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
-                                            id="" value="ng" @checked($bahagian_c->bahagian_c_5 == 'ng')></td>
-                                    <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
-                                            id="" value="na" @checked($bahagian_c->bahagian_c_5 == 'na')></td>
-                                    <td><input type="text" placeholder="input text"
-                                            name="bahagianC[{{ $key + 1 }}][6]" id=""
-                                            class="form-control" value="{{ $bahagian_c->bahagian_c_6 }}"></td>
+                        <table class="table table-bordered" id="table">
+                                <thead>
+                                <tr>
+                                        <th rowspan="2">Item</th>
+                                        <th colspan="3">Pemeriksaan dummy lipatan bercetak</th>
+                                        <th colspan="3">Front and Back imposition (Rujuk dummy)</th>
+                                        <th colspan="3">Kedudukan imposition (Rujuk dummy)</th>
+                                        <th colspan="3">Saiz spacing (Bandingkan file imposition dengan rujukan TCSB-AK49)</th>
+                                        <th colspan="3">Printing method (straight@Perfecting) (Rujuk file imposition)</th>
+                                        <th colspan="2" rowspan="2">No of up/ cavity (Sila nyatakan)</th>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                                <tr>
+                                        <td>OK</td>
+                                        <td>NG</td>
+                                        <td>NA</td>
+                                        <td>OK</td>
+                                        <td>NG</td>
+                                        <td>NA</td>
+                                        <td>OK</td>
+                                        <td>NG</td>
+                                        <td>NA</td>
+                                        <td>OK</td>
+                                        <td>NG</td>
+                                        <td>NA</td>
+                                        <td>OK</td>
+                                        <td>NG</td>
+                                        <td>NA</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                @foreach ($detail2 as $key => $bahagian_c)
+                                        <tr
+                                        @if ($key == 0) class="cover" @elseif($key == 1)  class="endpaper" @else  class="section" @endif>
+                                        <td>
+                                                @if ($key == 0)
+                                                Cover
+                                                @elseif($key == 1)
+                                                End/Leftlet
+                                                @else
+                                                Section {{ $key - 1 }}
+                                                @endif
+                                        </td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                                id="" value="ok" @checked($bahagian_c->bahagian_c_1 == 'ok')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                                id="" value="ng" @checked($bahagian_c->bahagian_c_1 == 'ng')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][1]"
+                                                id="" value="na" @checked($bahagian_c->bahagian_c_1 == 'na')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                                id="" value="ok" @checked($bahagian_c->bahagian_c_2 == 'ok')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                                id="" value="ng" @checked($bahagian_c->bahagian_c_2 == 'ng')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][2]"
+                                                id="" value="na" @checked($bahagian_c->bahagian_c_2 == 'na')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                                id="" value="ok" @checked($bahagian_c->bahagian_c_3 == 'ok')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                                id="" value="ng" @checked($bahagian_c->bahagian_c_3 == 'ng')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][3]"
+                                                id="" value="na" @checked($bahagian_c->bahagian_c_3 == 'na')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                                id="" value="ok" @checked($bahagian_c->bahagian_c_4 == 'ok')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                                id="" value="ng" @checked($bahagian_c->bahagian_c_4 == 'ng')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][4]"
+                                                id="" value="na" @checked($bahagian_c->bahagian_c_4 == 'na')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                                id="" value="ok" @checked($bahagian_c->bahagian_c_5 == 'ok')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                                id="" value="ng" @checked($bahagian_c->bahagian_c_5 == 'ng')></td>
+                                        <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
+                                                id="" value="na" @checked($bahagian_c->bahagian_c_5 == 'na')></td>
+                                        <td><input type="text"
+                                                name="bahagianC[{{ $key + 1 }}][6]" id=""
+                                                class="form-control" value="{{ $bahagian_c->bahagian_c_6 }}"></td>
+                                        </tr>
+                                @endforeach
+                                </tbody>
+                        </table>
 
-                    <div class="card" style="background:#f1f0f0;">
-                        <div class="card-body">
-                            <h5>
-                                Gripper margin (Rujuk file imposition)
-                            </h5>
+                        <div class="card" style="background:#f1f0f0;">
+                                <div class="card-body">
+                                <h5>
+                                        Gripper margin (Rujuk file imposition)
+                                </h5>
 
-                            <div class="row mt-2">
-                                <div class="col-md-4 cover">
-                                    <div class="form-group">
-                                        <label for="">Cover</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
-                                            name="gripper_margin_cover" id=""
-                                            value="{{ $senari_semak_cetak->gripper_margin_cover }}">
-                                    </div>
+                                <div class="row mt-2">
+                                        <div class="col-md-4 cover">
+                                        <div class="form-group">
+                                                <label for="">Cover</label>
+                                                <input type="text" class="form-control"
+                                                name="gripper_margin_cover" id=""
+                                                value="{{ $senari_semak_cetak->gripper_margin_cover }}">
+                                        </div>
+                                        </div>
+                                        <div class="col-md-4 text">
+                                        <div class="form-group">
+                                                <label for="">Teks</label>
+                                                <input type="text" class="form-control"
+                                                name="gripper_margin_teks" id=""
+                                                value="{{ $senari_semak_cetak->gripper_margin_teks }}">
+                                        </div>
+                                        </div>
+                                        <div class="col-md-4 endpaper">
+                                        <div class="form-group">
+                                                <label for="">Endpaper/Leaflet</label>
+                                                <input type="text" class="form-control"
+                                                name="gripper_margin_leaflet" id=""
+                                                value="{{ $senari_semak_cetak->gripper_margin_leaflet }}">
+                                        </div>
+                                        </div>
                                 </div>
-                                <div class="col-md-4 text">
-                                    <div class="form-group">
-                                        <label for="">Teks</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
-                                            name="gripper_margin_teks" id=""
-                                            value="{{ $senari_semak_cetak->gripper_margin_teks }}">
-                                    </div>
                                 </div>
-                                <div class="col-md-4 endpaper">
-                                    <div class="form-group">
-                                        <label for="">Endpaper/Leaflet</label>
-                                        <input type="text" placeholder="input teks" class="form-control"
-                                            name="gripper_margin_leaflet" id=""
-                                            value="{{ $senari_semak_cetak->gripper_margin_leaflet }}">
-                                    </div>
-                                </div>
-                            </div>
                         </div>
-                    </div>
-                    <div class="card" style="background:#f1f0f0;">
-                        <div class="card-body">
-                            <div class="row">
+                        
+                        <div class="row">
                                 <div class="col-md-12">
-                                    <h5>NOTA:</h5>
-                                    <p>1. Rujukan Kriteria dan spesifikasi Pemeriksaan File di CTP <br>
-                                        2. Makluman kepada Pembantu Tadbir dan Pengurus Operasi jika spesifikasi file
-                                        artwork tidak sama dengan spesifikasi pada TMS</p>
+                                <div class="card" style="background:#f1f0f0;">
+                                        <div class="card-body">
+                                        <div class="row">
+                                                <div class="col-md-12">
+                                                <h5>NOTA:</h5>
+                                                <p>1. Rujukan Kriteria dan spesifikasi Pemeriksaan File di CTP <br>
+                                                        2. Makluman kepada Pembantu Tadbir dan Pengurus Operasi jika spesifikasi file
+                                                        artwork tidak sama dengan spesifikasi pada TMS</p>
+                                                </div>
+                                        </div>
+                                        </div>
                                 </div>
-                            </div>
+                                </div>
                         </div>
-                    </div>
 
-                    <div class="row d-flex justify-content-end">
-                        <div class="col-md-12 d-flex justify-content-end">
-                            <form action="{{ route('senari_semak_cetak.approve.decline', $senari_semak_cetak->id) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
-                            </form>
-                            <form action="{{ route('senari_semak_cetak.approve.approve', $senari_semak_cetak->id) }}" method="POST"
-                                enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-primary" type="submit"> Verify</button>
-                            </form>
+                        <div class="row d-flex justify-content-end">
+                                <div class="col-md-12 d-flex justify-content-end">
+                                <form action="{{ route('senari_semak_cetak.approve.decline', $senari_semak_cetak->id) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                </form>
+                                <form action="{{ route('senari_semak_cetak.approve.approve', $senari_semak_cetak->id) }}" method="POST"
+                                        enctype="multipart/form-data">
+                                        @csrf
+                                        <button class="btn btn-primary" type="submit"> Verify</button>
+                                </form>
+                                </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <a href="{{ route('senari_semak_cetak') }}">back to list</a>
-        </div>
-        </div>
+      </div>
+</div>
 @endsection
 
 @push('custom-scripts')

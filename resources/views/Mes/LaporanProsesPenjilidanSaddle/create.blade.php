@@ -123,7 +123,7 @@
                                                 <td>1</td>
                                                 <td>Kedudukan dawai pin</td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover',this)" name="b_1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="ok" id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" checked

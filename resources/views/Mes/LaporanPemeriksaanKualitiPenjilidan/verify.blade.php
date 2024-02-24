@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -209,18 +208,19 @@
                                 </div>
                             </div>
 
-                            <form
-                                action="{{ route('laporan_pemeriksaan_kualiti_penjilidan.approve.approve', $laporan_pemeriksaan_kualiti_penjilidan->id) }}"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-primary" type="submit"> Verify</button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="row">
-                                <div class="col-md-12">
+                            
+                            <div class="row d-flex justify-content-end">
+                                <div class="col-md-12 d-flex justify-content-end">
+                                    <form
+                                        action="{{ route('laporan_pemeriksaan_kualiti_penjilidan.approve.approve', $laporan_pemeriksaan_kualiti_penjilidan->id) }}"
+                                        method="POST" enctype="multipart/form-data">
+                                        @csrf
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <button class="btn btn-primary" type="submit"> Verify</button>
+                                            </div>
+                                        </div>
+                                    </form>
                                     <form
                                         action="{{ route('laporan_pemeriksaan_kualiti_penjilidan.approve.decline', $laporan_pemeriksaan_kualiti_penjilidan->id) }}"
                                         method="POST" enctype="multipart/form-data">
@@ -231,11 +231,10 @@
                             </div>
                         </div>
                     </div>
-                </div>
                 <a href="{{ route('laporan_pemeriksaan_kualiti_penjilidan') }}">back to list</a>
+
+                </div>
             </div>
-        </div>
-        </div>
 @endsection
 @push('custom-scripts')
     <script>
