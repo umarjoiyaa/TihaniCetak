@@ -113,7 +113,7 @@
                                             <select name="mesin" id="Mesin1" class="form-control form-select">
                                                 <option @selected($digital_printing->mesin == 'REVORIA SC170 FUJIFIILM') value="REVORIA SC170 FUJIFIILM">
                                                     REVORIA SC170 FUJIFIILM</option>
-                                                <option @selected($digital_printing->mesin == 'OTHERS') value="OTHERS" id="selectBox">Others
+                                                <option @selected($digital_printing->mesin == 'OTHERS') value="OTHERS" id="selectBox">OTHERS
                                                 </option>
                                             </select>
                                         </div>
@@ -265,7 +265,7 @@
                                                         id="" @checked($digital_printing->cover_front != null)></div>
                                                 <div class="col-md-2">Front</div>
                                                 <div class="col-md-1"><input type="checkbox" name="cover_back"
-                                                        id="" @checked($digital_printing->cover_front != null)></div>
+                                                        id="" @checked($digital_printing->cover_back != null)></div>
                                                 <div class="col-md-2">back</div>
                                             </div>
 

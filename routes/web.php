@@ -480,6 +480,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/edit/{id}', [DigitalPrintingController::class, 'edit'])->name('digital_printing.edit');
     Route::post('/Production/DigitalPrinting/update/{id}', [DigitalPrintingController::class, 'update'])->name('digital_printing.update');
     Route::get('/Production/DigitalPrinting/proses/{id}', [DigitalPrintingController::class, 'proses'])->name('digital_printing.proses');
+    Route::post('/Production/Machine/Starter', [DigitalPrintingController::class, 'machine_starter'])->name('machine.starter');
+    Route::get('/Production/DigitalPrinting/verify/{id}', [DigitalPrintingController::class, 'verify'])->name('digital_printing.verify');
+    Route::post('/Production/DigitalPrinting/approve/approve/{id}', [DigitalPrintingController::class, 'approve_approve'])->name('digital_printing.approve.approve');
+    Route::post('/Production/DigitalPrinting/approve/decline/{id}', [DigitalPrintingController::class, 'approve_decline'])->name('digital_printing.approve.decline');
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
     // Cover_endPaper
