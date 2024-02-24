@@ -562,7 +562,7 @@ class CTPController extends Controller
 
         $ctp = CTP::find($id);
         $ctp->status = 'verified';
-        $ctp->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $ctp->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $ctp->verified_by_user = Auth::user()->user_name;
         $ctp->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $ctp->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';

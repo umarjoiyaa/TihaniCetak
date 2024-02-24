@@ -44,7 +44,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
-                                            <option value="-1" selected disabled>select sales Order no</option>
+                                            <option value="" selected disabled>Select any Sale Order</option>
 
 
                                         </select>
@@ -177,7 +177,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                         <div class="col-md-12">
                             <button class="btn btn-primary float-right mt-3">Save</button>

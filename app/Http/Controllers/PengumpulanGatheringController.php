@@ -404,7 +404,7 @@ class PengumpulanGatheringController extends Controller
 
         $pengumpulan_gathering = PengumpulanGathering::find($id);
         $pengumpulan_gathering->status = 'verified';
-        $pengumpulan_gathering->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $pengumpulan_gathering->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $pengumpulan_gathering->verified_by_user = Auth::user()->user_name;
         $pengumpulan_gathering->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $pengumpulan_gathering->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';

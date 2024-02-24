@@ -34,8 +34,7 @@
                                 <td>Status</td>
                                 <td>Action</td>
                             </tr>
-                        </thead>
-                        <thead>
+
                             <tr>
                                 <th></th>
                                 <th>
@@ -59,6 +58,7 @@
                                 <th></th>
                             </tr>
                         </thead>
+
                         <tbody>
                         </tbody>
                     </table>

@@ -534,7 +534,7 @@ class ProsesThreeKnifeController extends Controller
 
         $proses_three_knife = ProsesThreeKnife::find($id);
         $proses_three_knife->status = 'verified';
-        $proses_three_knife->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $proses_three_knife->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $proses_three_knife->verified_by_user = Auth::user()->user_name;
         $proses_three_knife->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $proses_three_knife->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';

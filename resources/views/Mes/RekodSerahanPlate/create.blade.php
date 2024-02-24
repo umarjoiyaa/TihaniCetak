@@ -44,6 +44,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
+                                            <option value="" selected disabled>Select any Sale Order</option>
 
                                         </select>
                                     </div>

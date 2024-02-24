@@ -40,7 +40,7 @@
                         <div class="form-group">
                             <div class="label">Sales Order No.</div>
                             <select name="sale_order" id="sale_order"  class="form-control form-select">
-                                <option value="" selected disabled>Select Sales Order No.</option>
+                                <option value="" selected disabled>Select any Sale Order</option>
                             </select>
                         </div>
                     </div>
@@ -134,7 +134,7 @@
                 </div>
 
                 <div class="row mt-5s">
-                    
+
                     <div class="col-md-12">
                         <table class="table text-center table-bordered" border='1'>
                             <thead>
