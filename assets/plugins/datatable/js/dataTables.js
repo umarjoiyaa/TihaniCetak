@@ -144,7 +144,7 @@
                                   sDestroyWidth: o[0].style.width,
                                   sInstance: e,
                                   sTableId: e,
-                                  colgroup: B("<colgroup>").prependTo(this),
+                                  colgroup: B("<colgroup>").prependTo(),
                                   fastData: function (e, t, n) {
                                       return G(u, e, t, n);
                                   },

@@ -15,6 +15,7 @@
                                     <div class="form-group">
                                         <div class="label">Sale Order NO.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
+                                            <option value="" selected disabled>Select any Sale Order</option>
 
                                         </select>
                                     </div>
@@ -489,9 +490,7 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                         <div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -537,9 +536,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -584,9 +581,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -631,9 +626,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -678,9 +671,7 @@
                                         <td>
                                             <div class="row">
                                                         <div class="col-md-8"><div class="row">
-                                                                <div class="col-md-1">
-                                                                        <input type="checkbox" name="" id="">
-                                                                </div>
+                                                                
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>

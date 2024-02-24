@@ -165,6 +165,17 @@ class PermissionTableSeeder extends Seeder
             'PLATE CETAK Verify',
             'PLATE CETAK View',
             'PLATE CETAK Delete',
+            'MESIN LIPAT List',
+            'MESIN LIPAT Create',
+            'MESIN LIPAT Update',
+            'MESIN LIPAT Process',
+            'MESIN LIPAT View',
+            'MESIN LIPAT Delete',
+            'COVER & ENDPAPER List',
+            'COVER & ENDPAPER Create',
+            'COVER & ENDPAPER Update',
+            'COVER & ENDPAPER View',
+            'COVER & ENDPAPER Delete',
          ];
 
          $permissionss = [

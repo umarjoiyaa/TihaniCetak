@@ -14453,6 +14453,7 @@ video {
 }
 .horizontalMenu > .horizontalMenu-list > li > a {
   display: block;
+  color:White;
   margin: 0;
   border-radius: 3px;
   text-decoration: none;
@@ -14461,6 +14462,9 @@ video {
   border-right: 0;
   padding: 15px 14px;
   font-weight: 400;
+}
+.horizontalMenu > .horizontalMenu-list > li > a:hover{
+  color:#fff !important;
 }
 .horizontalMenu > .horizontalMenu-list > li:last-child > a {
   border-right: 0;

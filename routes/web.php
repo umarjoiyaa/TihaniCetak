@@ -501,6 +501,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/ProductionJobSheet_text/proses', [ProductionJobSheet_textController::class, 'proses'])->name('ProductionJobSheet_text.proses');
 
     // ProductionJobSheet_MesinLipat
+
+        // Digital Printing
+        Route::get('/Production/MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('mesin_lipat');
+        Route::get('/Production/MesinLipat/data', [ProductionJobSheet_MesinLipatController::class, 'Data'])->name('mesin_lipat.data');
+        Route::get('/Production/MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('mesin_lipat.create');
+        Route::post('/Production/MesinLipat/store', [ProductionJobSheet_MesinLipatController::class, 'store'])->name('mesin_lipat.store');
+        Route::get('/Production/MesinLipat/view/{id}', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('mesin_lipat.view');
+        Route::get('/Production/MesinLipat/edit/{id}', [ProductionJobSheet_MesinLipatController::class, 'edit'])->name('mesin_lipat.edit');
+        Route::post('/Production/MesinLipat/update/{id}', [ProductionJobSheet_MesinLipatController::class, 'update'])->name('mesin_lipat.update');
+        Route::get('/Production/MesinLipat/proses/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('mesin_lipat.proses');
+        Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
+        
     Route::get('/Production/ProductionJobSheet_MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('ProductionJobSheet_MesinLipat.index');
     Route::get('/Production/ProductionJobSheet_MesinLipat/view', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('ProductionJobSheet_MesinLipat.view');
     Route::get('/Production/ProductionJobSheet_MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('ProductionJobSheet_MesinLipat.create');
