@@ -36,7 +36,7 @@
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
                                             <select name="sale_order" id="sale_order" class="form-control">
-
+                                                <option value="" selected disabled>Select a Sale Order</option>
                                             </select>
                                         </div>
                                     </div>
@@ -107,7 +107,7 @@
                                             <label for="">Mesin</label>
                                             <select name="mesin" id="Mesin1" class="form-control form-select">
                                                 <option value="REVORIA SC170 FUJIFIILM">REVORIA SC170 FUJIFIILM</option>
-                                                <option value="OTHERS" id="selectBox">Others</option>
+                                                <option value="OTHERS" id="selectBox">OTHERS</option>
                                             </select>
                                         </div>
                                     </div>
@@ -907,7 +907,7 @@
                         $('#customer').val(data.sale_order.customer);
                         $('#size').val(data.sale_order.size);
                         $('#sale_order_qty').val(data.sale_order.sale_order_qty);
-                        $('#jumlah').val(data.sale_order.pages_text);
+                        $('#jumlah').val(data.section.pages_text);
                     }
                 });
             });

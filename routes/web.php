@@ -480,6 +480,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/edit/{id}', [DigitalPrintingController::class, 'edit'])->name('digital_printing.edit');
     Route::post('/Production/DigitalPrinting/update/{id}', [DigitalPrintingController::class, 'update'])->name('digital_printing.update');
     Route::get('/Production/DigitalPrinting/proses/{id}', [DigitalPrintingController::class, 'proses'])->name('digital_printing.proses');
+    Route::post('/Production/Machine/Starter', [DigitalPrintingController::class, 'machine_starter'])->name('machine.starter');
+    Route::get('/Production/DigitalPrinting/verify/{id}', [DigitalPrintingController::class, 'verify'])->name('digital_printing.verify');
+    Route::post('/Production/DigitalPrinting/approve/approve/{id}', [DigitalPrintingController::class, 'approve_approve'])->name('digital_printing.approve.approve');
+    Route::post('/Production/DigitalPrinting/approve/decline/{id}', [DigitalPrintingController::class, 'approve_decline'])->name('digital_printing.approve.decline');
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
     // Cover_endPaper
@@ -497,6 +501,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/ProductionJobSheet_text/proses', [ProductionJobSheet_textController::class, 'proses'])->name('ProductionJobSheet_text.proses');
 
     // ProductionJobSheet_MesinLipat
+
+        // Digital Printing
+        Route::get('/Production/MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('mesin_lipat');
+        Route::get('/Production/MesinLipat/data', [ProductionJobSheet_MesinLipatController::class, 'Data'])->name('mesin_lipat.data');
+        Route::get('/Production/MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('mesin_lipat.create');
+        Route::post('/Production/MesinLipat/store', [ProductionJobSheet_MesinLipatController::class, 'store'])->name('mesin_lipat.store');
+        Route::get('/Production/MesinLipat/view/{id}', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('mesin_lipat.view');
+        Route::get('/Production/MesinLipat/edit/{id}', [ProductionJobSheet_MesinLipatController::class, 'edit'])->name('mesin_lipat.edit');
+        Route::post('/Production/MesinLipat/update/{id}', [ProductionJobSheet_MesinLipatController::class, 'update'])->name('mesin_lipat.update');
+        Route::get('/Production/MesinLipat/proses/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('mesin_lipat.proses');
+        Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
+        
     Route::get('/Production/ProductionJobSheet_MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('ProductionJobSheet_MesinLipat.index');
     Route::get('/Production/ProductionJobSheet_MesinLipat/view', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('ProductionJobSheet_MesinLipat.view');
     Route::get('/Production/ProductionJobSheet_MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('ProductionJobSheet_MesinLipat.create');

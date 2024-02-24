@@ -19,10 +19,10 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('ProductionJobSheet_MesinLipat.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('mesin_lipat.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered mt-2" id="example1">
+                    <table class="table table-bordered datatable mt-2" id="example1">
                         <thead>
                             <tr>
                                 <th>Tarikh</th>
@@ -39,7 +39,7 @@
 
                         </thead>
                         <tbody>
-                            <tr class="">
+                            {{-- <tr class="">
                                 <td>30/5/2023</td>
                                 <td>SO-001496</td>
                                 <td>EDUKID DISTRIBUTORS SDN BHD</td>
@@ -67,7 +67,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -77,9 +77,10 @@
 </div>
 @endsection
 @push('custom-scripts')
-<script>
-     $(document).ready(function () {
-        $('#example1').DataTable();
-    });
-</script>
+    <script>
+        var data = "{{ route('mesin_lipat.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/production/MesinLipat/index.js') }}"></script>
 @endpush
+
+

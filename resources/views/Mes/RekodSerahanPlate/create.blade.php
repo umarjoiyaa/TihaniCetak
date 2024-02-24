@@ -44,6 +44,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
+                                            <option value="" selected disabled>Select any Sale Order</option>
 
                                         </select>
                                     </div>
@@ -60,7 +61,7 @@
                                 </div>
                                 <div class="col-md-4 OtherSection " style="display: none" >
                                     <div class="label">Other (Input)</div>
-                                    <input type="text" placeholder="User Input" name="user_input" id=""
+                                    <input type="text" name="user_input" id=""
                                         class="form-control">
                                 </div>
                             </div>

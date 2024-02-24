@@ -5,47 +5,53 @@
         color:black;
         font-size:12px;
     }
-    .card a span{
+    /* .card a span{
         font-size:13px;
-    }
+    } */
     .card a:hover{
         text-decoration:none;
     }
     .card1{
         height:200px;
     }
+    .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
+        color:#fff;
+    }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
-            margin-inline: 200px;
+            margin-left: 170px;
             width:300px;
             height:250px;
         }
 
         .card .card2 {
-            margin-top: 300px;
+            margin-top: 225px;
             width:690px;
-            height:600px;
-            margin-left:-100px;
+            height:550px;
+            margin-left:-125px;
         }
         .card .card3{
-            margin-top: 960px;
-            margin-left: -440px;
+            margin-top: 790px;
+            margin-left: -413px;
         }
         .card .card4{
-            margin-top: 60px;
-            margin-left: -440px;
+            margin-top: 24px;
+            margin-left: -420px;
+        }
+        .card .card4 .c1{
+            width :204px;
         }
         .card .card5{
             width:700px;
-            margin-top: 30px;
-            margin-left: 20px;
+            margin-top: -24px;
+            margin-left: -2px;
         }
         .card .card6{
-            margin-top: 500px;
-            margin-left: -383px;
+            margin-top: 382px;
+            margin-left: -356px;
         }
         .card .card7{
-            margin-top: 60px;
+            margin-top: -25px;
             margin-left:-125px;
             width:560px;
             display:block;
@@ -53,7 +59,7 @@
     }
     @media only screen and (min-device-width: 430px) and (max-device-width: 932px) {
         .card .card1 {
-            margin-inline: 0px;
+            /* margin-inline: px; */
             width:350px;
             height:200px;
         }
