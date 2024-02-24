@@ -55,7 +55,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Jenis</div>
-                                                <select name="jenis" class="form-control form-select">
+                                                <select name="jenis" id="jenis" class="form-control form-select">
                                                     <option value="Cover" @selected($rekod_serahan_plate->jenis == 'Cover')>Cover</option>
                                                     <option value="Teks" @selected($rekod_serahan_plate->jenis == 'Teks')>Teks</option>
                                                     <option value="Other" @selected($rekod_serahan_plate->jenis == 'Other')>Other</option>
@@ -105,12 +105,9 @@
                             </div>
 
                             <div class="row">
-                                <div class="col-md-5">
-                                    <h5>Bahagian A ( Semakan File)</h5>
-                                </div>
-                                <div class="col-md-7"></div>
-                                <div class="col-md-5">
-                                    <table class="table table-bordered" id="Status_tbl">
+                                <div class="col-md-5" id="Status_tbl">
+                                <h5>Bahagian A ( Semakan File)</h5>
+                                    <table class="table table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>item</th>
@@ -173,7 +170,7 @@ function handleCheckboxChange(className, checkbox) {
             }else{
                 $('.OtherSection').css('display','none')
             }
-            
+
             $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {

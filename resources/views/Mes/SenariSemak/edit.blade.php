@@ -217,17 +217,17 @@
                                     <tr>
                                         <td>5</td>
                                         <td>Saiz spine (perfect bind)</td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'ok') value="ok"></td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'ng') value="ng">
                                         </td>
-                                        <td><input type="checkbox" class="Cover8"
-                                                onchange="handleCheckboxChange('Cover8',this)" name="behagian_a_5_cover"
+                                        <td><input type="checkbox" class="Cover08"
+                                                onchange="handleCheckboxChange('Cover08',this)" name="behagian_a_5_cover"
                                                 @checked($senari_semak->bahagian_a_5_cover
                                             == 'na') value="na"></td>
                                         <td colspan="3"></td>
@@ -318,7 +318,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -686,7 +686,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <div class="row">
                         <div class="col-md-12">
@@ -1023,7 +1023,7 @@
                                             <div class="row">
                                                 <div class="col-md-5"> Lain-lain (nyatakan): </div>
                                                 <div class="col-md-7"><input type="text" width=""
-                                                        placeholder="Text input"
+                                                        
                                                         value="{{$senari_semak->bahagian_c_11_input}}"
                                                         name="behagian_c_11_input" id="" class="form-control"></div>
                                             </div>
@@ -1062,7 +1062,7 @@
                         </div>
                     </div>
 
-                    
+
 
                     <button class="btn btn-primary float-right">Save</button>
                 </div>

@@ -713,7 +713,7 @@
                                                 <div class="row">
                                                     <div class="col-md-5"> Lain-lain (nyatakan): </div>
                                                     <div class="col-md-7"><input type="text" width=""
-                                                            placeholder="Text input"
+                                                           
                                                             value="{{ $senari_semak->bahagian_c_11_input }}"
                                                             name="behagian_c_11_input" id=""
                                                             class="form-control"></div>
@@ -751,7 +751,7 @@
                         </div>
 
                         <div class="row d-flex justify-content-end">
-                            <div class="col-md-4 d-flex justify-content-end">
+                            <div class="col-md-12 d-flex justify-content-end">
                                 <form action="{{ route('senari_semak.approve.decline', $senari_semak->id) }}" method="POST"
                                     enctype="multipart/form-data">
                                     @csrf

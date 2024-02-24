@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('pengumpulan_gathering.update', $pengumpulan_gathering->id) }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -187,11 +186,10 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
+
                 </div>
-                <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')

@@ -2,7 +2,6 @@
 @section('content')
     <form action="{{ route('kulit_buku.update', $kulit_buku->id) }}" method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -20,7 +19,7 @@
                                             <div class="form-group">
                                                 <label for="">Date</label>
                                                 <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($kulit_buku->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
-                                   
+
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
@@ -35,7 +34,7 @@
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" data-id="{{ $kulit_buku->sale_order_id }}" id="sale_order"
@@ -131,11 +130,10 @@
                             </div>
                         </div>
                     </div>
+                    <a href="{{ route('kulit_buku') }}">back to list</a>
+
                 </div>
-                <a href="{{ route('kulit_buku') }}">back to list</a>
             </div>
-        </div>
-        </div>
     </form>
 @endsection
 @push('custom-scripts')
@@ -180,7 +178,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.name || null;
+                    return data.text || null;
                 }
             });
         });

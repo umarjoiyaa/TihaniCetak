@@ -240,8 +240,9 @@
                     </div>
                 </div>
             </div>
-        </div>
         <a href="{{route('pod')}}">back to list</a>
+
+        </div>
     </div>
 </form>
 @endsection

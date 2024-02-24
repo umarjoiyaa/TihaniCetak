@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -132,7 +131,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_1 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover1',this)" checked
+                                                        onchange="handleCheckboxChange('Cover1',this)" 
                                                         name="b_1" value="ng" @checked($laporan_proses_three->b_1 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
@@ -148,7 +147,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_2 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text1"
-                                                        onchange="handleCheckboxChange('Text1',this)" checked name="b_2"
+                                                        onchange="handleCheckboxChange('Text1',this)"  name="b_2"
                                                         value="ng" @checked($laporan_proses_three->b_2 == 'ng') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text1"
@@ -164,7 +163,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_3 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover2"
-                                                        onchange="handleCheckboxChange('Cover2',this)" checked
+                                                        onchange="handleCheckboxChange('Cover2',this)" 
                                                         name="b_3" value="ng" @checked($laporan_proses_three->b_3 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover2"
@@ -180,7 +179,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_4 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text2"
-                                                        onchange="handleCheckboxChange('Text2',this)" checked name="b_4"
+                                                        onchange="handleCheckboxChange('Text2',this)"  name="b_4"
                                                         value="ng" @checked($laporan_proses_three->b_4 == 'ng') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text2"
@@ -196,7 +195,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_5 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover3"
-                                                        onchange="handleCheckboxChange('Cover3',this)" checked
+                                                        onchange="handleCheckboxChange('Cover3',this)" 
                                                         name="b_5" value="ng" @checked($laporan_proses_three->b_5 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover3"
@@ -212,7 +211,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_6 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text3"
-                                                        onchange="handleCheckboxChange('Text3',this)" checked name="b_6"
+                                                        onchange="handleCheckboxChange('Text3',this)"  name="b_6"
                                                         value="ng" @checked($laporan_proses_three->b_6 == 'ng') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text3"
@@ -228,7 +227,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_7 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover4"
-                                                        onchange="handleCheckboxChange('Cover4',this)" checked
+                                                        onchange="handleCheckboxChange('Cover4',this)" 
                                                         name="b_7" value="ng" @checked($laporan_proses_three->b_7 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover4"
@@ -244,7 +243,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_8 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text8"
-                                                        onchange="handleCheckboxChange('Text8',this)" checked name="b_8"
+                                                        onchange="handleCheckboxChange('Text8',this)"  name="b_8"
                                                         value="ng" @checked($laporan_proses_three->b_8 == 'ng') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text8"
@@ -260,7 +259,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_9 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover9"
-                                                        onchange="handleCheckboxChange('Cover9',this)" checked
+                                                        onchange="handleCheckboxChange('Cover9',this)" 
                                                         name="b_9" value="ng" @checked($laporan_proses_three->b_9 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover9"
@@ -276,7 +275,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_10 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text10"
-                                                        onchange="handleCheckboxChange('Text10',this)" checked
+                                                        onchange="handleCheckboxChange('Text10',this)" 
                                                         name="b_10" value="ng" @checked($laporan_proses_three->b_10 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Text10"
@@ -292,7 +291,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_11 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover11"
-                                                        onchange="handleCheckboxChange('Cover11',this)" checked
+                                                        onchange="handleCheckboxChange('Cover11',this)" 
                                                         name="b_11" value="ng" @checked($laporan_proses_three->b_11 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover11"
@@ -408,11 +407,10 @@
                     </div>
                 </div>
             </div>
-        </div>
         <a href="{{ route('laporan_proses_three') }}">back to list</a>
+
+        </div>
     </div>
-</div>
-</div>
 @endsection
 @push('custom-scripts')
 <script>
