@@ -152,12 +152,12 @@ class DigitalPrintingController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
@@ -270,12 +270,12 @@ class DigitalPrintingController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('digital_printing.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
@@ -525,9 +525,9 @@ class DigitalPrintingController extends Controller
     }
 
     public function verify($id){
-        // if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
-        //     return back()->with('custom_errors', 'You don`t have Right Permission');
-        // }
+        if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
         $digital_printing = DigitalPrinting::find($id);
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
@@ -537,9 +537,9 @@ class DigitalPrintingController extends Controller
     }
 
     public function approve_approve(Request $request, $id){
-        // if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
-        //     return back()->with('custom_errors', 'You don`t have Right Permission');
-        // }
+        if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
 
         $digital_printing = DigitalPrinting::find($id);
         $digital_printing->status = 'verified';
