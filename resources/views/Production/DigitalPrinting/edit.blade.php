@@ -636,7 +636,7 @@
                                                         <input type="text" @disabled($digital_printing->binding_8 == null)
                                                             placeholder="User Input" name="binding_8_val" id="input"
                                                             class="form-control w-50 float-right"
-                                                            value="{{ $digital_printing->binding_9 }}">
+                                                            value="{{ $digital_printing->binding_8 }}">
                                                     </td>
                                                     <td><select name="binding_9_val" @disabled($digital_printing->binding_9 == null)
                                                             placeholder="select Supplier" id="form17"
@@ -973,7 +973,7 @@
                 }
             });
         });
-
+        let firstAttempt = true;
         $('#sale_order').on('change', function() {
             const id = $(this).val();
             $.ajax({
@@ -989,6 +989,10 @@
                     $('#size').val(data.sale_order.size);
                     $('#sale_order_qty').val(data.sale_order.sale_order_qty);
                     $('#jumlah').val(data.sale_order.pages_text);
+                    if(!firstAttempt){
+                        $('#jumlah').val(data.sale_order.pages_text);
+                    }
+                    firstAttempt = false
                 }
             });
         });

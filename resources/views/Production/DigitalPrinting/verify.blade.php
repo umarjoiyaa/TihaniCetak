@@ -86,14 +86,18 @@
                                     <input type="text" readonly name=""
                                         value="{{ $digital_printing->user->full_name }}" id=""
                                         class="form-control">
+                                    <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Operator</label>
-                                        <select name="user[]" class="form-control form-select" id="operator" multiple>
+                                        @php
+                                            $item = json_decode($digital_printing->operator);
+                                        @endphp
+                                        <select name="operator[]" class="form-control form-select" id="operator" multiple>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}"
-                                                    @if (old('user')) {{ in_array($user->id, old('user')) ? 'selected' : '' }} @endif>
+                                                    @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
                                                     {{ $user->full_name }}</option>
                                             @endforeach
                                         </select>
@@ -707,6 +711,94 @@
                         </div>
                     </div>
 
+                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4>Jobsheet Details</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered" id="jobsheet_detail_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total Time(min)</th>
+                                                <th>Machine</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
+                                                <tr>
+                                                    <td><button type="button" data-toggle="modal"
+                                                            data-target="#exampleModal"
+                                                            class="btn btn-primary openModal">+</button>
+                                                        <input type="hidden" class="hiddenId"
+                                                            value="{{ $detail->id }}">
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td class="operator_text"></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5><b>Production Machine Detail</b></h5>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered" id="machine_detail_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Process</th>
+                                                <th>Machine</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total time</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
+                                                <tr>
+                                                    <td>
+                                                        @if ($detail->status == 1)
+                                                            <span class="badge badge-success">Started</span>
+                                                        @elseif ($detail->status == 2)
+                                                            <span class="badge badge-warning">Paused</span>
+                                                        @elseif ($detail->status == 3)
+                                                            <span class="badge badge-danger">Stopped</span>
+                                                        @else
+                                                            <span class="badge badge-info">Not-initiated</span>
+                                                        @endif
+                                                    </td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
@@ -737,12 +829,77 @@
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
-                            <form action="{{ route('digital_printing.approve.approve', $digital_printing->id) }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('digital_printing.approve.approve', $digital_printing->id) }}"
+                                method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <button class="btn btn-primary" type="submit"> Verify</button>
+                                        <input type="hidden" id="storedData" name="details">
+                                        <button class="btn btn-primary" type="button" id="saveForm"> Verify</button>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Production Output Details
+                                                </h5>
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                                <input type="hidden" class="digital_printing_detail_id">
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered" id="modalTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Last Print</th>
+                                                            <th>Waste Print</th>
+                                                            <th>Rejection</th>
+                                                            <th>Good count</th>
+                                                            <th>Meter Click</th>
+                                                            <th>Check</th>
+                                                            <th></th>
+                                                            <th>Verify</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control last_print">
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control waste_print"></td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control rejection">
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control good_count"></td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control meter_click"></td>
+                                                            <td><button type="button" disabled
+                                                                    class="btn btn-primary check_operator">Check</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_operator_text"></td>
+                                                            <td><button type="button"
+                                                                    class="btn btn-primary check_verify">Verify</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_verify_text"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    id="saveModal">Save</button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
@@ -763,9 +920,35 @@
     <script>
         $(document).ready(function() {
             $('input,select').attr('disabled', 'disabled');
-            $('#operator').removeAttr('disabled');
             $('input[type="hidden"]').removeAttr('disabled');
+            $('.check_verify_text').removeAttr('disabled');
+            $('#operator').trigger('change');
             check_machines(@json($check_machines));
+
+            sessionStorage.clear();
+            var detailsb = @json($detailbs);
+            detailsb.forEach(element => {
+                let dataObject = {
+                    last_print: element.last_print,
+                    waste_print: element.waste_print,
+                    rejection: element.rejection,
+                    good_count: element.good_count,
+                    meter_click: element.meter_click,
+                    check_operator_text: element.check_operator_text,
+                    check_verify_text: element.check_verify_text,
+                    hiddenId: element.digital_detail_id
+                };
+
+                sessionStorage.setItem(`formData${element.digital_detail_id}`, JSON.stringify(dataObject));
+            });
+        });
+
+        $('#operator').on('change', function() {
+            $('.operator_text').empty();
+            $(this).find('option:selected').each(function() {
+                var badge = $('<span class="badge badge-primary mx-1">' + $(this).text() + '</span>');
+                $('.operator_text').append(badge);
+            });
         });
 
         function check_machines(check_machines) {
@@ -807,5 +990,76 @@
                 $('#stop').attr('disabled', 'disabled');
             }
         }
+
+        $(document).on('click', '.openModal', function() {
+            let hiddenId = $(this).closest('tr').find('.hiddenId').val();
+            $('.digital_printing_detail_id').val(hiddenId);
+            let storedData = sessionStorage.getItem(`formData${hiddenId}`);
+            let formData = JSON.parse(storedData);
+
+            if (formData != null) {
+                $('#modalTable tbody').find('.last_print').val(formData.last_print);
+                $('#modalTable tbody').find('.waste_print').val(formData.waste_print);
+                $('#modalTable tbody').find('.rejection').val(formData.rejection);
+                $('#modalTable tbody').find('.good_count').val(formData.good_count);
+                $('#modalTable tbody').find('.meter_click').val(formData.meter_click);
+                $('#modalTable tbody').find('.check_operator_text').val(formData.check_operator_text);
+                $('#modalTable tbody').find('.check_verify_text').val(formData.check_verify_text);
+                $('#modalTable tbody').find('.check_operator').attr('disabled', 'disabled');
+                if (formData.check_verify_text != null) {
+                    $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                } else {
+                    $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
+                }
+            } else {
+                $('#modalTable tbody').find('.last_print').val('');
+                $('#modalTable tbody').find('.waste_print').val('');
+                $('#modalTable tbody').find('.rejection').val('');
+                $('#modalTable tbody').find('.good_count').val('');
+                $('#modalTable tbody').find('.meter_click').val('');
+                $('#modalTable tbody').find('.check_verify_text').val('');
+                $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
+            }
+        });
+
+        $(document).on('click', '.check_verify', function() {
+            $(this).attr('disabled', 'disabled');
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            let checked_by = $('#checked_by').val();
+            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDate);
+        });
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+
+            return `${day}-${month}-${year} ${hours}:${minutes}`;
+        }
+
+        $('#saveModal').on('click', function() {
+            let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
+            let hiddenId = $('.digital_printing_detail_id').val();
+
+            let dataObject = {
+                check_verify_text: check_verify_text,
+                hiddenId: hiddenId
+            };
+
+            sessionStorage.setItem(`formDataNew${hiddenId}`, JSON.stringify(dataObject));
+        });
+
+        $('#saveForm').on('click', function() {
+            let array = [];
+            $('.hiddenId').each(function() {
+                let storedData = sessionStorage.getItem(`formDataNew${$(this).val()}`);
+                array.push(JSON.parse(storedData));
+            });
+            $('#storedData').val(JSON.stringify(array));
+            $(this).closest('form').submit();
+        });
     </script>
 @endpush

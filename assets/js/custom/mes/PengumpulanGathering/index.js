@@ -52,6 +52,34 @@ $(document).ready(function () {
                 name: 'seksyen_no',
             },
             {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
+                data: 'b_4',
+                name: 'b_4',
+            },
+            {
+                data: 'b_5',
+                name: 'b_5',
+            },
+            {
+                data: 'b_6',
+                name: 'b_6',
+            },
+            {
+                data: 'b_7',
+                name: 'b_7',
+            },
+            {
                 data: 'status',
                 name: 'status',
             },
@@ -119,6 +147,34 @@ function AjaxCall(columnsData) {
             {
                 data: 'seksyen_no',
                 name: 'seksyen_no',
+            },
+            {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
+                data: 'b_4',
+                name: 'b_4',
+            },
+            {
+                data: 'b_5',
+                name: 'b_5',
+            },
+            {
+                data: 'b_6',
+                name: 'b_6',
+            },
+            {
+                data: 'b_7',
+                name: 'b_7',
             },
             {
                 data: 'status',

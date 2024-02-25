@@ -110,7 +110,7 @@
                                                     <td><input type="checkbox" class="Cover1"
                                                             onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                             value="ok" id="" @checked($proses_pencetakan->b_1 == 'ok')></td>
-                                                    <td><input checked type="checkbox" class="Cover1"
+                                                    <td><input type="checkbox" class="Cover1"
                                                             onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                             value="ng" id="" @checked($proses_pencetakan->b_1 == 'ng')></td>
                                                     <td><input type="checkbox" class="Cover1"
@@ -125,7 +125,7 @@
                                                             onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                             value="ok" id="" @checked($proses_pencetakan->b_2 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text1"
+                                                    <td><input type="checkbox" class="Text1"
                                                             onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                             value="ng" id="" @checked($proses_pencetakan->b_2 == 'ng')>
                                                     </td>
@@ -142,7 +142,7 @@
                                                             onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                             value="ok" id="" @checked($proses_pencetakan->b_3 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover2"
+                                                    <td><input type="checkbox" class="Cover2"
                                                             onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                             value="ng" id="" @checked($proses_pencetakan->b_3 == 'ng')>
                                                     </td>
@@ -159,7 +159,7 @@
                                                             onchange="handleCheckboxChange('Text2',this)" name="b_4"
                                                             value="ok" id="" @checked($proses_pencetakan->b_4 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text2"
+                                                    <td><input type="checkbox" class="Text2"
                                                             onchange="handleCheckboxChange('Text2',this)" name="b_4"
                                                             value="ng" id="" @checked($proses_pencetakan->b_4 == 'ng')>
                                                     </td>
@@ -176,7 +176,7 @@
                                                             onchange="handleCheckboxChange('Cover3',this)" name="b_5"
                                                             value="ok" id="" @checked($proses_pencetakan->b_5 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover3"
+                                                    <td><input type="checkbox" class="Cover3"
                                                             onchange="handleCheckboxChange('Cover3',this)" name="b_5"
                                                             value="ng" id="" @checked($proses_pencetakan->b_5 == 'ng')>
                                                     </td>
@@ -193,7 +193,7 @@
                                                             onchange="handleCheckboxChange('Text3',this)" name="b_6"
                                                             value="ok" id="" @checked($proses_pencetakan->b_6 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text3"
+                                                    <td><input type="checkbox" class="Text3"
                                                             onchange="handleCheckboxChange('Text3',this)" name="b_6"
                                                             value="ng" id="" @checked($proses_pencetakan->b_6 == 'ng')>
                                                     </td>
@@ -210,7 +210,7 @@
                                                             onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                             value="ok" id="" @checked($proses_pencetakan->b_7 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover4"
+                                                    <td><input type="checkbox" class="Cover4"
                                                             onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                             value="ng" id="" @checked($proses_pencetakan->b_7 == 'ng')>
                                                     </td>
@@ -227,7 +227,7 @@
                                                             onchange="handleCheckboxChange('Text4',this)" name="b_8"
                                                             value="ok" id="" @checked($proses_pencetakan->b_8 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text4"
+                                                    <td><input type="checkbox" class="Text4"
                                                             onchange="handleCheckboxChange('Text4',this)" name="b_8"
                                                             value="ng" id="" @checked($proses_pencetakan->b_8 == 'ng')>
                                                     </td>
@@ -244,7 +244,7 @@
                                                             onchange="handleCheckboxChange('Cover5',this)" name="b_9"
                                                             value="ok" id="" @checked($proses_pencetakan->b_9 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover5"
+                                                    <td><input type="checkbox" class="Cover5"
                                                             onchange="handleCheckboxChange('Cover5',this)" name="b_9"
                                                             value="ng" id="" @checked($proses_pencetakan->b_9 == 'ng')>
                                                     </td>
@@ -261,7 +261,7 @@
                                                             onchange="handleCheckboxChange('Text5',this)" name="b_10"
                                                             value="ok" id="" @checked($proses_pencetakan->b_10 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text5"
+                                                    <td><input type="checkbox" class="Text5"
                                                             onchange="handleCheckboxChange('Text5',this)" name="b_10"
                                                             value="ng" id="" @checked($proses_pencetakan->b_10 == 'ng')>
                                                     </td>
@@ -278,7 +278,7 @@
                                                             onchange="handleCheckboxChange('Cover6',this)" name="b_11"
                                                             value="ok" id="" @checked($proses_pencetakan->b_11 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover6"
+                                                    <td><input type="checkbox" class="Cover6"
                                                             onchange="handleCheckboxChange('Cover6',this)" name="b_11"
                                                             value="ng" id="" @checked($proses_pencetakan->b_11 == 'ng')>
                                                     </td>
@@ -295,7 +295,7 @@
                                                             onchange="handleCheckboxChange('Text6',this)" name="b_12"
                                                             value="ok" id="" @checked($proses_pencetakan->b_12 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text6"
+                                                    <td><input type="checkbox" class="Text6"
                                                             onchange="handleCheckboxChange('Text6',this)" name="b_12"
                                                             value="ng" id="" @checked($proses_pencetakan->b_12 == 'ng')>
                                                     </td>
@@ -312,7 +312,7 @@
                                                             onchange="handleCheckboxChange('Cover7',this)" name="b_13"
                                                             value="ok" id="" @checked($proses_pencetakan->b_13 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover7"
+                                                    <td><input type="checkbox" class="Cover7"
                                                             onchange="handleCheckboxChange('Cover7',this)" name="b_13"
                                                             value="ng" id="" @checked($proses_pencetakan->b_13 == 'ng')>
                                                     </td>
@@ -329,7 +329,7 @@
                                                             onchange="handleCheckboxChange('Text7',this)" name="b_14"
                                                             value="ok" id="" @checked($proses_pencetakan->b_14 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text7"
+                                                    <td><input type="checkbox" class="Text7"
                                                             onchange="handleCheckboxChange('Text7',this)" name="b_14"
                                                             value="ng" id="" @checked($proses_pencetakan->b_14 == 'ng')>
                                                     </td>
@@ -346,7 +346,7 @@
                                                             onchange="handleCheckboxChange('Cover8',this)" name="b_15"
                                                             value="ok" id="" @checked($proses_pencetakan->b_15 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover8"
+                                                    <td><input type="checkbox" class="Cover8"
                                                             onchange="handleCheckboxChange('Cover8',this)" name="b_15"
                                                             value="ng" id="" @checked($proses_pencetakan->b_15 == 'ng')>
                                                     </td>
@@ -363,7 +363,7 @@
                                                             onchange="handleCheckboxChange('Text8',this)" name="b_16"
                                                             value="ok" id="" @checked($proses_pencetakan->b_16 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text8"
+                                                    <td><input type="checkbox" class="Text8"
                                                             onchange="handleCheckboxChange('Text8',this)" name="b_16"
                                                             value="ng" id="" @checked($proses_pencetakan->b_16 == 'ng')>
                                                     </td>
@@ -380,7 +380,7 @@
                                                             onchange="handleCheckboxChange('Cover9',this)" name="b_17"
                                                             value="ok" id="" @checked($proses_pencetakan->b_17 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Cover9"
+                                                    <td><input type="checkbox" class="Cover9"
                                                             onchange="handleCheckboxChange('Cover9',this)" name="b_17"
                                                             value="ng" id="" @checked($proses_pencetakan->b_17 == 'ng')>
                                                     </td>
@@ -397,7 +397,7 @@
                                                             onchange="handleCheckboxChange('Text9',this)" name="b_18"
                                                             value="ok" id="" @checked($proses_pencetakan->b_18 == 'ok')>
                                                     </td>
-                                                    <td><input checked type="checkbox" class="Text9"
+                                                    <td><input type="checkbox" class="Text9"
                                                             onchange="handleCheckboxChange('Text9',this)" name="b_18"
                                                             value="ng" id="" @checked($proses_pencetakan->b_18 == 'ng')>
                                                     </td>

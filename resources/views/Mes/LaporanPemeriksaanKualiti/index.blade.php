@@ -33,6 +33,12 @@
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
                                         <td>Jenis Lipat</td>
+                                        <td>Kedudukan</td>
+                                        <td>Turutan muka surat</td>
+                                        <td>Koyak</td>
+                                        <td>Kotor</td>
+                                        <td>Kedut</td>
+                                        <td>Pematuhan SOP</td>
                                         <td>Status</td>
                                         <td>Action</td>
                                     </tr>
@@ -60,6 +66,24 @@
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search jenis lipat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Turutan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Koyak">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kotor">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedut">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Pematuhan">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search status">

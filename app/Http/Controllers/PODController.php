@@ -410,7 +410,7 @@ class PODController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         Helper::logSystemActivity('POD', 'POD Create');
-        return view('Mes.pod.create');
+        return view('Mes.Pod.create');
     }
 
     public function sale_order(Request $request)
