@@ -218,23 +218,38 @@
             $(this).closest('tr').remove();
         })
 
-
+        var StartingNumber;
+        var EndingNumber;
         $(".SectionNumber").on("change", function() {
             const regex = /^[0-9,-]+$/;
             const newValue = $(this).val().replace(/[^0-9,-]+/g, "");
             $(this).val(newValue);
             var newValueArray = newValue.split(',');
 
+                 var sectionsToRemove = [];
+
+                $('#tableSection tbody tr').each(function () {
+                    var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
+                    sectionsToRemove.push(sectionNumber);
+                });
+
+
             // Iterate through each value in the array
             newValueArray.forEach(function(value) {
+                StartingNumber = 0;
+                EndingNumber = 0;
                 if (/^\d+-\d+$/.test(value)) {
                     //Range code
+
                     var splitValue = value.split('-');
-                    var StartingNumber = +splitValue[0];
-                    var EndingNumber = +splitValue[1];
-                    if ($('#tableSection tbody tr').length > 0) {
-                        StartingNumber = $('#tableSection tbody tr').length + 1;
-                    }
+                     StartingNumber = +splitValue[0];
+                     EndingNumber = +splitValue[1];
+
+                    // if ($('#tableSection tbody tr').length > 0) {
+                    //     StartingNumber = $('#tableSection tbody tr').length + 1;
+                    // }
+
+                    if (!isRangeExists(StartingNumber, EndingNumber)) {
                     for (let i = StartingNumber; i <= EndingNumber; i++) {
                         $length = $('#tableSection tbody tr').length + 1;
                         $('#tableSection tbody').append(`<tr>
@@ -297,12 +312,20 @@
                                                 </div>
                                             </div>`);
                     }
+                }
                     //
 
-
-                    // If the value is in the format "Numberone - Numbertwo", do console range
+                    sectionsToRemove = sectionsToRemove.filter(function (section) {
+                        return section < StartingNumber || section > EndingNumber;
+                    });
                     console.log("Range:", value);
                 } else if (/^\d+$/.test(value)) {
+
+                    var soloNumber = parseInt(value);
+
+
+                    if (!isSoloNumberExists(soloNumber)) {
+
                     // Solo number code
                     $length = $('#tableSection tbody tr').length + 1;
                     $('#tableSection tbody').append(`<tr>
@@ -369,14 +392,68 @@
                                             </div>`);
                     //
 
-                    // If the value is a solo number, do console solo number
                     console.log("Solo Number:", value);
+                    }
+
+                    sectionsToRemove = sectionsToRemove.filter(function (section) {
+                        return section != value;
+                    });
+
                 } else {
-                    // Handle other cases as needed
                     console.log("Invalid Format:", value);
                 }
             });
+
+            sectionsToRemove.forEach(function (sectionToRemove) {
+                removeSection(sectionToRemove);
+            });
+
         });
+
+        function removeSection(sectionNumber) {
+    $('#tableSection tbody tr').each(function () {
+        var currentSectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
+        if (currentSectionNumber == sectionNumber) {
+            $(this).remove();
+            return false;
+        }
+    });
+
+    $('#myTab li, #myTabContent .tab-pane').each(function () {
+        var currentSectionNumber = parseInt($(this).find('input[name^="section"]').val().match(/\d+/)[0]);
+        if (currentSectionNumber == sectionNumber) {
+            $(this).remove();
+            return false;
+        }
+    });
+}
+
+
+        function isRangeExists(start, end) {
+            // Check if the range already exists in the table
+            var rangeExists = false;
+            $('#tableSection tbody tr').each(function () {
+                var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
+                if (sectionNumber >= start && sectionNumber <= end) {
+                    rangeExists = true;
+                    return false; // exit the loop
+                }
+            });
+            return rangeExists;
+        }
+
+        function isSoloNumberExists(soloNumber) {
+            // Check if the solo number already exists in the table
+            var soloNumberExists = false;
+            $('#tableSection tbody tr').each(function () {
+                var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
+                if (sectionNumber === soloNumber) {
+                    soloNumberExists = true;
+                    return false; // exit the loop
+                }
+            });
+            return soloNumberExists;
+        }
 
         $(document).ready(function() {
             $('#sale_order').select2({
