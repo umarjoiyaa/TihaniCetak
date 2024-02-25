@@ -924,6 +924,7 @@
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
+            sessionStorage.clear();
             var detailsb = @json($detailbs);
             detailsb.forEach(element => {
                 let dataObject = {
@@ -996,7 +997,7 @@
             $('.good_count').val(parseFloat(last_print) - parseFloat(waste_print) - parseFloat(rejection));
         });
 
-        $('.openModal').on('click', function() {
+        $(document).on('click', '.openModal', function() {
             let hiddenId = $(this).closest('tr').find('.hiddenId').val();
             $('.digital_printing_detail_id').val(hiddenId);
             let storedData = sessionStorage.getItem(`formData${hiddenId}`);

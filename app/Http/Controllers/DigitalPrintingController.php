@@ -425,8 +425,13 @@ class DigitalPrintingController extends Controller
         }
         $digital_printing = DigitalPrinting::find($id);
         $suppliers = Supplier::select('id', 'name')->get();
+        $users = User::all();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING View');
-        return view('Production.DigitalPrinting.view', compact('digital_printing', 'suppliers'));
+        return view('Production.DigitalPrinting.view', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function update(Request $request, $id)
@@ -436,6 +441,7 @@ class DigitalPrintingController extends Controller
         }
 
         $validator = null;
+
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
@@ -506,7 +512,11 @@ class DigitalPrintingController extends Controller
         $digital_printing->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
         $digital_printing->binding_9 = ($request->binding_8 != null) ? $request->binding_9_val : null;
 
-        $digital_printing->status = 'Not-initiated';
+        if($digital_printing->status == 'Paused'){
+            $digital_printing->status = 'Paused';
+        }else{
+            $digital_printing->status = 'Not-initiated';
+        }
         $digital_printing->save();
 
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
@@ -538,6 +548,10 @@ class DigitalPrintingController extends Controller
         $digital_printing->operator = json_encode($request->operator);
         $digital_printing->save();
 
+        $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->delete();
+
         foreach($storedData as $key => $value){
             $detail = new DigitalPrintingDetailB();
             $detail->digital_detail_id = $value['hiddenId'] ?? null;
@@ -561,8 +575,11 @@ class DigitalPrintingController extends Controller
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
         $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.verify', compact('digital_printing', 'suppliers', 'users', 'check_machines'));
+        return view('Production.DigitalPrinting.verify', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function approve_approve(Request $request, $id){
@@ -577,6 +594,14 @@ class DigitalPrintingController extends Controller
         $digital_printing->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $digital_printing->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
         $digital_printing->save();
+
+        $storedData = json_decode($request->input('details'), true);
+
+        foreach($storedData as $key => $value){
+            $detail = DigitalPrintingDetailB::find($value['hiddenId']);
+            $detail->check_verify_text = $value['check_verify_text'] ?? null;
+            $detail->save();
+        }
 
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Verified');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Verified!');
@@ -599,6 +624,8 @@ class DigitalPrintingController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $digital_printing = DigitalPrinting::find($id);
+        DigitalPrintingDetail::where('digital_id', $id)->delete();
+        DigitalPrintingDetailB::where('digital_id', $id)->delete();
         $digital_printing->delete();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Delete');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Deleted!');
