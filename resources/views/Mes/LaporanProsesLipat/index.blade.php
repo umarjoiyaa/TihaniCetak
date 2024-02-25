@@ -33,7 +33,7 @@
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
                                         <td>Operator</td>
-                                        <td>Sataus</td>
+                                        <td>Status</td>
                                         <td>Action</td>
                                     </tr>
                                 </thead>

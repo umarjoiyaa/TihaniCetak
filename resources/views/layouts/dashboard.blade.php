@@ -20,35 +20,38 @@
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
             margin-left: 0;
-            width:700px;
+            width:710px;
             height:215px;
         }
 
         .card .card2 {
             margin-top: 225px;
-            width:690px;
+            width:710px;
             height:550px;
             margin-left:-125px;
         }
         .card .card3{
             margin-top: 790px;
-            margin-left: -413px;
+            margin-left: -430px;
+            width : 715px;
         }
         .card .card4{
             margin-top: 24px;
-            margin-left: -420px;
+            margin-left: -430px;
+            width:715px;
         }
         .card .card4 .c1{
             width :204px;
         }
         .card .card5{
-            width:700px;
+            width:715px;
             margin-top: -24px;
             margin-left: -2px;
         }
         .card .card6{
             margin-top: 382px;
-            margin-left: -356px;
+            margin-left: -366px;
+            width:715px;
         }
         .card .card7{
             margin-top: -25px;
@@ -83,7 +86,10 @@
     }
 </style>
 
-<div class="row row-sm Dasboard">
+
+
+
+<div class="row row-sm Dasboard mt-5">
     <div class="col-xl-12">
         <div class="card">
 
@@ -130,7 +136,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('Cover_endPaper.index')}}">
+                                                <a href="{{route('cover_endPaper')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Cover &
@@ -142,7 +148,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductionJobSheet_text.index')}}">
+                                                <a href="{{route('ProductionJobSheet_text')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span
@@ -159,7 +165,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductionJobSheet_MesinLipat.index')}}">
+                                                <a href="{{route('mesin_lipat')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Mesin
@@ -171,7 +177,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductionJobSheet_StapleBIND.index')}}">
+                                                <a href="{{route('ProductionJobSheet_StapleBind')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Staple
@@ -183,7 +189,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductionJobSheet_PrefecBind.index')}}">
+                                                <a href="{{route('ProductionJobSheet_PrefecBind')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-weight: bold;">Mesin
@@ -198,7 +204,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('Production_ThreeKnife.index')}}">
+                                                <a href="{{route('Production_ThreeKnife')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Mesin
@@ -210,7 +216,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('BorangeSerahKerja.index')}}">
+                                                <a href="{{route('BorangeSerahKerja')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-size:10px !important; font-weight: bold;">Borang
@@ -222,7 +228,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('BorangeSerahKerja_Teks.index')}}">
+                                                <a href="{{route('BorangeSerahKerja_Teks')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-size:10px !important;font-weight: bold;">Borang
@@ -247,7 +253,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductSCHEDULINIG.index')}}">
+                                                <a href="{{route('ProductSchedulinig')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span
@@ -260,7 +266,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('PrintingProcess_Text.index')}}">
+                                                <a href="{{route('PrintingProcess_Text')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Printing
@@ -272,7 +278,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('CallForAssistance.index')}}">
+                                                <a href="{{route('CallForAssistance')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-weight: bold;">Call for
@@ -642,7 +648,7 @@
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('MachineDashboard.index')}}">
+                                            <a href="{{route('MachineDashboard')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span style=" font-weight: bold;">Machine
@@ -664,7 +670,7 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('OEEDashboard.index')}}">
+                                            <a href="{{route('OEEDashboard')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span

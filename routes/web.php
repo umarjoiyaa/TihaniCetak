@@ -487,18 +487,18 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
     // Cover_endPaper
-    Route::get('/Production/CoverAndEndpaper', [Cover_endPaperController::class, 'index'])->name('cover_end_paper');
-        Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
-        Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
-        Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
-        Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
-        Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
-        Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
-        Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
-        Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
+    Route::get('/Production/CoverAndEndpaper', [Cover_endPaperController::class, 'index'])->name('cover_endPaper');
+        Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_endPaper.data');
+        Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_endPaper.create');
+        Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_endPaper.store');
+        Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_endPaper.view');
+        Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_endPaper.edit');
+        Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_endPaper.update');
+        Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_endPaper.proses');
+        Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_endPaper.delete');
 
     // ProductionJobSheet - Text
-    Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text.index');
+    Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text');
     Route::get('/Production/ProductionJobSheet_text/view', [ProductionJobSheet_textController::class, 'view'])->name('ProductionJobSheet_text.view');
     Route::get('/Production/ProductionJobSheet_text/create', [ProductionJobSheet_textController::class, 'create'])->name('ProductionJobSheet_text.create');
     Route::get('/Production/ProductionJobSheet_text/edit', [ProductionJobSheet_textController::class, 'edit'])->name('ProductionJobSheet_text.edit');
@@ -519,28 +519,28 @@ Route::middleware('auth')->group(function () {
 
 
     // ProductionJobSheet_StapleBIND
-    Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBIND.index');
+    Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBind');
     Route::get('/Production/ProductionJobSheet_StapleBIND/view', [ProductionJobSheet_StapleBINDController::class, 'view'])->name('ProductionJobSheet_StapleBIND.view');
     Route::get('/Production/ProductionJobSheet_StapleBIND/create', [ProductionJobSheet_StapleBINDController::class, 'create'])->name('ProductionJobSheet_StapleBIND.create');
     Route::get('/Production/ProductionJobSheet_StapleBIND/edit', [ProductionJobSheet_StapleBINDController::class, 'edit'])->name('ProductionJobSheet_StapleBIND.edit');
     Route::get('/Production/ProductionJobSheet_StapleBIND/proses', [ProductionJobSheet_StapleBINDController::class, 'proses'])->name('ProductionJobSheet_StapleBIND.proses');
 
     // ProductionJobSheet_PrefecBind
-    Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind.index');
+    Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind');
     Route::get('/Production/ProductionJobSheet_PrefecBind/view', [ProductionJobSheet_PrefecBindController::class, 'view'])->name('ProductionJobSheet_PrefecBind.view');
     Route::get('/Production/ProductionJobSheet_PrefecBind/create', [ProductionJobSheet_PrefecBindController::class, 'create'])->name('ProductionJobSheet_PrefecBind.create');
     Route::get('/Production/ProductionJobSheet_PrefecBind/edit', [ProductionJobSheet_PrefecBindController::class, 'edit'])->name('ProductionJobSheet_PrefecBind.edit');
     Route::get('/Production/ProductionJobSheet_PrefecBind/proses', [ProductionJobSheet_PrefecBindController::class, 'proses'])->name('ProductionJobSheet_PrefecBind.proses');
 
     // Production_ThreeKnife
-    Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife.index');
+    Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife');
     Route::get('/Production/Production_ThreeKnife/view', [Production_ThreeKnifeController::class, 'view'])->name('Production_ThreeKnife.view');
     Route::get('/Production/Production_ThreeKnife/create', [Production_ThreeKnifeController::class, 'create'])->name('Production_ThreeKnife.create');
     Route::get('/Production/Production_ThreeKnife/edit', [Production_ThreeKnifeController::class, 'edit'])->name('Production_ThreeKnife.edit');
     Route::get('/Production/Production_ThreeKnife/proses', [Production_ThreeKnifeController::class, 'proses'])->name('Production_ThreeKnife.proses');
 
     // BorangeSerahKerja
-    Route::get('/Production/BorangeSerahKerja', [BorangeSerahKerjaController::class, 'index'])->name('BorangeSerahKerja.index');
+    Route::get('/Production/BorangeSerahKerja', [BorangeSerahKerjaController::class, 'index'])->name('BorangeSerahKerja');
     Route::get('/Production/BorangeSerahKerja/view', [BorangeSerahKerjaController::class, 'view'])->name('BorangeSerahKerja.view');
     Route::get('/Production/BorangeSerahKerja/create', [BorangeSerahKerjaController::class, 'create'])->name('BorangeSerahKerja.create');
     Route::get('/Production/BorangeSerahKerja/edit', [BorangeSerahKerjaController::class, 'edit'])->name('BorangeSerahKerja.edit');
@@ -549,37 +549,37 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerja/receive', [BorangeSerahKerjaController::class, 'receive'])->name('BorangeSerahKerja.receive');
 
     //BorangeSerahKerja_Teks
-    Route::get('/Production/BorangeSerahKerja_Teks', [BorangeSerahKerja_TeksController::class, 'index'])->name('BorangeSerahKerja_Teks.index');
+    Route::get('/Production/BorangeSerahKerja_Teks', [BorangeSerahKerja_TeksController::class, 'index'])->name('BorangeSerahKerja_Teks');
     Route::get('/Production/BorangeSerahKerja_Teks/view', [BorangeSerahKerja_TeksController::class, 'view'])->name('BorangeSerahKerja_Teks.view');
     Route::get('/Production/BorangeSerahKerja_Teks/create', [BorangeSerahKerja_TeksController::class, 'create'])->name('BorangeSerahKerja_Teks.create');
     Route::get('/Production/BorangeSerahKerja_Teks/edit', [BorangeSerahKerja_TeksController::class, 'edit'])->name('BorangeSerahKerja_Teks.edit');
     Route::get('/Production/BorangeSerahKerja_Teks/verify', [BorangeSerahKerja_TeksController::class, 'verify'])->name('BorangeSerahKerja_Teks.verify');
 
     // ProductSCHEDULINIG
-    Route::get('/Production/ProductSCHEDULINIG', [ProductSCHEDULINIGController::class, 'index'])->name('ProductSCHEDULINIG.index');
+    Route::get('/Production/ProductSCHEDULINIG', [ProductSCHEDULINIGController::class, 'index'])->name('ProductSchedulinig');
 
     // PrintingProcess_Text
-    Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text.index');
+    Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text');
     Route::get('/Production/PrintingProcess_Text/view', [PrintingProcess_TextController::class, 'view'])->name('PrintingProcess_Text.view');
     Route::get('/Production/PrintingProcess_Text/edit', [PrintingProcess_TextController::class, 'edit'])->name('PrintingProcess_Text.edit');
 
     // CallForAssistance
-    Route::get('/Production/CallForAssistance',[CallForAssistanceController::class, 'index'])->name('CallForAssistance.index');
+    Route::get('/Production/CallForAssistance',[CallForAssistanceController::class, 'index'])->name('CallForAssistance');
     Route::get('/Production/CallForAssistance/edit',[CallForAssistanceController::class, 'edit'])->name('CallForAssistance.edit');
     Route::get('/Production/CallForAssistance/view',[CallForAssistanceController::class, 'view'])->name('CallForAssistance.view');
 
     // MachineDashboard
-    Route::get('/Production/MachineDashboard',[MachineDashboardController::class, 'index'])->name('MachineDashboard.index');
+    Route::get('/Production/MachineDashboard',[MachineDashboardController::class, 'index'])->name('MachineDashboard');
 
     // ShoopFloor
     Route::get('/Production/ShoopFloor',[ShopFloorController::class, 'index'])->name('ShopFloor');
 
 
     // OEEDashboard
-    Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])->name('OEEDashboard.index');
+    Route::get('/Production/OEEDashboard',[OEEDashboardController::class, 'index'])->name('OEEDashboard');
 
     // ProductionReport
-    Route::get('/Production/ProductionReport',[ProductionReportController::class, 'index'])->name('ProductionReport.index');
+    Route::get('/Production/ProductionReport',[ProductionReportController::class, 'index'])->name('ProductionReport');
 
     // END PRODUCTION
 

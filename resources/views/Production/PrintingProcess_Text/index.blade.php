@@ -55,7 +55,7 @@
                                             id="dropdownMenuButton" type="button">Action<i
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">
-                                            <a class="dropdown-item" href="{{route('Cover_endPaper.view')}}">View</a>
+                                            <a class="dropdown-item" href="{{route('PrintingProcess_Text.view')}}">View</a>
                                             <a class="dropdown-item"
                                                 href="{{route('PrintingProcess_Text.edit')}}">Edit</a>
 
@@ -82,9 +82,9 @@
                                             id="dropdownMenuButton" type="button">Action<i
                                                 class="fas fa-caret-down ml-1"></i></button>
                                         <div class="dropdown-menu tx-13">
-                                            <a class="dropdown-item" href="{{route('Cover_endPaper.view')}}">View</a>
+                                            <a class="dropdown-item" href="{{route('PrintingProcess_Text.view')}}">View</a>
                                             <a class="dropdown-item"
-                                                href="{{route('PrintingProcess_Text.index')}}">Edit</a>
+                                                href="{{route('PrintingProcess_Text.edit')}}">Edit</a>
 
                                             <a class="dropdown-item" href="">Delete</a>
                                         </div>

@@ -90,7 +90,7 @@
                                         <tbody>
                                             <tr>
                                                 <td>1</td>
-                                                <td>Design clearance 5mm (print to cut dan stitching binding)</td>
+                                                <td>Saiz produk (Bandingkan SO dan Job Sheet)</td>
                                                 <td><input type="checkbox" name="behagian_a_1_cover"
                                                         @checked($senari_semak->bahagian_a_1_cover == 'ok') value="ok"></td>
                                                 <td><input type="checkbox" name="behagian_a_1_cover"
@@ -108,7 +108,7 @@
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Image artwork (Semak teks & gambar)</td>
+                                                <td>Design clearance 5mm (print to cut dan stitching binding)</td>
                                                 <td><input type="checkbox" name="behagian_a_2_cover"
                                                         @checked($senari_semak->bahagian_a_2_cover == 'ok') value="ok"></td>
                                                 <td><input type="checkbox" name="behagian_a_2_cover"
@@ -126,7 +126,7 @@
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Bleed (3-5mm)</td>
+                                                <td>Image artwork (Semak teks & gambar)</td>
                                                 <td><input type="checkbox" name="behagian_a_3_cover"
                                                         @checked($senari_semak->bahagian_a_3_cover == 'ok') value="ok"></td>
                                                 <td><input type="checkbox" name="behagian_a_3_cover"
@@ -145,7 +145,7 @@
 
                                             <tr>
                                                 <td>4</td>
-                                                <td>Alamat pencetak</td>
+                                                <td>Bleed (3-5mm)</td>
                                                 <td><input type="checkbox" name="behagian_a_4_cover"
                                                         @checked($senari_semak->bahagian_a_4_cover == 'ok') value="ok"></td>
                                                 <td><input type="checkbox" name="behagian_a_4_cover"
@@ -187,7 +187,7 @@
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                                <td>Alamat pencetak</td>
                                                 <td colspan="3" readonly></td>
                                                 <td><input type="checkbox" name="behagian_a_7_text"
                                                         @checked($senari_semak->bahagian_a_7_text == 'ok') value="ok"></td>
@@ -208,7 +208,7 @@
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>Turutan mukasurat (Berturutan)</td>
+                                                <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                                 <td colspan="3" readonly></td>
                                                 <td><input type="checkbox" name="behagian_a_9_text"
                                                         @checked($senari_semak->bahagian_a_9_text == 'ok') value="ok"></td>

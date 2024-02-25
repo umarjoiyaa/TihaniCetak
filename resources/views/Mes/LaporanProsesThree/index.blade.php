@@ -34,7 +34,7 @@
                                         <td>Kuantiti</td>
                                         <td>Saiz Buku</td>
                                         <td>Operator</td>
-                                        <td>Sataus</td>
+                                        <td>Status</td>
                                         <td>Action</td>
                                     </tr>
                                 </thead>

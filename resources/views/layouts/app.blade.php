@@ -78,7 +78,6 @@
     <link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
 
     @yield('css')
@@ -842,14 +841,14 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Digital Printing</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('cover_end_paper') }}"
+                                                                        href="{{ route('cover_endPaper') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Cover & End Paper</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_text.index') }}"
+                                                                        href="{{ route('ProductionJobSheet_text') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -863,7 +862,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin Lipat</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_StapleBIND.index') }}"
+                                                                        href="{{ route('ProductionJobSheet_StapleBind') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -872,21 +871,21 @@
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_PrefecBind.index') }}"
+                                                                        href="{{ route('ProductionJobSheet_PrefecBind') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin Perfect Bind</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Production_ThreeKnife.index') }}"
+                                                                        href="{{ route('Production_ThreeKnife') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin 3Knife</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja.index') }}"
+                                                                        href="{{ route('BorangeSerahKerja') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -894,7 +893,7 @@
                                                                         Borang Serahan Kerja (Kulit Buku /Cover)</a>
                                                                 </li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja_Teks.index') }}"
+                                                                        href="{{ route('BorangeSerahKerja_Teks') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -912,19 +911,19 @@
                                                         style="color: white; border-radius:5px;">Production</div>
                                                     <ul>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('ProductSCHEDULINIG.index') }}"
+                                                                href="{{ route('ProductSchedulinig') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Production
                                                                 Scheduling</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('PrintingProcess_Text.index') }}"
+                                                                href="{{ route('PrintingProcess_Text') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Printing
                                                                 Process</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('CallForAssistance.index') }}"
+                                                                href="{{ route('CallForAssistance') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Call for
@@ -939,7 +938,7 @@
                                                         style="color: white; border-radius:5px;">Dashboard</div>
                                                     <ul>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('MachineDashboard.index') }}"
+                                                                href="{{ route('MachineDashboard') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Machine
@@ -950,12 +949,12 @@
                                                                     style="color: #a41843"></iconify-icon>
                                                                 Shopfloor</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('OEEDashboard.index') }}"
+                                                                href="{{ route('OEEDashboard') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> OEE</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('ProductionReport.index') }}"
+                                                                href="{{ route('ProductionReport') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Production

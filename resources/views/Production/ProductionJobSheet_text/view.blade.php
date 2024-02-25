@@ -559,7 +559,7 @@
 
 
             </div>
-            <a href="{{route('digitalPrinting.index')}}">back to list</a>
+            <a href="{{route('ProductionJobSheet_text')}}">back to list</a>
         </div>
     </div>
 </form>

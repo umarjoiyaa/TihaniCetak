@@ -36,7 +36,7 @@
                                         <td>Saiz</td>
                                         <td>Operator</td>
                                         <td>Pamabantu</td>
-                                        <td>Sataus</td>
+                                        <td>Status</td>
                                         <td>Action</td>
                                     </tr>
                                 </thead>
