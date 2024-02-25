@@ -31,6 +31,9 @@
                                         <td>Sales Order No. </td>
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
+                                        <td>Kelekatan OPP Lamination</td>
+                                        <td>Saiz Spacing</td>
+                                        <td>Kedudukan potongan</td>
                                         <td>Status</td>
                                         <td>Action</td>
                                     </tr>
@@ -52,6 +55,15 @@
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search tajuk">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kelekatan OPP Lamination">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Saiz Spacing">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan potongan">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search status">

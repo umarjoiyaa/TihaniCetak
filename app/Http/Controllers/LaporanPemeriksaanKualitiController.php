@@ -19,7 +19,7 @@ class LaporanPemeriksaanKualitiController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status', 'b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -39,6 +39,12 @@ class LaporanPemeriksaanKualitiController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
+                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
                         ->oWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -55,7 +61,13 @@ class LaporanPemeriksaanKualitiController extends Controller
                     5 => 'sale_order_id',
                     6 => 'sale_order_id',
                     7 => 'jenis',
-                    8 => 'status',
+                    8 => 'b_1',
+                    9 => 'b_2',
+                    10 => 'b_3',
+                    11 => 'b_4',
+                    12 => 'b_5',
+                    13 => 'b_6',
+                    14 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -104,6 +116,24 @@ class LaporanPemeriksaanKualitiController extends Controller
                                 $q->where('jenis', 'like', '%' . $searchLower . '%');
                                 break;
                             case 8:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 9:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 10:
+                                 $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 11:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 12:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                               break;
+                            case 13:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                 break;
+                            case 14:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -174,7 +204,7 @@ class LaporanPemeriksaanKualitiController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status')->with('sale_order');
+            $query = LaporanPemeriksaanKualiti::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'jenis', 'status', 'b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -194,6 +224,12 @@ class LaporanPemeriksaanKualitiController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
+                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
                         ->oWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -207,7 +243,13 @@ class LaporanPemeriksaanKualitiController extends Controller
                 5 => 'sale_order_id',
                 6 => 'sale_order_id',
                 7 => 'jenis',
-                8 => 'status',
+                8 => 'b_1',
+                9 => 'b_2',
+                10 => 'b_3',
+                11 => 'b_4',
+                12 => 'b_5',
+                13 => 'b_6',
+                14 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){

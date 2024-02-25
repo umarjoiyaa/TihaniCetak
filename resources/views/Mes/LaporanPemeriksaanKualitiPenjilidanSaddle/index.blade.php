@@ -32,6 +32,16 @@
                                         <td>Sales Order No. </td>
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
+                                        <td>Kedudukan dawai</td>
+                                        <td>Kedudukan kulit buku/teks</td>
+                                        <td>Saiz yang betul</td>
+                                        <td>Kulit buku yang betul</td>
+                                        <td>Teks yang betul</td>
+                                        <td>Kedudukan potongan</td>
+                                        <td>Turutan muka surat</td>
+                                        <td>Koyak</td>
+                                        <td>Label yang betul</td>
+                                        <td>Pematuhan SOP</td>
                                         <td>Status</td>
                                         <td>Action</td>
                                     </tr>
@@ -56,6 +66,36 @@
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search tajuk">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan dawai">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan kulit buku/teks">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Saiz yang betul">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kulit buku yang betul">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Teks yang betul">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan potongan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Turutan muka surat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Koyak">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Label yang betul">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Pematuhan SOP">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search status">

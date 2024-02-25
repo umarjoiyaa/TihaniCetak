@@ -32,6 +32,13 @@
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
                                         <td>Seksyen No</td>
+                                        <td>Susuna Turutan</td>
+                                        <td>Turutan Muka Surat</td>
+                                        <td>Masalah cetakan</td>
+                                        <td>Masalah Lipat</td>
+                                        <td>Kotor</td>
+                                        <td>Kedut</td>
+                                        <td>Pematuhan SOP</td>
                                         <td>Status</td>
                                         <td>Action</td>
                                     </tr>
@@ -56,6 +63,27 @@
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search seksyen no">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Susuna Turutan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Turutan Muka Surat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Masalah cetakan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Masalah Lipat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kotor">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedut">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Pematuhan SOP">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search status">

@@ -48,6 +48,18 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
                 data: 'status',
                 name: 'status',
             },
@@ -111,6 +123,18 @@ function AjaxCall(columnsData) {
             {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
+            },
+            {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
             },
             {
                 data: 'status',
