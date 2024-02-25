@@ -25,10 +25,12 @@
 
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <div class="label">Time</div>
-                                        <input name="time" type="time" id="Currenttime"
-                                        value="{{ $proses_three_knife->time }}"
-                                        class="form-control">
+                                        @php
+                                                $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $proses_three_knife->time)->format('H:i');
+                                            @endphp
+                                            <div class="label">Time</div>
+                                            <input name="time" type="time" id="Currenttime"
+                                                value="{{$timeIn24HourFormat}}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
@@ -176,7 +178,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="row">
                                 <div class="col-md-12">
                                     <h4><b>Nota :</b></h4>

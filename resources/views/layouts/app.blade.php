@@ -1403,8 +1403,8 @@
 
             <!-- container -->
             <div class="container-fluid">
-                @include('includes.errors')
                 <div class="section-messages">
+                    @include('includes.errors')
                     @include('includes.success')
                 </div>
                 @yield('content')
@@ -2109,8 +2109,8 @@
                     dateFormat: 'dd-mm-yy'
                 });
 
-                setTimeout(function() {
-                    $('.section-messages').fadeOut();
+                $('.section-messages').fadeOut();
+                    setTimeout(function() {
                 }, 5000);
 
                  var currentURL = window.location.href;

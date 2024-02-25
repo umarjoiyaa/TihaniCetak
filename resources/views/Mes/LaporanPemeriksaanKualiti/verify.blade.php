@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Time</label>
-                                        <input type="time" name="time"
+                                        <input type="text" name="time"
                                             value="{{ $laporan_pemeriksaan_kualiti->time }}" id="Currenttime"
                                             class="form-control">
                                     </div>
@@ -176,8 +176,8 @@
 
                             </div>
 
-                            
-                            
+
+
                         </div>
                         <div class="row">
                                 <div class="col-md-12">

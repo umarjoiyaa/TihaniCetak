@@ -33,9 +33,9 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
-                        ->oWhere('pembantu_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jenis', 'like', '%' . $searchLower . '%')
+                        ->orWhere('pembantu_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -48,7 +48,7 @@ class LaporanProsesPenjilidanController extends Controller
                         ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
                             $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -197,9 +197,9 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis', 'like', '%' . $searchLower . '%')
-                        ->oWhere('pembantu_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jenis', 'like', '%' . $searchLower . '%')
+                        ->orWhere('pembantu_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -212,7 +212,7 @@ class LaporanProsesPenjilidanController extends Controller
                         ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
                             $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

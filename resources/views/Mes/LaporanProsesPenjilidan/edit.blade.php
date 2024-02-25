@@ -29,9 +29,12 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Time</label>
-                                    <input type="time" name="time" value="{{ $laporan_proses_penjilidan->time }}"
-                                        id="Currenttime" class="form-control">
+                                    @php
+                                    $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $laporan_proses_penjilidan->time)->format('H:i');
+                                @endphp
+                                <div class="label">Time</div>
+                                <input name="time" type="time" id="Currenttime"
+                                    value="{{$timeIn24HourFormat}}" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
@@ -136,7 +139,7 @@
                                 <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                             </div>
                             <div class="col-md-8 mt-5">
-
+                                <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -268,6 +271,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -284,6 +288,7 @@
                                 <div class="col-md-12">
                                     <button class="btn btn-primary mb-3 float-right" type="button" id="AddRow">Add
                                         Row</button>
+                                    <div class="table-responsive">
                                     <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
@@ -342,7 +347,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
+                                </div>
                                 </div>
                             </div>
                         </div>

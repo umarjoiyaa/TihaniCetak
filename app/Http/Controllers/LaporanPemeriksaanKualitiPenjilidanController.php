@@ -29,7 +29,7 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
-                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -39,16 +39,16 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_7', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_8', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_9', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -224,7 +224,7 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
-                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -234,16 +234,16 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_7', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_8', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_9', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

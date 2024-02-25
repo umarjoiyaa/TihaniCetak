@@ -17,12 +17,12 @@
                                         <div class="form-group">
                                             <label for="">Date</label>
                                             <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($pengumpulan_gathering->date)->format('d-m-Y') }}" disabled class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
-                                            
+
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Time</label>
-                                        <input type="time" name="time" value="{{ $pengumpulan_gathering->time }}"
+                                        <input type="text" name="time" value="{{ $pengumpulan_gathering->time }}"
                                             id="Currenttime" class="form-control">
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -208,7 +208,7 @@
                                 </div>
                             </div>
                         </div>
-                            
+
                 </div>
             </div>
             <a href="{{ route('pengumpulan_gathering') }}">back to list</a>
