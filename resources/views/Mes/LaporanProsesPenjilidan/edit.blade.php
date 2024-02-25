@@ -136,7 +136,7 @@
                                 <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                             </div>
                             <div class="col-md-8 mt-5">
-
+                                <div class="table-responsive">
                                 <table class="table table-bordered">
                                     <thead>
                                         <tr>
@@ -268,6 +268,7 @@
                                     </tbody>
                                 </table>
                             </div>
+                            </div>
                         </div>
                         </div>
                     </div>
@@ -284,6 +285,7 @@
                                 <div class="col-md-12">
                                     <button class="btn btn-primary mb-3 float-right" type="button" id="AddRow">Add
                                         Row</button>
+                                    <div class="table-responsive">
                                     <table class="table table-bordered" id="table">
                                         <thead>
                                             <tr>
@@ -342,7 +344,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
+                                </div>
                                 </div>
                             </div>
                         </div>
