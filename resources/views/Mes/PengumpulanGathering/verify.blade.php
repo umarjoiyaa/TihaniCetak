@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Time</label>
-                                    <input type="time" name="time" value="{{ $pengumpulan_gathering->time }}"
+                                    <input type="text" name="time" value="{{ $pengumpulan_gathering->time }}"
                                         id="Currenttime" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">

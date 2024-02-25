@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Masa</label>
-                                        <input type="time" name="time" value="{{ $proses_pencetakan->time }}"
+                                        <input type="text" name="time" value="{{ $proses_pencetakan->time }}"
                                             id="Currenttime" class="form-control">
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -437,7 +437,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                         <div class="row">
                                 <div class="col-md-12">
@@ -451,12 +451,12 @@
                                 </div>
                             </div>
                     </div>
-                            
-                           
+
+
                 </div>
                 <a href="{{ route('proses_pencetakan') }}">back to list</a>
             </div>
-            
+
         </div>
 @endsection
 @push('custom-scripts')

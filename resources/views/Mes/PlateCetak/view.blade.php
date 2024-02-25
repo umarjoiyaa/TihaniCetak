@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-4 mt-3">
                         <label for="">Masa</label>
-                        <input readonly name="time" type="time" id="Currenttime"
+                        <input readonly name="time" type="text" id="Currenttime"
                                     value="{{ $plate_cetak->time }}"
                                     class="form-control">
                     </div>

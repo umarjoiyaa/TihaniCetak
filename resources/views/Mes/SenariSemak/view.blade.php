@@ -44,7 +44,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="label">Time</div>
-                                                <input name="time" type="time" id="Currenttime"
+                                                <input name="time" type="text" id="Currenttime"
                                                     value="{{ $senari_semak->time }}" class="form-control">
                                             </div>
                                         </div>

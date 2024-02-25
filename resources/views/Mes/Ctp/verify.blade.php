@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Masa</label>
-                                    <input name="time" readonly type="time" id="Currenttime"
+                                    <input name="text" readonly type="time" id="Currenttime"
                                     value="{{ $ctp->time }}"
                                     class="form-control">
                                 </div>
@@ -107,7 +107,7 @@
                                                 <td><input type="checkbox" disabled class="Cover3" onchange="handleCheckboxChange('Cover3',this)" name="file_artwork_5" @checked($ctp->file_artwork_5 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Jumlah muka surat</td> 
+                                                <td>Jumlah muka surat</td>
                                                 <td><input type="checkbox" disabled class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($ctp->file_artwork_6 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($ctp->file_artwork_6 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text3" onchange="handleCheckboxChange('Text3',this)" name="file_artwork_6" @checked($ctp->file_artwork_6 == 'na') value="na" id=""></td>

@@ -13,7 +13,7 @@
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Tarikh</div>
+                                            <div class="label">Sales Order No</div>
                                             <input type="text" value="{{ $senari_semak->sale_order->order_no }}"
                                                 class="form-control">
                                         </div>
@@ -44,7 +44,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Time</div>
-                                            <input name="time" type="time" id="Currenttime"
+                                            <input name="time" type="text" id="Currenttime"
                                                 value="{{ $senari_semak->time }}" class="form-control">
                                         </div>
                                     </div>
@@ -713,7 +713,7 @@
                                                 <div class="row">
                                                     <div class="col-md-5"> Lain-lain (nyatakan): </div>
                                                     <div class="col-md-7"><input type="text" width=""
-                                                           
+
                                                             value="{{ $senari_semak->bahagian_c_11_input }}"
                                                             name="behagian_c_11_input" id=""
                                                             class="form-control"></div>

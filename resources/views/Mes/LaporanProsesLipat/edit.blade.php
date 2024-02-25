@@ -23,9 +23,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
-                                        <label for="">Time</label>
-                                        <input type="time" name="time" value="{{ $laporan_proses_lipat->time }}"
-                                            id="Currenttime" class="form-control">
+
+                                        @php
+                                                $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $laporan_proses_lipat->time)->format('H:i');
+                                            @endphp
+                                            <div class="label">Time</div>
+                                            <input name="time" type="time" id="Currenttime"
+                                                value="{{$timeIn24HourFormat}}" class="form-control">
+
+                                        
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">

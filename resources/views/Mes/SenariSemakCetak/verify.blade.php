@@ -20,7 +20,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Date</div>
-                                            <input type="date" name="date" value="{{ $senari_semak_cetak->date }}"
+                                            <input type="text" name="date" value="{{ $senari_semak_cetak->date }}"
                                                 class="form-control" id="Currentdate">
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Time</div>
-                                            <input name="time" type="time" id="Currenttime"
+                                            <input name="time"  type="text" id="Currenttime"
                                                 value="{{ $senari_semak_cetak->time }}" class="form-control">
                                         </div>
                                     </div>
@@ -190,10 +190,10 @@
                                             <td>3</td>
                                             <td>Saiz product (bandingkan TMS dan file artwork)</td>
                                             <td class="cover" colspan="3"><input type="text"class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3')" 
+                                                    onchange="handleCheckboxChange('Cover3')"
                                                     class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
                                             <td class="text" colspan="3"><input type="text"class="Text3"
-                                                    onchange="handleCheckboxChange('Text3')" 
+                                                    onchange="handleCheckboxChange('Text3')"
                                                     class="form-control" name="bahagianA[3][3]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
                                                     onchange="handleCheckboxChange('Endpaper3')"
@@ -210,7 +210,7 @@
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
                                                     id="" value="ok" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ok') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
-                                                    onchange="handleCheckboxChange('Text4')" 
+                                                    onchange="handleCheckboxChange('Text4')"
                                                     name="bahagianA[3][4]" id="" value="ng" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'ng') @endif></td>
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
@@ -488,10 +488,10 @@
                                             <td>17</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            
+
                                                         <div class="col-md-3">
                                                                 <p>Other</p>
                                                         </div>
@@ -500,9 +500,9 @@
                                                                 name="bahagianA[1][17]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_17}}">
                                                         </div>
-                                                       
+
                                                                 </div>
-                                                    
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -539,10 +539,10 @@
                                             <td>18</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                                    
+
                                                                 <div class="col-md-3">
                                                                         <p>Other</p>
                                                                 </div>
@@ -552,8 +552,8 @@
                                                                         id="" class="form-control" value="{{$detail1[0]->bahagian_a_18}}">
                                                                 </div>
                                                         </div>
-                                                    
-                                                    
+
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -589,21 +589,21 @@
                                             <td>19</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                         
+
                                                         <div class="col-md-3">
                                                                 <p>Other</p>
-                                                        </div>  
+                                                        </div>
                                                         <div class="col-md-6">
                                                         <input type="text" width="" style="width:250px;"
                                                              name="bahagianA[1][19]"
                                                             id="" class="form-control" value="{{$detail1[0]->bahagian_a_19}}">
                                                         </div>
-                                                    
+
                                                         </div>
-                                                    
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -639,13 +639,13 @@
                                             <td>20</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                         
+
                                                     <div class="col-md-3">
                                                         <p>Other</p>
-                                                    </div>   
+                                                    </div>
                                                     <div class="col-md-6">
                                                     <input type="text" width="" style="width:250px;"
                                                              name="bahagianA[1][20]"
@@ -653,7 +653,7 @@
                                                     </div>
                                                         </div>
                                                     </div>
-                                                    
+
                                                 </div>
                                             </td>
                                             <td class="cover"><input class="Cover13"
@@ -689,10 +689,10 @@
                                             <td>21</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <p>Other</p>
                                                                 </div>
@@ -700,10 +700,10 @@
                                                                 <input type="text" width="" style="width:250px;"
                                                                         name="bahagianA[1][21]"
                                                                         id="" class="form-control" value="{{$detail1[0]->bahagian_a_21}}">
-                                                                </div> 
-                                                        </div>     
-                                                    </div>    
-                                                    
+                                                                </div>
+                                                        </div>
+                                                    </div>
+
                                                 </div>
                                             </td>
                                             <td class="cover"><input class="Cover14"
@@ -801,7 +801,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
 
                         <div class="card" style="background:#f1f0f0;">
                                 <div class="card-body">
@@ -1062,7 +1062,7 @@
                                 </div>
                                 </div>
                         </div>
-                        
+
                         <div class="row">
                                 <div class="col-md-12">
                                 <div class="card" style="background:#f1f0f0;">

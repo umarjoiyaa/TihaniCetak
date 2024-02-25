@@ -20,7 +20,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Date</div>
-                                            <input type="date" name="date" value="{{ $senari_semak_cetak->date }}"
+                                            <input type="text" name="date" value="{{ $senari_semak_cetak->date }}"
                                                 class="form-control" id="Currentdate">
                                         </div>
                                     </div>
@@ -42,7 +42,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Time</div>
-                                            <input name="time" type="time" id="Currenttime"
+                                            <input name="time" type="text" id="Currenttime"
                                                 value="{{ $senari_semak_cetak->time }}" class="form-control">
                                         </div>
                                     </div>
@@ -190,10 +190,10 @@
                                             <td>3</td>
                                             <td>Saiz product (bandingkan TMS dan file artwork)</td>
                                             <td class="cover" colspan="3"><input type="text"class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3')" 
+                                                    onchange="handleCheckboxChange('Cover3')"
                                                     class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
                                             <td class="text" colspan="3"><input type="text"class="Text3"
-                                                    onchange="handleCheckboxChange('Text3')" 
+                                                    onchange="handleCheckboxChange('Text3')"
                                                     class="form-control" name="bahagianA[3][3]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
                                                     onchange="handleCheckboxChange('Endpaper3')"
@@ -216,7 +216,7 @@
                                                     onchange="handleCheckboxChange('Text4')" name="bahagianA[3][4]"
                                                     id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'na') @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper4"
-                                                    onchange="handleCheckboxChange('Endpaper4')" 
+                                                    onchange="handleCheckboxChange('Endpaper4')"
                                                     class="form-control" readonly name="bahagianA[4][4]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_4}}" @endif>
                                             </td>
                                         </tr>
@@ -966,7 +966,7 @@
                                                 id="" value="ng" @checked($bahagian_c->bahagian_c_5 == 'ng')></td>
                                         <td><input type="checkbox" name="bahagianC[{{ $key + 1 }}][5]"
                                                 id="" value="na" @checked($bahagian_c->bahagian_c_5 == 'na')></td>
-                                        <td><input type="text" 
+                                        <td><input type="text"
                                                 name="bahagianC[{{ $key + 1 }}][6]" id=""
                                                 class="form-control" value="{{ $bahagian_c->bahagian_c_6 }}"></td>
                                     </tr>
@@ -1047,7 +1047,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>    
+                    </div>
                 </div>
             </div>
         </div>

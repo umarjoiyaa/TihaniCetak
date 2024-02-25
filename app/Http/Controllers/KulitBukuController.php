@@ -38,10 +38,10 @@ class KulitBukuController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -198,10 +198,10 @@ class KulitBukuController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
-                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

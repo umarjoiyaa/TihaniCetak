@@ -21,7 +21,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Time</label>
-                                        <input type="time" name="time" value="{{ $kulit_buku->time }}"
+                                        <input type="text" name="time" value="{{ $kulit_buku->time }}"
                                             id="Currenttime" class="form-control">
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -116,12 +116,12 @@
                         <div class="row">
                                 <div class="col-md-12">
                                     <h4><b>Nota :</b></h4>
-                                    <span>*Pemeriksaan kelekatan OPP lamination perlu dilakukan sebelum proses pemotongan kulit buku dibuat. 
+                                    <span>*Pemeriksaan kelekatan OPP lamination perlu dilakukan sebelum proses pemotongan kulit buku dibuat.
                                         <br> *Ambil 3 keping sampel bagi setiap palet secara rawak dari bahagian atas, tengah dan bawah untuk pemeriksaan kelekatan OPP Lamination. Jika hasil pemeriksaan gagal, maklumkan
                                             kepada Eksekutif QA/ Pengurus Operasi untuk tindakan lanjut. Rujuk Perbandingan Kelekatan OPP.  </span>
                                 </div>
                             </div>
-                        
+
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-12 d-flex justify-content-end">
                                 <form action="{{ route('kulit_buku.approve.approve', $kulit_buku->id) }}" method="POST"

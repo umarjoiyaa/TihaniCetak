@@ -45,9 +45,12 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
+                                            @php
+                                                $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $senari_semak_cetak->time)->format('H:i');
+                                            @endphp
                                             <div class="label">Time</div>
                                             <input name="time" type="time" id="Currenttime"
-                                                value="{{ $senari_semak_cetak->time }}" class="form-control">
+                                                value="{{$timeIn24HourFormat}}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">

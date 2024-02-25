@@ -32,15 +32,15 @@ class RekodSerahanPlateController extends Controller
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
-                        ->oWhere('seksyen_no', 'like', '%' . $searchLower . '%')
-                        ->oWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
-                        ->oWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
-                        ->oWhere('sample', 'like', '%' . $searchLower . '%');
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('seksyen_no', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
+                        ->orWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
+                        ->orWhere('sample', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -172,15 +172,15 @@ class RekodSerahanPlateController extends Controller
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('mesin', 'like', '%' . $searchLower . '%')
-                        ->oWhere('seksyen_no', 'like', '%' . $searchLower . '%')
-                        ->oWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
-                        ->oWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
-                        ->oWhere('sample', 'like', '%' . $searchLower . '%');
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('seksyen_no', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kuaniti_plate', 'like', '%' . $searchLower . '%')
+                        ->orWhere('dummy_lipat', 'like', '%' . $searchLower . '%')
+                        ->orWhere('sample', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -282,7 +282,7 @@ class RekodSerahanPlateController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-       
+
 
         $userIds = $request->user;
         $userNames = [];
