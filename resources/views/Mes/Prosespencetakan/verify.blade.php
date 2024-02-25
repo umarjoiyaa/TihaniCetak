@@ -387,6 +387,17 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                                <div class="col-md-12">
+                                    <h4><b>Nota :</b></h4>
+                                    <div class="row">
+                                        <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
+                                        <div class="col-md-11" style="margin-left:-20px;">
+                                            <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <form action="{{ route('proses_pencetakan.approve.approve', $proses_pencetakan->id) }}"

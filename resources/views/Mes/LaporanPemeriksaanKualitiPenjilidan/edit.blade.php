@@ -100,7 +100,7 @@
                                                 <tbody>
 
                                                     <tr>
-                                                        <td>Koyakan fiber</td>
+                                                        <td style="background:wheat;">Koyakan fiber</td>
                                                         <td><input type="checkbox" class="Cover1"
                                                                 onchange="handleCheckboxChange('Cover1',this)"
                                                                 name="b_1" value="ok" @checked($laporan_pemeriksaan_kualiti_penjilidan->b_1 == 'ok') id=""></td>
@@ -195,7 +195,17 @@
 
                                 </div>
                             </div>
-
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4><b>Nota :</b></h4>
+                                    <div class="row">
+                                        <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
+                                        <div class="col-md-11" style="margin-left:-20px;">
+                                            <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <button class="btn btn-primary float-right">Save</button>

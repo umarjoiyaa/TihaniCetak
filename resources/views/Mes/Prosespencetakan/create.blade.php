@@ -380,6 +380,17 @@
 
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h4><b>Nota :</b></h4>
+                                    <div class="row">
+                                        <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
+                                        <div class="col-md-11" style="margin-left:-20px;">
+                                            <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -426,6 +437,7 @@
                     cache: true
                 },
                 containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
                 templateResult: function(data) {
                     if (data.loading) {
                         return "Loading...";
@@ -434,7 +446,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.order_no || "Select Sales Order No";
                 }
             });
 

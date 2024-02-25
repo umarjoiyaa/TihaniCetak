@@ -261,6 +261,7 @@
                     cache: true
                 },
                 containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
                 templateResult: function(data) {
                     if (data.loading) {
                         return "Loading...";

@@ -444,10 +444,14 @@ class PlateCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $plate_cetak = new PlateCetak();
         $plate_cetak->sale_order_id = $request->sale_order;
         $plate_cetak->date = $request->date;
-        $plate_cetak->time = $request->time;
+        $plate_cetak->time = $timeIn12HourFormat;
         $plate_cetak->created_by = Auth::user()->id;
         $plate_cetak->machine = $request->machine;
         $plate_cetak->section = $request->section;
@@ -513,10 +517,14 @@ class PlateCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $plate_cetak = PlateCetak::find($id);
         $plate_cetak->sale_order_id = $request->sale_order;
         $plate_cetak->date = $request->date;
-        $plate_cetak->time = $request->time;
+        $plate_cetak->time = $timeIn12HourFormat;
         $plate_cetak->created_by = Auth::user()->id;
         $plate_cetak->machine = $request->machine;
         $plate_cetak->section = $request->section;

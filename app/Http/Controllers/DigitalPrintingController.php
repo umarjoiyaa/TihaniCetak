@@ -489,7 +489,7 @@ class DigitalPrintingController extends Controller
         $digital_printing->cover_print = $request->cover_print;
         $digital_printing->cover_print_cut = $request->cover_print_cut;
         $digital_printing->cover_print_cut_others = $request->cover_print_cut_others;
-
+        
         $digital_printing->finishing_1 = ($request->finishing_1 != null) ? $request->finishing_1_val : null;
         $digital_printing->finishing_2 = ($request->finishing_2 != null) ? $request->finishing_2_val : null;
         $digital_printing->finishing_3 = ($request->finishing_3 != null) ? $request->finishing_3_val : null;

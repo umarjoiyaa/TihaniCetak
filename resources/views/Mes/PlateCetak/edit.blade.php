@@ -125,9 +125,9 @@
                                     <td><input type="checkbox" class="checkbox" name="warna_4" @checked($plate_cetak->warna_4 == "yes")  value="{{ $plate_cetak->warna_4 }}" id=""></td>
                                     <td><input type="checkbox" class="checkbox" name="warna_5" @checked($plate_cetak->warna_5 == "yes")  value="{{ $plate_cetak->warna_5 }}" id=""></td>
                                     <td><input type="checkbox" class="checkbox"  name="warna_6" @checked($plate_cetak->warna_6 == "yes")  value="{{ $plate_cetak->warna_6 }}" id=""></td>
-                                    <td><input type="text" name="warna_7" id="" value="${{ $plate_cetak->warna_7 }}" class="form-control"></td>
-                                    <td><input type="text" name="warna_8" id="" value="${{ $plate_cetak->warna_8 }}" class="form-control"></td>
-                                    <td><input type="text" name="warna_9" id="" value="${{ $plate_cetak->warna_9 }}" class="form-control"></td>
+                                    <td><input type="text" name="warna_7" id="" value="{{ $plate_cetak->warna_7 }}" class="form-control"></td>
+                                    <td><input type="text" name="warna_8" id="" value="{{ $plate_cetak->warna_8 }}" class="form-control"></td>
+                                    <td><input type="text" name="warna_9" id="" value="{{ $plate_cetak->warna_9 }}" class="form-control"></td>
                                     <td><input type="checkbox" class="checkbox" name="warna_10" @checked($plate_cetak->warna_10 == "yes")  value="{{ $plate_cetak->warna_10 }}" id=""></td>
                                     <td><input type="checkbox" class="checkbox"  name="warna_11" @checked($plate_cetak->warna_11 == "yes")  value="{{ $plate_cetak->warna_11}}" id=""></td>
                                     <td><input type="checkbox" class="checkbox" name="warna_12" @checked($plate_cetak->warna_12 == "yes")  value="{{ $plate_cetak->warna_12 }}" id=""></td>

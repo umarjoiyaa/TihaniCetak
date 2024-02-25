@@ -423,10 +423,14 @@ class ProsesThreeKnifeController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $proses_three_knife = new ProsesThreeKnife();
         $proses_three_knife->sale_order_id = $request->sale_order;
         $proses_three_knife->date = $request->date;
-        $proses_three_knife->time = $request->time;
+        $proses_three_knife->time = $timeIn12HourFormat;
         $proses_three_knife->machine = $request->machine;
         $proses_three_knife->created_by = Auth::user()->id;
 
@@ -489,10 +493,15 @@ class ProsesThreeKnifeController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $proses_three_knife = ProsesThreeKnife::find($id);
         $proses_three_knife->sale_order_id = $request->sale_order;
         $proses_three_knife->date = $request->date;
-        $proses_three_knife->time = $request->time;
+        $proses_three_knife->time = $timeIn12HourFormat;
         // $proses_three_knife->machine = $request->machine;
         $proses_three_knife->created_by = Auth::user()->id;
 

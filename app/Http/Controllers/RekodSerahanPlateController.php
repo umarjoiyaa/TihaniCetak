@@ -282,6 +282,8 @@ class RekodSerahanPlateController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+       
+
         $userIds = $request->user;
         $userNames = [];
 

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="" method="post">
-
+<form action="{{ route('cover_end_paper.store') }}" method="post">
+@csrf
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -18,73 +18,78 @@
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
                                         <input type="text" name="date"
                                             value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
-                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                            id="datepicker" pattern="\d{2}-\d{2}-\d{4}"  placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <label for="">Disediakan Oleh</label>
-                                    <input type="text" readonly name="" id="" class="form-control">
+                                    <input type="text" readonly value="{{ Auth::user()->full_name }}" class="form-control">
                                 </div>
                                 <div class="col-md-4"></div>
-                                <div class="col-md-4 mt-3">
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="" id="sales1" class="form-control form-select">
-                                            <option value="">select sales Order no</option>
-                                            <option value="">SO-001496</option>
+                                        <select name="sale_order" id="sale_order" class="form-control">
+                                            <option value="" selected disabled>Select a Sale Order</option>
                                         </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Tajuk</div>
-                                        <input type="text" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="label">Kod Buku</div>
-                                        <input type="text" readonly class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <div class="label">Tajuk</div>
+                                        <input type="text" readonly name="" id="tajuk" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kod Buku</div>
+                                        <input type="text" readonly id="kod_buku" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
+                                <div class="row mt-2">
+                                <div class="col-md-4">
+                                    <div class="form-group">
                                         <div class="label">Pelanggan</div>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text" readonly name="" id="customer" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti So </div>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text" readonly name="" id="sale_order_qty" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti Waste</div>
-                                        <input type="text" readonly name="" id="" class="form-control">
+                                        <input type="text"  name="kuantiti_waste"  class="form-control">
                                     </div>
                                 </div>
-
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="">Jenis produk</label>
-                                        <select name="" id="printCutSelect1" class="form-control form-select">
-                                            <option value="Cover">Cover</option>
-                                            <option value="Endpaper">Endpaper</option>
-                                            <option value="Bookmark">Bookmark</option>
-                                            <option value="Divider">Divider</option>
+                                        <label for="">Jenis :</label>
+                                        <select name="jenis" id="printCutSelect1" class="form-control form-select">
+                                            <option value="Cover" >Cover</option>
+                                            <option value="Endpaper" >Endpaper</option>
+                                            <option value="Bookmark" >Bookmark</option>
+                                            <option value="Divider" >Divider</option>
                                             <!-- <option value="O">O</option>
                                             <option value="STICKERS">STICKERS</option> -->
-                                            <option value="OTHERS" id="selectBox1">OTHERS</option>
+                                            <option value="Others" id="selectBox1" >Others</option>
                                         </select>
                                     </div>
 
@@ -94,9 +99,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <select name="" id="Mesin2" class="form-control form-select">
-                                            <option value="">SMZP (2C)</option>
-                                            <option value="">RYOBI (4C)</option>
+                                        <select name="mesin" id="Mesin2" class="form-control form-select">
+                                            <option value="SMZP (2C)">SMZP (2C)</option>
+                                            <option value="RYOBI (4C)">RYOBI (4C)</option>
                                         </select>
                                     </div>
                                 </div>
@@ -105,22 +110,22 @@
                                     <div id="box2"></div>
 
                                 </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kertas: </div>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" name="kertas" id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Saiz Potong:</div>
-                                        <input type="text" name="" id="" class="form-control">
+                                        <input type="text" name="saiz_potong" id="" class="form-control">
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- <div class="row mt-5">
-                                    <div class="col-md-4">
+                                    {{-- <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Mesin</label>
                                             <select name="" id="" class="form-control">
@@ -168,9 +173,9 @@
                                             <input type="text" value="input teks" readonly name="" id=""
                                                 class="form-control">
                                         </div>
-                                    </div>
+                                    </div> --}}
 
-                                </div> -->
+                                </div>
                         </div>
                     </div>
 
@@ -185,7 +190,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor"></div>
+                                            <div id="editor" name="arahan_texteditor"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -197,16 +202,16 @@
                         <div class="col-md-12">
                             <div class="card" style="background:#f1f0f0; border-radius:5px;">
                                 <div class="card-body">
-                                    <div class="row mt-3">
+                                    <div class="row">
                                         <div class="col-md-12">
                                             <h5><b>Print Details</b></h5>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="row">
-                                                    <div class="col-md-1"><input type="checkbox" name="" id=""></div>
+                                                    <div class="col-md-1"><input type="checkbox" name="front" id=""></div>
                                                     <div class="col-md-2">Front</div>
-                                                    <div class="col-md-1"><input type="checkbox" name="" id=""></div>
+                                                    <div class="col-md-1"><input type="checkbox" name="back" id=""></div>
                                                     <div class="col-md-2">back</div>
                                                 </div>
 
@@ -214,18 +219,18 @@
                                         </div>
                                         <div class="col-md-4">
                                             <label for="">Print</label>
-                                            <select name="" id="print2" class="form-control form-select">
-                                                <option value="">1C</option>
-                                                <option value="">4C</option>
+                                            <select name="print" id="print2" class="form-control form-select">
+                                                <option value="1C">1C</option>
+                                                <option value="4C">4C</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4">
                                             <label for="">Waste Paper</label>
-                                            <input type="text" name="" id="" class="form-control">
+                                            <input type="text" name="waste_paper" id="" class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-2">
                                             <label for="">Print Cut</label>
-                                            <select name="" id="printSelect" class="form-control form-select">
+                                            <select name="print_cut" id="printSelect" class="form-control form-select">
                                                 <option value="1">1</option>
                                                 <option value="2">2</option>
                                                 <option value="3">3</option>
@@ -236,16 +241,16 @@
                                                 <option value="12">12</option>
                                                 <option value="14">14</option>
                                                 <option value="16">16</option>
-                                                <option value="OTHERS" id="newInputOption">Other</option>
+                                                <option value="Others" id="newInputOption">Others</option>
                                             </select>
                                         </div>
 
                                         <div class="col-md-4 mt-2">
                                             <label for="">last Print</label>
-                                            <input type="text" placeholder="User Input" name="" id=""
+                                            <input type="text"  name="last_print" id=""
                                                 class="form-control">
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <label for=""></label>
                                             <div id="box"></div>
                                         </div>
@@ -266,18 +271,18 @@
                                         </div>
                                         <div class="col-md-4 mt-4">
                                             <label for="">status</label>
-                                            <input type="text" readonly name="" id="" class="form-control">
+                                            <input type="text" readonly  id="status" class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-4">
                                             <label for="">Plate</label>
-                                            <select name="" id="plate1" class="form-control form-select">
-                                                <option value="">Plate lama</option>
-                                                <option value="">Plate baru</option>
+                                            <select name="plate" id="plate1" class="form-control form-select">
+                                                <option value="Plate lama">Plate lama</option>
+                                                <option value="Plate baru">Plate baru</option>
                                             </select>
                                         </div>
                                         <div class="col-md-4 mt-4">
                                             <label for="">Saiz Produk</label>
-                                            <input type="text" readonly name="" id="" class="form-control">
+                                            <input type="text" readonly id="size" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -303,216 +308,250 @@
                                                 </thead>
                                                 <tbody>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print3" class=" mr-5"
+                                                        <td><input type="checkbox" name="finishing_1" id="Print3" class=" mr-5"
                                                                 style="font-size:14px;">UV+Texture
-                                                            Emboss <input type="text" disabled 
-                                                                name="" id="input1" class="form-control float-right"
+                                                            Emboss <input type="text" disabled
+                                                                name="finishing_input_1" id="input1" class="form-control float-right"
                                                                 style="width:150px;">
                                                         </td>
                                                         <td>
-                                                            <select name="" id="print3" disabled
+                                                            <select name="finishing_supplier_1" id="print3" disabled
                                                                 class="form-control form-select" style="width:250px;">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select>
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print4"
+                                                        <td><input type="checkbox" name="finishing_2" id="Print4"
                                                                 class=" mr-5">Gloss
                                                             Lamination</td>
-                                                        <td><select name="" disabled id="print4"
+                                                        <td><select name="finishing_supplier_2" disabled id="print4"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print5"
+                                                        <td><input type="checkbox" name="finishing_3" id="Print5"
                                                                 class=" mr-5">Matt
                                                             Lamination</td>
-                                                        <td><select name="" disabled id="print5"
+                                                        <td><select name="finishing_supplier_3" disabled id="print5"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print6"
+                                                        <td><input type="checkbox" name="finishing_4" id="Print6"
                                                                 class=" mr-5">Spot
                                                             UV
                                                         </td>
-                                                        <td><select name="" disabled id="print6"
+                                                        <td><select name="finishing_supplier_4" disabled id="print6"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print7"
+                                                        <td><input type="checkbox" name="finishing_5" id="Print7"
                                                                 class=" mr-5">Spot
                                                             Miraval
                                                         </td>
-                                                        <td><select name="" disabled id="print7"
+                                                        <td><select name="finishing_supplier_5" disabled id="print7"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print8" class=" mr-5">Hot
+                                                        <td><input type="checkbox" name="finishing_6" id="Print8" class=" mr-5">Hot
                                                             Stamping
-                                                            <input type="text" disabled name="" 
+                                                            <input type="text" disabled name="finishing_input_2"
                                                                 id="input2" class="form-control float-right w-50">
                                                         </td>
-                                                        <td><select name="" disabled id="print8"
+                                                        <td><select name="finishing_supplier_6" disabled id="print8"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print9"
+                                                        <td><input type="checkbox" name="finishing_7" id="Print9"
                                                                 class=" mr-5">Emboss
                                                         </td>
-                                                        <td><select name="" disabled id="print9"
+                                                        <td><select name="finishing_supplier_7" disabled id="print9"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print10"
+                                                        <td><input type="checkbox" name="finishing_8" id="Print10"
                                                                 class=" mr-5">Deboss
                                                         </td>
-                                                        <td><select name="" disabled id="print10"
+                                                        <td><select name="finishing_supplier_8" disabled id="print10"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print11" class=" mr-5">UV
+                                                        <td><input type="checkbox" name="finishing_9" id="Print11" class=" mr-5">UV
                                                             Vanish
                                                         </td>
-                                                        <td><select name="" disabled id="print11"
+                                                        <td><select name="finishing_supplier_9" disabled id="print11"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print12"
+                                                        <td><input type="checkbox" name="finishing_10" id="Print12"
                                                                 class=" mr-5">Spot
                                                             corse UV
                                                         </td>
-                                                        <td><select name="" disabled id="print12"
+                                                        <td><select name="finishing_supplier_10" disabled id="print12"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print13"
+                                                        <td><input type="checkbox" name="finishing_11" id="Print13"
                                                                 class=" mr-5">Creasing
                                                             line
                                                         </td>
-                                                        <td><select name="" disabled id="print13"
+                                                        <td><select name="finishing_supplier_11" disabled id="print13"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print14"
+                                                        <td><input type="checkbox" name="finishing_12" id="Print14"
                                                                 class=" mr-5">Die
                                                             Cut
                                                         </td>
-                                                        <td><select name="" disabled id="print14"
+                                                        <td><select name="finishing_supplier_12" disabled id="print14"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print15"
+                                                        <td><input type="checkbox" name="finishing_13" id="Print15"
                                                                 class=" mr-5">Perforation
                                                         </td>
-                                                        <td><select name="" disabled id="print15"
+                                                        <td><select name="finishing_supplier_13" disabled id="print15"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print16"
+                                                        <td><input type="checkbox" name="finishing_14" id="Print16"
                                                                 class=" mr-5">Numbering
                                                         </td>
-                                                        <td><select name="" disabled id="print16"
+                                                        <td><select name="finishing_supplier_14" disabled id="print16"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print17"
+                                                        <td><input type="checkbox" name="finishing_15" id="Print17"
                                                                 class=" mr-5">Punch
                                                             Hole
                                                         </td>
-                                                        <td><select name="" disabled id="print17"
+                                                        <td><select name="finishing_supplier_15" disabled id="print17"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print18"
+                                                        <td><input type="checkbox" name="finishing_16" id="Print18"
                                                                 class=" mr-5">Round
                                                             Corner
                                                         </td>
-                                                        <td><select name="" disabled id="print18"
+                                                        <td><select name="finishing_supplier_16" disabled id="print18"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
 
                                                     <tr>
-                                                        <td><input type="checkbox" name="" id="Print19" class=" mr-5">
+                                                        <td><input type="checkbox" name="finishing_17" id="Print19" class=" mr-5">
                                                             Others:
-                                                            <input type="text" disabled  name=""
+                                                            <input type="text" disabled  name="finishing_input_3"
                                                                 id="input" class="form-control w-50 float-right">
                                                         </td>
-                                                        <td><select name="" disabled id="print19"
+                                                        <td><select name="finishing_supplier_17" disabled id="print19"
                                                                 class="form-control form-select">
                                                                 <option value="In-house">In-house</option>
-                                                                <option value="SupplierA">Supplier A</option>
-                                                                <option value="SupplierB">Supplier B</option>
+                                                                 @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                                @endforeach
                                                             </select></td>
                                                     </tr>
                                                 </tbody>
@@ -538,7 +577,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor1"></div>
+                                            <div id="editor1" name="catatan_texteditor"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -583,7 +622,7 @@
 
 
             </div>
-            <a href="{{route('Cover_endPaper.index')}}">back to list</a>
+            <a href="{{route('cover_end_paper')}}">back to list</a>
         </div>
     </div>
 
@@ -594,12 +633,14 @@
 <script>
     $(document).ready(function () {
         $('#printSelect').change(function () {
-            if ($(this).val() === "OTHERS") {
+            if ($(this).val() === "Others") {
                 var newInput = $("<input>", {
                     type: "text",
                     class: "form-control",
                     id: "newInput",
-                    placeholder: "Enter Other Print Cut"
+                    placeholder: "Enter Other Print Cut",
+                    name: "other_input",
+
                 });
 
                 // Clear existing content in #box and append the new input element
@@ -611,7 +652,7 @@
         });
 
         $('#printCutSelect1').change(function () {
-            if ($(this).val() === "OTHERS") {
+            if ($(this).val() === "Others") {
                 var newLabel = $("<label>", {
                     for: "newInput",
                     text: "Lain-lain(Nyatakan)"
@@ -621,7 +662,7 @@
                     type: "text",
                     class: "form-control",
                     id: "newInput",
-                    name: "otherProduct",
+                    name: "other_product",
 
                 });
 
@@ -789,6 +830,63 @@
                 $("#input").prop("disabled", true);
             }
         });
+
+        $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.order_no || "Select Sales Order No";
+                }
+            });
+
+            $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order_penjilidan.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                         $('#kod_buku').val(data.sale_order.kod_buku);
+                        $('#tajuk').val(data.sale_order.description);
+                        $('#customer').val(data.sale_order.customer);
+                        $('#size').val(data.sale_order.size);
+                        $('#status').val(data.sale_order.status);
+                        $('#sale_order_qty').val(data.sale_order.sale_order_qty);
+                    }
+                });
+            });
+
     });
 </script>
 @endpush

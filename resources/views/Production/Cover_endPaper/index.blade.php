@@ -20,10 +20,10 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('Cover_endPaper.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('cover_end_paper.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered table-striped mt-2" id="example1">
+                    <table class="table table-bordered datatable  mt-2" id="example1">
                         <thead>
                             <tr>
                                 <th>Sr.</th>
@@ -37,10 +37,37 @@
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
-
+                                <tr>
+                                    <th></th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Tarikh">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search sales order no">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Pelanggan">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Kod Buku">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Tajuk">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Jenis">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Kuantiti">
+                                    </th>
+                                    <th>
+                                        <input type="text" class="all_column" placeholder="search Status">
+                                    </th>
+                                    <th></th>
+                                </tr>
                         </thead>
                         <tbody>
-                            <tr class="">
+                            {{-- <tr class="">
                                 <td>1</td>
                                 <td>30/5/2023</td>
                                 <td>SO-001496</td>
@@ -66,7 +93,7 @@
                                         </div>
                                     </div>
                                 </td>
-                            </tr>
+                            </tr> --}}
                         </tbody>
                     </table>
                 </div>
@@ -85,9 +112,9 @@
 </div>
 @endsection
 @push('custom-scripts')
-<script>
-     $(document).ready(function () {
-        $('#example1').DataTable();
-    });
-</script>
+    <script>
+        var data = "{{ route('cover_end_paper.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/production/CoverEndPaper/index.js') }}"></script>
 @endpush
+

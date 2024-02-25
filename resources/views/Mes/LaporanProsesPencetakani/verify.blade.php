@@ -132,7 +132,7 @@
 
                                             <tr>
                                                 <td>1</td>
-                                                <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
+                                                <td>Artwork (Gambar/teks)</td>
                                                 <td><input type="checkbox" name="b_1" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_1 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_1" id="" value="ng"
@@ -143,7 +143,7 @@
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Artwork (Semak gambar dan teks)</td>
+                                                <td>Warna</td>
                                                 <td><input type="checkbox" name="b_2" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_2 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_2" id="" value="ng"
@@ -154,7 +154,7 @@
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Kotor, calar (Periksa setiap muka surat)</td>
+                                                <td>Bleed</td>
                                                 <td><input type="checkbox" name="b_3" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_3 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_3" id="" value="ng"
@@ -165,7 +165,7 @@
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
+                                                <td>Saiz spine (untuk cover sahaja) </td>
                                                 <td><input type="checkbox" name="b_4" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_4 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_4" id="" value="ng"
@@ -176,7 +176,7 @@
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
+                                                <td>Register depan belakang</td>
                                                 <td><input type="checkbox" name="b_5" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_5 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_5" id="" value="ng"
@@ -187,7 +187,7 @@
                                             </tr>
                                             <tr>
                                                 <td>6</td>
-                                                <td>Turutan mukasurat (Berturutan)</td>
+                                                <td>Turutan muka surat</td>
                                                 <td><input type="checkbox" name="b_6" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_6 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_6" id="" value="ng"
@@ -198,7 +198,7 @@
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>Kelekatan matt/gloss lamination</td>
+                                                <td>Tiada set off, kotor, hickies</td>
                                                 <td><input type="checkbox" name="b_7" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_7 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_7" id="" value="ng"
@@ -209,7 +209,7 @@
                                             </tr>
                                             <tr>
                                                 <td>8</td>
-                                                <td>Koyak (Terkoyak / Rosak)</td>
+                                                <td>Periksa powder</td>
                                                 <td><input type="checkbox" name="b_8" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_8 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_8" id="" value="ng"
@@ -221,7 +221,7 @@
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>Imej/artwork terpotong</td>
+                                                <td>Tiada doubling</td>
                                                 <td><input type="checkbox" name="b_9" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_9 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_9" id="" value="ng"
@@ -232,7 +232,7 @@
                                             </tr>
                                             <tr>
                                                 <td>10</td>
-                                                <td>Cop (Cop pada setiap mockup)</td>
+                                                <td>Frontlay & sidelay </td>
                                                 <td><input type="checkbox" name="b_10" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_10 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_10" id="" value="ng"
@@ -302,12 +302,12 @@
                                                         <td><button type="button" class="btn btn-primary check_btn"
                                                                 style="border-radius:5px;" disabled>check</button>
                                                         </td>
-                                                        <td><input type="text" value="{{ $detail->c_9 }}"
+                                                        <td><input type="text" style="width:340px;" value="{{ $detail->c_9 }}"
                                                                 class="check_operator form-control" readonly></td>
                                                         <td><button type="button"
                                                                 class="btn btn-primary verify_btn">Verify</button>
                                                         </td>
-                                                        <td><input type="text" name="semasa[{{ $detail->id }}][1]"
+                                                        <td><input type="text" style="width:340px;" name="semasa[{{ $detail->id }}][1]"
                                                                 class="verify_operator form-control" readonly></td>
                                                     </tr>
                                                     @endforeach
@@ -351,22 +351,25 @@
         $('input[type="hidden"]').removeAttr('disabled');
     });
 
-    function formatDate(date) {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-        const year = date.getFullYear();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
+    function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-        return `${day}-${month}-${year} ${hours}:${minutes}`;
-    }
+                    return formattedDateTime;
+                }
 
-    $(document).on('click', '.verify_btn', function () {
-        $(this).attr('disabled', 'disabled');
-        const currentDate = new Date();
-        const formattedDate = formatDate(currentDate);
-        let checked_by = $('#checked_by').val();
-        $(this).closest('tr').find('.verify_operator').val(checked_by + '/' + formattedDate);
-    });
+                $(document).on('click', '.verify_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.verify_operator').val(combinedValue);
+                });
 </script>
 @endpush

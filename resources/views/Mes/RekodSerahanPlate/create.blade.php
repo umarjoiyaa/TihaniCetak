@@ -107,7 +107,7 @@
 
                     <div class="row">
                         <div class="col-md-5" id="Status_tbl">
-                        <h5>Bahagian A ( Semakan File)</h5>
+                        <h5>Diwajibkan untuk JOB BAHARU</h5>
                             <table class="table table-bordered" >
                                 <thead>
                                     <tr>
@@ -219,6 +219,7 @@
                 cache: true
             },
             containerCssClass: 'form-control',
+            placeholder: "Select Sales Order No",
             templateResult: function (data) {
                 if (data.loading) {
                     return "Loading...";
@@ -227,7 +228,7 @@
                 return $('<option value=' + data.id + '>' + data.order_no + '</option>');
             },
             templateSelection: function (data) {
-                return data.order_no || null;
+                return data.order_no || "Select Sales Order No";
             }
         });
 

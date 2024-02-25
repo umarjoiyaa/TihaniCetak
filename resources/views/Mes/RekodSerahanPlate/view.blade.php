@@ -93,7 +93,7 @@
 
                         <div class="row">
                             <div class="col-md-5">
-                                <h5>Bahagian A ( Semakan File)</h5>
+                                <h5>Diwajibkan untuk JOB BAHARU</h5>
                             </div>
                             <div class="col-md-7"></div>
                             <div class="col-md-5">

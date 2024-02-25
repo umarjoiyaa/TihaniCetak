@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -142,13 +141,21 @@
 
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <h4><b>Nota :</b></h4>
+                                    <span>*Pemeriksaan kelekatan OPP lamination perlu dilakukan sebelum proses pemotongan kulit buku dibuat. 
+                                        <br> *Ambil 3 keping sampel bagi setiap palet secara rawak dari bahagian atas, tengah dan bawah untuk pemeriksaan kelekatan OPP Lamination. Jika hasil pemeriksaan gagal, maklumkan
+                                            kepada Eksekutif QA/ Pengurus Operasi untuk tindakan lanjut. Rujuk Perbandingan Kelekatan OPP.  </span>
+                                </div>
+                            </div>
                     </div>
+                            
                 </div>
             </div>
+                            
             <a href="{{ route('kulit_buku') }}">back to list</a>
         </div>
-    </div>
-    </div>
 @endsection
 @push('custom-scripts')
     <script>

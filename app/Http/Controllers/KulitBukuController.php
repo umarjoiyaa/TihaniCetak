@@ -281,6 +281,8 @@ class KulitBukuController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
+
+
         $validator = null;
 
         $validatedData = $request->validate([
@@ -289,16 +291,20 @@ class KulitBukuController extends Controller
             'time' => 'required'
         ]);
 
+
+
         // If validations fail
         if (!$validatedData) {
             return redirect()->back()
                 ->withErrors($validator)->withInput();
         }
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
 
         $kulit_buku = new KulitBuku();
         $kulit_buku->sale_order_id = $request->sale_order;
         $kulit_buku->date = $request->date;
-        $kulit_buku->time = $request->time;
+        $kulit_buku->time = $timeIn12HourFormat;
         $kulit_buku->created_by = Auth::user()->id;
 
         $kulit_buku->b_1 = $request->b_1;
@@ -344,16 +350,19 @@ class KulitBukuController extends Controller
             'time' => 'required'
         ]);
 
+
         // If validations fail
         if (!$validatedData) {
             return redirect()->back()
-                ->withErrors($validator)->withInput();
+            ->withErrors($validator)->withInput();
         }
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
 
         $kulit_buku = KulitBuku::find($id);
         $kulit_buku->sale_order_id = $request->sale_order;
         $kulit_buku->date = $request->date;
-        $kulit_buku->time = $request->time;
+        $kulit_buku->time = $timeIn12HourFormat;
         $kulit_buku->created_by = Auth::user()->id;
 
         $kulit_buku->b_1 = $request->b_1;

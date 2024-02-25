@@ -19,9 +19,9 @@
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
-            margin-left: 170px;
-            width:300px;
-            height:250px;
+            margin-left: 0;
+            width:700px;
+            height:215px;
         }
 
         .card .card2 {
@@ -58,15 +58,7 @@
         }
     }
     @media only screen and (min-device-width: 430px) and (max-device-width: 932px) {
-        .card .card1 {
-            /* margin-inline: px; */
-            width:350px;
-            height:200px;
-        }
-        .c1{
-            margin-inline: -50px;
-            width:300px;
-        }
+        
     }
 </style>
 @endsection

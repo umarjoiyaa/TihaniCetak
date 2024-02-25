@@ -842,7 +842,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Digital Printing</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Cover_endPaper.index') }}"
+                                                                        href="{{ route('cover_end_paper') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -856,7 +856,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Text</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_MesinLipat.index') }}"
+                                                                        href="{{ route('mesin_lipat') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
