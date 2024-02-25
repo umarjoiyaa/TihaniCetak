@@ -489,7 +489,7 @@ class DigitalPrintingController extends Controller
         $digital_printing->cover_print = $request->cover_print;
         $digital_printing->cover_print_cut = $request->cover_print_cut;
         $digital_printing->cover_print_cut_others = $request->cover_print_cut_others;
-        
+
         $digital_printing->finishing_1 = ($request->finishing_1 != null) ? $request->finishing_1_val : null;
         $digital_printing->finishing_2 = ($request->finishing_2 != null) ? $request->finishing_2_val : null;
         $digital_printing->finishing_3 = ($request->finishing_3 != null) ? $request->finishing_3_val : null;
@@ -589,7 +589,7 @@ class DigitalPrintingController extends Controller
 
         $digital_printing = DigitalPrinting::find($id);
         $digital_printing->status = 'verified';
-        $digital_printing->verified_by_date = Carbon::now()->format('Y-m-d H:i:s');
+        $digital_printing->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $digital_printing->verified_by_user = Auth::user()->user_name;
         $digital_printing->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
         $digital_printing->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
