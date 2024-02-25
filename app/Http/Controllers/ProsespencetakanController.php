@@ -306,10 +306,14 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $proses_pencetakan = new ProsesPencetakan();
         $proses_pencetakan->sale_order_id = $request->sale_order;
         $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
+        $proses_pencetakan->time = $timeIn12HourFormat;
         $proses_pencetakan->created_by = Auth::user()->id;
 
         $proses_pencetakan->seksyen_no = $request->seksyen_no;
@@ -385,10 +389,14 @@ class ProsesPencetakanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $proses_pencetakan = ProsesPencetakan::find($id);
         $proses_pencetakan->sale_order_id = $request->sale_order;
         $proses_pencetakan->date = $request->date;
-        $proses_pencetakan->time = $request->time;
+        $proses_pencetakan->time = $timeIn12HourFormat;
         $proses_pencetakan->created_by = Auth::user()->id;
 
         $proses_pencetakan->seksyen_no = $request->seksyen_no;

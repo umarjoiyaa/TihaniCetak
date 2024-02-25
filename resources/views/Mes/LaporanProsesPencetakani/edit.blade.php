@@ -20,7 +20,7 @@
                                             <div class="form-group">
                                                 <label for="">Date</label>
                                                 <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_pencetakani->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
-                                               
+
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
@@ -349,7 +349,7 @@
                                                                         class="btn btn-primary check_btn"
                                                                         style="border-radius:5px;"
                                                                         @disabled($detail->c_9 != null)>check</button></td>
-                                                                <td><input type="text" value="{{ $detail->c_9 }}"
+                                                                <td><input type="text" style="width:340px;" value="{{ $detail->c_9 }}"
                                                                         name="semasa[{{$key+1}}][9]"
                                                                         class="check_operator form-control" readonly></td>
                                                                 <td><button type="button"
@@ -394,7 +394,10 @@
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
-            }
+            }else{
+                          var lengths = $(this).find('table tbody tr').length;
+                          increment = (lengths+1)*500;
+                    }
             let length = $('#table tbody tr').length + 1;
             $('#table tbody').append(`<tr>
                                                             <td>${increment}</td>
@@ -414,10 +417,10 @@
                                                             </td>
                                                             <td><button class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; " type="button">check</button></td>
-                                                            <td><input type="text" name="semasa[${length}][9]" class="check_operator form-control" readonly></td>
+                                                            <td><input type="text" style="width:340px;" name="semasa[${length}][9]" class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn" disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="semasa[${length}][10]" class="verify_operator form-control" readonly></td>
+                                                            <td><input type="text"  name="semasa[${length}][10]" class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button>
                                                             </td>`);
@@ -430,7 +433,6 @@
         });
 
         $(document).ready(function() {
-            $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -469,23 +471,28 @@
 
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+        function formatDateWithAMPM(date) {
+            const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
+            return formattedDateTime;
         }
 
-        $(document).on('click', '.check_btn', function() {
-            $(this).attr('disabled', 'disabled');
-            const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
-            let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_operator').val(checked_by + '/' + formattedDate);
-        });
+                $(document).on('click', '.check_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.check_operator').val(combinedValue);
+                });
+
+            $('#sale_order').trigger('change');
 
         $('#sale_order').on('change', function() {
             const id = $(this).val();

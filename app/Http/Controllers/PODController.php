@@ -461,10 +461,13 @@ class PODController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $pod = new POD();
         $pod->sale_order_id = $request->sale_order;
         $pod->date = $request->date;
-        $pod->time = $request->time;
+        $pod->time = $timeIn12HourFormat;
         $pod->created_by = Auth::user()->id;
 
         $pod->file_artwork_1 = $request->file_artwork_1;
@@ -536,10 +539,14 @@ class PODController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $pod = pod::find($id);
         $pod->sale_order_id = $request->sale_order;
         $pod->date = $request->date;
-        $pod->time = $request->time;
+        $pod->time = $timeIn12HourFormat;
         $pod->created_by = Auth::user()->id;
 
         $pod->file_artwork_1 = $request->file_artwork_1;

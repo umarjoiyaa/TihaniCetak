@@ -343,10 +343,14 @@ class ProsesPembungkusanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
+
         $proses_pembungkusan = new ProsesPembungkusan();
         $proses_pembungkusan->sale_order_id = $request->sale_order;
-        $proses_pembungkusan->date = $request->date;
-        $proses_pembungkusan->time = $request->time;
+        $proses_pembungkusan->date = $timeIn12HourFormat;
         $proses_pembungkusan->machine = $request->machine;
         $proses_pembungkusan->kategori = $request->kategori;
         $proses_pembungkusan->created_by = Auth::user()->id;
@@ -404,10 +408,14 @@ class ProsesPembungkusanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $proses_pembungkusan = ProsesPembungkusan::find($id);
         $proses_pembungkusan->sale_order_id = $request->sale_order;
         $proses_pembungkusan->date = $request->date;
-        $proses_pembungkusan->time = $request->time;
+        $proses_pembungkusan->time = $timeIn12HourFormat;
         $proses_pembungkusan->machine = $request->machine;
         $proses_pembungkusan->created_by = Auth::user()->id;
         $proses_pembungkusan->kategori = $request->kategori;

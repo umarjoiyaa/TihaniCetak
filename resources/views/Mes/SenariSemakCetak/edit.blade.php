@@ -26,8 +26,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Date</div>
-                                            <input type="date" name="date" value="{{ $senari_semak_cetak->date }}"
-                                                class="form-control" id="Currentdate">
+                                            <input type="text"  name="date"  value="{{ \Carbon\Carbon::parse($senari_semak_cetak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -195,10 +194,10 @@
                                             <td>3</td>
                                             <td>Saiz product (bandingkan TMS dan file artwork)</td>
                                             <td class="cover" colspan="3"><input type="text" class="Cover3"
-                                                    onchange="handleCheckboxChange('Cover3',this)" 
+                                                    onchange="handleCheckboxChange('Cover3',this)"
                                                     class="form-control" name="bahagianA[2][3]" id="" @if($detail1[1]) value="{{$detail1[1]->bahagian_a_3}}" @endif></td>
                                             <td class="text" colspan="3"><input type="text" class="Text3"
-                                                    onchange="handleCheckboxChange('Text3',this)" 
+                                                    onchange="handleCheckboxChange('Text3',this)"
                                                     class="form-control" name="bahagianA[3][3]" id="" @if($detail1[2]) value="{{$detail1[2]->bahagian_a_3}}" @endif></td>
                                             <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
                                                     onchange="handleCheckboxChange('Endpaper3',this)"
@@ -219,7 +218,7 @@
                                             <td class="text endpaper"><input type="checkbox" class="Text4"
                                                     onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                     id="" value="na" @if($detail1[2]) @checked($detail1[2]->bahagian_a_4 == 'na') @endif></td>
-                                            <td class="endpaper" colspan="3"><input type="text" 
+                                            <td class="endpaper" colspan="3"><input type="text"
                                                     class="form-control" readonly name="bahagianA[4][4]" id="" @if($detail1[3]) value="{{$detail1[3]->bahagian_a_4}}" @endif>
                                             </td>
                                         </tr>
@@ -494,12 +493,12 @@
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                         <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                                            <div class="col-md-3">Other</div> 
+                                                            <div class="col-md-3">Other</div>
                                                             <div class="col-md-6"><input type="text" width="" style="width:200px;"
                                                                 name="bahagianA[1][17]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_17}}"></div>
                                                         </div>
-                                                            
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -539,14 +538,14 @@
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                                            <div class="col-md-3">Other</div> 
+                                                            <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width="" style="width:200px;"
                                                                 name="bahagianA[1][18]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_18}}">
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -585,14 +584,14 @@
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                         <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                                            <div class="col-md-3">Other</div> 
+                                                            <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width="" style="width:200px;"
                                                                 name="bahagianA[1][19]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_19}}">
                                                             </div>
-                                                        </div>    
-                                                            
+                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -628,18 +627,18 @@
                                             <td>20</td>
                                             <td>
                                                 <div class="row">
-                                                    
+
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                                            <div class="col-md-3">Other</div> 
+                                                            <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width="" style="width:200px;"
                                                                 name="bahagianA[1][20]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_20}}">
                                                             </div>
                                                         </div>
-                                                        
+
                                                     </div>
                                                 </div>
                                             </td>
@@ -679,7 +678,7 @@
                                                     <div class="col-md-9">
                                                         <div class="row">
                                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                                            <div class="col-md-3">Other</div>    
+                                                            <div class="col-md-3">Other</div>
                                                             <div class="col-md-6"><input type="text" width="" style="width:200px;"
                                                                 name="bahagianA[1][21]"
                                                                 id="" class="form-control" value="{{$detail1[0]->bahagian_a_21}}">
@@ -787,7 +786,7 @@
                                     </div>
                                 </div>
                             </div>
-                   
+
 
                         <div class="row">
                             <div class="col-md-12">
@@ -980,7 +979,7 @@
                                                 Section {{ $key - 1 }}
                                             @endif
                                         </td>
-                                        @php 
+                                        @php
                                                 $counterClass = 0;
                                                 $rowCounter = 1;
                                         @endphp
@@ -1110,7 +1109,7 @@
         }
     }
 
-        //      
+        //
 
         $(document).ready(function() {
             $('#sale_order').trigger('change');
@@ -1189,7 +1188,7 @@
             }
         })
 
-        $(document).on('change keyup', '#Text', function() {
+        $(document).on('change ', '#Text', function() {
             var value = +$(this).val();
             if (value == 0) {
                 $('.text').css('display', 'none');
@@ -1215,22 +1214,22 @@
                         $key = $('#table tbody tr').length + 1;
                         $('#table tbody').append(`<tr class="section">
                                      <td>Section ${i}</td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][1]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][1]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][2]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][2]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][3]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][3]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][4]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][4]" id="" value="na"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="ok"></td>
-                                     <td><input type="checkbox" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
-                                     <td><input type="checkbox" name="bahagianC[${$key}][5]" id="" value="na"></td>
-                                     <td><input type="text"  name="form-control bahagianC[${$key}][6]" id="" class="form-control"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" name="bahagianC[${$key}][1]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" checked name="bahagianC[${$key}][1]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="PDLP${i}" onchange="handleCheckboxChange('PDLP${i}',this)" name="bahagianC[${$key}][1]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" name="bahagianC[${$key}][2]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" checked name="bahagianC[${$key}][2]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="FABI${i}" onchange="handleCheckboxChange('FABI${i}',this)" name="bahagianC[${$key}][2]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" name="bahagianC[${$key}][3]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" checked name="bahagianC[${$key}][3]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="KI${i}" onchange="handleCheckboxChange('KI${i}',this)" name="bahagianC[${$key}][3]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" name="bahagianC[${$key}][4]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" checked name="bahagianC[${$key}][4]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="SS${i}" onchange="handleCheckboxChange('SS${i}',this)" name="bahagianC[${$key}][4]" id="" value="na"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="ok"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
+                                     <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="na"></td>
+                                     <td><input type="text"  name="bahagianC[${$key}][6]" id="" class="form-control"></td>
                                  </tr>`);
 
 

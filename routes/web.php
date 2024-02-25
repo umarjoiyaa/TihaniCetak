@@ -487,11 +487,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
     // Cover_endPaper
-    Route::get('/Production/Cover_endPaper', [Cover_endPaperController::class, 'index'])->name('Cover_endPaper.index');
-    Route::get('/Production/Cover_endPaper/view', [Cover_endPaperController::class, 'view'])->name('Cover_endPaper.view');
-    Route::get('/Production/Cover_endPaper/create', [Cover_endPaperController::class, 'create'])->name('Cover_endPaper.create');
-    Route::get('/Production/Cover_endPaper/edit', [Cover_endPaperController::class, 'edit'])->name('Cover_endPaper.edit');
-    Route::get('/Production/Cover_endPaper/proses', [Cover_endPaperController::class, 'proses'])->name('Cover_endPaper.proses');
+    Route::get('/Production/CoverAndEndpaper', [Cover_endPaperController::class, 'index'])->name('cover_end_paper');
+        Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
+        Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
+        Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
+        Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
+        Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
+        Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
+        Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
+        Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
 
     // ProductionJobSheet - Text
     Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text.index');
@@ -512,12 +516,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/Production/MesinLipat/update/{id}', [ProductionJobSheet_MesinLipatController::class, 'update'])->name('mesin_lipat.update');
         Route::get('/Production/MesinLipat/proses/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('mesin_lipat.proses');
         Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
-        
-    Route::get('/Production/ProductionJobSheet_MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('ProductionJobSheet_MesinLipat.index');
-    Route::get('/Production/ProductionJobSheet_MesinLipat/view', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('ProductionJobSheet_MesinLipat.view');
-    Route::get('/Production/ProductionJobSheet_MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('ProductionJobSheet_MesinLipat.create');
-    Route::get('/Production/ProductionJobSheet_MesinLipat/edit', [ProductionJobSheet_MesinLipatController::class, 'edit'])->name('ProductionJobSheet_MesinLipat.edit');
-    Route::get('/Production/ProductionJobSheet_MesinLipat/proses', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('ProductionJobSheet_MesinLipat.proses');
+
 
     // ProductionJobSheet_StapleBIND
     Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBIND.index');

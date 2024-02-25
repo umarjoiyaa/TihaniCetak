@@ -23,7 +23,7 @@
                                             <div class="form-group">
                                                 <label for="">Date</label>
                                                 <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_penjilidan_saddle->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
-                                                
+
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
@@ -303,13 +303,13 @@
                                                         <td><button type="button" class="btn btn-primary check_btn"
                                                                 style="border-radius:5px;"
                                                                 @disabled($detail->c_9 != null)>check</button></td>
-                                                        <td><input type="text" name="semasa[{{ $key + 1 }}][9]"
+                                                        <td><input style="width:340px;" type="text" name="semasa[{{ $key + 1 }}][9]"
                                                                 class="check_operator form-control"
                                                                 value="{{ $detail->c_9 }}" readonly></td>
-                                                        <td><button type="button" class="btn btn-primary verify_btn"
+                                                        <td><button  type="button" class="btn btn-primary verify_btn"
                                                                 disabled>Verify</button>
                                                         </td>
-                                                        <td><input type="text" name="semasa[{{ $key + 1 }}][10]"
+                                                        <td><input  type="text" name="semasa[{{ $key + 1 }}][10]"
                                                                 class="verify_operator form-control" readonly></td>
                                                         <td><button type="button" class="btn btn-danger remove"
                                                                 style="border-radius:5px; ">X</button>
@@ -366,7 +366,7 @@
                                                             <td><input type="checkbox" name="semasa[${length}][8]" id="">
                                                             </td>
                                                             <td><button class="btn btn-primary check_btn"
-                                                                    style="border-radius:5px; " type="button">check</button></td>
+                                                                    style="border-radius:5px; " style="width:340px;" type="button">check</button></td>
                                                             <td><input type="text" name="semasa[${length}][9]" class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn" disabled>Verify</button>
                                                             </td>
@@ -422,23 +422,27 @@
 
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+        function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
-        }
+                    return formattedDateTime;
+                }
 
-        $(document).on('click', '.check_btn', function() {
-            $(this).attr('disabled', 'disabled');
-            const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
-            let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_operator').val(checked_by + '/' + formattedDate);
-        });
+
+                $(document).on('click', '.check_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.check_operator').val(combinedValue);
+                });
 
         $('#sale_order').on('change', function() {
             const id = $(this).val();

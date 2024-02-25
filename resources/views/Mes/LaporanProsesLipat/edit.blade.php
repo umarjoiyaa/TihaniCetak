@@ -216,7 +216,7 @@
                                                                                     style="border-radius:5px;"
                                                                                     @disabled($value1->c_5 != null)>check</button>
                                                                             </td>
-                                                                            <td><input type="text"
+                                                                            <td><input type="text" style="width:340px;"
                                                                                     name="section[{{ $key1 + 1 }}][{{ $newKey }}][4]"
                                                                                     class="check_operator form-control"
                                                                                     readonly value="{{ $value1->c_5 }}">
@@ -285,6 +285,9 @@
                 if ($(this).hasClass('active')) {
                     if ($(this).find('table tbody tr').length == 1) {
                         jumlah = 2000;
+                    }else{
+                        var length = $(this).find('table tbody tr').length;
+                         jumlah = +`${length+1}000`
                     }
                     $length3 = $(this).find('table tbody tr').length + 1;
                     $(this).find('table tbody').append(`<tr>
@@ -298,12 +301,12 @@
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${$index+1}][${$length3}][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$index+1}][${$length3}][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="section[${$index+1}][${$length3}][5]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$index+1}][${$length3}][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
@@ -363,7 +366,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen 1</th>
+                                                                <th colspan="2">Seksyen ${i}</th>
                                                                 <th rowspan="2">Check</th>
                                                                 <th rowspan="2">Username / datetime</th>
                                                                 <th rowspan="2">Verify</th>
@@ -434,7 +437,7 @@
                                                         <thead>
                                                             <tr>
                                                                 <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen 1</th>
+                                                                <th colspan="2">Seksyen ${value}</th>
                                                                 <th rowspan="2">Check</th>
                                                                 <th rowspan="2">Username / datetime</th>
                                                                 <th rowspan="2">Verify</th>
@@ -458,7 +461,7 @@
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${$length2}][1][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$length2}][1][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
@@ -523,23 +526,27 @@
 
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+                function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
-        }
+                    return formattedDateTime;
+                }
 
-        $(document).on('click', '.check_btn', function() {
-            $(this).attr('disabled', 'disabled');
-            const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
-            let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_operator').val(checked_by + '/' + formattedDate);
-        });
+                $(document).on('click', '.check_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.check_operator').val(combinedValue);
+                });
+
 
         $('#sale_order').on('change', function() {
             const id = $(this).val();

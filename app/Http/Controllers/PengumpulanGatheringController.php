@@ -303,10 +303,14 @@ class PengumpulanGatheringController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $pengumpulan_gathering = new PengumpulanGathering();
         $pengumpulan_gathering->sale_order_id = $request->sale_order;
         $pengumpulan_gathering->date = $request->date;
-        $pengumpulan_gathering->time = $request->time;
+        $pengumpulan_gathering->time = $timeIn12HourFormat;
         $pengumpulan_gathering->created_by = Auth::user()->id;
 
         $pengumpulan_gathering->seksyen_no = $request->seksyen_no;
@@ -365,10 +369,14 @@ class PengumpulanGatheringController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $pengumpulan_gathering = PengumpulanGathering::find($id);
         $pengumpulan_gathering->sale_order_id = $request->sale_order;
         $pengumpulan_gathering->date = $request->date;
-        $pengumpulan_gathering->time = $request->time;
+        $pengumpulan_gathering->time = $timeIn12HourFormat;
         $pengumpulan_gathering->created_by = Auth::user()->id;
 
         $pengumpulan_gathering->seksyen_no = $request->seksyen_no;
