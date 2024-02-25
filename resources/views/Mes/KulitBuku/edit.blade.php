@@ -177,6 +177,7 @@
                     cache: true
                 },
                 containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
                 templateResult: function(data) {
                     if (data.loading) {
                         return "Loading...";
@@ -185,7 +186,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.text || null;
+                    return data.text || "Select Sales Order No";
                 }
             });
         });

@@ -194,7 +194,7 @@
                     </div>
                     <a href="{{ route('laporan_pemeriksaan_kualiti') }}">back to list</a>
                 </div>
-                
+
             </div>
     </form>
 @endsection
@@ -231,6 +231,7 @@
                     cache: true
                 },
                 containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
                 templateResult: function(data) {
                     if (data.loading) {
                         return "Loading...";
@@ -239,7 +240,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.order_no || "Select Sales Order No";
                 }
             });
 

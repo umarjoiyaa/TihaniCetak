@@ -332,6 +332,10 @@ class LaporanProsesPencetakaniCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -347,7 +351,7 @@ class LaporanProsesPencetakaniCetakController extends Controller
         $laporan_proses_pencetakani = new LaporanProsesPencetakani();
         $laporan_proses_pencetakani->sale_order_id = $request->sale_order;
         $laporan_proses_pencetakani->date = $request->date;
-        $laporan_proses_pencetakani->time = $request->time;
+        $laporan_proses_pencetakani->time = $timeIn12HourFormat;
         $laporan_proses_pencetakani->created_by = Auth::user()->id;
 
         $laporan_proses_pencetakani->seksyen_no = $request->seksyen_no;
@@ -437,6 +441,10 @@ class LaporanProsesPencetakaniCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -452,7 +460,7 @@ class LaporanProsesPencetakaniCetakController extends Controller
         $laporan_proses_pencetakani = LaporanProsesPencetakani::find($id);
         $laporan_proses_pencetakani->sale_order_id = $request->sale_order;
         $laporan_proses_pencetakani->date = $request->date;
-        $laporan_proses_pencetakani->time = $request->time;
+        $laporan_proses_pencetakani->time = $timeIn12HourFormat;
         $laporan_proses_pencetakani->created_by = Auth::user()->id;
 
         $laporan_proses_pencetakani->seksyen_no = $request->seksyen_no;

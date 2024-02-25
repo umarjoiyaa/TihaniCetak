@@ -307,7 +307,7 @@ class SenariSemakController extends Controller
     public function sale_order_detail(Request $request)
     {
         $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'size' , 'status')->where('id', $request->id)->first();
-      
+
         return response()->json($sale_order);
     }
 
@@ -331,10 +331,15 @@ class SenariSemakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $senari_semak = new SenariSemak();
         $senari_semak->sale_order_id = $request->sale_order;
         $senari_semak->date = $request->date;
-        $senari_semak->time = $request->time;
+
+        $senari_semak->time = $timeIn12HourFormat;
         $senari_semak->created_by = Auth::user()->id;
 
         $senari_semak->bahagian_a_1_cover = $request->behagian_a_1_cover;
@@ -443,10 +448,14 @@ class SenariSemakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $senari_semak = SenariSemak::find($id);
         $senari_semak->sale_order_id = $request->sale_order;
         $senari_semak->date = $request->date;
-        $senari_semak->time = $request->time;
+        $senari_semak->time = $timeIn12HourFormat;
         $senari_semak->created_by = Auth::user()->id;
 
         $senari_semak->bahagian_a_1_cover = $request->behagian_a_1_cover;

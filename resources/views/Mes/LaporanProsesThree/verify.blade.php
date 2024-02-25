@@ -131,7 +131,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_1 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover1',this)" 
+                                                        onchange="handleCheckboxChange('Cover1',this)"
                                                         name="b_1" value="ng" @checked($laporan_proses_three->b_1 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
@@ -163,7 +163,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_3 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover2"
-                                                        onchange="handleCheckboxChange('Cover2',this)" 
+                                                        onchange="handleCheckboxChange('Cover2',this)"
                                                         name="b_3" value="ng" @checked($laporan_proses_three->b_3 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover2"
@@ -195,7 +195,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_5 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover3"
-                                                        onchange="handleCheckboxChange('Cover3',this)" 
+                                                        onchange="handleCheckboxChange('Cover3',this)"
                                                         name="b_5" value="ng" @checked($laporan_proses_three->b_5 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover3"
@@ -227,7 +227,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_7 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover4"
-                                                        onchange="handleCheckboxChange('Cover4',this)" 
+                                                        onchange="handleCheckboxChange('Cover4',this)"
                                                         name="b_7" value="ng" @checked($laporan_proses_three->b_7 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover4"
@@ -259,7 +259,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_9 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover9"
-                                                        onchange="handleCheckboxChange('Cover9',this)" 
+                                                        onchange="handleCheckboxChange('Cover9',this)"
                                                         name="b_9" value="ng" @checked($laporan_proses_three->b_9 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover9"
@@ -275,7 +275,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_10 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Text10"
-                                                        onchange="handleCheckboxChange('Text10',this)" 
+                                                        onchange="handleCheckboxChange('Text10',this)"
                                                         name="b_10" value="ng" @checked($laporan_proses_three->b_10 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Text10"
@@ -291,7 +291,7 @@
                                                         value="ok" @checked($laporan_proses_three->b_11 == 'ok') id="">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover11"
-                                                        onchange="handleCheckboxChange('Cover11',this)" 
+                                                        onchange="handleCheckboxChange('Cover11',this)"
                                                         name="b_11" value="ng" @checked($laporan_proses_three->b_11 ==
                                                     'ng') id=""></td>
                                                 <td><input type="checkbox" class="Cover11"
@@ -371,12 +371,12 @@
                                                         </td>
                                                         <td><button type="button" class="btn btn-primary check_btn"
                                                                 style="border-radius:5px;" disabled>check</button></td>
-                                                        <td><input type="text" class="check_operator form-control"
+                                                        <td><input type="text" style="width:340px;" class="check_operator form-control"
                                                                 readonly value="{{ $detail->c_12 }}"></td>
                                                         <td><button type="button"
                                                                 class="btn btn-primary verify_btn">Verify</button>
                                                         </td>
-                                                        <td><input type="text" name="semasa[{{ $detail->id }}][1]"
+                                                        <td><input type="text" style="width:340px;" name="semasa[{{ $detail->id }}][1]"
                                                                 class="verify_operator form-control" readonly></td>
                                                     </tr>
                                                     @endforeach
@@ -420,22 +420,25 @@
         $('input[type="hidden"]').removeAttr('disabled');
     });
 
-    function formatDate(date) {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-        const year = date.getFullYear();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
+    function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-        return `${day}-${month}-${year} ${hours}:${minutes}`;
-    }
+                    return formattedDateTime;
+                }
 
-    $(document).on('click', '.verify_btn', function () {
-        $(this).attr('disabled', 'disabled');
-        const currentDate = new Date();
-        const formattedDate = formatDate(currentDate);
-        let checked_by = $('#checked_by').val();
-        $(this).closest('tr').find('.verify_operator').val(checked_by + '/' + formattedDate);
-    });
+                $(document).on('click', '.verify_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.verify_operator').val(combinedValue);
+                });
 </script>
 @endpush

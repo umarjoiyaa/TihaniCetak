@@ -333,6 +333,10 @@ class LaporanProsesThreeController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -348,7 +352,7 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three = new LaporanProsesThree();
         $laporan_proses_three->sale_order_id = $request->sale_order;
         $laporan_proses_three->date = $request->date;
-        $laporan_proses_three->time = $request->time;
+        $laporan_proses_three->time = $timeIn12HourFormat;
         $laporan_proses_three->created_by = Auth::user()->id;
 
         $laporan_proses_three->good_count = $request->good_count;
@@ -437,6 +441,10 @@ class LaporanProsesThreeController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -452,7 +460,7 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three = LaporanProsesThree::find($id);
         $laporan_proses_three->sale_order_id = $request->sale_order;
         $laporan_proses_three->date = $request->date;
-        $laporan_proses_three->time = $request->time;
+        $laporan_proses_three->time = $timeIn12HourFormat;
         $laporan_proses_three->created_by = Auth::user()->id;
 
         $laporan_proses_three->good_count = $request->good_count;

@@ -342,6 +342,10 @@ class LaporanProsesPenjilidanSaddleController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -369,7 +373,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         $laporan_proses_penjilidan_saddle = new LaporanProsesPenjilidanSaddle();
         $laporan_proses_penjilidan_saddle->sale_order_id = $request->sale_order;
         $laporan_proses_penjilidan_saddle->date = $request->date;
-        $laporan_proses_penjilidan_saddle->time = $request->time;
+        $laporan_proses_penjilidan_saddle->time = $timeIn12HourFormat;
         $laporan_proses_penjilidan_saddle->created_by = Auth::user()->id;
 
         $laporan_proses_penjilidan_saddle->user_id = json_encode($userIds);
@@ -454,6 +458,10 @@ class LaporanProsesPenjilidanSaddleController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -481,7 +489,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         $laporan_proses_penjilidan_saddle = LaporanProsesPenjilidanSaddle::find($id);
         $laporan_proses_penjilidan_saddle->sale_order_id = $request->sale_order;
         $laporan_proses_penjilidan_saddle->date = $request->date;
-        $laporan_proses_penjilidan_saddle->time = $request->time;
+        $laporan_proses_penjilidan_saddle->time = $timeIn12HourFormat;
         $laporan_proses_penjilidan_saddle->created_by = Auth::user()->id;
 
         $laporan_proses_penjilidan_saddle->user_id = json_encode($userIds);

@@ -310,7 +310,7 @@ class LaporanProsesPenjilidanController extends Controller
 
     public function sale_order_detail(Request $request)
     {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'customer', 'pages_text', 'size')->where('id', $request->id)->first();
+        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'customer', 'pages_text', 'size','status')->where('id', $request->id)->first();
         $section = SenariSemakCetak::select('id', 'item_cover_text')->where('sale_order_id', $request->id)->first();
         return response()->json(['sale_order' => $sale_order, 'section' => $section]);
     }
@@ -339,6 +339,10 @@ class LaporanProsesPenjilidanController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $userIds = $request->user;
         $userNames = [];
 
@@ -366,7 +370,7 @@ class LaporanProsesPenjilidanController extends Controller
         $laporan_proses_penjilidan = new LaporanProsesPenjilidan();
         $laporan_proses_penjilidan->sale_order_id = $request->sale_order;
         $laporan_proses_penjilidan->date = $request->date;
-        $laporan_proses_penjilidan->time = $request->time;
+        $laporan_proses_penjilidan->time = $timeIn12HourFormat;
         $laporan_proses_penjilidan->created_by = Auth::user()->id;
 
         $laporan_proses_penjilidan->jenis = $request->jenis;

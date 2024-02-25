@@ -24,8 +24,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Date</div>
-                                        <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control"
-                                            id="Currentdate">
+                                        <input type="text" name="date" value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -215,8 +214,8 @@
                                         <td class="text endpaper"><input type="checkbox" class="Text4"
                                                 onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                 id="" value="na"></td>
-                                        <td class="endpaper" colspan="3"><input readonly type="text" 
-                                               class="form-control" 
+                                        <td class="endpaper" colspan="3"><input readonly type="text"
+                                               class="form-control"
                                                 name="bahagianA[4][4]" id="">
                                         </td>
                                     </tr>
@@ -1188,6 +1187,7 @@
                 cache: true
             },
             containerCssClass: 'form-control',
+            placeholder: "Select Sales Order No",
             templateResult: function (data) {
                 if (data.loading) {
                     return "Loading...";
@@ -1196,7 +1196,7 @@
                     return $('<option value=' + data.id + '>' + data.order_no + '</option>');
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.order_no || "Select Sales Order No";
                 }
             });
 
@@ -1273,7 +1273,7 @@
                                      <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="ok"></td>
                                      <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" checked name="bahagianC[${$key}][5]" id="" value="ng"></td>
                                      <td><input type="checkbox" class="PM${i}" onchange="handleCheckboxChange('PM${i}',this)" name="bahagianC[${$key}][5]" id="" value="na"></td>
-                                     <td><input type="text" placeholder="input text" name="bahagianC[${$key}][6]" id="" class="form-control"></td>
+                                     <td><input type="text"  name="bahagianC[${$key}][6]" id="" class="form-control"></td>
                                  </tr>`);
 
 

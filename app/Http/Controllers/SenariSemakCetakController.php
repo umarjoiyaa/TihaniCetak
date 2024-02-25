@@ -304,10 +304,13 @@ class SenariSemakCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $senari_semak_cetak = new SenariSemakCetak();
         $senari_semak_cetak->sale_order_id = $request->sale_order;
         $senari_semak_cetak->date = $request->date;
-        $senari_semak_cetak->time = $request->time;
+        $senari_semak_cetak->time = $timeIn12HourFormat;
         $senari_semak_cetak->created_by = Auth::user()->id;
 
         $senari_semak_cetak->item_cover_availibility = $request->item_cover_availibility;
@@ -431,10 +434,13 @@ class SenariSemakCetakController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $senari_semak_cetak = SenariSemakCetak::find($id);
         $senari_semak_cetak->sale_order_id = $request->sale_order;
         $senari_semak_cetak->date = $request->date;
-        $senari_semak_cetak->time = $request->time;
+        $senari_semak_cetak->time = $timeIn12HourFormat;
         $senari_semak_cetak->created_by = Auth::user()->id;
 
         $senari_semak_cetak->item_cover_availibility = $request->item_cover_availibility;

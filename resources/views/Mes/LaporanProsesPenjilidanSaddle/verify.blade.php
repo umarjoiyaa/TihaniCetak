@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -289,12 +289,12 @@
                                                         </td>
                                                         <td><button type="button" class="btn btn-primary check_btn"
                                                                 style="border-radius:5px;" disabled>check</button></td>
-                                                        <td><input type="text" class="check_operator form-control"
+                                                        <td><input type="text" style="width:340px;" class="check_operator form-control"
                                                                 value="{{ $detail->c_9 }}" readonly></td>
                                                         <td><button type="button"
                                                                 class="btn btn-primary verify_btn">Verify</button>
                                                         </td>
-                                                        <td><input type="text" name="semasa[{{ $detail->id }}][1]"
+                                                        <td><input style="width:340px;" type="text" name="semasa[{{ $detail->id }}][1]"
                                                                 class="verify_operator form-control" readonly></td>
                                                     </tr>
                                                     @endforeach
@@ -327,7 +327,7 @@
         <a href="{{ route('laporan_proses_penjilidan_saddle') }}">back to list</a>
     </div>
 </div>
-</div>
+
 @endsection
 @push('custom-scripts')
 <script>
@@ -337,22 +337,25 @@
         $('input[type="hidden"]').removeAttr('disabled');
     });
 
-    function formatDate(date) {
-        const day = String(date.getDate()).padStart(2, '0');
-        const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-        const year = date.getFullYear();
-        const hours = String(date.getHours()).padStart(2, '0');
-        const minutes = String(date.getMinutes()).padStart(2, '0');
+    function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-        return `${day}-${month}-${year} ${hours}:${minutes}`;
-    }
+                    return formattedDateTime;
+                }
 
-    $(document).on('click', '.verify_btn', function () {
-        $(this).attr('disabled', 'disabled');
-        const currentDate = new Date();
-        const formattedDate = formatDate(currentDate);
-        let checked_by = $('#checked_by').val();
-        $(this).closest('tr').find('.verify_operator').val(checked_by + '/' + formattedDate);
-    });
+                $(document).on('click', '.verify_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.verify_operator').val(combinedValue);
+                });
 </script>
 @endpush

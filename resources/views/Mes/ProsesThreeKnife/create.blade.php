@@ -285,27 +285,28 @@
                 processResults: function (data, params) {
                     params.page = params.page || 1;
 
-                    return {
-                        results: data.results,
-                        pagination: {
-                            more: data.pagination.more
-                        }
-                    };
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
                 },
-                cache: true
-            },
-            containerCssClass: 'form-control',
-            templateResult: function (data) {
-                if (data.loading) {
-                    return "Loading...";
-                }
+                containerCssClass: 'form-control',
+                placeholder: "Select Sales Order No",
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
 
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-            },
-            templateSelection: function (data) {
-                return data.order_no || null;
-            }
-        });
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                },
+                templateSelection: function(data) {
+                    return data.order_no || "Select Sales Order No";
+                }
+            });
 
         $('#sale_order').on('change', function () {
             const id = $(this).val();

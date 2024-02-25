@@ -429,6 +429,9 @@ class CTPController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
+
+
+
         $validator = null;
 
         $validatedData = $request->validate([
@@ -443,10 +446,13 @@ class CTPController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $ctp = new CTP();
         $ctp->sale_order_id = $request->sale_order;
         $ctp->date = $request->date;
-        $ctp->time = $request->time;
+        $ctp->time = $timeIn12HourFormat;
         $ctp->created_by = Auth::user()->id;
 
         $ctp->file_artwork_1 = $request->file_artwork_1;
@@ -513,10 +519,15 @@ class CTPController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $ctp = CTP::find($id);
         $ctp->sale_order_id = $request->sale_order;
         $ctp->date = $request->date;
-        $ctp->time = $request->time;
+        $ctp->time = $timeIn12HourFormat;
         $ctp->created_by = Auth::user()->id;
 
         $ctp->file_artwork_1 = $request->file_artwork_1;
