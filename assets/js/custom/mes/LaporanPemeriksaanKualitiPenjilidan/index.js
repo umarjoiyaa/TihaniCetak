@@ -52,6 +52,42 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
+                data: 'b_4',
+                name: 'b_4',
+            },
+            {
+                data: 'b_5',
+                name: 'b_5',
+            },
+            {
+                data: 'b_6',
+                name: 'b_6',
+            },
+            {
+                data: 'b_7',
+                name: 'b_7',
+            },
+            {
+                data: 'b_8',
+                name: 'b_8',
+            },
+            {
+                data: 'b_9',
+                name: 'b_9',
+            },
+            {
                 data: 'status',
                 name: 'status',
             },
@@ -119,6 +155,42 @@ function AjaxCall(columnsData) {
             {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
+            },
+            {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
+                data: 'b_4',
+                name: 'b_4',
+            },
+            {
+                data: 'b_5',
+                name: 'b_5',
+            },
+            {
+                data: 'b_6',
+                name: 'b_6',
+            },
+            {
+                data: 'b_7',
+                name: 'b_7',
+            },
+            {
+                data: 'b_8',
+                name: 'b_8',
+            },
+            {
+                data: 'b_9',
+                name: 'b_9',
             },
             {
                 data: 'status',

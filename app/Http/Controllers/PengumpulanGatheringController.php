@@ -20,7 +20,7 @@ class PengumpulanGatheringController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = PengumpulanGathering::select('id', 'sale_order_id', 'date', 'time', 'seksyen_no', 'status')->with('sale_order');
+            $query = PengumpulanGathering::select('id', 'sale_order_id', 'date', 'time', 'seksyen_no', 'status', 'b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6', 'b_7')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -39,6 +39,13 @@ class PengumpulanGatheringController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
+                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_7', 'like', '%' . $searchLower . '%')
                         ->oWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -54,7 +61,14 @@ class PengumpulanGatheringController extends Controller
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
                     6 => 'seksyen_no',
-                    7 => 'status',
+                    7 => 'b_1',
+                    8 => 'b_2',
+                    9 => 'b_3',
+                    10 => 'b_4',
+                    11 => 'b_5',
+                    12 => 'b_6',
+                    13 => 'b_7',
+                    14 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -99,7 +113,28 @@ class PengumpulanGatheringController extends Controller
                             case 6:
                                 $q->where('seksyen_no', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 7:
+                                case 7:
+                                    $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 8:
+                                    $q->where('b_2', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 9:
+                                    $q->where('b_3', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 10:
+                                    $q->where('b_4', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 11:
+                                    $q->where('b_5', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 12:
+                                    $q->where('b_6', 'like', '%' . $searchLower . '%');
+                                    break;
+                                case 13:
+                                    $q->where('b_7', 'like', '%' . $searchLower . '%');
+                                    break;
+                            case 14:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -170,7 +205,7 @@ class PengumpulanGatheringController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = PengumpulanGathering::select('id', 'sale_order_id', 'date', 'time', 'seksyen_no', 'status')->with('sale_order');
+            $query = PengumpulanGathering::select('id', 'sale_order_id', 'date', 'time', 'seksyen_no', 'status', 'b_1', 'b_2', 'b_3', 'b_4', 'b_5', 'b_6', 'b_7')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -189,6 +224,13 @@ class PengumpulanGatheringController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
+                        ->oWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->oWhere('b_7', 'like', '%' . $searchLower . '%')
                         ->oWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -201,7 +243,14 @@ class PengumpulanGatheringController extends Controller
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
                 6 => 'seksyen_no',
-                7 => 'status',
+                7 => 'b_1',
+                8 => 'b_2',
+                9 => 'b_3',
+                10 => 'b_4',
+                11 => 'b_5',
+                12 => 'b_6',
+                13 => 'b_7',
+                14 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
