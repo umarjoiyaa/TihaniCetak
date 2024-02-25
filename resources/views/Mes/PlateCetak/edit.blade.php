@@ -22,10 +22,12 @@
                         </div>
                     </div>
                     <div class="col-md-4 mt-3">
-                        <label for="">Masa</label>
-                        <input name="time" type="time" id="Currenttime"
-                        value="{{ $plate_cetak->time }}"
-                        class="form-control">
+                        @php
+                        $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $plate_cetak->time)->format('H:i');
+                    @endphp
+                    <div class="label">Masa</div>
+                    <input name="time" type="time" id="Currenttime"
+                        value="{{$timeIn24HourFormat}}" class="form-control">
                     </div>
                     <div class="col-md-4 mt-3">
                         <div class="form-group">

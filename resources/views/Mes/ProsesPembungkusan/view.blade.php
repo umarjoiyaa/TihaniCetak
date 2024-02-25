@@ -26,7 +26,7 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Time</div>
-                                    <input name="time" type="time" disabled id="Currenttime"
+                                    <input name="time" type="text" disabled id="Currenttime"
                                     value="{{ $proses_pembungkusan->time }}"
                                     class="form-control">
                                 </div>

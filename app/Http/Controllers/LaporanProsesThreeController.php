@@ -31,7 +31,7 @@ class LaporanProsesThreeController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -47,7 +47,7 @@ class LaporanProsesThreeController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -199,7 +199,7 @@ class LaporanProsesThreeController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
-                        ->oWhere('user_text', 'like', '%' . $searchLower . '%')
+                        ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -215,7 +215,7 @@ class LaporanProsesThreeController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

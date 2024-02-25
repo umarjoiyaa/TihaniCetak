@@ -15,7 +15,7 @@
                                     <div class="form-group">
                                         <label for="">Date</label>
                                         <input type="text" name="date"
-                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control"
                                             id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                     </div>

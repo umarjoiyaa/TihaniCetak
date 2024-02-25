@@ -23,9 +23,14 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
-                                            <label for="">Time</label>
-                                            <input type="time" name="time" value="{{ $kulit_buku->time }}"
-                                                id="Currenttime" class="form-control">
+                                            @php
+                                                $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $kulit_buku->time)->format('H:i');
+                                            @endphp
+                                            <div class="label">Time</div>
+                                            <input name="time" type="time" id="Currenttime"
+                                                value="{{$timeIn24HourFormat}}" class="form-control">
+
+                                            
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
@@ -125,7 +130,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <h4><b>Nota :</b></h4>
-                                    <span>*Pemeriksaan kelekatan OPP lamination perlu dilakukan sebelum proses pemotongan kulit buku dibuat. 
+                                    <span>*Pemeriksaan kelekatan OPP lamination perlu dilakukan sebelum proses pemotongan kulit buku dibuat.
                                         <br> *Ambil 3 keping sampel bagi setiap palet secara rawak dari bahagian atas, tengah dan bawah untuk pemeriksaan kelekatan OPP Lamination. Jika hasil pemeriksaan gagal, maklumkan
                                             kepada Eksekutif QA/ Pengurus Operasi untuk tindakan lanjut. Rujuk Perbandingan Kelekatan OPP.  </span>
                                 </div>

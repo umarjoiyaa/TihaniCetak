@@ -29,7 +29,7 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="label">Time</div>
-                                    <input name="time" disabled type="time" id="Currenttime"
+                                    <input name="time" disabled type="text" id="Currenttime"
                                         value="{{ $proses_three_knife->time }}" class="form-control">
                                 </div>
                             </div>

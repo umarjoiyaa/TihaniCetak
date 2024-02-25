@@ -41,10 +41,10 @@ class DigitalPrintingController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('kategori_job', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis_produk', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kategori_job', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jenis_produk', 'like', '%' . $searchLower . '%')
                         ->orWhere('jumlah_mukasurat', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -211,10 +211,10 @@ class DigitalPrintingController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->oWhere('kategori_job', 'like', '%' . $searchLower . '%')
-                        ->oWhere('jenis_produk', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kategori_job', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jenis_produk', 'like', '%' . $searchLower . '%')
                         ->orWhere('jumlah_mukasurat', 'like', '%' . $searchLower . '%')
-                        ->oWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

@@ -24,7 +24,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Date</div>
-                                        <input type="text" name="date" value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                        <input type="text" name="date" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -489,7 +489,7 @@
                                             <div class="row">
                                                 <div class="col-md-8">
                                                         <div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -535,7 +535,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -580,7 +580,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -625,7 +625,7 @@
                                         <td>
                                             <div class="row">
                                                 <div class="col-md-8"><div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>
@@ -670,7 +670,7 @@
                                         <td>
                                             <div class="row">
                                                         <div class="col-md-8"><div class="row">
-                                                                
+
                                                                 <div class="col-md-3">
                                                                         <label for="">Others</label>
                                                                 </div>

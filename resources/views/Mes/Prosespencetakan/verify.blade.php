@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Masa</label>
-                                    <input type="time" name="time" value="{{ $proses_pencetakan->time }}"
+                                    <input type="text" name="time" value="{{ $proses_pencetakan->time }}"
                                         id="Currenttime" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
