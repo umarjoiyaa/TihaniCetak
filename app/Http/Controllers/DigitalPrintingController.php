@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\DigitalPrinting;
+use App\Models\DigitalPrintingDetailB;
 use App\Models\DigitalPrintingDetail;
 use App\Models\User;
 use App\Models\Supplier;
@@ -520,8 +521,36 @@ class DigitalPrintingController extends Controller
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
         $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers', 'users', 'check_machines'));
+        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function proses_update(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('DIGITAL PRINTING Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $storedData = json_decode($request->input('details'), true);
+        $digital_printing = DigitalPrinting::find($id);
+        $digital_printing->operator = json_encode($request->operator);
+        $digital_printing->save();
+
+        foreach($storedData as $key => $value){
+            $detail = new DigitalPrintingDetailB();
+            $detail->digital_detail_id = $value['hiddenId'] ?? null;
+            $detail->last_print = $value['last_print'] ?? null;
+            $detail->waste_print = $value['waste_print'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->meter_click = $value['meter_click'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
+        }
+        Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Proses Update');
+        return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Proses Updated Successfully !');
     }
 
     public function verify($id){
@@ -603,9 +632,11 @@ class DigitalPrintingController extends Controller
                 $digital->status = 'Started';
                 $digital->save();
                 $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                $details = DigitalPrintingDetail::where('digital_id',  '=', $request->digital_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine
+                    'check_machine' => $check_machine,
+                    'details' => $details
                 ]);
             } else if ($request->status == 2 && $alreadypaused && !$stopped) {
 
@@ -613,26 +644,40 @@ class DigitalPrintingController extends Controller
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
                 $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
                 $digital = DigitalPrinting::find($request->digital_id);
                 $digital->status = 'Paused';
                 $digital->save();
                 $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                $details = DigitalPrintingDetail::where('digital_id',  '=', $request->digital_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine
+                    'check_machine' => $check_machine,
+                    'details' => $details
                 ]);
             } else if ($request->status == 3 && !$stopped) {
                 $mpo = DigitalPrintingDetail::where('machine', $request->machine)->where('digital_id', $request->digital_id)->orderby('id', 'DESC')->first();
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
                 $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
                 $digital = DigitalPrinting::find($request->digital_id);
                 $digital->status = 'Completed';
                 $digital->save();
                 $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+                $details = DigitalPrintingDetail::where('digital_id',  '=', $request->digital_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine
+                    'check_machine' => $check_machine,
+                    'details' => $details
                 ]);
             }
         }

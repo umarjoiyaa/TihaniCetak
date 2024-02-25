@@ -907,7 +907,11 @@
                         $('#customer').val(data.sale_order.customer);
                         $('#size').val(data.sale_order.size);
                         $('#sale_order_qty').val(data.sale_order.sale_order_qty);
-                        $('#jumlah').val(data.section.pages_text);
+                        if(data.section != null){
+                            $('#jumlah').val(data.section.pages_text);
+                        }else{
+                            $('#jumlah').val(0);
+                        }
                     }
                 });
             });

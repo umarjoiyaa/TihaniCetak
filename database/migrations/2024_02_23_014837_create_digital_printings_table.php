@@ -63,6 +63,7 @@ return new class extends Migration
             $table->string('binding_8')->nullable();
             $table->string('binding_9')->nullable();
 
+            $table->string('operator')->nullable();
             $table->string('verified_by_date')->nullable();
             $table->string('verified_by_user')->nullable();
             $table->string('verified_by_designation')->nullable();

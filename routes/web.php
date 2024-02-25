@@ -480,6 +480,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/edit/{id}', [DigitalPrintingController::class, 'edit'])->name('digital_printing.edit');
     Route::post('/Production/DigitalPrinting/update/{id}', [DigitalPrintingController::class, 'update'])->name('digital_printing.update');
     Route::get('/Production/DigitalPrinting/proses/{id}', [DigitalPrintingController::class, 'proses'])->name('digital_printing.proses');
+    Route::post('/Production/DigitalPrinting/proses_update/{id}', [DigitalPrintingController::class, 'proses_update'])->name('digital_printing.proses.update');
     Route::post('/Production/Machine/Starter', [DigitalPrintingController::class, 'machine_starter'])->name('machine.starter');
     Route::get('/Production/DigitalPrinting/verify/{id}', [DigitalPrintingController::class, 'verify'])->name('digital_printing.verify');
     Route::post('/Production/DigitalPrinting/approve/approve/{id}', [DigitalPrintingController::class, 'approve_approve'])->name('digital_printing.approve.approve');
@@ -512,7 +513,7 @@ Route::middleware('auth')->group(function () {
         Route::post('/Production/MesinLipat/update/{id}', [ProductionJobSheet_MesinLipatController::class, 'update'])->name('mesin_lipat.update');
         Route::get('/Production/MesinLipat/proses/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('mesin_lipat.proses');
         Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
-        
+
     Route::get('/Production/ProductionJobSheet_MesinLipat', [ProductionJobSheet_MesinLipatController::class, 'index'])->name('ProductionJobSheet_MesinLipat.index');
     Route::get('/Production/ProductionJobSheet_MesinLipat/view', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('ProductionJobSheet_MesinLipat.view');
     Route::get('/Production/ProductionJobSheet_MesinLipat/create', [ProductionJobSheet_MesinLipatController::class, 'create'])->name('ProductionJobSheet_MesinLipat.create');
