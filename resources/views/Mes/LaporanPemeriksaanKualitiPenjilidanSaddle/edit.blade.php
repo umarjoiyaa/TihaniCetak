@@ -64,10 +64,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Mesin</div>
-                                                <select name="mesin" id="" class="form-control form-select">
-                                                    <option value="F1" @selected($laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin == 'F1')>F1</option>
-                                                    <option value="F2" @selected($laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin == 'F4')>F2</option>
-                                                </select>
+                                                <input type="text" readonly class="form-control" value="SS1">
                                             </div>
                                         </div>
 

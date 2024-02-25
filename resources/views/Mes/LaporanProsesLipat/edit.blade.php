@@ -356,7 +356,7 @@
                         $('#myTab').append(`<li class="nav-item">
                                     <a class="nav-link " id="home-tab" data-toggle="tab" href="#Seksyen${i}"
                                         role="tab" aria-controls="Seksyen${i}" aria-selected="true">Seksyen ${i}</a>
-                                        <input type="hidden" name="section[${$length1}]" value="Seksyen ${i}">
+                                        <input type="hidden" name="section[${i}]" value="Seksyen ${i}">
                                 </li>`);
                         $length2 = $('#myTabContent .tab-pane').length + 1;
                         $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${i}" role="tabpanel"
@@ -380,22 +380,22 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                            <td>1000 <input type="hidden" value="1000" name="section[${$length2}][1][1]"
+                                                            <td>1000 <input type="hidden" value="1000" name="section[${i}][1][1]"
                                                                     id=""></td>
-                                                            <td><input type="checkbox" name="section[${$length2}][1][2]"
+                                                            <td><input type="checkbox" name="section[${i}][1][2]"
                                                                     id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="section[${$length2}][1][3]"
+                                                            <td><input type="checkbox" name="section[${i}][1][3]"
                                                                     id="">
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${$length2}][1][4]"
+                                                            <td><input type="text" name="section[${i}][1][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="section[${$length2}][1][5]"
+                                                            <td><input type="text" name="section[${i}][1][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
@@ -426,7 +426,7 @@
                     $('#myTab').append(`<li class="nav-item">
                                     <a class="nav-link " id="home-tab" data-toggle="tab" href="#Seksyen${value}"
                                         role="tab" aria-controls="Seksyen${value}" aria-selected="true">Seksyen ${value}</a>
-                                        <input type="hidden" name="section[${$length1}]" value="Seksyen ${value}">
+                                        <input type="hidden" name="section[${value}]" value="Seksyen ${value}">
                                 </li>`);
 
                     $length2 = $('#myTabContent .tab-pane').length + 1;
@@ -451,22 +451,22 @@
                                                         </thead>
                                                         <tbody>
                                                             <tr>
-                                                            <td>1000 <input type="hidden" value="1000" name="section[${$length2}][1][1]"
+                                                            <td>1000 <input type="hidden" value="1000" name="section[${value}][1][1]"
                                                                     id=""></td>
-                                                            <td><input type="checkbox" name="section[${$length2}][1][2]"
+                                                            <td><input type="checkbox" name="section[${value}][1][2]"
                                                                     id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="section[${$length2}][1][3]"
+                                                            <td><input type="checkbox" name="section[${value}][1][3]"
                                                                     id="">
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" style="width:340px;" name="section[${$length2}][1][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${value}][1][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="section[${$length2}][1][5]"
+                                                            <td><input type="text" name="section[${value}][1][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
