@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -438,14 +437,27 @@
                                     </div>
                                 </div>
                             </div>
+                            
                         </div>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <h4><b>Nota :</b></h4>
+                                    <div class="row">
+                                        <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
+                                        <div class="col-md-11" style="margin-left:-20px;">
+                                            <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
+                            
+                           
                 </div>
+                <a href="{{ route('proses_pencetakan') }}">back to list</a>
             </div>
-            <a href="{{ route('proses_pencetakan') }}">back to list</a>
+            
         </div>
-    </div>
-    </div>
 @endsection
 @push('custom-scripts')
     <script>

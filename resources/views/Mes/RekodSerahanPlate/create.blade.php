@@ -107,7 +107,7 @@
 
                     <div class="row">
                         <div class="col-md-5" id="Status_tbl">
-                        <h5>Bahagian A ( Semakan File)</h5>
+                        <h5>Diwajibkan untuk JOB BAHARU</h5>
                             <table class="table table-bordered" >
                                 <thead>
                                     <tr>

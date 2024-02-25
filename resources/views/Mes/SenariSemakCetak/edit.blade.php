@@ -74,7 +74,7 @@
                                                         </td>
                                                     </tr>
                                                     <tr>
-                                                        <td>cover</td>
+                                                        <td>Section No</td>
                                                         <td><input type="number" class="form-control"
                                                                 name="item_cover_text" min="1"
                                                                 value="{{ $senari_semak_cetak->item_cover_text }}"

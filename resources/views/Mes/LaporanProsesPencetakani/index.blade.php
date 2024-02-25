@@ -31,11 +31,11 @@
                                 <td>Sales Order NO</td>
                                 <td>Kod Buku</td>
                                 <td>Tajuk</td>
-                                <td>NoSekSyen</td>
+                                <td>No SekSyen</td>
                                 <td>Operator</td>
                                 <td>Kuantiti Cetakan</td>
                                 <td>Kuantiti Waste</td>
-                                <td>Sataus</td>
+                                <td>Status</td>
                                 <td>Action</td>
                             </tr>
                         </thead>

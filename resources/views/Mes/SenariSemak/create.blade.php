@@ -93,7 +93,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td>1</td>
-                                                    <td>Design clearance 5mm (print to cut dan stitching binding)</td>
+                                                    <td>Saiz produk (Bandingkan SO dan Job Sheet)</td>
                                                     <td><input type="checkbox" class="Cover1"
                                                             onchange="handleCheckboxChange('Cover1',this)"
                                                             name="behagian_a_1_cover" value="ok"></td>
@@ -117,7 +117,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>2</td>
-                                                    <td>Image artwork (Semak teks & gambar)</td>
+                                                    <td>Design clearance 5mm (print to cut dan stitching binding)</td>
                                                     <td><input type="checkbox" class="Cover2"
                                                             onchange="handleCheckboxChange('Cover2',this)"
                                                             name="behagian_a_2_cover" value="ok"></td>
@@ -141,7 +141,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
-                                                    <td>Bleed (3-5mm)</td>
+                                                    <td>Image artwork (Semak teks & gambar)</td>
                                                     <td><input type="checkbox" class="Cover3"
                                                             onchange="handleCheckboxChange('Cover3',this)"
                                                             name="behagian_a_3_cover" value="ok"></td>
@@ -164,7 +164,7 @@
 
                                                 <tr>
                                                     <td>4</td>
-                                                    <td>Alamat pencetak</td>
+                                                    <td>Bleed (3-5mm)</td>
                                                     <td><input type="checkbox" class="Cover4"
                                                             onchange="handleCheckboxChange('Cover4',this)"
                                                             name="behagian_a_4_cover" value="ok"></td>
@@ -214,7 +214,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>7</td>
-                                                    <td>Jumlah mukasurat (Job Sheet dan file)</td>
+                                                    <td>Alamat pencetak</td>
                                                     <td colspan="3" readonly></td>
                                                     <td><input type="checkbox" class="Cover6"
                                                             onchange="handleCheckboxChange('Cover6',this)"
@@ -237,7 +237,7 @@
                                                 </tr>
                                                 <tr>
                                                     <td>9</td>
-                                                    <td>Turutan mukasurat (Berturutan)</td>
+                                                    <td>Jumlah mukasurat (Job Sheet dan file)</td>
                                                     <td colspan="3" readonly></td>
                                                     <td><input type="checkbox" class="Text6"
                                                             onchange="handleCheckboxChange('Text6',this)"
@@ -268,7 +268,7 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="card" style="background:#f1f0f0;">
+                                <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -286,7 +286,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -563,7 +563,7 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="card" style="background:#f1f0f0;">
+                                <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
@@ -579,7 +579,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <div class="row mt-4">
                                     <div class="col-md-12">
@@ -864,17 +864,17 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="card" style="background:#f1f0f0;">
+                                <div class="card" style="background:#f1f0f0;">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <h5>NOTA:</h5>
-                                                <p>1. Setiap mockup perlu di cop pada kulit buku di belakang bahagian dalam.
-                                                </p>
+                                                <h5><b>NOTA:</b></h5>
+                                                <span>1. Setiap mockup perlu di cop pada kulit buku di belakang bahagian dalam.
+                                                </span>
                                             </div>
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
                                 <button class="btn btn-primary float-right">Save</button>
                             </div>

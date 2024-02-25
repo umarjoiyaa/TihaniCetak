@@ -132,7 +132,7 @@
 
                                             <tr>
                                                 <td>1</td>
-                                                <td>Saiz produk (Ukur dan rujuk saiz pada Job Sheet)</td>
+                                                <td>Artwork (Gambar/teks)</td>
                                                 <td><input type="checkbox" name="b_1" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_1 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_1" id="" value="ng"
@@ -143,7 +143,7 @@
                                             </tr>
                                             <tr>
                                                 <td>2</td>
-                                                <td>Artwork (Semak gambar dan teks)</td>
+                                                <td>Warna</td>
                                                 <td><input type="checkbox" name="b_2" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_2 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_2" id="" value="ng"
@@ -154,7 +154,7 @@
                                             </tr>
                                             <tr>
                                                 <td>3</td>
-                                                <td>Kotor, calar (Periksa setiap muka surat)</td>
+                                                <td>Bleed</td>
                                                 <td><input type="checkbox" name="b_3" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_3 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_3" id="" value="ng"
@@ -165,7 +165,7 @@
                                             </tr>
                                             <tr>
                                                 <td>4</td>
-                                                <td>Jenis penjilidan (stitching, perfect bind, hardcover)</td>
+                                                <td>Saiz spine (untuk cover sahaja) </td>
                                                 <td><input type="checkbox" name="b_4" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_4 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_4" id="" value="ng"
@@ -176,7 +176,7 @@
                                             </tr>
                                             <tr>
                                                 <td>5</td>
-                                                <td>Jumlah mukasurat (Rujuk Job Sheet dan file artwork)</td>
+                                                <td>Register depan belakang</td>
                                                 <td><input type="checkbox" name="b_5" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_5 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_5" id="" value="ng"
@@ -187,7 +187,7 @@
                                             </tr>
                                             <tr>
                                                 <td>6</td>
-                                                <td>Turutan mukasurat (Berturutan)</td>
+                                                <td>Turutan muka surat</td>
                                                 <td><input type="checkbox" name="b_6" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_6 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_6" id="" value="ng"
@@ -198,7 +198,7 @@
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>Kelekatan matt/gloss lamination</td>
+                                                <td>Tiada set off, kotor, hickies</td>
                                                 <td><input type="checkbox" name="b_7" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_7 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_7" id="" value="ng"
@@ -209,7 +209,7 @@
                                             </tr>
                                             <tr>
                                                 <td>8</td>
-                                                <td>Koyak (Terkoyak / Rosak)</td>
+                                                <td>Periksa powder</td>
                                                 <td><input type="checkbox" name="b_8" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_8 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_8" id="" value="ng"
@@ -221,7 +221,7 @@
                                             </tr>
                                             <tr>
                                                 <td>9</td>
-                                                <td>Imej/artwork terpotong</td>
+                                                <td>Tiada doubling</td>
                                                 <td><input type="checkbox" name="b_9" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_9 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_9" id="" value="ng"
@@ -232,7 +232,7 @@
                                             </tr>
                                             <tr>
                                                 <td>10</td>
-                                                <td>Cop (Cop pada setiap mockup)</td>
+                                                <td>Frontlay & sidelay </td>
                                                 <td><input type="checkbox" name="b_10" id="" value="ok"
                                                         @checked($laporan_proses_pencetakani->b_10 == 'ok')></td>
                                                 <td><input type="checkbox" name="b_10" id="" value="ng"
