@@ -220,6 +220,13 @@ class PermissionTableSeeder extends Seeder
             'STAPLE BIND View',
             'STAPLE BIND Proses',
             'STAPLE BIND Delete',
+            'PERFECT BIND List',
+            'PERFECT BIND Create',
+            'PERFECT BIND Update',
+            'PERFECT BIND Verify',
+            'PERFECT BIND View',
+            'PERFECT BIND Proses',
+            'PERFECT BIND Delete',
          ];
 
         foreach ($permissions as $permission) {

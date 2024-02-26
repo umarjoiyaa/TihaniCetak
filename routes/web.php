@@ -36,7 +36,7 @@ use App\Http\Controllers\PrintingProcess_TextController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Production_ThreeKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
-use App\Http\Controllers\ProductionJobSheet_PrefecBindController;
+use App\Http\Controllers\PerfectBindController;
 use App\Http\Controllers\StapleBindController;
 use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProductionReportController;
@@ -544,12 +544,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/StapleBind/approve/decline/{id}', [StapleBindController::class, 'approve_decline'])->name('staple_bind.approve.decline');
     Route::get('/Production/StapleBind/delete/{id}', [StapleBindController::class, 'delete'])->name('staple_bind.delete');
 
-    // ProductionJobSheet_PrefecBind
-    Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/view', [ProductionJobSheet_PrefecBindController::class, 'view'])->name('ProductionJobSheet_PrefecBind.view');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/create', [ProductionJobSheet_PrefecBindController::class, 'create'])->name('ProductionJobSheet_PrefecBind.create');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/edit', [ProductionJobSheet_PrefecBindController::class, 'edit'])->name('ProductionJobSheet_PrefecBind.edit');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/proses', [ProductionJobSheet_PrefecBindController::class, 'proses'])->name('ProductionJobSheet_PrefecBind.proses');
+    // Perfect Bind
+    Route::get('/Production/PerfectBind', [PerfectBindController::class, 'index'])->name('perfect_bind');
+    Route::get('/Production/PerfectBind/data', [PerfectBindController::class, 'Data'])->name('perfect_bind.data');
+    Route::get('/Production/PerfectBind/create', [PerfectBindController::class, 'create'])->name('perfect_bind.create');
+    Route::post('/Production/PerfectBind/store', [PerfectBindController::class, 'store'])->name('perfect_bind.store');
+    Route::get('/Production/PerfectBind/view/{id}', [PerfectBindController::class, 'view'])->name('perfect_bind.view');
+    Route::get('/Production/PerfectBind/edit/{id}', [PerfectBindController::class, 'edit'])->name('perfect_bind.edit');
+    Route::post('/Production/PerfectBind/update/{id}', [PerfectBindController::class, 'update'])->name('perfect_bind.update');
+    Route::get('/Production/PerfectBind/proses/{id}', [PerfectBindController::class, 'proses'])->name('perfect_bind.proses');
+    Route::post('/Production/PerfectBind/proses_update/{id}', [PerfectBindController::class, 'proses_update'])->name('perfect_bind.proses.update');
+    Route::post('/Production/PerfectBind/Machine/Starter', [PerfectBindController::class, 'machine_starter'])->name('perfect_bind.machine.starter');
+    Route::get('/Production/PerfectBind/verify/{id}', [PerfectBindController::class, 'verify'])->name('perfect_bind.verify');
+    Route::post('/Production/PerfectBind/approve/approve/{id}', [PerfectBindController::class, 'approve_approve'])->name('perfect_bind.approve.approve');
+    Route::post('/Production/PerfectBind/approve/decline/{id}', [PerfectBindController::class, 'approve_decline'])->name('perfect_bind.approve.decline');
+    Route::get('/Production/PerfectBind/delete/{id}', [PerfectBindController::class, 'delete'])->name('perfect_bind.delete');
 
     // Production_ThreeKnife
     Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife');

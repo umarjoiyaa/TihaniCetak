@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('staple_bind.proses.update', $staple_bind->id) }}" method="post">
+    <form action="{{ route('perfect_bind.proses.update', $perfect_bind->id) }}" method="post">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>JOBSHEET - STAPLE BIND</b></h5>
+                                <h5 class="float-left"><b>JOBSHEET - PERFECT BIND</b></h5>
                                 <p class="float-right">TCBS-B46 (Rev. 1)</p>
                             </div>
                         </div>
@@ -21,18 +21,18 @@
                                         <h5><b>Production Button</b></h5>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <button id="play" onclick="machineStarter(1, {{ $staple_bind->id }})"
+                                        <button id="play" onclick="machineStarter(1, {{ $perfect_bind->id }})"
                                             type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
                                                 class="la la-play" style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
-                                        <button id="pause" onclick="machineStarter(2, {{ $staple_bind->id }})"
+                                        <button id="pause" onclick="machineStarter(2, {{ $perfect_bind->id }})"
                                             type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
                                                 class="la la-pause" style="font-size:20px;"></i>Pause</button>
                                     </div>
                                     <div class="col-md-4  ">
                                         <div class="box">
-                                            <button id="stop" onclick="machineStarter(3, {{ $staple_bind->id }})"
+                                            <button id="stop" onclick="machineStarter(3, {{ $perfect_bind->id }})"
                                                 type="button" class="btn btn-light w-100"
                                                 style="border:1px solid black;"><i class="la la-stop-circle"
                                                     style="font-size:20px;"></i>Stop</button>
@@ -51,7 +51,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Tarikh</label>
-                                            <input type="text" readonly name="date" value="{{ $staple_bind->date }}"
+                                            <input type="text" readonly name="date" value="{{ $perfect_bind->date }}"
                                                 class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
                                                 placeholder="dd-mm-yyyy">
                                         </div>
@@ -59,14 +59,15 @@
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh</label>
                                         <input type="text" readonly name=""
-                                            value="{{ $staple_bind->user->full_name }}" id="" class="form-control">
+                                            value="{{ $perfect_bind->user->full_name }}" id=""
+                                            class="form-control">
                                         <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Operator</label>
                                             @php
-                                                $item = json_decode($staple_bind->operator);
+                                                $item = json_decode($perfect_bind->operator);
                                             @endphp
                                             <select name="operator[]" class="form-control form-select" id="operator"
                                                 multiple>
@@ -82,14 +83,14 @@
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
                                             <input type="text" readonly class="form-control"
-                                                value="{{ $staple_bind->sale_order->order_no }}">
+                                                value="{{ $perfect_bind->sale_order->order_no }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label"> Tajuk </div>
                                             <input type="text" readonly name="" id="tajuk"
-                                                class="form-control" value="{{ $staple_bind->sale_order->description }}">
+                                                class="form-control" value="{{ $perfect_bind->sale_order->description }}">
                                         </div>
                                     </div>
 
@@ -97,14 +98,14 @@
                                         <div class="form-group">
                                             <div class="label">Kod Buku</div>
                                             <input type="text" readonly id="kod_buku" class="form-control"
-                                                value="{{ $staple_bind->sale_order->kod_buku }}">
+                                                value="{{ $perfect_bind->sale_order->kod_buku }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Pelanggan</div>
                                             <input type="text" readonly name="" id="customer"
-                                                class="form-control" value="{{ $staple_bind->sale_order->customer }}">
+                                                class="form-control" value="{{ $perfect_bind->sale_order->customer }}">
                                         </div>
                                     </div>
 
@@ -113,7 +114,7 @@
                                             <div class="label">Kuantiti</div>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control"
-                                                value="{{ $staple_bind->sale_order->sale_order_qty }}">
+                                                value="{{ $perfect_bind->sale_order->sale_order_qty }}">
                                         </div>
                                     </div>
 
@@ -121,23 +122,23 @@
                                         <div class="form-group">
                                             <div class="label">Jumlah Seksyen</div>
                                             <input type="text" readonly id="jumlah" class="form-control"
-                                                value="{{ $staple_bind->senari_semak->item_cover_text ?? 0 }}">
+                                                value="{{ $perfect_bind->senari_semak->item_cover_text ?? 0 }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Saiz Buku</div>
-                                            <input type="text" readonly id="size" class="form-control"
-                                                value="{{ $staple_bind->sale_order->size }}">
+                                            <div class="label">Jenis Penjilidan</div>
+                                            <input type="text" readonly class="form-control"
+                                                value="{{ $perfect_bind->jenis }}">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Mesin</div>
-                                            <input type="text" readonly class="form-control"
-                                                value="{{ $staple_bind->mesin }}" id="machine">
+                                            <input type="text" readonly id="machine" class="form-control"
+                                                value="PB1">
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +260,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('staple_bind') }}">back to list</a>
+                <a href="{{ route('perfect_bind') }}">back to list</a>
             </div>
         </div>
         <!-- Modal -->
@@ -270,7 +271,7 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <span aria-hidden="true">&times;</span>
-                        <input type="hidden" class="staple_detail_id">
+                        <input type="hidden" class="perfect_detail_id">
                     </div>
                     <div class="modal-body">
                         <table class="table table-bordered" id="modalTable">
@@ -328,10 +329,10 @@
                     total_produce: element.total_produce,
                     check_operator_text: element.check_operator_text,
                     check_verify_text: element.check_verify_text,
-                    hiddenId: element.staple_detail_id
+                    hiddenId: element.perfect_detail_id
                 };
 
-                sessionStorage.setItem(`formData${element.staple_detail_id}`, JSON.stringify(
+                sessionStorage.setItem(`formData${element.perfect_detail_id}`, JSON.stringify(
                     dataObject));
             });
         });
@@ -392,7 +393,7 @@
 
         $(document).on('click', '.openModal', function() {
             let hiddenId = $(this).closest('tr').find('.hiddenId').val();
-            $('.staple_detail_id').val(hiddenId);
+            $('.perfect_detail_id').val(hiddenId);
             let storedData = sessionStorage.getItem(`formData${hiddenId}`);
             let formData = JSON.parse(storedData);
 
@@ -421,7 +422,7 @@
             let total_produce = $('#modalTable tbody').find('.total_produce').val();
             let check_operator_text = $('#modalTable tbody').find('.check_operator_text').val();
             let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
-            let hiddenId = $('.staple_detail_id').val();
+            let hiddenId = $('.perfect_detail_id').val();
 
             let dataObject = {
                 good_count: good_count,
@@ -463,7 +464,7 @@
             $(this).closest('form').submit();
         });
 
-        function machineStarter(status, staple_id) {
+        function machineStarter(status, perfect_id) {
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -474,9 +475,9 @@
 
             $.ajax({
                 type: 'POST',
-                url: '{{ route('staple_bind.machine.starter') }}',
+                url: '{{ route('perfect_bind.machine.starter') }}',
                 data: {
-                    "staple_id": staple_id,
+                    "perfect_id": perfect_id,
                     "machine": machine,
                     "status": status,
                 },
@@ -485,6 +486,7 @@
                     check_machines(data.check_machine);
                     $('#machine_detail_table tbody').empty();
                     $('#jobsheet_detail_table tbody').empty();
+                    console.log(data)
                     data.details.forEach(function(detail, index) {
                         var statusBadge;
                         if (detail.status == 1) {

@@ -189,7 +189,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('ProductionJobSheet_PrefecBind')}}">
+                                                <a href="{{route('perfect_bind')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style="font-weight: bold;">Mesin

@@ -871,7 +871,7 @@
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_PrefecBind') }}"
+                                                                        href="{{ route('perfect_bind') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

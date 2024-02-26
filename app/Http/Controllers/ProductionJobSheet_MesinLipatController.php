@@ -583,7 +583,6 @@ class ProductionJobSheet_MesinLipatController extends Controller
         if (!$ismachinestart) {
 
             if ($request->status == 1 && !$alreadyexist && !$stopped) {
-
                 MesinLipatDetail::create([
                     'machine' => $request->machine,
                     'mesin_lipat_id' => $request->mesin_lipat_id,
@@ -642,6 +641,14 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     'details' => $details
                 ]);
             }
+        }else{
+            $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+            $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+            return response()->json([
+                'message' => 'Same Machine Is Running On Other Mesin Lipat!',
+                'check_machine' => $check_machine,
+                'details' => $details
+            ]);
         }
     }
 

@@ -652,7 +652,6 @@ class DigitalPrintingController extends Controller
         if (!$ismachinestart) {
 
             if ($request->status == 1 && !$alreadyexist && !$stopped) {
-
                 DigitalPrintingDetail::create([
                     'machine' => $request->machine,
                     'digital_id' => $request->digital_id,
@@ -711,6 +710,14 @@ class DigitalPrintingController extends Controller
                     'details' => $details
                 ]);
             }
+        }else{
+            $check_machine = DigitalPrintingDetail::where('machine', '=', $request->machine)->where('digital_id',  '=', $request->digital_id)->orderby('id', 'DESC')->first();
+            $details = DigitalPrintingDetail::where('digital_id',  '=', $request->digital_id)->orderby('id', 'ASC')->get();
+            return response()->json([
+                'message' => 'Same Machine Is Running On Other Digital Printing!',
+                'check_machine' => $check_machine,
+                'details' => $details
+            ]);
         }
     }
 }
