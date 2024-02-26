@@ -33,7 +33,7 @@
                                         <td style="font-size:13px;">Jumlah Seksyen</td>
                                         <td style="font-size:13px;">Jenis Penjilidan</td>
                                         <td style="font-size:13px;">Operator</td>
-                                        <td style="font-size:13px;">Pamabantu</td>
+                                        <td style="font-size:13px;">Pembantu</td>
                                         <td style="font-size:13px;">Status</td>
                                         <td style="font-size:13px;">Action</td>
                                     </tr>
