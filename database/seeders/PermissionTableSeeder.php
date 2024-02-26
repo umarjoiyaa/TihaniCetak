@@ -213,6 +213,13 @@ class PermissionTableSeeder extends Seeder
             'COVER & ENDPAPER View',
             'COVER & ENDPAPER Proses',
             'COVER & ENDPAPER Delete',
+            'STAPLE BIND List',
+            'STAPLE BIND Create',
+            'STAPLE BIND Update',
+            'STAPLE BIND Verify',
+            'STAPLE BIND View',
+            'STAPLE BIND Proses',
+            'STAPLE BIND Delete',
          ];
 
         foreach ($permissions as $permission) {

@@ -13,13 +13,13 @@
         <div class="card ">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title tx-20 mg-b-0 p-2">JOBSHEET - STAPLE BIND</h4>
+                    <h4 class="card-title tx-20 mg-b-0 p-2">JOBSHEET - MESIN LIPAT</h4>
                 </div>
 
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('mesin_lipat.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('staple_bind.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
                     <table class="table table-bordered datatable mt-2" id="example1">
@@ -31,8 +31,9 @@
                                 <th>Pelanggan</th>
                                 <th>Kod Buku</th>
                                 <th>Tajuk</th>
+                                <th>Jumlah Seksyen</th>
                                 <th>Kuantiti</th>
-                                <th>Jenis Lipatan</th>
+                                <th>Saiz Buku</th>
                                 <th>Mesin</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -57,10 +58,13 @@
                                     <input type="text" class="all_column" placeholder="search Tajuk">
                                 </th>
                                 <th>
+                                    <input type="text" class="all_column" placeholder="search Jumlah Seksyen">
+                                </th>
+                                <th>
                                     <input type="text" class="all_column" placeholder="search Kuantiti">
                                 </th>
                                 <th>
-                                    <input type="text" class="all_column" placeholder="search Jenis Lipatan">
+                                    <input type="text" class="all_column" placeholder="search Saiz Buku">
                                 </th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search Mesin">
@@ -82,9 +86,9 @@
 @endsection
 @push('custom-scripts')
     <script>
-        var data = "{{ route('mesin_lipat.data') }}";
+        var data = "{{ route('staple_bind.data') }}";
     </script>
-    <script src="{{ asset('assets/js/custom/production/MesinLipat/index.js') }}"></script>
+    <script src="{{ asset('assets/js/custom/production/StapleBind/index.js') }}"></script>
 @endpush
 
 

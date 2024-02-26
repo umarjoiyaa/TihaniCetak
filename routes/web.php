@@ -37,7 +37,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Production_ThreeKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
 use App\Http\Controllers\ProductionJobSheet_PrefecBindController;
-use App\Http\Controllers\ProductionJobSheet_StapleBINDController;
+use App\Http\Controllers\StapleBindController;
 use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProductionReportController;
 use App\Http\Controllers\ProductSCHEDULINIGController;
@@ -528,12 +528,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/MesinLipat/approve/decline/{id}', [ProductionJobSheet_MesinLipatController::class, 'approve_decline'])->name('mesin_lipat.approve.decline');
     Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
 
-    // ProductionJobSheet_StapleBIND
-    Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBind');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/view', [ProductionJobSheet_StapleBINDController::class, 'view'])->name('ProductionJobSheet_StapleBIND.view');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/create', [ProductionJobSheet_StapleBINDController::class, 'create'])->name('ProductionJobSheet_StapleBIND.create');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/edit', [ProductionJobSheet_StapleBINDController::class, 'edit'])->name('ProductionJobSheet_StapleBIND.edit');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/proses', [ProductionJobSheet_StapleBINDController::class, 'proses'])->name('ProductionJobSheet_StapleBIND.proses');
+    // Staple Bind
+    Route::get('/Production/StapleBind', [StapleBindController::class, 'index'])->name('staple_bind');
+    Route::get('/Production/StapleBind/data', [StapleBindController::class, 'Data'])->name('staple_bind.data');
+    Route::get('/Production/StapleBind/create', [StapleBindController::class, 'create'])->name('staple_bind.create');
+    Route::post('/Production/StapleBind/store', [StapleBindController::class, 'store'])->name('staple_bind.store');
+    Route::get('/Production/StapleBind/view/{id}', [StapleBindController::class, 'view'])->name('staple_bind.view');
+    Route::get('/Production/StapleBind/edit/{id}', [StapleBindController::class, 'edit'])->name('staple_bind.edit');
+    Route::post('/Production/StapleBind/update/{id}', [StapleBindController::class, 'update'])->name('staple_bind.update');
+    Route::get('/Production/StapleBind/proses/{id}', [StapleBindController::class, 'proses'])->name('staple_bind.proses');
+    Route::post('/Production/StapleBind/proses_update/{id}', [StapleBindController::class, 'proses_update'])->name('staple_bind.proses.update');
+    Route::post('/Production/StapleBind/Machine/Starter', [StapleBindController::class, 'machine_starter'])->name('staple_bind.machine.starter');
+    Route::get('/Production/StapleBind/verify/{id}', [StapleBindController::class, 'verify'])->name('staple_bind.verify');
+    Route::post('/Production/StapleBind/approve/approve/{id}', [StapleBindController::class, 'approve_approve'])->name('staple_bind.approve.approve');
+    Route::post('/Production/StapleBind/approve/decline/{id}', [StapleBindController::class, 'approve_decline'])->name('staple_bind.approve.decline');
+    Route::get('/Production/StapleBind/delete/{id}', [StapleBindController::class, 'delete'])->name('staple_bind.delete');
 
     // ProductionJobSheet_PrefecBind
     Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind');

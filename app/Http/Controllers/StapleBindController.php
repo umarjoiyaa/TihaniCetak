@@ -3,17 +3,16 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Models\MesinLipat;
-use App\Models\MesinLipatDetail;
-use App\Models\MesinLipatDetailB;
+use App\Models\StapleBind;
+use App\Models\StapleBindDetail;
+use App\Models\StapleBindDetailB;
 use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProductionJobSheet_MesinLipatController extends Controller
+class StapleBindController extends Controller
 {
-
     public function Data(Request $request)
     {
 
@@ -26,7 +25,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = MesinLipat::select('id', 'sale_order_id', 'date','status', 'jumlah_seksyen','jenis_lipatan','mesin')->with('sale_order');
+            $query = StapleBind::select('id', 'sale_order_id', 'date','status', 'mesin')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -46,11 +45,15 @@ class ProductionJobSheet_MesinLipatController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('jumlah_seksyen', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
+                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('jenis_lipatan', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('size', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('mesin', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -68,9 +71,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'jumlah_seksyen',
+                    6 => 'sale_order_id',
                     7 => 'sale_order_id',
-                    8 => 'jenis_lipatan',
+                    8 => 'sale_order_id',
                     9 => 'mesin',
                     10 => 'status',
 
@@ -118,7 +121,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
                                 });
                                 break;
                             case 6:
-                                $q->where('jumlah_seksyen', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('senari_semak', function ($query) use ($searchLower) {
+                                    $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 7:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
@@ -126,7 +131,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
                                 });
                                 break;
                             case 8:
-                                $q->where('jenis_lipatan', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
+                                    $query->where('size', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 9:
                                 $q->where('mesin', 'like', '%' . $searchLower . '%');
@@ -156,35 +163,35 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -217,7 +224,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = MesinLipat::select('id', 'sale_order_id', 'date','status', 'jumlah_seksyen','jenis_lipatan','mesin')->with('sale_order');
+            $query = StapleBind::select('id', 'sale_order_id', 'date','status', 'mesin')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -237,11 +244,15 @@ class ProductionJobSheet_MesinLipatController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('jumlah_seksyen', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
+                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('jenis_lipatan', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('size', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('mesin', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -254,9 +265,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'jumlah_seksyen',
+                6 => 'sale_order_id',
                 7 => 'sale_order_id',
-                8 => 'jenis_lipatan',
+                8 => 'sale_order_id',
                 9 => 'mesin',
                 10 => 'status',
 
@@ -284,35 +295,35 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                                <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -336,31 +347,31 @@ class ProductionJobSheet_MesinLipatController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('MESIN LIPAT List') ||
-            Auth::user()->hasPermissionTo('MESIN LIPAT Create') ||
-            Auth::user()->hasPermissionTo('MESIN LIPAT Update') ||
-            Auth::user()->hasPermissionTo('MESIN LIPAT View') ||
-            Auth::user()->hasPermissionTo('MESIN LIPAT Delete') ||
-            Auth::user()->hasPermissionTo('MESIN LIPAT Proses')
+            Auth::user()->hasPermissionTo('STAPLE BIND List') ||
+            Auth::user()->hasPermissionTo('STAPLE BIND Create') ||
+            Auth::user()->hasPermissionTo('STAPLE BIND Update') ||
+            Auth::user()->hasPermissionTo('STAPLE BIND View') ||
+            Auth::user()->hasPermissionTo('STAPLE BIND Delete') ||
+            Auth::user()->hasPermissionTo('STAPLE BIND Proses')
         ) {
-            Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT List');
-            return view('Production.ProductionJobSheet_MesinLipat.index');
+            Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND List');
+            return view('Production.StapleBind.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Create')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         // $suppliers = Supplier::select('id', 'name')->get();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Create');
-        return view('Production.ProductionJobSheet_MesinLipat.create');
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Create');
+        return view('Production.StapleBind.create');
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Create')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -369,9 +380,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jenis_lipatan' => 'required',
             'mesin' => 'required',
-
         ]);
 
         // If validations fail
@@ -380,49 +389,46 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $mesin_lipat = new MesinLipat();
-        $mesin_lipat->sale_order_id = $request->sale_order;
-        $mesin_lipat->date = $request->date;
-        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen;
-        $mesin_lipat->mesin = $request->mesin;
-        $mesin_lipat->jenis_lipatan = $request->jenis_lipatan;
-        $mesin_lipat->created_by = Auth::user()->id;
+        $staple_bind = new StapleBind();
+        $staple_bind->sale_order_id = $request->sale_order;
+        $staple_bind->date = $request->date;
+        $staple_bind->mesin = $request->mesin;
+        $staple_bind->created_by = Auth::user()->id;
 
+        $staple_bind->status = 'Not-initiated';
+        $staple_bind->save();
 
-        $mesin_lipat->status = 'Not-initiated';
-        $mesin_lipat->save();
-
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Store');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Created Successfully !');
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Store');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Created Successfully !');
     }
 
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Update')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $mesin_lipat = MesinLipat::find($id);
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
-        return view('Production.ProductionJobSheet_MesinLipat.edit',compact('mesin_lipat'));
+        $staple_bind = StapleBind::find($id);
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
+        return view('Production.StapleBind.edit',compact('staple_bind'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT View')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $mesin_lipat = MesinLipat::find($id);
+        $staple_bind = StapleBind::find($id);
         $users = User::all();
-        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
-        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT View');
-        return view('Production.ProductionJobSheet_MesinLipat.view', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND View');
+        return view('Production.StapleBind.view', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function update(Request $request,$id)
     {
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Update')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -431,9 +437,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jenis_lipatan' => 'required',
             'mesin' => 'required',
-
         ]);
 
         // If validations fail
@@ -442,159 +446,155 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $mesin_lipat =  MesinLipat::find($id);
-        $mesin_lipat->sale_order_id = $request->sale_order;
-        $mesin_lipat->date = $request->date;
-        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen;
-        $mesin_lipat->mesin = $request->mesin;
-        $mesin_lipat->jenis_lipatan = $request->jenis_lipatan;
-        $mesin_lipat->created_by = Auth::user()->id;
+        $staple_bind =  StapleBind::find($id);
+        $staple_bind->sale_order_id = $request->sale_order;
+        $staple_bind->date = $request->date;
+        $staple_bind->mesin = $request->mesin;
+        $staple_bind->created_by = Auth::user()->id;
 
+        $staple_bind->status = 'Not-initiated';
+        $staple_bind->save();
 
-        $mesin_lipat->status = 'Not-initiated';
-        $mesin_lipat->save();
-
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT update');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Created Successfully !');
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND update');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Created Successfully !');
     }
 
     public function proses($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Proses')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Proses')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $mesin_lipat = MesinLipat::find($id);
+        $staple_bind = StapleBind::find($id);
         $users = User::all();
-        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
-        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
-        return view('Production.ProductionJobSheet_MesinLipat.proses', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
+        return view('Production.StapleBind.proses', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function proses_update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Proses')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Proses')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $storedData = json_decode($request->input('details'), true);
-        $mesin_lipat = MesinLipat::find($id);
-        $mesin_lipat->operator = json_encode($request->operator);
-        $mesin_lipat->save();
+        $staple_bind = StapleBind::find($id);
+        $staple_bind->operator = json_encode($request->operator);
+        $staple_bind->save();
 
-        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
-        MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->delete();
+        StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
             if ($value != null) {
-                $detail = new MesinLipatDetailB();
-                $detail->mesin_lipat_detail_id = $value['hiddenId'] ?? null;
-                $detail->section_no = $value['section_no'] ?? null;
-                $detail->last_fold = $value['last_fold'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
+                $detail = new StapleBindDetailB();
+                $detail->staple_detail_id = $value['hiddenId'] ?? null;
                 $detail->good_count = $value['good_count'] ?? null;
+                $detail->rejection = $value['rejection'] ?? null;
+                $detail->total_produce = $value['total_produce'] ?? null;
                 $detail->check_operator_text = $value['check_operator_text'] ?? null;
                 $detail->save();
             }
         }
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Proses Update');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Proses Updated Successfully !');
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Proses Update');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Proses Updated Successfully !');
     }
 
     public function verify($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $mesin_lipat = MesinLipat::find($id);
+        $staple_bind = StapleBind::find($id);
         $users = User::all();
-        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
-        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
-        return view('Production.ProductionJobSheet_MesinLipat.verify', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
+        return view('Production.StapleBind.verify', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $mesin_lipat = MesinLipat::find($id);
-        $mesin_lipat->status = 'verified';
-        $mesin_lipat->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
-        $mesin_lipat->verified_by_user = Auth::user()->user_name;
-        $mesin_lipat->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $mesin_lipat->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
-        $mesin_lipat->save();
+        $staple_bind = StapleBind::find($id);
+        $staple_bind->status = 'verified';
+        $staple_bind->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $staple_bind->verified_by_user = Auth::user()->user_name;
+        $staple_bind->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $staple_bind->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $staple_bind->save();
 
         $storedData = json_decode($request->input('details'), true);
         foreach($storedData as $key => $value){
             if ($value != null) {
-                $detail = MesinLipatDetailB::where('mesin_lipat_detail_id', '=', $value['hiddenId'])->first();
+                $detail = StapleBindDetailB::where('staple_detail_id', '=', $value['hiddenId'])->first();
                 $detail->check_verify_text = $value['check_verify_text'] ?? null;
                 $detail->save();
             }
         }
 
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Verified');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Verified!');
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Verified');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Verified!');
     }
 
     public function approve_decline(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $mesin_lipat = MesinLipat::find($id);
-        $mesin_lipat->status = 'declined';
-        $mesin_lipat->save();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Declined');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Declined!');
+        $staple_bind = StapleBind::find($id);
+        $staple_bind->status = 'declined';
+        $staple_bind->save();
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Declined');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Declined!');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Delete')) {
+        if (!Auth::user()->hasPermissionTo('STAPLE BIND Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $mesin_lipat = MesinLipat::find($id);
-        MesinLipatDetail::where('mesin_lipat_id', $id)->delete();
-        MesinLipatDetailB::where('mesin_lipat_detail_id', $id)->delete();
-        $mesin_lipat->delete();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Delete');
-        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Deleted!');
+        $staple_bind = StapleBind::find($id);
+        StapleBindDetail::where('staple_id', $id)->delete();
+        StapleBindDetailB::where('staple_detail_id', $id)->delete();
+        $staple_bind->delete();
+        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Delete');
+        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Deleted!');
     }
 
     public function machine_starter(Request $request)
     {
         $ismachinestart = null;
 
-        $JustSelected = MesinLipat::where('id', '=', $request->mesin_lipat_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+        $JustSelected = StapleBind::where('id', '=', $request->staple_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
 
         if(!empty($JustSelected)){
-            $ismachinestart = MesinLipatDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '!=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+            $ismachinestart = StapleBindDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('staple_id', '!=', $request->staple_id)->orderby('id', 'DESC')->first();
         }
 
-        $alreadyexist = MesinLipatDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
-        $alreadypaused = MesinLipatDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
-        $stopped = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->where('status', '=', 3)->first();
+        $alreadyexist = StapleBindDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->orderby('id', 'DESC')->first();
+        $alreadypaused = StapleBindDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->orderby('id', 'DESC')->first();
+        $stopped = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->where('status', '=', 3)->first();
 
         if (!$ismachinestart) {
 
             if ($request->status == 1 && !$alreadyexist && !$stopped) {
 
-                MesinLipatDetail::create([
+                StapleBindDetail::create([
                     'machine' => $request->machine,
-                    'mesin_lipat_id' => $request->mesin_lipat_id,
+                    'staple_id' => $request->staple_id,
                     'status' => $request->status,
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
-                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital = StapleBind::find($request->staple_id);
                 $digital->status = 'Started';
                 $digital->save();
-                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
-                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
+                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
                     'check_machine' => $check_machine,
@@ -602,7 +602,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 ]);
             } else if ($request->status == 2 && $alreadypaused && !$stopped) {
 
-                $mpo = MesinLipatDetail::where('machine', $request->machine)->where('mesin_lipat_id', $request->mesin_lipat_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
+                $mpo = StapleBindDetail::where('machine', $request->machine)->where('staple_id', $request->staple_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
                 $mpo->save();
@@ -611,18 +611,18 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 $duration = $end_time->diffInMinutes($start_time);
                 $mpo->duration = $duration;
                 $mpo->save();
-                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital = StapleBind::find($request->staple_id);
                 $digital->status = 'Paused';
                 $digital->save();
-                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
-                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
+                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
                     'check_machine' => $check_machine,
                     'details' => $details
                 ]);
             } else if ($request->status == 3 && !$stopped) {
-                $mpo = MesinLipatDetail::where('machine', $request->machine)->where('mesin_lipat_id', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+                $mpo = StapleBindDetail::where('machine', $request->machine)->where('staple_id', $request->staple_id)->orderby('id', 'DESC')->first();
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
                 $mpo->save();
@@ -631,11 +631,11 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 $duration = $end_time->diffInMinutes($start_time);
                 $mpo->duration = $duration;
                 $mpo->save();
-                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital = StapleBind::find($request->staple_id);
                 $digital->status = 'Completed';
                 $digital->save();
-                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
-                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
+                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
                 return response()->json([
                     'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
                     'check_machine' => $check_machine,
@@ -644,5 +644,4 @@ class ProductionJobSheet_MesinLipatController extends Controller
             }
         }
     }
-
 }

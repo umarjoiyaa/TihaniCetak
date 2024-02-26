@@ -190,7 +190,7 @@
                           <a class="dropdown-item" href="{{route('cover_end_paper')}}">Cover & End Paper</a>
                           <a class="dropdown-item" href="{{route('ProductionJobSheet_text')}}">Text</a>
                           <a class="dropdown-item" href="{{route('mesin_lipat')}}">Mesin Lipat</a>
-                          <a class="dropdown-item" href="{{route('ProductionJobSheet_StapleBind')}}">Staple Bind</a>
+                          <a class="dropdown-item" href="{{route('staple_bind')}}">Staple Bind</a>
 
                         </div>
                         <div class="col-md-8">

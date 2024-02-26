@@ -682,7 +682,7 @@
             </div>
         </div>
         <!-- mobile-header -->
-        @include('layouts.navbar') 
+        @include('layouts.navbar')
 			<!--Horizontal-main -->
 		<div class="sticky">
 			<div class="horizontal-main hor-menu clearfix side-header">
@@ -862,7 +862,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin Lipat</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_StapleBind') }}"
+                                                                        href="{{ route('staple_bind') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -2005,7 +2005,7 @@
 
     <!-- Bootstrap js-->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    
+
     <!-- Ionicons js-->
     <script src="{{ asset('assets/plugins/ionicons/ionicons.js') }}"></script>
 
