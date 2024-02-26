@@ -4,7 +4,12 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h5>LAPORAN PROSES PENJILIDAN (PERFECT BIND)</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PROSES PENJILIDAN (PERFECT BIND)</h5>
+                                    <p class="float-right">TCSB-B61 (Rev.0)</p>
+                                </div>
+                            </div>
 
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
@@ -266,6 +271,7 @@
 
 
                                 <div class="col-md-12">
+                                    <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -286,78 +292,45 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            @foreach ($details as $key => $detail)
                                             <tr>
-                                                <td>500</td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><button class="btn"
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
+                                                <td>{{$detail->c_1}}</td>
+                                                <td><input type="hidden" value="{{$detail->c_1}}"
+                                                        name="semasa[{{$key+1}}][1]"><input type="checkbox"
+                                                        name="semasa[{{$key+1}}][2]" id="" @checked($detail->c_2 !=
+                                                    null)>
                                                 </td>
-                                                <td>A/12/12/2023 10:10Am</td>
-                                                <td><button class="btn"
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
+                                                <td><input type="checkbox" name="semasa[{{$key+1}}][3]" id=""
+                                                        @checked($detail->c_3 != null)>
                                                 </td>
-                                                <td>A/12/12/2023 10:30Am</td>
-                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
+                                                <td><input type="checkbox" name="semasa[{{$key+1}}][4]" id=""
+                                                        @checked($detail->c_4 != null)>
+                                                </td>
+                                                <td><input type="checkbox" name="semasa[{{$key+1}}][5]" id=""
+                                                        @checked($detail->c_5 != null)>
+                                                </td>
+                                                <td><input type="checkbox" name="semasa[{{$key+1}}][6]" id=""
+                                                        @checked($detail->c_6 != null)>
+                                                </td>
+                                                <td><button type="button" class="btn btn-primary check_btn"
+                                                        style="border-radius:5px;" @disabled($detail->c_7 !=
+                                                        null)>check</button></td>
+                                                <td><input type="text" style="width:340px" name="semasa[{{$key+1}}][7]"
+                                                        class="check_operator form-control" value="{{$detail->c_7}}"
+                                                        readonly></td>
+                                                <td><button type="button" class="btn btn-primary verify_btn"
+                                                        >Verify</button>
+                                                </td>
+                                                <td><input type="text" name="semasa[{{$key+1}}][8]"
+                                                        class="verify_operator  form-control"  style="width:340px"   readonly></td>
+                                                <td><button type="button" class="btn btn-danger remove"
+                                                        style="border-radius:5px; ">X</button>
                                                 </td>
                                             </tr>
-                                            <tr>
-                                                <td>1000</td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><button class="btn"
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
-                                                </td>
-                                                <td>A/12/12/2023 10:30Am</td>
-                                                <td><button class="btn"
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
-                                                </td>
-                                                <td>A/12/12/2023 10:50Am</td>
-                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>1500</td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><input type="checkbox" readonly checked name=""
-                                                        id=""></td>
-                                                <td><button class="btn "
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">check</button>
-                                                </td>
-                                                <td>A/12/12/2023 11:05Am</td>
-                                                <td><button class="btn"
-                                                        style="border-radius:25px; background:#b7aeae; color:#fff;">Verify</button>
-                                                </td>
-                                                <td>A/12/12/2023 10:50Am</td>
-                                                <td><button class="btn btn-danger" style="border-radius:5px; ">X</button>
-                                                </td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
-
+                                </div>
                                 </div>
                             </div>
                         </div>
@@ -365,13 +338,18 @@
 
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit"> Verify</button>
-                            </form>
+
                             <form
                                 action="{{ route('laporan_proses_penjilidan.approve.decline', $laporan_proses_penjilidan->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                            </form>
+                            <form
+                            action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
+                            method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-primary" type="submit"> Verify</button>
                             </form>
 
                         </div>
@@ -391,6 +369,30 @@
     <script>
         $(document).ready(function() {
             $('input').attr('disabled', 'disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
+            $('.verify_operator').removeAttr('disabled');
         });
+
+
+        function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+
+                    return formattedDateTime;
+                }
+
+                $(document).on('click', '.verify_btn', function() {
+                    $(this).attr('disabled', 'disabled');
+                    const currentDate = new Date();
+                    const formattedDateTime = formatDateWithAMPM(currentDate);
+                    let checked_by = $('#checked_by').val();
+                    const combinedValue = `${checked_by}/${formattedDateTime}`;
+                    $(this).closest('tr').find('.verify_operator').val(combinedValue);
+                });
     </script>
 @endpush

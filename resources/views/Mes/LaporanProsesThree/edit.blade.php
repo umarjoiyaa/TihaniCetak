@@ -6,7 +6,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5>LAPORAN PROSES THREE KNIFE</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PROSES THREE KNIFE</h5>
+                                    <p class="float-right">TCSB-B53 (Rev.0)</p>
+                                </div>
+                            </div>
 
                             <div class="card" style="background:#f1f0f0;">
                                 <div class="card-body">
@@ -69,7 +74,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Size Buku</div>
+                                                <div class="label">Saiz Buku</div>
                                                 <input type="text" readonly value="" id="size"
                                                     class="form-control">
                                             </div>
@@ -406,6 +411,9 @@
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
+            }else{
+                var lengths = $('#table tbody tr').length;
+                increment = (lengths+1)*500;
             }
             let length = $('#table tbody tr').length + 1;
             $('#table tbody').append(`<tr>

@@ -6,7 +6,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>LAPORAN PROSES LIPAT</h5>
+                    <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PROSES LIPAT</h5>
+                                    <p class="float-right">TCSB-B61 (Rev.0)</p>
+                                </div>
+                            </div>
 
                         <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
@@ -26,12 +31,13 @@
 
                                         @php
                                                 $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $laporan_proses_lipat->time)->format('H:i');
+                                                // dd($timeIn24HourFormat)
                                             @endphp
                                             <div class="label">Time</div>
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
 
-                                        
+
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">

@@ -7,8 +7,7 @@
 
     <!-- Bootstrap CSS -->
 
-    <title>Hello, world!</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
     <style>
       nav{
         background: #18002D;
@@ -23,87 +22,79 @@
         nav{
           display: block !important;
         }
+        .navbar-toggler{
+          width:100%;
+        }
         .navbar-toggler-icon{
-          color: #fff;
-          font-size: 25px;
-          margin-top: 0px;
-          padding-left: 780px;
+          color:#fff;
+          font-size:20px;
+          margin-left: 750px;
         }
         .dropdown-item{
           font-size:13px;
         }
       }
-      @media screen and (max-width:922px){
-        .navbar-toggler-icon{
-          margin-top: -62px;
-        }
+     @media screen and (max-width:907px){
+      .navbar-toggler-icon{
+        margin-top: -70px;
       }
+     }
 
-      @media screen and (max-width:837px){
-        .navbar-toggler-icon{
-          padding-left: 700px;
-        }
+     @media screen and (max-width:808px){
+      .navbar-toggler-icon{
+        margin-left: 650px;
       }
+     }
 
-      @media screen and (max-width:768px){
-        .navbar-toggler-icon{
-          padding-left: 630px;
-        }
+     @media screen and (max-width:710px){
+      .navbar-toggler-icon{
+        margin-left: 550px;
       }
+     }
 
-      @media screen and (max-width:685px){
-        .navbar-toggler-icon{
-          padding-left: 550px;
-        }
+     @media screen and (max-width:610px){
+      .navbar-toggler-icon{
+        margin-left: 500px;
       }
+     }
 
-      @media screen and (max-width:605px){
-        .navbar-toggler-icon{
-          padding-left: 500px;
-        }
+     @media screen and (max-width:558px){
+      .navbar-toggler-icon{
+        margin-left: 400px;
       }
+     }
 
-      @media screen and (max-width:550px){
-        .navbar-toggler-icon{
-          padding-left: 410px;
-        }
+     @media screen and (max-width:456px){
+      .navbar-toggler-icon{
+        margin-left: 350px;
       }
+     }
 
-      @media screen and (max-width:465px){
-        .navbar-toggler-icon{
-          padding-left: 210px;
-          margin-top: 0;
-        }
+     @media screen and (max-width:406px){
+      .navbar-toggler-icon{
+        margin-left: 300px;
       }
+     }
 
-      @media screen and (max-width:385px){
-        .navbar-toggler-icon{
-          padding-left: 210px;
-          margin-top: -60px;
-        }
+     @media screen and (max-width:358px){
+      .navbar-toggler-icon{
+        margin-left: 250px;
       }
+     }
 
-      @media screen and (max-width:355px){
-        .navbar-toggler-icon{
-          padding-left: 210px;
-          margin-top: -60px;
-        }
+     @media screen and (max-width:306px){
+      .navbar-toggler-icon{
+        margin-left: 200px;
       }
-
-      @media screen and (max-width:285px){
-        .navbar-toggler-icon{
-          padding-left: 210px;
-          margin-top: -60px;
-        }
-      }
+     }
     </style>
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg">
         <a class="navbar-brand" href="#"><img src="{{asset('assets/img/tihani.png')}}" width="50px" alt=""></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation ">
+          <span class="navbar-toggler-icon"> <i class="fe fe-align-justify"></i></span>
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">

@@ -8,7 +8,12 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5>LAPORAN PROSES PENJILIDAN (PERFECT BIND)</h5>
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PROSES PENJILIDAN (SADDLE STITCH)</h5>
+                                    <p class="float-right">TCSB-B61 (Rev.0)</p>
+                                </div>
+                            </div>
 
                             <div class="card" style="background:#f1f0f0;">
                                 <div class="card-body">
@@ -349,6 +354,9 @@
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
+            }else{
+                var lengths = $('#table tbody tr').length;
+                increment = (lengths+1)*500;    
             }
             let length = $('#table tbody tr').length + 1;
             $('#table tbody').append(`<tr>

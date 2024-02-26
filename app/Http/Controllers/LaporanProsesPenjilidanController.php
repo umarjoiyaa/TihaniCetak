@@ -464,6 +464,8 @@ class LaporanProsesPenjilidanController extends Controller
                $userNames[] = $user->full_name;
             }
         }
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
 
         $userText = implode(', ', $userNames);
 
@@ -482,7 +484,7 @@ class LaporanProsesPenjilidanController extends Controller
         $laporan_proses_penjilidan = LaporanProsesPenjilidan::find($id);
         $laporan_proses_penjilidan->sale_order_id = $request->sale_order;
         $laporan_proses_penjilidan->date = $request->date;
-        $laporan_proses_penjilidan->time = $request->time;
+        $laporan_proses_penjilidan->time = $timeIn12HourFormat;
         $laporan_proses_penjilidan->created_by = Auth::user()->id;
 
         $laporan_proses_penjilidan->jenis = $request->jenis;
