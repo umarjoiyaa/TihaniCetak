@@ -61,7 +61,7 @@
         }
     }
     @media only screen and (min-device-width: 430px) and (max-device-width: 932px) {
-        
+
     }
 </style>
 @endsection
@@ -136,7 +136,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('cover_endPaper')}}">
+                                                <a href="{{route('cover_end_paper')}}">
                                                     <iconify-icon icon="mdi:file-cog-outline" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Cover &

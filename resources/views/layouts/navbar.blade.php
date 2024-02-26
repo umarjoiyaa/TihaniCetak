@@ -18,7 +18,7 @@
       nav a{
         color: #fff;
       }
-      
+
       @media screen and (max-width:992px) {
         nav{
           display: block !important;
@@ -105,13 +105,13 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="fa-solid fa-bars"></i></span>
         </button>
-      
+
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
             </li>
-           
+
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
                 Mes
@@ -146,8 +146,8 @@
                           Proses 3 Knife</a>
                       </div>
                     </div>
-                    
-                    
+
+
                   </div>
                   <div class="col-sm-5">
                     <h6 class="pl-3">Laporan Pemeriksaan
@@ -169,8 +169,8 @@
                   <a class="dropdown-item" href="{{route('kulit_buku')}}">Pemotongan Kulit Buku/ Teks</a>
                         </div>
                       </div>
-                  
-                  
+
+
                   </div>
                 </div>
               </div>
@@ -187,11 +187,11 @@
                       <div class="row">
                         <div class="col-md-4">
                           <a class="dropdown-item" href="{{route('digital_printing')}}">Digital Printing</a>
-                          <a class="dropdown-item" href="{{route('cover_endPaper')}}">Cover & End Paper</a>
+                          <a class="dropdown-item" href="{{route('cover_end_paper')}}">Cover & End Paper</a>
                           <a class="dropdown-item" href="{{route('ProductionJobSheet_text')}}">Text</a>
                           <a class="dropdown-item" href="{{route('mesin_lipat')}}">Mesin Lipat</a>
                           <a class="dropdown-item" href="{{route('ProductionJobSheet_StapleBind')}}">Staple Bind</a>
-                          
+
                         </div>
                         <div class="col-md-8">
                           <a class="dropdown-item" href="{{route('ProductionJobSheet_PrefecBind')}}">Mesin Perfect Bind</a>
@@ -200,7 +200,7 @@
                           <a class="dropdown-item" href="{{route('BorangeSerahKerja_Teks')}}">Borang Serahan Kerja (Teks)</a>
                         </div>
                       </div>
-                      
+
                     </div>
                     <div class="col-sm-3">
                       <h6 class="pl-3">Production</h6>
@@ -220,10 +220,10 @@
                         Report</a>
                     </div>
                   </div>
-                   
-                  
-                    
-                  
+
+
+
+
                 </div>
               </li>
 
@@ -299,18 +299,18 @@
                       </div>
                     </div>
                   </div>
-                    
-                  
+
+
                 </div>
               </li>
-            
+
         </div>
       </nav>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
-    
+
     <!-- Option 2: Separate Popper and Bootstrap JS -->
     <!--
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
