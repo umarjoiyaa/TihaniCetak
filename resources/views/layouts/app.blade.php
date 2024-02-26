@@ -78,7 +78,6 @@
     <link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script> -->
 
     @yield('css')
     <style>
@@ -2041,7 +2040,7 @@
     <script src="{{ asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
 
     <!--Chart bundle min js -->
-    <script src="{{ asset('assets/plugins/chart.js/Chart.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/chart.js') }}"></script>
     <script src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>
     <script src="{{ asset('assets/plugins/peity/jquery.peity.min.js') }}"></script>
 
@@ -2088,6 +2087,7 @@
 
     <!-- Quill js -->
     <script src="{{asset('/assets/js/quill.js')}}"></script>
+    <script  src="{{asset('/assets/js/chart1.js')}}"></script>
 
     <!-- Internal Datatable js -->
     {{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}
