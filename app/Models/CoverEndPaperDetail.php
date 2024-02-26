@@ -6,8 +6,8 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class DigitalPrintingDetail extends Model
+class CoverEndPaperDetail extends Model
 {
     use HasFactory, SoftDeletes;
-    public $fillable = ['machine', 'digital_id', 'start_time', 'end_time', 'duration', 'status'];
+    public $fillable = ['machine', 'cover_paper_id', 'start_time', 'end_time', 'duration', 'status'];
 }

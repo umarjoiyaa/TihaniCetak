@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- <link href="{{ url('/assets/plugins/summernote/css/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -729,36 +729,6 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
-                    <div class="col-md-12">
-                        <h3><b>Verified By</b></h3>
-                    </div>
-                    <div class="col-md-12">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Date</th>
-                                    <th>Username</th>
-                                    <th>Desgination</th>
-                                    <th>Department</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $cover_end_paper->verified_by_date }}
-                                    </td>
-                                    <td>{{ $cover_end_paper->verified_by_user }}
-                                    </td>
-                                    <td>{{ $cover_end_paper->verified_by_designation }}
-                                    </td>
-                                    <td>{{ $cover_end_paper->verified_by_department }}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
                 <div class="row">
                     <div class="col-md-12">
                         <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
@@ -786,69 +756,95 @@
                         </div>
                     </div>
                 </div>
+                <div class="row d-flex justify-content-end">
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <form action="{{ route('cover_end_paper.approve.approve', $cover_end_paper->id) }}"
+                            method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input type="hidden" id="storedData" name="details">
+                                    <button class="btn btn-primary" type="button" id="saveForm"> Verify</button>
+                                </div>
+                            </div>
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
+                                            <span aria-hidden="true">&times;</span>
+                                            <input type="hidden" class="cover_paper_detail_id">
+                                        </div>
+                                        <div class="modal-body">
+                                            <table class="table table-bordered" id="modalTable">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Side</th>
+                                                        <th>Last Print</th>
+                                                        <th>Waste paper</th>
+                                                        <th>Rejection</th>
+                                                        <th>Good count</th>
+                                                        <th>Check</th>
+                                                        <th></th>
+                                                        <th>Verify</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td><select name="" id=""
+                                                                class="form-control side">
+                                                                <option value="">Select Side</option>
+                                                                <option value="A">A</option>
+                                                                <option value="B">B</option>
+                                                                <option value="A/B">A/B</option>
+                                                            </select></td>
+                                                        <td><input type="text" name="" id=""
+                                                                class="form-control last_print">
+                                                        </td>
+                                                        <td><input type="text" name="" id=""
+                                                                class="form-control waste_paper"></td>
+                                                        <td><input type="text" name="" id=""
+                                                                class="form-control rejection">
+                                                        </td>
+                                                        <td><input type="text" name="" id="" readonly
+                                                                class="form-control good_count"></td>
+                                                        <td><button disabled type="button"
+                                                                class="btn btn-primary check_operator">Check</button></td>
+                                                        <td><input type="text" name="" id="" readonly
+                                                                class="form-control check_operator_text"></td>
+                                                        <td><button type="button"
+                                                                class="btn btn-primary check_verify">Verify</button>
+                                                        </td>
+                                                        <td><input type="text" name="" id="" readonly
+                                                                class="form-control check_verify_text"></td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                id="saveModal">Save</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        {{-- <form action="{{ route('cover_end_paper.approve.decline', $cover_end_paper->id) }}" method="POST"
+                            enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                        </form> --}}
+                    </div>
+                </div>
             </div>
         </div>
         <a href="{{ route('cover_end_paper') }}">back to list</a>
     </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width:1000px; margin-left:-350px;">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                    <span aria-hidden="true">&times;</span>
-                    <input type="hidden" class="cover_paper_detail_id">
-                </div>
-                <div class="modal-body">
-                    <table class="table table-bordered" id="modalTable">
-                        <thead>
-                            <tr>
-                                <th>Side</th>
-                                <th>Last Print</th>
-                                <th>Waste paper</th>
-                                <th>Rejection</th>
-                                <th>Good count</th>
-                                <th>Check</th>
-                                <th></th>
-                                <th>Verify</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><select name="" id="" class="form-control side">
-                                        <option value="">Select Side</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="A/B">A/B</option>
-                                    </select></td>
-                                <td><input type="text" name="" id="" class="form-control last_print">
-                                </td>
-                                <td><input type="text" name="" id=""
-                                        class="form-control waste_paper"></td>
-                                <td><input type="text" name="" id="" class="form-control rejection">
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control good_count"></td>
-                                <td><button disabled type="button" class="btn btn-primary check_operator">Check</button>
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control check_operator_text"></td>
-                                <td><button disabled type="button" class="btn btn-primary check_verify">Verify</button>
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control check_verify_text"></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
     </div>
 @endsection
 
@@ -890,6 +886,8 @@
             });
 
             $('input,select,textarea').attr('disabled', 'disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
+            $('.check_verify_text').removeAttr('disabled');
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
@@ -975,7 +973,11 @@
                 $('#modalTable tbody').find('.check_operator_text').val(formData.check_operator_text);
                 $('#modalTable tbody').find('.check_verify_text').val(formData.check_verify_text);
                 $('#modalTable tbody').find('.check_operator').attr('disabled', 'disabled');
-                $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                if (formData.check_verify_text != null) {
+                    $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                } else {
+                    $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
+                }
             } else {
                 $('#modalTable tbody').find('.side').val('');
                 $('#modalTable tbody').find('.last_print').val('');
@@ -984,8 +986,60 @@
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.check_operator_text').val('');
                 $('#modalTable tbody').find('.check_verify_text').val('');
-                $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
             }
+        });
+
+        $('#saveModal').on('click', function() {
+            let side = $('#modalTable tbody').find('.side').val();
+            let last_print = $('#modalTable tbody').find('.last_print').val();
+            let waste_paper = $('#modalTable tbody').find('.waste_paper').val();
+            let rejection = $('#modalTable tbody').find('.rejection').val();
+            let good_count = $('#modalTable tbody').find('.good_count').val();
+            let check_operator_text = $('#modalTable tbody').find('.check_operator_text').val();
+            let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
+            let hiddenId = $('.cover_paper_detail_id').val();
+
+            let dataObject = {
+                side: side,
+                last_print: last_print,
+                waste_paper: waste_paper,
+                rejection: rejection,
+                good_count: good_count,
+                check_operator_text: check_operator_text,
+                check_verify_text: check_verify_text,
+                hiddenId: hiddenId
+            };
+
+            sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+        });
+
+        $(document).on('click', '.check_verify', function() {
+            $(this).attr('disabled', 'disabled');
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            let checked_by = $('#checked_by').val();
+            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDate);
+        });
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+
+            return `${day}-${month}-${year} ${hours}:${minutes}`;
+        }
+
+        $('#saveForm').on('click', function() {
+            let array = [];
+            $('.hiddenId').each(function() {
+                let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
+                array.push(JSON.parse(storedData));
+            });
+            $('#storedData').val(JSON.stringify(array));
+            $(this).closest('form').submit();
         });
     </script>
 @endpush

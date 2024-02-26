@@ -209,7 +209,9 @@ class PermissionTableSeeder extends Seeder
             'COVER & ENDPAPER List',
             'COVER & ENDPAPER Create',
             'COVER & ENDPAPER Update',
+            'COVER & ENDPAPER Verify',
             'COVER & ENDPAPER View',
+            'COVER & ENDPAPER Proses',
             'COVER & ENDPAPER Delete',
          ];
 

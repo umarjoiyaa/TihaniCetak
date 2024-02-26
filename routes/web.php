@@ -487,16 +487,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/DigitalPrinting/approve/decline/{id}', [DigitalPrintingController::class, 'approve_decline'])->name('digital_printing.approve.decline');
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
-    // Cover_endPaper
+    // Cover_end_paper
     Route::get('/Production/CoverAndEndpaper', [Cover_endPaperController::class, 'index'])->name('cover_end_paper');
-        Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
-        Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
-        Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
-        Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
-        Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
-        Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
-        Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
-        Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
+    Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
+    Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
+    Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
+    Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
+    Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
+    Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
+    Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
+    Route::post('/Production/CoverAndEndpaper/proses_update/{id}', [Cover_endPaperController::class, 'proses_update'])->name('cover_end_paper.proses.update');
+    Route::post('/Production/CoverAndEndpaper/Machine/Starter', [Cover_endPaperController::class, 'machine_starter'])->name('cover_end_paper.machine.starter');
+    Route::get('/Production/CoverAndEndpaper/verify/{id}', [Cover_endPaperController::class, 'verify'])->name('cover_end_paper.verify');
+    Route::post('/Production/CoverAndEndpaper/approve/approve/{id}', [Cover_endPaperController::class, 'approve_approve'])->name('cover_end_paper.approve.approve');
+    Route::post('/Production/CoverAndEndpaper/approve/decline/{id}', [Cover_endPaperController::class, 'approve_decline'])->name('cover_end_paper.approve.decline');
+    Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
 
     // ProductionJobSheet - Text
     Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text');
