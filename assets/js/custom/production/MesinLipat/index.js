@@ -22,49 +22,52 @@ $(document).ready(function () {
                 }
             }
         }, // URL to fetch data
-        columns: [
-        {
-            data: 'date',
-            name: 'date',
-        },
-        {
-            data: 'sale_order.order_no',
-            name: 'sale_order.order_no',
-        },
-        {
-            data: 'sale_order.customer',
-            name: 'sale_order.customer',
-        },
-        {
-            data: 'sale_order.kod_buku',
-            name: 'sale_order.kod_buku',
-        },
-        {
-            data: 'sale_order.description',
-            name: 'sale_order.description',
-        },
-        {
-            data: 'sale_order.sale_order_qty',
-            name: 'sale_order.sale_order_qty',
-        },
-        {
-            data: 'jenis_lipatan',
-            name: 'jenis_lipatan',
-        },
-        {
-            data: 'mesin',
-            name: 'mesin',
-        },
-        {
-            data: 'status',
-            name: 'status',
-        },
-        {
-            data: 'action',
-            name: 'action',
-            orderable: false
-        },
-    ],
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            },
+            {
+                data: 'date',
+                name: 'date',
+            },
+            {
+                data: 'sale_order.order_no',
+                name: 'sale_order.order_no',
+            },
+            {
+                data: 'sale_order.customer',
+                name: 'sale_order.customer',
+            },
+            {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
+            },
+            {
+                data: 'sale_order.description',
+                name: 'sale_order.description',
+            },
+            {
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
+            },
+            {
+                data: 'jenis_lipatan',
+                name: 'jenis_lipatan',
+            },
+            {
+                data: 'mesin',
+                name: 'mesin',
+            },
+            {
+                data: 'status',
+                name: 'status',
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false
+            },
+        ],
         paging: true
         // Other DataTables options go here
     });
@@ -95,49 +98,51 @@ function AjaxCall(columnsData) {
 
             }
         }, // URL to fetch data
-        columns:[
-                {
-                    data: 'date',
-                    name: 'date',
-                },
-                {
-                    data: 'sale_order.order_no',
-                    name: 'sale_order.order_no',
-                },
-                {
-                    data: 'sale_order.customer',
-                    name: 'sale_order.customer',
-                },
-                {
-                    data: 'sale_order.kod_buku',
-                    name: 'sale_order.kod_buku',
-                },
-                {
-                    data: 'sale_order.description',
-                    name: 'sale_order.description',
-                },
-                {
-                    data: 'sale_order.sale_order_qty',
-                    name: 'sale_order.sale_order_qty',
-                },
-                {
-                    data: 'jenis_lipatan',
-                    name: 'jenis_lipatan',
-                },
-                {
-                    data: 'mesin',
-                    name: 'mesin',
-                },
-                {
-                    data: 'status',
-                    name: 'status',
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false
-                },
-            ],
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            }, {
+                data: 'date',
+                name: 'date',
+            },
+            {
+                data: 'sale_order.order_no',
+                name: 'sale_order.order_no',
+            },
+            {
+                data: 'sale_order.customer',
+                name: 'sale_order.customer',
+            },
+            {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
+            },
+            {
+                data: 'sale_order.description',
+                name: 'sale_order.description',
+            },
+            {
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
+            },
+            {
+                data: 'jenis_lipatan',
+                name: 'jenis_lipatan',
+            },
+            {
+                data: 'mesin',
+                name: 'mesin',
+            },
+            {
+                data: 'status',
+                name: 'status',
+            },
+            {
+                data: 'action',
+                name: 'action',
+                orderable: false
+            },
+        ],
         paging: true
         // Other DataTables options go here
     });

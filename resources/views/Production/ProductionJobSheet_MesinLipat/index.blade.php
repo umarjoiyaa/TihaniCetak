@@ -25,6 +25,7 @@
                     <table class="table table-bordered datatable mt-2" id="example1">
                         <thead>
                             <tr>
+                                <th>Sr.</th>
                                 <th>Tarikh</th>
                                 <th>Sales Order no</th>
                                 <th>Pelanggan</th>
@@ -36,38 +37,41 @@
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
-
+                        </thead>
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search tarikh">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search sales order no">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Pelanggan">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Kod Buku">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Tajuk">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Kuantiti">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Jenis Lipatan">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Mesin">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search status">
+                                </th>
+                                <th></th>
+                            </tr>
                         </thead>
                         <tbody>
-                            {{-- <tr class="">
-                                <td>30/5/2023</td>
-                                <td>SO-001496</td>
-                                <td>EDUKID DISTRIBUTORS SDN BHD</td>
-                                <td>CP-2940</td>
-                                <td>IQRO Genius - Rumi</td>
-                                <td>7</td>
-                                <td>5000</td>
-                                <td>F1</td>
-                                <td><span class="badge badge-pill badge-warning w-100 p-2 mt-2  ">Not-initiated</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button aria-expanded="false" aria-haspopup="true"
-                                            class="btn ripple btn-primary" data-toggle="dropdown"
-                                            id="dropdownMenuButton" type="button">Action<i
-                                                class="fas fa-caret-down ml-1"></i></button>
-                                        <div class="dropdown-menu tx-13">
-                                            <a class="dropdown-item"
-                                                href="{{route('ProductionJobSheet_MesinLipat.view')}}">View</a>
-                                            <a class="dropdown-item"
-                                                href="{{route('ProductionJobSheet_MesinLipat.edit')}}">Edit</a>
-                                            <a class="dropdown-item"
-                                                href="{{route('ProductionJobSheet_MesinLipat.proses')}}">Proses</a>
-                                            <a class="dropdown-item" href="">Delete</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr> --}}
                         </tbody>
                     </table>
                 </div>

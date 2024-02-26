@@ -86,8 +86,6 @@
                                             <option value="Prefect Bind">Prefect Bind</option>
                                             <option value="Lock Bind">Lock Bind</option>
                                             <option value="Staple Bind">Staple Bind</option>
-                                            <!-- <option value="">order</option> -->
-                                            <!-- <option value="">PENEGELUAREN</option> -->
                                         </select>
                                     </div>
                                 </div>
@@ -97,75 +95,14 @@
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
                                         <select name="mesin" id="mesin" class="form-control form-select">
-
                                             <option value="F1">F1</option>
                                             <option value="F2">F2</option>
-                                            <!-- <option value="">F3</option> -->
-                                            <!-- <option value="">order</option> -->
-                                            <!-- <option value="">PENEGELUAREN</option> -->
                                         </select>
                                     </div>
                                 </div>
-
                             </div>
-
-                            <!-- <div class="row mt-5">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Mesin</label>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">REVORIA SC170 FUJIFIILM</option>
-                                                <option value="">Others</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kategori job</div>
-                                            <select name="" id="" placeholder="Pilih Kategori Job" class="form-control">
-                                                <option value="">MOCK UP</option>
-                                                <option value="">PENEGELUAREN</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Jenis produk</label>
-                                            <select name="" id="" placeholder="Pilih Jenis produk" class="form-control">
-                                                <option value="">BUKU</option>
-                                                <option value="">FLYERS</option>
-                                                <option value="">POSTER</option>
-                                                <option value="">BUSINESS CARD</option>
-                                                <option value="">KAD KAHWIN</option>
-                                                <option value="">STICKERS</option>
-                                                <option value="">OTHERS</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kertas: teks</div>
-                                            <input type="text" value="Input teks" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kertas: Cover</div>
-                                            <input type="text" value="input teks" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-
-                                </div> -->
                         </div>
                     </div>
-
-
-
 
                     <div class="row">
                         <div class="col-md-12">
@@ -254,7 +191,11 @@
                         $('#customer').val(data.sale_order.customer);
                         $('#size').val(data.sale_order.size);
                         $('#sale_order_qty').val(data.sale_order.sale_order_qty);
-                        $('#jumlah').val(data.section.item_cover_text);
+                        if(data.section != null){
+                            $('#jumlah').val(data.section.item_cover_text);
+                        }else{
+                            $('#jumlah').val(0);
+                        }
                     }
                 });
             });

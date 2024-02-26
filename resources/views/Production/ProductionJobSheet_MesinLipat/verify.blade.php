@@ -250,62 +250,79 @@
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
-                            <!-- Modal -->
-                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width:1000px; margin-left:-350px;">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLabel">Production Output Details
-                                            </h5>
-                                            <span aria-hidden="true">&times;</span>
-                                            <input type="hidden" class="mesin_lipat_detail_id">
-                                        </div>
-                                        <div class="modal-body">
-                                            <table class="table table-bordered" id="modalTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Section No.</th>
-                                                        <th>Last Fold</th>
-                                                        <th>Rejection</th>
-                                                        <th>Good count</th>
-                                                        <th>Check</th>
-                                                        <th></th>
-                                                        <th>Verify</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control section_no" readonly></td>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control last_fold"></td>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control rejection"></td>
-                                                        <td><input type="text" name="" id="" readonly
-                                                                class="form-control good_count"></td>
-                                                        <td><button disabled type="button"
-                                                                class="btn btn-primary check_operator">Check</button>
-                                                        </td>
-                                                        <td><input type="text" name="" id="" readonly
-                                                                class="form-control check_operator_text"></td>
-                                                        <td><button disabled type="button"
-                                                                class="btn btn-primary check_verify">Verify</button>
-                                                        </td>
-                                                        <td><input type="text" name="" id="" readonly
-                                                                class="form-control check_verify_text"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">Close</button>
+                            <form action="{{ route('mesin_lipat.approve.approve', $mesin_lipat->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="storedData" name="details">
+                                        <button class="btn btn-primary" type="button" id="saveForm"> Verify</button>
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Production Output Details
+                                                </h5>
+                                                <span aria-hidden="true">&times;</span>
+                                                <input type="hidden" class="mesin_lipat_detail_id">
+                                            </div>
+                                            <div class="modal-body">
+                                                <table class="table table-bordered" id="modalTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Section No.</th>
+                                                            <th>Last Fold</th>
+                                                            <th>Rejection</th>
+                                                            <th>Good count</th>
+                                                            <th>Check</th>
+                                                            <th></th>
+                                                            <th>Verify</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control section_no" readonly></td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control last_fold"></td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control rejection"></td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control good_count"></td>
+                                                            <td><button disabled type="button"
+                                                                    class="btn btn-primary check_operator">Check</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_operator_text"></td>
+                                                            <td><button type="button"
+                                                                    class="btn btn-primary check_verify">Verify</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_verify_text"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                    id="saveModal">Save</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
+                            {{-- <form action="{{ route('mesin_lipat.approve.decline', $mesin_lipat->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                </form> --}}
                         </div>
                     </div>
                 </div>
@@ -318,6 +335,8 @@
     <script>
         $(document).ready(function() {
             $('input,select').attr('disabled', 'disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
+            $('.check_verify_text').removeAttr('disabled');
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
@@ -400,18 +419,70 @@
                 $('#modalTable tbody').find('.good_count').val(formData.good_count);
                 $('#section_nos').val(formData.section_no);
                 $('#modalTable tbody').find('.check_operator_text').val(formData.check_operator_text);
-                $('#modalTable tbody').find('.check_verify_text').val(formData.check_verify_text);
                 $('#modalTable tbody').find('.check_operator').attr('disabled', 'disabled');
-                $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                if (formData.check_verify_text != null) {
+                    $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                } else {
+                    $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
+                }
             } else {
                 $('#modalTable tbody').find('.section_no').val('');
                 $('#modalTable tbody').find('.last_fold').val('');
                 $('#modalTable tbody').find('.rejection').val('');
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.check_operator_text').val('');
-                $('#modalTable tbody').find('.check_verify_text').val('');
-                $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
             }
+        });
+
+        $('#saveModal').on('click', function() {
+            let section_no = $('#modalTable tbody').find('.section_no').val();
+            let last_fold = $('#modalTable tbody').find('.last_fold').val();
+            let rejection = $('#modalTable tbody').find('.rejection').val();
+            let good_count = $('#modalTable tbody').find('.good_count').val();
+            let check_operator_text = $('#modalTable tbody').find('.check_operator_text').val();
+            let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
+            let hiddenId = $('.mesin_lipat_detail_id').val();
+
+            let dataObject = {
+                section_no: section_no,
+                last_fold: last_fold,
+                rejection: rejection,
+                good_count: good_count,
+                check_operator_text: check_operator_text,
+                check_verify_text: check_verify_text,
+                hiddenId: hiddenId
+            };
+
+            sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+        });
+
+        $(document).on('click', '.check_verify', function() {
+            $(this).attr('disabled', 'disabled');
+            const currentDate = new Date();
+            const formattedDate = formatDate(currentDate);
+            let checked_by = $('#checked_by').val();
+            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDate);
+        });
+
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
+            const year = date.getFullYear();
+            const hours = String(date.getHours()).padStart(2, '0');
+            const minutes = String(date.getMinutes()).padStart(2, '0');
+
+            return `${day}-${month}-${year} ${hours}:${minutes}`;
+        }
+
+        $('#saveForm').on('click', function() {
+            let array = [];
+            $('.hiddenId').each(function() {
+                let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
+                array.push(JSON.parse(storedData));
+            });
+            $('#storedData').val(JSON.stringify(array));
+            $(this).closest('form').submit();
         });
     </script>
 @endpush

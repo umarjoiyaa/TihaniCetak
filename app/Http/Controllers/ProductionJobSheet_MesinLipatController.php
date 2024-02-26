@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\MesinLipat;
+use App\Models\MesinLipatDetail;
+use App\Models\MesinLipatDetailB;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,13 +46,13 @@ class ProductionJobSheet_MesinLipatController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('jumlah_seksyen', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jumlah_seksyen', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('jenis_lipatan', 'like', '%' . $searchLower . '%')
-                        ->where('mesin', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('jenis_lipatan', 'like', '%' . $searchLower . '%')
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -65,10 +69,10 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
                     6 => 'jumlah_seksyen',
-                    7 => 'sale_order',
+                    7 => 'sale_order_id',
                     8 => 'jenis_lipatan',
-                    10 => 'mesin',
-                    11 => 'status',
+                    9 => 'mesin',
+                    10 => 'status',
 
                     // Add more columns as needed
                 ];
@@ -92,19 +96,16 @@ class ProductionJobSheet_MesinLipatController extends Controller
                         switch ($column['index']) {
                             case 1:
                                 $q->where('date', 'like', '%' . $searchLower . '%');
-
                                 break;
                             case 2:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
-
                                 break;
                             case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('customer', 'like', '%' . $searchLower . '%');
                                 });
-
                                 break;
                             case 4:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
@@ -133,7 +134,6 @@ class ProductionJobSheet_MesinLipatController extends Controller
                             case 10:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
-
                             default:
                                 break;
                         }
@@ -153,6 +153,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
 
             $index = 0;
             foreach ($uom as $row) {
+                $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
@@ -175,12 +176,12 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
@@ -193,6 +194,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
                                     ' . $actions . '
                                 </div>
                             </div>';
+                            $index++;
             }
 
             // // Continue with your response
@@ -235,13 +237,13 @@ class ProductionJobSheet_MesinLipatController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('jumlah_seksyen', 'like', '%' . $searchLower . '%')
+                        ->orWhere('jumlah_seksyen', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('jenis_lipatan', 'like', '%' . $searchLower . '%')
-                        ->where('mesin', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('jenis_lipatan', 'like', '%' . $searchLower . '%')
+                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -253,10 +255,10 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
                 6 => 'jumlah_seksyen',
-                7 => 'sale_order',
+                7 => 'sale_order_id',
                 8 => 'jenis_lipatan',
-                10 => 'mesin',
-                11 => 'status',
+                9 => 'mesin',
+                10 => 'status',
 
                 // Add more columns as needed
             ];
@@ -279,7 +281,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 ->get();
 
             $uom->each(function ($row, $index)  use (&$start) {
-
+                $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
@@ -302,12 +304,12 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
@@ -404,6 +406,20 @@ class ProductionJobSheet_MesinLipatController extends Controller
         return view('Production.ProductionJobSheet_MesinLipat.edit',compact('mesin_lipat'));
     }
 
+    public function view($id){
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $mesin_lipat = MesinLipat::find($id);
+        $users = User::all();
+        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT View');
+        return view('Production.ProductionJobSheet_MesinLipat.view', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
     public function update(Request $request,$id)
     {
         if (!Auth::user()->hasPermissionTo('MESIN LIPAT Update')) {
@@ -442,25 +458,192 @@ class ProductionJobSheet_MesinLipatController extends Controller
         return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Created Successfully !');
     }
 
+    public function proses($id){
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $mesin_lipat = MesinLipat::find($id);
+        $users = User::all();
+        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
+        return view('Production.ProductionJobSheet_MesinLipat.proses', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function proses_update(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $storedData = json_decode($request->input('details'), true);
+        $mesin_lipat = MesinLipat::find($id);
+        $mesin_lipat->operator = json_encode($request->operator);
+        $mesin_lipat->save();
+
+        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->delete();
+
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = new MesinLipatDetailB();
+                $detail->mesin_lipat_detail_id = $value['hiddenId'] ?? null;
+                $detail->section_no = $value['section_no'] ?? null;
+                $detail->last_fold = $value['last_fold'] ?? null;
+                $detail->rejection = $value['rejection'] ?? null;
+                $detail->good_count = $value['good_count'] ?? null;
+                $detail->check_operator_text = $value['check_operator_text'] ?? null;
+                $detail->save();
+            }
+        }
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Proses Update');
+        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Proses Updated Successfully !');
+    }
+
+    public function verify($id){
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $mesin_lipat = MesinLipat::find($id);
+        $users = User::all();
+        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
+        return view('Production.ProductionJobSheet_MesinLipat.verify', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function approve_approve(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $mesin_lipat = MesinLipat::find($id);
+        $mesin_lipat->status = 'verified';
+        $mesin_lipat->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $mesin_lipat->verified_by_user = Auth::user()->user_name;
+        $mesin_lipat->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $mesin_lipat->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $mesin_lipat->save();
+
+        $storedData = json_decode($request->input('details'), true);
+
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = MesinLipatDetailB::find($value['hiddenId']);
+                $detail->check_verify_text = $value['check_verify_text'] ?? null;
+                $detail->save();
+            }
+        }
+
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Verified');
+        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Verified!');
+    }
+
+    public function approve_decline(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $mesin_lipat = MesinLipat::find($id);
+        $mesin_lipat->status = 'declined';
+        $mesin_lipat->save();
+        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Declined');
+        return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Declined!');
+    }
 
     public function delete($id){
         if (!Auth::user()->hasPermissionTo('MESIN LIPAT Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $mesin_lipat = MesinLipat::find($id);
+        MesinLipatDetail::where('mesin_lipat_id', $id)->delete();
+        MesinLipatDetailB::where('mesin_lipat_detail_id', $id)->delete();
         $mesin_lipat->delete();
         Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Delete');
         return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Successfully Deleted!');
     }
 
-    public function view($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT View')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
+    public function machine_starter(Request $request)
+    {
+        $ismachinestart = null;
+
+        $JustSelected = MesinLipat::where('id', '=', $request->mesin_lipat_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+
+        if(!empty($JustSelected)){
+            $ismachinestart = MesinLipatDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '!=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
         }
-        $mesin_lipat = MesinLipat::find($id);
-        // $suppliers = Supplier::select('id', 'name')->get();
-        Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT View');
-        return view('Production.ProductionJobSheet_MesinLipat.view', compact('mesin_lipat'));
+
+        $alreadyexist = MesinLipatDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+        $alreadypaused = MesinLipatDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+        $stopped = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id', '=', $request->mesin_lipat_id)->where('status', '=', 3)->first();
+
+        if (!$ismachinestart) {
+
+            if ($request->status == 1 && !$alreadyexist && !$stopped) {
+
+                MesinLipatDetail::create([
+                    'machine' => $request->machine,
+                    'mesin_lipat_id' => $request->mesin_lipat_id,
+                    'status' => $request->status,
+                    'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
+                ]);
+                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital->status = 'Started';
+                $digital->save();
+                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 2 && $alreadypaused && !$stopped) {
+
+                $mpo = MesinLipatDetail::where('machine', $request->machine)->where('mesin_lipat_id', $request->mesin_lipat_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital->status = 'Paused';
+                $digital->save();
+                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 3 && !$stopped) {
+                $mpo = MesinLipatDetail::where('machine', $request->machine)->where('mesin_lipat_id', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = MesinLipat::find($request->mesin_lipat_id);
+                $digital->status = 'Completed';
+                $digital->save();
+                $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+                $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            }
+        }
     }
 
 }

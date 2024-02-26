@@ -858,7 +858,6 @@
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <span aria-hidden="true">&times;</span>
-                        </button>
                         <input type="hidden" class="digital_printing_detail_id">
                     </div>
                     <div class="modal-body">
@@ -1089,7 +1088,7 @@
 
             $.ajax({
                 type: 'POST',
-                url: '{{ route('machine.starter') }}',
+                url: '{{ route('digital_printing.machine.starter') }}',
                 data: {
                     "digital_id": digital_id,
                     "machine": machine,

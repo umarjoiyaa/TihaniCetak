@@ -868,7 +868,6 @@
                                                 <h5 class="modal-title" id="exampleModalLabel">Production Output Details
                                                 </h5>
                                                 <span aria-hidden="true">&times;</span>
-                                                </button>
                                                 <input type="hidden" class="digital_printing_detail_id">
                                             </div>
                                             <div class="modal-body">
@@ -917,8 +916,6 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
                                                     data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                                    id="saveModal">Save</button>
                                             </div>
                                         </div>
                                     </div>
@@ -935,8 +932,6 @@
     <script>
         $(document).ready(function() {
             $('input,select').attr('disabled', 'disabled');
-            $('input[type="hidden"]').removeAttr('disabled');
-            $('.check_verify_text').removeAttr('disabled');
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
@@ -1028,6 +1023,7 @@
                 $('#modalTable tbody').find('.rejection').val('');
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.meter_click').val('');
+                $('#modalTable tbody').find('.check_operator_text').val('');
                 $('#modalTable tbody').find('.check_verify_text').val('');
                 $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
             }

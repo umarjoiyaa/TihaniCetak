@@ -18,13 +18,18 @@ return new class extends Migration
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('date')->nullable();
             $table->string('status')->nullable();
-            $table->unsignedBigInteger('created_by')->nullable();
-            $table->foreign('created_by')->references('id')->on('users')->nullable();
-
             $table->string('jumlah_seksyen')->nullable();
-    $table->string('jenis_lipatan')->nullable();
+            $table->string('jenis_lipatan')->nullable();
             $table->string('mesin')->nullable();
 
+            $table->string('operator')->nullable();
+            $table->string('verified_by_date')->nullable();
+            $table->string('verified_by_user')->nullable();
+            $table->string('verified_by_designation')->nullable();
+            $table->string('verified_by_department')->nullable();
+
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
