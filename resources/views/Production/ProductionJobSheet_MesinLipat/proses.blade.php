@@ -352,10 +352,10 @@
                     dataObject));
             });
 
-            var jumlahSection = 3;
+            var jumlahSection = @json($mesin_lipat->jumlah_seksyen);
             $('#section_nos').append(`<option selected disabled>Select Seksyen No</option>`);
-            for (let index = 1; index < jumlahSection+1; index++) {
-                $('#section_nos').append(`<option value="${index}">Seksyen ${index}</option>`);
+            for (let index = 0; index < jumlahSection; index++) {
+                $('#section_nos').append(`<option value="${index+1}">Seksyen ${index+1}</option>`);
             }
         });
 

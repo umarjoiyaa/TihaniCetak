@@ -1016,6 +1016,7 @@
                 $('#modalTable tbody').find('.rejection').val('');
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.meter_click').val('');
+                $('#modalTable tbody').find('.check_operator_text').val('');
                 $('#modalTable tbody').find('.check_verify_text').val('');
                 $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
             }

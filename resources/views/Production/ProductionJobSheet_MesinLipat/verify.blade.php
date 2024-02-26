@@ -419,6 +419,7 @@
                 $('#modalTable tbody').find('.good_count').val(formData.good_count);
                 $('#section_nos').val(formData.section_no);
                 $('#modalTable tbody').find('.check_operator_text').val(formData.check_operator_text);
+                $('#modalTable tbody').find('.check_verify_text').val(formData.check_verify_text);
                 $('#modalTable tbody').find('.check_operator').attr('disabled', 'disabled');
                 if (formData.check_verify_text != null) {
                     $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
@@ -431,6 +432,7 @@
                 $('#modalTable tbody').find('.rejection').val('');
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.check_operator_text').val('');
+                $('#modalTable tbody').find('.check_verify_text').val('');
                 $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
             }
         });

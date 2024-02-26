@@ -229,6 +229,36 @@
                         </div>
                     </div>
 
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <h3><b>Verified By</b></h3>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Username</th>
+                                        <th>Desgination</th>
+                                        <th>Department</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $mesin_lipat->verified_by_date }}
+                                        </td>
+                                        <td>{{ $mesin_lipat->verified_by_user }}
+                                        </td>
+                                        <td>{{ $mesin_lipat->verified_by_designation }}
+                                        </td>
+                                        <td>{{ $mesin_lipat->verified_by_department }}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center" style="font-size:20px; color:red; dispaly:inline-block;">

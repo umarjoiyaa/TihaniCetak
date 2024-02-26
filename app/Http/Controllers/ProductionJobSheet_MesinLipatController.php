@@ -503,9 +503,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
     }
 
     public function verify($id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
+        // if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+        //     return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
         $mesin_lipat = MesinLipat::find($id);
         $users = User::all();
         $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
@@ -517,9 +517,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
     }
 
     public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
+        // if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+        //     return back()->with('custom_errors', 'You don`t have Right Permission');
+        // }
 
         $mesin_lipat = MesinLipat::find($id);
         $mesin_lipat->status = 'verified';
@@ -530,10 +530,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $mesin_lipat->save();
 
         $storedData = json_decode($request->input('details'), true);
-
         foreach($storedData as $key => $value){
             if ($value != null) {
-                $detail = MesinLipatDetailB::find($value['hiddenId']);
+                $detail = MesinLipatDetailB::where('mesin_lipat_detail_id', '=', $value['hiddenId'])->first();
                 $detail->check_verify_text = $value['check_verify_text'] ?? null;
                 $detail->save();
             }

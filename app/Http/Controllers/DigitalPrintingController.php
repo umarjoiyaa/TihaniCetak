@@ -601,7 +601,7 @@ class DigitalPrintingController extends Controller
 
         foreach($storedData as $key => $value){
             if ($value != null) {
-                $detail = DigitalPrintingDetailB::find($value['hiddenId']);
+                $detail = DigitalPrintingDetailB::where('digital_detail_id', '=', $value['hiddenId'])->first();
                 $detail->check_verify_text = $value['check_verify_text'] ?? null;
                 $detail->save();
             }
