@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- <link href="{{ url('/assets/plugins/summernote/css/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <form action="{{ route('cover_end_paper.update',$cover_end_paper->id) }}" method="post">
     @csrf
     <div class="row">
@@ -195,7 +197,8 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor" name="arahan_texteditor" >{!! $cover_end_paper->arahan_texteditor !!}</div>
+
+                                            <textarea name="arahan_texteditor" id="summernote">{{ $cover_end_paper->arahan_texteditor }}</textarea>                                        </div>
                                         </div>
                                     </div>
                                 </div>
@@ -596,8 +599,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor1"></div>
-                                        </div>
+                                            <textarea name="catatan_texteditor" id="summernote1">{{ $cover_end_paper->catatan_texteditor }}</textarea>                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -653,8 +655,12 @@
 
 
 @push('custom-scripts')
+<script src="{{ url('/assets/plugins/summernote/js/summernote-bs4.min.js') }}"></script>
 <script>
 $(document).ready(function () {
+    $('#summernote').summernote();
+        $('#summernote1').summernote();
+
     $('#printSelect').change(function () {
             if ($(this).val() === "Others") {
                 var html = `

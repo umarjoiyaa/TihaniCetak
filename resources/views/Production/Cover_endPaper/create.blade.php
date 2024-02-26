@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+{{-- <link href="{{ url('/assets/plugins/summernote/css/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <form action="{{ route('cover_end_paper.store') }}" method="post">
 @csrf
     <div class="row">
@@ -190,7 +192,8 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor" name="arahan_texteditor"></div>
+                                            <textarea name="arahan_texteditor" id="summernote"></textarea>
+                                            {{-- <div id="editor" name="arahan_texteditor"></div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -577,7 +580,7 @@
                                 <div class="col-md-6">
                                     <div class="card">
                                         <div class="card-body">
-                                            <div id="editor1" name="catatan_texteditor"></div>
+                                            <textarea name="catatan_texteditor" id="summernote1"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -630,8 +633,14 @@
 </form>
 @endsection
 @push('custom-scripts')
+<script src="{{ url('/assets/plugins/summernote/js/summernote-bs4.min.js') }}"></script>
 <script>
     $(document).ready(function () {
+        $('#summernote').summernote();
+        $('#summernote1').summernote();
+
+
+
         $('#printSelect').change(function () {
             if ($(this).val() === "Others") {
                 var newInput = $("<input>", {
