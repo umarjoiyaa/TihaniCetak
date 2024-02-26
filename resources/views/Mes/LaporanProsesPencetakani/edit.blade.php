@@ -32,10 +32,7 @@
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
 
-                                            <label for="">Time</label>
-                                            <input type="time" name="time"
-                                                value="{{ $laporan_proses_pencetakani->time }}" id="Currenttime"
-                                                class="form-control">
+
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
@@ -403,7 +400,7 @@
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
             }else{
-                          var lengths = $(this).find('table tbody tr').length;
+                          var lengths = $('#table tbody tr').length;
                           increment = (lengths+1)*500;
                     }
             let length = $('#table tbody tr').length + 1;
@@ -441,6 +438,8 @@
         });
 
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
+
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -477,6 +476,23 @@
                 }
             });
 
+
+        $('#sale_order').on('change', function() {
+            const id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '{{ route('sale_order.detail.get') }}',
+                data: {
+                    "id": id
+                },
+                success: function(data) {
+                    $('#kod_buku').val(data.kod_buku);
+                    $('#tajuk').val(data.description);
+                }
+            });
+        });
+
+
         });
 
         function formatDateWithAMPM(date) {
@@ -500,21 +516,6 @@
                     $(this).closest('tr').find('.check_operator').val(combinedValue);
                 });
 
-            $('#sale_order').trigger('change');
 
-        $('#sale_order').on('change', function() {
-            const id = $(this).val();
-            $.ajax({
-                type: 'GET',
-                url: '{{ route('sale_order.detail.get') }}',
-                data: {
-                    "id": id
-                },
-                success: function(data) {
-                    $('#kod_buku').val(data.kod_buku);
-                    $('#tajuk').val(data.description);
-                }
-            });
-        });
     </script>
 @endpush

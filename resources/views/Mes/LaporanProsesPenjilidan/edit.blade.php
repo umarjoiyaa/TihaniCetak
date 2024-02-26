@@ -380,6 +380,9 @@
     $(document).on('click', '#AddRow', function () {
         if ($('#table tbody tr').length == 0) {
             increment = 500;
+        }else{
+            var lengths = $('#table tbody tr').length;
+                          increment = (lengths+1)*500;
         }
         let length = $('#table tbody tr').length + 1;
         $('#table tbody').append(`<tr>
