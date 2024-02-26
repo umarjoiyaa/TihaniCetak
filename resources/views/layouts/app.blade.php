@@ -682,7 +682,7 @@
             </div>
         </div>
         <!-- mobile-header -->
-
+        @include('layouts.navbar') 
 			<!--Horizontal-main -->
 		<div class="sticky">
 			<div class="horizontal-main hor-menu clearfix side-header">
@@ -727,7 +727,7 @@
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>Senarai
-                                                                        Semak Pencetakan <br> Digita</a></li>
+                                                                        Semak Pencetakan <br> Digital</a></li>
                                                                 <li aria-haspopup="true"><a
                                                                         href="{{ route('senari_semak_cetak') }}"
                                                                         class="slide-item"><iconify-icon
