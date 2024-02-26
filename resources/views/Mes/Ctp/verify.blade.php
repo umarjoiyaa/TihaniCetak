@@ -24,7 +24,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Masa</label>
-                                    <input name="text" readonly type="time" id="Currenttime"
+                                    <input name="text" readonly type="text" id="Currenttime"
                                     value="{{ $ctp->time }}"
                                     class="form-control">
                                 </div>

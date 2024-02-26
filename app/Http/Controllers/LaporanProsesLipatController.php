@@ -329,12 +329,17 @@ class LaporanProsesLipatController extends Controller
             }
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
+
         $userText = implode(', ', $userNames);
 
         $laporan_proses_lipat = new LaporanProsesLipat();
         $laporan_proses_lipat->sale_order_id = $request->sale_order;
         $laporan_proses_lipat->date = $request->date;
-        $laporan_proses_lipat->time = $request->time;
+        $laporan_proses_lipat->time = $timeIn12HourFormat;
         $laporan_proses_lipat->created_by = Auth::user()->id;
 
         $laporan_proses_lipat->seksyen_no = $request->seksyen_no;
@@ -449,10 +454,14 @@ class LaporanProsesLipatController extends Controller
 
         $userText = implode(', ', $userNames);
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
+
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $laporan_proses_lipat->sale_order_id = $request->sale_order;
         $laporan_proses_lipat->date = $request->date;
-        $laporan_proses_lipat->time = $request->time;
+        $laporan_proses_lipat->time = $timeIn12HourFormat;
         $laporan_proses_lipat->created_by = Auth::user()->id;
 
         $laporan_proses_lipat->seksyen_no = $request->seksyen_no;

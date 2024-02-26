@@ -841,7 +841,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Digital Printing</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('cover_endPaper') }}"
+                                                                        href="{{ route('cover_end_paper') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -2005,7 +2005,7 @@
 
     <!-- Bootstrap js-->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
+    
     <!-- Ionicons js-->
     <script src="{{ asset('assets/plugins/ionicons/ionicons.js') }}"></script>
 

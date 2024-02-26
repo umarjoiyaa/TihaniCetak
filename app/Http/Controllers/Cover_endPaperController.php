@@ -375,7 +375,9 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->mesin = $request->mesin;
         $cover_end_paper->saiz_potong = $request->saiz_potong;
 
-        $cover_end_paper->arahan_texteditor = $request->input('arahan_texteditor');
+        $cover_end_paper->arahan_texteditor = $request->arahan_texteditor;
+        $cover_end_paper->catatan_texteditor = $request->catatan_texteditor;
+
         $cover_end_paper->created_by = Auth::user()->id;
 
         $cover_end_paper->front = $request->front;
@@ -482,6 +484,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->saiz_potong = $request->saiz_potong;
 
         $cover_end_paper->arahan_texteditor = $request->arahan_texteditor;
+        $cover_end_paper->catatan_texteditor = $request->catatan_texteditor;
         $cover_end_paper->created_by = Auth::user()->id;
 
         $cover_end_paper->front = $request->front;
