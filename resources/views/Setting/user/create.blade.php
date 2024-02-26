@@ -16,7 +16,7 @@
                         @csrf
                         <div class="col-md-4 d-flex justify-content-end">
                             <div class="form-group">
-                                <label class="ckbox"><input checked type="checkbox" name="is_active"><span
+                                <label class="ckbox"><input @if(!old('is_active')) checked @else @checked(old('is_active') != null) @endif type="checkbox" name="is_active"><span
                                         class="tx-17">Is Active</span></label>
                             </div>
                         </div>
