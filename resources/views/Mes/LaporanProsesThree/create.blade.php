@@ -6,8 +6,13 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5>LAPORAN PROSES THREE KNIFE</h5>
-
+                            <h5></h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PROSES THREE KNIFE</h5>
+                                    <p class="float-right">TCSB-B53 (Rev.0)</p>
+                                </div>
+                            </div>
                             <div class="card" style="background:#f1f0f0;">
                                 <div class="card-body">
                                     <div class="row">
@@ -62,7 +67,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Size Buku</div>
+                                                <div class="label">Saiz Buku</div>
                                                 <input type="text" readonly value="" id="size"
                                                     class="form-control">
                                             </div>

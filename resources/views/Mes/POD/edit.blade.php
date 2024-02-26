@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - pod</b></h5>
-                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                            <p class="float-right">TCBS-B23 (Rev.5)</p>
                         </div>
                     </div>
 
@@ -85,13 +85,13 @@
                                         <tbody>
 
                                             <tr>
-                                                <td>Format file</td>
+                                                <td>Design clearance (5mm)</td>
                                                 <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz Product</td>
+                                                <td>Image artwork</td>
                                                 <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2"  @checked($pod->file_artwork_2 == 'ok') value="ok"  id=""></td>
                                                 <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'na') value="na" id=""></td>
@@ -103,7 +103,7 @@
                                                 <td><input type="checkbox" class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($pod->file_artwork_3 == 'na') value="na"id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz Spine</td>
+                                                <td>Saiz spine (perfect bind)</td>
                                                 <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
                                                 <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng')value="ng" id=""></td>
                                                 <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'na') value="na" id=""></td>
@@ -149,7 +149,7 @@
                                         <tbody>
 
                                             <tr>
-                                                <td>Jenis kertasn</td>
+                                                <td>Jenis kertas</td>
                                                 <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'na') value="na" id=""></td>

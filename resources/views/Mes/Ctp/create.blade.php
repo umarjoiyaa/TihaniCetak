@@ -11,7 +11,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - CTP</b></h5>
-                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                            <p class="float-right">TCBS-B23 (Rev.5)</p>
                         </div>
                     </div>
 
@@ -231,14 +231,290 @@
   <div class="modal-dialog">
     <div class="modal-content" style="width:1200px; margin-left:-350px;">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+            <tr>
+                <th colspan="2">TIHANI CETAKSDN BHD</th>
+                <th rowspan="2">No.Rujukan</th>
+                <th rowspan="2">TCSB-AK49</th>
+            </tr>
+            <tr>
+                <th colspan="2">ARAHAN KERJA</th>
+            </tr>
+            <tr>
+                <td>JABATAN </td>
+                <td>OPERASI - PRA CETAK</td>
+                <td>Edisi</td>
+                <td>6</td>
+            </tr>
+            <tr>
+                <td>TAJUK</td>
+                <td>RUJUKAN SAIZ SPACING MENGIKUT SAIZ KERTAS CETAX</td>
+                <td>Mukasurat</td>
+                <td>1 - 1</td>
+            </tr>
+        </table>
+        </div>
       </div>
       <div class="modal-body">
-        ...
+       <div class="table-responsive">
+         <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th rowspan="2">NO</th>
+                    <th colspan="2">SAIZ BUKU</th>
+                    <th colspan="2">SAIZ KERTAS CETAX</th>
+                    <th colspan="2">CARA CETAKAN</th>
+                </tr>
+                <tr>
+                    <th>Millimeter (mm)</th>
+                    <th>Inci</th>
+                    <th>Millimeter (mm)</th>
+                    <th>Inci</th>
+                    <th>Straight (P3 & P4)</th>
+                    <th>Perfecting (P1)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td rowspan="2"><span>210mmx297mm</span></td>
+                    <td rowspan="2"></td>
+                    <td></td>
+                    <td></td>
+                    <td rowspan="2"></td>
+                    <td rowspan="2"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>140mmx210mm</td>
+                    <td>5.51<sup>m</sup>x 8.28<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>148mmx210mm</td>
+                    <td>5.82<sup>m</sup>8.28<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>35.4<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>190mmx260mm</td>
+                    <td>7.48<sup>m</sup>10.24<sup>m</sup></td>
+                    <td>787mmx1092mm <br> (cut 2.787mmx546)</td>
+                    <td>31<sup>m</sup>43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>10mm</td>
+                    <td>4mm</td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>190.5mmx254mm</td>
+                    <td>7.48<sup>m</sup>x10<sup>m</sup></td>
+                    <td>787mmx1092mm <br> (cut 2.787mmx546)</td>
+                    <td>31<sup>m</sup>43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>6</td>
+                    <td>100mmx152mm</td>
+                    <td>3.94<sup>m</sup>x5.98<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>7</td>
+                    <td>150mmx230mm</td>
+                    <td>5.9<sup>m</sup>x 9<sup>m</sup></td>
+                    <td>635mmx940mm</td>
+                    <td>25<sup>m</sup>x37<sup>m</sup></td>
+                    <td style="background:#b57502;">5mm <br> (P3 Sahaja)</td>
+                    <td>5mm</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">1</td>
+                    <td rowspan="2"><span>165mmx210mm</span></td>
+                    <td rowspan="2">6.5<sup>m</sup>x8.28<sup>m</sup></td>
+                    <td>711mmx1016mm</td>
+                    <td>28<sup>m</sup>x40<sup>m</sup></td>
+                    <td style="background:#b57502;">10mm <br> (P3 Sahaja)</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>787mmx1092mm</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup></td>
+                     <td style="background:#b57502;">10mm <br> (P3 Sahaja)</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>9</td>
+                    <td>198.12mmx198.12mm</td>
+                    <td>7.8<sup>m</sup>7.8<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>4mm</td>
+                    <td style="background:red; color:#fff;">Tidak Boleh dicetak</td>
+                </tr>
+                <tr>
+                    <td>10</td>
+                    <td>105mmx148mm</td>
+                    <td>4.13<sup>m</sup>5.83<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>5mm</td>
+                </tr>
+                <tr>
+                    <td>11</td>
+                    <td>139.7mm215.9mm</td>
+                    <td>5.5<sup>m</sup>8.5<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>8mm</td>
+                    <td>8mm</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">12</td>
+                    <td rowspan="2"><span>165mmx240mm</span></td>
+                    <td rowspan="2">6.5<sup>m</sup>9.45<sup>m</sup></td>
+                    <td>711mmx1092mm</td>
+                    <td>28<sup>m</sup>40<sup>m</sup></td>
+                    <td rowspan="2" style="background:#b57502;">6mm <br> (P3 Sahaja)</td>
+                    <td rowspan="2">6mm</td>
+                </tr>
+                <tr>
+                    <td>787mmx1016mm</td>
+                    <td>31x43</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">13</td>
+                    <td rowspan="2"><span>171.5mmx241.3mm</span></td>
+                    <td rowspan="2">6.75<sup>m</sup>x9.5<sup>m</sup></td>
+                    <td>787mmx1016mm</td>
+                    <td>31<sup>m</sup>x40<sup>m</sup></td>
+                    <td rowspan="2" style="background:#b57502;">3mm (P3 Sahaja)</td>
+                    <td rowspan="2">3mm</td>
+                </tr>
+                <tr>
+                    <td>787mmx1092mm</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup></td>
+                </tr>
+                <tr>
+                    <td>14</td>
+                    <td>130mmx200mm</td>
+                    <td>5.1<sup>m</sup>7.87<sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td>15</td>
+                    <td>152.4mmx228.6mm</td>
+                    <td>6sup>m</sup>x9sup>m</sup></td>
+                    <td>635mmx940mm</td>
+                    <td>25<sup>m</sup>x37<sup>m</sup></td>
+                    <td style="background:#b57502;">5mm <br> (P3 Sahaja)</td>
+                    <td>5mm</td>
+                </tr>
+                <tr>
+                    <td>16</td>
+                    <td>125mmx176mm</td>
+                    <td>4.92 <sup>m</sup>x6.93 <sup>m</sup></td>
+                    <td>787mmx1092mm <br> (cut 2.787mm x )</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">17</td>
+                    <td rowspan="2">165.1mmx234.95mm</td>
+                    <td rowspan="2">6.69 <sup>m</sup>x 9.25 <sup>m</sup></td>
+                    <td>711mmx1016mm </td>
+                    <td>28<sup>m</sup>x40<sup>m</sup></td>
+                    <td rowspan="2" style="background:#b57502;">6mm (P3 Sahaja)</td>
+                    <td rowspan="2">6mm</td>
+                </tr>
+                <tr>
+                    <td>787mmx1092mm</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup></td>
+                </tr>
+                <tr>
+                    <td rowspan="2">18</td>
+                    <td rowspan="2">170mmx235mm</td>
+                    <td rowspan="2">6.69 <sup>m</sup>x 9.25 <sup>m</sup></td>
+                    <td>711mmx1016mm </td>
+                    <td>28<sup>m</sup>x40<sup>m</sup></td>
+                    <td rowspan="2">6mm</td>
+                    <td rowspan="2" style="background:red; color:#fff;">Tidak Boleh dicetak</td>
+                </tr>
+                <tr>
+                    <td>787mmx1092mm</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup></td>
+                </tr>
+                <tr>
+                    <td>19</td>
+                    <td>127mmx190.5mm</td>
+                    <td>5 <sup>m</sup>x 7.5 <sup>m</sup></td>
+                    <td>787mmx1092mm <br> (cut 2.787mm x 546mm)</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup> (cut 2.787<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>6mm</td>
+                    <td>6mm</td>
+                </tr>
+                <tr>
+                    <td>20</td>
+                    <td>615mmx215.9mm</td>
+                    <td>6.5 <sup>m</sup>x 8.5 <sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>x37<sup>m</sup></td>
+                    <td style="background:#b57502;">6mm <br> (P3 Sahaja)</td>
+                    <td>6mm</td>
+                </tr>
+                <tr>
+                    <td>21</td>
+                    <td>145mmx210mm</td>
+                    <td>5.7 <sup>m</sup>x 8.27 <sup>m</sup></td>
+                    <td>635mmx902mm</td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
+                    <td>10mm</td>
+                    <td>10mm</td>
+                </tr>
+                <tr>
+                    <td rowspan="2">22</td>
+                    <td rowspan="2"><span>145mmx210mm</span></td>
+                    <td rowspan="2">6.5 <sup>m</sup>x 9 <sup>m</sup></td>
+                    <td>711mmx1016mm</td>
+                    <td>28 <sup>m</sup>x 40<sup>m</sup></td>
+                    <td rowspan="2" style="background:#b57502;">6mm <br> (P3 Sahaja)</td>
+                    <td rowspan="2">6mm</td>
+                </tr>
+                <tr>
+                    <td>787mmx1092mm</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup></td>
+                </tr>
+            </tbody>
+        </table>
+       </div>
+        <div class="row">
+            <div class="col-md-1"><h6>Nota :</h6></div>
+            <div class="col-md-1"><div class="box" style="width:50px; background:#b57502; height:30px;"></div></div>
+            <div class="col-md-10">Hanya boleh dicetak di mesin P3 Sahaja. Tidak boleh dicetak di mesin P4</div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
