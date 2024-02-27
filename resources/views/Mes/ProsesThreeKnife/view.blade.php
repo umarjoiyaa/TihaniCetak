@@ -29,14 +29,14 @@
 
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <div class="label">Time</div>
+                                    <label class="label">Time</label>
                                     <input name="time" disabled type="text" id="Currenttime"
                                         value="{{ $proses_three_knife->time }}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <div class="label">Checked By</div>
+                                    <label class="label">Checked By</label>
                                     <input type="text" disabled value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                 </div>
@@ -235,7 +235,7 @@
                             <div class="col-md-1">
                                 <div style="background:wheat; width:50px; height:20px;"></div>
                             </div>
-                            <div class="col-md-11" style="margin-left:-20px;">
+                            <div class="col-md-11" style="margin-left:-40px;">
                                 <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu
                                     dilakukan semasa proses</span>
                             </div>

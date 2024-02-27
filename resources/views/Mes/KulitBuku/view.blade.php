@@ -27,7 +27,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Checked By</div>
+                                            <label class="label">Checked By</label>
                                             <input type="text" value="{{ $kulit_buku->user->full_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>

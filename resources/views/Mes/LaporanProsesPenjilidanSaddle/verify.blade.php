@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    .button1{
+        margin-left: 150px;
+    }
+</style>
+@endsection
 @section('content')
 
     <div class="row">
@@ -314,13 +321,13 @@
 
                     <div class="row d-flex justify-content-end mt-3">
                                     <div class="col-md-12 d-flex justify-content-end mt-3">
-                                        <button class="btn btn-primary" type="submit"> Verify</button>
+                                        <button class="btn btn-primary button1" type="submit"> Verify</button>
                             </form>
                             <form
                                 action="{{ route('laporan_proses_penjilidan_saddle.approve.decline', $laporan_proses_penjilidan_saddle->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                <button class="btn btn-danger" style="margin-left:-170px;" type="submit">Decline</button>
                             </form>
                         </div>
                     </div>

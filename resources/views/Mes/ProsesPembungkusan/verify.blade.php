@@ -8,7 +8,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSANE</b></h5>
+                        <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSAN</b></h5>
                         <p class="float-right">TCBS-B23 (Rev.5)</p>
                     </div>
                 </div>
@@ -26,7 +26,7 @@
 
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <div class="label">Time</div>
+                                    <label class="label">Time</label>
                                     <input name="time" type="text" disabled id="Currenttime"
                                     value="{{ $proses_pembungkusan->time }}"
                                     class="form-control">
@@ -34,7 +34,7 @@
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
-                                    <div class="label">By</div>
+                                    <label class="label">Checked By</label>
                                     <input type="text"  value="{{ Auth::user()->user_name }}" readonly
                                     class="form-control" name="" id="">
                                 </div>

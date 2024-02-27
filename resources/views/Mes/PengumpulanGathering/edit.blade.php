@@ -27,14 +27,14 @@
                                             @php
                                             $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $pengumpulan_gathering->time)->format('H:i');
                                         @endphp
-                                        <div class="label">Time</div>
+                                        <label class="label">Time</label>
                                         <input name="time" type="time" id="Currenttime"
                                             value="{{$timeIn24HourFormat}}" class="form-control">
                                             
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Checked By</div>
+                                                <label class="label">Checked By</label>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
@@ -96,7 +96,7 @@
                                                 <tbody>
 
                                                     <tr>
-                                                        <td  style="background:wheat;">Susuna Turutan</td>
+                                                        <td  style="background:wheat;">Susunan Turutan</td>
                                                         <td><input type="checkbox" class="Cover1"
                                                                 onchange="handleCheckboxChange('Cover1',this)"
                                                                 name="b_1" value="ok" @checked($pengumpulan_gathering->b_1 == 'ok')
@@ -188,7 +188,7 @@
                                     <h4><b>Nota :</b></h4>
                                     <div class="row">
                                         <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
-                                        <div class="col-md-11" style="margin-left:-20px;">
+                                        <div class="col-md-11" style="margin-left:-40px;">
                                             <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
                                         </div>
                                     </div>
