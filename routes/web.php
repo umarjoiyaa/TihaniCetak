@@ -40,12 +40,11 @@ use App\Http\Controllers\PerfectBindController;
 use App\Http\Controllers\StapleBindController;
 use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProductionReportController;
-use App\Http\Controllers\ProductSCHEDULINIGController;
+use App\Http\Controllers\ProductionSchedulingController;
 use App\Http\Controllers\ProsesPencetakanController;
 use App\Http\Controllers\RekodSerahanPlateController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
-use App\Http\Controllers\ShoopFloorController;
 use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\Stock_InController;
 use App\Http\Controllers\Stock_Transfer_locationController;
@@ -56,12 +55,7 @@ use App\Http\Controllers\UomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanSaddleController;
-use App\Http\Controllers\ProsesLipatController;
 use App\Http\Controllers\ProsesPembungkusanController;
-use App\Http\Controllers\ProsesPemgumpulangatheringController;
-use App\Http\Controllers\ProsesPemotonganKulitBukuController;
-use App\Http\Controllers\ProsesPenJilidanPrefectBindController;
-use App\Http\Controllers\ProsesPenJilidanSaddlestitchController;
 use App\Http\Controllers\ProsesThreeKnifeController;
 use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\SenariSemakCetakController;
@@ -592,8 +586,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerja_Teks/edit', [BorangeSerahKerja_TeksController::class, 'edit'])->name('BorangeSerahKerja_Teks.edit');
     Route::get('/Production/BorangeSerahKerja_Teks/verify', [BorangeSerahKerja_TeksController::class, 'verify'])->name('BorangeSerahKerja_Teks.verify');
 
-    // ProductSCHEDULINIG
-    Route::get('/Production/ProductSCHEDULINIG', [ProductSCHEDULINIGController::class, 'index'])->name('ProductSchedulinig');
+    // Production Scheduling
+    Route::get('/Production/ProductionScheduling', [ProductionSchedulingController::class, 'index'])->name('production_scheduling');
+    Route::get('/Production/ProductionScheduling/detail', [ProductionSchedulingController::class, 'detail'])->name('production_scheduling.detail');
 
     // PrintingProcess_Text
     Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text');

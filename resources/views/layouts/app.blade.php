@@ -1,24 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:12 GMT -->
-<!-- Added by HTTrack -->
-<meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="Description" content="Tihani Cetak">
-    <meta name="Author" content="Spruko Technologies Private Limited">
-    <meta name="Keywords"
-        content="cryptocurrency, dashboard, admin, crypto, ico, bootstrap admin template, admin template, bootstrap dashboard template, crypto dashboard, cryptocurrency dashboard, ico dashboard, crypto admin, dashboard cryptocurrency, cryptocurrency trading dashboard, crypto dashboard template " />
 
     <!-- Title -->
     <title> Tihani Cetak </title>
-
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/img/tihani.png') }}" type="image/x-icon" />
@@ -36,7 +25,7 @@
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
 
     <!-- Quill css-->
-    <link rel="stylesheet" href="{{asset('assets/css/quill.css')}}">
+    <link rel="stylesheet" href="{{ asset('assets/css/quill.css') }}">
 
     <!-- Internal Datatable css-->
     <link href="{{ asset('assets/plugins/datatable/css/dataTables.dataTables.css') }}" rel="stylesheet">
@@ -56,10 +45,6 @@
     <!-- Jquery-countdown css-->
     <link href="{{ asset('assets/plugins/jquery-countdown/countdown.css') }}" rel="stylesheet">
 
-    <!-- Internal News-Ticker css-->
-    <link href="{{ asset('assets/plugins/newsticker/jquery.jConveyorTicker.css') }}" rel="stylesheet" />
-
-
     <!-- style css-->
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
@@ -72,20 +57,14 @@
     <!-- Select 2 css-->
     <link rel="stylesheet" href="{{ asset('assets/css/select2.min.css') }}">
 
-
-    <!-- Switcher css -->
-    <link href="{{ asset('assets/switcher/css/switcher.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/switcher/demo.css') }}">
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
     @yield('css')
     <style>
-        .dropdown{
-            cursor:pointer;
+        .dropdown {
+            cursor: pointer;
         }
-        .horizontalMenu-list .box a:hover{
-            color:#fff;
+
+        .horizontalMenu-list .box a:hover {
+            color: #fff;
         }
     </style>
 
@@ -99,358 +78,8 @@
     </div>
     <!-- /Loader -->
 
-    <!-- Start Switcher -->
-    {{-- <div class="switcher-wrapper ">
-			<div class="demo_changer">
-				<div class="demo-icon bg_dark"><i class="fa fa-cog fa-spin  text_primary"></i></div>
-				<div class="form_holder sidebar-right1">
-					<div class="row">
-                        <div class="swichermainleft border-top  mt-2 text-center">
-                            <div class="p-3">
-                                <a href="https://laravel.spruko.com/xino" class="btn btn-primary btn-block mt-0">View Demo</a>
-                                <a href="https://themeforest.net/item/xino-laravel-crypto-admin-dashboard-template/30694936" class="btn btn-danger btn-block">Buy Now</a>
-                                <a href="https://themeforest.net/user/sprukosoft/portfolio" class="btn btn-info btn-block">Our Portfolio</a>
-                            </div>
-                        </div>
-						<div class="predefined_styles">
-							<div class="swichermainleft">
-								<h4>Versions</h4>
-								<div class="pl-3 pr-3">
-									<a class="btn btn-success btn-block" href="{{ route('home') }}">
-										LTR
-									</a>
-									<a class="btn btn-warning btn-block" href="https://laravel.spruko.com/xino/rtl/index">
-										RTL
-									</a>
-								</div>
-							</div>
-							<div class="swichermainleft">
-								<h4>Navigation Style</h4>
-								<div class="pl-3 pr-3">
-									<a class="btn btn-primary btn-block" href="horizontal.html">
-										Horizontal
-									</a>
-									<a class="btn btn-secondary btn-block" href="{{ route('home') }}">
-										Left-menu
-									</a>
-								</div>
-							</div>
-                            <div class="swichermainleft">
-								<h4>Theme Styles</h4>
-								<div class="switch_section">
-									<div class="switch-toggle d-flex">
-										<span class="mr-auto">Light Theme</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch2" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch2" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-                                    <div class="switch-toggle d-flex">
-										<span class="mr-auto">Dark Theme</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch2" id="myonoffswitch" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-                                </div>
-                            </div>
-							<div class="swichermainleft">
-								<h4>Horizontal Menu Styles</h4>
-								<div class="switch_section">
-									<div class="switch-toggle horizontal-light-switcher d-flex">
-										<span class="mr-auto">Horizontal Light</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch18" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch18" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-                                    <div class="switch-toggle horizontal-dark-switcher d-flex">
-										<span class="mr-auto">Horizontal Light</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch16" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch16" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-									<div class="switch-toggle d-flex">
-										<span class="mr-auto">Horizontal Color</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch3" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch3" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-									<div class="switch-toggle horizontal-light-switcher d-flex">
-										<span class="mr-auto">Horizontal Dark</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch4" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch4" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-									<div class="switch-toggle d-flex">
-										<span class="mr-auto">Horizontal Gradient Color</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch5" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch5" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-									<div class="switch-toggle d-flex horizontal-light-switcher">
-										<span class="mr-auto">Horizontal theme</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch22" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch22" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-                                    <div class="switch-toggle d-flex  horizontal-dark-switcher">
-										<span class="mr-auto">Horizontal theme</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch23" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch23" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-									<div class="switch-toggle d-flex">
-										<span class="mr-auto">Reset Horizontal Styles</span>
-										<div class="onoffswitch2"><input type="radio" name="onoffswitch3" id="myonoffswitch8" class="onoffswitch2-checkbox">
-											<label for="myonoffswitch8" class="onoffswitch2-label"></label>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> --}}
-    <!-- End Switcher -->
-
     <!-- Page -->
     <div class="page">
-
-        <!-- main-header -->
-        {{-- <div class="main-header nav nav-item hor-header">
-			<div class="container">
-				<div class="main-header-left ">
-					<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-					<a class="header-brand" href="{{ route('home') }}">
-						<img src="assets/img/brand/logo-theme-dark.png" class="desktop-dark">
-						<img src="assets/img/brand/logo.png" class="desktop-logo">
-					</a>
-
-				</div>
-				<div class="main-header-center">
-					<div class="responsive-logo">
-                        <img src="assets/img/brand/logo.png" class="mobile-logo" alt="logo">
-                        <img src="assets/img/brand/logo-theme-dark.png" class="dark-mobile-logo" alt="logo">
-					</div>
-				</div>
-				<div class="main-header-right">
-					<div class="nav nav-item  navbar-nav-right ml-auto">
-						<form class="navbar-form nav-item my-auto d-lg-none" role="search">
-							<div class="input-group nav-item my-auto">
-								<input type="text" class="form-control" placeholder="Search">
-								<span class="input-group-btn">
-									<button type="reset" class="btn btn-default">
-										<i class="ti-close"></i>
-									</button>
-									<button type="submit" class="btn btn-default nav-link">
-										<i class="ti-search"></i>
-									</button>
-								</span>
-							</div>
-						</form>
-						<div class="nav-item full-screen fullscreen-button">
-							<a class="new nav-link full-screen-link" href="#"><i class="ti-fullscreen"></i></span></a>
-						</div>
-						<div class="dropdown  nav-item main-header-message ">
-							<a class="new nav-link" href="#" ><i class="ti-email"></i><span class="pulse-danger"></span></a>
-							<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp ">
-								<div class="main-dropdown-header  d-sm-none">
-									<a class="main-header-arrow" href="#"><i class="icon ion-md-arrow-back"></i></a>
-								</div>
-								<div class="menu-header-content text-left d-flex">
-									<div class="">
-										<h6 class="menu-header-title text-white mb-0">5 new Messages</h6>
-									</div>
-									<div class="my-auto ml-auto">
-										<span class="badge badge-pill badge-warning float-right">Mark All Read</span>
-									</div>
-								</div>
-								<div class="main-message-list chat-scroll">
-									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="  drop-img  cover-image  " data-image-src="">
-											<span class="avatar-status bg-teal"></span>
-										</div>
-
-										<div class="wd-90p">
-											<div class="d-flex">
-												<h5 class="mb-1 name">Paul Molive</h5>
-												<p class="time mb-0 text-right ml-auto float-right">10 min ago</p>
-											</div>
-											<p class="mb-0 desc">I'm sorry but i'm not sure how...</p>
-										</div>
-									</a>
-									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/2.jpg">
-											<span class="avatar-status bg-teal"></span>
-										</div>
-										<div class="wd-90p">
-											<div class="d-flex">
-												<h5 class="mb-1 name">Sahar Dary</h5>
-												<p class="time mb-0 text-right ml-auto float-right">13 min ago</p>
-											</div>
-											<p class="mb-0 desc">All set ! Now, time to get to you now......</p>
-										</div>
-									</a>
-									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="">
-											<span class="avatar-status bg-teal"></span>
-										</div>
-										<div class="wd-90p">
-											<div class="d-flex">
-												<h5 class="mb-1 name">Khadija Mehr</h5>
-												<p class="time mb-0 text-right ml-auto float-right">20 min ago</p>
-											</div>
-											<p class="mb-0 desc">Are you ready to pickup your Delivery...</p>
-										</div>
-									</a>
-									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="assets/img/faces/12.jpg">
-											<span class="avatar-status bg-danger"></span>
-										</div>
-										<div class="wd-90p">
-											<div class="d-flex">
-												<h5 class="mb-1 name">Barney Cull</h5>
-												<p class="time mb-0 text-right ml-auto float-right">30 min ago</p>
-											</div>
-											<p class="mb-0 desc">Here are some products ...</p>
-										</div>
-									</a>
-									<a href="#" class="p-3 d-flex border-bottom">
-										<div class="drop-img cover-image" data-image-src="{{ asset('assets/img/tihani.png') }}">
-											<span class="avatar-status bg-teal"></span>
-										</div>
-										<div class="wd-90p">
-											<div class="d-flex">
-												<h5 class="mb-1 name">Petey Cruiser</h5>
-												<p class="time mb-0 text-right ml-auto float-right">35 min ago</p>
-											</div>
-											<p class="mb-0 desc">I'm sorry but i'm not sure how...</p>
-										</div>
-									</a>
-								</div>
-								<div class="text-center dropdown-footer">
-									<a href="text-center.html">VIEW ALL</a>
-								</div>
-							</div>
-						</div>
-						<div class="dropdown nav-item main-header-notification">
-							<a class="new nav-link " href="#"><i class="ti-bell animated bell-animations"></i><span class=" pulse"></span></a>
-							<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
-								<div class="menu-header-content text-left d-flex">
-									<div class="">
-										<h6 class="menu-header-title text-white mb-0">7 new Notifications</h6>
-									</div>
-									<div class="my-auto ml-auto">
-										<span class="badge badge-pill badge-warning float-right">Mark All Read</span>
-									</div>
-								</div>
-								<div class="main-notification-list Notification-scroll">
-									<a class="d-flex p-3 border-bottom" href="#">
-										<div class="notifyimg bg-success-transparent">
-											<i class="la la-shopping-basket text-success"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">New Order Received</h5>
-											<div class="notification-subtext">1 hour ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-									<a class="d-flex p-3 border-bottom" href="#">
-										<div class="notifyimg bg-danger-transparent">
-											<i class="la la-user-check text-danger"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">22 verified registrations</h5>
-											<div class="notification-subtext">2 hour ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-									<a class="d-flex p-3 border-bottom" href="#">
-										<div class="notifyimg bg-primary-transparent">
-											<i class="la la-check-circle text-primary"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">Project has been approved</h5>
-											<div class="notification-subtext">4 hour ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-									<a class="d-flex p-3 border-bottom" href="#">
-										<div class="notifyimg bg-pink-transparent">
-											<i class="la la-file-alt text-pink"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">New files available</h5>
-											<div class="notification-subtext">10 hour ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-									<a class="d-flex p-3 border-bottom" href="#">
-										<div class="notifyimg bg-warning-transparent">
-											<i class="la la-envelope-open text-warning"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">New review received</h5>
-											<div class="notification-subtext">1 day ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-									<a class="d-flex p-3" href="#">
-										<div class="notifyimg bg-purple-transparent">
-											<i class="la la-gem text-purple"></i>
-										</div>
-										<div class="ml-3">
-											<h5 class="notification-label mb-1">Updates Available</h5>
-											<div class="notification-subtext">2 days ago</div>
-										</div>
-										<div class="ml-auto" >
-											<i class="las la-angle-right text-right text-muted"></i>
-										</div>
-									</a>
-								</div>
-								<div class="dropdown-footer">
-									<a href="#">VIEW ALL</a>
-								</div>
-							</div>
-						</div>
-						<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-							aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-							<span class="navbar-toggler-icon fe fe-more-vertical "></span>
-						</button>
-						<div class="dropdown main-profile-menu nav nav-item nav-link">
-							<a class="profile-user" href="#"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
-							<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
-								<div class="main-header-profile header-img">
-									<div class="main-img-user"><img alt="" src="{{ asset('assets/img/tihani.png') }}"></div>
-									<h6>Elizabeth Jane</h6><span>Premium Member</span>
-								</div>
-								<a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
-								<a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit Profile</a>
-								<a class="dropdown-item" href="#"><i class="far fa-clock"></i> Activity Logs</a>
-								<a class="dropdown-item" href="#"><i class="fas fa-sliders-h"></i> Account Settings</a>
-								<a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-							</div>
-						</div>
-						<div class="dropdown main-header-message right-toggle">
-							<a class="nav-link " data-toggle="sidebar-right" data-target=".sidebar-right">
-								<i class="ti-menu tx-20 bg-transparent"></i>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> --}}
-        <!-- /main-header -->
-
         <!-- mobile-header -->
         <div class="responsive main-header">
             <div
@@ -682,32 +311,42 @@
         </div>
         <!-- mobile-header -->
         @include('layouts.navbar')
-			<!--Horizontal-main -->
-		<div class="sticky">
-			<div class="horizontal-main hor-menu clearfix side-header">
-				<div class="horizontal-mainwrapper container clearfix">
-					<!--Nav-->
-					<nav class="horizontalMenu clearfix d-flex">
-						<div class="main-header-left ">
-							<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-							<a class="header-brand" href="{{ route('dashboard') }}">
-								<img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
-								<div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}" class="desktop-logo"> <span class="text-white mx-2 text" style="font-size: 26px;">Tihani Cetak</span></div>
-							</a>
+        <!--Horizontal-main -->
+        <div class="sticky">
+            <div class="horizontal-main hor-menu clearfix side-header">
+                <div class="horizontal-mainwrapper container clearfix">
+                    <!--Nav-->
+                    <nav class="horizontalMenu clearfix d-flex">
+                        <div class="main-header-left ">
+                            <a
+                                class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
+                            <a class="header-brand" href="{{ route('dashboard') }}">
+                                <img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
+                                <div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}"
+                                        class="desktop-logo"> <span class="text-white mx-2 text"
+                                        style="font-size: 26px;">Tihani Cetak</span></div>
+                            </a>
 
-						</div>
-						<ul class="horizontalMenu-list">
-							<li aria-haspopup="true" class="box"><a href="{{ route('dashboard') }}" class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
-							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
-								<div class="horizontal-megamenu clearfix">
-									<div class="container-fluid">
-										<div class="mega-menubg hor-mega-menu">
-											<div class="row">
-												<div class="col-lg-2 col-md-12 col-xs-12 link-list">
-                                                       <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Management</div>
-													<ul>
-														{{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
-														<li aria-haspopup="true" ><a href="{{route('sale_order')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Sales Order</a></li>
+                        </div>
+                        <ul class="horizontalMenu-list">
+                            <li aria-haspopup="true" class="box"><a href="{{ route('dashboard') }}"
+                                    class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
+                            <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
+                                    id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
+                                <div class="horizontal-megamenu clearfix">
+                                    <div class="container-fluid">
+                                        <div class="mega-menubg hor-mega-menu">
+                                            <div class="row">
+                                                <div class="col-lg-2 col-md-12 col-xs-12 link-list">
+                                                    <div class="bg-black-9 text-center p-1"
+                                                        style="color: white; border-radius:5px;">Management</div>
+                                                    <ul>
+                                                        {{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
+                                                        <li aria-haspopup="true"><a href="{{ route('sale_order') }}"
+                                                                class="slide-item"><iconify-icon
+                                                                    icon="ph:arrow-square-right" width="17"
+                                                                    style="color: #a41843"></iconify-icon> Sales
+                                                                Order</a></li>
 
                                                     </ul>
                                                 </div>
@@ -793,34 +432,101 @@
                                                         Kualiti</div>
                                                     <ul>
 
-                                                    <div class="row">
-                                                        <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="{{route('ctp')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>CTP</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('pod')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>POD</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('plate_cetak')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Plate Cetak</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('proses_pencetakan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pencetakan</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Lipat</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti_penjilidan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Penjilidan  <br> (Perfect Bind)</a></li>
-                                                        </div>
-                                                        <div class="col-lg-6 col-md-12 col-xs-12 link-list">
-                                                            <li aria-haspopup="true"><a href="{{route('laporan_pemeriksaan_kualiti_penjilidan_saddle')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Prosess Penjilidan  <br> (Saddle Stitch)</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('proses_three_knife')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Three Knife</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('proses_pembungkusan')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Proses Pembungkusan</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('pengumpulan_gathering')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pengumpulan/ Gathering</a></li>
-                                                            <li aria-haspopup="true"><a href="{{route('kulit_buku')}}" class="slide-item"><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon>Pemotongan Kulit Buku/ Teks</a></li>
+                                                        <div class="row">
+                                                            <div class="col-lg-6 col-md-12 col-xs-12 link-list">
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('ctp') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>CTP</a>
+                                                                </li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('pod') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>POD</a>
+                                                                </li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('plate_cetak') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Plate
+                                                                        Cetak</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('proses_pencetakan') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Proses
+                                                                        Pencetakan</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('laporan_pemeriksaan_kualiti') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Proses
+                                                                        Lipat</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('laporan_pemeriksaan_kualiti_penjilidan') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Proses
+                                                                        Penjilidan <br> (Perfect Bind)</a></li>
+                                                            </div>
+                                                            <div class="col-lg-6 col-md-12 col-xs-12 link-list">
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('laporan_pemeriksaan_kualiti_penjilidan_saddle') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Prosess
+                                                                        Penjilidan <br> (Saddle Stitch)</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('proses_three_knife') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Proses
+                                                                        Three Knife</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('proses_pembungkusan') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Proses
+                                                                        Pembungkusan</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('pengumpulan_gathering') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Pengumpulan/
+                                                                        Gathering</a></li>
+                                                                <li aria-haspopup="true"><a
+                                                                        href="{{ route('kulit_buku') }}"
+                                                                        class="slide-item"><iconify-icon
+                                                                            icon="ph:arrow-square-right"
+                                                                            width="17"
+                                                                            style="color: #a41843"></iconify-icon>Pemotongan
+                                                                        Kulit Buku/ Teks</a></li>
 
                                                             </div>
                                                         </div>
 
 
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="production"><i class="ti-layers"></i> Production</a>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
+                                    id="production"><i class="ti-layers"></i> Production</a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -910,7 +616,7 @@
                                                         style="color: white; border-radius:5px;">Production</div>
                                                     <ul>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('ProductSchedulinig') }}"
+                                                                href="{{ route('production_scheduling') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Production
@@ -942,7 +648,7 @@
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Machine
                                                                 Dashboard</a></li>
-                                                        <li aria-haspopup="true"><a href="{{route('ShopFloor')}}"
+                                                        <li aria-haspopup="true"><a href="{{ route('ShopFloor') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon>
@@ -958,18 +664,15 @@
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Production
                                                                 Report</a></li>
-
-
-
-
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="wms"><i class="ti-write"></i> WMS </a>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
+                                    id="wms"><i class="ti-write"></i> WMS </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -978,7 +681,6 @@
                                                     <div class="bg-black-9 text-center p-1"
                                                         style="color: white; border-radius:5px;">Jobsheet</div>
                                                     <ul>
-                                                        {{-- <li><h3 class="fs-14 font-weight-bold mb-1 mt-2">Elements</h3></li> --}}
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
@@ -1051,23 +753,45 @@
                                                     <div class="bg-black-9 text-center p-1"
                                                         style="color: white; border-radius:5px;">Dashboard</div>
                                                     <ul>
-                                                        <li aria-haspopup="true" ><a href="{{route('invertory_ShopFloor')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Shopfloor</a></li>
-													</ul>
-												</div>
-												<div class="col-lg-3 col-md-12 col-xs-12 link-list">
-                                                    <div class="bg-black-9 text-center p-1" style="color: white; border-radius:5px;">Report</div>
-													<ul>
-                                                        <li aria-haspopup="true" ><a href="{{route('StockCard_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Stock Card Report</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('Invertory_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Inventory Report -  By Location</a></li>
-                                                        <li aria-haspopup="true" ><a href="{{route('Sub_monitring_report')}}"  class="slide-item" ><iconify-icon icon="ph:arrow-square-right" width="17"  style="color: #a41843"></iconify-icon> Subcon Monitoring Report</a></li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</li>
-							<li aria-haspopup="true" class="box"><a href="#" class="sub-icon" id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
+                                                        <li aria-haspopup="true"><a
+                                                                href="{{ route('invertory_ShopFloor') }}"
+                                                                class="slide-item"><iconify-icon
+                                                                    icon="ph:arrow-square-right" width="17"
+                                                                    style="color: #a41843"></iconify-icon> Inventory
+                                                                Shopfloor</a></li>
+                                                    </ul>
+                                                </div>
+                                                <div class="col-lg-3 col-md-12 col-xs-12 link-list">
+                                                    <div class="bg-black-9 text-center p-1"
+                                                        style="color: white; border-radius:5px;">Report</div>
+                                                    <ul>
+                                                        <li aria-haspopup="true"><a
+                                                                href="{{ route('StockCard_report') }}"
+                                                                class="slide-item"><iconify-icon
+                                                                    icon="ph:arrow-square-right" width="17"
+                                                                    style="color: #a41843"></iconify-icon> Stock Card
+                                                                Report</a></li>
+                                                        <li aria-haspopup="true"><a
+                                                                href="{{ route('Invertory_report') }}"
+                                                                class="slide-item"><iconify-icon
+                                                                    icon="ph:arrow-square-right" width="17"
+                                                                    style="color: #a41843"></iconify-icon> Inventory
+                                                                Report - By Location</a></li>
+                                                        <li aria-haspopup="true"><a
+                                                                href="{{ route('Sub_monitring_report') }}"
+                                                                class="slide-item"><iconify-icon
+                                                                    icon="ph:arrow-square-right" width="17"
+                                                                    style="color: #a41843"></iconify-icon> Subcon
+                                                                Monitoring Report</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
+                                    id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1190,91 +914,6 @@
                                         </span>
                                     </div>
                                 </form>
-                                {{-- <div class="nav-item full-screen fullscreen-button">
-									<a class="new nav-link full-screen-link" href="#"><i class="ti-fullscreen"></i></span></a>
-								</div> --}}
-                                {{-- <div class="dropdown  nav-item main-header-message ">
-									<a class="new nav-link" href="#" ><i class="ti-email"></i><span class="pulse-danger"></span></a>
-									<div class="dropdown-menu dropdown-menu-arrow animated fadeInUp ">
-										<div class="main-dropdown-header  d-sm-none">
-											<a class="main-header-arrow" href="#"><i class="icon ion-md-arrow-back"></i></a>
-										</div>
-										<div class="menu-header-content text-left d-flex">
-											<div class="">
-												<h6 class="menu-header-title text-white mb-0">5 new Messages</h6>
-											</div>
-											<div class="my-auto ml-auto">
-												<span class="badge badge-pill badge-warning float-right">Mark All Read</span>
-											</div>
-										</div>
-										<div class="main-message-list chat-scroll">
-											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="  drop-img  cover-image  " data-image-src="">
-													<span class="avatar-status bg-teal"></span>
-												</div>
-
-												<div class="wd-90p">
-													<div class="d-flex">
-														<h5 class="mb-1 name">Paul Molive</h5>
-														<p class="time mb-0 text-right ml-auto float-right">10 min ago</p>
-													</div>
-													<p class="mb-0 desc">I'm sorry but i'm not sure how...</p>
-												</div>
-											</a>
-											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="assets/img/faces/2.jpg">
-													<span class="avatar-status bg-teal"></span>
-												</div>
-												<div class="wd-90p">
-													<div class="d-flex">
-														<h5 class="mb-1 name">Sahar Dary</h5>
-														<p class="time mb-0 text-right ml-auto float-right">13 min ago</p>
-													</div>
-													<p class="mb-0 desc">All set ! Now, time to get to you now......</p>
-												</div>
-											</a>
-											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="">
-													<span class="avatar-status bg-teal"></span>
-												</div>
-												<div class="wd-90p">
-													<div class="d-flex">
-														<h5 class="mb-1 name">Khadija Mehr</h5>
-														<p class="time mb-0 text-right ml-auto float-right">20 min ago</p>
-													</div>
-													<p class="mb-0 desc">Are you ready to pickup your Delivery...</p>
-												</div>
-											</a>
-											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="assets/img/faces/12.jpg">
-													<span class="avatar-status bg-danger"></span>
-												</div>
-												<div class="wd-90p">
-													<div class="d-flex">
-														<h5 class="mb-1 name">Barney Cull</h5>
-														<p class="time mb-0 text-right ml-auto float-right">30 min ago</p>
-													</div>
-													<p class="mb-0 desc">Here are some products ...</p>
-												</div>
-											</a>
-											<a href="#" class="p-3 d-flex border-bottom">
-												<div class="drop-img cover-image" data-image-src="{{ asset('assets/img/tihani.png') }}">
-													<span class="avatar-status bg-teal"></span>
-												</div>
-												<div class="wd-90p">
-													<div class="d-flex">
-														<h5 class="mb-1 name">Petey Cruiser</h5>
-														<p class="time mb-0 text-right ml-auto float-right">35 min ago</p>
-													</div>
-													<p class="mb-0 desc">I'm sorry but i'm not sure how...</p>
-												</div>
-											</a>
-										</div>
-										<div class="text-center dropdown-footer">
-											<a href="text-center.html">VIEW ALL</a>
-										</div>
-									</div>
-								</div> --}}
                                 <div class="dropdown nav-item main-header-notification">
                                     <a class="new nav-link " href="#"><i
                                             class="ti-bell animated bell-animations"></i><span
@@ -1369,25 +1008,21 @@
                                     </div>
                                 </div>
 
-								<button class="navbar-toggler navresponsive-toggler d-sm-none" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-4"
-									aria-controls="navbarSupportedContent-4" aria-expanded="false" aria-label="Toggle navigation">
-									<span class="navbar-toggler-icon fe fe-more-vertical"></span>
-								</button>
-								<div class="dropdown main-profile-menu nav nav-item nav-link">
-									<a class="profile-user" href="#" id="dropdownMenuLink"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img alt="" src="{{ asset('assets/img/tihani.png') }}" ></a>
+                                <button class="navbar-toggler navresponsive-toggler d-sm-none" type="button"
+                                    data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                                    aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                                </button>
+                                <div class="dropdown main-profile-menu nav nav-item nav-link">
+                                    <a class="profile-user" href="#" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                            alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
                                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-
-                                        <a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i> Sign Out</a>
-                                      </div>
-
-
-
-								</div>
-								{{-- <div class="dropdown main-header-message right-toggle ">
-									<a class="nav-link " data-toggle="sidebar-right" data-target=".sidebar-right">
-										<i class="ti-menu tx-20 bg-transparent"></i>
-									</a>
-								</div> --}}
+                                        <a class="dropdown-item" href="page-signin.html"><i
+                                                class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </nav>
@@ -1407,9 +1042,6 @@
                     @include('includes.success')
                 </div>
                 @yield('content')
-
-
-
             </div>
             <!-- Container closed -->
 
@@ -1557,7 +1189,8 @@
                                                 <small class="text-muted">is online</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>01-02-2019</small></div>
+                                                <small>01-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1572,7 +1205,8 @@
                                                 <small class="text-muted">left 7 mins ago</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>01-02-2019</small></div>
+                                                <small>01-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1587,7 +1221,8 @@
                                                 <small class="text-muted">online</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>01-02-2019</small></div>
+                                                <small>01-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1602,7 +1237,8 @@
                                                 <small class="text-muted">online</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>02-02-2019</small></div>
+                                                <small>02-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1617,7 +1253,8 @@
                                                 <small class="text-muted">30 mins ago</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>02-02-2019</small></div>
+                                                <small>02-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1632,7 +1269,8 @@
                                                 <small class="text-muted">50 mins ago</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>03-02-2019</small></div>
+                                                <small>03-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1647,7 +1285,8 @@
                                                 <small class="text-muted">1hr ago</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>03-02-2019</small></div>
+                                                <small>03-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                     <li>
@@ -1661,7 +1300,8 @@
                                                 <small class="text-muted">2hr ago</small>
                                             </div>
                                             <div class="float-right text-right ml-auto mt-auto mb-auto">
-                                                <small>03-02-2019</small></div>
+                                                <small>03-02-2019</small>
+                                            </div>
                                         </div>
                                     </li>
                                 </ul>
@@ -2005,72 +1645,18 @@
     <!-- Bootstrap js-->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
-    <!-- Ionicons js-->
-    <script src="{{ asset('assets/plugins/ionicons/ionicons.js') }}"></script>
-
     <!-- Moment js -->
     <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
-
-    <!-- P-scroll js -->
-    <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/perfect-scrollbar/p-scroll.js') }}"></script>
-
-    <!-- Rating js-->
-    <script src="{{ asset('assets/plugins/rating/jquery.rating-stars.js') }}"></script>
-    <script src="{{ asset('assets/plugins/rating/jquery.barrating.js') }}"></script>
-
-    <!-- Custom Scroll bar Js-->
-    <script src="{{ asset('assets/plugins/mscrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
     <!-- Horizontalmenu js-->
     <script src="{{ asset('assets/plugins/horizontal-menu/horizontal-menu.js') }}"></script>
 
-    <!-- Right-sidebar js -->
-    <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
-    <script src="{{ asset('assets/plugins/sidebar/sidebar-custom.js') }}"></script>
-
-    <!-- Sticky js-->
-    <script src="{{ asset('assets/js/sticky.js') }}"></script>
-
-    <!-- eva-icons js -->
-    <script src="{{ asset('assets/js/eva-icons.min.js') }}"></script>
-
-
     <!-- Datepicker js -->
     <script src="{{ asset('assets/plugins/jquery-ui/ui/widgets/datepicker.js') }}"></script>
-
-    <!--Chart bundle min js -->
-    <script src="{{ asset('assets/plugins/chart.js') }}"></script>
-    <script src="{{ asset('assets/plugins/raphael/raphael.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/peity/jquery.peity.min.js') }}"></script>
-
-    <!-- JQuery sparkline js -->
-    <script src="{{ asset('assets/plugins/jquery-sparkline/jquery.sparkline.min.js') }}"></script>
-
-    <!-- Sampledata js -->
-    <script src="{{ asset('assets/js/chart.flot.sampledata.js') }}"></script>
-
-    <!-- Perfect-scrollbar js -->
-    <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
-    <script src="{{ asset('assets/plugins/perfect-scrollbar/p-scroll.js') }}"></script>
-
-    <!-- Internal  Flot js-->
-    <script src="{{ asset('assets/plugins/jquery.flot/jquery.flot.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery.flot/jquery.flot.pie.js') }}"></script>
-    <script src="{{ asset('assets/plugins/jquery.flot/jquery.flot.categories.js') }}"></script>
-    <script src="{{ asset('assets/js/dashboard.sampledata.js') }}"></script>
-    <script src="{{ asset('assets/js/chart.flot.sampledata.js') }}"></script>
-
-    <!-- Internal Newsticker js-->
-    <script src="{{ asset('assets/plugins/newsticker/jquery.jConveyorTicker.js') }}"></script>
-    <script src="{{ asset('assets/js/newsticker.js') }}"></script>
 
     <!-- Internal Nice-select js-->
     <script src="{{ asset('assets/plugins/jquery-nice-select/js/jquery.nice-select.js') }}"></script>
     <script src="{{ asset('assets/plugins/jquery-nice-select/js/nice-select.js') }}"></script>
-
-    <!-- index js -->
-    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
 
     <!-- Select 2 Js-->
     <script src="{{ asset('assets/js/select2.min.js') }}"></script>
@@ -2079,81 +1665,77 @@
     <script src="{{ asset('/assets/plugins/sweet-alert/jquery.sweet-alert.js') }}"></script>
     <script src="{{ asset('/assets/plugins/sweet-alert/sweetalert.min.js') }}"></script>
 
-
-
     <!-- Internal Data tables -->
     <script src="{{ asset('/assets/plugins/datatable/js/dataTables.js') }}"></script>
-    {{-- <script src="{{ asset('/assets/plugins/datatable/js/dataTables.semanticui.js') }}"></script> --}}
 
     <!-- Quill js -->
-    <script src="{{asset('/assets/js/quill.js')}}"></script>
-    <script  src="{{asset('/assets/js/chart1.js')}}"></script>
-
-    <!-- Internal Datatable js -->
-    {{-- <script src="{{ asset('assets/js/table-data.js') }}"></script> --}}
-
+    <script src="{{ asset('/assets/js/quill.js') }}"></script>
 
     <!-- Custom js-->
     <script src="{{ asset('assets/js/custom.js') }}"></script>
 
-    <!-- Switcher js -->
-    <script src="{{ asset('assets/switcher/js/switcher.js') }}"></script>
+    <!-- Iconify Download Library -->
+    <script src="{{ asset('assets/js/iconify-icon.min.js') }}"></script>
+    <script>
+        $(document).ready(function() {
+            $('.form-select').select2();
+            $("#datepicker").datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
 
-        <!-- Iconify Download Library -->
-		<script src="{{ asset('assets/js/iconify-icon.min.js')}}"></script>
-        <script>
+            $('.section-messages').fadeOut();
+            setTimeout(function() {}, 5000);
 
-            $(document).ready(function() {
-                $('.form-select').select2();
-                $("#datepicker").datepicker({
-                    dateFormat: 'dd-mm-yy'
-                });
+            var currentURL = window.location.href;
 
-                $('.section-messages').fadeOut();
-                    setTimeout(function() {
-                }, 5000);
+            if (currentURL.includes('home')) {
+                $('#mes').removeClass('active');
+                $('#production').removeClass('active');
+                $('#wms').removeClass('active');
+                $('#setting').removeClass('active');
+                $('#home').addClass('active');
+            } else if (currentURL.includes('MES')) {
+                $('#home').removeClass('active');
+                $('#production').removeClass('active');
+                $('#wms').removeClass('active');
+                $('#setting').removeClass('active');
+                $('#mes').addClass('active');
+            } else if (currentURL.includes('Production')) {
+                $('#home').removeClass('active');
+                $('#mes').removeClass('active');
+                $('#wms').removeClass('active');
+                $('#setting').removeClass('active');
+                $('#production').addClass('active');
+            } else if (currentURL.includes('WMS')) {
+                $('#home').removeClass('active');
+                $('#mes').removeClass('active');
+                $('#production').removeClass('active');
+                $('#setting').removeClass('active');
+                $('#wms').addClass('active');
+            } else if (currentURL.includes('Setting')) {
+                $('#home').removeClass('active');
+                $('#mes').removeClass('active');
+                $('#production').removeClass('active');
+                $('#wms').removeClass('active');
+                $('#setting').addClass('active');
+            }
 
-                 var currentURL = window.location.href;
+        });
+    </script>
+    <!-- P-scroll js -->
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/p-scroll.js') }}"></script>
 
-                 if (currentURL.includes('home')) {
-                     $('#mes').removeClass('active');
-                     $('#production').removeClass('active');
-                     $('#wms').removeClass('active');
-                     $('#setting').removeClass('active');
-                     $('#home').addClass('active');
-                 } else if (currentURL.includes('MES')) {
-                    $('#home').removeClass('active');
-                     $('#production').removeClass('active');
-                     $('#wms').removeClass('active');
-                     $('#setting').removeClass('active');
-                     $('#mes').addClass('active');
-                    } else if (currentURL.includes('Production')) {
-                    $('#home').removeClass('active');
-                     $('#mes').removeClass('active');
-                     $('#wms').removeClass('active');
-                     $('#setting').removeClass('active');
-                     $('#production').addClass('active');
-                    } else if (currentURL.includes('WMS')) {
-                    $('#home').removeClass('active');
-                     $('#mes').removeClass('active');
-                     $('#production').removeClass('active');
-                     $('#setting').removeClass('active');
-                     $('#wms').addClass('active');
-                    } else if (currentURL.includes('Setting')) {
-                    $('#home').removeClass('active');
-                     $('#mes').removeClass('active');
-                     $('#production').removeClass('active');
-                     $('#wms').removeClass('active');
-                     $('#setting').addClass('active');
-                 }
+    <!-- Custom Scroll bar Js-->
+    <script src="{{ asset('assets/plugins/mscrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
 
-             });
+    <!-- Perfect-scrollbar js -->
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js') }}"></script>
+    <script src="{{ asset('assets/plugins/perfect-scrollbar/p-scroll.js') }}"></script>
 
-
-        </script>
-        @stack('custom-scripts')
-	</body>
-
-<!-- Mirrored from laravel.spruko.com/xino/ltr/horizontal by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 07 Feb 2024 18:28:13 GMT -->
-
+    <!-- Right-sidebar js -->
+    <script src="{{ asset('assets/plugins/sidebar/sidebar.js') }}"></script>
+    <script src="{{ asset('assets/plugins/sidebar/sidebar-custom.js') }}"></script>
+    @stack('custom-scripts')
+</body>
 </html>
