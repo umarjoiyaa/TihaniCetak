@@ -182,6 +182,14 @@
                             </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
+                           
+
+                            <form
+                                action="{{ route('pengumpulan_gathering.approve.decline', $pengumpulan_gathering->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
+                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                            </form>
                             <form
                                 action="{{ route('pengumpulan_gathering.approve.approve', $pengumpulan_gathering->id) }}"
                                 method="POST" enctype="multipart/form-data">
@@ -191,13 +199,6 @@
                                         <button class="btn btn-primary" type="submit"> Verify</button>
                                     </div>
                                 </div>
-                            </form>
-
-                            <form
-                                action="{{ route('pengumpulan_gathering.approve.decline', $pengumpulan_gathering->id) }}"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
                             </form>
                         </div>
                     </div>

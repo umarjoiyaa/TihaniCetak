@@ -67,7 +67,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Size</div>
+                                                <div class="label">Saiz</div>
                                                 <input type="text" readonly value="" id="size"
                                                     class="form-control">
                                             </div>

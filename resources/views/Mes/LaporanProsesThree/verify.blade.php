@@ -226,7 +226,7 @@
                                             </tr>
                                             <tr>
                                                 <td>7</td>
-                                                <td>Tututan muka surat</td>
+                                                <td>Turutan muka surat</td>
                                                 <td><input type="checkbox" class="Cover4"
                                                         onchange="handleCheckboxChange('Cover4',this)" name="b_7"
                                                         value="ok" @checked($laporan_proses_three->b_7 == 'ok') id="">
@@ -319,7 +319,7 @@
                                 @csrf
                                 <div class="row mt-5">
                                     <div class="col-md-12 mt-5">
-                                        <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
+                                        <h5><b>C) Pemeriksaan semasa proses Potong </b></h5>
                                     </div>
 
 

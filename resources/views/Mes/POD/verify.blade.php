@@ -19,18 +19,18 @@
                             <div class="row">
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <label for="">Tarikh</label>
+                                        <label for="">Date</label>
                                         <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($pod->date)->format('d-m-Y') }}" class="form-control" disabled id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">                                    </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Masa</label>
+                                    <label for="">Time</label>
                                     <input name="time" disabled type="text" id="Currenttime"
                                     value="{{ $pod->time }}"
                                     class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Disemak Oleh</div>
+                                        <div class="label">Checked By</div>
                                         <input type="text"  value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
@@ -100,7 +100,7 @@
                                             </tr>
                                             <tr>
                                                 <td>Saiz spine (perfect bind)</td>
-                                                <td><input type="checkbox" disabled   disabled   class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
+                                                <td><input type="checkbox" disabled  class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
                                                 <td><input type="checkbox"  disabled class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng')value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'na') value="na" id=""></td>
                                             </tr>
@@ -129,7 +129,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-5">
-                                    <h6><b>first_piece</b></h6>
+                                    <h6><b>First Piece</b></h6>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

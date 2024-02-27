@@ -18,12 +18,12 @@
                             <div class="row">
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <label for="">Tarikh</label>
+                                        <label for="">Date</label>
                                         <input type="text" disabled name="date" value="{{ \Carbon\Carbon::parse($ctp->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Masa</label>
+                                    <label for="">Time</label>
                                     <input name="text" readonly type="text" id="Currenttime"
                                     value="{{ $ctp->time }}"
                                     class="form-control">
@@ -83,7 +83,7 @@
                                                 <td><input type="checkbox"  disabled class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($ctp->file_artwork_1 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz Product</td>
+                                                <td>Saiz Produk</td>
                                                 <td><input type="checkbox" disabled class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2"  @checked($ctp->file_artwork_2 == 'ok') value="ok"  id=""></td>
                                                 <td><input type="checkbox" disabled class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($ctp->file_artwork_2 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($ctp->file_artwork_2 == 'na') value="na" id=""></td>
@@ -131,7 +131,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-5">
-                                    <h6><b>impositions</b></h6>
+                                    <h6><b>Imposition</b></h6>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

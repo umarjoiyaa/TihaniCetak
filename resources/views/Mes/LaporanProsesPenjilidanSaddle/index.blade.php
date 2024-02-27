@@ -35,7 +35,7 @@
                                         <td>Jumlah Seksyen</td>
                                         <td>Saiz</td>
                                         <td>Operator</td>
-                                        <td>Pamabantu</td>
+                                        <td>Pembantu</td>
                                         <td>Status</td>
                                         <td>Action</td>
                                     </tr>
