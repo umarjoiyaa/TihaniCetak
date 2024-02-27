@@ -1710,9 +1710,13 @@
     <script>
         $(document).ready(function() {
             $('.form-select').select2();
-            $("#datepicker").datepicker({
+            $("#datepicker, .datepicker").datepicker({
                 dateFormat: 'dd-mm-yy'
             });
+
+            // $("").datepicker({
+            //     dateFormat: 'dd-mm-yy'
+            // });
 
             setTimeout(function() {
                 $('.section-messages').fadeOut();
