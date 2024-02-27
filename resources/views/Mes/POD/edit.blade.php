@@ -9,7 +9,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - pod</b></h5>
+                            <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - POD</b></h5>
                             <p class="float-right">TCBS-B23 (Rev.5)</p>
                         </div>
                     </div>
@@ -20,7 +20,7 @@
                             <div class="row">
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <label for="">Tarikh</label>
+                                        <label for="">Date</label>
                                         <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($pod->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
@@ -34,7 +34,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Disemak Oleh</div>
+                                        <div class="label">Checked By</div>
                                         <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
@@ -132,7 +132,7 @@
                                     </table>
                                 </div>
                                 <div class="col-md-5">
-                                    <h6><b>first_piece</b></h6>
+                                    <h6><b>First Piece</b></h6>
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>

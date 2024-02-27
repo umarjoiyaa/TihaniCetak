@@ -6,7 +6,6 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>LAPORAN PROSES LIPAT</h5>
                         <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="float-left">LAPORAN PROSES LIPAT</h5>

@@ -33,7 +33,7 @@
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
-                                    <div class="label">checked by</div>
+                                    <div class="label">Checked By</div>
                                     <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                     class="form-control" name="" id="">
                                 </div>
@@ -149,7 +149,7 @@
                                     <tbody>
 
                                         <tr>
-                                            <td>Jenis kertasn</td>
+                                            <td>Jenis kertas</td>
                                             <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" value="ok" id=""></td>
                                             <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" checked name="first_piece_1" value="ng" id=""></td>
                                             <td><input type="checkbox" class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" value="na" id=""></td>

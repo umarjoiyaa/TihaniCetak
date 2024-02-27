@@ -19,18 +19,18 @@
                             <div class="row">
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <label for="">Tarikh</label>
+                                        <label for="">Date</label>
                                         <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($pod->date)->format('d-m-Y') }}" class="form-control" id="datepicker" disabled pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">                                    </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Masa</label>
+                                    <label for="">Time</label>
                                     <input name="time" type="text" disabled id="Currenttime"
                                     value="{{ $pod->time }}"
                                     class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Disemak Oleh</div>
+                                        <div class="label">Checked By</div>
                                         <input type="text" disabled value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
@@ -229,24 +229,26 @@
                             <h3><b>Verified By</b></h3>
                         </div>
                         <div class="col-md-12">
-                            <table class="table table-bordered">
-                                <thead>
-                                    <tr>
-                                        <th>Date</th>
-                                        <th>Username</th>
-                                        <th>Desgination</th>
-                                        <th>Department</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>{{ $pod->verified_by_date }}</td>
-                                        <td>{{ $pod->verified_by_user }}</td>
-                                        <td>{{ $pod->verified_by_designation }}</td>
-                                        <td>{{ $pod->verified_by_department }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                           <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Username</th>
+                                            <th>Desgination</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>{{ $pod->verified_by_date }}</td>
+                                            <td>{{ $pod->verified_by_user }}</td>
+                                            <td>{{ $pod->verified_by_designation }}</td>
+                                            <td>{{ $pod->verified_by_department }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                           </div>
                         </div>
                     </div>
 

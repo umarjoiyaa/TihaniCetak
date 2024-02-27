@@ -260,53 +260,55 @@
                                 <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
                             </div>
                             <div class="col-md-12">
-                                <table class="table table-bordered" id="table">
-                                    <thead>
-                                        <tr>
-                                            <th rowspan="2">Jumlah </th>
-                                            <th colspan="5s">Kriteria</th>
-                                            <th rowspan="2">Check (Operator)</th>
-                                            <th rowspan="2">Username / datetime</th>
-                                            <th rowspan="2">Verify</th>
-                                            <th rowspan="2">Username / datetime</th>
-                                        </tr>
-                                        <tr>
-                                            <th>Kedudukan Kulit buku dan teks</th>
-                                            <th>Artwork Kulit buku dan teks</th>
-                                            <th>Turutan Seksyen/ muta surat</th>
-                                            <th>Rosak/Koyak</th>
-                                            <th>Kotor</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        @foreach ($details as $key => $detail)
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="table">
+                                        <thead>
                                             <tr>
-                                                <td>{{ $detail->c_1 }}</td>
-                                                <td><input type="hidden" value="{{ $detail->c_1 }}"><input
-                                                        type="checkbox" id="" @checked($detail->c_2 != null)>
-                                                </td>
-                                                <td><input type="checkbox" id="" @checked($detail->c_3 != null)>
-                                                </td>
-                                                <td><input type="checkbox" id="" @checked($detail->c_4 != null)>
-                                                </td>
-                                                <td><input type="checkbox" id="" @checked($detail->c_5 != null)>
-                                                </td>
-                                                <td><input type="checkbox" id="" @checked($detail->c_6 != null)>
-                                                </td>
-                                                <td><button type="button" class="btn btn-primary check_btn"
-                                                        style="border-radius:5px;"
-                                                        @disabled($detail->c_7 != null)>check</button></td>
-                                                <td><input type="text" class="check_operator form-control"
-                                                        value="{{ $detail->c_7 }}" readonly></td>
-                                                <td><button type="button" class="btn btn-primary verify_btn"
-                                                        disabled>Verify</button>
-                                                </td>
-                                                <td><input type="text" class="verify_operator form-control"
-                                                        value="{{ $detail->c_8 }}" readonly></td>
+                                                <th rowspan="2">Jumlah </th>
+                                                <th colspan="5s">Kriteria</th>
+                                                <th rowspan="2">Check (Operator)</th>
+                                                <th rowspan="2">Username / datetime</th>
+                                                <th rowspan="2">Verify</th>
+                                                <th rowspan="2">Username / datetime</th>
                                             </tr>
-                                        @endforeach
-                                    </tbody>
-                                </table>
+                                            <tr>
+                                                <th>Kedudukan Kulit buku dan teks</th>
+                                                <th>Artwork Kulit buku dan teks</th>
+                                                <th>Turutan Seksyen/ muta surat</th>
+                                                <th>Rosak/Koyak</th>
+                                                <th>Kotor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $key => $detail)
+                                                <tr>
+                                                    <td>{{ $detail->c_1 }}</td>
+                                                    <td><input type="hidden" value="{{ $detail->c_1 }}"><input
+                                                            type="checkbox" id="" @checked($detail->c_2 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" id="" @checked($detail->c_3 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" id="" @checked($detail->c_4 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" id="" @checked($detail->c_5 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" id="" @checked($detail->c_6 != null)>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary check_btn"
+                                                            style="border-radius:5px;"
+                                                            @disabled($detail->c_7 != null)>check</button></td>
+                                                    <td><input type="text" class="check_operator form-control"
+                                                            value="{{ $detail->c_7 }}" readonly></td>
+                                                    <td><button type="button" class="btn btn-primary verify_btn"
+                                                            disabled>Verify</button>
+                                                    </td>
+                                                    <td><input type="text" class="verify_operator form-control"
+                                                            value="{{ $detail->c_8 }}" readonly></td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-5">
