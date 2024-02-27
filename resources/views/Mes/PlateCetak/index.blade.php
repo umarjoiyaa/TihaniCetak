@@ -5,6 +5,9 @@
     .dropdownwidth{
         width:100px;
     }
+    table thead th {
+            text-align: center;
+        }
 </style>
 @endsection
 @section('content')

@@ -297,7 +297,7 @@
 
                             <div class="row mt-5" style="background:#f1f0f0;">
                                 <div class="col-md-12 mt-5">
-                                    <h5><b>C) Pemeriksaan semasa proses penjilidan </b></h5>
+                                    <h5><b>C) Pemeriksaan semasa proses potong  </b></h5>
                                 </div>
 
 

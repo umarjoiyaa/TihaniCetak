@@ -647,7 +647,6 @@ $(document).on('change', '.action', function () {
     var isChecked = $(this).prop('checked');
 
     if (isChecked) {
-        $(this).val(1);
         $(this).closest("tr").find('.side_parent_section').attr('disabled', 'disabled');
         $(this).closest("tr").find('.mesin_parent_section').attr('disabled', 'disabled');
         $(this).closest("tr").find('#datepicker1').attr('disabled', 'disabled');
@@ -668,13 +667,22 @@ $(document).on('change', '.action', function () {
         $(this).closest("tr").find('#datepicker1').removeAttr('disabled');
         $(this).closest("tr").find('#last_print_parent_section').removeAttr('disabled');
         $(this).closest("tr").find('#kuantiti_waste_parent_section').removeAttr('disabled');
-        $("#child_table tbody tr .mesin_section ").each(function () {
-            $(this).attr('disabled', 'disabled')
-        });
-        $("#child_table tbody tr .side_section ").each(function () {
-            $(this).attr('disabled', 'disabled')
-        });
 
+            $("#child_table tbody tr .mesin_section").each(function () {
+                $(this).attr('disabled', 'disabled')
+            });
+            $("#child_table tbody tr .side_section").each(function () {
+                $(this).attr('disabled', 'disabled')
+            });
+            $("#child_table tbody tr .datepicker").each(function () {
+                $(this).attr('disabled', 'disabled')
+            });
+            $("#child_table tbody tr .last_print_section ").each(function () {
+                $(this).attr('disabled', 'disabled')
+            });
+            $("#child_table tbody tr .kuantiti_waste_section").each(function () {
+                $(this).attr('disabled', 'disabled')
+            });
 
     }
 })
@@ -687,7 +695,7 @@ $(document).on('change', '.action', function () {
                     console.log("currentLength:", currentLength); // Check the value of currentLength
                     for (let i = currentLength; i > 0; i--) {
                         console.log("Iteration:", i); // Check the iteration
-                        $('#child_table tbody tr.section:last').remove();
+                        $('#child_table tbody tr:last-child').remove();
                     }
                 } else {
                 for (let i = length; i <= value; i++) {

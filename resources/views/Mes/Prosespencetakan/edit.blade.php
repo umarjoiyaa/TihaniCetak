@@ -391,7 +391,7 @@
                                     <h4><b>Nota :</b></h4>
                                     <div class="row">
                                         <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
-                                        <div class="col-md-11" style="margin-left:-20px;">
+                                        <div class="col-md-11" style="margin-left:-40px;">
                                             <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
                                         </div>
                                     </div>
@@ -419,15 +419,19 @@
 
         $(document).ready(function() {
             $('#sale_order').trigger('change');
+            $('#Cover').trigger('change');
+            $('#Endpaper').trigger('change');
+
             $('#sale_order').select2({
                 ajax: {
-                    url: '{{ route('sale_order.get') }}',
+                    url: '{{ route('senari_semak_cetak_edit.sale_order.get') }}',
                     dataType: 'json',
                     delay: 1000,
                     data: function(params) {
                         return {
                             q: params.term,
                             page: params.page || 1,
+                            id: {{ $proses_pencetakan->id }}
                         };
                     },
                     processResults: function(data, params) {
@@ -447,27 +451,30 @@
                     if (data.loading) {
                         return "Loading...";
                     }
-
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    if ($('#sale_order').data('id') == data.id) {
+                        return $('<option value=' + data.id + ' selected>' + data.order_no +
+                            '</option>');
+                    } else {
+                        return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    }
                 },
                 templateSelection: function(data) {
                     return data.text || null;
                 }
             });
-
         });
 
         $('#sale_order').on('change', function() {
             const id = $(this).val();
             $.ajax({
                 type: 'GET',
-                url: '{{ route('sale_order_penjilidan.detail.get') }}',
+                url: '{{ route('sale_order.detail.get') }}',
                 data: {
                     "id": id
                 },
                 success: function(data) {
-                    $('#kod_buku').val(data.sale_order.kod_buku);
-                    $('#tajuk').val(data.sale_order.description);
+                    $('#kod_buku').val(data.kod_buku);
+                    $('#tajuk').val(data.description);
                 }
             });
         });
