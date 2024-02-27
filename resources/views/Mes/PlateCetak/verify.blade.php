@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="{{ route('plate_cetak.store') }}" method="POST">
+
 <div class="row">
     <div class="col-md-12">
         <div class="card">
@@ -24,7 +24,7 @@
                     <div class="col-md-4 mt-3">
                         <label for="">Masa</label>
                         <input readonly name="time" type="text" id="Currenttime"
-                                    value="{{ $pod->time }}"
+                                    value="{{ $plate_cetak->time }}"
                                     class="form-control">
                     </div>
                     <div class="col-md-4 mt-3">
@@ -37,11 +37,11 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Sales Order No.</div>
-                            <select name="sale_order" disabled data-id="{{ $pod->sale_order_id }}"
+                            <select name="sale_order" disabled data-id="{{ $plate_cetak->sale_order_id }}"
                                 id="sale_order" class="form-control">
-                                <option value="{{ $pod->sale_order_id }}" selected
+                                <option value="{{ $plate_cetak->sale_order_id }}" selected
                                     style="color: black; !important">
-                                    {{ $pod->sale_order->order_no }}</option>
+                                    {{ $plate_cetak->sale_order->order_no }}</option>
                             </select>
                         </div>
                     </div>
@@ -200,12 +200,12 @@
 
                 <div class="row d-flex justify-content-end mt-5">
                     <div class="col-md-12 d-flex justify-content-end">
-                        <form action="{{ route('pod.approve.decline', $pod->id) }}" method="POST"
+                        <form action="{{ route('plate_cetak.approve.decline', $plate_cetak->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <button class="btn btn-danger mx-2" type="submit">Decline</button>
                         </form>
-                        <form action="{{ route('pod.approve.approve', $pod->id) }}" method="POST"
+                        <form action="{{ route('plate_cetak.approve.approve', $plate_cetak->id) }}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             <button class="btn btn-primary" type="submit"> Verify</button>
@@ -217,5 +217,4 @@
         <a href="{{route('plate_cetak')}}">back to list</a>
     </div>
 </div>
-</form>
 @endsection

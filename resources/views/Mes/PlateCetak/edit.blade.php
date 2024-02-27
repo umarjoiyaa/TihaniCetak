@@ -52,13 +52,13 @@
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Tajuk</div>
-                            <input type="text" readonly value="auto display" class="form-control">
+                            <input type="text" readonly id="tajuk" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
                             <div class="label">Kod Buku</div>
-                            <input type="text" value="auto Display" readonly name="" id="" class="form-control">
+                            <input type="text" id="kod_buku" readonly class="form-control">
                         </div>
                     </div>
                 </div>
@@ -220,43 +220,51 @@
 $(document).on('change','.checkbox',function() {
       $(this).val($(this).prop('checked') ? 'yes' : 'no');
     });
-        $(document).ready(function() {
-            $('#sale_order').trigger('change');
-            $('#sale_order').select2({
-                ajax: {
-                    url: '{{ route('sale_order.get') }}',
-                    dataType: 'json',
-                    delay: 1000,
-                    data: function(params) {
-                        return {
-                            q: params.term,
-                            page: params.page || 1,
-                        };
-                    },
-                    processResults: function(data, params) {
-                        params.page = params.page || 1;
 
-                        return {
-                            results: data.results,
-                            pagination: {
-                                more: data.pagination.more
-                            }
-                        };
-                    },
-                    cache: true
-                },
-                containerCssClass: 'form-control',
-                templateResult: function(data) {
-                    if (data.loading) {
-                        return "Loading...";
-                    }
+    $(document).ready(function () {
+        $('#sale_order').trigger('change');
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+        $('#sale_order').select2({
+            ajax: {
+                url: '{{ route('sale_order.get') }}',
+                dataType: 'json',
+                delay: 1000,
+                data: function (params) {
+                    return {
+                        q: params.term,
+                        page: params.page || 1,
+                    };
                 },
-                templateSelection: function(data) {
-                    return data.text || null;
+                processResults: function (data, params) {
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.results,
+                        pagination: {
+                            more: data.pagination.more
+                        }
+                    };
+                },
+                cache: true
+            },
+            containerCssClass: 'form-control',
+            templateResult: function (data) {
+                if (data.loading) {
+                    return "Loading...";
                 }
-            });
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
+            },
+            templateSelection: function (data) {
+                return data.text || null;
+            }
+        });
+    });
+
 
             $('#sale_order').on('change', function() {
                 const id = $(this).val();
@@ -272,6 +280,5 @@ $(document).on('change','.checkbox',function() {
                     }
                 });
             });
-        });
 </script>
 @endpush

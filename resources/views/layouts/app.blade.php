@@ -682,7 +682,7 @@
             </div>
         </div>
         <!-- mobile-header -->
-        @include('layouts.navbar') 
+        @include('layouts.navbar')
 			<!--Horizontal-main -->
 		<div class="sticky">
 			<div class="horizontal-main hor-menu clearfix side-header">
@@ -2005,7 +2005,7 @@
 
     <!-- Bootstrap js-->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    
+
     <!-- Ionicons js-->
     <script src="{{ asset('assets/plugins/ionicons/ionicons.js') }}"></script>
 
@@ -2109,8 +2109,8 @@
                     dateFormat: 'dd-mm-yy'
                 });
 
-                $('.section-messages').fadeOut();
-                    setTimeout(function() {
+                setTimeout(function() {
+                        $('.section-messages').fadeOut();
                 }, 5000);
 
                  var currentURL = window.location.href;
