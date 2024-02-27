@@ -26,9 +26,9 @@
                                                 class="la la-play" style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
-                                        <button id="pause"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-pause" style="font-size:20px;"></i>Pause</button>
+                                        <button id="pause" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-pause"
+                                                style="font-size:20px;"></i>Pause</button>
                                     </div>
                                     <div class="col-md-4  ">
                                         <div class="box">
@@ -313,33 +313,33 @@
                 </div>
             </div>
         </div>
-            <!-- The Modal -->
-    <div class="modal fade" id="pauseModal">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
+        <!-- The Modal -->
+        <div class="modal fade" id="pauseModal">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header d-flex jutify-content-between">
-                    <h4><b>REMARKS</b></h4>
-                    <h4 class="modal-title"></h4>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="form-group">
-                        <textarea id="pauseRemarks" rows="4" class="form-control"></textarea>
+                    <!-- Modal Header -->
+                    <div class="modal-header d-flex jutify-content-between">
+                        <h4><b>REMARKS</b></h4>
+                        <h4 class="modal-title"></h4>
                     </div>
-                </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning" onclick="pauseMesin()">Pause</button>
-                </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea id="pauseRemarks" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
 
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" onclick="pauseMesin()">Pause</button>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
     </form>
 @endsection
 @push('custom-scripts')
@@ -467,19 +467,24 @@
         $(document).on('click', '.check_operator', function() {
             $(this).attr('disabled', 'disabled');
             const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
+            const formattedDateTime = formatDateWithAMPM(currentDate);
             let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_operator_text').val(checked_by + '/' + formattedDate);
+            $(this).closest('tr').find('.check_operator_text').val(checked_by + '/' + formattedDateTime);
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+        function formatDateWithAMPM(date) {
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
+            return formattedDateTime;
         }
 
         $('#saveForm').on('click', function() {
@@ -565,14 +570,14 @@
             });
         }
 
-        $('#pause').on('click', function () {
+        $('#pause').on('click', function() {
             $('#pauseModal').modal('show');
         });
 
         function pauseMesin() {
-            if($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null){
+            if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
                 alert("Can`t Pause Without Remarks!");
-            }else{
+            } else {
                 $('#pauseModal').modal('hide');
                 machineStarter(2, @json($staple_bind->id));
             }
