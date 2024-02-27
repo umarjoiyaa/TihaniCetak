@@ -350,7 +350,8 @@ class ProsesPembungkusanController extends Controller
 
         $proses_pembungkusan = new ProsesPembungkusan();
         $proses_pembungkusan->sale_order_id = $request->sale_order;
-        $proses_pembungkusan->date = $timeIn12HourFormat;
+        $proses_pembungkusan->date = $request->date;
+        $proses_pembungkusan->time = $timeIn12HourFormat;
         $proses_pembungkusan->machine = $request->machine;
         $proses_pembungkusan->kategori = $request->kategori;
         $proses_pembungkusan->created_by = Auth::user()->id;
