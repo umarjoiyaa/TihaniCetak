@@ -44,7 +44,7 @@
                                     <td>Jumlah muka surat</td>
                                     <td>Turutan muka surat</td>
 
-                                    <td>Jenis kertasn</td>
+                                    <td>Jenis kertas</td>
                                     <td>Saiz produk</td>
                                     <td>Artwork (gambar, teks)</td>
                                     <td>Design clearance (5mm)</td>

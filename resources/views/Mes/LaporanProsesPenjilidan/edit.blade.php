@@ -165,7 +165,7 @@
                                             <td>1</td>
                                             <td>Koyakan fiber</td>
                                             <td><input type="checkbox" class="Cover1"
-                                                    onchange="handleCheckboxChange('Cover',this)" name="b_1" value="ok"
+                                                    onchange="handleCheckboxChange('Cover1',this)" name="b_1" value="ok"
                                                     @checked($laporan_proses_penjilidan->b_1 == 'ok') id=""></td>
                                             <td><input type="checkbox" class="Cover1"
                                                     onchange="handleCheckboxChange('Cover1',this)" name="b_1" value="ng"
@@ -294,65 +294,65 @@
                                     <button class="btn btn-primary mb-3 float-right" type="button" id="AddRow">Add
                                         Row</button>
                                     <div class="table-responsive">
-                                    <table class="table table-bordered" id="table">
-                                        <thead>
-                                            <tr>
-                                                <th rowspan="2">Jumlah </th>
-                                                <th colspan="5">Kriteria</th>
-                                                <th rowspan="2">Check (Operator)</th>
-                                                <th rowspan="2">Username / datetime</th>
-                                                <th rowspan="2">Verify</th>
-                                                <th rowspan="2">Username / datetime</th>
-                                                <th rowspan="2">Action</th>
-                                            </tr>
-                                            <tr>
-                                                <th>Kedudukan Kulit buku dan teks</th>
-                                                <th>Artwork Kulit buku dan teks</th>
-                                                <th>Turutan Seksyen/ muta surat</th>
-                                                <th>Rosak/Koyak</th>
-                                                <th>Kotor</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($details as $key => $detail)
-                                            <tr>
-                                                <td>{{$detail->c_1}}</td>
-                                                <td><input type="hidden" value="{{$detail->c_1}}"
-                                                        name="semasa[{{$key+1}}][1]"><input type="checkbox"
-                                                        name="semasa[{{$key+1}}][2]" id="" @checked($detail->c_2 !=
-                                                    null)>
-                                                </td>
-                                                <td><input type="checkbox" name="semasa[{{$key+1}}][3]" id=""
-                                                        @checked($detail->c_3 != null)>
-                                                </td>
-                                                <td><input type="checkbox" name="semasa[{{$key+1}}][4]" id=""
-                                                        @checked($detail->c_4 != null)>
-                                                </td>
-                                                <td><input type="checkbox" name="semasa[{{$key+1}}][5]" id=""
-                                                        @checked($detail->c_5 != null)>
-                                                </td>
-                                                <td><input type="checkbox" name="semasa[{{$key+1}}][6]" id=""
-                                                        @checked($detail->c_6 != null)>
-                                                </td>
-                                                <td><button type="button" class="btn btn-primary check_btn"
-                                                        style="border-radius:5px;" @disabled($detail->c_7 !=
-                                                        null)>check</button></td>
-                                                <td><input type="text" style="width:340px" name="semasa[{{$key+1}}][7]"
-                                                        class="check_operator form-control" value="{{$detail->c_7}}"
-                                                        readonly></td>
-                                                <td><button type="button" class="btn btn-primary verify_btn"
-                                                        disabled>Verify</button>
-                                                </td>
-                                                <td><input type="text" name="semasa[{{$key+1}}][8]"
-                                                        class="verify_operator form-control" readonly></td>
-                                                <td><button type="button" class="btn btn-danger remove"
-                                                        style="border-radius:5px; ">X</button>
-                                                </td>
-                                            </tr>
-                                            @endforeach
-                                        </tbody>
-                                    </table>
-                                </div>
+                                        <table class="table table-bordered" id="table">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">Jumlah </th>
+                                                    <th colspan="5">Kriteria</th>
+                                                    <th rowspan="2">Check (Operator)</th>
+                                                    <th rowspan="2">Username / datetime</th>
+                                                    <th rowspan="2">Verify</th>
+                                                    <th rowspan="2">Username / datetime</th>
+                                                    <th rowspan="2">Action</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>Kedudukan Kulit buku dan teks</th>
+                                                    <th>Artwork Kulit buku dan teks</th>
+                                                    <th>Turutan Seksyen/ muta surat</th>
+                                                    <th>Rosak/Koyak</th>
+                                                    <th>Kotor</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($details as $key => $detail)
+                                                <tr>
+                                                    <td>{{$detail->c_1}}</td>
+                                                    <td><input type="hidden" value="{{$detail->c_1}}"
+                                                            name="semasa[{{$key+1}}][1]"><input type="checkbox"
+                                                            name="semasa[{{$key+1}}][2]" id="" @checked($detail->c_2 !=
+                                                        null)>
+                                                    </td>
+                                                    <td><input type="checkbox" name="semasa[{{$key+1}}][3]" id=""
+                                                            @checked($detail->c_3 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" name="semasa[{{$key+1}}][4]" id=""
+                                                            @checked($detail->c_4 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" name="semasa[{{$key+1}}][5]" id=""
+                                                            @checked($detail->c_5 != null)>
+                                                    </td>
+                                                    <td><input type="checkbox" name="semasa[{{$key+1}}][6]" id=""
+                                                            @checked($detail->c_6 != null)>
+                                                    </td>
+                                                    <td><button type="button" class="btn btn-primary check_btn"
+                                                            style="border-radius:5px;" @disabled($detail->c_7 !=
+                                                            null)>check</button></td>
+                                                    <td><input type="text" style="width:340px" name="semasa[{{$key+1}}][7]"
+                                                            class="check_operator form-control" value="{{$detail->c_7}}"
+                                                            readonly></td>
+                                                    <td><button type="button" class="btn btn-primary verify_btn"
+                                                            disabled>Verify</button>
+                                                    </td>
+                                                    <td><input type="text" name="semasa[{{$key+1}}][8]"
+                                                            class="verify_operator form-control" readonly></td>
+                                                    <td><button type="button" class="btn btn-danger remove"
+                                                            style="border-radius:5px; ">X</button>
+                                                    </td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>

@@ -87,6 +87,26 @@
         .horizontalMenu-list .box a:hover{
             color:#fff;
         }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            background:#18002D;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            color:#fff;
+            
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            opacity: 1;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{
+            background:#18002D;
+            color:white;
+            opacity: 1;
+        }
+        /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+            background:#18002D;
+            color:white;
+        } */
     </style>
 
 </head>
