@@ -66,6 +66,28 @@
         .horizontalMenu-list .box a:hover {
             color: #fff;
         }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            background:;
+            color:black;
+            opacity: 1;
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            color:#000;
+
+        }
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+            opacity: 1;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{
+            /* background:; */
+            color:black;
+            opacity: 1;
+        }
+        /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
+            background:#18002D;
+            color:white;
+        } */
     </style>
 
 </head>
@@ -309,19 +331,6 @@
             </div>
         </div>
         <!-- mobile-header -->
-        @include('layouts.navbar')
-			<!--Horizontal-main -->
-		<div class="sticky">
-			<div class="horizontal-main hor-menu clearfix side-header">
-				<div class="horizontal-mainwrapper container clearfix">
-					<!--Nav-->
-					<nav class="horizontalMenu clearfix d-flex">
-						<div class="main-header-left ">
-							<a class="animated-arrow hor-toggle horizontal-navtoggle"><span></span></a><!-- sidebar-toggle-->
-							<a class="header-brand" href="{{ route('dashboard') }}">
-								<img src="{{ asset('assets/img/tihani.png') }}" class="desktop-dark">
-								<div class="d-flex"><img src="{{ asset('assets/img/tihani.png') }}" class="desktop-logo"> <span class="text-white mx-2 text" style="font-size: 26px;">Tihani Cetak</span></div>
-							</a>
         @include('layouts.navbar')
         <!--Horizontal-main -->
         <div class="sticky">
@@ -1651,7 +1660,7 @@
         <div class="main-footer ht-40">
             <div class="container-fluid pd-t-0-f ht-100p">
 
-                <span class="text-white">Copyright © 2023 . All rights reserved IIOT FACTORY.</span>
+                <span class="text-white">Copyright Â© 2023 . All rights reserved IIOT FACTORY.</span>
             </div>
         </div>
         <!-- Footer closed -->
@@ -1666,9 +1675,6 @@
 
     <!-- Bootstrap js-->
     <script src="{{ asset('assets/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Ionicons js-->
-    <script src="{{ asset('assets/plugins/ionicons/ionicons.js') }}"></script>
 
     <!-- Moment js -->
     <script src="{{ asset('assets/plugins/moment/moment.js') }}"></script>
@@ -1708,9 +1714,8 @@
                 dateFormat: 'dd-mm-yy'
             });
 
-                setTimeout(function() {
-                        $('.section-messages').fadeOut();
-                }, 5000);
+            $('.section-messages').fadeOut();
+            setTimeout(function() {}, 5000);
 
             var currentURL = window.location.href;
 
