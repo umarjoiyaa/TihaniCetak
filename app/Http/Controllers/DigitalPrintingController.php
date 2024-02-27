@@ -248,7 +248,8 @@ class DigitalPrintingController extends Controller
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('digital_printing.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>';
+                    <a class="dropdown-item" href="' . route('digital_printing.proses', $row->id) . '">Proses</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('digital_printing.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
                     $actions = '<a class="dropdown-item" href="' . route('digital_printing.view', $row->id) . '">View</a>
@@ -662,6 +663,7 @@ class DigitalPrintingController extends Controller
                 $mpo = DigitalPrintingDetail::where('machine', $request->machine)->where('digital_id', $request->digital_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->remarks = $request->remarks;
                 $mpo->save();
                 $start_time = Carbon::parse($mpo->start_time);
                 $end_time = Carbon::parse($mpo->end_time);

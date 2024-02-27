@@ -594,6 +594,7 @@ class StapleBindController extends Controller
                 $mpo = StapleBindDetail::where('machine', $request->machine)->where('staple_id', $request->staple_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
                 $mpo->status = $request->status;
                 $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->remarks = $request->remarks;
                 $mpo->save();
                 $start_time = Carbon::parse($mpo->start_time);
                 $end_time = Carbon::parse($mpo->end_time);

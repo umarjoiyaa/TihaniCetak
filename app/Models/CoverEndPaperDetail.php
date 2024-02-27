@@ -9,5 +9,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class CoverEndPaperDetail extends Model
 {
     use HasFactory, SoftDeletes;
-    public $fillable = ['machine', 'cover_paper_id', 'start_time', 'end_time', 'duration', 'status'];
+    public $fillable = ['machine', 'cover_paper_id', 'start_time', 'end_time', 'duration', 'remarks', 'status'];
 }

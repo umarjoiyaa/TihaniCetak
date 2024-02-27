@@ -141,34 +141,36 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered" id="jobsheet_detail_table">
                                         <thead>
-                                            <tr>
-                                                <th>Action</th>
-                                                <th>Start datetime</th>
-                                                <th>End datetime</th>
-                                                <th>Total Time(min)</th>
-                                                <th>Machine</th>
-                                                <th>Operator</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @foreach ($details as $detail)
                                                 <tr>
-                                                    <td><button type="button" data-toggle="modal"
-                                                            data-target="#exampleModal"
-                                                            class="btn btn-primary openModal">+</button>
-                                                        <input type="hidden" class="hiddenId"
-                                                            value="{{ $detail->id }}">
-                                                    </td>
-                                                    <td>{{ $detail->start_time }}</td>
-                                                    <td>{{ $detail->end_time }}</td>
-                                                    <td>{{ $detail->duration }}</td>
-                                                    <td>
-                                                        {{ $detail->machine }}
-                                                    </td>
-                                                    <td class="operator_text"></td>
+                                                    <th>Action</th>
+                                                    <th>Start datetime</th>
+                                                    <th>End datetime</th>
+                                                    <th>Total Time(min)</th>
+                                                    <th>Machine</th>
+                                                    <th>Remarks</th>
+                                                    <th>Operator</th>
                                                 </tr>
-                                            @endforeach
-                                        </tbody>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($details as $detail)
+                                                    <tr>
+                                                        <td><button type="button" data-toggle="modal"
+                                                                data-target="#exampleModal"
+                                                                class="btn btn-primary openModal">+</button>
+                                                            <input type="hidden" class="hiddenId"
+                                                                value="{{ $detail->id }}">
+                                                        </td>
+                                                        <td>{{ $detail->start_time }}</td>
+                                                        <td>{{ $detail->end_time }}</td>
+                                                        <td>{{ $detail->duration }}</td>
+                                                        <td>
+                                                            {{ $detail->machine }}
+                                                        </td>
+                                                        <td>{{ $detail->remarks }}</td>
+                                                        <td class="operator_text"></td>
+                                                    </tr>
+                                                @endforeach
+                                            </tbody>
                                     </table>
                                 </div>
                             </div>

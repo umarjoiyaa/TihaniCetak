@@ -1714,8 +1714,9 @@
                 dateFormat: 'dd-mm-yy'
             });
 
-            $('.section-messages').fadeOut();
-            setTimeout(function() {}, 5000);
+            setTimeout(function() {
+                $('.section-messages').fadeOut();
+            }, 5000);
 
             var currentURL = window.location.href;
 

@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('start_time')->nullable();
             $table->string('end_time')->nullable();
             $table->string('duration')->nullable();
+            $table->string('remarks')->nullable();
             $table->string('status')->nullable();
             $table->softDeletes();
             $table->timestamps();

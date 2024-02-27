@@ -26,9 +26,9 @@
                                                 class="la la-play" style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
-                                        <button id="pause" onclick="machineStarter(2, {{ $mesin_knife->id }})"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-pause" style="font-size:20px;"></i>Pause</button>
+                                        <button id="pause" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-pause"
+                                                style="font-size:20px;"></i>Pause</button>
                                     </div>
                                     <div class="col-md-4  ">
                                         <div class="box">
@@ -59,8 +59,7 @@
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh</label>
                                         <input type="text" readonly name=""
-                                            value="{{ $mesin_knife->user->full_name }}" id=""
-                                            class="form-control">
+                                            value="{{ $mesin_knife->user->full_name }}" id="" class="form-control">
                                         <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -152,6 +151,7 @@
                                                     <th>End datetime</th>
                                                     <th>Total Time(min)</th>
                                                     <th>Machine</th>
+                                                    <th>Remarks</th>
                                                     <th>Operator</th>
                                                 </tr>
                                             </thead>
@@ -170,6 +170,7 @@
                                                         <td>
                                                             {{ $detail->machine }}
                                                         </td>
+                                                        <td>{{ $detail->remarks }}</td>
                                                         <td class="operator_text"></td>
                                                     </tr>
                                                 @endforeach
@@ -301,6 +302,33 @@
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveModal">Save</button>
                     </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <div class="modal fade" id="pauseModal">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
+
+                    <!-- Modal Header -->
+                    <div class="modal-header d-flex jutify-content-between">
+                        <h4><b>REMARKS</b></h4>
+                        <h4 class="modal-title"></h4>
+                    </div>
+
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea id="pauseRemarks" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" onclick="pauseMesin()">Pause</button>
+                    </div>
+
                 </div>
             </div>
         </div>
@@ -493,15 +521,18 @@
 
                         var mesinInfo = detail.machine;
                         var start_time = detail.start_time;
+                        var remarks = (detail.remarks != null) ? detail.remarks : '';
                         var end_time = (detail.end_time != null) ? detail.end_time : '';
                         var duration = (detail.duration != null) ? detail.duration : '';
 
-                        $('#machine_detail_table tbody').append(`<tr>
-                            <td>${statusBadge}</td>
-                            <td>${mesinInfo}</td>
+                        $('#jobsheet_detail_table tbody').append(`<tr>
+                            <td>${button}</td>
                             <td>${start_time}</td>
                             <td>${end_time}</td>
                             <td>${duration}</td>
+                            <td>${mesinInfo}</td>
+                            <td>${remarks}</td>
+                            <td class="operator_text">${badge}</td>
                         </tr>`);
 
                         var badge = '';
@@ -525,6 +556,19 @@
                     });
                 }
             });
+        }
+
+        $('#pause').on('click', function() {
+            $('#pauseModal').modal('show');
+        });
+
+        function pauseMesin() {
+            if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
+                alert("Can`t Pause Without Remarks!");
+            } else {
+                $('#pauseModal').modal('hide');
+                machineStarter(2, @json($mesin_knife->id));
+            }
         }
     </script>
 @endpush
