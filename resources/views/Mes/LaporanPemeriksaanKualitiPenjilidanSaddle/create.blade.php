@@ -62,7 +62,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Mesin</div>
-                                                <input type="text" readonly class="form-control" value="SS1">
+                                                <input type="text" readonly name="mesin" class="form-control" value="SS1">
                                             </div>
                                         </div>
 

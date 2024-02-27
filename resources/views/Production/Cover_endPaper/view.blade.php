@@ -656,6 +656,7 @@
                                             <th>End datetime</th>
                                             <th>Total Time(min)</th>
                                             <th>Machine</th>
+                                            <th>Remarks</th>
                                             <th>Operator</th>
                                         </tr>
                                     </thead>
@@ -665,7 +666,8 @@
                                                 <td><button type="button" data-toggle="modal"
                                                         data-target="#exampleModal"
                                                         class="btn btn-primary openModal">+</button>
-                                                    <input type="hidden" class="hiddenId" value="{{ $detail->id }}">
+                                                    <input type="hidden" class="hiddenId"
+                                                        value="{{ $detail->id }}">
                                                 </td>
                                                 <td>{{ $detail->start_time }}</td>
                                                 <td>{{ $detail->end_time }}</td>
@@ -673,6 +675,7 @@
                                                 <td>
                                                     {{ $detail->machine }}
                                                 </td>
+                                                <td>{{ $detail->remarks }}</td>
                                                 <td class="operator_text"></td>
                                             </tr>
                                         @endforeach

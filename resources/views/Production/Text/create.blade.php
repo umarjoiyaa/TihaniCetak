@@ -9,7 +9,7 @@
   height: 34px;
 }
 
-.switch input { 
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -142,11 +142,11 @@ input:checked + .slider:before {
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Mesin</div>
-                                        <select name="" id="mesin" class="form-control form-select">
-                                            <option value="">SMZP (2C)</option>
-                                            <option value="">RUOBI (4C)</option>
-                                            <option value="">KOMORI (8C)</option>
-                                            <option value="">PANTONE</option>
+                                        <select name="mesin" id="mesin" class="form-control form-select">
+                                            <option value="SMZP (2C)">SMZP (2C)</option>
+                                            <option value="RUOBI (4C)">RUOBI (4C)</option>
+                                            <option value="KOMORI (8C)">KOMORI (8C)</option>
+                                            <option value="PANTONE">PANTONE</option>
                                             <!-- <option value="">order</option> -->
                                             <!-- <option value="">PENEGELUAREN</option> -->
                                         </select>
@@ -172,58 +172,7 @@ input:checked + .slider:before {
                                 </div>
                             </div>
 
-                            <!-- <div class="row mt-5">
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Mesin</label>
-                                            <select name="" id="" class="form-control">
-                                                <option value="">REVORIA SC170 FUJIFIILM</option>
-                                                <option value="">Others</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kategori job</div>
-                                            <select name="" id="" placeholder="Pilih Kategori Job" class="form-control">
-                                                <option value="">MOCK UP</option>
-                                                <option value="">PENEGELUAREN</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="">Jenis produk</label>
-                                            <select name="" id="" placeholder="Pilih Jenis produk" class="form-control">
-                                                <option value="">BUKU</option>
-                                                <option value="">FLYERS</option>
-                                                <option value="">POSTER</option>
-                                                <option value="">BUSINESS CARD</option>
-                                                <option value="">KAD KAHWIN</option>
-                                                <option value="">STICKERS</option>
-                                                <option value="">OTHERS</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kertas: teks</div>
-                                            <input type="text" value="Input teks" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div class="label">Kertas: Cover</div>
-                                            <input type="text" value="input teks" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div>
 
-                                </div> -->
                         </div>
                     </div>
 
@@ -318,15 +267,16 @@ input:checked + .slider:before {
                                 </div> -->
                                 <div class="col-md-4" >
                                     <label for="">Seksyen No.</label>
-                                    <input type="text"  name="" id=""
+                                    <input type="number"  name="seksyen_no" id="seksyen_no"
                                         class="form-control">
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
-                                <div class="col-md-10 mt-3">
+                                <div class="table-responsive mt-3">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
+
                                                 <th>Date</th>
                                                 <th>Machine</th>
                                                 <th>Side</th>
@@ -337,28 +287,34 @@ input:checked + .slider:before {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="date" name="" class="form-control"
-                                                        placeholder="date plan" id=""></td>
+                                                <td> <input type="text" name="date_parent_section"
+                                                    value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                                    id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                 <td>
-                                                    <select name="" class="form-control form-select" id="Machine1">
-                                                        <option value="">Machine</option>
-                                                        <option value=""></option>
-                                                        <option value=""></option>
+                                                    <select name="mesin_parent_section" id="mesin_section" class="form-control form-select">
+                                                        <option value="-1" disabled selected>Select any Mesin</option>
+                                                        <option value="SMZP (2C)">SMZP (2C)</option>
+                                                        <option value="RUOBI (4C)">RUOBI (4C)</option>
+                                                        <option value="KOMORI (8C)">KOMORI (8C)</option>
+                                                        <option value="PANTONE">PANTONE</option>
+                                                        <!-- <option value="">order</option> -->
+                                                        <!-- <option value="">PENEGELUAREN</option> -->
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name="" class="form-control form-select" id="AB,A/B1">
-                                                        <option value="">AB,A/B</option>
-                                                        <option value=""></option>
-                                                        <option value=""></option>
+                                                    <select name="side_parent_section" class="form-control form-select" id="side_">
+                                                        <option value="-1" disabled selected>Select any Side</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="A/B">A/B</option>
                                                     </select>
                                                 </td>
-                                                <td><input type="text" name="" class="form-control"
+                                                <td><input type="number" name="last_print_parent_section" class="form-control"
                                                          id=""></td>
-                                                <td><input type="text" name="" class="form-control"
+                                                <td><input type="number" name="kuantiti_waste_parent_section" class="form-control"
                                                          id=""></td>
                                                 <td><label class="switch">
-                                                    <input type="checkbox" checked>
+                                                    <input type="checkbox" checked value="yes">
                                                     <span class="slider round"></span>
                                                     </label>
                                                 </td>
@@ -368,51 +324,27 @@ input:checked + .slider:before {
 
 
                                 </div>
-
-                                <div class="col-md-10">
-                                    <table class="table table-bordered">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="child_table">
                                         <thead>
                                             <tr>
+                                                <th>Sr</th>
                                                 <th>Date</th>
                                                 <th>Machine</th>
                                                 <th>Side</th>
                                                 <th>last Print</th>
                                                 <th>Kuantiti Waste</th>
-                                                <th>Action</th>
                                             </tr>
                                         <tbody>
-                                            <tr>
-                                                <td>1</td>
-                                                <td><input type="date" name="" class="form-control"
-                                                        placeholder="date plan" id=""></td>
-                                                <td>
-                                                    <select name="" class="form-control form-select" id="machine">
-                                                        <option value="">Machine</option>
-                                                        <option value=""></option>
-                                                        <option value=""></option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select name="" class="form-control form-select" id="Ab,A/B">
-                                                        <option value="">AB,A/B</option>
-                                                        <option value=""></option>
-                                                        <option value=""></option>
-                                                    </select>
-                                                </td>
-                                                <td><input type="text" name="" class="form-control"
-                                                         id=""></td>
-                                                <td><input type="text" name="" class="form-control"
-                                                         id=""></td>
-                                            </tr>
+
                                         </tbody>
                                         </thead>
                                     </table>
-                                </div>
 
                             </div>
                         </div>
                     </div>
-
+                </div>
                     <!-- <div class="card" style="background:#f1f0f0; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
@@ -578,7 +510,7 @@ input:checked + .slider:before {
 
             </div>
             <a href="{{route('ProductionJobSheet_text')}}">back to list</a>
-        </div>  
+        </div>
     </div>
 </form>
 @endsection
@@ -671,7 +603,127 @@ input:checked + .slider:before {
 
             }
         });
-        
-        
+
+        $(document).on('change', '.machine', function () {
+        var SelectedOptionValue = $(this).val();
+        var ProcessName = $(this).closest("tr").find("td:eq(0)").text();
+        var SectionId = $(this).closest("table").data('id');
+        var ChildTableClass = SectionId + "-" + ProcessName + "-" + "Machine";
+        var selectbox = $("." + ChildTableClass).toArray();
+        selectbox.forEach(function (element) {
+            var check = $(element).closest("tr").find(`.${ProcessName}_txt`).prop('checked');
+            if (check) {
+                $(element).val(SelectedOptionValue).trigger('change')
+            }
+        })
+    });
+
+
+$(document).on('change', '.action', function () {
+    var isChecked = $(this).prop('checked');
+
+    if (isChecked) {
+        $(this).val(1);
+        $(this).closest("tr").find('.operator').attr('disabled', 'disabled');
+        $(this).closest("tr").find('.machine').attr('disabled', 'disabled');
+        var operator = $(this).closest("tr").find('.operator').data('name');
+        var machine = $(this).closest("tr").find('.machine').data('name');
+        var processName = $(this).closest('tr').find('td:eq(0)').text();
+        var SectionId = $(this).closest("table").data('id');
+        $(".section .table ." + SectionId + "-" + processName + "-" + operator).each(function () {
+            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
+            if (check) {
+                $(this).removeAttr('disabled')
+            }
+        });
+        $(".section .table ." + SectionId +"-" + processName + "-" + machine).each(function () {
+            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
+            if (check) {
+                $(this).removeAttr('disabled')
+            }
+        });
+    } else {
+        $(this).val(0);
+
+        $(this).closest("tr").find('.operator').removeAttr('disabled');
+        $(this).closest("tr").find('.machine').removeAttr('disabled');
+
+        var operator = $(this).closest("tr").find('.operator').data('name');
+        var machine = $(this).closest("tr").find('.machine').data('name');
+        var processName = $(this).closest('tr').find('td:eq(0)').text();
+        var SectionId = $(this).closest("table").data('id');
+        $(".section .table ." + SectionId +"-" + processName + "-" + operator).each(function () {
+            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
+            if (check) {
+                $(this).attr('disabled', 'disabled')
+            }
+        });
+
+        $(".section .table ." + SectionId +"-" + processName + "-" + machine).each(function () {
+            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
+            if (check) {
+                $(this).attr('disabled', 'disabled')
+
+            }
+        });
+    }
+})
+
+        $(document).on('change','#seksyen_no',function(){
+            var value = $(this).val();
+            if (value > 0 && value < length) {
+                var currentLength = length - value;
+                for (let i = currentLength; i > 0; i--) {
+                    $('#child_table tbody tr.section:last').remove();
+                }
+            } else {
+                for (let i = length; i <= value; i++) {
+                    if ($('#child_table tbody tr').length > 0) {
+                        $key = $('#child_table tbody tr').length + 1;
+                    }else{
+                        $key = 1;
+                    }
+                    $('#child_table tbody').append(`
+                    <tr>
+                                                <td>${i}</td>
+                                                <td> <input type="text" name="date_section"
+                                                    value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                                    id="datepicker" pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
+                                                <td>
+                                                    <select name="mesin_section" class="form-control form-select mesin_section" id="machine">
+                                                        <option value="-1" disabled selected>Select any Mesin</option>
+                                                        <option value="SMZP (2C)">SMZP (2C)</option>
+                                                        <option value="RUOBI (4C)">RUOBI (4C)</option>
+                                                        <option value="KOMORI (8C)">KOMORI (8C)</option>
+                                                        <option value="PANTONE">PANTONE</option>
+                                                    </select>
+                                                </td>
+                                                <td>
+                                                    <select name="side_section" class="form-control form-select side_section" id="Ab,A/B">
+                                                        <option value="-1" disabled selected>Select any Side</option>
+                                                        <option value="A">A</option>
+                                                        <option value="B">B</option>
+                                                        <option value="A/B">A/B</option>
+                                                    </select>
+                                                </td>
+                                                <td><input type="number" name="last_print_section" class="form-control last_print_section"
+                                                         id=""></td>
+                                                <td><input type="number" name="kuantiti_waste_section" class="form-control kuantiti_waste_section"
+                                                         id=""></td>
+                                            </tr>
+
+
+                    <tr class="section">
+                                     <td>Section </td>
+
+                                     <td><input type="text"  name="bahagianC[${$key}][6]" id="" class="form-control"></td>
+                                 </tr>`);
+
+
+
+                }
+            }
+        })
+
 </script>
 @endpush

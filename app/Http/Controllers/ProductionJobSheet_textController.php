@@ -7,21 +7,21 @@ use Illuminate\Http\Request;
 class ProductionJobSheet_textController extends Controller
 {
     public function index(){
-        return view('Production.ProductionJobSheet_text.index');
+        return view('Production.Text.index');
     }
 
     public function create(){
-        return view('Production.ProductionJobSheet_text.create');
+        return view('Production.Text.create');
     }
     public function edit(){
-        return view('Production.ProductionJobSheet_text.edit');
+        return view('Production.Text.edit');
     }
 
     public function proses(){
-        return view('Production.ProductionJobSheet_text.proses');
+        return view('Production.Text.proses');
     }
 
     public function view(){
-        return view('Production.ProductionJobSheet_text.view');
+        return view('Production.Text.view');
     }
 }

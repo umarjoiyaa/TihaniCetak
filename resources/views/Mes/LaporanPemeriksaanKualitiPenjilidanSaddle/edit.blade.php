@@ -30,7 +30,7 @@
                                             <div class="label">Masa</div>
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
-                                            
+
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
@@ -68,7 +68,7 @@
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Mesin</div>
-                                                <input type="text" readonly class="form-control" value="SS1">
+                                                <input type="text" readonly name="mesin" class="form-control" value="SS1">
                                             </div>
                                         </div>
 
