@@ -227,6 +227,13 @@ class PermissionTableSeeder extends Seeder
             'PERFECT BIND View',
             'PERFECT BIND Proses',
             'PERFECT BIND Delete',
+            'MESIN 3 KNIFE List',
+            'MESIN 3 KNIFE Create',
+            'MESIN 3 KNIFE Update',
+            'MESIN 3 KNIFE Verify',
+            'MESIN 3 KNIFE View',
+            'MESIN 3 KNIFE Proses',
+            'MESIN 3 KNIFE Delete',
          ];
 
         foreach ($permissions as $permission) {

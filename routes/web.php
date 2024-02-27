@@ -34,7 +34,7 @@ use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
 use App\Http\Controllers\PrintingProcess_TextController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Production_ThreeKnifeController;
+use App\Http\Controllers\MesinKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
 use App\Http\Controllers\PerfectBindController;
 use App\Http\Controllers\StapleBindController;
@@ -560,12 +560,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/PerfectBind/approve/decline/{id}', [PerfectBindController::class, 'approve_decline'])->name('perfect_bind.approve.decline');
     Route::get('/Production/PerfectBind/delete/{id}', [PerfectBindController::class, 'delete'])->name('perfect_bind.delete');
 
-    // Production_ThreeKnife
-    Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife');
-    Route::get('/Production/Production_ThreeKnife/view', [Production_ThreeKnifeController::class, 'view'])->name('Production_ThreeKnife.view');
-    Route::get('/Production/Production_ThreeKnife/create', [Production_ThreeKnifeController::class, 'create'])->name('Production_ThreeKnife.create');
-    Route::get('/Production/Production_ThreeKnife/edit', [Production_ThreeKnifeController::class, 'edit'])->name('Production_ThreeKnife.edit');
-    Route::get('/Production/Production_ThreeKnife/proses', [Production_ThreeKnifeController::class, 'proses'])->name('Production_ThreeKnife.proses');
+    // Mesin Knife
+    Route::get('/Production/MesinKnife', [MesinKnifeController::class, 'index'])->name('mesin_knife');
+    Route::get('/Production/MesinKnife/data', [MesinKnifeController::class, 'Data'])->name('mesin_knife.data');
+    Route::get('/Production/MesinKnife/create', [MesinKnifeController::class, 'create'])->name('mesin_knife.create');
+    Route::post('/Production/MesinKnife/store', [MesinKnifeController::class, 'store'])->name('mesin_knife.store');
+    Route::get('/Production/MesinKnife/view/{id}', [MesinKnifeController::class, 'view'])->name('mesin_knife.view');
+    Route::get('/Production/MesinKnife/edit/{id}', [MesinKnifeController::class, 'edit'])->name('mesin_knife.edit');
+    Route::post('/Production/MesinKnife/update/{id}', [MesinKnifeController::class, 'update'])->name('mesin_knife.update');
+    Route::get('/Production/MesinKnife/proses/{id}', [MesinKnifeController::class, 'proses'])->name('mesin_knife.proses');
+    Route::post('/Production/MesinKnife/proses_update/{id}', [MesinKnifeController::class, 'proses_update'])->name('mesin_knife.proses.update');
+    Route::post('/Production/MesinKnife/Machine/Starter', [MesinKnifeController::class, 'machine_starter'])->name('mesin_knife.machine.starter');
+    Route::get('/Production/MesinKnife/verify/{id}', [MesinKnifeController::class, 'verify'])->name('mesin_knife.verify');
+    Route::post('/Production/MesinKnife/approve/approve/{id}', [MesinKnifeController::class, 'approve_approve'])->name('mesin_knife.approve.approve');
+    Route::post('/Production/MesinKnife/approve/decline/{id}', [MesinKnifeController::class, 'approve_decline'])->name('mesin_knife.approve.decline');
+    Route::get('/Production/MesinKnife/delete/{id}', [MesinKnifeController::class, 'delete'])->name('mesin_knife.delete');
 
     // BorangeSerahKerja
     Route::get('/Production/BorangeSerahKerja', [BorangeSerahKerjaController::class, 'index'])->name('BorangeSerahKerja');

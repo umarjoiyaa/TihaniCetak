@@ -877,7 +877,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin Perfect Bind</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Production_ThreeKnife') }}"
+                                                                        href="{{ route('mesin_knife') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
