@@ -34,18 +34,17 @@ use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
 use App\Http\Controllers\PrintingProcess_TextController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\Production_ThreeKnifeController;
+use App\Http\Controllers\MesinKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
-use App\Http\Controllers\ProductionJobSheet_PrefecBindController;
-use App\Http\Controllers\ProductionJobSheet_StapleBINDController;
+use App\Http\Controllers\PerfectBindController;
+use App\Http\Controllers\StapleBindController;
 use App\Http\Controllers\ProductionJobSheet_textController;
 use App\Http\Controllers\ProductionReportController;
-use App\Http\Controllers\ProductSCHEDULINIGController;
+use App\Http\Controllers\ProductionSchedulingController;
 use App\Http\Controllers\ProsesPencetakanController;
 use App\Http\Controllers\RekodSerahanPlateController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
-use App\Http\Controllers\ShoopFloorController;
 use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\Stock_InController;
 use App\Http\Controllers\Stock_Transfer_locationController;
@@ -56,12 +55,7 @@ use App\Http\Controllers\UomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanSaddleController;
-use App\Http\Controllers\ProsesLipatController;
 use App\Http\Controllers\ProsesPembungkusanController;
-use App\Http\Controllers\ProsesPemgumpulangatheringController;
-use App\Http\Controllers\ProsesPemotonganKulitBukuController;
-use App\Http\Controllers\ProsesPenJilidanPrefectBindController;
-use App\Http\Controllers\ProsesPenJilidanSaddlestitchController;
 use App\Http\Controllers\ProsesThreeKnifeController;
 use App\Http\Controllers\SalesOrderController;
 use App\Http\Controllers\SenariSemakCetakController;
@@ -239,6 +233,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/Mes/SenariSemakCetak', [SenariSemakCetakController::class, 'index'])->name('senari_semak_cetak');
     Route::get('/Mes/SenariSemakCetak/data', [SenariSemakCetakController::class, 'Data'])->name('senari_semak_cetak.data');
     Route::get('/Mes/SenariSemakCetak/create', [SenariSemakCetakController::class, 'create'])->name('senari_semak_cetak.create');
+    Route::get('/MES/SenariSemakCetak/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order'])->name('senari_semak_cetak.sale_order.get');
+    Route::get('/MES/SenariSemakCetakEdit/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order_edit'])->name('senari_semak_cetak_edit.sale_order.get');
     Route::post('/Mes/SenariSemakCetak/store', [SenariSemakCetakController::class, 'store'])->name('senari_semak_cetak.store');
     Route::get('/Mes/SenariSemakCetak/view/{id}', [SenariSemakCetakController::class, 'view'])->name('senari_semak_cetak.view');
     Route::get('/Mes/SenariSemakCetak/edit/{id}', [SenariSemakCetakController::class, 'edit'])->name('senari_semak_cetak.edit');
@@ -487,16 +483,21 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/DigitalPrinting/approve/decline/{id}', [DigitalPrintingController::class, 'approve_decline'])->name('digital_printing.approve.decline');
     Route::get('/Production/DigitalPrinting/delete/{id}', [DigitalPrintingController::class, 'delete'])->name('digital_printing.delete');
 
-    // Cover_endPaper
+    // Cover_end_paper
     Route::get('/Production/CoverAndEndpaper', [Cover_endPaperController::class, 'index'])->name('cover_end_paper');
-        Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
-        Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
-        Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
-        Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
-        Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
-        Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
-        Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
-        Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
+    Route::get('/Production/CoverAndEndpaper/data', [Cover_endPaperController::class, 'Data'])->name('cover_end_paper.data');
+    Route::get('/Production/CoverAndEndpaper/create', [Cover_endPaperController::class, 'create'])->name('cover_end_paper.create');
+    Route::post('/Production/CoverAndEndpaper/store', [Cover_endPaperController::class, 'store'])->name('cover_end_paper.store');
+    Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
+    Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
+    Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
+    Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
+    Route::post('/Production/CoverAndEndpaper/proses_update/{id}', [Cover_endPaperController::class, 'proses_update'])->name('cover_end_paper.proses.update');
+    Route::post('/Production/CoverAndEndpaper/Machine/Starter', [Cover_endPaperController::class, 'machine_starter'])->name('cover_end_paper.machine.starter');
+    Route::get('/Production/CoverAndEndpaper/verify/{id}', [Cover_endPaperController::class, 'verify'])->name('cover_end_paper.verify');
+    Route::post('/Production/CoverAndEndpaper/approve/approve/{id}', [Cover_endPaperController::class, 'approve_approve'])->name('cover_end_paper.approve.approve');
+    Route::post('/Production/CoverAndEndpaper/approve/decline/{id}', [Cover_endPaperController::class, 'approve_decline'])->name('cover_end_paper.approve.decline');
+    Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
 
     // ProductionJobSheet - Text
     Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text');
@@ -523,26 +524,53 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/MesinLipat/approve/decline/{id}', [ProductionJobSheet_MesinLipatController::class, 'approve_decline'])->name('mesin_lipat.approve.decline');
     Route::get('/Production/MesinLipat/delete/{id}', [ProductionJobSheet_MesinLipatController::class, 'delete'])->name('mesin_lipat.delete');
 
-    // ProductionJobSheet_StapleBIND
-    Route::get('/Production/ProductionJobSheet_StapleBIND', [ProductionJobSheet_StapleBINDController::class, 'index'])->name('ProductionJobSheet_StapleBind');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/view', [ProductionJobSheet_StapleBINDController::class, 'view'])->name('ProductionJobSheet_StapleBIND.view');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/create', [ProductionJobSheet_StapleBINDController::class, 'create'])->name('ProductionJobSheet_StapleBIND.create');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/edit', [ProductionJobSheet_StapleBINDController::class, 'edit'])->name('ProductionJobSheet_StapleBIND.edit');
-    Route::get('/Production/ProductionJobSheet_StapleBIND/proses', [ProductionJobSheet_StapleBINDController::class, 'proses'])->name('ProductionJobSheet_StapleBIND.proses');
+    // Staple Bind
+    Route::get('/Production/StapleBind', [StapleBindController::class, 'index'])->name('staple_bind');
+    Route::get('/Production/StapleBind/data', [StapleBindController::class, 'Data'])->name('staple_bind.data');
+    Route::get('/Production/StapleBind/create', [StapleBindController::class, 'create'])->name('staple_bind.create');
+    Route::post('/Production/StapleBind/store', [StapleBindController::class, 'store'])->name('staple_bind.store');
+    Route::get('/Production/StapleBind/view/{id}', [StapleBindController::class, 'view'])->name('staple_bind.view');
+    Route::get('/Production/StapleBind/edit/{id}', [StapleBindController::class, 'edit'])->name('staple_bind.edit');
+    Route::post('/Production/StapleBind/update/{id}', [StapleBindController::class, 'update'])->name('staple_bind.update');
+    Route::get('/Production/StapleBind/proses/{id}', [StapleBindController::class, 'proses'])->name('staple_bind.proses');
+    Route::post('/Production/StapleBind/proses_update/{id}', [StapleBindController::class, 'proses_update'])->name('staple_bind.proses.update');
+    Route::post('/Production/StapleBind/Machine/Starter', [StapleBindController::class, 'machine_starter'])->name('staple_bind.machine.starter');
+    Route::get('/Production/StapleBind/verify/{id}', [StapleBindController::class, 'verify'])->name('staple_bind.verify');
+    Route::post('/Production/StapleBind/approve/approve/{id}', [StapleBindController::class, 'approve_approve'])->name('staple_bind.approve.approve');
+    Route::post('/Production/StapleBind/approve/decline/{id}', [StapleBindController::class, 'approve_decline'])->name('staple_bind.approve.decline');
+    Route::get('/Production/StapleBind/delete/{id}', [StapleBindController::class, 'delete'])->name('staple_bind.delete');
 
-    // ProductionJobSheet_PrefecBind
-    Route::get('/Production/ProductionJobSheet_PrefecBind', [ProductionJobSheet_PrefecBindController::class, 'index'])->name('ProductionJobSheet_PrefecBind');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/view', [ProductionJobSheet_PrefecBindController::class, 'view'])->name('ProductionJobSheet_PrefecBind.view');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/create', [ProductionJobSheet_PrefecBindController::class, 'create'])->name('ProductionJobSheet_PrefecBind.create');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/edit', [ProductionJobSheet_PrefecBindController::class, 'edit'])->name('ProductionJobSheet_PrefecBind.edit');
-    Route::get('/Production/ProductionJobSheet_PrefecBind/proses', [ProductionJobSheet_PrefecBindController::class, 'proses'])->name('ProductionJobSheet_PrefecBind.proses');
+    // Perfect Bind
+    Route::get('/Production/PerfectBind', [PerfectBindController::class, 'index'])->name('perfect_bind');
+    Route::get('/Production/PerfectBind/data', [PerfectBindController::class, 'Data'])->name('perfect_bind.data');
+    Route::get('/Production/PerfectBind/create', [PerfectBindController::class, 'create'])->name('perfect_bind.create');
+    Route::post('/Production/PerfectBind/store', [PerfectBindController::class, 'store'])->name('perfect_bind.store');
+    Route::get('/Production/PerfectBind/view/{id}', [PerfectBindController::class, 'view'])->name('perfect_bind.view');
+    Route::get('/Production/PerfectBind/edit/{id}', [PerfectBindController::class, 'edit'])->name('perfect_bind.edit');
+    Route::post('/Production/PerfectBind/update/{id}', [PerfectBindController::class, 'update'])->name('perfect_bind.update');
+    Route::get('/Production/PerfectBind/proses/{id}', [PerfectBindController::class, 'proses'])->name('perfect_bind.proses');
+    Route::post('/Production/PerfectBind/proses_update/{id}', [PerfectBindController::class, 'proses_update'])->name('perfect_bind.proses.update');
+    Route::post('/Production/PerfectBind/Machine/Starter', [PerfectBindController::class, 'machine_starter'])->name('perfect_bind.machine.starter');
+    Route::get('/Production/PerfectBind/verify/{id}', [PerfectBindController::class, 'verify'])->name('perfect_bind.verify');
+    Route::post('/Production/PerfectBind/approve/approve/{id}', [PerfectBindController::class, 'approve_approve'])->name('perfect_bind.approve.approve');
+    Route::post('/Production/PerfectBind/approve/decline/{id}', [PerfectBindController::class, 'approve_decline'])->name('perfect_bind.approve.decline');
+    Route::get('/Production/PerfectBind/delete/{id}', [PerfectBindController::class, 'delete'])->name('perfect_bind.delete');
 
-    // Production_ThreeKnife
-    Route::get('/Production/Production_ThreeKnife', [Production_ThreeKnifeController::class, 'index'])->name('Production_ThreeKnife');
-    Route::get('/Production/Production_ThreeKnife/view', [Production_ThreeKnifeController::class, 'view'])->name('Production_ThreeKnife.view');
-    Route::get('/Production/Production_ThreeKnife/create', [Production_ThreeKnifeController::class, 'create'])->name('Production_ThreeKnife.create');
-    Route::get('/Production/Production_ThreeKnife/edit', [Production_ThreeKnifeController::class, 'edit'])->name('Production_ThreeKnife.edit');
-    Route::get('/Production/Production_ThreeKnife/proses', [Production_ThreeKnifeController::class, 'proses'])->name('Production_ThreeKnife.proses');
+    // Mesin Knife
+    Route::get('/Production/MesinKnife', [MesinKnifeController::class, 'index'])->name('mesin_knife');
+    Route::get('/Production/MesinKnife/data', [MesinKnifeController::class, 'Data'])->name('mesin_knife.data');
+    Route::get('/Production/MesinKnife/create', [MesinKnifeController::class, 'create'])->name('mesin_knife.create');
+    Route::post('/Production/MesinKnife/store', [MesinKnifeController::class, 'store'])->name('mesin_knife.store');
+    Route::get('/Production/MesinKnife/view/{id}', [MesinKnifeController::class, 'view'])->name('mesin_knife.view');
+    Route::get('/Production/MesinKnife/edit/{id}', [MesinKnifeController::class, 'edit'])->name('mesin_knife.edit');
+    Route::post('/Production/MesinKnife/update/{id}', [MesinKnifeController::class, 'update'])->name('mesin_knife.update');
+    Route::get('/Production/MesinKnife/proses/{id}', [MesinKnifeController::class, 'proses'])->name('mesin_knife.proses');
+    Route::post('/Production/MesinKnife/proses_update/{id}', [MesinKnifeController::class, 'proses_update'])->name('mesin_knife.proses.update');
+    Route::post('/Production/MesinKnife/Machine/Starter', [MesinKnifeController::class, 'machine_starter'])->name('mesin_knife.machine.starter');
+    Route::get('/Production/MesinKnife/verify/{id}', [MesinKnifeController::class, 'verify'])->name('mesin_knife.verify');
+    Route::post('/Production/MesinKnife/approve/approve/{id}', [MesinKnifeController::class, 'approve_approve'])->name('mesin_knife.approve.approve');
+    Route::post('/Production/MesinKnife/approve/decline/{id}', [MesinKnifeController::class, 'approve_decline'])->name('mesin_knife.approve.decline');
+    Route::get('/Production/MesinKnife/delete/{id}', [MesinKnifeController::class, 'delete'])->name('mesin_knife.delete');
 
     // BorangeSerahKerja
     Route::get('/Production/BorangeSerahKerja', [BorangeSerahKerjaController::class, 'index'])->name('BorangeSerahKerja');
@@ -560,8 +588,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerja_Teks/edit', [BorangeSerahKerja_TeksController::class, 'edit'])->name('BorangeSerahKerja_Teks.edit');
     Route::get('/Production/BorangeSerahKerja_Teks/verify', [BorangeSerahKerja_TeksController::class, 'verify'])->name('BorangeSerahKerja_Teks.verify');
 
-    // ProductSCHEDULINIG
-    Route::get('/Production/ProductSCHEDULINIG', [ProductSCHEDULINIGController::class, 'index'])->name('ProductSchedulinig');
+    // Production Scheduling
+    Route::get('/Production/ProductionScheduling', [ProductionSchedulingController::class, 'index'])->name('production_scheduling');
+    Route::get('/Production/ProductionScheduling/detail', [ProductionSchedulingController::class, 'detail'])->name('production_scheduling.detail');
 
     // PrintingProcess_Text
     Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text');

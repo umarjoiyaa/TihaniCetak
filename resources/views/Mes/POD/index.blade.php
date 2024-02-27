@@ -31,7 +31,7 @@
                                     <td rowspan="2">Kod Buku</td>
                                     <td rowspan="2">Tajuk</td>
                                     <td colspan="7" class="text-center">File Artwork</td>
-                                    <td colspan="11" class="text-center">imposition</td>
+                                    <td colspan="11" class="text-center">First Piece</td>
                                     <td rowspan="2">Status</td>
                                     <td rowspan="2">Action</td>
                                 </tr>

@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\CoverAndEndpaper;
+use App\Models\CoverEndPaperDetail;
+use App\Models\CoverEndPaperDetailB;
 use App\Models\Supplier;
+use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -146,28 +150,23 @@ class Cover_endPaperController extends Controller
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('cover_end_paper.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>';
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>';
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -268,28 +267,23 @@ class Cover_endPaperController extends Controller
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('cover_end_paper.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('cover_end_paper.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Declined') {
+                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>';
+                } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Verified') {
+                    <a class="dropdown-item" href="' . route('cover_end_paper.verify', $row->id) . '">Verify</a>';
+                } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('cover_end_paper.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('cover_end_paper.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -434,13 +428,6 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_input_2 = $request->finishing_input_2;
         $cover_end_paper->finishing_input_3 = $request->finishing_input_3;
 
-
-
-
-
-
-
-
         $cover_end_paper->status = 'Not-initiated';
         $cover_end_paper->save();
 
@@ -448,7 +435,30 @@ class Cover_endPaperController extends Controller
         return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Created Successfully !');
     }
 
+    public function edit($id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Update')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $cover_end_paper = CoverAndEndpaper::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
+        return view('Production.Cover_endPaper.edit', compact('cover_end_paper', 'suppliers'));
+    }
 
+    public function view($id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $cover_end_paper = CoverAndEndpaper::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        $users = User::all();
+        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER View');
+        return view('Production.Cover_endPaper.view', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+    }
 
     public function update(Request $request,$id)
     {
@@ -541,13 +551,6 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_input_2 = $request->finishing_input_2;
         $cover_end_paper->finishing_input_3 = $request->finishing_input_3;
 
-
-
-
-
-
-
-
         $cover_end_paper->status = 'Not-initiated';
         $cover_end_paper->save();
 
@@ -555,22 +558,194 @@ class Cover_endPaperController extends Controller
         return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Updated Successfully !');
     }
 
-    public function edit($id){
-        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Update')) {
+    public function proses($id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Proses')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $cover_end_paper = CoverAndEndpaper::find($id);
+        $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
+        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
-        return view('Production.Cover_endPaper.edit', compact('cover_end_paper', 'suppliers'));
+        return view('Production.Cover_endPaper.proses', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
+    public function proses_update(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $storedData = json_decode($request->input('details'), true);
+        $Cover_endPaper = CoverAndEndpaper::find($id);
+        $Cover_endPaper->operator = json_encode($request->operator);
+        $Cover_endPaper->save();
 
-    public function proses(){
-        return view('Production.Cover_endPaper.proses');
+        $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->delete();
+
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = new CoverEndPaperDetailB();
+                $detail->cover_paper_detail_id = $value['hiddenId'] ?? null;
+                $detail->side = $value['side'] ?? null;
+                $detail->last_print = $value['last_print'] ?? null;
+                $detail->waste_paper = $value['waste_paper'] ?? null;
+                $detail->rejection = $value['rejection'] ?? null;
+                $detail->good_count = $value['good_count'] ?? null;
+                $detail->check_operator_text = $value['check_operator_text'] ?? null;
+                $detail->save();
+            }
+        }
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Proses Update');
+        return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Proses Updated Successfully !');
     }
 
-    public function view(){
-        return view('Production.Cover_endPaper.view');
+    public function verify($id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $cover_end_paper = CoverAndEndpaper::find($id);
+        $users = User::all();
+        $suppliers = Supplier::select('id', 'name')->get();
+        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
+        return view('Production.Cover_endPaper.verify', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function approve_approve(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $Cover_endPaper = CoverAndEndpaper::find($id);
+        $Cover_endPaper->status = 'verified';
+        $Cover_endPaper->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $Cover_endPaper->verified_by_user = Auth::user()->user_name;
+        $Cover_endPaper->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $Cover_endPaper->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $Cover_endPaper->save();
+
+        $storedData = json_decode($request->input('details'), true);
+
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = CoverEndPaperDetailB::where('cover_paper_detail_id', '=', $value['hiddenId'])->first();
+                $detail->check_verify_text = $value['check_verify_text'] ?? null;
+                $detail->save();
+            }
+        }
+
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Verified');
+        return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Successfully Verified!');
+    }
+
+    public function approve_decline(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $Cover_endPaper = CoverAndEndpaper::find($id);
+        $Cover_endPaper->status = 'declined';
+        $Cover_endPaper->save();
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Declined');
+        return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Successfully Declined!');
+    }
+
+    public function delete($id){
+        if (!Auth::user()->hasPermissionTo('COVER & ENDPAPER Delete')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $Cover_endPaper = CoverAndEndpaper::find($id);
+        CoverEndPaperDetail::where('cover_paper_id', $id)->delete();
+        CoverEndPaperDetailB::where('cover_paper_detail_id', $id)->delete();
+        $Cover_endPaper->delete();
+        Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Delete');
+        return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Successfully Deleted!');
+    }
+
+    public function machine_starter(Request $request)
+    {
+        $ismachinestart = null;
+
+        $JustSelected = CoverAndEndpaper::where('id', '=', $request->cover_paper_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+
+        if(!empty($JustSelected)){
+            $ismachinestart = CoverEndPaperDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('cover_paper_id', '!=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+        }
+
+        $alreadyexist = CoverEndPaperDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('cover_paper_id', '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+        $alreadypaused = CoverEndPaperDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('cover_paper_id', '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+        $stopped = CoverEndPaperDetail::where('machine', '=', $request->machine)->where('cover_paper_id', '=', $request->cover_paper_id)->where('status', '=', 3)->first();
+
+        if (!$ismachinestart) {
+
+            if ($request->status == 1 && !$alreadyexist && !$stopped) {
+
+                CoverEndPaperDetail::create([
+                    'machine' => $request->machine,
+                    'cover_paper_id' => $request->cover_paper_id,
+                    'status' => $request->status,
+                    'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
+                ]);
+                $digital = CoverAndEndpaper::find($request->cover_paper_id);
+                $digital->status = 'Started';
+                $digital->save();
+                $check_machine = CoverEndPaperDetail::where('machine', '=', $request->machine)->where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+                $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 2 && $alreadypaused && !$stopped) {
+
+                $mpo = CoverEndPaperDetail::where('machine', $request->machine)->where('cover_paper_id', $request->cover_paper_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = CoverAndEndpaper::find($request->cover_paper_id);
+                $digital->status = 'Paused';
+                $digital->save();
+                $check_machine = CoverEndPaperDetail::where('machine', '=', $request->machine)->where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+                $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 3 && !$stopped) {
+                $mpo = CoverEndPaperDetail::where('machine', $request->machine)->where('cover_paper_id', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = CoverAndEndpaper::find($request->cover_paper_id);
+                $digital->status = 'Completed';
+                $digital->save();
+                $check_machine = CoverEndPaperDetail::where('machine', '=', $request->machine)->where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+                $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            }
+        }
     }
 }

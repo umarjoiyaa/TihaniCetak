@@ -1041,21 +1041,32 @@
         }
 
         $('#saveModal').on('click', function() {
+            let last_print = $('#modalTable tbody').find('.last_print').val();
+            let waste_print = $('#modalTable tbody').find('.waste_print').val();
+            let rejection = $('#modalTable tbody').find('.rejection').val();
+            let good_count = $('#modalTable tbody').find('.good_count').val();
+            let meter_click = $('#modalTable tbody').find('.meter_click').val();
+            let check_operator_text = $('#modalTable tbody').find('.check_operator_text').val();
             let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
             let hiddenId = $('.digital_printing_detail_id').val();
 
             let dataObject = {
+                last_print: last_print,
+                waste_print: waste_print,
+                rejection: rejection,
+                good_count: good_count,
+                meter_click: meter_click,
+                check_operator_text: check_operator_text,
                 check_verify_text: check_verify_text,
                 hiddenId: hiddenId
             };
-
-            sessionStorage.setItem(`formDataNew${hiddenId}`, JSON.stringify(dataObject));
+            sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
         });
 
         $('#saveForm').on('click', function() {
             let array = [];
             $('.hiddenId').each(function() {
-                let storedData = sessionStorage.getItem(`formDataNew${$(this).val()}`);
+                let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
                 array.push(JSON.parse(storedData));
             });
             $('#storedData').val(JSON.stringify(array));

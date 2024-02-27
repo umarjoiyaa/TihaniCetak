@@ -6,11 +6,12 @@
                 <div class="card">
                     <div class="card-body">
 
-                        <div class="row">
-                            <div class="col-md-12">
-                                <h5><b>LAPORAN PEMERIKSAAN KUALITI - PROSES LIPAT</b></h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">LAPORAN PEMERIKSAAN KUALITI - PROSES LIPAT</h5>
+                                    <p class="float-right">TCSB-B23 (Rev.5)</p>
+                                </div>
                             </div>
-                        </div>
                         <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
                                 <div class="row">

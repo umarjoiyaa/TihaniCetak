@@ -9,7 +9,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - POD</b></h5>
-                            <p class="float-right">TCBS-B61 (Rev.0)</p>
+                            <p class="float-right">TCBS-B23 (Rev.5)</p>
                         </div>
                     </div>
 
@@ -81,13 +81,13 @@
                                         <tbody>
 
                                             <tr>
-                                                <td>Format file</td>
+                                                <td>Design clearance (5mm)</td>
                                                 <td><input type="checkbox" disabled  class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox"  disabled class="Cover1" onchange="handleCheckboxChange('Cover1',this)" name="file_artwork_1" @checked($pod->file_artwork_1 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz Product</td>
+                                                <td>Image artwork</td>
                                                 <td><input type="checkbox" disabled  class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2"  @checked($pod->file_artwork_2 == 'ok') value="ok"  id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text1" onchange="handleCheckboxChange('Text1',this)" name="file_artwork_2" @checked($pod->file_artwork_2 == 'na') value="na" id=""></td>
@@ -99,7 +99,7 @@
                                                 <td><input type="checkbox" disabled  class="Cover2" onchange="handleCheckboxChange('Cover2',this)" name="file_artwork_3" @checked($pod->file_artwork_3 == 'na') value="na"id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz Spine</td>
+                                                <td>Saiz spine (perfect bind)</td>
                                                 <td><input type="checkbox" disabled   disabled   class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
                                                 <td><input type="checkbox"  disabled class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng')value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'na') value="na" id=""></td>
@@ -146,70 +146,70 @@
                                         <tbody>
 
                                             <tr>
-                                                <td>Front and Back imposition</td>
+                                                <td>Jenis kertas</td>
                                                 <td><input type="checkbox" disabled class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover5" onchange="handleCheckboxChange('Cover5',this)" name="first_piece_1" @checked($pod->first_piece_1 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Kedudukan imposition</td>
+                                                <td>Saiz produk</td>
                                                 <td><input type="checkbox" disabled class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text5" onchange="handleCheckboxChange('Text5',this)" name="first_piece_2" @checked($pod->first_piece_2 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Saiz spacing</td>
+                                                <td>Artwork (gambar, teks)</td>
                                                 <td><input type="checkbox" disabled  class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Cover6" onchange="handleCheckboxChange('Cover6',this)" name="first_piece_3" @checked($pod->first_piece_3 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Printing method (Straight @ Perfecting)</td>
+                                                <td>Design clearance (5mm)</td>
                                                 <td><input type="checkbox" disabled class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text6" onchange="handleCheckboxChange('Text6',this)" name="first_piece_4" @checked($pod->first_piece_4 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Jumlah Up</td>
+                                                <td>Warna</td>
                                                 <td><input type="checkbox" disabled class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover7" onchange="handleCheckboxChange('Cover7',this)" name="first_piece_5" @checked($pod->first_piece_5 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Dummy Lipat</td>
+                                                <td>Jumlah muka surat </td>
                                                 <td><input type="checkbox" disabled class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'ok') value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text7" onchange="handleCheckboxChange('Text7',this)" name="first_piece_6" @checked($pod->first_piece_6 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Jenis Penjilidan </td>
+                                                <td>Turutan muka surat  </td>
                                                 <td><input type="checkbox" disabled class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'ok')  value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'ng')  value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Cover8" onchange="handleCheckboxChange('Cover8',this)" name="first_piece_7" @checked($pod->first_piece_7 == 'na')  value="na" id=""></td>
                                             </tr>
                                             <tr>
-                                                <td>Jenis Kertas</td>
+                                                <td>Bleed</td>
                                                 <td><input type="checkbox" disabled  class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'ok')  value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'ng')  value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled  class="Text8" onchange="handleCheckboxChange('Text8',this)" name="first_piece_8" @checked($pod->first_piece_8 == 'na')  value="na" id=""></td>
 
                                             </tr>
                                             <tr>
-                                                <td>Jenis Kertas</td>
+                                                <td>Crop mark</td>
                                                 <td><input type="checkbox" disabled   class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'ok')  value="ok" id=""></td>
                                                 <td><input type="checkbox"  disabled  class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'ng')  value="ng" id=""></td>
                                                 <td><input type="checkbox"  disabled  class="Text9" onchange="handleCheckboxChange('Text9',this)" name="first_piece_9" @checked($pod->first_piece_9 == 'na')  value="na" id=""></td>
 
                                             </tr>
                                             <tr>
-                                                <td>Jenis Kertas</td>
+                                                <td>Kedudukan cetakan depan  belakang / print register</td>
                                                 <td><input type="checkbox" disabled class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'ok')  value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'ng')  value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text10" onchange="handleCheckboxChange('Text10',this)" name="first_piece_10" @checked($pod->first_piece_10 == 'na')  value="na" id=""></td>
 
                                             </tr>
                                             <tr>
-                                                <td>Jenis Kertas</td>
+                                                <td>Jenis penjilidan</td>
                                                 <td><input type="checkbox" disabled class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'ok')  value="ok" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'ng')  value="ng" id=""></td>
                                                 <td><input type="checkbox" disabled class="Text11" onchange="handleCheckboxChange('Text11',this)" name="first_piece_11" @checked($pod->first_piece_11 == 'na')  value="na" id=""></td>

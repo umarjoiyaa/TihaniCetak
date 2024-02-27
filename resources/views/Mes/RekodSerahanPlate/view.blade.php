@@ -4,7 +4,12 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5>Senarai Semak Pencetakan Digital</h5>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h5 class="float-left">REKOD SERAHAN PLATE CETAK DAN SAMPLE</h5>
+                                    <p class="float-right">TCSB-BO4(Rev.11)</p>
+                                </div>
+                            </div>
 
                         <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
