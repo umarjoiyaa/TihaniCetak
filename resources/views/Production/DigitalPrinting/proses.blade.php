@@ -863,6 +863,7 @@
                         <input type="hidden" class="digital_printing_detail_id">
                     </div>
                     <div class="modal-body">
+                        <div class="table-responsive">
                         <table class="table table-bordered" id="modalTable">
                             <thead>
                                 <tr>
@@ -899,6 +900,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

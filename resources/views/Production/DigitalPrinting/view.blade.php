@@ -720,36 +720,36 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered" id="jobsheet_detail_table">
                                         <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total Time(min)</th>
+                                                <th>Machine</th>
+                                                <th>Remarks</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
                                                 <tr>
-                                                    <th>Action</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total Time(min)</th>
-                                                    <th>Machine</th>
-                                                    <th>Remarks</th>
-                                                    <th>Operator</th>
+                                                    <td><button type="button" data-toggle="modal"
+                                                            data-target="#exampleModal"
+                                                            class="btn btn-primary openModal">+</button>
+                                                        <input type="hidden" class="hiddenId"
+                                                            value="{{ $detail->id }}">
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td>{{ $detail->remarks }}</td>
+                                                    <td class="operator_text"></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
-                                                    <tr>
-                                                        <td><button type="button" data-toggle="modal"
-                                                                data-target="#exampleModal"
-                                                                class="btn btn-primary openModal">+</button>
-                                                            <input type="hidden" class="hiddenId"
-                                                                value="{{ $detail->id }}">
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -861,18 +861,19 @@
                     </div>
                     <div class="row d-flex">
                         <div class="col-md-12 d-flex justify-content-end">
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width:1000px; margin-left:-350px;">
-                                            <div class="modal-header">
-                                                <h5 class="modal-title" id="exampleModalLabel">Production Output Details
-                                                </h5>
-                                                <span aria-hidden="true">&times;</span>
-                                                <input type="hidden" class="digital_printing_detail_id">
-                                            </div>
-                                            <div class="modal-body">
+                            <!-- Modal -->
+                            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">Production Output Details
+                                            </h5>
+                                            <span aria-hidden="true">&times;</span>
+                                            <input type="hidden" class="digital_printing_detail_id">
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="table-responsive">
                                                 <table class="table table-bordered" id="modalTable">
                                                     <thead>
                                                         <tr>
@@ -915,13 +916,14 @@
                                                     </tbody>
                                                 </table>
                                             </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-secondary"
-                                                    data-dismiss="modal">Close</button>
-                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                         </div>
                     </div>
                 </div>

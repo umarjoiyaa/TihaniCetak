@@ -666,8 +666,7 @@
                                                 <td><button type="button" data-toggle="modal"
                                                         data-target="#exampleModal"
                                                         class="btn btn-primary openModal">+</button>
-                                                    <input type="hidden" class="hiddenId"
-                                                        value="{{ $detail->id }}">
+                                                    <input type="hidden" class="hiddenId" value="{{ $detail->id }}">
                                                 </td>
                                                 <td>{{ $detail->start_time }}</td>
                                                 <td>{{ $detail->end_time }}</td>
@@ -805,47 +804,53 @@
                     <input type="hidden" class="cover_paper_detail_id">
                 </div>
                 <div class="modal-body">
-                    <table class="table table-bordered" id="modalTable">
-                        <thead>
-                            <tr>
-                                <th>Side</th>
-                                <th>Last Print</th>
-                                <th>Waste paper</th>
-                                <th>Rejection</th>
-                                <th>Good count</th>
-                                <th>Check</th>
-                                <th></th>
-                                <th>Verify</th>
-                                <th></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><select name="" id="" class="form-control side">
-                                        <option value="">Select Side</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="A/B">A/B</option>
-                                    </select></td>
-                                <td><input type="text" name="" id="" class="form-control last_print">
-                                </td>
-                                <td><input type="text" name="" id=""
-                                        class="form-control waste_paper"></td>
-                                <td><input type="text" name="" id="" class="form-control rejection">
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control good_count"></td>
-                                <td><button disabled type="button" class="btn btn-primary check_operator">Check</button>
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control check_operator_text"></td>
-                                <td><button disabled type="button" class="btn btn-primary check_verify">Verify</button>
-                                </td>
-                                <td><input type="text" name="" id="" readonly
-                                        class="form-control check_verify_text"></td>
-                            </tr>
-                        </tbody>
-                    </table>
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="modalTable">
+                            <thead>
+                                <tr>
+                                    <th>Side</th>
+                                    <th>Last Print</th>
+                                    <th>Waste paper</th>
+                                    <th>Rejection</th>
+                                    <th>Good count</th>
+                                    <th>Check</th>
+                                    <th></th>
+                                    <th>Verify</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><select name="" id="" class="form-control side">
+                                            <option value="">Select Side</option>
+                                            <option value="A">A</option>
+                                            <option value="B">B</option>
+                                            <option value="A/B">A/B</option>
+                                        </select></td>
+                                    <td><input type="text" name="" id=""
+                                            class="form-control last_print">
+                                    </td>
+                                    <td><input type="text" name="" id=""
+                                            class="form-control waste_paper"></td>
+                                    <td><input type="text" name="" id=""
+                                            class="form-control rejection">
+                                    </td>
+                                    <td><input type="text" name="" id="" readonly
+                                            class="form-control good_count"></td>
+                                    <td><button disabled type="button"
+                                            class="btn btn-primary check_operator">Check</button>
+                                    </td>
+                                    <td><input type="text" name="" id="" readonly
+                                            class="form-control check_operator_text"></td>
+                                    <td><button disabled type="button"
+                                            class="btn btn-primary check_verify">Verify</button>
+                                    </td>
+                                    <td><input type="text" name="" id="" readonly
+                                            class="form-control check_verify_text"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

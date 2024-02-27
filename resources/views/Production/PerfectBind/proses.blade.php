@@ -276,36 +276,39 @@
                         <input type="hidden" class="perfect_detail_id">
                     </div>
                     <div class="modal-body">
-                        <table class="table table-bordered" id="modalTable">
-                            <thead>
-                                <tr>
-                                    <th>Good Count</th>
-                                    <th>Rejection</th>
-                                    <th>Total Produce</th>
-                                    <th>Check</th>
-                                    <th></th>
-                                    <th>Verify</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control good_count"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control rejection"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control total_produce" readonly></td>
-                                    <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_operator_text"></td>
-                                    <td><button disabled type="button"
-                                            class="btn btn-primary check_verify">Verify</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_verify_text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="modalTable">
+                                <thead>
+                                    <tr>
+                                        <th>Good Count</th>
+                                        <th>Rejection</th>
+                                        <th>Total Produce</th>
+                                        <th>Check</th>
+                                        <th></th>
+                                        <th>Verify</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control good_count"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control rejection"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control total_produce" readonly></td>
+                                        <td><button type="button" class="btn btn-primary check_operator">Check</button>
+                                        </td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_operator_text"></td>
+                                        <td><button disabled type="button"
+                                                class="btn btn-primary check_verify">Verify</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_verify_text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -474,16 +477,19 @@
         });
 
         function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
         $('#saveForm').on('click', function() {
             let array = [];

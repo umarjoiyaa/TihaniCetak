@@ -720,36 +720,36 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered" id="jobsheet_detail_table">
                                         <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total Time(min)</th>
+                                                <th>Machine</th>
+                                                <th>Remarks</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
                                                 <tr>
-                                                    <th>Action</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total Time(min)</th>
-                                                    <th>Machine</th>
-                                                    <th>Remarks</th>
-                                                    <th>Operator</th>
+                                                    <td><button type="button" data-toggle="modal"
+                                                            data-target="#exampleModal"
+                                                            class="btn btn-primary openModal">+</button>
+                                                        <input type="hidden" class="hiddenId"
+                                                            value="{{ $detail->id }}">
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td>{{ $detail->remarks }}</td>
+                                                    <td class="operator_text"></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
-                                                    <tr>
-                                                        <td><button type="button" data-toggle="modal"
-                                                                data-target="#exampleModal"
-                                                                class="btn btn-primary openModal">+</button>
-                                                            <input type="hidden" class="hiddenId"
-                                                                value="{{ $detail->id }}">
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -852,47 +852,51 @@
                                                 <input type="hidden" class="digital_printing_detail_id">
                                             </div>
                                             <div class="modal-body">
-                                                <table class="table table-bordered" id="modalTable">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Last Print</th>
-                                                            <th>Waste Print</th>
-                                                            <th>Rejection</th>
-                                                            <th>Good count</th>
-                                                            <th>Meter Click</th>
-                                                            <th>Check</th>
-                                                            <th></th>
-                                                            <th>Verify</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control last_print">
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control waste_print"></td>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control rejection">
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    readonly class="form-control good_count"></td>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control meter_click"></td>
-                                                            <td><button type="button" disabled
-                                                                    class="btn btn-primary check_operator">Check</button>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    readonly class="form-control check_operator_text"></td>
-                                                            <td><button type="button"
-                                                                    class="btn btn-primary check_verify">Verify</button>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    readonly class="form-control check_verify_text"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="modalTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Last Print</th>
+                                                                <th>Waste Print</th>
+                                                                <th>Rejection</th>
+                                                                <th>Good count</th>
+                                                                <th>Meter Click</th>
+                                                                <th>Check</th>
+                                                                <th></th>
+                                                                <th>Verify</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control last_print">
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control waste_print"></td>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control rejection">
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        readonly class="form-control good_count"></td>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control meter_click"></td>
+                                                                <td><button type="button" disabled
+                                                                        class="btn btn-primary check_operator">Check</button>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        readonly class="form-control check_operator_text">
+                                                                </td>
+                                                                <td><button type="button"
+                                                                        class="btn btn-primary check_verify">Verify</button>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        readonly class="form-control check_verify_text">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -1033,16 +1037,19 @@
         });
 
         function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
         $('#saveModal').on('click', function() {
             let last_print = $('#modalTable tbody').find('.last_print').val();
