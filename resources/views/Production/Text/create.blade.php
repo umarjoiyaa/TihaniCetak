@@ -287,11 +287,11 @@ input:checked + .slider:before {
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td> <input type="text" name="date_parent_section"
-                                                    value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
-                                                    id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
+                                                <td> <input type="text" disabled name="date_parent_section"
+                                                    value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control datepicker"
+                                                    id="datepicker1"  pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                 <td>
-                                                    <select name="mesin_parent_section" id="mesin_section" class="form-control form-select">
+                                                    <select name="mesin_parent_section" disabled id="mesin_section" class="form-control mesin_parent_section form-select">
                                                         <option value="-1" disabled selected>Select any Mesin</option>
                                                         <option value="SMZP (2C)">SMZP (2C)</option>
                                                         <option value="RUOBI (4C)">RUOBI (4C)</option>
@@ -302,19 +302,19 @@ input:checked + .slider:before {
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name="side_parent_section" class="form-control form-select" id="side_">
+                                                    <select name="side_parent_section" disabled class="form-control side_parent_section form-select" id="side_">
                                                         <option value="-1" disabled selected>Select any Side</option>
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
                                                         <option value="A/B">A/B</option>
                                                     </select>
                                                 </td>
-                                                <td><input type="number" name="last_print_parent_section" class="form-control"
+                                                <td><input type="number" disabled name="last_print_parent_section" id="last_print_parent_section" class="form-control "
                                                          id=""></td>
-                                                <td><input type="number" name="kuantiti_waste_parent_section" class="form-control"
+                                                <td><input type="number" disabled name="kuantiti_waste_parent_section" id="kuantiti_waste_parent_section" class="form-control"
                                                          id=""></td>
                                                 <td><label class="switch">
-                                                    <input type="checkbox" checked value="yes">
+                                                    <input type="checkbox" class="action" checked >
                                                     <span class="slider round"></span>
                                                     </label>
                                                 </td>
@@ -604,93 +604,113 @@ input:checked + .slider:before {
             }
         });
 
-        $(document).on('change', '.machine', function () {
+        $(document).on('change', '#datepicker1', function () {
+            var value = $(this).val();
+            $("#child_table tbody tr .datepicker").each(function () {
+                $(this).val(value);
+             });
+        });
+
+        $(document).on('keyup', '#kuantiti_waste_parent_section', function () {
+            var value = $(this).val();
+            $("#child_table tbody tr .kuantiti_waste_section").each(function () {
+                $(this).val(value);
+             });
+        });
+
+        $(document).on('keyup', '#last_print_parent_section', function () {
+            var value = $(this).val();
+            $("#child_table tbody tr .last_print_section").each(function () {
+                $(this).val(value);
+             });
+        });
+
+        $(document).on('change', '.mesin_parent_section', function () {
         var SelectedOptionValue = $(this).val();
-        var ProcessName = $(this).closest("tr").find("td:eq(0)").text();
-        var SectionId = $(this).closest("table").data('id');
-        var ChildTableClass = SectionId + "-" + ProcessName + "-" + "Machine";
-        var selectbox = $("." + ChildTableClass).toArray();
+
+        var selectbox = $(".mesin_section").toArray();
         selectbox.forEach(function (element) {
-            var check = $(element).closest("tr").find(`.${ProcessName}_txt`).prop('checked');
-            if (check) {
                 $(element).val(SelectedOptionValue).trigger('change')
-            }
         })
     });
 
+    $(document).on('change', '.side_parent_section', function () {
+        var SelectedOptionValue = $(this).val();
+
+        var selectbox = $(".side_section").toArray();
+        selectbox.forEach(function (element) {
+                $(element).val(SelectedOptionValue).trigger('change')
+        })
+    });
 
 $(document).on('change', '.action', function () {
     var isChecked = $(this).prop('checked');
 
     if (isChecked) {
         $(this).val(1);
-        $(this).closest("tr").find('.operator').attr('disabled', 'disabled');
-        $(this).closest("tr").find('.machine').attr('disabled', 'disabled');
-        var operator = $(this).closest("tr").find('.operator').data('name');
-        var machine = $(this).closest("tr").find('.machine').data('name');
-        var processName = $(this).closest('tr').find('td:eq(0)').text();
-        var SectionId = $(this).closest("table").data('id');
-        $(".section .table ." + SectionId + "-" + processName + "-" + operator).each(function () {
-            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
-            if (check) {
+        $(this).closest("tr").find('.side_parent_section').attr('disabled', 'disabled');
+        $(this).closest("tr").find('.mesin_parent_section').attr('disabled', 'disabled');
+        $(this).closest("tr").find('#datepicker1').attr('disabled', 'disabled');
+        $(this).closest("tr").find('#last_print_parent_section').attr('disabled', 'disabled');
+        $(this).closest("tr").find('#kuantiti_waste_parent_section').attr('disabled', 'disabled');
+
+
+        $("#child_table tbody tr .mesin_section ").each(function () {
                 $(this).removeAttr('disabled')
-            }
         });
-        $(".section .table ." + SectionId +"-" + processName + "-" + machine).each(function () {
-            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
-            if (check) {
+        $("#child_table tbody tr .side_section ").each(function () {
                 $(this).removeAttr('disabled')
-            }
         });
     } else {
-        $(this).val(0);
 
-        $(this).closest("tr").find('.operator').removeAttr('disabled');
-        $(this).closest("tr").find('.machine').removeAttr('disabled');
-
-        var operator = $(this).closest("tr").find('.operator').data('name');
-        var machine = $(this).closest("tr").find('.machine').data('name');
-        var processName = $(this).closest('tr').find('td:eq(0)').text();
-        var SectionId = $(this).closest("table").data('id');
-        $(".section .table ." + SectionId +"-" + processName + "-" + operator).each(function () {
-            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
-            if (check) {
-                $(this).attr('disabled', 'disabled')
-            }
+        $(this).closest("tr").find('.side_parent_section').removeAttr('disabled');
+        $(this).closest("tr").find('.mesin_parent_section').removeAttr('disabled');
+        $(this).closest("tr").find('#datepicker1').removeAttr('disabled');
+        $(this).closest("tr").find('#last_print_parent_section').removeAttr('disabled');
+        $(this).closest("tr").find('#kuantiti_waste_parent_section').removeAttr('disabled');
+        $("#child_table tbody tr .mesin_section ").each(function () {
+            $(this).attr('disabled', 'disabled')
+        });
+        $("#child_table tbody tr .side_section ").each(function () {
+            $(this).attr('disabled', 'disabled')
         });
 
-        $(".section .table ." + SectionId +"-" + processName + "-" + machine).each(function () {
-            var check = $(this).closest("tr").find(`.${processName}_txt`).prop('checked');
-            if (check) {
-                $(this).attr('disabled', 'disabled')
 
-            }
-        });
     }
 })
 
         $(document).on('change','#seksyen_no',function(){
-            var value = $(this).val();
+            var value = +$(this).val();
+            var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length ;
             if (value > 0 && value < length) {
-                var currentLength = length - value;
-                for (let i = currentLength; i > 0; i--) {
-                    $('#child_table tbody tr.section:last').remove();
-                }
-            } else {
+                    var currentLength = length - value;
+                    console.log("currentLength:", currentLength); // Check the value of currentLength
+                    for (let i = currentLength; i > 0; i--) {
+                        console.log("Iteration:", i); // Check the iteration
+                        $('#child_table tbody tr.section:last').remove();
+                    }
+                } else {
                 for (let i = length; i <= value; i++) {
                     if ($('#child_table tbody tr').length > 0) {
-                        $key = $('#child_table tbody tr').length + 1;
+                        var key = $('#child_table tbody tr').length + 1;
                     }else{
-                        $key = 1;
+                        var key = 1;
                     }
+
+                    if($('.action').prop('checked') != false){
+                        var disable = 'disabled';
+                    }else{
+                        var disable = '';
+                    }
+
                     $('#child_table tbody').append(`
-                    <tr>
+                                                    <tr>
                                                 <td>${i}</td>
-                                                <td> <input type="text" name="date_section"
-                                                    value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
-                                                    id="datepicker" pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
+                                                <td> <input type="text" disable name="date_section[${key}]"
+                                                     class="form-control datepicker"
+                                                    id="datepicker${i}"  pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
                                                 <td>
-                                                    <select name="mesin_section" class="form-control form-select mesin_section" id="machine">
+                                                    <select name="mesin_section[${key}]" disable style="width:100%" id="mesin${i}" class="form-control form-select mesin_section" id="machine">
                                                         <option value="-1" disabled selected>Select any Mesin</option>
                                                         <option value="SMZP (2C)">SMZP (2C)</option>
                                                         <option value="RUOBI (4C)">RUOBI (4C)</option>
@@ -699,30 +719,29 @@ $(document).on('change', '.action', function () {
                                                     </select>
                                                 </td>
                                                 <td>
-                                                    <select name="side_section" class="form-control form-select side_section" id="Ab,A/B">
+                                                    <select name="side_section[${key}]" disable style="width:100%" id="side${i}" class="form-control form-select side_section" id="Ab,A/B">
                                                         <option value="-1" disabled selected>Select any Side</option>
                                                         <option value="A">A</option>
                                                         <option value="B">B</option>
                                                         <option value="A/B">A/B</option>
                                                     </select>
                                                 </td>
-                                                <td><input type="number" name="last_print_section" class="form-control last_print_section"
+                                                <td><input type="number" disable name="last_print_section[${key}]" class="form-control last_print_section"
                                                          id=""></td>
-                                                <td><input type="number" name="kuantiti_waste_section" class="form-control kuantiti_waste_section"
+                                                <td><input type="number" disable name="kuantiti_waste_section[${key}]" class="form-control kuantiti_waste_section"
                                                          id=""></td>
-                                            </tr>
+                                            </tr>`);
 
-
-                    <tr class="section">
-                                     <td>Section </td>
-
-                                     <td><input type="text"  name="bahagianC[${$key}][6]" id="" class="form-control"></td>
-                                 </tr>`);
-
-
+                                            key++
 
                 }
+
             }
+                $('.mesin_section').select2();
+                $('.side_section').select2();
+                $(".datepicker").datepicker({
+                dateFormat: 'dd-mm-yy'
+            });
         })
 
 </script>
