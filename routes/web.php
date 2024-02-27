@@ -233,6 +233,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/Mes/SenariSemakCetak', [SenariSemakCetakController::class, 'index'])->name('senari_semak_cetak');
     Route::get('/Mes/SenariSemakCetak/data', [SenariSemakCetakController::class, 'Data'])->name('senari_semak_cetak.data');
     Route::get('/Mes/SenariSemakCetak/create', [SenariSemakCetakController::class, 'create'])->name('senari_semak_cetak.create');
+    Route::get('/MES/SenariSemakCetak/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order'])->name('senari_semak_cetak.sale_order.get');
+    Route::get('/MES/SenariSemakCetakEdit/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order_edit'])->name('senari_semak_cetak_edit.sale_order.get');
     Route::post('/Mes/SenariSemakCetak/store', [SenariSemakCetakController::class, 'store'])->name('senari_semak_cetak.store');
     Route::get('/Mes/SenariSemakCetak/view/{id}', [SenariSemakCetakController::class, 'view'])->name('senari_semak_cetak.view');
     Route::get('/Mes/SenariSemakCetak/edit/{id}', [SenariSemakCetakController::class, 'edit'])->name('senari_semak_cetak.edit');

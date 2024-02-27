@@ -6,7 +6,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    
+
                                 <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="float-left">Senarai Semak Pra Cetak</h5>
@@ -1170,7 +1170,7 @@
     $(document).ready(function () {
         $('#sale_order').select2({
             ajax: {
-                url: '{{ route('sale_order.get') }}',
+                url: '{{ route('senari_semak_cetak.sale_order.get') }}',
                 dataType: 'json',
                 delay: 1000,
                 data: function (params) {

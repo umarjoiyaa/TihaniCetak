@@ -283,21 +283,20 @@
                         </div>
                         <div class="dropdown main-profile-menu nav nav-item nav-link">
                             <a class="profile-user" href="#"><img alt=""
-                                    src="{{ asset('assets/img/tihani.png') }}"></a>
+                                    src="{{ asset('assets/img/user.png') }}"></a>
                             <div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
-                                <div class="main-header-profile header-img">
-                                    <div class="main-img-user"><img alt=""
-                                            src="{{ asset('assets/img/tihani.png') }}"></div>
-                                    <h6>Elizabeth Jane</h6><span>Premium Member</span>
-                                </div>
-                                <a class="dropdown-item" href="#"><i class="far fa-user"></i> My Profile</a>
-                                <a class="dropdown-item" href="#"><i class="far fa-edit"></i> Edit Profile</a>
-                                <a class="dropdown-item" href="#"><i class="far fa-clock"></i> Activity
-                                    Logs</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-sliders-h"></i> Account
-                                    Settings</a>
-                                <a class="dropdown-item" href="page-signin.html"><i class="fas fa-sign-out-alt"></i>
-                                    Sign Out</a>
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-user"></i>{{ Auth::user()->full_name }}</a>
+                                <a class="dropdown-item" href="#"><i
+                                        class="fas fa-envelope"></i>{{ Auth::user()->email }}</a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                        class="fas fa-sign-out-alt"></i>
+                                    Logout</a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                         <div class="dropdown main-header-message right-toggle">
@@ -916,7 +915,7 @@
                                 </form>
                                 <div class="dropdown nav-item main-header-notification">
                                     <a class="new nav-link " href="#"><i
-                                            class="ti-bell animated bell-animations"></i><span
+                                            class="ti-bell animated bell-animations text-white"></i><span
                                             class=" pulse"></span></a>
                                     <div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
                                         <div class="menu-header-content text-left d-flex">
@@ -1017,10 +1016,20 @@
                                 <div class="dropdown main-profile-menu nav nav-item nav-link">
                                     <a class="profile-user" href="#" id="dropdownMenuLink"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                            alt="" src="{{ asset('assets/img/tihani.png') }}"></a>
-                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                        <a class="dropdown-item" href="page-signin.html"><i
-                                                class="fas fa-sign-out-alt"></i> Sign Out</a>
+                                            alt="" src="{{ asset('assets/img/user.png') }}"></a>
+                                    <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-user"></i>{{ Auth::user()->full_name }}</a>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-envelope"></i>{{ Auth::user()->email }}</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                                class="fas fa-sign-out-alt"></i>
+                                            Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -1738,4 +1747,5 @@
     <script src="{{ asset('assets/plugins/sidebar/sidebar-custom.js') }}"></script>
     @stack('custom-scripts')
 </body>
+
 </html>
