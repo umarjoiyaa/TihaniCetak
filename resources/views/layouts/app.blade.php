@@ -88,6 +88,10 @@
             background:#18002D;
             color:white;
         } */
+        table.dataTable thead th{
+            text-align:center;
+        }
+        
     </style>
 
 </head>
