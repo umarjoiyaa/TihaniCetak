@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+     table thead th {
+            text-align: center;
+        }
+</style>
+@endsection
 @section('content')
 <div class="row">
     <div class="col-md-12">

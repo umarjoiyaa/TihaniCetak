@@ -5,6 +5,9 @@
     .dropdownwidth{
         width:100px;
     }
+    table thead th {
+            text-align: center;
+        }
 </style>
 @endsection
 @section('content')
@@ -22,7 +25,7 @@
                         <a href="{{route('ctp.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped mt-2" id="example1">
+                        <table class="table table-striped mt-2 text-align-center" id="example1">
                             <thead>
                                 <tr>
                                     <th rowspan="2">Date</th>

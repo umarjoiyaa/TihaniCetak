@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="row mt-5" style="background:#f1f0f0;">
-                            <div class="col-md-12 mt-5">
+                            <div class="col-md-12 ">
                                 <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                             </div>
                             <div class="col-md-8 mt-5">
@@ -120,7 +120,7 @@
                             </div>
                         </div>
 
-                        <div class="row mt-5" style="background:#f1f0f0;">
+                        <div class="row " style="background:#f1f0f0;">
                             <div class="col-md-12 mt-5">
                                 <h5><b>C) Pemeriksaan semasa proses lipat</b> </h5>
                                 <h5><b>Petunjuk:</b></h5>
