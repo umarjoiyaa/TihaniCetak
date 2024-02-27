@@ -371,10 +371,13 @@ class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $laporan_pemeriksaan_kualiti_penjilidan_saddle = new LaporanPemeriksaanKualitiPenjilidanSaddle();
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id = $request->sale_order;
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->date = $request->date;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $request->time;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $timeIn12HourFormat;
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->created_by = Auth::user()->id;
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
@@ -436,10 +439,13 @@ class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        $carbonTime = Carbon::createFromFormat('H:i', $request->time);
+        $timeIn12HourFormat = $carbonTime->format('h:i A');
+
         $laporan_pemeriksaan_kualiti_penjilidan_saddle = LaporanPemeriksaanKualitiPenjilidanSaddle::find($id);
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id = $request->sale_order;
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->date = $request->date;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $request->time;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->time = $timeIn12HourFormat;
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->created_by = Auth::user()->id;
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
