@@ -59,6 +59,9 @@
 
     @yield('css')
     <style>
+        .check_operator, .check_verify{
+            width: 340px;
+        }
         .dropdown {
             cursor: pointer;
         }
