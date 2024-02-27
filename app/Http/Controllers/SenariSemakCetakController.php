@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\SaleOrder;
 use App\Models\SenariSemakCetak;
 use App\Models\SenariSemakCetakBahagiaA;
 use App\Models\SenariSemakCetakBahagiaC;
@@ -282,6 +283,54 @@ class SenariSemakCetakController extends Controller
         }
         Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak Create');
         return view('Mes.SenariSemakCetak.create');
+    }
+
+    public function sale_order(Request $request)
+    {
+        $perPage = 10;
+        $page = $request->input('page', 1);
+        $search = $request->input('q');
+
+        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published')->whereNotIn('id', function($subquery) {
+            $subquery->select('sale_order_id')
+                ->from('senari_semak_cetaks');
+        });
+        if ($search) {
+            $query->where('order_no', 'like', '%' . $search . '%');
+        }
+        $heads = $query->paginate($perPage, ['*'], 'page', $page);
+
+        return response()->json([
+            'results' => $heads->items(),
+            'pagination' => [
+                'more' => $heads->hasMorePages(),
+            ],
+        ]);
+    }
+
+    public function sale_order_edit(Request $request)
+    {
+        $perPage = 10;
+        $page = $request->input('page', 1);
+        $search = $request->input('q');
+
+        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published')
+        ->whereNotIn('id', function($subquery) use ($request) {
+            $subquery->select('sale_order_id')
+                ->from('senari_semak_cetaks')
+                ->where('id', '!=', $request->id);
+        });
+        if ($search) {
+            $query->where('order_no', 'like', '%' . $search . '%');
+        }
+        $heads = $query->paginate($perPage, ['*'], 'page', $page);
+
+        return response()->json([
+            'results' => $heads->items(),
+            'pagination' => [
+                'more' => $heads->hasMorePages(),
+            ],
+        ]);
     }
 
     public function store(Request $request)

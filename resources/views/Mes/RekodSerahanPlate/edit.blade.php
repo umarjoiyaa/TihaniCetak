@@ -176,44 +176,49 @@ function handleCheckboxChange(className, checkbox) {
                 $('.OtherSection').css('display','none')
             }
 
-            $('#sale_order').trigger('change');
-            $('#sale_order').select2({
-                ajax: {
-                    url: '{{ route('sale_order.get') }}',
-                    dataType: 'json',
-                    delay: 1000,
-                    data: function(params) {
-                        return {
-                            q: params.term,
-                            page: params.page || 1,
-                        };
-                    },
-                    processResults: function(data, params) {
-                        params.page = params.page || 1;
+        $('#sale_order').trigger('change');
 
-                        return {
-                            results: data.results,
-                            pagination: {
-                                more: data.pagination.more
-                            }
-                        };
-                    },
-                    cache: true
+        $('#sale_order').select2({
+            ajax: {
+                url: '{{ route('sale_order.get') }}',
+                dataType: 'json',
+                delay: 1000,
+                data: function (params) {
+                    return {
+                        q: params.term,
+                        page: params.page || 1,
+                    };
                 },
-                containerCssClass: 'form-control',
-                templateResult: function(data) {
-                    if (data.loading) {
-                        return "Loading...";
-                    }
+                processResults: function (data, params) {
+                    params.page = params.page || 1;
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    return {
+                        results: data.results,
+                        pagination: {
+                            more: data.pagination.more
+                        }
+                    };
                 },
-                templateSelection: function(data) {
-                    return data.text || null;
+                cache: true
+            },
+            containerCssClass: 'form-control',
+            templateResult: function (data) {
+                if (data.loading) {
+                    return "Loading...";
                 }
-            });
-
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
+            },
+            templateSelection: function (data) {
+                return data.text || null;
+            }
         });
+    });
+
         $('#sale_order').on('change', function() {
             const id = $(this).val();
             $.ajax({

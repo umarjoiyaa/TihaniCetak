@@ -7,7 +7,7 @@
 
     <!-- Bootstrap CSS -->
 
-    
+
     <style>
       nav{
         background: #18002D;
@@ -181,12 +181,12 @@
                           <a class="dropdown-item" href="{{route('cover_end_paper')}}">Cover & End Paper</a>
                           <a class="dropdown-item" href="{{route('ProductionJobSheet_text')}}">Text</a>
                           <a class="dropdown-item" href="{{route('mesin_lipat')}}">Mesin Lipat</a>
-                          <a class="dropdown-item" href="{{route('ProductionJobSheet_StapleBind')}}">Staple Bind</a>
+                          <a class="dropdown-item" href="{{route('staple_bind')}}">Staple Bind</a>
 
                         </div>
                         <div class="col-md-8">
-                          <a class="dropdown-item" href="{{route('ProductionJobSheet_PrefecBind')}}">Mesin Perfect Bind</a>
-                          <a class="dropdown-item" href="{{route('Production_ThreeKnife')}}">Mesin 3Knife</a>
+                          <a class="dropdown-item" href="{{route('perfect_bind')}}">Mesin Perfect Bind</a>
+                          <a class="dropdown-item" href="{{route('mesin_knife')}}">Mesin 3Knife</a>
                           <a class="dropdown-item" href="{{route('BorangeSerahKerja')}}">Borang Serahan Kerja (Kulit Buku /Cover)</a>
                           <a class="dropdown-item" href="{{route('BorangeSerahKerja_Teks')}}">Borang Serahan Kerja (Teks)</a>
                         </div>
@@ -195,7 +195,7 @@
                     </div>
                     <div class="col-sm-3">
                       <h6 class="pl-3">Production</h6>
-                      <a class="dropdown-item" href="{{route('ProductSchedulinig')}}">Production
+                      <a class="dropdown-item" href="{{route('production_scheduling')}}">Production
                         Scheduling</a>
                         <a class="dropdown-item" href="{{route('PrintingProcess_Text')}}">Printing Process</a>
                       <a class="dropdown-item" href="{{route('CallForAssistance')}}">Call for

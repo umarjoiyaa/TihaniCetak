@@ -10,4 +10,9 @@ class SaleOrder extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function senari_semak()
+    {
+        return $this->belongsTo(SenariSemakCetak::class, 'id', 'sale_order_id');
+    }
 }

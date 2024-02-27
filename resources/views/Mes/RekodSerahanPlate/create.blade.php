@@ -33,7 +33,7 @@
                                 <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Diterima Oleh</div>
-                                        <select name="user[]" class="form-control form-select" id="Oleh" multiple>
+                                        <select name="user[]" class="form-control form-select" id="Oleh" value="{{ old('user[]') }}" multiple>
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id,
                                                 old('user')) ? 'selected' : '' }} @endif>
@@ -48,7 +48,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <select name="sale_order" id="sale_order" class="form-control">
+                                        <select name="sale_order" value="{{ old('sale_order') }}" id="sale_order" class="form-control">
                                             <option value="" selected disabled>Select any Sale Order</option>
 
                                         </select>
@@ -66,7 +66,7 @@
                                 </div>
                                 <div class="col-md-4 OtherSection " style="display: none" >
                                     <div class="label">Other (Input)</div>
-                                    <input type="text" name="user_input" id=""
+                                    <input type="text" value="{{ old('user_input') }}" name="user_input" id=""
                                         class="form-control">
                                 </div>
                             </div>
@@ -84,14 +84,14 @@
                                 <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Seksyen No.</div>
-                                        <input type="text" value="" name="seksyen_no" id="" class="form-control"
+                                        <input type="text"  name="seksyen_no" id="" class="form-control"
                                             value="{{ old('seksyen_no') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Kuaniti Plate.</div>
-                                        <input type="text" value="" name="kuaniti_plate" id="" class="form-control"
+                                        <input type="text"  name="kuaniti_plate" id="" class="form-control"
                                             value="{{ old('kuaniti_plate') }}">
                                     </div>
                                 </div>

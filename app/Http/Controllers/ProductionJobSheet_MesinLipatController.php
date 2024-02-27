@@ -163,28 +163,23 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -291,28 +286,23 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('mesin_lipat.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.proses', $row->id) . '">Proses</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item" href="' . route('mesin_lipat.verify', $row->id) . '">Verify</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('mesin_lipat.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('mesin_lipat.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -503,9 +493,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
     }
 
     public function verify($id){
-        // if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
-        //     return back()->with('custom_errors', 'You don`t have Right Permission');
-        // }
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
         $mesin_lipat = MesinLipat::find($id);
         $users = User::all();
         $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
@@ -517,9 +507,9 @@ class ProductionJobSheet_MesinLipatController extends Controller
     }
 
     public function approve_approve(Request $request, $id){
-        // if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
-        //     return back()->with('custom_errors', 'You don`t have Right Permission');
-        // }
+        if (!Auth::user()->hasPermissionTo('MESIN LIPAT Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
 
         $mesin_lipat = MesinLipat::find($id);
         $mesin_lipat->status = 'verified';
@@ -583,7 +573,6 @@ class ProductionJobSheet_MesinLipatController extends Controller
         if (!$ismachinestart) {
 
             if ($request->status == 1 && !$alreadyexist && !$stopped) {
-
                 MesinLipatDetail::create([
                     'machine' => $request->machine,
                     'mesin_lipat_id' => $request->mesin_lipat_id,
@@ -642,6 +631,14 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     'details' => $details
                 ]);
             }
+        }else{
+            $check_machine = MesinLipatDetail::where('machine', '=', $request->machine)->where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'DESC')->first();
+            $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $request->mesin_lipat_id)->orderby('id', 'ASC')->get();
+            return response()->json([
+                'message' => 'Same Machine Is Running On Other Mesin Lipat!',
+                'check_machine' => $check_machine,
+                'details' => $details
+            ]);
         }
     }
 

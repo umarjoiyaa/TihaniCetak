@@ -75,13 +75,15 @@ return new class extends Migration
             $table->string('finishing_supplier_17')->nullable();
             $table->string('status')->nullable();
 
-
+            $table->string('operator')->nullable();
+            $table->string('verified_by_date')->nullable();
+            $table->string('verified_by_user')->nullable();
+            $table->string('verified_by_designation')->nullable();
+            $table->string('verified_by_department')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();
-
-
             $table->timestamps();
         });
     }
