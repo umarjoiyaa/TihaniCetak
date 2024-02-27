@@ -13,7 +13,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title tx-20 mg-b-0 p-2">REKOD PEMERIKSAAN PLATE CETAK </h4>
+                    <h4 class="card-title tx-20 mg-b-0 p-2"><b>REKOD PEMERIKSAAN PLATE CETAK </b></h4>
                 </div>
 
             </div>

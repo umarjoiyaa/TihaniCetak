@@ -69,7 +69,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jumleh Seksyen</div>
+                                            <div class="label">Jumlah Seksyen</div>
                                             <input type="text" readonly
                                                 value="{{ $laporan_pemeriksaan_kualiti_penjilidan_saddle->senari_semak->item_cover_text ?? 0 }}"
                                                 id="jumlah" name="seksyen_no" class="form-control">

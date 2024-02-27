@@ -69,7 +69,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jumleh Seksyen</div>
+                                            <div class="label">Jumlah Seksyen</div>
                                             <input type="text" readonly
                                                 value="{{ $laporan_pemeriksaan_kualiti_penjilidan->senari_semak->item_cover_text ?? 0 }}"
                                                 id="jumlah" name="seksyen_no" class="form-control">
@@ -233,7 +233,7 @@
                                     <h4><b>Nota :</b></h4>
                                     <div class="row">
                                         <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
-                                        <div class="col-md-11" style="margin-left:-20px;">
+                                        <div class="col-md-11" style="margin-left:-40px;">
                                             <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
                                         </div>
                                     </div>

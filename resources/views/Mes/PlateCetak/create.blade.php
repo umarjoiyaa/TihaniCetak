@@ -9,7 +9,7 @@
             <div class="card-header">
             <div class="row">
                     <div class="col-md-12">
-                        <h5 class="float-left">REKOD PEMERIKSAAN PLATE CETAK </h5>
+                        <h5 class="float-left"><b>REKOD PEMERIKSAAN PLATE CETAK</b> </h5>
                         <p class="float-right">TCSB-B44 (Rev .2)</p>
                     </div>
                 </div>

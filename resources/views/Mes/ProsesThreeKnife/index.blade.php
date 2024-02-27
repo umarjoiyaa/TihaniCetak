@@ -45,7 +45,7 @@
                                         <th>Kemik</th>
                                         <th>Label yang betul</th>
                                         <th>Pematuhan SOP</th>
-                                        <th>Sataus</th>
+                                        <th>Status</th>
                                         <th>Action</th>
                                     </tr>
                                     <tr>

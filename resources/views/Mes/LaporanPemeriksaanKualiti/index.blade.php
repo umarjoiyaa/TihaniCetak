@@ -32,8 +32,8 @@
                                         <td>Sales Order No. </td>
                                         <td>Kod Buku</td>
                                         <td>Tajuk</td>
-                                        <td>Jenis Lipat</td>
-                                        <td>Kedudukan</td>
+                                        <td>Jenis Lipatan</td>
+                                        <td>Kedudukan Lipatan</td>
                                         <td>Turutan muka surat</td>
                                         <td>Koyak</td>
                                         <td>Kotor</td>
