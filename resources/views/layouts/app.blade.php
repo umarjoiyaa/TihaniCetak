@@ -59,7 +59,7 @@
 
     @yield('css')
     <style>
-        .check_operator, .check_verify{
+        .check_operator_text, .check_verify_text{
             width: 340px;
         }
         .dropdown {
@@ -94,7 +94,7 @@
         table.dataTable thead th{
             text-align:center;
         }
-        
+
     </style>
 
 </head>
