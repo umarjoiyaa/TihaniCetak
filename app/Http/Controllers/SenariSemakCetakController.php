@@ -293,12 +293,22 @@ class SenariSemakCetakController extends Controller
 
         $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published')->whereNotIn('id', function($subquery) {
             $subquery->select('sale_order_id')
-                ->from('senari_semak_cetaks');
+                ->from('senari_semak_cetaks')
+                ->whereNull('deleted_at');
         });
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');
         }
         $heads = $query->paginate($perPage, ['*'], 'page', $page);
+
+        // Convert items to a collection and then use map
+        $transformedResults = collect($heads->items())->map(function ($item) {
+            return [
+                'id' => $item['id'],
+                'text' => $item['order_no'],
+                'order_no' => $item['order_no'],
+            ];
+        });
 
         return response()->json([
             'results' => $heads->items(),
@@ -318,7 +328,8 @@ class SenariSemakCetakController extends Controller
         ->whereNotIn('id', function($subquery) use ($request) {
             $subquery->select('sale_order_id')
                 ->from('senari_semak_cetaks')
-                ->where('id', '!=', $request->id);
+                ->where('id', '!=', $request->id)
+                ->whereNull('deleted_at');
         });
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');
