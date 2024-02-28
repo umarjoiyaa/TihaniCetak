@@ -234,6 +234,18 @@ class PermissionTableSeeder extends Seeder
             'MESIN 3 KNIFE View',
             'MESIN 3 KNIFE Proses',
             'MESIN 3 KNIFE Delete',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) List',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) Create',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) Update',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) Verify',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) View',
+            'BORANG SERAH KERJA (KULIT BUKU/COVER) Delete',
+            'BORANG SERAH KERJA (TEKS) List',
+            'BORANG SERAH KERJA (TEKS) Create',
+            'BORANG SERAH KERJA (TEKS) Update',
+            'BORANG SERAH KERJA (TEKS) Verify',
+            'BORANG SERAH KERJA (TEKS) View',
+            'BORANG SERAH KERJA (TEKS) Delete',
          ];
 
         foreach ($permissions as $permission) {

@@ -19,10 +19,10 @@
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('BorangeSerahKerja.create')}}" class="btn btn-primary mb-2">Create</a>
+                    <a href="{{route('borange_serah_kerja.create')}}" class="btn btn-primary mb-2">Create</a>
                 </div>
                 <div class="table-responsive">
-                    <table class="table table-bordered mt-2" id="example1">
+                    <table class="table datatable table-bordered mt-2" id="example1">
                         <thead>
                             <tr>
                                 <th>Date</th>
@@ -30,45 +30,43 @@
                                 <th>Nama Subkontraktor</th>
                                 <th>Sales Order NO</th>
                                 <th>Tajuk</th>
-                                <th>Tajuk</th>
                                 <th>Kuantiti</th>
                                 <th>Saiz Kertas</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
-
+                            <tr>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search date">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search sales order no">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search customer name">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kod_buku">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search kategori job">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search jenis produk">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search quantity">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search status">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search status">
+                                </th>
+                            </tr>
                         </thead>
                         <tbody>
-                            <tr class="">
-                                <td>30/5/2023</td>
-                                <td>P123-1</td>
-                                <td>KBUV</td>
-                                <td>SO-001496</td>
-                                <td>IQRO Genius - Rumi</td>
-                                <td>1120</td>
-                                <td>25.5 X 17.5</td>
-                                <td>15cm X 25cm</td>
-                                <td><span class="badge badge-pill badge-warning w-100 p-2 mt-2  ">Request</span>
-                                </td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button aria-expanded="false" aria-haspopup="true"
-                                            class="btn ripple btn-primary" data-toggle="dropdown"
-                                            id="dropdownMenuButton" type="button">Action<i
-                                                class="fas fa-caret-down ml-1"></i></button>
-                                        <div class="dropdown-menu tx-13">
-                                            <a class="dropdown-item"
-                                                href="{{route('BorangeSerahKerja.view')}}">View</a>
-                                            <a class="dropdown-item"
-                                                href="{{route('BorangeSerahKerja.edit')}}">Edit</a>
-                                            <a class="dropdown-item" href="">Delete</a>
-                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.purchasing')}}">purchasing</a>
-                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.transfer')}}">transfer</a>
-                                            <a class="dropdown-item" href="{{ route('BorangeSerahKerja.receive')}}">receive</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                            {{-- --}}
                         </tbody>
                     </table>
                 </div>
@@ -87,9 +85,8 @@
 </div>
 @endsection
 @push('custom-scripts')
-<script>
-     $(document).ready(function () {
-        $('#example1').DataTable();
-    });
-</script>
+    <script>
+        var data = "{{ route('borange_serah_kerja.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/production/BorangeSerahKerja/index.js') }}"></script>
 @endpush

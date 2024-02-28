@@ -187,7 +187,7 @@
                         <div class="col-md-8">
                           <a class="dropdown-item" href="{{route('perfect_bind')}}">Mesin Perfect Bind</a>
                           <a class="dropdown-item" href="{{route('mesin_knife')}}">Mesin 3Knife</a>
-                          <a class="dropdown-item" href="{{route('BorangeSerahKerja')}}">Borang Serahan Kerja (Kulit Buku /Cover)</a>
+                          <a class="dropdown-item" href="{{route('borange_serah_kerja')}}">Borang Serahan Kerja (Kulit Buku /Cover)</a>
                           <a class="dropdown-item" href="{{route('BorangeSerahKerja_Teks')}}">Borang Serahan Kerja (Teks)</a>
                         </div>
                       </div>

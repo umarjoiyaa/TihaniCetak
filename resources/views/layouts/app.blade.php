@@ -94,7 +94,7 @@
         table.dataTable thead th{
             text-align:center;
         }
-        
+
     </style>
 
 </head>
@@ -618,7 +618,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin 3Knife</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja') }}"
+                                                                        href="{{ route('borange_serah_kerja') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
