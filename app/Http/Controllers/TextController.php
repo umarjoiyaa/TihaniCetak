@@ -3,15 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Models\StapleBind;
-use App\Models\StapleBindDetail;
-use App\Models\StapleBindDetailB;
-use App\Models\User;
-use Carbon\Carbon;
+use App\Models\Text;
+use App\Models\TextDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class ProductionJobSheet_textController extends Controller
+class TextController extends Controller
 {
     public function Data(Request $request)
     {
@@ -25,7 +22,7 @@ class ProductionJobSheet_textController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = StapleBind::select('id', 'sale_order_id', 'date','status', 'mesin')->with('sale_order', 'senari_semak');
+            $query = Text::select('id', 'sale_order_id', 'date','status', 'kuantiti_waste')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -45,16 +42,7 @@ class ProductionJobSheet_textController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('size', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -71,11 +59,8 @@ class ProductionJobSheet_textController extends Controller
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'sale_order_id',
-                    7 => 'sale_order_id',
-                    8 => 'sale_order_id',
-                    9 => 'mesin',
-                    10 => 'status',
+                    6 => 'kuantiti_waste',
+                    7 => 'status',
 
                     // Add more columns as needed
                 ];
@@ -121,24 +106,9 @@ class ProductionJobSheet_textController extends Controller
                                 });
                                 break;
                             case 6:
-                                $q->whereHas('senari_semak', function ($query) use ($searchLower) {
-                                    $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                                });
-                                break;
-                            case 8:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('size', 'like', '%' . $searchLower . '%');
-                                });
-                                break;
-                            case 9:
-                                $q->where('mesin', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 10:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -163,30 +133,19 @@ class ProductionJobSheet_textController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>';
-                } else if ($row->status == 'declined') {
-                    $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -219,7 +178,7 @@ class ProductionJobSheet_textController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = StapleBind::select('id', 'sale_order_id', 'date','status', 'mesin')->with('sale_order', 'senari_semak');
+            $query = Text::select('id', 'sale_order_id', 'date','status', 'kuantiti_waste')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -239,16 +198,7 @@ class ProductionJobSheet_textController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('size', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -260,11 +210,8 @@ class ProductionJobSheet_textController extends Controller
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'sale_order_id',
-                7 => 'sale_order_id',
-                8 => 'sale_order_id',
-                9 => 'mesin',
-                10 => 'status',
+                6 => 'kuantiti_waste',
+                7 => 'status',
 
                 // Add more columns as needed
             ];
@@ -290,30 +237,19 @@ class ProductionJobSheet_textController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('staple_bind.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
+                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.proses', $row->id) . '">Proses</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>';
-                } else if ($row->status == 'declined') {
-                    $row->status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('staple_bind.verify', $row->id) . '">Verify</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('staple_bind.view', $row->id) . '">View</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -337,30 +273,30 @@ class ProductionJobSheet_textController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('STAPLE BIND List') ||
-            Auth::user()->hasPermissionTo('STAPLE BIND Create') ||
-            Auth::user()->hasPermissionTo('STAPLE BIND Update') ||
-            Auth::user()->hasPermissionTo('STAPLE BIND View') ||
-            Auth::user()->hasPermissionTo('STAPLE BIND Delete') ||
-            Auth::user()->hasPermissionTo('STAPLE BIND Proses')
+            Auth::user()->hasPermissionTo('TEXT List') ||
+            Auth::user()->hasPermissionTo('TEXT Create') ||
+            Auth::user()->hasPermissionTo('TEXT Update') ||
+            Auth::user()->hasPermissionTo('TEXT View') ||
+            Auth::user()->hasPermissionTo('TEXT Delete') ||
+            Auth::user()->hasPermissionTo('TEXT Proses')
         ) {
-            Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND List');
-            return view('Production.StapleBind.index');
+            Helper::logSystemActivity('TEXT', 'TEXT List');
+            return view('Production.Text.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Create')) {
+        if (!Auth::user()->hasPermissionTo('TEXT Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Create');
-        return view('Production.StapleBind.create');
+        Helper::logSystemActivity('TEXT', 'TEXT Create');
+        return view('Production.Text.create');
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Create')) {
+        if (!Auth::user()->hasPermissionTo('TEXT Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -369,7 +305,15 @@ class ProductionJobSheet_textController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
+            'kuantiti_waste' => 'required',
             'mesin' => 'required',
+            'kertas' => 'required',
+            'saiz_potong' => 'required',
+            'plate' => 'required',
+            'print' => 'required',
+            'waste_paper' => 'required',
+            'last_print' => 'required',
+            'seksyen_no' => 'required',
         ]);
 
         // If validations fail
@@ -378,46 +322,90 @@ class ProductionJobSheet_textController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $staple_bind = new StapleBind();
-        $staple_bind->sale_order_id = $request->sale_order;
-        $staple_bind->date = $request->date;
-        $staple_bind->mesin = $request->mesin;
-        $staple_bind->created_by = Auth::user()->id;
+        $text = new Text();
+        $text->sale_order_id = $request->sale_order;
+        $text->date = $request->date;
+        $text->kuantiti_waste = $request->kuantiti_waste;
+        $text->mesin = $request->mesin;
+        $text->kertas = $request->kertas;
+        $text->saiz_potong = $request->saiz_potong;
+        $text->plate = $request->plate;
+        $text->print = $request->print;
+        $text->waste_paper = $request->waste_paper;
+        $text->last_print = $request->last_print;
+        $text->seksyen_no = $request->seksyen_no;
+        $text->arahan_kerja = $request->arahan_kerja;
+        $text->catatan = $request->catatan;
 
-        $staple_bind->status = 'Not-initiated';
-        $staple_bind->save();
+        $text->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
+        $text->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
+        $text->binding_3 = ($request->binding_3 != null) ? $request->binding_3_val : null;
+        $text->binding_4 = ($request->binding_4 != null) ? $request->binding_4_val : null;
+        $text->binding_5 = ($request->binding_5 != null) ? $request->binding_5_val : null;
+        $text->binding_6 = ($request->binding_6 != null) ? $request->binding_6_val : null;
+        $text->binding_7 = ($request->binding_7 != null) ? $request->binding_7_val : null;
+        $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
+        $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
+        $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
 
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Store');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Created Successfully !');
+        $text->status = 'Not-initiated';
+        $text->created_by = Auth::user()->id;
+        $text->save();
+
+        if(!isset($request->action)){
+            for ($index = 1; $index <= $request->seksyen_no; $index++) {
+                $detail = new TextDetail();
+                $detail->text_id = $text->id;
+                $detail->seksyen_no = $index;
+                $detail->date = $request->section_date;
+                $detail->machine = $request->section_machine;
+                $detail->side = $request->section_side;
+                $detail->last_print = $request->section_last_print;
+                $detail->kuantiti_waste = $request->section_kuantiti_waste;
+                $detail->save();
+            }
+        }else{
+            foreach($request->section as $key => $value){
+                $detail = new TextDetail();
+                $detail->text_id = $text->id;
+                $detail->seksyen_no = $key;
+                $detail->date = $value['date'];
+                $detail->machine = $value['machine'];
+                $detail->side = $value['side'];
+                $detail->last_print = $value['last_print'];
+                $detail->kuantiti_waste = $value['kuantiti_waste'];
+                $detail->save();
+            }
+        }
+
+        Helper::logSystemActivity('TEXT', 'TEXT Store');
+        return redirect()->route('text')->with('custom_success', 'TEXT has been Created Successfully !');
     }
 
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Update')) {
+        if (!Auth::user()->hasPermissionTo('TEXT Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $staple_bind = StapleBind::find($id);
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
-        return view('Production.StapleBind.edit',compact('staple_bind'));
+        $text = Text::find($id);
+        $details = TextDetail::where('text_id',  '=', $id)->get();
+        Helper::logSystemActivity('TEXT', 'TEXT Update');
+        return view('Production.Text.edit',compact('text', 'details'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND View')) {
+        if (!Auth::user()->hasPermissionTo('TEXT View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $staple_bind = StapleBind::find($id);
-        $users = User::all();
-        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
-        $detailIds = $details->pluck('id')->toArray();
-        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND View');
-        return view('Production.StapleBind.view', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
+        $text = Text::find($id);
+        $details = TextDetail::where('text_id',  '=', $id)->get();
+        Helper::logSystemActivity('TEXT', 'TEXT View');
+        return view('Production.Text.view', compact('text', 'details'));
     }
 
     public function update(Request $request,$id)
     {
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Update')) {
+        if (!Auth::user()->hasPermissionTo('TEXT Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -426,7 +414,15 @@ class ProductionJobSheet_textController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
+            'kuantiti_waste' => 'required',
             'mesin' => 'required',
+            'kertas' => 'required',
+            'saiz_potong' => 'required',
+            'plate' => 'required',
+            'print' => 'required',
+            'waste_paper' => 'required',
+            'last_print' => 'required',
+            'seksyen_no' => 'required',
         ]);
 
         // If validations fail
@@ -435,211 +431,77 @@ class ProductionJobSheet_textController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $staple_bind =  StapleBind::find($id);
-        $staple_bind->sale_order_id = $request->sale_order;
-        $staple_bind->date = $request->date;
-        $staple_bind->mesin = $request->mesin;
-        $staple_bind->created_by = Auth::user()->id;
+        $text = Text::find($id);
+        $text->sale_order_id = $request->sale_order;
+        $text->date = $request->date;
+        $text->kuantiti_waste = $request->kuantiti_waste;
+        $text->mesin = $request->mesin;
+        $text->kertas = $request->kertas;
+        $text->saiz_potong = $request->saiz_potong;
+        $text->plate = $request->plate;
+        $text->print = $request->print;
+        $text->waste_paper = $request->waste_paper;
+        $text->last_print = $request->last_print;
+        $text->seksyen_no = $request->seksyen_no;
+        $text->arahan_kerja = $request->arahan_kerja;
+        $text->catatan = $request->catatan;
 
-        $staple_bind->status = 'Not-initiated';
-        $staple_bind->save();
+        $text->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
+        $text->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
+        $text->binding_3 = ($request->binding_3 != null) ? $request->binding_3_val : null;
+        $text->binding_4 = ($request->binding_4 != null) ? $request->binding_4_val : null;
+        $text->binding_5 = ($request->binding_5 != null) ? $request->binding_5_val : null;
+        $text->binding_6 = ($request->binding_6 != null) ? $request->binding_6_val : null;
+        $text->binding_7 = ($request->binding_7 != null) ? $request->binding_7_val : null;
+        $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
+        $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
+        $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
 
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND update');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Created Successfully !');
-    }
+        $text->status = 'Not-initiated';
+        $text->created_by = Auth::user()->id;
+        $text->save();
 
-    public function proses($id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Proses')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $staple_bind = StapleBind::find($id);
-        $users = User::all();
-        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
-        $detailIds = $details->pluck('id')->toArray();
-        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
-        return view('Production.StapleBind.proses', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
-    }
+        TextDetail::where('text_id', '=', $id)->delete();
 
-    public function proses_update(Request $request, $id)
-    {
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Proses')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $storedData = json_decode($request->input('details'), true);
-        $staple_bind = StapleBind::find($id);
-        $staple_bind->operator = json_encode($request->operator);
-        $staple_bind->save();
-
-        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
-        $detailIds = $details->pluck('id')->toArray();
-        StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->delete();
-
-        foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new StapleBindDetailB();
-                $detail->staple_detail_id = $value['hiddenId'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->total_produce = $value['total_produce'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
+        if(!isset($request->action)){
+            for ($index = 1; $index <= $request->seksyen_no; $index++) {
+                $detail = new TextDetail();
+                $detail->text_id = $text->id;
+                $detail->seksyen_no = $index;
+                $detail->date = $request->section_date;
+                $detail->machine = $request->section_machine;
+                $detail->side = $request->section_side;
+                $detail->last_print = $request->section_last_print;
+                $detail->kuantiti_waste = $request->section_kuantiti_waste;
                 $detail->save();
             }
-        }
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Proses Update');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Proses Updated Successfully !');
-    }
-
-    public function verify($id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $staple_bind = StapleBind::find($id);
-        $users = User::all();
-        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
-        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
-        $detailIds = $details->pluck('id')->toArray();
-        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
-        return view('Production.StapleBind.verify', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
-    }
-
-    public function approve_approve(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-
-        $staple_bind = StapleBind::find($id);
-        $staple_bind->status = 'verified';
-        $staple_bind->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
-        $staple_bind->verified_by_user = Auth::user()->user_name;
-        $staple_bind->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $staple_bind->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
-        $staple_bind->save();
-
-        $storedData = json_decode($request->input('details'), true);
-        foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = StapleBindDetailB::where('staple_detail_id', '=', $value['hiddenId'])->first();
-                $detail->check_verify_text = $value['check_verify_text'] ?? null;
+        }else{
+            foreach($request->section as $key => $value){
+                $detail = new TextDetail();
+                $detail->text_id = $text->id;
+                $detail->seksyen_no = $key;
+                $detail->date = $value['date'];
+                $detail->machine = $value['machine'];
+                $detail->side = $value['side'];
+                $detail->last_print = $value['last_print'];
+                $detail->kuantiti_waste = $value['kuantiti_waste'];
                 $detail->save();
             }
         }
 
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Verified');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Verified!');
-    }
-
-    public function approve_decline(Request $request, $id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-
-        $staple_bind = StapleBind::find($id);
-        $staple_bind->status = 'declined';
-        $staple_bind->save();
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Declined');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Declined!');
+        Helper::logSystemActivity('TEXT', 'TEXT update');
+        return redirect()->route('text')->with('custom_success', 'TEXT has been Updated Successfully !');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('STAPLE BIND Delete')) {
+        if (!Auth::user()->hasPermissionTo('TEXT Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $staple_bind = StapleBind::find($id);
-        StapleBindDetail::where('staple_id', $id)->delete();
-        StapleBindDetailB::where('staple_detail_id', $id)->delete();
-        $staple_bind->delete();
-        Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Delete');
-        return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Successfully Deleted!');
+        $text = Text::find($id);
+        TextDetail::where('text_id', $id)->delete();
+        $text->delete();
+        Helper::logSystemActivity('TEXT', 'TEXT Delete');
+        return redirect()->route('text')->with('custom_success', 'TEXT has been Successfully Deleted!');
     }
 
-    public function machine_starter(Request $request)
-    {
-        $ismachinestart = null;
-
-        $JustSelected = StapleBind::where('id', '=', $request->staple_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
-
-        if(!empty($JustSelected)){
-            $ismachinestart = StapleBindDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('staple_id', '!=', $request->staple_id)->orderby('id', 'DESC')->first();
-        }
-
-        $alreadyexist = StapleBindDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->orderby('id', 'DESC')->first();
-        $alreadypaused = StapleBindDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->orderby('id', 'DESC')->first();
-        $stopped = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id', '=', $request->staple_id)->where('status', '=', 3)->first();
-
-        if (!$ismachinestart) {
-
-            if ($request->status == 1 && !$alreadyexist && !$stopped) {
-
-                StapleBindDetail::create([
-                    'machine' => $request->machine,
-                    'staple_id' => $request->staple_id,
-                    'status' => $request->status,
-                    'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
-                ]);
-                $digital = StapleBind::find($request->staple_id);
-                $digital->status = 'Started';
-                $digital->save();
-                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
-                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
-                return response()->json([
-                    'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine,
-                    'details' => $details
-                ]);
-            } else if ($request->status == 2 && $alreadypaused && !$stopped) {
-
-                $mpo = StapleBindDetail::where('machine', $request->machine)->where('staple_id', $request->staple_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
-                $mpo->status = $request->status;
-                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
-                $mpo->remarks = $request->remarks;
-                $mpo->save();
-                $start_time = Carbon::parse($mpo->start_time);
-                $end_time = Carbon::parse($mpo->end_time);
-                $duration = $end_time->diffInMinutes($start_time);
-                $mpo->duration = $duration;
-                $mpo->save();
-                $digital = StapleBind::find($request->staple_id);
-                $digital->status = 'Paused';
-                $digital->save();
-                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
-                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
-                return response()->json([
-                    'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine,
-                    'details' => $details
-                ]);
-            } else if ($request->status == 3 && !$stopped) {
-                $mpo = StapleBindDetail::where('machine', $request->machine)->where('staple_id', $request->staple_id)->orderby('id', 'DESC')->first();
-                $mpo->status = $request->status;
-                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
-                $mpo->save();
-                $start_time = Carbon::parse($mpo->start_time);
-                $end_time = Carbon::parse($mpo->end_time);
-                $duration = $end_time->diffInMinutes($start_time);
-                $mpo->duration = $duration;
-                $mpo->save();
-                $digital = StapleBind::find($request->staple_id);
-                $digital->status = 'Completed';
-                $digital->save();
-                $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
-                $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
-                return response()->json([
-                    'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
-                    'check_machine' => $check_machine,
-                    'details' => $details
-                ]);
-            }
-        }else{
-            $check_machine = StapleBindDetail::where('machine', '=', $request->machine)->where('staple_id',  '=', $request->staple_id)->orderby('id', 'DESC')->first();
-            $details = StapleBindDetail::where('staple_id',  '=', $request->staple_id)->orderby('id', 'ASC')->get();
-            return response()->json([
-                'message' => 'Same Machine Is Running On Other Staple Bind!',
-                'check_machine' => $check_machine,
-                'details' => $details
-            ]);
-        }
-    }
 }
