@@ -930,6 +930,7 @@
             $('.check_operator_text').removeAttr('disabled');
             $('.check_verify_text').removeAttr('disabled');
             $('#operator').removeAttr('disabled');
+            $('#pauseRemarks').removeAttr('disabled');
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
@@ -1129,14 +1130,12 @@
                         var end_time = (detail.end_time != null) ? detail.end_time : '';
                         var duration = (detail.duration != null) ? detail.duration : '';
 
-                        $('#jobsheet_detail_table tbody').append(`<tr>
-                            <td>${button}</td>
+                        $('#machine_detail_table tbody').append(`<tr>
+                            <td>${statusBadge}</td>
+                            <td>${mesinInfo}</td>
                             <td>${start_time}</td>
                             <td>${end_time}</td>
                             <td>${duration}</td>
-                            <td>${mesinInfo}</td>
-                            <td>${remarks}</td>
-                            <td class="operator_text">${badge}</td>
                         </tr>`);
 
                         var badge = '';
@@ -1155,6 +1154,7 @@
                             <td>${end_time}</td>
                             <td>${duration}</td>
                             <td>${mesinInfo}</td>
+                            <td>${remarks}</td>
                             <td class="operator_text">${badge}</td>
                         </tr>`);
                     });
