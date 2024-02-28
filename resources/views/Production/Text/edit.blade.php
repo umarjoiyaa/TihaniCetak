@@ -386,77 +386,77 @@
                                             <tbody>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_1" id="Input1"
-                                                            class=" mr-5">Staple Bind</td>
+                                                            class=" mr-5" @checked($text->binding_1 != null)>Staple Bind</td>
                                                     <td>
-                                                        <select name="binding_1_val" disabled placeholder="select Supplier"
+                                                        <select name="binding_1_val" @disabled($text->binding_1 == null) placeholder="select Supplier"
                                                             id="staplebind" class="form-control form-select"
                                                             style="width:340px;">
-                                                            <option value="In-house">In-house</option>
-                                                            <option value="SupplierA">Supplier A</option>
-                                                            <option value="SupplierB">Supplier B</option>
+                                                            <option value="In-house" @selected($text->binding_1 == 'In-house')>In-house</option>
+                                                            <option value="SupplierA" @selected($text->binding_1 == 'SupplierA')>Supplier A</option>
+                                                            <option value="SupplierB" @selected($text->binding_1 == 'SupplierB')>Supplier B</option>
                                                         </select>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_2" id="Input2"
-                                                            class=" mr-5">Perfect Bind</td>
-                                                    <td><input type="text" disabled name="binding_2_val" id="input2"
-                                                            class="form-control"></td>
+                                                            class=" mr-5" @checked($text->binding_2 != null)>Perfect Bind</td>
+                                                    <td><input type="text" @disabled($text->binding_2 == null) name="binding_2_val" id="input2"
+                                                            class="form-control" value="{{$text->binding_2}}"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_3" id="Input3"
-                                                            class=" mr-5">Lock Bind</td>
-                                                    <td><input type="text" disabled name="binding_3_val" id="input3"
-                                                            class="form-control"></td>
+                                                            class=" mr-5" @checked($text->binding_3 != null)>Lock Bind</td>
+                                                    <td><input type="text" @disabled($text->binding_3 == null) name="binding_3_val" id="input3"
+                                                            class="form-control" value="{{$text->binding_3}}"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_4" id="Input4"
-                                                            class=" mr-5">Wire O
+                                                            class=" mr-5" @checked($text->binding_4 != null)>Wire O
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_4_val" id="input4"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_4 == null) name="binding_4_val" id="input4"
+                                                            class="form-control" value="{{$text->binding_4}}"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_5" id="Input5"
-                                                            class=" mr-5">Hard Cover -
+                                                            class=" mr-5" @checked($text->binding_5 != null)>Hard Cover -
                                                         Square Back
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_5_val" id="input5"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_5 == null) name="binding_5_val" id="input5"
+                                                            class="form-control" value="{{$text->binding_5}}"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_6" id="Input6"
-                                                            class=" mr-5">Hard Cover -
+                                                            class=" mr-5" @checked($text->binding_6 != null)>Hard Cover -
                                                         Round Back</td>
-                                                    <td><input type="text" disabled name="binding_6_val" id="input6"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_6 == null) name="binding_6_val" id="input6"
+                                                            class="form-control" value="{{$text->binding_6}}"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_7" id="Input7"
-                                                            class=" mr-5">Sewing
+                                                            class=" mr-5" @checked($text->binding_7 != null)>Sewing
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_7_val" id="input7"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_7 == null) name="binding_7_val" id="input7"
+                                                            class="form-control" value="{{$text->binding_7}}"></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_8" id="Input8"
-                                                            class=" mr-5">Round corner
+                                                            class=" mr-5" @checked($text->binding_8 != null)>Round corner
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_8_val" id="input8"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_8 == null) name="binding_8_val" id="input8"
+                                                            class="form-control" value="{{$text->binding_8}}"></td>
                                                 </tr>
 
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_9" id="Input9"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" disabled name="binding_9_val" id="input10"
-                                                            class="form-control w-50 float-right">
+                                                            class=" mr-5" @checked($text->binding_9 != null)> Others:
+                                                        <input type="text" @disabled($text->binding_9 == null) name="binding_9_val" id="input10"
+                                                            class="form-control w-50 float-right" value="{{$text->binding_9}}">
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_10_val" id="input9"
-                                                            class="form-control"></td>
+                                                    <td><input type="text" @disabled($text->binding_9 == null) name="binding_10_val" id="input9"
+                                                            class="form-control" value="{{$text->binding_10}}"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
