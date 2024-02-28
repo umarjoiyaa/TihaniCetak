@@ -533,6 +533,9 @@
         });
 
         function machineStarter(status, mesin_lipat_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -548,6 +551,7 @@
                     "mesin_lipat_id": mesin_lipat_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);

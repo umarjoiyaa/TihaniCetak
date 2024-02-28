@@ -581,7 +581,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Cover & End Paper</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_text') }}"
+                                                                        href="{{ route('text') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

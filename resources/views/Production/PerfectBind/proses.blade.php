@@ -502,6 +502,9 @@
         });
 
         function machineStarter(status, perfect_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -517,6 +520,7 @@
                     "perfect_id": perfect_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);

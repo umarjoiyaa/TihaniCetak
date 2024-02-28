@@ -38,7 +38,7 @@ use App\Http\Controllers\MesinKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
 use App\Http\Controllers\PerfectBindController;
 use App\Http\Controllers\StapleBindController;
-use App\Http\Controllers\ProductionJobSheet_textController;
+use App\Http\Controllers\TextController;
 use App\Http\Controllers\ProductionReportController;
 use App\Http\Controllers\ProductionSchedulingController;
 use App\Http\Controllers\ProsesPencetakanController;
@@ -499,12 +499,15 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/CoverAndEndpaper/approve/decline/{id}', [Cover_endPaperController::class, 'approve_decline'])->name('cover_end_paper.approve.decline');
     Route::get('/Production/CoverAndEndpaper/delete/{id}', [Cover_endPaperController::class, 'delete'])->name('cover_end_paper.delete');
 
-    // ProductionJobSheet - Text
-    Route::get('/Production/ProductionJobSheet_text', [ProductionJobSheet_textController::class, 'index'])->name('ProductionJobSheet_text');
-    Route::get('/Production/ProductionJobSheet_text/view', [ProductionJobSheet_textController::class, 'view'])->name('ProductionJobSheet_text.view');
-    Route::get('/Production/ProductionJobSheet_text/create', [ProductionJobSheet_textController::class, 'create'])->name('ProductionJobSheet_text.create');
-    Route::get('/Production/ProductionJobSheet_text/edit', [ProductionJobSheet_textController::class, 'edit'])->name('ProductionJobSheet_text.edit');
-    Route::get('/Production/ProductionJobSheet_text/proses', [ProductionJobSheet_textController::class, 'proses'])->name('ProductionJobSheet_text.proses');
+    // Text
+    Route::get('/Production/Text', [TextController::class, 'index'])->name('text');
+    Route::get('/Production/Text/data', [TextController::class, 'Data'])->name('text.data');
+    Route::get('/Production/Text/create', [TextController::class, 'create'])->name('text.create');
+    Route::post('/Production/Text/store', [TextController::class, 'store'])->name('text.store');
+    Route::get('/Production/Text/edit/{id}', [TextController::class, 'edit'])->name('text.edit');
+    Route::get('/Production/Text/view/{id}', [TextController::class, 'view'])->name('text.view');
+    Route::post('/Production/Text/update/{id}', [TextController::class, 'update'])->name('text.update');
+    Route::get('/Production/Text/delete/{id}', [TextController::class, 'delete'])->name('text.delete');
 
     // ProductionJobSheet_MesinLipat
 

@@ -1091,6 +1091,9 @@
         });
 
         function machineStarter(status, cover_paper_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -1106,6 +1109,7 @@
                     "cover_paper_id": cover_paper_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);

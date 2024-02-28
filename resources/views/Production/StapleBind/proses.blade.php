@@ -501,6 +501,9 @@
         });
 
         function machineStarter(status, staple_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -516,6 +519,7 @@
                     "staple_id": staple_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);

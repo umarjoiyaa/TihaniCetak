@@ -493,6 +493,9 @@
         });
 
         function machineStarter(status, knife_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -508,6 +511,7 @@
                     "knife_id": knife_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);
