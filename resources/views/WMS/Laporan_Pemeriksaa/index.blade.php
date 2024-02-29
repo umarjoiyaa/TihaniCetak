@@ -4,7 +4,7 @@
 
 <div class="row">
     <div class="col-md-12">
-        <div class="card mt-5">
+        <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title tx-20 mg-b-0 p-2">Laporan Pemeriksaan AKHIR,PEMBUNGKUSAN DAN PENGHANTARAN KE
@@ -20,8 +20,8 @@
                 <table class="table mt-2" id="example1">
                     <thead>
                         <tr>
-                            <td>Tarikh.</td>
-                            <td>Sales Order No </td>
+                            <td>Tarikh</td>
+                            <td>Sales Order No.</td>
                             <td>Kod Buku</td>
                             <td>Tajuk</td>
                             <td>Operator</td>
@@ -47,8 +47,8 @@
                                         data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i
                                             class="fas fa-caret-down ml-1"></i></button>
                                     <div class="dropdown-menu tx-13">
-                                        <a class="dropdown-item" href="#">View</a>
-                                        <a class="dropdown-item" href="#">Edit</a>
+                                        <a class="dropdown-item" href="Laporan_Pemeriksaan.view">View</a>
+                                        <a class="dropdown-item" href="">Edit</a>
                                         <a class="dropdown-item" href="#">Delete</a>
                                         <a class="dropdown-item"
                                             href="{{route('stock_Transfer_location.receive')}}">Receive</a>
@@ -64,3 +64,8 @@
 </div>
 
 @endsection
+@push('custom-scripts')
+<script>
+    $('#example1').DataTable();
+</script>
+@endpush

@@ -19,7 +19,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mt-3">
@@ -39,14 +39,14 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Checked By (Operator)</div>
+                                        <label>Checked By (Operator)</label>
                                         <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label>Sales Order No.</label>
                                         <input type="text"
                                             value="{{ $laporan_proses_pencetakani->sale_order->order_no }}"
                                             class="form-control">
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label>Tajuk</label>
                                         <input type="text"
                                             value="{{ $laporan_proses_pencetakani->sale_order->description }}"
                                             class="form-control">
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label>Kod Buku</label>
                                         <input type="text"
                                             value="{{ $laporan_proses_pencetakani->sale_order->kod_buku }}"
                                             class="form-control">
@@ -70,14 +70,14 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
+                                        <label>Seksyen No.</label>
                                         <input type="text" name="seksyen_no" id=""
                                             value="{{ $laporan_proses_pencetakani->seksyen_no }}" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti cetakan</div>
+                                        <label>Kuantiti cetakan</label>
                                         <input type="number" value="{{ $laporan_proses_pencetakani->kuaniti_cetakan }}"
                                             name="kuaniti_cetakan" id="" class="form-control">
                                     </div>
@@ -127,7 +127,7 @@
                                             <tr>
                                                 <th rowspan="2">No</th>
                                                 <th rowspan="2">kriteria</th>
-                                                <th colspan="3">cover</th>
+                                                <th colspan="3">status</th>
 
                                             </tr>
                                             <tr>

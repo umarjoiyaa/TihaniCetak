@@ -13,7 +13,7 @@ class BorangeSerahKerjaController extends Controller
 
     public function Data(Request $request)
     {
-        // dd($request->input('columnsData'));  
+        // dd($request->input('columnsData'));
         if ($request->ajax() && $request->input('columnsData') != null) {
             $columnsData = $request->input('columnsData');
             $draw = $request->input('draw');
@@ -334,6 +334,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->sale_order_id = $request->sale_order;
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
+        $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->siap_1 = $request->siap_1;
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->created_by = Auth::user()->id;

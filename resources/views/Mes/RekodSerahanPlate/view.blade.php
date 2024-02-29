@@ -11,7 +11,7 @@
                                 </div>
                             </div>
 
-                        <div class="card" style="background:#f1f0f0;">
+                        <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Diterima Oleh</div>
+                                            <label class="label">Diterima Oleh</label>
                                             @php
                                                 $item = json_decode($rekod_serahan_plate->user_id);
                                             @endphp

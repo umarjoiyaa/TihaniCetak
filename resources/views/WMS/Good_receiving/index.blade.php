@@ -4,7 +4,7 @@
 
         <div class="row">
             <div class="col-md-12">
-                <div class="card mt-5">
+                <div class="card">
                     <div class="card-header">
                     <div class="d-flex justify-content-between">
                             <h4 class="card-title tx-20 mg-b-0 p-2">Good Receiving</h4>
@@ -51,10 +51,9 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-
-    @endsection
+@endsection
+@push('custom-scripts')
+<script>
+    $('#example1').DataTable();
+</script>
+@endpush

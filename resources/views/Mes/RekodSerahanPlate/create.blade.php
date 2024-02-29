@@ -13,7 +13,7 @@
                                     <p class="float-right">TCSB-BO4(Rev.11)</p>
                                 </div>
                             </div>
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row mt-2">
                                 <div class="col-md-4 ">
@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Diterima Oleh</div>
+                                        <label class="label">Diterima Oleh</label>
                                         <select name="user[]" class="form-control form-select" id="Oleh" value="{{ old('user[]') }}" multiple>
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id,

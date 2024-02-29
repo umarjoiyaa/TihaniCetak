@@ -43,7 +43,7 @@ class SenariSemakController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->OrWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -192,7 +192,7 @@ class SenariSemakController extends Controller
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                     })
-                    ->where('status', 'like', '%' . $searchLower . '%');
+                    ->OrWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

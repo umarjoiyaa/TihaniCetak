@@ -12,7 +12,7 @@
                                         </div>
                                </div>
 
-                            <div class="card" style="background:#f1f0f0;">
+                            <div class="card" style="background:#f4f4ff;">
                                 <div class="card-body">
                                     <div class="row">
 
@@ -240,7 +240,7 @@
                                 </div>
                             </div>
 
-                            <div class="card" style="background:#f1f0f0;">
+                            <div class="card" style="background:#f4f4ff;">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -489,7 +489,7 @@
                                 </div>
                             </div>
 
-                            <div class="card" style="background:#f1f0f0;">
+                            <div class="card" style="background:#f4f4ff;">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">
@@ -515,10 +515,10 @@
                                             <tr>
                                                 <th rowspan="2">No</th>
                                                 <th rowspan="2">
-                                                    <div class="text-center">kriteria</div>
+                                                    <div class="text-center">kriteria pemeriksaan</div>
                                                 </th>
-                                                <th colspan="3">cover</th>
-                                                <th colspan="3">text</th>
+                                                <th colspan="3">Opertor Pod</th>
+                                                <th colspan="3">Qc</th>
 
                                             </tr>
                                             <tr>
@@ -770,7 +770,7 @@
                                 </div>
                             </div>
 
-                            <div class="card" style="background:#f1f0f0;">
+                            <div class="card" style="background:#f4f4ff;">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="col-md-12">

@@ -18,25 +18,25 @@
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Tarikh</div>
-                                    <input type="date" readonly value="13-12-2023" class="form-control">
+                                    <input type="date" readonly name="tarikh" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Ref No</div>
-                                    <input type="text" readonly value="auto display" class="form-control">
+                                    <input type="text" name="ref_no" readonly value="auto display" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Diminta Oleh</div>
-                                    <input type="text" value="Admin" readonly class="form-control">
+                                    <input type="text" name="DimintaOleh" readonly class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Sales Orders No</div>
-                                    <select name="" id="" readonly class="form-control">
+                                    <select name="salesOrderNo" id="" readonly class="form-control">
                                         <option value="" disabled>Select Sale Order No.</option>
                                     </select>
                                 </div>
@@ -44,19 +44,19 @@
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Discription</div>
-                                    <input type="text" value="Input Text" readonly class="form-control">
+                                    <input type="text" name=" discription" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Location</div>
-                                    <input type="text" value="Input text" readonly class="form-control">
+                                    <input type="text" name="location" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-3">
                                 <div class="form-group">
                                     <div class="label">Remark</div>
-                                    <input type="text" value="User Input" readonly class="form-control">
+                                    <input type="text" name="remark" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -173,7 +173,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('Material_request.index')}}" class="">Back to list</a>
+        <a href="{{route('Material_request')}}" class="">Back to list</a>
     </div>
 </div>
 @endsection

@@ -94,12 +94,15 @@
         table.dataTable thead th{
             text-align:center;
         }
+        .card .card-body .card{
+            background:#f4f4ff;
+        }
 
     </style>
 
 </head>
 
-<body class="main-body app sidebar-mini Light-mode">
+<body class="main-body app sidebar-mini Light-mode" style="background:#f4f4ff;">
 
     <!-- Loader -->
     <div id="global-loader" class="light-loader">
@@ -626,7 +629,7 @@
                                                                         Borang Serahan Kerja (Kulit Buku /Cover)</a>
                                                                 </li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja_Teks') }}"
+                                                                        href="{{ route('borange_serah_kerja_teks') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -1667,7 +1670,7 @@
         <div class="main-footer ht-40">
             <div class="container-fluid pd-t-0-f ht-100p">
 
-                <span class="text-white">Copyright Â© 2023 . All rights reserved IIOT FACTORY.</span>
+                <span class="text-white">Copyright © 2023 . All rights reserved IIOT FACTORY.</span>
             </div>
         </div>
         <!-- Footer closed -->

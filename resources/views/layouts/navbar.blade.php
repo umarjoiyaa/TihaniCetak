@@ -17,38 +17,54 @@
       nav a{
         color: #fff;
       }
+      nav a:hover{
+        color:#fff !important;
+      }
+      
 
       @media screen and (max-width:992px) {
         nav{
           display: block !important;
         }
         .navbar-toggler{
-          width:100%;
+          width:80%;
         }
         .navbar-toggler-icon{
           color:#fff;
           font-size:20px;
-          margin-left: 750px;
+          margin-left: 680px;
         }
         .dropdown-item{
           font-size:13px;
         }
       }
      @media screen and (max-width:907px){
-      .navbar-toggler-icon{
-        margin-top: -70px;
-      }
+      .navbar-toggler{
+          width:72%;
+        }
+        .navbar-toggler-icon{
+          margin-left: 550px;
+        }
      }
 
      @media screen and (max-width:808px){
       .navbar-toggler-icon{
-        margin-left: 650px;
+        margin-left: 490px;
       }
      }
 
      @media screen and (max-width:710px){
+      .navbar-toggler{
+          width:100%;
+          margin-top: -30px;
+          /* margin-left: 150px; */
+        }
       .navbar-toggler-icon{
-        margin-left: 550px;
+        margin-left: 420px;
+        margin-top: -70px;
+      }
+      .navbar-toggler-icon{
+        margin-left: 370px;
       }
      }
 
@@ -87,12 +103,18 @@
         margin-left: 200px;
       }
      }
+
+     @media screen and (max-width:240px){
+      .navbar-toggler-icon{
+        margin-left: 160px;
+      }
+     }
     </style>
   </head>
   <body>
 
     <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand" href="#"><img src="{{asset('assets/img/tihani.png')}}" width="50px" alt=""></a>
+        <a class="navbar-brand" href="#"><img src="{{asset('assets/img/tihani.png')}}" width="50px" alt="">Tihani Cetak</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation ">
           <span class="navbar-toggler-icon"> <i class="fe fe-align-justify"></i></span>
         </button>
@@ -110,11 +132,11 @@
               <div class="dropdown-menu">
                 <div class="row">
                   <div class="col-sm-2">
-                    <h6 class="pl-3">Managment</h6>
+                    <h6 class="pl-3 pt-3"><b>Managment</b></h6>
                     <a class="dropdown-item" href="{{route('sale_order')}}">Sale Orders</a>
                   </div>
                   <div class="col-sm-5">
-                    <h6 class="pl-3">Laporan/Rekod Proses</h6>
+                    <h6 class="pl-3 pt-3"><b>Laporan/Rekod Proses</b></h6>
                     <div class="row">
                       <div class="col-md-6">
                         <a class="dropdown-item" href="{{route('senari_semak')}}">Senarai
@@ -141,23 +163,23 @@
 
                   </div>
                   <div class="col-sm-5">
-                    <h6 class="pl-3">Laporan Pemeriksaan
-                      Kualiti</h6>
+                    <h6 class="pl-3 pt-3"><b>Laporan Pemeriksaan
+                      Kualiti</b></h6>
                       <div class="row">
                         <div class="col-md-4">
                           <a class="dropdown-item" href="{{route('ctp')}}">CTP</a>
-                  <a class="dropdown-item" href="{{route('pod')}}">POD</a>
-                  <a class="dropdown-item" href="{{route('plate_cetak')}}">Plate Cetak</a>
-                  <a class="dropdown-item" href="{{route('proses_pencetakan')}}">Proses Pencetakan</a>
-                  <a class="dropdown-item" href="{{route('laporan_pemeriksaan_kualiti')}}">Proses Lipat</a>
-                  <a class="dropdown-item" href="{{route('laporan_pemeriksaan_kualiti_penjilidan')}}">Proses Penjilidan  <br> (Perfect Bind)</a>
+                          <a class="dropdown-item" href="{{route('pod')}}">POD</a>
+                          <a class="dropdown-item" href="{{route('plate_cetak')}}">Plate Cetak</a>
+                          <a class="dropdown-item" href="{{route('proses_pencetakan')}}">Proses Pencetakan</a>
+                          <a class="dropdown-item" href="{{route('laporan_pemeriksaan_kualiti')}}">Proses Lipat</a>
+                          <a class="dropdown-item" href="{{route('laporan_pemeriksaan_kualiti_penjilidan')}}">Proses Penjilidan  <br> (Perfect Bind)</a>
                         </div>
                         <div class="col-md-8">
                           <a class="dropdown-item" href="{{route('laporan_pemeriksaan_kualiti_penjilidan_saddle')}}">Prosess Penjilidan  <br> (Saddle Stitch)</a>
-                  <a class="dropdown-item" href="{{route('proses_three_knife')}}">Proses Three Knife</a>
-                  <a class="dropdown-item" href="{{route('proses_pembungkusan')}}">Proses Pembungkusan</a>
-                  <a class="dropdown-item" href="{{route('pengumpulan_gathering')}}">Pengumpulan/ Gathering</a>
-                  <a class="dropdown-item" href="{{route('kulit_buku')}}">Pemotongan Kulit Buku/ Teks</a>
+                          <a class="dropdown-item" href="{{route('proses_three_knife')}}">Proses Three Knife</a>
+                          <a class="dropdown-item" href="{{route('proses_pembungkusan')}}">Proses Pembungkusan</a>
+                          <a class="dropdown-item" href="{{route('pengumpulan_gathering')}}">Pengumpulan/ Gathering</a>
+                          <a class="dropdown-item" href="{{route('kulit_buku')}}">Pemotongan Kulit Buku/ Teks</a>
                         </div>
                       </div>
 
@@ -174,7 +196,7 @@
                 <div class="dropdown-menu">
                   <div class="row">
                     <div class="col-sm-6">
-                      <h6 class="pl-3">Jobsheet</h6>
+                      <h6 class="pl-3 pt-3"><b>Jobsheet</b></h6>
                       <div class="row">
                         <div class="col-md-4">
                           <a class="dropdown-item" href="{{route('digital_printing')}}">Digital Printing</a>
@@ -188,13 +210,13 @@
                           <a class="dropdown-item" href="{{route('perfect_bind')}}">Mesin Perfect Bind</a>
                           <a class="dropdown-item" href="{{route('mesin_knife')}}">Mesin 3Knife</a>
                           <a class="dropdown-item" href="{{route('borange_serah_kerja')}}">Borang Serahan Kerja (Kulit Buku /Cover)</a>
-                          <a class="dropdown-item" href="{{route('BorangeSerahKerja_Teks')}}">Borang Serahan Kerja (Teks)</a>
+                          <a class="dropdown-item" href="{{route('borange_serah_kerja_teks')}}">Borang Serahan Kerja (Teks)</a>
                         </div>
                       </div>
 
                     </div>
                     <div class="col-sm-3">
-                      <h6 class="pl-3">Production</h6>
+                      <h6 class="pl-3 pt-3"><b>Production</b></h6>
                       <a class="dropdown-item" href="{{route('production_scheduling')}}">Production
                         Scheduling</a>
                         <a class="dropdown-item" href="{{route('printing_process')}}">Printing Process</a>
@@ -202,7 +224,7 @@
                         assistance</a>
                     </div>
                     <div class="col-sm-3">
-                      <h6 class="pl-3">Dashboard</h6>
+                      <h6 class="pl-3 pt-3"><b>Dashboard</b></h6>
                       <a class="dropdown-item" href="{{route('MachineDashboard')}}"> Machine
                         Dashboard</a>
                       <a class="dropdown-item" href="{{route('ShopFloor')}}">Shopfloor</a>
@@ -225,7 +247,7 @@
                 <div class="dropdown-menu">
                   <div class="row">
                     <div class="col-sm-6">
-                        <h6 class="pl-3">Jobsheet</h6>
+                        <h6 class="pl-3 pt-3"><b>Jobsheet</b></h6>
                         <div class="row">
                           <div class="col-md-8">
                             <a class="dropdown-item" href="{{route('Good_Receiving')}}">Good
@@ -244,11 +266,11 @@
                         </div>
                     </div>
                     <div class="col-sm-3">
-                      <h6 class="pl-3">Dashboard</h6>
+                      <h6 class="pl-3 pt-3"><b>Dashboard</b></h6>
                       <a class="dropdown-item" href="{{route('invertory_ShopFloor')}}">Inventory Shopfloor</a>
                     </div>
                     <div class="col-sm-3">
-                      <h6 class="pl-3">Report</h6>
+                      <h6 class="pl-3 pt-3"><b>Report</b></h6>
                       <a class="dropdown-item" href="{{route('StockCard_report')}}">Stock Card Report</a>
                       <a class="dropdown-item" href="{{route('Invertory_report')}}">Inventory Report -  By Location</a>
                       <a class="dropdown-item" href="{{route('Sub_monitring_report')}}">Subcon Monitoring Report</a>
@@ -264,14 +286,14 @@
                 <div class="dropdown-menu">
                   <div class="row">
                     <div class="col-sm-4">
-                      <h6 class="pl-3">Administration</h6>
+                      <h6 class="pl-3 pt-3"><b>Administration</b></h6>
                       <a class="dropdown-item" href="#">Roles</a>
                       <a class="dropdown-item" href="{{route('department')}}">Department</a>
                       <a class="dropdown-item" href="{{route('designation')}}">Designation</a>
                       <a class="dropdown-item" href="{{route('user')}}">Users</a>
                     </div>
                     <div class="col-sm-8">
-                      <h6 class="pl-3">Database</h6>
+                      <h6 class="pl-3 pt-3"><b>Database</b></h6>
                       <div class="row">
                         <div class="col-md-4">
                           <a class="dropdown-item" href="{{route('product')}}">Product</a>
