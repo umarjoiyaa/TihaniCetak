@@ -519,7 +519,7 @@ class CTPController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        
+
         $carbonTime = Carbon::createFromFormat('H:i', $request->time);
         $timeIn12HourFormat = $carbonTime->format('h:i A');
 
@@ -575,8 +575,8 @@ class CTPController extends Controller
         $ctp->status = 'verified';
         $ctp->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $ctp->verified_by_user = Auth::user()->user_name;
-        $ctp->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $ctp->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $ctp->verified_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $ctp->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $ctp->save();
         Helper::logSystemActivity('CTP', 'CTP Verified');
         return redirect()->route('ctp')->with('custom_success', 'CTP has been Successfully Verified!');

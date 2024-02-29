@@ -607,8 +607,8 @@ class SenariSemakCetakController extends Controller
         $senari_semak_cetak->status = 'verified';
         $senari_semak_cetak->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $senari_semak_cetak->verified_by_user = Auth::user()->user_name;
-        $senari_semak_cetak->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $senari_semak_cetak->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $senari_semak_cetak->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $senari_semak_cetak->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $senari_semak_cetak->save();
         Helper::logSystemActivity('Senarai Semak Pra Cetak', 'Senarai Semak Pra Cetak Verified');
         return redirect()->route('senari_semak_cetak')->with('custom_success', 'Senarai Semak Pra Cetak has been Successfully Verified!');

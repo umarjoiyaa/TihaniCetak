@@ -452,8 +452,8 @@ class ProsesPembungkusanController extends Controller
         $proses_pembungkusan->status = 'verified';
         $proses_pembungkusan->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $proses_pembungkusan->verified_by_user = Auth::user()->user_name;
-        $proses_pembungkusan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $proses_pembungkusan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $proses_pembungkusan->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $proses_pembungkusan->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $proses_pembungkusan->save();
         Helper::logSystemActivity('PROSES PEMBUNGKUSAN', 'PROSES PEMBUNGKUSAN Verified');
         return redirect()->route('proses_pembungkusan')->with('custom_success', 'PROSES PEMBUNGKUSAN has been Successfully Verified!');

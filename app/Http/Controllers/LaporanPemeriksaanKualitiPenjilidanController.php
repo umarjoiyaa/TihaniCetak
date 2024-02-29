@@ -479,8 +479,8 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
         $laporan_pemeriksaan_kualiti_penjilidan->status = 'verified';
         $laporan_pemeriksaan_kualiti_penjilidan->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $laporan_pemeriksaan_kualiti_penjilidan->verified_by_user = Auth::user()->user_name;
-        $laporan_pemeriksaan_kualiti_penjilidan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $laporan_pemeriksaan_kualiti_penjilidan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_pemeriksaan_kualiti_penjilidan->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $laporan_pemeriksaan_kualiti_penjilidan->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $laporan_pemeriksaan_kualiti_penjilidan->save();
 
         Helper::logSystemActivity('LAPORAN PEMERIKSAAN KUALITI PENJILIDAN', 'LAPORAN PEMERIKSAAN KUALITI PENJILIDAN Verified');

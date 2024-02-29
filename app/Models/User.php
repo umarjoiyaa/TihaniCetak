@@ -44,11 +44,11 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function designation()
+    public function designations()
     {
         return $this->belongsTo(Designation::class, 'designation', 'id');
     }
-    public function department()
+    public function departments()
     {
         return $this->belongsTo(Department::class, 'department', 'id');
     }
