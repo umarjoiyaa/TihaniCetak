@@ -26,9 +26,14 @@ $(document).ready(function () {
                 data: 'sr_no',
                 name: 'sr_no',
                 orderable: false
-            }, {
+            },
+            {
                 data: 'date',
                 name: 'date',
+            },
+            {
+                data: 'time',
+                name: 'time',
             },
             {
                 data: 'sale_order.order_no',
@@ -109,9 +114,14 @@ function AjaxCall(columnsData) {
                 data: 'sr_no',
                 name: 'sr_no',
                 orderable: false
-            }, {
+            },
+            {
                 data: 'date',
                 name: 'date',
+            },
+            {
+                data: 'time',
+                name: 'time',
             },
             {
                 data: 'sale_order.order_no',

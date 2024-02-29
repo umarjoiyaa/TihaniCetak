@@ -13,6 +13,7 @@ class BorangeSerahKerjaController extends Controller
 
     public function Data(Request $request)
     {
+        // dd($request->input('columnsData'));  
         if ($request->ajax() && $request->input('columnsData') != null) {
             $columnsData = $request->input('columnsData');
             $draw = $request->input('draw');

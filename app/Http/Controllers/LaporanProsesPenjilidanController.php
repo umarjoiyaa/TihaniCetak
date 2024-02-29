@@ -25,7 +25,7 @@ class LaporanProsesPenjilidanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id', 'date', 'user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
+            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id', 'date','time','user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -33,6 +33,7 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->orWhere('pembantu_text', 'like', '%' . $searchLower . '%')
@@ -58,14 +59,15 @@ class LaporanProsesPenjilidanController extends Controller
             if (!empty($columnsData)) {
                 $sortableColumns = [
                     1 => 'date',
-                    2 => 'sale_order_id',
+                    2 => 'time',
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'jenis',
-                    7 => 'user_text',
-                    8 => 'pembantu_text',
-                    9 => 'status',
+                    6 => 'sale_order_id',
+                    7 => 'jenis',
+                    8 => 'user_text',
+                    9 => 'pembantu_text',
+                    10 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -90,35 +92,46 @@ class LaporanProsesPenjilidanController extends Controller
                                 $q->where('date', 'like', '%' . $searchLower . '%');
                                 break;
                             case 2:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('order_no', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('time', 'like', '%' . $searchLower . '%');
+
                                 break;
                             case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                                    $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
+
                                 break;
                             case 4:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('description', 'like', '%' . $searchLower . '%');
+                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                                 });
+
                                 break;
                             case 5:
+                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
+                                    $query->where('description', 'like', '%' . $searchLower . '%');
+                                });
+
+                                break;
+                            case 6:
                                 $q->whereHas('senari_semak', function ($query) use ($searchLower) {
                                     $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
                                 });
-                                break;
-                            case 6:
-                                $q->where('jenis', 'like', '%' . $searchLower . '%');
+
                                 break;
                             case 7:
-                                $q->where('user_text', 'like', '%' . $searchLower . '%');
+                                $q->where('jenis', 'like', '%' . $searchLower . '%');
                                 break;
                             case 8:
-                                $q->where('pembantu_text', 'like', '%' . $searchLower . '%');
+                                $q->where('user_text', 'like', '%' . $searchLower . '%');
+
                                 break;
                             case 9:
+                                $q->where('pembantu_text', 'like', '%' . $searchLower . '%');
+
+                                break;
+                            case 10:
+
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -189,7 +202,7 @@ class LaporanProsesPenjilidanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id', 'date', 'user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
+            $query = LaporanProsesPenjilidan::select('id', 'sale_order_id','time', 'date', 'user_text', 'jenis', 'pembantu_text', 'status')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -197,6 +210,7 @@ class LaporanProsesPenjilidanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhere('user_text', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis', 'like', '%' . $searchLower . '%')
                         ->orWhere('pembantu_text', 'like', '%' . $searchLower . '%')
@@ -219,14 +233,15 @@ class LaporanProsesPenjilidanController extends Controller
 
             $sortableColumns = [
                 1 => 'date',
-                2 => 'sale_order_id',
+                2 => 'time',
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'jenis',
-                7 => 'user_text',
-                8 => 'pembantu_text',
-                9 => 'status',
+                6 => 'sale_order_id',
+                7 => 'jenis',
+                8 => 'user_text',
+                9 => 'pembantu_text',
+                10 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){

@@ -16,6 +16,6 @@ class BorangSerahKerjaKulit extends Model
     }
     public function supplier()
     {
-        return $this->belongsTo(Supplier::class, 'nama_subkontraktor', 'id');
+        return $this->belongsTo(Supplier::class, 'nama', 'id');
     }
 }

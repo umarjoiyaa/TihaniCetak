@@ -291,17 +291,23 @@ class SenariSemakCetakController extends Controller
         $page = $request->input('page', 1);
         $search = $request->input('q');
 
-        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published')->whereNotIn('id', function($subquery) {
-            $subquery->select('sale_order_id')
-                ->from('senari_semak_cetaks');
-        });
+        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published');
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');
         }
         $heads = $query->paginate($perPage, ['*'], 'page', $page);
 
+        // Convert items to a collection and then use map
+        $transformedResults = collect($heads->items())->map(function ($item) {
+            return [
+                'id' => $item['id'],
+                'text' => $item['order_no'],
+                'order_no' => $item['order_no'],
+            ];
+        });
+
         return response()->json([
-            'results' => $heads->items(),
+            'results' => $transformedResults,
             'pagination' => [
                 'more' => $heads->hasMorePages(),
             ],

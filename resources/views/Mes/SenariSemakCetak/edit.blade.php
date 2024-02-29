@@ -1410,7 +1410,7 @@
 
             $('#sale_order').select2({
                 ajax: {
-                    url: '{{ route('senari_semak_cetak_edit.sale_order.get') }}',
+                    url: '{{ route('sale_order.get') }}',
                     dataType: 'json',
                     delay: 1000,
                     data: function(params) {
