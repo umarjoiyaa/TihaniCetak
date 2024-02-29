@@ -179,7 +179,7 @@
                         <div class="col-md-4">
                           <a class="dropdown-item" href="{{route('digital_printing')}}">Digital Printing</a>
                           <a class="dropdown-item" href="{{route('cover_end_paper')}}">Cover & End Paper</a>
-                          <a class="dropdown-item" href="{{route('ProductionJobSheet_text')}}">Text</a>
+                          <a class="dropdown-item" href="{{route('text')}}">Text</a>
                           <a class="dropdown-item" href="{{route('mesin_lipat')}}">Mesin Lipat</a>
                           <a class="dropdown-item" href="{{route('staple_bind')}}">Staple Bind</a>
 

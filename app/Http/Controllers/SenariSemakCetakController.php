@@ -291,7 +291,11 @@ class SenariSemakCetakController extends Controller
         $page = $request->input('page', 1);
         $search = $request->input('q');
 
-        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published');
+        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published')->whereNotIn('id', function($subquery) {
+            $subquery->select('sale_order_id')
+                ->from('senari_semak_cetaks')
+                ->whereNull('deleted_at');
+        });
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');
         }
@@ -324,7 +328,8 @@ class SenariSemakCetakController extends Controller
         ->whereNotIn('id', function($subquery) use ($request) {
             $subquery->select('sale_order_id')
                 ->from('senari_semak_cetaks')
-                ->where('id', '!=', $request->id);
+                ->where('id', '!=', $request->id)
+                ->whereNull('deleted_at');
         });
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');

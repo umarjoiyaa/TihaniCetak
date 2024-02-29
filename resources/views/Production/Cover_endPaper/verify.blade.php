@@ -2,7 +2,7 @@
 
 @section('content')
     {{-- <link href="{{ url('/assets/plugins/summernote/css/summernote-bs4.min.css') }}" rel="stylesheet"> --}}
-    {{-- <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet"> --}}
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
     <div class="row">
         <div class="col-md-12">
             <div class="card">
@@ -780,6 +780,7 @@
                                             <input type="hidden" class="cover_paper_detail_id">
                                         </div>
                                         <div class="modal-body">
+                                            <div class="table-responsive">
                                             <table class="table table-bordered" id="modalTable">
                                                 <thead>
                                                     <tr>
@@ -825,6 +826,7 @@
                                                     </tr>
                                                 </tbody>
                                             </table>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"

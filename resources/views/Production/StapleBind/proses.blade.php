@@ -275,36 +275,39 @@
                         <input type="hidden" class="staple_detail_id">
                     </div>
                     <div class="modal-body">
-                        <table class="table table-bordered" id="modalTable">
-                            <thead>
-                                <tr>
-                                    <th>Good Count</th>
-                                    <th>Rejection</th>
-                                    <th>Total Produce</th>
-                                    <th>Check</th>
-                                    <th></th>
-                                    <th>Verify</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control good_count"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control rejection"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control total_produce" readonly></td>
-                                    <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_operator_text"></td>
-                                    <td><button disabled type="button"
-                                            class="btn btn-primary check_verify">Verify</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_verify_text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="modalTable">
+                                <thead>
+                                    <tr>
+                                        <th>Good Count</th>
+                                        <th>Rejection</th>
+                                        <th>Total Produce</th>
+                                        <th>Check</th>
+                                        <th></th>
+                                        <th>Verify</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control good_count"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control rejection"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control total_produce" readonly></td>
+                                        <td><button type="button" class="btn btn-primary check_operator">Check</button>
+                                        </td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_operator_text"></td>
+                                        <td><button disabled type="button"
+                                                class="btn btn-primary check_verify">Verify</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_verify_text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -498,6 +501,9 @@
         });
 
         function machineStarter(status, staple_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -513,6 +519,7 @@
                     "staple_id": staple_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);
@@ -537,14 +544,12 @@
                         var end_time = (detail.end_time != null) ? detail.end_time : '';
                         var duration = (detail.duration != null) ? detail.duration : '';
 
-                        $('#jobsheet_detail_table tbody').append(`<tr>
-                            <td>${button}</td>
+                        $('#machine_detail_table tbody').append(`<tr>
+                            <td>${statusBadge}</td>
+                            <td>${mesinInfo}</td>
                             <td>${start_time}</td>
                             <td>${end_time}</td>
                             <td>${duration}</td>
-                            <td>${mesinInfo}</td>
-                            <td>${remarks}</td>
-                            <td class="operator_text">${badge}</td>
                         </tr>`);
 
                         var badge = '';
@@ -563,6 +568,7 @@
                             <td>${end_time}</td>
                             <td>${duration}</td>
                             <td>${mesinInfo}</td>
+                            <td>${remarks}</td>
                             <td class="operator_text">${badge}</td>
                         </tr>`);
                     });

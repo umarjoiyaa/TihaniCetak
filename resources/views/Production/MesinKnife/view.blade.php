@@ -65,7 +65,8 @@
                                         @php
                                             $item = json_decode($mesin_knife->operator);
                                         @endphp
-                                        <select disabled name="operator[]" class="form-control form-select" id="operator" multiple>
+                                        <select disabled name="operator[]" class="form-control form-select" id="operator"
+                                            multiple>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}"
                                                     @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
@@ -108,8 +109,7 @@
                                     <div class="form-group">
                                         <div class="label">Kuantiti (SO)</div>
                                         <input type="text" readonly name="" id="sale_order_qty"
-                                            class="form-control"
-                                            value="{{ $mesin_knife->sale_order->sale_order_qty }}">
+                                            class="form-control" value="{{ $mesin_knife->sale_order->sale_order_qty }}">
                                     </div>
                                 </div>
 
@@ -141,36 +141,36 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered" id="jobsheet_detail_table">
                                         <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total Time(min)</th>
+                                                <th>Machine</th>
+                                                <th>Remarks</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
                                                 <tr>
-                                                    <th>Action</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total Time(min)</th>
-                                                    <th>Machine</th>
-                                                    <th>Remarks</th>
-                                                    <th>Operator</th>
+                                                    <td><button type="button" data-toggle="modal"
+                                                            data-target="#exampleModal"
+                                                            class="btn btn-primary openModal">+</button>
+                                                        <input type="hidden" class="hiddenId"
+                                                            value="{{ $detail->id }}">
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td>{{ $detail->remarks }}</td>
+                                                    <td class="operator_text"></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
-                                                    <tr>
-                                                        <td><button type="button" data-toggle="modal"
-                                                                data-target="#exampleModal"
-                                                                class="btn btn-primary openModal">+</button>
-                                                            <input type="hidden" class="hiddenId"
-                                                                value="{{ $detail->id }}">
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -285,41 +285,43 @@
                                             <input type="hidden" class="knife_detail_id">
                                         </div>
                                         <div class="modal-body">
-                                            <table class="table table-bordered" id="modalTable">
-                                                <thead>
-                                                    <tr>
-                                                        <th>Good Count</th>
-                                                        <th>Rejection</th>
-                                                        <th>Total Produce</th>
-                                                        <th>Check</th>
-                                                        <th></th>
-                                                        <th>Verify</th>
-                                                        <th></th>
-                                                    </tr>
-                                                </thead>
-                                                <tbody>
-                                                    <tr>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control good_count" readonly>
-                                                        </td>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control rejection" readonly>
-                                                        </td>
-                                                        <td><input type="text" name="" id=""
-                                                                class="form-control total_produce" readonly></td>
-                                                        <td><button disabled type="button"
-                                                                class="btn btn-primary check_operator">Check</button>
-                                                        </td>
-                                                        <td><input type="text" name="" id="" readonly
-                                                                class="form-control check_operator_text"></td>
-                                                        <td><button disabled type="button"
-                                                                class="btn btn-primary check_verify">Verify</button>
-                                                        </td>
-                                                        <td><input type="text" name="" id="" readonly
-                                                                class="form-control check_verify_text"></td>
-                                                    </tr>
-                                                </tbody>
-                                            </table>
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" id="modalTable">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Good Count</th>
+                                                            <th>Rejection</th>
+                                                            <th>Total Produce</th>
+                                                            <th>Check</th>
+                                                            <th></th>
+                                                            <th>Verify</th>
+                                                            <th></th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control good_count" readonly>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control rejection" readonly>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    class="form-control total_produce" readonly></td>
+                                                            <td><button disabled type="button"
+                                                                    class="btn btn-primary check_operator">Check</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_operator_text"></td>
+                                                            <td><button disabled type="button"
+                                                                    class="btn btn-primary check_verify">Verify</button>
+                                                            </td>
+                                                            <td><input type="text" name="" id=""
+                                                                    readonly class="form-control check_verify_text"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary"
