@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
-use App\Models\Text;
-use App\Models\TextDetail;
 use App\Models\PrintingProcess;
+use App\Models\PrintingProcessDetail;
+use App\Models\PrintingProcessDetailB;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -23,27 +24,32 @@ class PrintingProcessController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Text::select('id', 'sale_order_id', 'date','status', 'kuantiti_waste')->with('sale_order', 'senari_semak');
+            $query = PrintingProcess::select('id', 'text_id', 'machine', 'status')->with('text', 'text.sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
-                        ->where('date', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('order_no', 'like', '%' . $searchLower . '%');
+                        ->whereHas('text', function ($query) use ($searchLower) {
+                            $query->where('date', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('customer', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('description', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -55,13 +61,14 @@ class PrintingProcessController extends Controller
 
             if (!empty($columnsData)) {
                 $sortableColumns = [
-                    1 => 'date',
-                    2 => 'sale_order_id',
-                    3 => 'sale_order_id',
-                    4 => 'sale_order_id',
-                    5 => 'sale_order_id',
-                    6 => 'kuantiti_waste',
-                    7 => 'status',
+                    1 => 'text.date',
+                    2 => 'text.sale_order_id',
+                    3 => 'text.sale_order_id',
+                    4 => 'text.sale_order_id',
+                    5 => 'text.sale_order_id',
+                    6 => 'text.kuantiti_waste',
+                    7 => 'machine',
+                    8 => 'status',
 
                     // Add more columns as needed
                 ];
@@ -84,32 +91,39 @@ class PrintingProcessController extends Controller
 
                         switch ($column['index']) {
                             case 1:
-                                $q->where('date', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('date', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 2:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('order_no', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 3:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('customer', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 4:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 5:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('description', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 6:
-                                $q->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text', function ($query) use ($searchLower) {
+                                    $query->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 7:
+                                $q->where('machine', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 8:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -134,19 +148,22 @@ class PrintingProcessController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Completed') {
-                    $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
+                    $row->status = '<span class="badge badge-info">Completed</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
+                } else if ($row->status == 'declined') {
+                    $row->status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
+                } else if ($row->status == 'verified') {
+                    $row->status = '<span class="badge badge-success">Verified</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -179,40 +196,47 @@ class PrintingProcessController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Text::select('id', 'sale_order_id', 'date','status', 'kuantiti_waste')->with('sale_order', 'senari_semak');
+            $query = PrintingProcess::select('id', 'text_id', 'machine', 'status')->with('text', 'text.sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
-                        ->where('date', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('order_no', 'like', '%' . $searchLower . '%');
+                        ->whereHas('text', function ($query) use ($searchLower) {
+                            $query->where('date', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('customer', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('description', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhereHas('text', function ($query) use ($searchLower) {
+                            $query->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
 
+
             $sortableColumns = [
-                1 => 'date',
-                2 => 'sale_order_id',
-                3 => 'sale_order_id',
-                4 => 'sale_order_id',
-                5 => 'sale_order_id',
-                6 => 'kuantiti_waste',
-                7 => 'status',
+                1 => 'text.date',
+                2 => 'text.sale_order_id',
+                3 => 'text.sale_order_id',
+                4 => 'text.sale_order_id',
+                5 => 'text.sale_order_id',
+                6 => 'text.kuantiti_waste',
+                7 => 'machine',
+                8 => 'status',
 
                 // Add more columns as needed
             ];
@@ -238,19 +262,22 @@ class PrintingProcessController extends Controller
                 $row->sr_no = $start + $index + 1;
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Started') {
                     $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Paused') {
                     $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Completed') {
-                    $row->status = '<span class="badge badge-success">Completed</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
+                    $row->status = '<span class="badge badge-info">Completed</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
+                } else if ($row->status == 'declined') {
+                    $row->status = '<span class="badge badge-danger">Declined</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
+                } else if ($row->status == 'verified') {
+                    $row->status = '<span class="badge badge-success">Verified</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -274,235 +301,210 @@ class PrintingProcessController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('TEXT List') ||
-            Auth::user()->hasPermissionTo('TEXT Create') ||
-            Auth::user()->hasPermissionTo('TEXT Update') ||
-            Auth::user()->hasPermissionTo('TEXT View') ||
-            Auth::user()->hasPermissionTo('TEXT Delete') ||
-            Auth::user()->hasPermissionTo('TEXT Proses')
+            Auth::user()->hasPermissionTo('PRINTING PROCESS List') ||
+            Auth::user()->hasPermissionTo('PRINTING PROCESS Update') ||
+            Auth::user()->hasPermissionTo('PRINTING PROCESS View')
         ) {
-            Helper::logSystemActivity('TEXT', 'TEXT List');
-            return view('Production.Text.index');
+            Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS List');
+            return view('Production.PrintingProcess.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
-    public function create(){
-        if (!Auth::user()->hasPermissionTo('TEXT Create')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        Helper::logSystemActivity('TEXT', 'TEXT Create');
-        return view('Production.Text.create');
-    }
-
-    public function store(Request $request)
-    {
-        if (!Auth::user()->hasPermissionTo('TEXT Create')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-
-        $validator = null;
-
-        $validatedData = $request->validate([
-            'sale_order' => 'required',
-            'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kertas' => 'required',
-            'saiz_potong' => 'required',
-            'plate' => 'required',
-            'print' => 'required',
-            'waste_paper' => 'required',
-            'last_print' => 'required',
-            'seksyen_no' => 'required',
-        ]);
-
-        // If validations fail
-        if (!$validatedData) {
-            return redirect()->back()
-                ->withErrors($validator)->withInput();
-        }
-
-        $text = new Text();
-        $text->sale_order_id = $request->sale_order;
-        $text->date = $request->date;
-        $text->kuantiti_waste = $request->kuantiti_waste;
-        $text->mesin = $request->mesin;
-        $text->kertas = $request->kertas;
-        $text->saiz_potong = $request->saiz_potong;
-        $text->plate = $request->plate;
-        $text->print = $request->print;
-        $text->waste_paper = $request->waste_paper;
-        $text->last_print = $request->last_print;
-        $text->seksyen_no = $request->seksyen_no;
-        $text->arahan_kerja = $request->arahan_kerja;
-        $text->catatan = $request->catatan;
-
-        $text->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
-        $text->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
-        $text->binding_3 = ($request->binding_3 != null) ? $request->binding_3_val : null;
-        $text->binding_4 = ($request->binding_4 != null) ? $request->binding_4_val : null;
-        $text->binding_5 = ($request->binding_5 != null) ? $request->binding_5_val : null;
-        $text->binding_6 = ($request->binding_6 != null) ? $request->binding_6_val : null;
-        $text->binding_7 = ($request->binding_7 != null) ? $request->binding_7_val : null;
-        $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
-        $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
-        $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
-
-        $text->status = 'Not-initiated';
-        $text->created_by = Auth::user()->id;
-        $text->save();
-
-        if(!isset($request->action)){
-            for ($index = 1; $index <= $request->seksyen_no; $index++) {
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $index;
-                $detail->date = $request->section_date;
-                $detail->machine = $request->section_machine;
-                $detail->side = $request->section_side;
-                $detail->last_print = $request->section_last_print;
-                $detail->kuantiti_waste = $request->section_kuantiti_waste;
-                $detail->save();
-            }
-        }else{
-            foreach($request->section as $key => $value){
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $key;
-                $detail->date = $value['date'];
-                $detail->machine = $value['machine'];
-                $detail->side = $value['side'];
-                $detail->last_print = $value['last_print'];
-                $detail->kuantiti_waste = $value['kuantiti_waste'];
-                $detail->save();
-            }
-        }
-
-        Helper::logSystemActivity('TEXT', 'TEXT Store');
-        return redirect()->route('text')->with('custom_success', 'TEXT has been Created Successfully !');
-    }
-
-
-    public function edit($id){
-        if (!Auth::user()->hasPermissionTo('TEXT Update')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $text = Text::find($id);
-        $details = TextDetail::where('text_id',  '=', $id)->get();
-        Helper::logSystemActivity('TEXT', 'TEXT Update');
-        return view('Production.Text.edit',compact('text', 'details'));
-    }
-
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('TEXT View')) {
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $text = Text::find($id);
-        $details = TextDetail::where('text_id',  '=', $id)->get();
-        Helper::logSystemActivity('TEXT', 'TEXT View');
-        return view('Production.Text.view', compact('text', 'details'));
+        $printing_process = PrintingProcess::find($id);
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
+        return view('Production.PrintingProcess.proses', compact('printing_process', 'check_machines', 'details', 'detailbs'));
     }
 
-    public function update(Request $request,$id)
+    public function proses($id){
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $printing_process = PrintingProcess::find($id);
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
+        return view('Production.PrintingProcess.proses', compact('printing_process', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function proses_update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('TEXT Update')) {
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Proses')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $storedData = json_decode($request->input('details'), true);
+        $printing_process = PrintingProcess::find($id);
+        $printing_process->operator = json_encode($request->operator);
+        $printing_process->save();
+
+        $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->delete();
+
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = new PrintingProcessDetailB();
+                $detail->printing_detail_id = $value['hiddenId'] ?? null;
+                $detail->section_no = $value['section_no'] ?? null;
+                $detail->side = $value['side'] ?? null;
+                $detail->last_print = $value['last_print'] ?? null;
+                $detail->waste_paper = $value['waste_paper'] ?? null;
+                $detail->rejection = $value['rejection'] ?? null;
+                $detail->good_count = $value['good_count'] ?? null;
+                $detail->check_operator_text = $value['check_operator_text'] ?? null;
+                $detail->save();
+            }
+        }
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Proses Update');
+        return redirect()->route('printing_process')->with('custom_success', 'PRINTING PROCESS has been Proses Updated Successfully !');
+    }
+
+    public function verify($id){
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $printing_process = PrintingProcess::find($id);
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
+        return view('Production.PrintingProcess.verify', compact('printing_process', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function approve_approve(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Verify')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
-        $validator = null;
+        $printing_process = PrintingProcess::find($id);
+        $printing_process->status = 'verified';
+        $printing_process->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $printing_process->verified_by_user = Auth::user()->user_name;
+        $printing_process->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
+        $printing_process->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $printing_process->save();
 
-        $validatedData = $request->validate([
-            'sale_order' => 'required',
-            'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kertas' => 'required',
-            'saiz_potong' => 'required',
-            'plate' => 'required',
-            'print' => 'required',
-            'waste_paper' => 'required',
-            'last_print' => 'required',
-            'seksyen_no' => 'required',
-        ]);
-
-        // If validations fail
-        if (!$validatedData) {
-            return redirect()->back()
-                ->withErrors($validator)->withInput();
+        $storedData = json_decode($request->input('details'), true);
+        foreach($storedData as $key => $value){
+            if ($value != null) {
+                $detail = PrintingProcessDetailB::where('printing_detail_id', '=', $value['hiddenId'])->first();
+                $detail->check_verify_text = $value['check_verify_text'] ?? null;
+                $detail->save();
+            }
         }
 
-        $text = Text::find($id);
-        $text->sale_order_id = $request->sale_order;
-        $text->date = $request->date;
-        $text->kuantiti_waste = $request->kuantiti_waste;
-        $text->mesin = $request->mesin;
-        $text->kertas = $request->kertas;
-        $text->saiz_potong = $request->saiz_potong;
-        $text->plate = $request->plate;
-        $text->print = $request->print;
-        $text->waste_paper = $request->waste_paper;
-        $text->last_print = $request->last_print;
-        $text->seksyen_no = $request->seksyen_no;
-        $text->arahan_kerja = $request->arahan_kerja;
-        $text->catatan = $request->catatan;
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Verified');
+        return redirect()->route('printing_process')->with('custom_success', 'PRINTING PROCESS has been Successfully Verified!');
+    }
 
-        $text->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
-        $text->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
-        $text->binding_3 = ($request->binding_3 != null) ? $request->binding_3_val : null;
-        $text->binding_4 = ($request->binding_4 != null) ? $request->binding_4_val : null;
-        $text->binding_5 = ($request->binding_5 != null) ? $request->binding_5_val : null;
-        $text->binding_6 = ($request->binding_6 != null) ? $request->binding_6_val : null;
-        $text->binding_7 = ($request->binding_7 != null) ? $request->binding_7_val : null;
-        $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
-        $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
-        $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
+    public function approve_decline(Request $request, $id){
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Verify')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
 
-        $text->status = 'Not-initiated';
-        $text->created_by = Auth::user()->id;
-        $text->save();
+        $printing_process = PrintingProcess::find($id);
+        $printing_process->status = 'declined';
+        $printing_process->save();
+        Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Declined');
+        return redirect()->route('printing_process')->with('custom_success', 'PRINTING PROCESS has been Successfully Declined!');
+    }
 
-        TextDetail::where('text_id', '=', $id)->delete();
+    public function machine_starter(Request $request)
+    {
+        $ismachinestart = null;
 
-        if(!isset($request->action)){
-            for ($index = 1; $index <= $request->seksyen_no; $index++) {
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $index;
-                $detail->date = $request->section_date;
-                $detail->machine = $request->section_machine;
-                $detail->side = $request->section_side;
-                $detail->last_print = $request->section_last_print;
-                $detail->kuantiti_waste = $request->section_kuantiti_waste;
-                $detail->save();
+        $JustSelected = PrintingProcess::where('id', '=', $request->printing_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+
+        if(!empty($JustSelected)){
+            $ismachinestart = PrintingProcessDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('printing_id', '!=', $request->printing_id)->orderby('id', 'DESC')->first();
+        }
+
+        $alreadyexist = PrintingProcessDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('printing_id', '=', $request->printing_id)->orderby('id', 'DESC')->first();
+        $alreadypaused = PrintingProcessDetail::where('status', '=', 1)->where('machine', '=', $request->machine)->where('printing_id', '=', $request->printing_id)->orderby('id', 'DESC')->first();
+        $stopped = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id', '=', $request->printing_id)->where('status', '=', 3)->first();
+
+        if (!$ismachinestart) {
+
+            if ($request->status == 1 && !$alreadyexist && !$stopped) {
+
+                PrintingProcessDetail::create([
+                    'machine' => $request->machine,
+                    'printing_id' => $request->printing_id,
+                    'status' => $request->status,
+                    'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
+                ]);
+                $digital = PrintingProcess::find($request->printing_id);
+                $digital->status = 'Started';
+                $digital->save();
+                $check_machine = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id',  '=', $request->printing_id)->orderby('id', 'DESC')->first();
+                $details = PrintingProcessDetail::where('printing_id',  '=', $request->printing_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Started ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 2 && $alreadypaused && !$stopped) {
+
+                $mpo = PrintingProcessDetail::where('machine', $request->machine)->where('printing_id', $request->printing_id)->where('end_time', '=', null)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->remarks = $request->remarks;
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = PrintingProcess::find($request->printing_id);
+                $digital->status = 'Paused';
+                $digital->save();
+                $check_machine = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id',  '=', $request->printing_id)->orderby('id', 'DESC')->first();
+                $details = PrintingProcessDetail::where('printing_id',  '=', $request->printing_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Paused ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
+            } else if ($request->status == 3 && !$stopped) {
+                $mpo = PrintingProcessDetail::where('machine', $request->machine)->where('printing_id', $request->printing_id)->orderby('id', 'DESC')->first();
+                $mpo->status = $request->status;
+                $mpo->end_time = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+                $mpo->save();
+                $start_time = Carbon::parse($mpo->start_time);
+                $end_time = Carbon::parse($mpo->end_time);
+                $duration = $end_time->diffInMinutes($start_time);
+                $mpo->duration = $duration;
+                $mpo->save();
+                $digital = PrintingProcess::find($request->printing_id);
+                $digital->status = 'Completed';
+                $digital->save();
+                $check_machine = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id',  '=', $request->printing_id)->orderby('id', 'DESC')->first();
+                $details = PrintingProcessDetail::where('printing_id',  '=', $request->printing_id)->orderby('id', 'ASC')->get();
+                return response()->json([
+                    'message' => 'Machine Stopped ' . Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A'),
+                    'check_machine' => $check_machine,
+                    'details' => $details
+                ]);
             }
         }else{
-            foreach($request->section as $key => $value){
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $key;
-                $detail->date = $value['date'];
-                $detail->machine = $value['machine'];
-                $detail->side = $value['side'];
-                $detail->last_print = $value['last_print'];
-                $detail->kuantiti_waste = $value['kuantiti_waste'];
-                $detail->save();
-            }
+            $check_machine = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id',  '=', $request->printing_id)->orderby('id', 'DESC')->first();
+            $details = PrintingProcessDetail::where('printing_id',  '=', $request->printing_id)->orderby('id', 'ASC')->get();
+            return response()->json([
+                'message' => 'Same Machine Is Running On Other Staple Bind!',
+                'check_machine' => $check_machine,
+                'details' => $details
+            ]);
         }
-
-        Helper::logSystemActivity('TEXT', 'TEXT update');
-        return redirect()->route('text')->with('custom_success', 'TEXT has been Updated Successfully !');
-    }
-
-    public function delete($id){
-        if (!Auth::user()->hasPermissionTo('TEXT Delete')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $text = Text::find($id);
-        TextDetail::where('text_id', $id)->delete();
-        PrintingProcess::where('text_id', $id)->delete();
-        $text->delete();
-        Helper::logSystemActivity('TEXT', 'TEXT Delete');
-        return redirect()->route('text')->with('custom_success', 'TEXT has been Successfully Deleted!');
     }
 }

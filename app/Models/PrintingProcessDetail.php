@@ -6,12 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class PrintingProcess extends Model
+class PrintingProcessDetail extends Model
 {
     use HasFactory, SoftDeletes;
+    public $fillable = ['machine', 'printing_id', 'start_time', 'end_time', 'duration', 'remarks', 'status'];
 
-    public function text()
-    {
-        return $this->belongsTo(Text::class, 'text_id', 'id');
-    }
 }

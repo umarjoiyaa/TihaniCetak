@@ -251,6 +251,10 @@ class PermissionTableSeeder extends Seeder
             'BORANG SERAH KERJA (TEKS) Verify',
             'BORANG SERAH KERJA (TEKS) View',
             'BORANG SERAH KERJA (TEKS) Delete',
+            'PRINTING PROCESS List',
+            'PRINTING PROCESS Update',
+            'PRINTING PROCESS Verify',
+            'PRINTING PROCESS View',
          ];
 
         foreach ($permissions as $permission) {
