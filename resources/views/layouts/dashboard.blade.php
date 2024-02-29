@@ -266,7 +266,7 @@
                                     <div class="col-md-4">
                                         <div class="card " style="border-radius:17px;background:#788fd5;">
                                             <div class="card-body">
-                                                <a href="{{route('PrintingProcess_Text')}}">
+                                                <a href="{{route('printing_process')}}">
                                                     <iconify-icon icon="pepicons-pop:file" width="24"
                                                         height="24"></iconify-icon><br>
                                                     <span style=" font-weight: bold;">Printing
