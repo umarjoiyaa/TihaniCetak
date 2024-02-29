@@ -106,6 +106,11 @@
                                 `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Cover & End Paper</td></tr>`
                             );
                         });
+                        data.Text.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Text</td></tr>`
+                            );
+                        });
                         data.MesinLipat.forEach(element => {
                             $('#myTable tbody').append(
                                 `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Mesin Lipat</td></tr>`
@@ -124,6 +129,11 @@
                         data.Mesin3Knife.forEach(element => {
                             $('#myTable tbody').append(
                                 `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Mesin 3 Knife</td></tr>`
+                            );
+                        });
+                        data.KulitBuku.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Kulit Buku/Cover</td></tr>`
                             );
                         });
                         $('#myTable').DataTable();

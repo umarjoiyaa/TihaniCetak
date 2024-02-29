@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\PrintingProcess;
 use App\Models\PrintingProcessDetail;
 use App\Models\PrintingProcessDetailB;
+use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -156,7 +157,7 @@ class PrintingProcessController extends Controller
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Completed') {
-                    $row->status = '<span class="badge badge-info">Completed</span>';
+                    $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
@@ -270,7 +271,7 @@ class PrintingProcessController extends Controller
                     $row->status = '<span class="badge badge-info">Paused</span>';
                     $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'Completed') {
-                    $row->status = '<span class="badge badge-info">Completed</span>';
+                    $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('printing_process.verify', $row->id) . '">Verify</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
@@ -316,30 +317,32 @@ class PrintingProcessController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $printing_process = PrintingProcess::find($id);
-        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $users = User::all();
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->text->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
         $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
-        return view('Production.PrintingProcess.proses', compact('printing_process', 'check_machines', 'details', 'detailbs'));
+        return view('Production.PrintingProcess.view', compact('printing_process', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function proses($id){
-        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Proses')) {
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $printing_process = PrintingProcess::find($id);
-        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $users = User::all();
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->text->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
         $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
-        return view('Production.PrintingProcess.proses', compact('printing_process', 'check_machines', 'details', 'detailbs'));
+        return view('Production.PrintingProcess.edit', compact('printing_process', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function proses_update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Proses')) {
+        if (!Auth::user()->hasPermissionTo('PRINTING PROCESS Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $storedData = json_decode($request->input('details'), true);
@@ -374,12 +377,13 @@ class PrintingProcessController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $printing_process = PrintingProcess::find($id);
-        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $users = User::all();
+        $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->text->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
         $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
-        return view('Production.PrintingProcess.verify', compact('printing_process', 'check_machines', 'details', 'detailbs'));
+        return view('Production.PrintingProcess.verify', compact('printing_process', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function approve_approve(Request $request, $id){
@@ -424,7 +428,7 @@ class PrintingProcessController extends Controller
     {
         $ismachinestart = null;
 
-        $JustSelected = PrintingProcess::where('id', '=', $request->printing_id)->where('mesin' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
+        $JustSelected = PrintingProcess::where('id', '=', $request->printing_id)->where('machine' ,'=' , $request->machine)->orderby('id', 'DESC')->first();
 
         if(!empty($JustSelected)){
             $ismachinestart = PrintingProcessDetail::where('end_time', '=', null)->where('machine', '=', $request->machine)->where('printing_id', '!=', $request->printing_id)->orderby('id', 'DESC')->first();

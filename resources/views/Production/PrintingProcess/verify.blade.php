@@ -596,6 +596,15 @@
                     </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
+                            <form action="{{ route('printing_process.approve.approve', $printing_process->id) }}" method="POST"
+                                enctype="multipart/form-data">
+                                @csrf
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="storedData" name="details">
+                                        <button class="btn btn-primary" type="button" id="saveForm"> Verify</button>
+                                    </div>
+                                </div>
                                 <!-- Modal -->
                                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
                                     aria-hidden="true">
@@ -655,10 +664,17 @@
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveModal">Save</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+                            </form>
+                            {{-- <form action="{{ route('printing_process.approve.decline', $printing_process->id) }}" method="POST"
+                                    enctype="multipart/form-data">
+                                    @csrf
+                                    <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                </form> --}}
                         </div>
                     </div>
                 </div>
@@ -672,8 +688,10 @@
     <script>
         $(document).ready(function() {
             $('#sale_order').trigger('change');
-            $('#operator').trigger('change');
             $('input,select,textarea').attr('disabled', 'disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
+            $('.check_verify_text').removeAttr('disabled');
+            $('#operator').trigger('change');
             $('#editor').summernote();
             $('#editor1').summernote();
             check_machines(@json($check_machines));
@@ -768,7 +786,11 @@
                 $('#modalTable tbody').find('.check_operator_text').val(formData.check_operator_text);
                 $('#modalTable tbody').find('.check_verify_text').val(formData.check_verify_text);
                 $('#modalTable tbody').find('.check_operator').attr('disabled', 'disabled');
-                $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                if (formData.check_verify_text != null) {
+                    $('#modalTable tbody').find('.check_verify').attr('disabled', 'disabled');
+                } else {
+                    $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
+                }
             } else {
                 $('#modalTable tbody').find('.section_no').val('');
                 $('#modalTable tbody').find('.side').val('');
@@ -778,7 +800,67 @@
                 $('#modalTable tbody').find('.good_count').val('');
                 $('#modalTable tbody').find('.check_operator_text').val('');
                 $('#modalTable tbody').find('.check_verify_text').val('');
+                $('#modalTable tbody').find('.check_verify').removeAttr('disabled');
             }
+        });
+
+        $('#saveModal').on('click', function() {
+            let section_no = $('#modalTable tbody').find('.section_no').val();
+            let side = $('#modalTable tbody').find('.side').val();
+            let last_print = $('#modalTable tbody').find('.last_print').val();
+            let waste_paper = $('#modalTable tbody').find('.waste_paper').val();
+            let rejection = $('#modalTable tbody').find('.rejection').val();
+            let good_count = $('#modalTable tbody').find('.good_count').val();
+            let check_operator_text = $('#modalTable tbody').find('.check_operator_text').val();
+            let check_verify_text = $('#modalTable tbody').find('.check_verify_text').val();
+            let hiddenId = $('.printing_detail_id').val();
+
+            let dataObject = {
+                section_no: section_no,
+                side: side,
+                last_print: last_print,
+                waste_paper: waste_paper,
+                rejection: rejection,
+                good_count: good_count,
+                check_operator_text: check_operator_text,
+                check_verify_text: check_verify_text,
+                hiddenId: hiddenId
+            };
+
+            sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+        });
+
+        $(document).on('click', '.check_verify', function() {
+            $(this).attr('disabled', 'disabled');
+            const currentDate = new Date();
+            const formattedDateTime = formatDateWithAMPM(currentDate);
+            let checked_by = $('#checked_by').val();
+            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDateTime);
+        });
+
+        function formatDateWithAMPM(date) {
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
+
+            return formattedDateTime;
+        }
+
+        $('#saveForm').on('click', function() {
+            let array = [];
+            $('.hiddenId').each(function() {
+                let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
+                array.push(JSON.parse(storedData));
+            });
+            $('#storedData').val(JSON.stringify(array));
+            $(this).closest('form').submit();
         });
 
         $('#sale_order').on('change', function() {

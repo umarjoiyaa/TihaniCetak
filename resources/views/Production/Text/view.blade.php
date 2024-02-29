@@ -136,10 +136,19 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti Waste</div>
-                                        <input type="number" name="kuantiti_waste" value="{{ $text->kuantiti_waste }}"
+                                        <input type="number" readonly name="kuantiti_waste" value="{{ $text->kuantiti_waste }}"
                                             class="form-control">
                                     </div>
                                 </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Lebihan Stok</div>
+                                        <input type="number" id="extra_stock" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4"></div>
+                                <div class="col-md-4"></div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -347,7 +356,8 @@
                                                             class="form-control form-select mesin_section" id="machine">
                                                             <option value="-1" selected>Select any Mesin</option>
                                                             <option value="SMZP (2C)" @selected($value->machine == 'SMZP (2C)')>SMZP
-                                                                (2C)</option>
+                                                                (2C)
+                                                            </option>
                                                             <option value="RUOBI (4C)" @selected($value->machine == 'RUOBI (4C)')>RUOBI
                                                                 (4C)</option>
                                                             <option value="KOMORI (8C)" @selected($value->machine == 'KOMORI (8C)')>
@@ -577,6 +587,7 @@
                     $('#status').val(data.sale_order.status);
                     $('#size').val(data.sale_order.size);
                     $('#status').val(data.sale_order.status);
+                    $('#extra_stock').val(data.sale_order.extra_stock);
                     if (!$firstAttempt) {
                         if (data.section != null) {
                             $('#seksyen_no').val(data.section.item_cover_text);
