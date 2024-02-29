@@ -53,7 +53,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Role Name</label>
-                                            <input type="text" name="" id="" class="form-control">
+                                            <input type="text" name="name" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -62,309 +62,7 @@
                                 <div class="row mt-5">
                                     <div class="col-md-6">
                                             <ul>
-                                                <!-- <li>
-                                                    <label for="">
-                                                        <input type="checkbox" name="" id="myInput"> Mes
-                                                        <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                            data-target="#collapseOne" style="cursor:pointer;"></i>
-                                                    </label>
-                                                    <ul id="collapseOne" class="collapse ">
-                                                        <li>
-                                                            <label for="">
-                                                                <input type="checkbox" class="myCheckbox" name="" id="input"> Management
-                                                                <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                    data-target="#subCollapsetwo"></i>
-                                                            </label>
-                                                            <ul id="subCollapsetwo" class="collapse ">
-                                                            
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox checkbox" name="" id="input0"> Sale Order No <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                    data-target="#Sale"></i>
-                                                                    </label>
-                                                                    <ol id="Sale" >
-                                                                        <li>
-                                                                            <label for=""><input type="checkbox" class="myCheckbox checkbox checkbox0" name="" id=""> View</label>
-                                                                        </li>
-                                                                    
-                                                                    </ol>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <label for="">
-                                                                <input type="checkbox" class="myCheckbox" name="" id="input1"> Laporan/ Rekod
-                                                                process<i class="ti-angle-down menu-arrow"
-                                                                    data-toggle="collapse"
-                                                                    data-target="#subCollapsethree"></i>
-                                                            </label>
-                                                            <ul id="subCollapsethree" class="myCheckbox" class="collapse ">
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" > Semak pencetaken Digital <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                    data-target="#Semakpencetaken"></i>
-                                                                    </label>
-                                                                    <ul id="Semakpencetaken">
-                                                                        <li><input type="checkbox" class="myCheckbox checkbox1" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox checkbox1" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox checkbox1" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox checkbox1" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox checkbox1" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Semak Pra Cetak <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                    data-target="#SemakPra"></i>
-                                                                    </label>
-                                                                    <ul id="SemakPra">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox"  class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Rekod serahan plate cetak <br> serta Sample <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Rekodserahan"></i>
-                                                                    </label>
-                                                                    <ul id="Rekodserahan">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process pencetaken <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpencetaken"></i>
-                                                                    </label>
-                                                                    <ul id="Processpencetaken">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process Lipat <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#ProcessLipat"></i>
-                                                                    </label>
-                                                                    <ul id="ProcessLipat">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process penjilidan (Prefect Bind) <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpenjilidan"></i>
-                                                                    </label>
-                                                                    <ul id="Processpenjilidan">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process penjilidan (Saddle stitch) <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpenjilidan(Saddle stitch)"></i>
-                                                                    </label>
-                                                                    <ul id="Processpenjilidan(Saddle stitch)">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process
-                                                                        penjilidan 3 knife <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpenjilidan3"></i>
-                                                                    </label>
-                                                                    <ul id="Processpenjilidan3">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                        <li>
-                                                            <label for="">
-                                                                <input type="checkbox" class="myCheckbox" name="" id=""> Laporan Pemeriksaan
-                                                                Kualiti <i class="ti-angle-down menu-arrow"
-                                                                    data-toggle="collapse"
-                                                                    data-target="#subCollapsefour"></i>
-                                                            </label>
-                                                            <ul id="subCollapsefour" class="collapse ">
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> CTP <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#CTP"></i>
-                                                                    </label>
-                                                                    <ul id="CTP">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> POD <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#POD"></i>
-                                                                    </label>
-                                                                    <ul id="POD">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Plate Cetax <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#PlateCetax"></i>
-                                                                    </label>
-                                                                    <ul id="PlateCetax">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process
-                                                                        pencetaken <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpencetaken1"></i>
-                                                                    </label>
-                                                                    <ul id="Processpencetaken1">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process Lipat <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#ProcessLipat"></i>
-                                                                    </label>
-                                                                    <ul id="ProcessLipat">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process
-                                                                        penjilidan (Prefect Bind) <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpenjilidan"></i>
-                                                                    </label>
-                                                                    <ul id="Processpenjilidan">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process penjilidan (Saddle stitch) <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#Processpenjilidan(Saddlestitch)"></i>
-                                                                    </label>
-                                                                    <ul id="Processpenjilidan(Saddlestitch)">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process 3 knife <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#3knife"></i>
-                                                                    </label>
-                                                                    <ul id="3knife">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Process Pembungkusan  <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#ProcessPembungkusan"></i>
-                                                                    </label>
-                                                                    <ul id="ProcessPembungkusan">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Pengumpulan Gathering <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#PengumpulanGathering"></i>
-                                                                    </label>
-                                                                    <ul id="PengumpulanGathering">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                </li>
-                                                                <li>
-                                                                    <label for="">
-                                                                        <input type="checkbox" class="myCheckbox" name="" id=""> Pemotongan Kuilt Buku / teks <i class="ti-angle-down menu-arrow" data-toggle="collapse"
-                                                                            data-target="#PemotonganKuilt"></i>
-                                                                    </label>
-                                                                    <ul id="PemotonganKuilt">
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Index</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Create</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Edit</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Delete</li>
-                                                                        <li><input type="checkbox" class="myCheckbox" name="" id="">  Verify</li>
-                                                                    </ul>
-                                                                    </label>
-                                                                </li>
-                                                            </ul>
-                                                        </li>
-                                                    </ul>
-                                                </li> -->
                                                 <li>
-                                                    
                                                     <input type="checkbox" name="" id="Myinput"> Mes
                                                     <label for="" data-toggle="collapse"
                                                             data-target="#ProductioncollapseOne" style="cursor:pointer;">
@@ -387,7 +85,7 @@
                                                                         <li><input type="checkbox" class="myCheckbox c1 c2" name="" id="">  View</li>
                                                                     </ul>
                                                                 </li>
-                                                                
+
                                                             </ul>
                                                         </li>
                                                         <li>
@@ -397,7 +95,7 @@
                                                                     data-target="#productionthree"></i>
                                                             </label>
                                                             <ul id="productionthree" class="collapse ">
-                                                            
+
                                                                 <li>
                                                                     <label for=""  data-toggle="collapse" data-target="#Production">
                                                                         <input type="checkbox" class="myCheckbox l1" name="" id="input4"> Senarai
@@ -513,7 +211,7 @@
                                                                     data-target="#productionfour"></i>
                                                             </label>
                                                             <ul id="productionfour" class="collapse ">
-                                                                
+
                                                                 <li>
                                                                     <input type="checkbox" class="myCheckbox l2" name="" id="input5">
                                                                     <label for=""  data-toggle="collapse" data-target="#Machine">
@@ -821,12 +519,12 @@
                                                         </li>
                                                         <li>
                                                             <label for="" data-toggle="collapse"
-                                                                    data-target="#WMSfour"> 
+                                                                    data-target="#WMSfour">
                                                                 <input type="checkbox" name="" id=""> Report <i class="ti-angle-down menu-arrow"
                                                                     ></i>
                                                             </label>
                                                             <ul id="WMSfour" class="collapse ">
-                                                            
+
                                                                 <li>
                                                                     <label for=""  data-toggle="collapse" data-target="#Stock">
                                                                         <input type="checkbox" name="" id=""> Stock Card Report <i class="ti-angle-down menu-arrow" ></i>
@@ -961,13 +659,13 @@
                                                                 ></i>
                                                             </label>
                                                             <ul id="Settingsthree" class="collapse ">
-                                                            
+
                                                                 <li>
                                                                     <label for="" data-toggle="collapse"
                                                                     data-target="#productstwo">
                                                                         <input type="checkbox" name="" id=""> Product  <i class="ti-angle-down menu-arrow" ></i>
                                                                     </label>
-                                                                
+
                                                                     <ul id="productstwo">
                                                                         <li>
                                                                             <label for=""><input type="checkbox" name="" id=""> Create</label>
@@ -1084,7 +782,7 @@
                                                                 </li>
                                                             </ul>
                                                         </li>
-                                                        
+
                                                     </ul>
                                                 </li>
                                             </ul>
@@ -1121,7 +819,7 @@
         $('#input0, #input1, #input2').change(function(){
             // Check if all inputs are checked
             var allChecked = $('#input0').is(':checked') && $('#input1').is(':checked') && $('#input2').is(':checked');
-            
+
             // Set Myinput accordingly
             $('#Myinput').prop('checked', allChecked);
         });
@@ -1181,7 +879,7 @@
             }
         });
 
-        
+
         $('#input5').change(function(){
             // Check if the input is checked
             if($(this).is(':checked')){

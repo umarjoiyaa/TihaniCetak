@@ -100,14 +100,12 @@ class RoleController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $permissions = Permission::get();
-        $others = Helper::getpermissions('others');
-        $machines = Helper::getpermissions('machines');
+        $mess = Helper::getpermissions('mess');
+        $productions = Helper::getpermissions('productions');
+        $wmss = Helper::getpermissions('wmss');
         $settings = Helper::getpermissions('settings');
-        $reportings = Helper::getpermissions('reportings');
-        $dashboards = Helper::getpermissions('dashboards');
-        $maintenances = Helper::getpermissions('maintenances');
         Helper::logSystemActivity('Role', 'Role Create');
-        return view("Setting.Role.create", compact("others", "settings", "permissions", "dashboards", "machines", "maintenances", "reportings"));
+        return view("Setting.Role.create", compact("mess", "productions", "wmss", "settings", "permissions"));
     }
 
     public function store(Request $request)
@@ -149,17 +147,15 @@ class RoleController extends Controller
         }
         $role = Role::find($request->id);
         $permissions = Permission::get();
-        $others = Helper::getpermissions('others');
-        $machines = Helper::getpermissions('machines');
+        $mess = Helper::getpermissions('mess');
+        $productions = Helper::getpermissions('productions');
+        $wmss = Helper::getpermissions('wmss');
         $settings = Helper::getpermissions('settings');
-        $reportings = Helper::getpermissions('reportings');
-        $dashboards = Helper::getpermissions('dashboards');
-        $maintenances = Helper::getpermissions('maintenances');
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $request->id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
         Helper::logSystemActivity('Role', 'Role Edit');
-        return view("settings.role_assign.edit", compact("others", "settings", "permissions", "dashboards", "machines", "role", "rolePermissions", "maintenances", "reportings"));
+        return view("settings.role_assign.edit", compact("mess", "settings", "permissions", "productions", "wmss", "role", "rolePermissions"));
     }
 
     /**
@@ -199,7 +195,7 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
         if (!Auth::user()->hasPermissionTo('Role Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
