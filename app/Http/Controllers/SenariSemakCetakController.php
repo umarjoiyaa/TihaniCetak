@@ -32,11 +32,12 @@ class SenariSemakCetakController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('user_name', 'like', '%' . $searchLower . '%');
-                        })
+
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
+                        })
+                        ->orWhereHas('user', function ($query) use ($searchLower) {
+                            $query->where('full_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
@@ -182,7 +183,7 @@ class SenariSemakCetakController extends Controller
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('user', function ($query) use ($searchLower) {
-                        $query->where('user_name', 'like', '%' . $searchLower . '%');
+                        $query->where('full_name', 'like', '%' . $searchLower . '%');
                     })
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -193,7 +194,7 @@ class SenariSemakCetakController extends Controller
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                     })
-                    ->where('status', 'like', '%' . $searchLower . '%');
+                    ->OrWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

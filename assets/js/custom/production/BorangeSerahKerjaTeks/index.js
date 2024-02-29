@@ -31,10 +31,7 @@ $(document).ready(function () {
                 data: 'po_no',
                 name: 'po_no',
             },
-            {
-                data: 'supplier.name',
-                name: 'supplier.name',
-            },
+
             {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
@@ -44,12 +41,27 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
-                data: 'sale_order.sale_order_qty',
-                name: 'sale_order.sale_order_qty',
+                data: 'supplier.name',
+                name: 'supplier.name',
             },
             {
-                data: 'sale_order.size',
-                name: 'sale_order.size',
+                data: 'senari_semak',
+                name: 'senari_semak',
+                render: function (data, type, full, meta) {
+                    if (data && data.item_cover_text !== null) {
+                        return data.item_cover_text;
+                    } else {
+                        return 0;
+                    }
+                }
+            },
+            {
+                data: 'jenis_text',
+                name: 'jenis_text',
+            },
+            {
+                data: 'date_line',
+                name: 'date_line',
             },
             {
                 data: 'status',
@@ -100,10 +112,7 @@ function AjaxCall(columnsData) {
                 data: 'po_no',
                 name: 'po_no',
             },
-            {
-                data: 'supplier.name',
-                name: 'supplier.name',
-            },
+
             {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
@@ -113,12 +122,27 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.description',
             },
             {
-                data: 'sale_order.sale_order_qty',
-                name: 'sale_order.sale_order_qty',
+                data: 'supplier.name',
+                name: 'supplier.name',
             },
             {
-                data: 'sale_order.size',
-                name: 'sale_order.size',
+                data: 'senari_semak',
+                name: 'senari_semak',
+                render: function (data, type, full, meta) {
+                    if (data && data.item_cover_text !== null) {
+                        return data.item_cover_text;
+                    } else {
+                        return 0;
+                    }
+                }
+            },
+            {
+                data: 'jenis_text',
+                name: 'jenis_text',
+            },
+            {
+                data: 'date_line',
+                name: 'date_line',
             },
             {
                 data: 'status',

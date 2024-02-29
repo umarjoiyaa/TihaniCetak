@@ -288,8 +288,9 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Dateline:</label>
-                                    <input type="text" class="form-control datepicker" name="date_line" id="date_line">
-                                </div>
+                                    <input type="text" name="date_line"
+                                    value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="datepicker form-control"
+                                    id="datepicker1" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">                                </div>
                             </div>
                         </div>
                     </div>
