@@ -137,7 +137,7 @@
                             </div>
                             <div class="col-md-2">naskah/helai</div>
                         </div>
-                        <div class="row mt-5">
+                        <div class="row mt-2">
                             <div class="col-md-1">
                                 <input type="checkbox" name="" id="">
                             </div>
@@ -337,7 +337,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td>Teks terpoting</td>
+                                        <td>Teks terpotong</td>
                                         <td><input type="text" placeholder="input teks" class="form-control"></td>
                                         <td><input type="text" placeholder="input teks" class="form-control"></td>
                                         <td><button class="btn btn-primary">Check</button></td>
@@ -461,7 +461,7 @@
                     </div>
                 </div>
 
-                <a href="{{route('stock_Transfer_location.index')}}" class="">Back to list</a>
+                <a href="{{route('Laporan_Pemeriksaan')}}" class="">Back to list</a>
 
             </div>
 

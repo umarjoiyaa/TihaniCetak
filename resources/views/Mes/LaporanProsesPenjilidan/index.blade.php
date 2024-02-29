@@ -30,7 +30,7 @@
                                     <tr>
                                         <td style="font-size:13px;">Sr #</td>
                                         <td style="font-size:13px;">Tarikh</td>
-                                        <td style="font-size:13px;">Masa</td>
+                                        <td style="font-size:13px;">Time</td>
                                         <td style="font-size:13px;">Sales Order No. </td>
                                         <td style="font-size:13px;">Kod Buku</td>
                                         <td style="font-size:13px;">Tajuk</td>

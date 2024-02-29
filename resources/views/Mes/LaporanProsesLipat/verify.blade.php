@@ -18,7 +18,7 @@
                                 </div>
                             </div>
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mt-3">
@@ -97,7 +97,7 @@
                         </div>
                     </div>
 
-                    <div class="row mt-5" style="background:#f1f0f0;">
+                    <div class="row mt-5" style="background:#f4f4ff;">
                         <div class="col-md-12">
                             <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                         </div>
@@ -141,7 +141,7 @@
                     <form action="{{ route('laporan_proses_lipat.approve.approve', $laporan_proses_lipat->id) }}"
                         method="POST" enctype="multipart/form-data">
                         @csrf
-                        <div class="row mt-5" style="background:#f1f0f0;">
+                        <div class="row mt-5" style="background:#f4f4ff;">
                             <div class="col-md-12 mt-5">
                                 <h5><b>C) Pemeriksaan semasa proses lipat</b> </h5>
                                 <h5><b>Petunjuk:</b></h5>

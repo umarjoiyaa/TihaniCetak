@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title tx-20 mg-b-0 p-2"><b>REKOD SERAHAN PLATE CETAX DAN SAMPLE</b></h4>
+                    <h4 class="card-title tx-20 mg-b-0 p-2"><b>REKOD SERAHAN PLATE CETAK DAN SAMPLE</b></h4>
                 </div>
 
             </div>
@@ -28,16 +28,16 @@
                     <table class="table datatable table-bordered mt-2">
                         <thead>
                             <tr>
-                                <th rowspan="2">Sr.</th>
-                                <th rowspan="2">Date</th>
-                                <th rowspan="2">Mesin</th>
-                                <th rowspan="2">Sales Order NO</th>
-                                <th rowspan="2">Seksyen</th>
-                                <th rowspan="2">Kuaniti palte</th>
-                                <th colspan="2">Diwajibkan untuk JOB BAHARU (OK/NG)</th>
-                                <th rowspan="2">Disediakan Oleh (Unit CTP)</th>
-                                <th rowspan="2">Diterima oleh (Operator/Pen. Operator)</th>
-                                <th rowspan="2">Action</th>
+                                <th rowspan="2" class="text-left">Sr.</th>
+                                <th rowspan="2" class="text-left">Date</th>
+                                <th rowspan="2" class="text-left">Mesin</th>
+                                <th rowspan="2" class="text-left">Sales Order NO</th>
+                                <th rowspan="2" class="text-left">Seksyen</th>
+                                <th rowspan="2" class="text-left">Kuaniti palte</th>
+                                <th colspan="2" class="text-left">Diwajibkan untuk JOB BAHARU (OK/NG)</th>
+                                <th rowspan="2" class="text-left">Disediakan Oleh (Unit CTP)</th>
+                                <th rowspan="2" class="text-left">Diterima oleh (Operator/Pen. Operator)</th>
+                                <th rowspan="2" class="text-left">Action</th>
                             </tr>
                             <tr>
                                 <th>Dummy Lipat</th>

@@ -94,12 +94,15 @@
         table.dataTable thead th{
             text-align:center;
         }
+        .card .card-body .card{
+            background:#f4f4ff;
+        }
 
     </style>
 
 </head>
 
-<body class="main-body app sidebar-mini Light-mode">
+<body class="main-body app sidebar-mini Light-mode" style="background:#f4f4ff;">
 
     <!-- Loader -->
     <div id="global-loader" class="light-loader">
@@ -1667,7 +1670,7 @@
         <div class="main-footer ht-40">
             <div class="container-fluid pd-t-0-f ht-100p">
 
-                <span class="text-white">Copyright Â© 2023 . All rights reserved IIOT FACTORY.</span>
+                <span class="text-white">Copyright © 2023 . All rights reserved IIOT FACTORY.</span>
             </div>
         </div>
         <!-- Footer closed -->
