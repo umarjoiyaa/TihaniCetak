@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\BorangSerahKerjaKulit;
+use App\Models\BorangSerahKerjaTeks;
 use App\Models\CoverAndEndpaper;
 use App\Models\DigitalPrinting;
 use App\Models\MesinKnife;
@@ -27,6 +28,7 @@ class ProductionSchedulingController extends Controller
         $perfect_bind = PerfectBind::where('date', '=', $request->date)->with('sale_order')->get()->toArray();
         $mesin_knife = MesinKnife::where('date', '=', $request->date)->with('sale_order')->get()->toArray();
         $kulit_buku = BorangSerahKerjaKulit::where('date', '=', $request->date)->with('sale_order')->get()->toArray();
+        $teks = BorangSerahKerjaTeks::where('date', '=', $request->date)->with('sale_order')->get()->toArray();
         $detail = [
             'DigitalPrinting' => $digital_printing,
             'CoverEndPaper' => $cover_end_paper,
@@ -36,6 +38,7 @@ class ProductionSchedulingController extends Controller
             'MesinPerfectBind' => $perfect_bind,
             'Mesin3Knife' => $mesin_knife,
             'KulitBuku' => $kulit_buku,
+            'Teks' => $teks,
         ];
         return response()->json($detail);
     }

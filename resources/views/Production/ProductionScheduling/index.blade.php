@@ -136,6 +136,11 @@
                                 `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Kulit Buku/Cover</td></tr>`
                             );
                         });
+                        data.Teks.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Teks</td></tr>`
+                            );
+                        });
                         $('#myTable').DataTable();
                         $('#myLoader').addClass('d-none');
                     }
