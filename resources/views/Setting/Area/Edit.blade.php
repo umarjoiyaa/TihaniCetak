@@ -15,14 +15,14 @@
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
-                                    <label class="form-label">Area Name</label>
+                                    <label class="form-label">Name</label>
                                     <input type="text" class="form-control required" name="name"
                                         value="{{ $area->name }}" >
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
-                                    <label class="form-label">Area Code</label>
+                                    <label class="form-label">Code</label>
                                     <input type="text" class="form-control required" name="code"
                                         value="{{ $area->code }}" >
                                 </div>

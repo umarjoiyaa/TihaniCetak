@@ -15,7 +15,7 @@
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
-                                    <label class="form-label">Designation Name</label>
+                                    <label class="form-label">Name</label>
                                     <input type="text" class="form-control required" name="name" value="{{old('name')}}">
                                 </div>
                             </div>

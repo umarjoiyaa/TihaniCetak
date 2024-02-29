@@ -13,14 +13,14 @@
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="control-group form-group">
-                                <label class="form-label">Shelf Name</label>
+                                <label class="form-label">Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
                                     value="{{ $area_shelf->name }}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="control-group form-group">
-                                <label class="form-label">Shelf Code</label>
+                                <label class="form-label">Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
                                     value="{{ $area_shelf->code }}">
                             </div>
