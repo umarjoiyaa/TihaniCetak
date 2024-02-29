@@ -32,7 +32,7 @@ use App\Http\Controllers\OEEDashboardController;
 use App\Http\Controllers\Pemeriksaan_PenghantaranController;
 use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
-use App\Http\Controllers\PrintingProcess_TextController;
+use App\Http\Controllers\PrintingProcessController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\MesinKnifeController;
 use App\Http\Controllers\ProductionJobSheet_MesinLipatController;
@@ -598,10 +598,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/ProductionScheduling', [ProductionSchedulingController::class, 'index'])->name('production_scheduling');
     Route::get('/Production/ProductionScheduling/detail', [ProductionSchedulingController::class, 'detail'])->name('production_scheduling.detail');
 
-    // PrintingProcess_Text
-    Route::get('/Production/PrintingProcess_Text', [PrintingProcess_TextController::class, 'index'])->name('PrintingProcess_Text');
-    Route::get('/Production/PrintingProcess_Text/view', [PrintingProcess_TextController::class, 'view'])->name('PrintingProcess_Text.view');
-    Route::get('/Production/PrintingProcess_Text/edit', [PrintingProcess_TextController::class, 'edit'])->name('PrintingProcess_Text.edit');
+    // Printing Process
+    Route::get('/Production/PrintingProcess', [PrintingProcessController::class, 'index'])->name('printing_process');
+    Route::get('/Production/PrintingProcess/data', [PrintingProcessController::class, 'Data'])->name('printing_process.data');
+    Route::get('/Production/PrintingProcess/view/{id}', [PrintingProcessController::class, 'view'])->name('printing_process.view');
+    Route::get('/Production/PrintingProcess/proses/{id}', [PrintingProcessController::class, 'proses'])->name('printing_process.proses');
+    Route::post('/Production/PrintingProcess/proses_update/{id}', [PrintingProcessController::class, 'proses_update'])->name('printing_process.proses.update');
+    Route::post('/Production/PrintingProcess/Machine/Starter', [PrintingProcessController::class, 'machine_starter'])->name('printing_process.machine.starter');
+    Route::get('/Production/PrintingProcess/verify/{id}', [PrintingProcessController::class, 'verify'])->name('printing_process.verify');
+    Route::post('/Production/PrintingProcess/approve/approve/{id}', [PrintingProcessController::class, 'approve_approve'])->name('printing_process.approve.approve');
+    Route::post('/Production/PrintingProcess/approve/decline/{id}', [PrintingProcessController::class, 'approve_decline'])->name('printing_process.approve.decline');
 
     // CallForAssistance
     Route::get('/Production/CallForAssistance',[CallForAssistanceController::class, 'index'])->name('CallForAssistance');

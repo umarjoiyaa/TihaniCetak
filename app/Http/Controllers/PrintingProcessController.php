@@ -9,7 +9,7 @@ use App\Models\PrintingProcess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class TextController extends Controller
+class PrintingProcessController extends Controller
 {
     public function Data(Request $request)
     {
@@ -505,5 +505,4 @@ class TextController extends Controller
         Helper::logSystemActivity('TEXT', 'TEXT Delete');
         return redirect()->route('text')->with('custom_success', 'TEXT has been Successfully Deleted!');
     }
-
 }
