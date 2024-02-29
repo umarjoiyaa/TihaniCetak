@@ -284,26 +284,6 @@ class SenariSemakController extends Controller
         return view('Mes.SenariSemak.create');
     }
 
-    // public function sale_order(Request $request)
-    // {
-    //     $perPage = 10;
-    //     $page = $request->input('page', 1);
-    //     $search = $request->input('q');
-
-    //     $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published');
-    //     if ($search) {
-    //         $query->where('order_no', 'like', '%' . $search . '%');
-    //     }
-    //     $heads = $query->paginate($perPage, ['*'], 'page', $page);
-
-    //     return response()->json([
-    //         'results' => $heads->items(),
-    //         'pagination' => [
-    //             'more' => $heads->hasMorePages(),
-    //         ],
-    //     ]);
-    // }
-
     public function sale_order(Request $request)
     {
         $perPage = 10;

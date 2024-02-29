@@ -59,6 +59,9 @@
 
     @yield('css')
     <style>
+        .check_operator_text, .check_verify_text{
+            width: 340px;
+        }
         .dropdown {
             cursor: pointer;
         }
@@ -91,7 +94,7 @@
         table.dataTable thead th{
             text-align:center;
         }
-        
+
     </style>
 
 </head>
@@ -578,7 +581,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Cover & End Paper</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('ProductionJobSheet_text') }}"
+                                                                        href="{{ route('text') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -615,7 +618,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Mesin 3Knife</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja') }}"
+                                                                        href="{{ route('borange_serah_kerja') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

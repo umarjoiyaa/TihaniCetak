@@ -988,7 +988,6 @@
                     $('#customer').val(data.sale_order.customer);
                     $('#size').val(data.sale_order.size);
                     $('#sale_order_qty').val(data.sale_order.sale_order_qty);
-                    $('#jumlah').val(data.sale_order.pages_text);
                     if(!firstAttempt){
                         $('#jumlah').val(data.sale_order.pages_text);
                     }

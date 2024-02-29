@@ -20,25 +20,29 @@
 
                                 </div>
                                 <div class="row">
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Date</label>
                                             <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_penjilidan_saddle->date)->format('d-m-Y') }}" class="form-control" id="datepicker" disabled pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <label for="">Time</label>
                                         <input type="time" name="time"
                                             value="{{ $laporan_proses_penjilidan_saddle->time }}" id="Currenttime"
                                             class="form-control">
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Checked By (Operator)</div>
                                             <input type="text" value="{{ $laporan_proses_penjilidan_saddle->user->full_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>
+                                </div>
+
+                                <div class="row mt-2">
+
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
@@ -47,7 +51,7 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Tajuk</div>
                                             <input type="text"
@@ -55,7 +59,7 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Kod Buku</div>
                                             <input type="text"
@@ -63,7 +67,17 @@
                                                 class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                </div>
+                                   <div class="row mt-2">
+                                    <div class="col-md-4 ">
+                                        <div class="form-group">
+                                            <div class="label">Jumlah Seksyen</div>
+                                            <input type="text" readonly
+                                                value="{{ $laporan_proses_penjilidan->senari_semak->item_cover_text ?? 0 }}"
+                                                id="jumlah" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Size</div>
                                             <input type="text" readonly
@@ -71,7 +85,9 @@
                                                 id="size" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4 mt-3">
+                                </div>
+                            <div class="row mt-2">
+                                <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Operator</label>
                                             @php
@@ -88,7 +104,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-md-4 mt-3">
+                                    <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="">Pembantu</label>
                                             @php
@@ -109,7 +125,7 @@
                             </div>
                         </div>
 
-                        <div class="card mt-3" style="background:#f1f0f0;">
+                        <div class="card" style="background:#f1f0f0;">
                             <div class="card-body">
                                 <div class="row ">
                                 <div class="col-md-12 mt-5">
@@ -243,7 +259,7 @@
                             </div>
                             </div>
                         </div>
-                       
+
 
                         <div class="card mt-5" style="background:#f1f0f0;">
                             <div class="card-body">
@@ -316,7 +332,7 @@
                             </div>
                             </div>
                         </div>
-                        
+
                         <div class="row mt-5">
                             <div class="col-md-12">
                                 <h3><b>Verified By</b></h3>

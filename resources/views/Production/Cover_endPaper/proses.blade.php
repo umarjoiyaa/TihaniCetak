@@ -803,6 +803,7 @@
                         <input type="hidden" class="cover_paper_detail_id">
                     </div>
                     <div class="modal-body">
+                        <div class="table-responsive">
                         <table class="table table-bordered" id="modalTable">
                             <thead>
                                 <tr>
@@ -843,6 +844,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -928,6 +930,7 @@
             $('.check_operator_text').removeAttr('disabled');
             $('.check_verify_text').removeAttr('disabled');
             $('#operator').removeAttr('disabled');
+            $('#pauseRemarks').removeAttr('disabled');
             $('#operator').trigger('change');
             check_machines(@json($check_machines));
 
@@ -1060,20 +1063,22 @@
         $(document).on('click', '.check_operator', function() {
             $(this).attr('disabled', 'disabled');
             const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
+            const formattedDateTime = formatDateWithAMPM(currentDate);
             let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_operator_text').val(checked_by + '/' + formattedDate);
+            $(this).closest('tr').find('.check_operator_text').val(checked_by + '/' + formattedDateTime);
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+        function formatDateWithAMPM(date) {
+                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
+                    const formattedDate = date.toLocaleString('en-US', options);
+                    const datePart = formattedDate.split(',')[0].trim();
+                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+                    const formattedDatePart = `${day}-${month}-${year}`;
+                    const timePart = formattedDate.split(',')[1].trim();
+                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
-        }
+                    return formattedDateTime;
+                }
 
         $('#saveForm').on('click', function() {
             let array = [];
@@ -1086,6 +1091,9 @@
         });
 
         function machineStarter(status, cover_paper_id) {
+            $('#play').attr('disabled', 'disabled');
+            $('#pause').attr('disabled', 'disabled');
+            $('#stop').attr('disabled', 'disabled');
             var machine = $("#machine").val();
 
             $.ajaxSetup({
@@ -1101,6 +1109,7 @@
                     "cover_paper_id": cover_paper_id,
                     "machine": machine,
                     "status": status,
+                    "remarks": $('#pauseRemarks').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);
@@ -1125,14 +1134,12 @@
                         var end_time = (detail.end_time != null) ? detail.end_time : '';
                         var duration = (detail.duration != null) ? detail.duration : '';
 
-                        $('#jobsheet_detail_table tbody').append(`<tr>
-                            <td>${button}</td>
+                        $('#machine_detail_table tbody').append(`<tr>
+                            <td>${statusBadge}</td>
+                            <td>${mesinInfo}</td>
                             <td>${start_time}</td>
                             <td>${end_time}</td>
                             <td>${duration}</td>
-                            <td>${mesinInfo}</td>
-                            <td>${remarks}</td>
-                            <td class="operator_text">${badge}</td>
                         </tr>`);
 
                         var badge = '';
@@ -1151,6 +1158,7 @@
                             <td>${end_time}</td>
                             <td>${duration}</td>
                             <td>${mesinInfo}</td>
+                            <td>${remarks}</td>
                             <td class="operator_text">${badge}</td>
                         </tr>`);
                     });

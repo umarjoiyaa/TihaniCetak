@@ -27,8 +27,8 @@
                                 </div>
 
                             </div>
-                            <div class="row">
-                                <div class="col-md-4 mt-3">
+                            <div class="row mt-2">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Date</label>
                                         <input type="text" name="date"
@@ -37,18 +37,20 @@
                                             placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <label for="">Time</label>
                                     <input type="text" name="time" value="{{ $laporan_proses_penjilidan_saddle->time }}"
                                         id="Currenttime" class="form-control">
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Checked By (Operator)</div>
                                         <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
@@ -57,7 +59,7 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Tajuk</div>
                                         <input type="text"
@@ -65,7 +67,7 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kod Buku</div>
                                         <input type="text"
@@ -73,7 +75,18 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-4 ">
+                                    <div class="form-group">
+                                        <div class="label">Jumlah Seksyen</div>
+                                        <input type="text" readonly
+                                            value="{{ $laporan_proses_penjilidan->senari_semak->item_cover_text ?? 0 }}"
+                                            id="jumlah" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Size</div>
                                         <input type="text" readonly
@@ -81,7 +94,10 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Operator</label>
                                         @php
@@ -97,7 +113,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4">
                                     <div class="form-group">
                                         <label for="">Pembantu</label>
                                         @php
@@ -319,8 +335,8 @@
                         </div>
                     </div>
 
-                    <div class="row d-flex justify-content-end mt-3">
-                                    <div class="col-md-12 d-flex justify-content-end mt-3">
+                    <div class="row d-flex justify-content-end">
+                                    <div class="col-md-12 d-flex justify-content-end">
                                         <button class="btn btn-primary button1" type="submit"> Verify</button>
                             </form>
                             <form

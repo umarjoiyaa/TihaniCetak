@@ -8,8 +8,7 @@ $(document).ready(function () {
         serverSide: true,
         language: {
             processing: 'Processing', // Custom processing text
-            zeroRecords: 'No data available in the table',
-            emptyTable: "No data available"
+
         },
         ajax: {
             url: data, // URL for your server-side data endpoint

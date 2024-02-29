@@ -181,6 +181,7 @@
         }
 
         $(document).ready(function() {
+            $('#sale_order').trigger('change')
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -216,6 +217,7 @@
                     return data.text || null;
                 }
             });
+        });
 
             $('#sale_order').on('change', function() {
                 const id = $(this).val();
@@ -233,7 +235,6 @@
                     }
                 });
             });
-        });
 
 </script>
 @endpush

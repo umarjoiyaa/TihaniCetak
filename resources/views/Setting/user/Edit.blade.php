@@ -10,17 +10,18 @@
                     </div>
                     <div class="card-body">
                         <div class="row">
-                            <div class="col-md-8">
+                            <div class="col-md-6">
                                 <h4>User Information </h4>
                             </div>
-                        </div>
+
                         <form action="{{route('user.update', $user->id)}}" method="post">
                             @csrf
-                            <div class="col-md-4 d-flex justify-content-end">
+                            <div class="col-md-6 d-flex justify-content-end">
                                 <div class="form-group">
-                                    <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Is Active</span></label>
+                                    <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">IsActive</span></label>
                             </div>
                             </div>
+                        </div>
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">

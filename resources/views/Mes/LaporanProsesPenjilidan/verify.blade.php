@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+    .button{
+        margin-left:150px;
+    }
+</style>
+@endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
@@ -85,20 +92,30 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Jenis Penjilidan</label>
-                                        <select readonly name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="" selected>Perfect Bind</option>
-                                            <option value="">Lock Bind</option>
-                                            <option value="">Gather</option>
+                                        <select name="jenis" id="" disabled class="form-control form-select">
+                                            <option value="Perfect Bind"  @selected($laporan_proses_penjilidan->jenis ==
+                                                'Perfect Bind')>Perfect Bind
+                                            </option>
+                                            <option value="Lock Bind"  @selected($laporan_proses_penjilidan->jenis ==
+                                                'Lock Bind')>Lock Bind
+                                            </option>
+                                            <option value="Gather"  @selected($laporan_proses_penjilidan->jenis ==
+                                                'Gather')>Gather</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Operator</label>
-                                        <select readonly name="" id="" class="form-control">
-                                            <option value="" disabled>select sales Order no</option>
-                                            <option value="" selected>User A</option>
+                                        @php
+                                        $item = json_decode($laporan_proses_penjilidan->user_id);
+                                        @endphp
+                                        <select name="user[]" disabled class="form-control form-select" id="" multiple>
+                                            @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" @if ($item) {{ in_array($user->id, $item) ?
+                                                'selected' : '' }} @endif>
+                                                {{ $user->full_name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
@@ -269,8 +286,15 @@
                                 </div>
 
 
-
+                                <form
+                                action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
+                                method="POST" enctype="multipart/form-data">
+                                @csrf
                                 <div class="col-md-12">
+                                    <form
+                                    action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
+                                    method="POST" enctype="multipart/form-data">
+                                    @csrf
                                     <div class="table-responsive">
                                     <table class="table table-bordered">
                                         <thead>
@@ -339,18 +363,16 @@
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
 
+
+                            <button class="btn btn-primary button" type="submit"> Verify</button>
+                            </form>
                             <form
                                 action="{{ route('laporan_proses_penjilidan.approve.decline', $laporan_proses_penjilidan->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <button class="btn btn-danger mx-2" type="submit">Decline</button>
+                                <button class="btn btn-danger" style="margin-left: 170px" type="submit">Decline</button>
                             </form>
-                            <form
-                            action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
-                            method="POST" enctype="multipart/form-data">
-                            @csrf
-                            <button class="btn btn-primary" type="submit"> Verify</button>
-                            </form>
+
 
                         </div>
                     </div>

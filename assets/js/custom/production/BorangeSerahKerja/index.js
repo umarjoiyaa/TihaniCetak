@@ -22,53 +22,34 @@ $(document).ready(function () {
                 }
             }
         }, // URL to fetch data
-        columns: [{
-                data: 'sr_no',
-                name: 'sr_no',
-                orderable: false
-            },
+        columns: [
             {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'time',
-                name: 'time',
+                data: 'po_no',
+                name: 'po_no',
+            },
+            {
+                data: 'supplier.name',
+                name: 'supplier.name',
             },
             {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
             {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
-            },
-            {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
-                render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
-                    } else {
-                        return 0;
-                    }
-                }
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
             },
             {
-                data: 'jenis',
-                name: 'jenis',
-            },
-            {
-                data: 'user_text',
-                name: 'user_text',
-            },
-            {
-                data: 'pembantu_text',
-                name: 'pembantu_text',
+                data: 'sale_order.size',
+                name: 'sale_order.size',
             },
             {
                 data: 'status',
@@ -110,53 +91,34 @@ function AjaxCall(columnsData) {
 
             }
         }, // URL to fetch data
-        columns: [{
-                data: 'sr_no',
-                name: 'sr_no',
-                orderable: false
+        columns: [
+            {
+                data: 'date',
+                name: 'date',
+            },
+            {
+                data: 'po_no',
+                name: 'po_no',
             },
             {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'time',
-                name: 'time',
-            },
-            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
-            },
-            {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
             },
             {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
-                render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
-                    } else {
-                        return 0;
-                    }
-                }
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
             },
             {
-                data: 'jenis',
-                name: 'jenis',
-            },
-            {
-                data: 'user_text',
-                name: 'user_text',
-            },
-            {
-                data: 'pembantu_text',
-                name: 'pembantu_text',
+                data: 'sale_order.size',
+                name: 'sale_order.size',
             },
             {
                 data: 'status',

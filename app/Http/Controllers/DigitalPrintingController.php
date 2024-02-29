@@ -416,7 +416,7 @@ class DigitalPrintingController extends Controller
         $digital_printing = DigitalPrinting::find($id);
         $suppliers = Supplier::select('id', 'name')->get();
         $users = User::all();
-        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
@@ -520,7 +520,7 @@ class DigitalPrintingController extends Controller
         $digital_printing = DigitalPrinting::find($id);
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
-        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
@@ -566,7 +566,7 @@ class DigitalPrintingController extends Controller
         $digital_printing = DigitalPrinting::find($id);
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
-        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->orWhere('machine', '=', $digital_printing->mesin_others)->where('digital_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
@@ -619,7 +619,7 @@ class DigitalPrintingController extends Controller
         }
         $digital_printing = DigitalPrinting::find($id);
         DigitalPrintingDetail::where('digital_id', $id)->delete();
-        DigitalPrintingDetailB::where('digital_id', $id)->delete();
+        DigitalPrintingDetailB::where('digital_detail_id', $id)->delete();
         $digital_printing->delete();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Delete');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Successfully Deleted!');

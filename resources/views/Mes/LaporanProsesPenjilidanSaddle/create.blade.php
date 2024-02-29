@@ -6,7 +6,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="float-left">LAPORAN PROSES PENJILIDAN (SADDLE STITCH)</h5>
@@ -21,28 +21,30 @@
                                         </div>
 
                                     </div>
-                                    <div class="row">
-                                        <div class="col-md-4 mt-3">
+                                    <div class="row mt-2">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Date</label>
                                                 <input type="text" name="date" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <label for="">Time</label>
                                             <input name="time" type="time" id="Currenttime"
                                             value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
                                             class="form-control">
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Checked By (Operator)</div>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                    </div>
+                                    <div class="row mt-2">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
@@ -51,28 +53,42 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Tajuk</div>
                                                 <input type="text" readonly value="" id="tajuk"
                                                     class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Kod Buku</div>
                                                 <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                    </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-4">
+                                                <div class="form-group">
+                                                    <div class="label">Jumlah seksyen</div>
+                                                    <input type="text" readonly value="" id="jumlah"
+                                                        class="form-control">
+                                                </div>
+                                            </div>
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <div class="label">Saiz</div>
                                                 <input type="text" readonly value="" id="size"
                                                     class="form-control">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 mt-3">
+                                </div>
+
+                                        <div class="row mt-2">
+
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Operator</label>
                                                 <select name="user[]" class="form-control form-select" id=""
@@ -86,7 +102,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="col-md-4 mt-3">
+                                        <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Pembantu</label>
                                                 <select name="pembantu[]" class="form-control form-select" id=""
@@ -304,7 +320,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button class="btn btn-primary float-right mt-3">Save</button>
+                                    <button class="btn btn-primary float-right">Save</button>
                                 </div>
                             </div>
                         </div>

@@ -65,7 +65,8 @@
                                         @php
                                             $item = json_decode($perfect_bind->operator);
                                         @endphp
-                                        <select disabled name="operator[]" class="form-control form-select" id="operator" multiple>
+                                        <select disabled name="operator[]" class="form-control form-select" id="operator"
+                                            multiple>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}"
                                                     @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
@@ -148,36 +149,36 @@
                                 <div class="col-md-12">
                                     <table class="table table-bordered" id="jobsheet_detail_table">
                                         <thead>
+                                            <tr>
+                                                <th>Action</th>
+                                                <th>Start datetime</th>
+                                                <th>End datetime</th>
+                                                <th>Total Time(min)</th>
+                                                <th>Machine</th>
+                                                <th>Remarks</th>
+                                                <th>Operator</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach ($details as $detail)
                                                 <tr>
-                                                    <th>Action</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total Time(min)</th>
-                                                    <th>Machine</th>
-                                                    <th>Remarks</th>
-                                                    <th>Operator</th>
+                                                    <td><button type="button" data-toggle="modal"
+                                                            data-target="#exampleModal"
+                                                            class="btn btn-primary openModal">+</button>
+                                                        <input type="hidden" class="hiddenId"
+                                                            value="{{ $detail->id }}">
+                                                    </td>
+                                                    <td>{{ $detail->start_time }}</td>
+                                                    <td>{{ $detail->end_time }}</td>
+                                                    <td>{{ $detail->duration }}</td>
+                                                    <td>
+                                                        {{ $detail->machine }}
+                                                    </td>
+                                                    <td>{{ $detail->remarks }}</td>
+                                                    <td class="operator_text"></td>
                                                 </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
-                                                    <tr>
-                                                        <td><button type="button" data-toggle="modal"
-                                                                data-target="#exampleModal"
-                                                                class="btn btn-primary openModal">+</button>
-                                                            <input type="hidden" class="hiddenId"
-                                                                value="{{ $detail->id }}">
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
-                                                    </tr>
-                                                @endforeach
-                                            </tbody>
+                                            @endforeach
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -271,41 +272,45 @@
                                                 <input type="hidden" class="perfect_detail_id">
                                             </div>
                                             <div class="modal-body">
-                                                <table class="table table-bordered" id="modalTable">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>Good Count</th>
-                                                            <th>Rejection</th>
-                                                            <th>Total Produce</th>
-                                                            <th>Check</th>
-                                                            <th></th>
-                                                            <th>Verify</th>
-                                                            <th></th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control good_count" readonly>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control rejection" readonly>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    class="form-control total_produce" readonly></td>
-                                                            <td><button type="button"
-                                                                    class="btn btn-primary check_operator">Check</button>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    readonly class="form-control check_operator_text"></td>
-                                                            <td><button disabled type="button"
-                                                                    class="btn btn-primary check_verify">Verify</button>
-                                                            </td>
-                                                            <td><input type="text" name="" id=""
-                                                                    readonly class="form-control check_verify_text"></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered" id="modalTable">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>Good Count</th>
+                                                                <th>Rejection</th>
+                                                                <th>Total Produce</th>
+                                                                <th>Check</th>
+                                                                <th></th>
+                                                                <th>Verify</th>
+                                                                <th></th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control good_count" readonly>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control rejection" readonly>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        class="form-control total_produce" readonly></td>
+                                                                <td><button type="button"
+                                                                        class="btn btn-primary check_operator">Check</button>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        readonly class="form-control check_operator_text">
+                                                                </td>
+                                                                <td><button disabled type="button"
+                                                                        class="btn btn-primary check_verify">Verify</button>
+                                                                </td>
+                                                                <td><input type="text" name="" id=""
+                                                                        readonly class="form-control check_verify_text">
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary"
@@ -452,19 +457,24 @@
         $(document).on('click', '.check_verify', function() {
             $(this).attr('disabled', 'disabled');
             const currentDate = new Date();
-            const formattedDate = formatDate(currentDate);
+            const formattedDateTime = formatDateWithAMPM(currentDate);
             let checked_by = $('#checked_by').val();
-            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDate);
+            $(this).closest('tr').find('.check_verify_text').val(checked_by + '/' + formattedDateTime);
         });
 
-        function formatDate(date) {
-            const day = String(date.getDate()).padStart(2, '0');
-            const month = String(date.getMonth() + 1).padStart(2, '0'); // Month is zero-based
-            const year = date.getFullYear();
-            const hours = String(date.getHours()).padStart(2, '0');
-            const minutes = String(date.getMinutes()).padStart(2, '0');
+        function formatDateWithAMPM(date) {
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-            return `${day}-${month}-${year} ${hours}:${minutes}`;
+            return formattedDateTime;
         }
 
         $('#saveForm').on('click', function() {

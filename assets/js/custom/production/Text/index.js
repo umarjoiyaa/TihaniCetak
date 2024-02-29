@@ -25,19 +25,18 @@ $(document).ready(function () {
         columns: [{
                 data: 'sr_no',
                 name: 'sr_no',
-                orderable: false
             },
             {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'time',
-                name: 'time',
-            },
-            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
+            },
+            {
+                data: 'sale_order.customer',
+                name: 'sale_order.customer',
             },
             {
                 data: 'sale_order.kod_buku',
@@ -48,27 +47,8 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
-                render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
-                    } else {
-                        return 0;
-                    }
-                }
-            },
-            {
-                data: 'jenis',
-                name: 'jenis',
-            },
-            {
-                data: 'user_text',
-                name: 'user_text',
-            },
-            {
-                data: 'pembantu_text',
-                name: 'pembantu_text',
+                data: 'kuantiti_waste',
+                name: 'kuantiti_waste',
             },
             {
                 data: 'status',
@@ -113,19 +93,17 @@ function AjaxCall(columnsData) {
         columns: [{
                 data: 'sr_no',
                 name: 'sr_no',
-                orderable: false
-            },
-            {
+            }, {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'time',
-                name: 'time',
-            },
-            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
+            },
+            {
+                data: 'sale_order.customer',
+                name: 'sale_order.customer',
             },
             {
                 data: 'sale_order.kod_buku',
@@ -136,27 +114,8 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.description',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
-                render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
-                    } else {
-                        return 0;
-                    }
-                }
-            },
-            {
-                data: 'jenis',
-                name: 'jenis',
-            },
-            {
-                data: 'user_text',
-                name: 'user_text',
-            },
-            {
-                data: 'pembantu_text',
-                name: 'pembantu_text',
+                data: 'kuantiti_waste',
+                name: 'kuantiti_waste',
             },
             {
                 data: 'status',
