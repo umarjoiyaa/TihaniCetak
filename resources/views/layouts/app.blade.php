@@ -629,7 +629,7 @@
                                                                         Borang Serahan Kerja (Kulit Buku /Cover)</a>
                                                                 </li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('BorangeSerahKerja_Teks') }}"
+                                                                        href="{{ route('borange_serah_kerja_teks') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

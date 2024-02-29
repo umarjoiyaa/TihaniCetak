@@ -477,6 +477,12 @@
             });
 
 
+
+
+
+        });
+
+
         $('#sale_order').on('change', function() {
             const id = $(this).val();
             $.ajax({
@@ -490,9 +496,6 @@
                     $('#tajuk').val(data.description);
                 }
             });
-        });
-
-
         });
 
         function formatDateWithAMPM(date) {
