@@ -42,25 +42,15 @@ class PlateCetakController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->OrWhere('machine', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('section', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('section_plate', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_1', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_2', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_3', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_4', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_5', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_6', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_7', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_8', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_9', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_10', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_11', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_12', 'like', '%' . $searchLower . '%')
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
+                        ->orWhere('section', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_9', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->OrWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -76,21 +66,11 @@ class PlateCetakController extends Controller
                     5 => 'sale_order_id',
                     6 => 'machine',
                     7 => 'section',
-                    8 => 'section_plate',
-                    9 => 'warna_1',
-                    10 => 'warna_2',
-                    11 => 'warna_3',
-                    12 => 'warna_4',
-                    13 => 'warna_5',
-                    14 => 'warna_6',
-                    15 => 'warna_7',
-                    16 => 'warna_8',
-                    17 => 'warna_9',
-                    18 => 'warna_10',
-                    19 => 'warna_11',
-                    20 => 'warna_12',
-                    21 => 'created_by',
-                    22 => 'status',
+                    10 => 'warna_7',
+                    11 => 'warna_8',
+                    12 => 'warna_9',
+                    16 => 'created_by',
+                    17 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -117,7 +97,6 @@ class PlateCetakController extends Controller
                                 break;
                             case 2:
                                 $q->where('time', 'like', '%' . $searchLower . '%');
-
                                 break;
                             case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
@@ -141,57 +120,38 @@ class PlateCetakController extends Controller
                             case 7:
                                 $q->where('section', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 8:
-                                $q->where('section_plate', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 9:
-                                $q->where('warna_1', 'like', '%' . $searchLower . '%');
-                                break;
                             case 10:
-                                $q->where('warna_2', 'like', '%' . $searchLower . '%');
+                                $q->where(function($query) use ($searchLower) {
+                                    $query->where('warna_7', 'like', '%' . $searchLower . '%')
+                                          ->orWhereNull('warna_7');
+                                });
                                 break;
                             case 11:
-                                $q->where('warna_3', 'like', '%' . $searchLower . '%');
+                                $q->where(function($query) use ($searchLower) {
+                                    $query->where('warna_8', 'like', '%' . $searchLower . '%')
+                                          ->orWhereNull('warna_8');
+                                });
                                 break;
                             case 12:
-                                $q->where('warna_4', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 13:
-                                $q->where('warna_5', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 14:
-                                $q->where('warna_6', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 15:
-                                $q->where('warna_7', 'like', '%' . $searchLower . '%');
+                                $q->where(function($query) use ($searchLower) {
+                                    $query->where('warna_9', 'like', '%' . $searchLower . '%')
+                                          ->orWhereNull('warna_9');
+                                });
                                 break;
                             case 16:
-                                $q->where('warna_8', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('user', function ($query) use ($searchLower) {
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 17:
-                                $q->where('warna_9', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 18:
-                                $q->where('warna_10', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 19:
-                                $q->where('warna_11', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 20:
-                                $q->where('warna_12', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 21:
-                                $q->where('created_by', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 22:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
-
                             default:
                                 break;
                         }
                     }
                 })->orderBy($orderByColumn, $orderByDirection)->get();
+
             }
 
             // Process and format the results for DataTables
@@ -262,6 +222,7 @@ class PlateCetakController extends Controller
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
+
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
@@ -273,25 +234,15 @@ class PlateCetakController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->OrWhere('machine', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('section', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('section_plate', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_1', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_2', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_3', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_4', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_5', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_6', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_7', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_8', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_9', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_10', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_11', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('warna_12', 'like', '%' . $searchLower . '%')
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
+                        ->orWhere('section', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('warna_9', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
-                        ->OrWhere('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -304,21 +255,11 @@ class PlateCetakController extends Controller
                 5 => 'sale_order_id',
                 6 => 'machine',
                 7 => 'section',
-                8 => 'section_plate',
-                9 => 'warna_1',
-                10 => 'warna_2',
-                11 => 'warna_3',
-                12 => 'warna_4',
-                13 => 'warna_5',
-                14 => 'warna_6',
-                15 => 'warna_7',
-                16 => 'warna_8',
-                17 => 'warna_9',
-                18 => 'warna_10',
-                19 => 'warna_11',
-                20 => 'warna_12',
-                21 => 'created_by',
-                22 => 'status',
+                10 => 'warna_7',
+                11 => 'warna_8',
+                12 => 'warna_9',
+                16 => 'created_by',
+                17 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
