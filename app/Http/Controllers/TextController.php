@@ -371,18 +371,20 @@ class TextController extends Controller
                 }
             }
         }else{
-            foreach($request->section as $key => $value){
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $key;
-                $detail->date = $value['date'];
-                $detail->machine = $value['machine'];
-                $detail->side = $value['side'];
-                $detail->last_print = $value['last_print'];
-                $detail->kuantiti_waste = $value['kuantiti_waste'];
-                $detail->save();
-                if (!in_array($value['machine'], $uniqueMachines)) {
-                    $uniqueMachines[] = $value['machine'];
+            if(is_array($request->section)){
+                foreach($request->section as $key => $value){
+                    $detail = new TextDetail();
+                    $detail->text_id = $text->id;
+                    $detail->seksyen_no = $key;
+                    $detail->date = $value['date'];
+                    $detail->machine = $value['machine'];
+                    $detail->side = $value['side'];
+                    $detail->last_print = $value['last_print'];
+                    $detail->kuantiti_waste = $value['kuantiti_waste'];
+                    $detail->save();
+                    if (!in_array($value['machine'], $uniqueMachines)) {
+                        $uniqueMachines[] = $value['machine'];
+                    }
                 }
             }
         }
@@ -498,18 +500,20 @@ class TextController extends Controller
                 }
             }
         }else{
-            foreach($request->section as $key => $value){
-                $detail = new TextDetail();
-                $detail->text_id = $text->id;
-                $detail->seksyen_no = $key;
-                $detail->date = $value['date'];
-                $detail->machine = $value['machine'];
-                $detail->side = $value['side'];
-                $detail->last_print = $value['last_print'];
-                $detail->kuantiti_waste = $value['kuantiti_waste'];
-                $detail->save();
-                if (!in_array($value['machine'], $uniqueMachines)) {
-                    $uniqueMachines[] = $value['machine'];
+            if(is_array($request->section)){
+                foreach($request->section as $key => $value){
+                    $detail = new TextDetail();
+                    $detail->text_id = $text->id;
+                    $detail->seksyen_no = $key;
+                    $detail->date = $value['date'];
+                    $detail->machine = $value['machine'];
+                    $detail->side = $value['side'];
+                    $detail->last_print = $value['last_print'];
+                    $detail->kuantiti_waste = $value['kuantiti_waste'];
+                    $detail->save();
+                    if (!in_array($value['machine'], $uniqueMachines)) {
+                        $uniqueMachines[] = $value['machine'];
+                    }
                 }
             }
         }
