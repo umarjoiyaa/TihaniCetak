@@ -450,7 +450,7 @@
                                                     <li>
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#SETTINGScollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="">
+                                                            <input type="checkbox" name="" id="Input0">
                                                             SETTINGS
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
@@ -543,6 +543,9 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <div class="card-footer">
+                    <button class="btn btn-primary float-right">Update</button>
                 </div>
             </div>
         </div>

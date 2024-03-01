@@ -33,7 +33,7 @@
                                 <th rowspan="2" class="text-left">Mesin</th>
                                 <th rowspan="2" class="text-left">Sales Order NO</th>
                                 <th rowspan="2" class="text-left">Seksyen</th>
-                                <th rowspan="2" class="text-left">Kuaniti palte</th>
+                                <th rowspan="2" class="text-left">Kuaniti plate</th>
                                 <th colspan="2" class="text-left">Diwajibkan untuk JOB BAHARU (OK/NG)</th>
                                 <th rowspan="2" class="text-left">Disediakan Oleh (Unit CTP)</th>
                                 <th rowspan="2" class="text-left">Diterima oleh (Operator/Pen. Operator)</th>

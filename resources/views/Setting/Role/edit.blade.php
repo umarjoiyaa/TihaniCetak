@@ -84,13 +84,13 @@
                                                                     @foreach ($managements as $key => $management)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital1">
                                                                                 <input type="checkbox" class="myCheckbox c1"
                                                                                     name="" id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital1">
                                                                                 @foreach ($management as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -123,13 +123,13 @@
                                                                     @foreach ($laporan_rekod_proses as $key => $laporan_rekod_prose)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital2">
                                                                                 <input type="checkbox" class="myCheckbox c1"
                                                                                     name="" id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital2">
                                                                                 @foreach ($laporan_rekod_prose as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -163,14 +163,14 @@
                                                                     @foreach ($laporan_pemiriksaan_kualitis as $key => $laporan_pemiriksaan_kualiti)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital3">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital3">
                                                                                 @foreach ($laporan_pemiriksaan_kualiti as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -213,14 +213,14 @@
                                                                     @foreach ($job_sheets as $key => $job_sheet)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital4">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital4">
                                                                                 @foreach ($job_sheet as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -243,23 +243,23 @@
                                                             </li>
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
-                                                                    data-target="#PRODUCTIONtwo">
+                                                                    data-target="#PRODUCTIONtwo1">
                                                                     <input type="checkbox" name="" id="">
                                                                     PRODUCTION
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
-                                                                <ul id="PRODUCTIONtwo" class="collapse ">
+                                                                <ul id="PRODUCTIONtwo1" class="collapse ">
                                                                     @foreach ($productions as $key => $production)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital5">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital5">
                                                                                 @foreach ($production as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -282,23 +282,23 @@
                                                             </li>
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
-                                                                    data-target="#PRODUCTIONtwo">
+                                                                    data-target="#PRODUCTIONtwo2">
                                                                     <input type="checkbox" name="" id="">
                                                                     DASHBOARD
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
-                                                                <ul id="PRODUCTIONtwo" class="collapse ">
+                                                                <ul id="PRODUCTIONtwo2" class="collapse ">
                                                                     @foreach ($dashboards as $key => $dashboard)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital6">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital6">
                                                                                 @foreach ($dashboard as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -340,14 +340,14 @@
                                                                     @foreach ($wms_job_sheets as $key => $wms_job_sheet)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital7">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital7">
                                                                                 @foreach ($wms_job_sheet as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -370,23 +370,23 @@
                                                             </li>
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
-                                                                    data-target="#PRODUCTIONtwo">
+                                                                    data-target="#PRODUCTIONtwo3">
                                                                     <input type="checkbox" name="" id="">
                                                                     DASHBOARD
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
-                                                                <ul id="PRODUCTIONtwo" class="collapse ">
+                                                                <ul id="PRODUCTIONtwo3" class="collapse ">
                                                                     @foreach ($wms_dashboards as $key => $wms_dashboard)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital8">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital8">
                                                                                 @foreach ($wms_dashboard as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -409,23 +409,23 @@
                                                             </li>
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
-                                                                    data-target="#PRODUCTIONtwo">
+                                                                    data-target="#PRODUCTIONtwo4">
                                                                     <input type="checkbox" name="" id="">
                                                                     REPORT
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
-                                                                <ul id="PRODUCTIONtwo" class="collapse ">
+                                                                <ul id="PRODUCTIONtwo4" class="collapse ">
                                                                     @foreach ($reports as $key => $report)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital9">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital9">
                                                                                 @foreach ($report as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -468,14 +468,14 @@
                                                                     @foreach ($administrations as $key => $administration)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital10">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital10">
                                                                                 @foreach ($administration as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -498,23 +498,23 @@
                                                             </li>
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
-                                                                    data-target="#PRODUCTIONtwo">
+                                                                    data-target="#PRODUCTIONtwo5">
                                                                     <input type="checkbox" name="" id="">
                                                                     DATABASE
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
-                                                                <ul id="PRODUCTIONtwo" class="collapse ">
+                                                                <ul id="PRODUCTIONtwo5" class="collapse ">
                                                                     @foreach ($databases as $key => $database)
                                                                         <li>
                                                                             <label for="" data-toggle="collapse"
-                                                                                data-target="#Digital">
+                                                                                data-target="#Digital11">
                                                                                 <input type="checkbox"
                                                                                     class="myCheckbox c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
-                                                                            <ul id="Digital">
+                                                                            <ul id="Digital11">
                                                                                 @foreach ($database as $key1 => $value)
                                                                                     @foreach ($permissions as $value1)
                                                                                         @if ($value == $value1->name)
@@ -545,7 +545,12 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card-footer">
+                        <button class="btn btn-primary float-right">Update</button>
+                    </div>
                 </div>
+                
+                <a href="{{route('role')}}">Go back</a>
             </div>
         </div>
     </form>
