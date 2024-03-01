@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let bool = true;
-    $('.table').DataTable({
+    $('.datatable').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
@@ -24,7 +24,10 @@ $(document).ready(function () {
                 }
             }
         }, // URL to fetch data
-        columns: [
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            },
             {
                 data: 'date',
                 name: 'date',
@@ -127,9 +130,9 @@ $(document).ready(function () {
 
 function AjaxCall(columnsData) {
 
-    $('.table').DataTable().destroy();
+    $('.datatable').DataTable().destroy();
 
-    $('.table').DataTable({
+    $('.datatable').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
@@ -151,7 +154,10 @@ function AjaxCall(columnsData) {
 
             }
         }, // URL to fetch data
-        columns: [
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            },
             {
                 data: 'date',
                 name: 'date',

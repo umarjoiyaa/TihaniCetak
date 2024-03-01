@@ -29,6 +29,7 @@
                     <table class="table datatable mt-2" id="example1">
                         <thead>
                             <tr>
+                                <th class="text-left">Sr #</th>
                                 <th class="text-left">Date</th>
                                 <th class="text-left">Time</th>
                                 <th class="text-left">Mesin</th>
@@ -43,6 +44,7 @@
                                 <th class="text-left">Action</th>
                             </tr>
                             <tr>
+                                <th></th>
                                 <th><input type="text" class="all_column" placeholder="search Date"></th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search time">

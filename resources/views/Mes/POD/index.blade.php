@@ -25,9 +25,10 @@
                         <a href="{{route('pod.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table datatable table-striped mt-2" id="example1">
+                        <table class="table datatable table-striped mt-2">
                             <thead>
                                 <tr>
+                                    <th rowspan="2" class="text-left">Sr #</th>
                                     <th rowspan="2" class="text-left">Date</th>
                                     <th rowspan="2" class="text-left">Time</th>
                                     <th rowspan="2" class="text-left">Sales Order NO</th>
@@ -58,7 +59,10 @@
                                     <th class="text-left">Kedudukan cetakan depan  belakang / print register</th>
                                     <th class="text-left">Jenis penjilidan</th>
                                 </tr>
+                            </thead>
+                            <thead>
                                 <tr>
+                                    <th></th>
                                     <th><input type="text" class="all_column" placeholder="search date"></th>
                                     <th>
                                         <input type="text" class="all_column" placeholder="search time">
@@ -136,49 +140,6 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- <tr class="">
-                                    <td>1</td>
-                                    <td>30/5/2023</td>
-                                    <td>30/5/2023</td>
-                                    <td>30/5/2023</td>
-                                    <td>SO-001496</td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-                                    <td><input type="checkbox" name="" id=""></td>
-
-                                    <td><span class="badge badge-pill badge-warning w-100 p-2">checked</span>
-                                    </td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button aria-expanded="false" aria-haspopup="true"
-                                                class="btn ripple btn-primary" data-toggle="dropdown"
-                                                id="dropdownMenuButton" type="button">Action<i
-                                                    class="fas fa-caret-down ml-1"></i></button>
-                                            <div class="dropdown-menu tx-13">
-                                                <a class="dropdown-item"
-                                                    href="{{route('Ctp.view')}}">View</a>
-                                                <a class="dropdown-item"
-                                                    href="{{route('Ctp.edit')}}">Edit</a>
-                                                <a class="dropdown-item"
-                                                    href="{{route('Ctp.verify')}}">Verify</a>
-                                                <a class="dropdown-item" href="">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr> --}}
                             </tbody>
                         </table>
                     </div>

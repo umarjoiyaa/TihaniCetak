@@ -47,6 +47,10 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
+                data: 'jumlah_seksyen',
+                name: 'jumlah_seksyen',
+            },
+            {
                 data: 'sale_order.sale_order_qty',
                 name: 'sale_order.sale_order_qty',
             },
@@ -120,6 +124,10 @@ function AjaxCall(columnsData) {
             {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
+            },
+            {
+                data: 'jumlah_seksyen',
+                name: 'jumlah_seksyen',
             },
             {
                 data: 'sale_order.sale_order_qty',

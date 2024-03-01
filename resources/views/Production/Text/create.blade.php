@@ -711,7 +711,7 @@
                                                 <td>${i}</td>
                                                 <td> <input type="text" disable name="section[${key}][date]"
                                                      class="form-control datepicker" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
-                                                    id="datepicker${i}"  pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
+                                                    id="datepicker${i}" pattern="\d{2}-\d{2}-\d{4}"  class="date_section" placeholder="dd-mm-yyyy"></td>
                                                 <td>
                                                     <select name="section[${key}][machine]" disable style="width:100%" id="mesin${i}" class="form-control form-select mesin_section" id="machine">
                                                         <option value="-1" disabled selected>Select any Mesin</option>

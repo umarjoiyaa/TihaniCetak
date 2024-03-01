@@ -119,19 +119,19 @@ class LaporanPemeriksaanKualitiController extends Controller
                                 $q->where('b_1', 'like', '%' . $searchLower . '%');
                                 break;
                             case 9:
-                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                $q->where('b_2', 'like', '%' . $searchLower . '%');
                                 break;
                             case 10:
-                                 $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                 $q->where('b_3', 'like', '%' . $searchLower . '%');
                                 break;
                             case 11:
-                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                $q->where('b_4', 'like', '%' . $searchLower . '%');
                                 break;
                             case 12:
-                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                $q->where('b_5', 'like', '%' . $searchLower . '%');
                                break;
                             case 13:
-                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                $q->where('b_6', 'like', '%' . $searchLower . '%');
                                  break;
                             case 14:
                                 $q->where('status', 'like', '%' . $searchLower . '%');

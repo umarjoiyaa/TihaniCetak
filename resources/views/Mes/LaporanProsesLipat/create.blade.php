@@ -185,6 +185,7 @@
                 if ($(this).hasClass('active')) {
                     if ($(this).find('table tbody tr').length == 1) {
                         jumlah = 2000;
+                        $(this).find('table tbody tr .remove').removeClass('d-none')
                     }
                     $length3 = $(this).find('table tbody tr').length + 1;
                     $(this).find('table tbody').append(`<tr>
@@ -219,9 +220,31 @@
         });
 
         $(document).on('click', '.remove', function() {
-            jumlah -= 1000;
-            $(this).closest('tr').remove();
-        })
+    var closestRow = $(this).closest('tr');
+    var closestTable = closestRow.closest('.table');
+    closestRow.remove();
+
+    // Update sequence for visible rows
+    updateSequence(closestTable);
+
+    // Update jumlah
+    jumlah -= 1000;
+
+    // Update text for the remaining row if only one is visible
+    if (closestTable.find('tbody tr:visible').length === 1) {
+        closestTable.find('tbody tr:visible .remove').addClass('d-none');
+        closestTable.find('tbody tr:visible td:eq(0)').text(1000);
+    }
+});
+
+    // Function to update sequence
+    function updateSequence(table) {
+        var visibleRows = table.find('tbody tr:visible');
+        visibleRows.each(function(index) {
+            $(this).find('td:eq(0)').text((index + 1) * 1000);
+        });
+    }
+
 
         var StartingNumber;
         var EndingNumber;
@@ -310,7 +333,7 @@
                                                             </td>
                                                             <td><input type="text" name="section[${i}][1][5]"
                                                                     class="verify_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-danger remove"
+                                                            <td><button type="button" class="btn btn-danger remove d-none"
                                                                     style="border-radius:5px; ">X</button></td>
                                                         </tr>
                                                         </tbody>
@@ -390,7 +413,7 @@
                                                             </td>
                                                             <td><input type="text" name="section[${value}][1][5]"
                                                                     class="verify_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-danger remove"
+                                                            <td><button type="button" class="btn btn-danger remove d-none"
                                                                     style="border-radius:5px; ">X</button></td>
                                                         </tr>
                                                         </tbody>

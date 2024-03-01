@@ -478,6 +478,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/DigitalPrinting/create', [DigitalPrintingController::class, 'create'])->name('digital_printing.create');
     Route::post('/Production/DigitalPrinting/store', [DigitalPrintingController::class, 'store'])->name('digital_printing.store');
     Route::get('/Production/DigitalPrinting/view/{id}', [DigitalPrintingController::class, 'view'])->name('digital_printing.view');
+    Route::get('/Production/DigitalPrinting/print/{id}', [DigitalPrintingController::class, 'print'])->name('digital_printing.print');
     Route::get('/Production/DigitalPrinting/edit/{id}', [DigitalPrintingController::class, 'edit'])->name('digital_printing.edit');
     Route::post('/Production/DigitalPrinting/update/{id}', [DigitalPrintingController::class, 'update'])->name('digital_printing.update');
     Route::get('/Production/DigitalPrinting/proses/{id}', [DigitalPrintingController::class, 'proses'])->name('digital_printing.proses');

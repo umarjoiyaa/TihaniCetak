@@ -36,8 +36,8 @@ $(document).ready(function () {
             name: 'sale_order.order_no',
         },
         {
-            data: 'jumlah_mukasurat',
-            name: 'jumlah_mukasurat',
+            data: 'sale_order.customer',
+            name: 'sale_order.customer',
         },
         {
             data: 'sale_order.kod_buku',
@@ -109,8 +109,8 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.order_no',
             },
             {
-                data: 'jumlah_mukasurat',
-                name: 'jumlah_mukasurat',
+                data: 'sale_order.customer',
+                name: 'sale_order.customer',
             },
             {
                 data: 'sale_order.kod_buku',

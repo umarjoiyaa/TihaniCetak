@@ -151,6 +151,7 @@ class ProsesPembungkusanController extends Controller
 
             $index = 0;
             foreach ($uom as $row) {
+                $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
                     $actions = '<a class="dropdown-item" href="' . route('proses_pembungkusan.view', $row->id) . '">View</a>
@@ -260,6 +261,7 @@ class ProsesPembungkusanController extends Controller
                 ->get();
 
             $uom->each(function ($row, $index)  use (&$start) {
+                $row->sr_no = $start + $index + 1;
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
                     $actions = '<a class="dropdown-item" href="' . route('proses_pembungkusan.view', $row->id) . '">View</a>
