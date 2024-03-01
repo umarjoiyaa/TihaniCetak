@@ -859,6 +859,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a class="btn btn-primary float-right" href="{{route('digital_printing.print', $digital_printing->id)}}" >Print</a>
+                        </div>
+                    </div>
+
                     <div class="row d-flex">
                         <div class="col-md-12 d-flex justify-content-end">
                             <!-- Modal -->

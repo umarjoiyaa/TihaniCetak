@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Supplier;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use PDF;
 use Illuminate\Support\Facades\Auth;
 
 class DigitalPrintingController extends Controller
@@ -425,6 +426,26 @@ class DigitalPrintingController extends Controller
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING View');
         return view('Production.DigitalPrinting.view', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function print($id){
+        $digital_printing = DigitalPrinting::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        $users = User::all();
+        $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
+        $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.DigitalPrinting.pdf', [
+            'digital_printing' => $digital_printing,
+            'suppliers' => $suppliers,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.DigitalPrinting.pdf');
     }
 
     public function update(Request $request, $id)
