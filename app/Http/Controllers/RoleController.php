@@ -169,7 +169,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
         Helper::logSystemActivity('Role', 'Role Edit');
-        return view("settings.role_assign.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
+        return view("Setting.Role.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
     }
 
     public function view(Request $request)
@@ -194,7 +194,7 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
         Helper::logSystemActivity('Role', 'Role View');
-        return view("settings.role_assign.view", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
+        return view("Setting.Role.view", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
     }
 
     /**
