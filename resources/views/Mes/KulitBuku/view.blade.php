@@ -64,12 +64,13 @@
                                             <thead>
                                                 <tr>
                                                     <th rowspan="2">Kriteria</th>
-                                                    <th colspan="2">Tanda bagi yang berkenaan</th>
+                                                    <th colspan="3">Tanda bagi yang berkenaan</th>
 
                                                 </tr>
                                                 <tr>
                                                     <th>OK</th>
                                                     <th>NG</th>
+                                                    <th>NA</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -82,6 +83,9 @@
                                                     <td><input type="checkbox" class="Cover1"
                                                             onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                             value="ng" @checked($kulit_buku->b_1 == 'ng') id=""></td>
+                                                    <td><input type="checkbox" class="Cover1"
+                                                            onchange="handleCheckboxChange('Cover1',this)" name="b_1"
+                                                            value="na" @checked($kulit_buku->b_1 == 'na') id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Saiz Spacing</td>
@@ -93,6 +97,10 @@
                                                             onchange="handleCheckboxChange('Text1',this)" name="b_2"
                                                             value="ng" @checked($kulit_buku->b_2 == 'ng') id="">
                                                     </td>
+                                                    <td><input type="checkbox" class="Text1"
+                                                            onchange="handleCheckboxChange('Text1',this)" name="b_2"
+                                                            value="na" @checked($kulit_buku->b_2 == 'na') id="">
+                                                    </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kedudukan potongan</td>
@@ -103,6 +111,10 @@
                                                     <td><input type="checkbox" class="Cover2"
                                                             onchange="handleCheckboxChange('Cover2',this)" name="b_3"
                                                             value="ng" @checked($kulit_buku->b_3 == 'ng') id="">
+                                                    </td>
+                                                    <td><input type="checkbox" class="Cover2"
+                                                            onchange="handleCheckboxChange('Cover2',this)" name="b_3"
+                                                            value="na" @checked($kulit_buku->b_3 == 'na') id="">
                                                     </td>
                                                 </tr>
                                             </tbody>

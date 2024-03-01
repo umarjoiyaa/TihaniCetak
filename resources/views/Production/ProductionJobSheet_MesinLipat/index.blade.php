@@ -31,6 +31,7 @@
                                 <th>Pelanggan</th>
                                 <th>Kod Buku</th>
                                 <th>Tajuk</th>
+                                <th>Jumlah Seksyen</th>
                                 <th>Kuantiti</th>
                                 <th>Jenis Lipatan</th>
                                 <th>Mesin</th>
@@ -55,6 +56,9 @@
                                 </th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search Tajuk">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search Jumlah Seksyen">
                                 </th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search Kuantiti">

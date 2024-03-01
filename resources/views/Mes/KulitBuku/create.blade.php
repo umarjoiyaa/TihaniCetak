@@ -7,7 +7,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            
+
                             <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="float-left">LAPORAN PEMERIKSAAN KUALITI - PEMOTONGAN KULIT BUKU/TEKS</h5>
@@ -70,12 +70,13 @@
                                                 <thead>
                                                     <tr>
                                                         <th rowspan="2">Kriteria</th>
-                                                        <th colspan="2">Tanda bagi yang berkenaan</th>
+                                                        <th colspan="3">Tanda bagi yang berkenaan</th>
 
                                                     </tr>
                                                     <tr>
                                                         <th>OK</th>
                                                         <th>NG</th>
+                                                        <th>NA</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
@@ -88,6 +89,10 @@
                                                         <td><input type="checkbox" class="Cover1"
                                                                 onchange="handleCheckboxChange('Cover1',this)" checked
                                                                 name="b_1" value="ng" id=""></td>
+                                                        <td><input type="checkbox" class="Cover1"
+                                                                onchange="handleCheckboxChange('Cover1',this)"
+                                                                name="b_1" value="na" id=""></td>
+
                                                     </tr>
                                                     <tr>
                                                         <td>Saiz Spacing</td>
@@ -97,6 +102,9 @@
                                                         <td><input type="checkbox" class="Text1"
                                                                 onchange="handleCheckboxChange('Text1',this)" checked
                                                                 name="b_2" value="ng" id="">
+                                                        <td><input type="checkbox" class="Text1"
+                                                                onchange="handleCheckboxChange('Text1',this)"
+                                                                name="b_2" value="na" id="">
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -107,6 +115,9 @@
                                                         <td><input type="checkbox" class="Cover2"
                                                                 onchange="handleCheckboxChange('Cover2',this)" checked
                                                                 name="b_3" value="ng" id=""></td>
+                                                        <td><input type="checkbox" class="Cover2"
+                                                                onchange="handleCheckboxChange('Cover2',this)"
+                                                                name="b_3" value="na" id=""></td>
                                                     </tr>
                                                 </tbody>
                                             </table>

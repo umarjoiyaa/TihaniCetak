@@ -24,7 +24,7 @@ class DigitalPrintingController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = DigitalPrinting::select('id', 'sale_order_id', 'date', 'kategori_job', 'jenis_produk', 'jumlah_mukasurat', 'status')->with('sale_order');
+            $query = DigitalPrinting::select('id', 'sale_order_id', 'date', 'kategori_job', 'jenis_produk', 'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -46,7 +46,6 @@ class DigitalPrintingController extends Controller
                         })
                         ->orWhere('kategori_job', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis_produk', 'like', '%' . $searchLower . '%')
-                        ->orWhere('jumlah_mukasurat', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -60,9 +59,9 @@ class DigitalPrintingController extends Controller
                     2 => 'sale_order_id',
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
-                    5 => 'kategori_job',
-                    6 => 'jenis_produk',
-                    7 => 'jumlah_mukasurat',
+                    5 => 'jenis_produk',
+                    6 => 'kategori_job',
+                    7 => 'sale_order_id',
                     8 => 'status',
                     // Add more columns as needed
                 ];
@@ -103,13 +102,16 @@ class DigitalPrintingController extends Controller
                                 });
                                 break;
                             case 5:
+
                                 $q->where('kategori_job', 'like', '%' . $searchLower . '%');
                                 break;
                             case 6:
                                 $q->where('jenis_produk', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
-                                $q->where('jumlah_mukasurat', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
+                                    $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 8:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
@@ -192,7 +194,7 @@ class DigitalPrintingController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = DigitalPrinting::select('id', 'sale_order_id', 'date', 'kategori_job', 'jenis_produk', 'jumlah_mukasurat', 'status')->with('sale_order');
+            $query = DigitalPrinting::select('id', 'sale_order_id', 'date', 'kategori_job', 'jenis_produk',  'status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -209,9 +211,11 @@ class DigitalPrintingController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('kategori_job', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis_produk', 'like', '%' . $searchLower . '%')
-                        ->orWhere('jumlah_mukasurat', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -222,9 +226,9 @@ class DigitalPrintingController extends Controller
                 2 => 'sale_order_id',
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
-                5 => 'kategori_job',
-                6 => 'jenis_produk',
-                7 => 'jumlah_mukasurat',
+                5 => 'jenis_produk',
+                6 => 'kategori_job',
+                7 => 'sale_order_id',
                 8 => 'status',
                 // Add more columns as needed
             ];
