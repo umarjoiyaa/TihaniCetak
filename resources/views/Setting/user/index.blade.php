@@ -31,16 +31,16 @@
                                 <tr>
                                     <th></th>
                                     <th>
-                                        <input type="text" class="all_column form-control" placeholder="search user name">
+                                        <input type="text" class="all_column" placeholder="search user name">
                                     </th>
                                     <th>
-                                        <input type="text" class="all_column form-control" placeholder="search full name">
+                                        <input type="text" class="all_column" placeholder="search full name">
                                     </th>
                                     <th>
-                                        <input type="text" class="all_column form-control" placeholder="search email">
+                                        <input type="text" class="all_column" placeholder="search email">
                                     </th>
                                     <th>
-                                        <input type="text" class="all_column form-control" placeholder="search active">
+                                        <input type="text" class="all_column" placeholder="search active">
                                     </th>
                                     <th></th>
                                 </tr>
