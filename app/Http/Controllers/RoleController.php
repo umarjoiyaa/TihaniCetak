@@ -59,15 +59,15 @@ class RoleController extends Controller
 
             $roles->each(function ($role, $index) use(&$start) {
                 $role->sr_no = $start + $index + 1;
-                $role->action = '<div class="dropdown">
-                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Action
-                    </a>
-
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="' . route('role.edit', $role->id) . '">Edit</a></li>
-                      <li><a class="dropdown-item" data-delete="' . route('role.destroy', $role->id) . '" data-kt-ecommerce-category-filter="delete_row" href="' . route('role.destroy', $role->id) . '">Delete</a></li>';
-                $role->action .= '</ul></div>';
+                $role->action = '<div class="dropdown dropdownwidth">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                    <div  class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="' . route('role.edit', $role->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('role.view', $role->id) . '">View</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('role.delete', $role->id) . '">Delete</a>
+                    </div>
+                </div>';
             });
 
             return response()->json([
@@ -89,7 +89,7 @@ class RoleController extends Controller
             Auth::user()->hasPermissionTo('Role Delete')
         ) {
             Helper::logSystemActivity('Role', 'Role List');
-            return view("Setting.Role.index");
+            return view("Setting.Role");
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
@@ -132,7 +132,7 @@ class RoleController extends Controller
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Store');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Added!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Added!');
     }
     /**
      * Display the specified resource.
@@ -200,7 +200,7 @@ class RoleController extends Controller
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Update');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Updated!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Updated!');
     }
 
     /**
@@ -225,6 +225,6 @@ class RoleController extends Controller
         }
         DB::table("roles")->where('id', $id)->delete();
         Helper::logSystemActivity('Role', 'Role Delete');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Deleted!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Deleted!');
     }
 }

@@ -23,15 +23,6 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>
-                                            <input type="text" class="all_column" placeholder="search name">
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
                                 <tbody></tbody>
                             </table>
                         </div>
@@ -43,7 +34,6 @@
 @endsection
 @push('custom-scripts')
     <script>
-        var data = "{{ route('role.data') }}";
+        $('.datatable').DataTable();
     </script>
-    <script src="{{ asset('assets/js/custom/settings/Role/index.js') }}"></script>
 @endpush
