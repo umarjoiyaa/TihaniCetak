@@ -41,6 +41,9 @@ class DigitalPrintingController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('kategori_job', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis_produk', 'like', '%' . $searchLower . '%')
                         ->orWhere('jumlah_mukasurat', 'like', '%' . $searchLower . '%')

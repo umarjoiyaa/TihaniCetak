@@ -20,7 +20,7 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'b_1','b_2','b_3','b_4','b_5','b_6','b_7','b_8','b_9','b_10','b_11','b_12','b_13','b_14','b_15','b_16','b_17','b_18','status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -39,6 +39,23 @@ class ProsesPencetakanController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_10', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_11', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_12', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_13', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_14', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_15', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_16', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_17', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_18', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -54,7 +71,24 @@ class ProsesPencetakanController extends Controller
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
                     6 => 'sale_order_id',
-                    7 => 'status',
+                    7 => 'b_1',
+                    8 => 'b_2',
+                    9 => 'b_3',
+                    10 => 'b_4',
+                    11 => 'b_5',
+                    12 => 'b_6',
+                    13 => 'b_8',
+                    14 => 'b_9',
+                    15 => 'b_10',
+                    16 => 'b_11',
+                    17 => 'b_12',
+                    18 => 'b_13',
+                    19 => 'b_14',
+                    20 => 'b_15',
+                    21 => 'b_16',
+                    22 => 'b_17',
+                    23 => 'b_18',
+                    24 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -100,6 +134,58 @@ class ProsesPencetakanController extends Controller
                                 });
                                 break;
                             case 7:
+                                $q->where('b_1', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 8:
+                                $q->where('b_2', 'like', '%' . $searchLower . '%');
+
+                                break;
+                            case 9:
+                                $q->where('b_3', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 10:
+                                $q->where('b_4', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 11:
+                                $q->where('b_5', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 12:
+                                $q->where('b_6', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 13:
+                                $q->where('b_8', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 14:
+                                $q->where('b_9', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 15:
+                                $q->where('b_10', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 16:
+                                $q->where('b_11', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 17:
+                                $q->where('b_12', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 18:
+                                $q->where('b_13', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 19:
+                                $q->where('b_14', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 20:
+                                $q->where('b_15', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 21:
+                                $q->where('b_16', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 22:
+                                $q->where('b_17', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 23:
+                                $q->where('b_18', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 24:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -170,28 +256,45 @@ class ProsesPencetakanController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'status')->with('sale_order');
+            $query = ProsesPencetakan::select('id', 'sale_order_id', 'date', 'time', 'mesin', 'b_1','b_2','b_3','b_4','b_5','b_6','b_7','b_8','b_9','b_10','b_11','b_12','b_13','b_14','b_15','b_16','b_17','b_18','status')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
-                        ->where('date', 'like', '%' . $searchLower . '%')
-                        ->orWhere('time', 'like', '%' . $searchLower . '%')
-                        ->orWhere('mesin', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('order_no', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('kod_buku', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('description', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhere('status', 'like', '%' . $searchLower . '%');
-                    // Add more columns as needed
-                });
+                    ->where('date', 'like', '%' . $searchLower . '%')
+                    ->orWhere('time', 'like', '%' . $searchLower . '%')
+                    ->orWhere('mesin', 'like', '%' . $searchLower . '%')
+                    ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                        $query->where('order_no', 'like', '%' . $searchLower . '%');
+                    })
+                    ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                        $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                    })
+                    ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                        $query->where('description', 'like', '%' . $searchLower . '%');
+                    })
+                    ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_5', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_10', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_11', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_12', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_13', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_14', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_15', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_16', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_17', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_18', 'like', '%' . $searchLower . '%')
+                    ->orWhere('status', 'like', '%' . $searchLower . '%');
+                // Add more columns as needed
+            });
             }
 
             $sortableColumns = [
@@ -201,7 +304,24 @@ class ProsesPencetakanController extends Controller
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
                 6 => 'sale_order_id',
-                7 => 'status',
+                7 => 'b_1',
+                8 => 'b_2',
+                9 => 'b_3',
+                10 => 'b_4',
+                11 => 'b_5',
+                12 => 'b_6',
+                13 => 'b_8',
+                14 => 'b_9',
+                15 => 'b_10',
+                16 => 'b_11',
+                17 => 'b_12',
+                18 => 'b_13',
+                19 => 'b_14',
+                20 => 'b_15',
+                21 => 'b_16',
+                22 => 'b_17',
+                23 => 'b_18',
+                24 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){

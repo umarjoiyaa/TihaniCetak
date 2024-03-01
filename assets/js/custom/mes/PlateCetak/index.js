@@ -30,6 +30,10 @@ $(document).ready(function () {
                 orderable: false
             },
             {
+                data: 'date',
+                name: 'date',
+            },
+            {
                 data: 'time',
                 name: 'time',
             },
@@ -257,6 +261,10 @@ function AjaxCall(columnsData) {
                 data: 'sr_no',
                 name: 'sr_no',
                 orderable: false
+            },
+            {
+                data: 'date',
+                name: 'date',
             },
             {
                 data: 'time',

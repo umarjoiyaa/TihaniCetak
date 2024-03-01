@@ -64,9 +64,9 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Nama Subkontraktor</div>
-                                        <select name="nama" id="nama" class="form-control  form-select" data-id="{{ $borange_serah_kerja->nama_subkontraktor }}">
+                                        <select name="nama" id="nama" class="form-control  form-select" data-id="{{ $borange_serah_kerja->nama }}">
                                                     @foreach ($suppliers as $supplier)
-                                                        <option value="{{ $supplier->id }}" @selected($borange_serah_kerja->nama_subkontraktor == $supplier->id)>{{ $supplier->name }}
+                                                        <option value="{{ $supplier->id }}" @selected($borange_serah_kerja->nama == $supplier->id)>{{ $supplier->name }}
                                                         </option>
                                                     @endforeach
                                         </select>
@@ -231,7 +231,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_16" @checked($borange_serah_kerja->jenis_16 == "on")id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_16" @checked($borange_serah_kerja->jenis_16 == "on") id=""></div>
                                         <div class="col-md-4">
                                             <h5>Numbering</h5>
                                         </div>

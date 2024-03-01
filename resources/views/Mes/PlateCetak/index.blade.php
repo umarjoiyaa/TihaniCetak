@@ -29,6 +29,7 @@
                         <thead>
                             <tr>
                                 <td rowspan="2">Sr.</td>
+                                <td rowspan="2">Tarikh</td>
                                 <td rowspan="2">Masa</td>
                                 <td rowspan="2">Sales Order No.</td>
                                 <td rowspan="2">Tajuk Buku</td>
@@ -61,6 +62,10 @@
                             <tr>
                                 <th></th>
 
+
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search tarikh">
+                                </th>
 
                                 <th>
                                     <input type="text" class="all_column" placeholder="search masa">

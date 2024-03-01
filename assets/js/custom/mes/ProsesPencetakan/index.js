@@ -52,6 +52,74 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
+                data: 'b_1',
+                name: 'b_1',
+            },
+            {
+                data: 'b_2',
+                name: 'b_2',
+            },
+            {
+                data: 'b_3',
+                name: 'b_3',
+            },
+            {
+                data: 'b_4',
+                name: 'b_4',
+            },
+            {
+                data: 'b_5',
+                name: 'b_5',
+            },
+            {
+                data: 'b_6',
+                name: 'b_6',
+            },
+            {
+                data: 'b_8',
+                name: 'b_8',
+            },
+            {
+                data: 'b_9',
+                name: 'b_9',
+            },
+            {
+                data: 'b_10',
+                name: 'b_10',
+            },
+            {
+                data: 'b_11',
+                name: 'b_11',
+            },
+            {
+                data: 'b_12',
+                name: 'b_12',
+            },
+            {
+                data: 'b_13',
+                name: 'b_13',
+            },
+            {
+                data: 'b_14',
+                name: 'b_14',
+            },
+            {
+                data: 'b_15',
+                name: 'b_15',
+            },
+            {
+                data: 'b_16',
+                name: 'b_16',
+            },
+            {
+                data: 'b_17',
+                name: 'b_17',
+            },
+            {
+                data: 'b_18',
+                name: 'b_18',
+            },
+            {
                 data: 'status',
                 name: 'status',
             },
@@ -92,44 +160,112 @@ function AjaxCall(columnsData) {
             }
         }, // URL to fetch data
         columns: [{
-                data: 'sr_no',
-                name: 'sr_no',
-                orderable: false
-            },
-            {
-                data: 'date',
-                name: 'date',
-            },
-            {
-                data: 'time',
-                name: 'time',
-            },
-            {
-                data: 'mesin',
-                name: 'mesin',
-            },
-            {
-                data: 'sale_order.order_no',
-                name: 'sale_order.order_no',
-            },
-            {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
-            },
-            {
-                data: 'sale_order.description',
-                name: 'sale_order.description',
-            },
-            {
-                data: 'status',
-                name: 'status',
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false
-            },
-        ],
+            data: 'sr_no',
+            name: 'sr_no',
+            orderable: false
+        },
+        {
+            data: 'date',
+            name: 'date',
+        },
+        {
+            data: 'time',
+            name: 'time',
+        },
+        {
+            data: 'mesin',
+            name: 'mesin',
+        },
+        {
+            data: 'sale_order.order_no',
+            name: 'sale_order.order_no',
+        },
+        {
+            data: 'sale_order.kod_buku',
+            name: 'sale_order.kod_buku',
+        },
+        {
+            data: 'sale_order.description',
+            name: 'sale_order.description',
+        },
+        {
+            data: 'b_1',
+            name: 'b_1',
+        },
+        {
+            data: 'b_2',
+            name: 'b_2',
+        },
+        {
+            data: 'b_3',
+            name: 'b_3',
+        },
+        {
+            data: 'b_4',
+            name: 'b_4',
+        },
+        {
+            data: 'b_5',
+            name: 'b_5',
+        },
+        {
+            data: 'b_6',
+            name: 'b_6',
+        },
+        {
+            data: 'b_8',
+            name: 'b_8',
+        },
+        {
+            data: 'b_9',
+            name: 'b_9',
+        },
+        {
+            data: 'b_10',
+            name: 'b_10',
+        },
+        {
+            data: 'b_11',
+            name: 'b_11',
+        },
+        {
+            data: 'b_12',
+            name: 'b_12',
+        },
+        {
+            data: 'b_13',
+            name: 'b_13',
+        },
+        {
+            data: 'b_14',
+            name: 'b_14',
+        },
+        {
+            data: 'b_15',
+            name: 'b_15',
+        },
+        {
+            data: 'b_16',
+            name: 'b_16',
+        },
+        {
+            data: 'b_17',
+            name: 'b_17',
+        },
+        {
+            data: 'b_18',
+            name: 'b_18',
+        },
+        {
+            data: 'status',
+            name: 'status',
+        },
+        {
+            data: 'action',
+            name: 'action',
+            orderable: false
+        },
+    ],
         paging: true
         // Other DataTables options go here
     });

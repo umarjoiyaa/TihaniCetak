@@ -28,15 +28,33 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td>sr</td>
-                                        <td>Tarikh.</td>
-                                        <td>Masa</td>
-                                        <td>Mesin</td>
-                                        <td>Sales Order No. </td>
-                                        <td>Kod Buku</td>
-                                        <td>Tajuk</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <th>sr</th>
+                                        <th>Tarikh.</th>
+                                        <th>Masa</th>
+                                        <th>Mesin</th>
+                                        <th>Sales Order No. </th>
+                                        <th>Kod Buku</th>
+                                        <th>Tajuk</th>
+                                        <th>Artwork</th>
+                                        <th>Turutan muka surat </th>
+                                        <th>Kedudukan muka surat</th>
+                                        <th>Saiz spine</th>
+                                        <th>Kedudukan nombor muka surat</th>
+                                        <th>Bleed (5mm)</th>
+                                        <th>Warna</th>
+                                        <th>Kedudukan warna</th>
+                                        <th>Kedudukan Cetakan</th>
+                                        <th>Periksa powder</th>
+                                        <th>Minyak</th>
+                                        <th>Kotor</th>
+                                        <th>Doubling</th>
+                                        <th>Hickies</th>
+                                        <th>Frontlay & sidelay</th>
+                                        <th>Gambar/teks hilang</th>
+                                        <th>Pematuhan SOP</th>
+                                        <th>Status</th>
+
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <thead>
@@ -59,6 +77,57 @@
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search tajuk">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Artwork">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Turutan muka surat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan muka surat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Saiz spine">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan nombor muka surat">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Bleed (5mm)">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Warna">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan warna">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kedudukan Cetakan">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Periksa powder">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Minyak">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Kotor">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Doubling">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Hickies">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Frontlay & sidelay">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Gambar/teks hilang">
+                                        </th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search Pematuhan SOP">
                                         </th>
                                         <th>
                                             <input type="text" class="all_column" placeholder="search status">

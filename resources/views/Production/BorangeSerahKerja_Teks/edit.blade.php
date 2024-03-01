@@ -307,11 +307,11 @@
                                                     <div class="col-md-6">
                                                         <div id="chipinput1">
                                                             @if ($borange_serah_kerja_teks->jenis_14 == 'on')
-                                                                <input type="text" name="jenis_input_10"
+                                                                <input type="text" name="jenis_input_14"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_14 }}"
                                                                     class="form-control Chipboard">
                                                             @else
-                                                            <input type="text" name="jenis_input_10"
+                                                            <input type="text" name="jenis_input_14"
 
                                                                     class="form-control Chipboard" style="display: none;">
                                                             @endif

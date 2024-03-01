@@ -38,6 +38,7 @@
                                 <td>Operator</td>
                                 <td>Kuantiti Cetakan</td>
                                 <td>Kuantiti Waste</td>
+                                
                                 <td>Status</td>
                                 <td>Action</td>
                             </tr>

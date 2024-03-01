@@ -32,8 +32,8 @@ class ProsesPembungkusanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
-                        ->where('machine', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -43,11 +43,11 @@ class ProsesPembungkusanController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('checklist_1', 'like', '%' . $searchLower . '%')
-                        ->where('checklist_2', 'like', '%' . $searchLower . '%')
-                        ->where('checklist_3', 'like', '%' . $searchLower . '%')
-                        ->where('checklist_4', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('checklist_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('checklist_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('checklist_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('checklist_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -207,8 +207,8 @@ class ProsesPembungkusanController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
-                    ->where('time', 'like', '%' . $searchLower . '%')
-                    ->where('machine', 'like', '%' . $searchLower . '%')
+                    ->orWhere('time', 'like', '%' . $searchLower . '%')
+                    ->orWhere('machine', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('order_no', 'like', '%' . $searchLower . '%');
                     })
@@ -218,11 +218,11 @@ class ProsesPembungkusanController extends Controller
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('description', 'like', '%' . $searchLower . '%');
                     })
-                    ->where('checklist_1', 'like', '%' . $searchLower . '%')
-                    ->where('checklist_2', 'like', '%' . $searchLower . '%')
-                    ->where('checklist_3', 'like', '%' . $searchLower . '%')
-                    ->where('checklist_4', 'like', '%' . $searchLower . '%')
-                    ->where('status', 'like', '%' . $searchLower . '%');
+                    ->orWhere('checklist_1', 'like', '%' . $searchLower . '%')
+                    ->orWhere('checklist_2', 'like', '%' . $searchLower . '%')
+                    ->orWhere('checklist_3', 'like', '%' . $searchLower . '%')
+                    ->orWhere('checklist_4', 'like', '%' . $searchLower . '%')
+                    ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }

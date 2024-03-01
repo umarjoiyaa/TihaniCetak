@@ -31,7 +31,7 @@ class CTPController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -41,23 +41,23 @@ class CTPController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('file_artwork_1', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_2', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_3', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_4', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_5', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_6', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_7', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_8', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_1', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_2', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_3', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_4', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_5', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_6', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_7', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_8', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->OrWhere('file_artwork_1', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_2', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_3', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_4', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_5', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_6', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_7', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_8', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_1', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_2', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_3', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_4', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_5', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_6', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_7', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_8', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -260,7 +260,7 @@ class CTPController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -270,23 +270,23 @@ class CTPController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('file_artwork_1', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_2', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_3', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_4', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_5', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_6', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_7', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_8', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_1', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_2', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_3', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_4', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_5', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_6', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_7', 'like', '%' . $searchLower . '%')
-                        ->where('impositions_8', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->OrWhere('file_artwork_1', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_2', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_3', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_4', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_5', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_6', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_7', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('file_artwork_8', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_1', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_2', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_3', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_4', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_5', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_6', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_7', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('impositions_8', 'like', '%' . $searchLower . '%')
+                        ->OrWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -519,7 +519,7 @@ class CTPController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        
+
         $carbonTime = Carbon::createFromFormat('H:i', $request->time);
         $timeIn12HourFormat = $carbonTime->format('h:i A');
 

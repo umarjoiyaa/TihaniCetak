@@ -22,7 +22,7 @@ class BorangeSerahKerja_TeksController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date','date_ilne','jenis_text','date_line')->with('sale_order',"supplier",'senari_semak');
+            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date','date_line','jenis_text')->with('sale_order',"supplier",'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -31,7 +31,6 @@ class BorangeSerahKerja_TeksController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->OrWhere('po_no', 'like', '%' . $searchLower . '%')
-
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -60,7 +59,7 @@ class BorangeSerahKerja_TeksController extends Controller
                     2 => 'po_no',
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
-                    5 => 'supplier',
+                    5 => 'nama',
                     6 => 'senari_semak',
                     7 => 'jenis_text',
                     8 => 'date_line',
@@ -143,7 +142,7 @@ class BorangeSerahKerja_TeksController extends Controller
 
                 if ($row->status == 'checked') {
                     $row->status = '<span class="badge badge-warning">Checked</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks_teks.view', $row->id) . '">View</a>
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.verify', $row->id) . '">Verify</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
@@ -224,7 +223,7 @@ class BorangeSerahKerja_TeksController extends Controller
                 2 => 'po_no',
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
-                5 => 'supplier',
+                5 => 'nama',
                 6 => 'senari_semak',
                 7 => 'jenis_text',
                 8 => 'date_line',
@@ -346,6 +345,8 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
         $borange_serah_kerja->date_line = $request->date_line;
+        $borange_serah_kerja->Qty_slap_binding = $request->Qty_slap_binding;
+        $borange_serah_kerja->waste_binding = $request->waste_binding;
         $borange_serah_kerja->created_by = Auth::user()->id;
 
         $borange_serah_kerja->jenis_1 = ($request->jenis_1 != null) ? $request->jenis_1 : null;
@@ -403,6 +404,8 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
         $borange_serah_kerja->po_no = $request->po_no;
+        $borange_serah_kerja->Qty_slap_binding = $request->Qty_slap_binding;
+        $borange_serah_kerja->waste_binding = $request->waste_binding;
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
         $borange_serah_kerja->date_line = $request->date_line;
