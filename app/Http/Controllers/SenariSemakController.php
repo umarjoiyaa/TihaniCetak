@@ -32,7 +32,7 @@ class SenariSemakController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('user_name', 'like', '%' . $searchLower . '%');
+                            $query->where('full_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -181,7 +181,7 @@ class SenariSemakController extends Controller
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('user', function ($query) use ($searchLower) {
-                        $query->where('user_name', 'like', '%' . $searchLower . '%');
+                        $query->where('full_name', 'like', '%' . $searchLower . '%');
                     })
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('order_no', 'like', '%' . $searchLower . '%');
