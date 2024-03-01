@@ -89,7 +89,7 @@ class RoleController extends Controller
             Auth::user()->hasPermissionTo('Role Delete')
         ) {
             Helper::logSystemActivity('Role', 'Role List');
-            return view("Setting.Role");
+            return view("Setting.Role.index");
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
