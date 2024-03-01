@@ -1,7 +1,10 @@
 @extends('layouts.app')
 @section('css')
 <style>
-     table thead th {
+      .dropdownwidth{
+        width:100px;
+    }
+    table thead th {
             text-align: center;
         }
 </style>
@@ -22,16 +25,16 @@
                     <table class="table table-bordered datatable mt-2">
                         <thead>
                             <tr>
-                                <th style="font-size:11px;">Sr.</th>
-                                <th style="font-size:11px;">Sales Order No</th>
-                                <th style="font-size:11px;">Customer Name</th>
-                                <th style="font-size:11px;">PO No.</th>
-                                <th style="font-size:11px;">Date Issue</th>
-                                <th style="font-size:11px;">Status</th>
-                                <th style="font-size:11px;">Status Approval</th>
-                                <th style="font-size:11px;">Delivery Qty</th>
-                                <th style="font-size:11px;">Remaining Qty</th>
-                                <th style="font-size:11px;">Action</th>
+                                <th style="font-size:11px;" class="text-left">Sr.</th>
+                                <th style="font-size:11px;" class="text-left">Sales Order No</th>
+                                <th style="font-size:11px;" class="text-left">Customer Name</th>
+                                <th style="font-size:11px;" class="text-left">PO No.</th>
+                                <th style="font-size:11px;" class="text-left">Date Issue</th>
+                                <th style="font-size:11px;" class="text-left">Status</th>
+                                <th style="font-size:11px;" class="text-left">Status Approval</th>
+                                <th style="font-size:11px;" class="text-left">Delivery Qty</th>
+                                <th style="font-size:11px;" class="text-left">Remaining Qty</th>
+                                <th style="font-size:11px;" class="text-left">Action</th>
                             </tr>
                         </thead>
                         <thead>

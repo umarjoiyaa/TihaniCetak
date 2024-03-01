@@ -37,14 +37,14 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Checked By (Operator)</div>
+                                                <div class="form-label">Checked By (Operator)</div>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Sales Order No.</div>
+                                                <div class="form-label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
                                                     <option value="" selected disabled>Select any Sale Order</option>
 
@@ -53,35 +53,35 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Tajuk</div>
+                                                <div class="form-label">Tajuk</div>
                                                 <input type="text" readonly value="" id="tajuk"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kod Buku</div>
+                                                <div class="form-label">Kod Buku</div>
                                                 <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Saiz Buku</div>
+                                                <div class="form-label">Saiz Buku</div>
                                                 <input type="text" readonly value="" id="size"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kuantiti SO</div>
+                                                <div class="form-label">Kuantiti SO</div>
                                                 <input type="text" readonly value="" id="sale_order_qty"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Good Count (Optional)</div>
+                                                <div class="form-label">Good Count (Optional)</div>
                                                 <input type="text" name="good_count" value="" id=""
                                                     class="form-control">
                                             </div>

@@ -35,6 +35,8 @@
                                         class="form-control" name="" id="">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>

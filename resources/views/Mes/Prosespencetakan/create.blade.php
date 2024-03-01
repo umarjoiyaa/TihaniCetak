@@ -18,27 +18,27 @@
                                     <div class="row">
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <label for="">Tarikh</label>
+                                                <label class="form-label">Tarikh</label>
                                                 <input type="text" name="date" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
-                                            <label for="">Masa</label>
+                                            <label class="form-label">Masa</label>
                                             <input name="time" type="time" id="Currenttime"
                                             value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
                                             class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Diperiksa oleh</div>
+                                                <label class="form-label">Diperiksa oleh</label>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Sales Order No.</div>
+                                                <label class="form-label">Sales Order No.</label>
                                                 <select name="sale_order" id="sale_order" class="form-control">
                                                     <option value="" selected disabled>Select any Sale Order</option>
 
@@ -47,21 +47,21 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Tajuk</div>
+                                                <div class="form-label">Tajuk</div>
                                                 <input type="text" readonly value="" id="tajuk"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kod Buku</div>
+                                                <label class="form-label">Kod Buku</label>
                                                 <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Mesin</div>
+                                                <label class="form-label">Mesin</label>
                                                 <select name="mesin" id="" class="form-control form-select">
                                                     <option value="P1" @selected(old('mesin') == 'P1')>P1</option>
                                                     <option value="P2" @selected(old('mesin') == 'P4')>P2</option>
@@ -72,7 +72,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Jenis</div>
+                                                <label class="form-label">Jenis</label>
                                                 <select name="jenis" id="" class="form-control form-select">
                                                     <option value="Text" @selected(old('jenis') == 'Text')>Text</option>
                                                     <option value="Cover" @selected(old('jenis') == 'Cover')>Cover</option>
@@ -87,14 +87,14 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Seksyen No.</div>
+                                                <label class="form-label">Seksyen No.</label>
                                                 <input type="text" value="" name="seksyen_no" class="form-control">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label class="label">Side</label>
+                                                <label class="form-label">Side</label>
                                                 <select name="side" id="" class="form-control form-select">
                                                     <option value="A" @selected(old('side') == 'A')>A</option>
                                                     <option value="B" @selected(old('side') == 'B')>B</option>

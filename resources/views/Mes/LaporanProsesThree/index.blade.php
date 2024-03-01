@@ -28,17 +28,17 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td>Sr #</td>
-                                        <td>Date</td>
-                                        <td>time </td>
-                                        <td>Sales Order no.</td>
-                                        <td>Kod Buku</td>
-                                        <td>Tajuk</td>
-                                        <td>Kuantiti</td>
-                                        <td>Saiz Buku</td>
-                                        <td>Operator</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <th class="text-left">Sr #</th>
+                                        <th class="text-left">Date</th>
+                                        <th class="text-left">time </th>
+                                        <th class="text-left">Sales Order no.</th>
+                                        <th class="text-left">Kod Buku</th>
+                                        <th class="text-left">Tajuk</th>
+                                        <th class="text-left">Kuantiti</th>
+                                        <th class="text-left">Saiz Buku</th>
+                                        <th class="text-left">Operator</th>
+                                        <th class="text-left">Status</th>
+                                        <th class="text-left">Action</th>
                                     </tr>
                                 </thead>
                                 <thead>

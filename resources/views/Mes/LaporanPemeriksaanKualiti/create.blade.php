@@ -32,14 +32,14 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Checked By</div>
+                                                <div class="form-label">Checked By</div>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Sales Order No.</div>
+                                                <div class="form-label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
                                                     <option value="" selected disabled>Select any Sale Order</option>
 
@@ -48,21 +48,21 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Tajuk</div>
+                                                <div class="form-label">Tajuk</div>
                                                 <input type="text" readonly value="" id="tajuk"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kod Buku</div>
+                                                <div class="form-label">Kod Buku</div>
                                                 <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Mesin</div>
+                                                <div class="form-label">Mesin</div>
                                                 <select name="mesin" id="" class="form-control form-select">
                                                     <option value="F1" @selected(old('mesin') == 'F1')>F1</option>
                                                     <option value="F2" @selected(old('mesin') == 'F4')>F2</option>
@@ -72,7 +72,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Jenis Lipat</div>
+                                                <div class="form-label">Jenis Lipat</div>
                                                 <select name="jenis" id="" class="form-control form-select">
                                                     <option value="Perfect Bind" @selected(old('jenis') == 'Perfect Bind')>Text</option>
                                                     <option value="Lock Bind" @selected(old('jenis') == 'Lock Bind')>Lock Bind
@@ -85,7 +85,7 @@
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Seksyen No.</div>
+                                                <div class="form-label">Seksyen No.</div>
                                                 <input type="text" value="" name="seksyen_no" class="form-control">
                                             </div>
                                         </div>

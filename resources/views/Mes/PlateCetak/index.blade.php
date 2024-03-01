@@ -28,35 +28,35 @@
                     <table class="table datatable text-center table-bordered mt-2" border="1" id="example1">
                         <thead>
                             <tr>
-                                <td rowspan="2">Sr.</td>
-                                <td rowspan="2">Masa</td>
-                                <td rowspan="2">Sales Order No.</td>
-                                <td rowspan="2">Tajuk Buku</td>
-                                <td rowspan="2">Kod Buku</td>
-                                <td rowspan="2">Mesin</td>
-                                <td rowspan="2">Seksyen</td>
+                                <td rowspan="2" class="text-left">Sr.</td>
+                                <td rowspan="2" class="text-left">Masa</td>
+                                <td rowspan="2" class="text-left">Sales Order No.</td>
+                                <td rowspan="2" class="text-left">Tajuk Buku</td>
+                                <td rowspan="2" class="text-left">Kod Buku</td>
+                                <td rowspan="2" class="text-left">Mesin</td>
+                                <td rowspan="2" class="text-left">Seksyen</td>
                                 <td colspan="3" class="text-center">Bahagian Plate </td>
                                 <td colspan="6" class="text-center">Warna</td>
-                                <td rowspan="2">Gripper</td>
-                                <td rowspan="2">Spacing</td>
-                                <td rowspan="2">Kedudukan Image/gambar</td>
-                                <td rowspan="2">Calar</td>
-                                <td rowspan="2">Kotor</td>
-                                <td rowspan="2">PEMERIKSAAN ARTWORK (UNTUK CETAKAN YANG MELEBIHI 1 UP)</td>
-                                <td rowspan="2">Diperiksa oleh</td>
-                                <td rowspan="2">status</td>
-                                <td rowspan="2">Action</td>
+                                <td rowspan="2" class="text-left">Gripper</td>
+                                <td rowspan="2" class="text-left">Spacing</td>
+                                <td rowspan="2" class="text-left">Kedudukan Image/gambar</td>
+                                <td rowspan="2" class="text-left">Calar</td>
+                                <td rowspan="2" class="text-left">Kotor</td>
+                                <td rowspan="2" class="text-left">PEMERIKSAAN ARTWORK (UNTUK CETAKAN YANG MELEBIHI 1 UP)</td>
+                                <td rowspan="2" class="text-left">Diperiksa oleh</td>
+                                <td rowspan="2" class="text-left">status</td>
+                                <td rowspan="2" class="text-left">Action</td>
                             </tr>
                             <tr>
-                                <td>A</td>
-                                <td>B</td>
-                                <td>A/B</td>
-                                <td>C</td>
-                                <td>M</td>
-                                <td>Y</td>
-                                <td>K</td>
-                                <td>P1</td>
-                                <td>P2</td>
+                                <th class="text-left">A</th>
+                                <th class="text-left">B</th>
+                                <th class="text-left">A/B</th>
+                                <th class="text-left">C</th>
+                                <th class="text-left">M</th>
+                                <th class="text-left">Y</th>
+                                <th class="text-left">K</th>
+                                <th class="text-left">P1</th>
+                                <th class="text-left">P2</th>
                             </tr>
                             <tr>
                                 <th></th>

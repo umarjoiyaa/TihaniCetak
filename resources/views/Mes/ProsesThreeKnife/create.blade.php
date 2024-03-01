@@ -29,7 +29,7 @@
 
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group ">
-                                        <label class="label">Time</label>
+                                        <label class="form-label">Time</label>
                                         <input name="time" type="time" id="Currenttime"
                                             value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
                                             class="form-control">
@@ -37,14 +37,16 @@
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <label class="label">Checked By</label>
+                                        <label class="form-label">Checked By</label>
                                         <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                             class="form-control" name="" id="">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No</div>
+                                        <div class="form-label">Sales Order No</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
                                             <option value="" selected disabled>Select any Sale Order</option>
 
@@ -54,19 +56,21 @@
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <div class="form-label">Tajuk</div>
                                         <input type="text" readonly name="" id="tajuk" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <div class="form-label">Kod Buku</div>
                                         <input type="text" readonly name="" id="kod_buku" class="form-control">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4 mt-4">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <div class="form-label">Mesin</div>
                                         <input type="text" value="TK1" readonly name="machine" class="form-control">
                                     </div>
                                 </div>

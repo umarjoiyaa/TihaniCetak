@@ -28,22 +28,22 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td>sr</td>
-                                        <td>Date</td>
-                                        <td>Time</td>
-                                        <td>Sales Order No. </td>
-                                        <td>Kod Buku</td>
-                                        <td>Tajuk</td>
-                                        <td>Seksyen No</td>
-                                        <td>Susuna Turutan</td>
-                                        <td>Turutan Muka Surat</td>
-                                        <td>Masalah cetakan</td>
-                                        <td>Masalah Lipat</td>
-                                        <td>Kotor</td>
-                                        <td>Kedut</td>
-                                        <td>Pematuhan SOP</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <th class="text-left">sr</th>
+                                        <th class="text-left">Date</th>
+                                        <th class="text-left">Time</th>
+                                        <th class="text-left">Sales Order No. </th>
+                                        <th class="text-left">Kod Buku</th>
+                                        <th class="text-left">Tajuk</th>
+                                        <th class="text-left">Seksyen No</th>
+                                        <th class="text-left">Susuna Turutan</th>
+                                        <th class="text-left">Turutan Muka Surat</th>
+                                        <th class="text-left">Masalah cetakan</th>
+                                        <th class="text-left">Masalah Lipat</th>
+                                        <th class="text-left">Kotor</th>
+                                        <th class="text-left">Kedut</th>
+                                        <th class="text-left">Pematuhan SOP</th>
+                                        <th class="text-left">Status</th>
+                                        <th class="text-left">Action</th>
                                     </tr>
                                 </thead>
                                 <thead>

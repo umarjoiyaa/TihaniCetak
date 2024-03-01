@@ -149,7 +149,7 @@ class SalesOrderController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
@@ -247,7 +247,7 @@ class SalesOrderController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
                 }
 
-                $row->action = '<div class="dropdown">
+                $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">

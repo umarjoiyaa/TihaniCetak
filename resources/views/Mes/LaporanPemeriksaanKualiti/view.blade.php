@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Checked By</div>
+                                            <div class="form-label">Checked By</div>
                                             <input type="text"
                                                 value="{{ $laporan_pemeriksaan_kualiti->user->full_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
@@ -37,7 +37,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <div class="form-label">Sales Order No.</div>
                                             <input type="text"
                                                 value="{{ $laporan_pemeriksaan_kualiti->sale_order->order_no }}"
                                                 class="form-control">
@@ -45,7 +45,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Tajuk</div>
+                                            <div class="form-label">Tajuk</div>
                                             <input type="text"
                                                 value="{{ $laporan_pemeriksaan_kualiti->sale_order->description }}"
                                                 class="form-control">
@@ -53,7 +53,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Kod Buku</div>
+                                            <div class="form-label">Kod Buku</div>
                                             <input type="text"
                                                 value="{{ $laporan_pemeriksaan_kualiti->sale_order->kod_buku }}"
                                                 class="form-control">
@@ -61,7 +61,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <div class="form-label">Mesin</div>
                                             <input type="text" class="form-control"
                                                 value="{{ $laporan_pemeriksaan_kualiti->mesin }}">
                                         </div>
@@ -69,7 +69,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jenis Lipat</div>
+                                            <div class="form-label">Jenis Lipat</div>
                                             <input type="text" class="form-control"
                                                 value="{{ $laporan_pemeriksaan_kualiti->jenis }}">
                                         </div>
@@ -77,7 +77,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Seksyen No.</div>
+                                            <div class="form-label">Seksyen No.</div>
                                             <input type="text" value="{{ $laporan_pemeriksaan_kualiti->seksyen_no }}"
                                                 name="seksyen_no" class="form-control">
                                         </div>

@@ -29,27 +29,27 @@
                             <table class="table datatable text-center table-bordered mt-2" id="example1">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
-                                        <th>Time</th>
-                                        <th>Mesin</th>
-                                        <th>Sales Order No. </th>
-                                        <th>Kod Buku</th>
-                                        <th>Tajuk</th>
+                                        <th class="text-left">Date</th>
+                                        <th class="text-left">Time</th>
+                                        <th class="text-left">Mesin</th>
+                                        <th class="text-left">Sales Order No. </th>
+                                        <th class="text-left">Kod Buku</th>
+                                        <th class="text-left">Tajuk</th>
 
-                                        <th>Saiz yang betul </th>
-                                        <th>Kedudukan potongan</th>
-                                        <th>Teks tidak terpotong</th>
-                                        <th>Kepetakan/squareness</th>
-                                        <th>Turutan muka surat</th>
-                                        <th>Kotor</th>
-                                        <th>Koyak</th>
-                                        <th>Melekat</th>
-                                        <th>Calar</th>
-                                        <th>Kemik</th>
-                                        <th>Label yang betul</th>
-                                        <th>Pematuhan SOP</th>
-                                        <th>Status</th>
-                                        <th>Action</th>
+                                        <th class="text-left">Saiz yang betul </th>
+                                        <th class="text-left">Kedudukan potongan</th>
+                                        <th class="text-left">Teks tidak terpotong</th>
+                                        <th class="text-left">Kepetakan/squareness</th>
+                                        <th class="text-left">Turutan muka surat</th>
+                                        <th class="text-left">Kotor</th>
+                                        <th class="text-left">Koyak</th>
+                                        <th class="text-left">Melekat</th>
+                                        <th class="text-left">Calar</th>
+                                        <th class="text-left">Kemik</th>
+                                        <th class="text-left">Label yang betul</th>
+                                        <th class="text-left">Pematuhan SOP</th>
+                                        <th class="text-left">Status</th>
+                                        <th class="text-left">Action</th>
                                     </tr>
                                     <tr>
 

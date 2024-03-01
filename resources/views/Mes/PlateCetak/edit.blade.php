@@ -24,21 +24,23 @@
                     <div class="col-md-4 mt-3">
                         @php
                         $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $plate_cetak->time)->format('H:i');
-                    @endphp
-                    <div class="label">Masa</div>
-                    <input name="time" type="time" id="Currenttime"
+                        @endphp
+                        <div class="form-label">Masa</div>
+                        <input name="time" type="time" id="Currenttime"
                         value="{{$timeIn24HourFormat}}" class="form-control">
                     </div>
                     <div class="col-md-4 mt-3">
                         <div class="form-group">
-                            <div class="label">Diperiksa oleh</div>
+                            <div class="form-label">Diperiksa oleh</div>
                             <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                         </div>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col-md-4">
                         <div class="form-group">
-                            <div class="label">Sales Order No.</div>
+                            <div class="form-label">Sales Order No.</div>
                             <select name="sale_order" data-id="{{ $plate_cetak->sale_order_id }}"
                                 id="sale_order" class="form-control">
                                 <option value="" selected disabled>Select Sales Order No.</option>
@@ -51,13 +53,13 @@
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <div class="label">Tajuk</div>
+                            <div class="form-label">Tajuk</div>
                             <input type="text" readonly id="tajuk" class="form-control">
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="form-group">
-                            <div class="label">Kod Buku</div>
+                            <div class="form-label">Kod Buku</div>
                             <input type="text" id="kod_buku" readonly class="form-control">
                         </div>
                     </div>
@@ -66,36 +68,44 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <h5><b>PEMERIKSAAN PLATE CETAK </b></h5>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="">Mesin</label>
-                            <select name="machine" id="Mesin" class="form-control form-select">
-                                <option selected disabled value="">Select any Mesin</option>
-                                <option value="P1" @selected($plate_cetak->machine == "P1")>P1</option>
-                                <option value="P2" @selected($plate_cetak->machine == "P2")>P2</option>
-                                <option value="P3" @selected($plate_cetak->machine == "P3")>P3</option>
-                            </select>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h5><b>PEMERIKSAAN PLATE CETAK </b></h5>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Mesin</label>
+                                    <select name="machine" id="Mesin" class="form-control form-select">
+                                        <option selected disabled value="">Select any Mesin</option>
+                                        <option value="P1" @selected($plate_cetak->machine == "P1")>P1</option>
+                                        <option value="P2" @selected($plate_cetak->machine == "P2")>P2</option>
+                                        <option value="P3" @selected($plate_cetak->machine == "P3")>P3</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Seksyen</label>
+                                    <input type="number" name="section" id="" value="{{ $plate_cetak->section }}" class="form-control">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="">Bahagain plate</label>
+                                    <select  name="section_plate" id="" class="form-control form-select">
+                                        <option selected disabled value="">Select any Bahagain plate</option>
+                                        <option value="A" @selected($plate_cetak->section_plate == "A")>A</option>
+                                        <option value="B" @selected($plate_cetak->section_plate == "B")>B</option>
+                                        <option value="A/B" @selected($plate_cetak->section_plate == "A/B")>A/B</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="">Seksyen</label>
-                            <input type="number" name="section" id="" value="{{ $plate_cetak->section }}" class="form-control">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="">Bahagain plate</label>
-                            <select  name="section_plate" id="" class="form-control form-select">
-                                <option selected disabled value="">Select any Bahagain plate</option>
-                                <option value="A" @selected($plate_cetak->section_plate == "A")>A</option>
-                                <option value="B" @selected($plate_cetak->section_plate == "B")>B</option>
-                                <option value="A/B" @selected($plate_cetak->section_plate == "A/B")>A/B</option>
-                            </select>
-                        </div>
-                    </div>
+                </div>
+                <div class="row">
 
                     <div class="col-md-12 mt-3">
                         <table class="table table-bordered table-warna text-center" border="1">

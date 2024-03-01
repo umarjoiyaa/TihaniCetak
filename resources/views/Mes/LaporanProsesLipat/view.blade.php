@@ -27,28 +27,28 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Checked By (Operator)</div>
+                                        <div cclass="form-label">Checked By (Operator)</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->user->full_name }}" readonly
                                             name="" id="checked_by" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <div cclass="form-label">Sales Order No.</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->order_no }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <div cclass="form-label">Tajuk</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->description }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <div cclass="form-label">Kod Buku</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->kod_buku }}"
                                             class="form-control">
                                     </div>
@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
+                                        <div cclass="form-label">Seksyen No.</div>
                                         <input type="text" name="seksyen_no" id=""
                                             value="{{ $laporan_proses_lipat->seksyen_no }}" class="form-control">
                                     </div>

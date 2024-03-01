@@ -28,20 +28,22 @@
                                     @php
                                                 $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $pod->time)->format('H:i');
                                             @endphp
-                                            <div class="label">Time</div>
+                                            <div class="form-label">Time</div>
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Checked By</div>
+                                        <div class="form-label">Checked By</div>
                                         <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <div class="form-label">Sales Order No.</div>
                                         <select name="sale_order" data-id="{{ $pod->sale_order_id }}"
                                             id="sale_order" class="form-control">
                                             <option value="{{ $pod->sale_order_id }}" selected
@@ -52,13 +54,13 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <div class="form-label">Tajuk</div>
                                         <input type="text" readonly  class="form-control" id="tajuk">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <div class="form-label">Kod Buku</div>
                                         <input type="text"  readonly name="" id="kod_buku"
                                             class="form-control">
                                     </div>

@@ -28,36 +28,35 @@
                         <table class="table datatable table-striped mt-2" id="example1">
                             <thead>
                                 <tr>
-                                    <td rowspan="2">Date</td>
-                                    <td rowspan="2">Time</td>
-                                    <td rowspan="2">Sales Order NO</td>
-                                    <td rowspan="2">Kod Buku</td>
-                                    <td rowspan="2">Tajuk</td>
-                                    <td colspan="7" class="text-center">File Artwork</td>
-                                    <td colspan="11" class="text-center">First Piece</td>
-                                    <td rowspan="2">Status</td>
-                                    <td rowspan="2">Action</td>
+                                    <th rowspan="2" class="text-left">Date</th>
+                                    <th rowspan="2" class="text-left">Time</th>
+                                    <th rowspan="2" class="text-left">Sales Order NO</th>
+                                    <th rowspan="2" class="text-left">Kod Buku</th>
+                                    <th rowspan="2" class="text-left">Tajuk</th>
+                                    <th colspan="7" class="text-center">File Artwork</th>
+                                    <th colspan="11" class="text-center">First Piece</th>
+                                    <th rowspan="2" class="text-left">Status</th>
+                                    <th rowspan="2" class="text-left">Action</th>
                                 </tr>
                                 <tr>
-                                    <td>Format file</td>
-                                    <td>Saiz produk</td>
-                                    <td>Bleed</td>
-                                    <td>Saiz spine</td>
-                                    <td>Alamat pencetak</td>
-                                    <td>Jumlah muka surat</td>
-                                    <td>Turutan muka surat</td>
-
-                                    <td>Jenis kertas</td>
-                                    <td>Saiz produk</td>
-                                    <td>Artwork (gambar, teks)</td>
-                                    <td>Design clearance (5mm)</td>
-                                    <td>Warna</td>
-                                    <td>Jumlah muka surat</td>
-                                    <td>Turutan muka surat</td>
-                                    <td>Bleed</td>
-                                    <td>Crop mark</td>
-                                    <td>Kedudukan cetakan depan  belakang / print register</td>
-                                    <td>Jenis penjilidan</td>
+                                    <th class="text-left">Design clearance (5mm)</th>
+                                    <th class="text-left">Image artwork</th>
+                                    <th class="text-left">Bleed</th>
+                                    <th class="text-left">Saiz spine (perfect bind)</th>
+                                    <th class="text-left">Alamat pencetak</th>
+                                    <th class="text-left">Jumlah muka surat</th>
+                                    <th class="text-left">Turutan muka surat</th>
+                                    <th class="text-left">Jenis kertas</th>
+                                    <th class="text-left">Saiz produk</th>
+                                    <th class="text-left">Artwork (gambar, teks)</th>
+                                    <th class="text-left">Design clearance (5mm)</th>
+                                    <th class="text-left">Warna</th>
+                                    <th class="text-left">Jumlah muka surat</th>
+                                    <th class="text-left">Turutan muka surat</th>
+                                    <th class="text-left">Bleed</th>
+                                    <th class="text-left">Crop mark</th>
+                                    <th class="text-left">Kedudukan cetakan depan  belakang / print register</th>
+                                    <th class="text-left">Jenis penjilidan</th>
                                 </tr>
                                 <tr>
                                     <th><input type="text" class="all_column" placeholder="search date"></th>

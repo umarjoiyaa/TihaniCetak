@@ -31,7 +31,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Diterima Oleh</div>
+                                                <div class="form-label">Diterima Oleh</div>
                                                 @php
                                                     $item = json_decode($rekod_serahan_plate->user_id);
                                                 @endphp
@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Sales Order No.</div>
+                                                <div class="form-label">Sales Order No.</div>
                                                 <select name="sale_order"
                                                     data-id="{{ $rekod_serahan_plate->sale_order_id }}" id="sale_order"
                                                     class="form-control">
@@ -59,7 +59,7 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Jenis</div>
+                                                <div class="form-label">Jenis</div>
                                                 <select name="jenis" id="jenis" class="form-control form-select">
                                                     <option value="Cover" @selected($rekod_serahan_plate->jenis == 'Cover')>Cover</option>
                                                     <option value="Teks" @selected($rekod_serahan_plate->jenis == 'Teks')>Teks</option>
@@ -68,13 +68,13 @@
                                             </div>
                                         </div>
                                         <div class="col-md-4 OtherSection " style="display: none" >
-                                            <div class="label">Other (Input)</div>
+                                            <div class="form-label">Other (Input)</div>
                                             <input type="text" placeholder="User Input" value="{{ $rekod_serahan_plate->user_input }}" name="user_input" id=""
                                                 class="form-control">
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Mesin</div>
+                                                <div class="form-label">Mesin</div>
                                                 <select name="mesin" class="form-control form-select" id="">
                                                     <option value="P1" @selected($rekod_serahan_plate->mesin == 'P1')>P1</option>
                                                     <option value="P2" @selected($rekod_serahan_plate->mesin == 'P2')>P2</option>
@@ -84,14 +84,14 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Seksyen No.</div>
+                                                <div class="form-label">Seksyen No.</div>
                                                 <input type="text" name="seksyen_no" id="" class="form-control"
                                                     value="{{ $rekod_serahan_plate->seksyen_no }}">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kuaniti Plate.</div>
+                                                <div class="form-label">Kuaniti Plate.</div>
                                                 <input type="text" name="kuaniti_plate" id=""
                                                     class="form-control" value="{{ $rekod_serahan_plate->kuaniti_plate }}">
                                             </div>

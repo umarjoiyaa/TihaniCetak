@@ -29,18 +29,18 @@
                     <table class="table datatable mt-2" id="example1">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Time</th>
-                                <th>Mesin</th>
-                                <th>Sales Order No. </th>
-                                <th>Kod Buku</th>
-                                <th>Tajuk</th>
-                                <th>Kuantiti yang betul</th>
-                                <th>Koyak</th>
-                                <th>Kotor</th>
-                                <th>Pematuhan SOP</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="text-left">Date</th>
+                                <th class="text-left">Time</th>
+                                <th class="text-left">Mesin</th>
+                                <th class="text-left">Sales Order No. </th>
+                                <th class="text-left">Kod Buku</th>
+                                <th class="text-left">Tajuk</th>
+                                <th class="text-left">Kuantiti yang betul</th>
+                                <th class="text-left">Koyak</th>
+                                <th class="text-left">Kotor</th>
+                                <th class="text-left">Pematuhan SOP</th>
+                                <th class="text-left">Status</th>
+                                <th class="text-left">Action</th>
                             </tr>
                             <tr>
                                 <th><input type="text" class="all_column" placeholder="search Date"></th>

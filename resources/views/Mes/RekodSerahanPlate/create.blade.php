@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <label class="label">Diterima Oleh</label>
+                                        <label class="form-label">Diterima Oleh</label>
                                         <select name="user[]" class="form-control form-select" id="Oleh" value="{{ old('user[]') }}" multiple>
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id,
@@ -47,7 +47,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <div class="form-label">Sales Order No.</div>
                                         <select name="sale_order" value="{{ old('sale_order') }}" id="sale_order" class="form-control">
                                             <option value="" selected disabled>Select any Sale Order</option>
 
@@ -56,7 +56,7 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Jenis</div>
+                                        <div class="form-label">Jenis</div>
                                         <select name="jenis" class="form-control form-select" id="jenis">
                                             <option value="Cover" @selected(old('jenis')=='Cover' )>Cover</option>
                                             <option value="Teks" @selected(old('jenis')=='Teks' )>Teks</option>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 OtherSection " style="display: none" >
-                                    <div class="label">Other (Input)</div>
+                                    <div class="form-label">Other (Input)</div>
                                     <input type="text" value="{{ old('user_input') }}" name="user_input" id=""
                                         class="form-control">
                                 </div>
@@ -73,7 +73,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <div class="form-label">Mesin</div>
                                         <select name="mesin" class="form-control form-select" id="">
                                             <option value="P1" @selected(old('mesin')=='P1' )>P1</option>
                                             <option value="P2" @selected(old('mesin')=='P2' )>P2</option>
@@ -83,14 +83,14 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
+                                        <div class="form-label">Seksyen No.</div>
                                         <input type="text"  name="seksyen_no" id="" class="form-control"
                                             value="{{ old('seksyen_no') }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Kuaniti Plate.</div>
+                                        <div class="form-label">Kuaniti Plate.</div>
                                         <input type="text"  name="kuaniti_plate" id="" class="form-control"
                                             value="{{ old('kuaniti_plate') }}">
                                     </div>

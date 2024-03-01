@@ -18,7 +18,7 @@
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No</div>
+                                            <div class="form-label">Sales Order No</div>
                                             <input type="text" value="{{ $senari_semak->sale_order->order_no }}"
                                                 class="form-control">
                                         </div>
@@ -26,21 +26,21 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Date</div>
+                                            <div class="form-label">Date</div>
                                             <input type="text" disabled  name="date"  value="{{ \Carbon\Carbon::parse($senari_semak->date)->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
 
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">kod Buku</div>
+                                            <div class="form-label">kod Buku</div>
                                             <input type="text" readonly value="{{ $senari_semak->sale_order->kod_buku }}"
                                                 name="" id="kod_buku" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Tajuk</div>
+                                            <div class="form-label">Tajuk</div>
                                             <input type="text" readonly
                                                 value="{{ $senari_semak->sale_order->description }}" name=""
                                                 id="tajuk" class="form-control">
@@ -48,7 +48,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Time</div>
+                                            <div class="form-label">Time</div>
                                             <input name="time" type="text" id="Currenttime"
                                                 value="{{ $senari_semak->time }}" class="form-control">
                                         </div>
@@ -57,7 +57,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Checked By</div>
+                                            <div class="form-label">Checked By</div>
                                             <input type="text" value="{{ $senari_semak->user->full_name }}" readonly
                                                 class="form-control" name="" id="">
                                         </div>

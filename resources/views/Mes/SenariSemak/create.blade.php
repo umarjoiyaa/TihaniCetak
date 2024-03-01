@@ -20,7 +20,7 @@
 
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">Saler Order No.</div>
+                                                    <label class="form-label">Saler Order No.</label>
                                                     <select name="sale_order" id="sale_order" class="form-control">
                                                         <option value="" selected disabled>Select any Sale Order</option>
 
@@ -30,27 +30,27 @@
                                             <div class="col-md-4"></div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">Date</div>
+                                                    <label class="form-label">Date</label>
                                                     <input type="text" name="date" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">kod Buku</div>
+                                                    <label class="form-label">kod Buku</label>
                                                     <input type="text" readonly value="" name=""
                                                         id="kod_buku" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">Tajuk</div>
+                                                    <div class="form-label">Tajuk</div>
                                                     <input type="text" readonly value="" name=""
                                                         id="tajuk" class="form-control">
                                                 </div>
                                             </div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">Time</div>
+                                                    <label class="form-label">Time</label>
                                                     <input name="time" type="time" id="Currenttime"
                                                         value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
                                                         class="form-control">
@@ -60,7 +60,7 @@
                                             <div class="col-md-4"></div>
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
-                                                    <div class="label">Checked By</div>
+                                                    <label class="form-label">Checked By</label>
                                                     <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                                         class="form-control" name="" id="">
                                                 </div>

@@ -28,17 +28,17 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td>sr</td>
-                                        <td>Date</td>
-                                        <td>Time</td>
-                                        <td>Sales Order No. </td>
-                                        <td>Kod Buku</td>
-                                        <td>Tajuk</td>
-                                        <td>Kelekatan OPP Lamination</td>
-                                        <td>Saiz Spacing</td>
-                                        <td>Kedudukan potongan</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <td class="text-left">sr</td>
+                                        <td class="text-left">Date</td>
+                                        <td class="text-left">Time</td>
+                                        <td class="text-left">Sales Order No. </td>
+                                        <td class="text-left">Kod Buku</td>
+                                        <td class="text-left">Tajuk</td>
+                                        <td class="text-left">Kelekatan OPP Lamination</td>
+                                        <td class="text-left">Saiz Spacing</td>
+                                        <td class="text-left">Kedudukan potongan</td>
+                                        <td class="text-left">Status</td>
+                                        <td class="text-left">Action</td>
                                     </tr>
                                 </thead>
                                 <thead>

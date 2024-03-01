@@ -29,24 +29,24 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td>sr</td>
-                                        <td>Date</td>
-                                        <td>Time</td>
-                                        <td>Mesin</td>
-                                        <td>Sales Order No. </td>
-                                        <td>Kod Buku</td>
-                                        <td>Tajuk</td>
-                                        <td>Koyakan fiber</td>
-                                        <td>Kedudukan Kulit buku dan teks</td>
-                                        <td>Kulit buku yang betul</td>
-                                        <td>Teks yang betul</td>
-                                        <td>Kedudukan gam</td>
-                                        <td>Turutan muka surat</td>
-                                        <td>Koyak</td>
-                                        <td>Kotor</td>
-                                        <td>Pematuhan SOP</td>
-                                        <td>Status</td>
-                                        <td>Action</td>
+                                        <th class="text-left">sr</th>
+                                        <th class="text-left">Date</th>
+                                        <th class="text-left">Time</th>
+                                        <th class="text-left">Mesin</th>
+                                        <th class="text-left">Sales Order No. </th>
+                                        <th class="text-left">Kod Buku</th>
+                                        <th class="text-left">Tajuk</th>
+                                        <th class="text-left">Koyakan fiber</th>
+                                        <th class="text-left">Kedudukan Kulit buku dan teks</th>
+                                        <th class="text-left">Kulit buku yang betul</th>
+                                        <th class="text-left">Teks yang betul</th>
+                                        <th class="text-left">Kedudukan gam</th>
+                                        <th class="text-left">Turutan muka surat</th>
+                                        <th class="text-left">Koyak</th>
+                                        <th class="text-left">Kotor</th>
+                                        <th class="text-left">Pematuhan SOP</th>
+                                        <th class="text-left">Status</th>
+                                        <th lass="text-left">Action</th>
                                     </tr>
                                 </thead>
                                 <thead>

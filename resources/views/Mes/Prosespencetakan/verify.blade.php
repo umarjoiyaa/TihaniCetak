@@ -30,49 +30,49 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Diperiksa oleh</div>
+                                        <label for="">Diperiksa oleh</label>
                                         <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label for="">Sales Order No.</label>
                                         <input type="text" value="{{ $proses_pencetakan->sale_order->order_no }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label for="">Tajuk</label>
                                         <input type="text" value="{{ $proses_pencetakan->sale_order->description }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label for="">Kod Buku</label>
                                         <input type="text" value="{{ $proses_pencetakan->sale_order->kod_buku }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <label for="">Mesin</label>
                                         <input type="text" class="form-control" value="{{ $proses_pencetakan->mesin }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jenis</div>
+                                        <label for="">Jenis</label>
                                         <input type="text" class="form-control" value="{{ $proses_pencetakan->jenis }}">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Seksyen No.</div>
+                                        <label for="">Seksyen No.</label>
                                         <input type="text" value="{{ $proses_pencetakan->seksyen_no }}"
                                             name="seksyen_no" class="form-control">
                                     </div>
@@ -80,7 +80,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="label">Side</label>
+                                        <label for="">Side</label>
                                         <input type="text" class="form-control" value="{{ $proses_pencetakan->side }}">
                                     </div>
                                 </div>

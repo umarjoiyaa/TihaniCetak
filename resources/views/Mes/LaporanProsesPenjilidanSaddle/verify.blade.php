@@ -44,7 +44,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Checked By (Operator)</div>
+                                        <div class="form-label">Checked By (Operator)</div>
                                         <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
@@ -53,7 +53,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <div class="form-label">Sales Order No.</div>
                                         <input type="text"
                                             value="{{ $laporan_proses_penjilidan_saddle->sale_order->order_no }}"
                                             class="form-control">
@@ -61,7 +61,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <div class="form-label">Tajuk</div>
                                         <input type="text"
                                             value="{{ $laporan_proses_penjilidan_saddle->sale_order->description }}"
                                             class="form-control">
@@ -69,7 +69,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <div class="form-label">Kod Buku</div>
                                         <input type="text"
                                             value="{{ $laporan_proses_penjilidan_saddle->sale_order->kod_buku }}"
                                             class="form-control">
@@ -80,7 +80,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <div class="label">Jumlah Seksyen</div>
+                                        <div class="form-label">Jumlah Seksyen</div>
                                         <input type="text" readonly
                                             value="{{ $laporan_proses_penjilidan->senari_semak->item_cover_text ?? 0 }}"
                                             id="jumlah" class="form-control">
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Size</div>
+                                        <div class="form-label">Size</div>
                                         <input type="text" readonly
                                             value="{{ $laporan_proses_penjilidan_saddle->sale_order->size }}" id="size"
                                             class="form-control">

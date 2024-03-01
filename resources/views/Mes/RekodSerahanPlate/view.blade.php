@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <label class="label">Diterima Oleh</label>
+                                            <label class="form-label">Diterima Oleh</label>
                                             @php
                                                 $item = json_decode($rekod_serahan_plate->user_id);
                                             @endphp
@@ -43,40 +43,40 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <div class="form-label">Sales Order No.</div>
                                             <input type="text" value="{{ $rekod_serahan_plate->sale_order->order_no }}"
                                                 class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Jenis</div>
+                                            <div class="form-label">Jenis</div>
                                             <input type="text" id="jenis" class="form-control"
                                                 value="{{ $rekod_serahan_plate->jenis }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 OtherSection " style="display: none" >
-                                        <div class="label">Other (Input)</div>
+                                        <div class="form-label">Other (Input)</div>
                                         <input type="text" placeholder="User Input" value="{{ $rekod_serahan_plate->user_input }}" name="user_input" id=""
                                             class="form-control">
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <div class="form-label">Mesin</div>
                                             <input type="text" class="form-control"
                                                 value="{{ $rekod_serahan_plate->mesin }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Seksyen No.</div>
+                                            <div class="form-label">Seksyen No.</div>
                                             <input type="text" readonly name="seksyen_no" id=""
                                                 class="form-control" value="{{ $rekod_serahan_plate->seksyen_no }}">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Kuaniti Plate.</div>
+                                            <div class="form-label">Kuaniti Plate.</div>
                                             <input type="text" readonly name="kuaniti_plate" id=""
                                                 class="form-control" value="{{ $rekod_serahan_plate->kuaniti_plate }}">
                                         </div>

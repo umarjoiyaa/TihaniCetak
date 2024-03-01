@@ -20,7 +20,7 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Sale Order</div>
+                                        <div class="form-label">Sale Order</div>
                                         <select name="sale_order" data-id="{{ $senari_semak->sale_order_id }}"
                                             id="sale_order" class="form-control">
                                             <option value="{{ $senari_semak->sale_order_id }}" selected
@@ -32,7 +32,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Date</div>
+                                        <div class="form-label">Date</div>
                                         <input type="text" name="date"
                                             value="{{ \Carbon\Carbon::parse($senari_semak->date)->format('d-m-Y') }}"
                                             class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
@@ -42,13 +42,13 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">kod Buku</div>
+                                        <div class="form-label">kod Buku</div>
                                         <input type="text" readonly value="" name="" id="kod_buku" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <div class="form-label">Tajuk</div>
                                         <input type="text" readonly value="" name="" id="tajuk" class="form-control">
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                              @php
                                                 $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $senari_semak->time)->format('H:i');
                                             @endphp
-                                            <div class="label">Time</div>
+                                            <div class="form-label">Time</div>
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
                                     </div>
@@ -66,7 +66,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Checked By</div>
+                                        <div class="form-label">Checked By</div>
                                         <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                             class="form-control" name="" id="">
                                     </div>

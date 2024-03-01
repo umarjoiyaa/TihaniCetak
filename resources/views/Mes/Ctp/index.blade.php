@@ -28,33 +28,33 @@
                         <table class="table table-striped mt-2 text-align-center" id="example1">
                             <thead>
                                 <tr>
-                                    <th rowspan="2">Date</th>
-                                    <th rowspan="2">Time</th>
-                                    <th rowspan="2">Sales Order NO</th>
-                                    <th rowspan="2">Kod Buku</th>
-                                    <th rowspan="2">Tajuk</th>
+                                    <th rowspan="2" class="text-left">Date</th>
+                                    <th rowspan="2" class="text-left">Time</th>
+                                    <th rowspan="2" class="text-left">Sales Order NO</th>
+                                    <th rowspan="2" class="text-left">Kod Buku</th>
+                                    <th rowspan="2" class="text-left">Tajuk</th>
                                     <th colspan="8" class="text-center">File Artwork</th>
                                     <th colspan="8" class="text-center">imposition</th>
-                                    <th rowspan="2">Status</th>
-                                    <th rowspan="2">Action</th>
+                                    <th rowspan="2" class="text-left">Status</th>
+                                    <th rowspan="2" class="text-left">Action</th>
                                 </tr>
                                 <tr>
-                                    <th>Format file</th>
-                                    <th>Saiz produk</th>
-                                    <th>Bleed</th>
-                                    <th>Saiz spine</th>
-                                    <th>Alamat pencetak</th>
-                                    <th>Jumlah muka surat</th>
-                                    <th>Turutan muka surat</th>
-                                    <th>Kedudukan Artwork cover (hardcover)</th>
-                                    <th>Front and Back imposition</th>
-                                    <th>Kedudukan imposition</th>
-                                    <th>Saiz spacing</th>
-                                    <th>Printing method (Straight @ Perfecting)</th>
-                                    <th>Jumlah up</th>
-                                    <th>Dummy Lipatan</th>
-                                    <th>Jenis Penjilidan</th>
-                                    <th>Jenis kertas</th>
+                                    <th class="text-left">Format file</th>
+                                    <th class="text-left">Saiz produk</th>
+                                    <th class="text-left">Bleed</th>
+                                    <th class="text-left">Saiz spine</th>
+                                    <th class="text-left">Alamat pencetak</th>
+                                    <th class="text-left">Jumlah muka surat</th>
+                                    <th class="text-left">Turutan muka surat</th>
+                                    <th class="text-left">Kedudukan Artwork cover (hardcover)</th>
+                                    <th class="text-left">Front and Back imposition</th>
+                                    <th class="text-left">Kedudukan imposition</th>
+                                    <th class="text-left">Saiz spacing</th>
+                                    <th class="text-left">Printing method (Straight @ Perfecting)</th>
+                                    <th class="text-left">Jumlah up</th>
+                                    <th class="text-left">Dummy Lipatan</th>
+                                    <th class="text-left">Jenis Penjilidan</th>
+                                    <th class="text-left">Jenis kertas</th>
                                 </tr>
                                 <tr>
                                     <th><input type="text" class="all_column" placeholder="search date"></th>

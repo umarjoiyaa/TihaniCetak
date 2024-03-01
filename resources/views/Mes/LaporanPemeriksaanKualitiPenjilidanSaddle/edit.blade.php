@@ -27,21 +27,21 @@
                                             @php
                                                 $timeIn24HourFormat = Carbon\Carbon::createFromFormat('h:i A', $laporan_pemeriksaan_kualiti_penjilidan_saddle->time)->format('H:i');
                                             @endphp
-                                            <div class="label">Masa</div>
+                                            <div v>Masa</div>
                                             <input name="time" type="time" id="Currenttime"
                                                 value="{{$timeIn24HourFormat}}" class="form-control">
 
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Disemak Oleh</div>
+                                                <div v>Disemak Oleh</div>
                                                 <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3" >
                                             <div class="form-group">
-                                                <div class="label">Sales Order No.</div>
+                                                <div v>Sales Order No.</div>
                                                 <select name="sale_order" data-id="{{ $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id }}"
                                                     id="sale_order" class="form-control">
                                                     <option value="{{ $laporan_pemeriksaan_kualiti_penjilidan_saddle->so_id }}" selected
@@ -53,28 +53,28 @@
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Tajuk</div>
+                                                <div v>Tajuk</div>
                                                 <input type="text" readonly value="" id="tajuk"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
-                                                <div class="label">Kod Buku</div>
+                                                <div v>Kod Buku</div>
                                                 <input type="text" value="" readonly name="" id="kod_buku"
                                                     class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Mesin</div>
+                                                <div v>Mesin</div>
                                                 <input type="text" readonly name="mesin" class="form-control" value="SS1">
                                             </div>
                                         </div>
 
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <div class="label">Jumlah Seksyen</div>
+                                                <div v>Jumlah Seksyen</div>
                                                 <input type="text" readonly id="jumlah" name="seksyen_no" class="form-control">
                                             </div>
                                         </div>

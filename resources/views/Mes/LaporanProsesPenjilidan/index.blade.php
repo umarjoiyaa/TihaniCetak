@@ -28,18 +28,18 @@
                             <table class="table datatable mt-2">
                                 <thead>
                                     <tr>
-                                        <td style="font-size:13px;">Sr #</td>
-                                        <td style="font-size:13px;">Tarikh</td>
-                                        <td style="font-size:13px;">Time</td>
-                                        <td style="font-size:13px;">Sales Order No. </td>
-                                        <td style="font-size:13px;">Kod Buku</td>
-                                        <td style="font-size:13px;">Tajuk</td>
-                                        <td style="font-size:13px;">Jumlah Seksyen</td>
-                                        <td style="font-size:13px;">Jenis Penjilidan</td>
-                                        <td style="font-size:13px;">Operator</td>
-                                        <td style="font-size:13px;">Pembantu</td>
-                                        <td style="font-size:13px;">Status</td>
-                                        <td style="font-size:13px;">Action</td>
+                                        <td style="font-size:13px;" class="text-left">Sr #</td>
+                                        <td style="font-size:13px;" class="text-left">Tarikh</td>
+                                        <td style="font-size:13px;" class="text-left">Time</td>
+                                        <td style="font-size:13px;" class="text-left">Sales Order No. </td>
+                                        <td style="font-size:13px;" class="text-left">Kod Buku</td>
+                                        <td style="font-size:13px;" class="text-left">Tajuk</td>
+                                        <td style="font-size:13px;" class="text-left">Jumlah Seksyen</td>
+                                        <td style="font-size:13px;" class="text-left">Jenis Penjilidan</td>
+                                        <td style="font-size:13px;" class="text-left">Operator</td>
+                                        <td style="font-size:13px;" class="text-left">Pembantu</td>
+                                        <td style="font-size:13px;" class="text-left">Status</td>
+                                        <td style="font-size:13px;" class="text-left">Action</td>
                                     </tr>
                                 </thead>
                                 <thead>
