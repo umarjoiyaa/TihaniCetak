@@ -34,6 +34,7 @@
 @endsection
 @push('custom-scripts')
     <script>
-        $('.datatable').DataTable();
+        var data = "{{ route('role.data') }}";
     </script>
+    <script src="{{ asset('assets/js/custom/settings/Role/index.js') }}"></script>
 @endpush
