@@ -125,10 +125,10 @@ class RoleController extends Controller
                 'required',
                 Rule::unique('roles', 'name'),
             ],
-            'permission' => 'required',
+            'permissions' => 'required',
         ]);
         $role = Role::create(['name' => $request->input('name')]);
-        $permissions = $request->input('permission');
+        $permissions = $request->input('permissions');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Store');
@@ -189,14 +189,14 @@ class RoleController extends Controller
                 'required',
                 Rule::unique('roles', 'name')->ignore($request->id),
             ],
-            'permission' => 'required',
+            'permissions' => 'required',
         ]);
 
         $role = Role::find($request->id);
         $role->name = $request->input('name');
         $role->save();
 
-        $permissions = $request->input('permission');
+        $permissions = $request->input('permissions');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Update');
