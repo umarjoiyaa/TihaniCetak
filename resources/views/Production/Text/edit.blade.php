@@ -144,6 +144,15 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
+                                            <div class="label">Lebihan Stok</div>
+                                            <input type="number" readonly id="extra_stock" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
                                             <div class="label">Mesin</div>
                                             <select name="mesin" id="mesin" class="form-control form-select">
                                                 <option value="SMZP (2C)" @selected($text->mesin == 'SMZP (2C)')>SMZP (2C)</option>
@@ -827,6 +836,7 @@
                     $('#status').val(data.sale_order.status);
                     $('#size').val(data.sale_order.size);
                     $('#status').val(data.sale_order.status);
+                    $('#extra_stock').val(data.sale_order.extra_stock);
                     if(!$firstAttempt){
                         if(data.section != null){
                             $('#seksyen_no').val(data.section.item_cover_text);

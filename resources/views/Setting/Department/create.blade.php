@@ -15,7 +15,7 @@
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
-                                    <label class="form-label">Department Name</label>
+                                    <label class="form-label">Name</label>
                                     <input type="text" class="form-control" name="name" value="{{old('name')}}">
                                 </div>
                             </div>

@@ -325,7 +325,7 @@ class LaporanProsesPenjilidanController extends Controller
 
     public function sale_order_detail(Request $request)
     {
-        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'customer', 'pages_text', 'size','status')->where('id', $request->id)->first();
+        $sale_order = SaleOrder::select('id', 'order_no', 'description', 'kod_buku', 'sale_order_qty', 'customer', 'pages_text', 'size', 'extra_stock', 'status')->where('id', $request->id)->first();
         $section = SenariSemakCetak::select('id', 'item_cover_text')->where('sale_order_id', $request->id)->first();
         return response()->json(['sale_order' => $sale_order, 'section' => $section]);
     }
@@ -560,8 +560,8 @@ class LaporanProsesPenjilidanController extends Controller
         $laporan_proses_penjilidan->status = 'verified';
         $laporan_proses_penjilidan->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $laporan_proses_penjilidan->verified_by_user = Auth::user()->user_name;
-        $laporan_proses_penjilidan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $laporan_proses_penjilidan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_proses_penjilidan->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $laporan_proses_penjilidan->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $laporan_proses_penjilidan->save();
 
         foreach($request->semasa as $key => $value){

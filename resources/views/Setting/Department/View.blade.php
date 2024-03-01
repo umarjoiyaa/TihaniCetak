@@ -13,7 +13,7 @@
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="control-group form-group">
-                                <label class="form-label">Department Name</label>
+                                <label class="form-label">Name</label>
                                 <input disabled type="text" class="form-control required" value="{{ $department->name }}"
                                     name="name">
                             </div>

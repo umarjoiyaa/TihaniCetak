@@ -568,8 +568,8 @@ class ProsesPencetakanController extends Controller
         $proses_pencetakan->status = 'verified';
         $proses_pencetakan->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $proses_pencetakan->verified_by_user = Auth::user()->user_name;
-        $proses_pencetakan->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $proses_pencetakan->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $proses_pencetakan->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $proses_pencetakan->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $proses_pencetakan->save();
 
         Helper::logSystemActivity('PROSES PENCETAKAN', 'PROSES PENCETAKAN Verified');

@@ -11,7 +11,7 @@
                         <p class="float-right">TCBS-B23 (Rev.5)</p>
                     </div>
                 </div>
-                <div class="card" style="background:#f1f0f0;">
+                <div class="card" style="background:#f4f4ff;">
                     <div class="card-body">
 
                         <div class="row">

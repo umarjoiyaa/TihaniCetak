@@ -1,30 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                <h4><b>Roles</b></h4>
+                    <h4><b>Roles</b></h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="{{route('role.create')}}" class="btn btn-primary float-right">create</a>
+                            <a href="{{ route('role.create') }}" class="btn btn-primary float-right">create</a>
                         </div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12">
-                            <table class="table table-bordered" id="example1">
+                            <table class="table datatable table-bordered">
                                 <thead>
                                     <tr>
-                                        <div class="text-center">
-                                                <th>RoleName</th>
-                                                <th>Action</th>
-                                        </div>
+                                        <th>SR #</th>
+                                        <th>Name</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>
+                                            <input type="text" class="all_column" placeholder="search name">
+                                        </th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
                             </table>
                         </div>
                     </div>
@@ -34,9 +42,8 @@
     </div>
 @endsection
 @push('custom-scripts')
-<script>
-     $(document).ready(function () {
-        $('#example1').DataTable();
-    });
-</script>
+    <script>
+        var data = "{{ route('role.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/settings/Role/index.js') }}"></script>
 @endpush

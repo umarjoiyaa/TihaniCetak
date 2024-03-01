@@ -98,32 +98,47 @@
                     success: function(data) {
                         data.DigitalPrinting.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Digital Printing</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Digital Printing</td></tr>`
                             );
                         });
                         data.CoverEndPaper.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Cover & End Paper</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Cover & End Paper</td></tr>`
+                            );
+                        });
+                        data.Text.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Text</td></tr>`
                             );
                         });
                         data.MesinLipat.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Mesin Lipat</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin Lipat</td></tr>`
                             );
                         });
                         data.StapleBind.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Staple Bind</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Staple Bind</td></tr>`
                             );
                         });
                         data.MesinPerfectBind.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Mesin Perfect Bind</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin Perfect Bind</td></tr>`
                             );
                         });
                         data.Mesin3Knife.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td>${element.status}</td><td>Mesin 3 Knife</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin 3 Knife</td></tr>`
+                            );
+                        });
+                        data.KulitBuku.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Kulit Buku/Cover</td></tr>`
+                            );
+                        });
+                        data.Teks.forEach(element => {
+                            $('#myTable tbody').append(
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Teks</td></tr>`
                             );
                         });
                         $('#myTable').DataTable();

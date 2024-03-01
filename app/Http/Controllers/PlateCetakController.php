@@ -574,8 +574,8 @@ class PlateCetakController extends Controller
         $plate_cetak->status = 'verified';
         $plate_cetak->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $plate_cetak->verified_by_user = Auth::user()->user_name;
-        $plate_cetak->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $plate_cetak->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $plate_cetak->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $plate_cetak->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $plate_cetak->save();
         Helper::logSystemActivity('PLATE CETAK', 'PLATE CETAK Verified');
         return redirect()->route('plate_cetak')->with('custom_success', 'PLATE CETAK has been Successfully Verified!');

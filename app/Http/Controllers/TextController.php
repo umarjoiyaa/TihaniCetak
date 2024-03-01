@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Text;
 use App\Models\TextDetail;
+use App\Models\PrintingProcess;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -352,6 +353,8 @@ class TextController extends Controller
         $text->created_by = Auth::user()->id;
         $text->save();
 
+        $uniqueMachines = [];
+
         if(!isset($request->action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
@@ -363,6 +366,9 @@ class TextController extends Controller
                 $detail->last_print = $request->section_last_print;
                 $detail->kuantiti_waste = $request->section_kuantiti_waste;
                 $detail->save();
+                if (!in_array($request->section_machine, $uniqueMachines)) {
+                    $uniqueMachines[] = $request->section_machine;
+                }
             }
         }else{
             foreach($request->section as $key => $value){
@@ -375,7 +381,18 @@ class TextController extends Controller
                 $detail->last_print = $value['last_print'];
                 $detail->kuantiti_waste = $value['kuantiti_waste'];
                 $detail->save();
+                if (!in_array($value['machine'], $uniqueMachines)) {
+                    $uniqueMachines[] = $value['machine'];
+                }
             }
+        }
+
+        foreach($uniqueMachines as $key => $value){
+            $printing = new PrintingProcess();
+            $printing->text_id = $text->id;
+            $printing->machine = $value;
+            $printing->status = 'Not-initiated';
+            $printing->save();
         }
 
         Helper::logSystemActivity('TEXT', 'TEXT Store');
@@ -463,6 +480,8 @@ class TextController extends Controller
 
         TextDetail::where('text_id', '=', $id)->delete();
 
+        $uniqueMachines = [];
+
         if(!isset($request->action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
@@ -474,6 +493,9 @@ class TextController extends Controller
                 $detail->last_print = $request->section_last_print;
                 $detail->kuantiti_waste = $request->section_kuantiti_waste;
                 $detail->save();
+                if (!in_array($request->section_machine, $uniqueMachines)) {
+                    $uniqueMachines[] = $request->section_machine;
+                }
             }
         }else{
             foreach($request->section as $key => $value){
@@ -486,7 +508,20 @@ class TextController extends Controller
                 $detail->last_print = $value['last_print'];
                 $detail->kuantiti_waste = $value['kuantiti_waste'];
                 $detail->save();
+                if (!in_array($value['machine'], $uniqueMachines)) {
+                    $uniqueMachines[] = $value['machine'];
+                }
             }
+        }
+
+        PrintingProcess::where('text_id', '=', $id)->delete();
+
+        foreach($uniqueMachines as $key => $value){
+            $printing = new PrintingProcess();
+            $printing->text_id = $text->id;
+            $printing->machine = $value;
+            $printing->status = 'Not-initiated';
+            $printing->save();
         }
 
         Helper::logSystemActivity('TEXT', 'TEXT update');
@@ -499,6 +534,7 @@ class TextController extends Controller
         }
         $text = Text::find($id);
         TextDetail::where('text_id', $id)->delete();
+        PrintingProcess::where('text_id', $id)->delete();
         $text->delete();
         Helper::logSystemActivity('TEXT', 'TEXT Delete');
         return redirect()->route('text')->with('custom_success', 'TEXT has been Successfully Deleted!');

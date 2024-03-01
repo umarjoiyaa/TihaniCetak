@@ -13,7 +13,7 @@
                                     <p class="float-right">TCSB-BO4(Rev.11)</p>
                                 </div>
                                </div>
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 mt-3">
@@ -725,7 +725,7 @@
                             <h5>Bahagian B (Semakan imposition)</h5>
                         </div>
                     </div>
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row mt-2">
                                 <div class="col-md-4 text">
@@ -781,7 +781,7 @@
                     </div>
 
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row mt-2">
                                 <div class="col-md-4 text">
@@ -1040,7 +1040,7 @@
                             </tr>
 
                             <tr class="section">
-                                <td>Section 1</td>
+                                <td>Sect 1</td>
                                 <td><input type="checkbox" class="Text23" onchange="handleCheckboxChange('Text23',this)"
                                         name="bahagianC[3][1]" id="" value="ok"></td>
                                 <td><input type="checkbox" class="Text23" onchange="handleCheckboxChange('Text23',this)"
@@ -1086,7 +1086,7 @@
                         </tbody>
                     </table>
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <h5>
                                 Gripper margin (Rujuk file imposition)
@@ -1117,7 +1117,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">

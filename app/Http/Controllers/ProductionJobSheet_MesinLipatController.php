@@ -515,8 +515,8 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $mesin_lipat->status = 'verified';
         $mesin_lipat->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $mesin_lipat->verified_by_user = Auth::user()->user_name;
-        $mesin_lipat->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $mesin_lipat->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $mesin_lipat->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $mesin_lipat->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $mesin_lipat->save();
 
         $storedData = json_decode($request->input('details'), true);

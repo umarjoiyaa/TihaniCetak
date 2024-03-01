@@ -19,8 +19,8 @@
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">Sr.</th>
-                                    <th class="wd-15p border-bottom-0">Machine name</th>
-                                    <th class="wd-15p border-bottom-0">Machine code</th>
+                                    <th class="wd-15p border-bottom-0">name</th>
+                                    <th class="wd-15p border-bottom-0">code</th>
                                     <th class="wd-25p border-bottom-0">Action</th>
                                 </tr>
                             </thead>

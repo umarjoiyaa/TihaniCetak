@@ -13,7 +13,7 @@
                                 </div>
                             </div>
 
-                        <div class="card" style="background:#f1f0f0;">
+                        <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
@@ -107,7 +107,7 @@
                             </div>
                         </div>
 
-                        <div class="row mt-5" style="background:#f1f0f0;">
+                        <div class="row mt-5" style="background:#f4f4ff;">
                             <div class="col-md-12 ">
                                 <h5><b>B) Pemeriksaan dan Pengesahan 1st Piece</b> </h5>
                             </div>
@@ -148,7 +148,7 @@
                             </div>
                         </div>
 
-                        <div class="row mt-5" style="background:#f1f0f0;">
+                        <div class="row mt-5" style="background:#f4f4ff;">
                             <div class="col-md-12 mt-5">
                                 <h5><b>C) Pemeriksaan semasa proses lipat</b> </h5>
                                 <h5><b>Petunjuk:</b></h5>
@@ -188,6 +188,7 @@
                                                 <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
                                                     id="Seksyen{{ $section->row }}" role="tabpanel"
                                                     aria-labelledby="tab{{ $key1 }}">
+                                                    <input type="hidden" class="hidden" value="{{ $section->row }}">
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered">
                                                             <thead>
@@ -213,14 +214,14 @@
                                                                     @if ($value1->row == $section->row)
                                                                         <tr>
                                                                             <td>{{ $value1->c_2 }} <input type="hidden"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][1]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][1]"
                                                                                     value="{{ $value1->c_2 }}"></td>
                                                                             <td><input type="checkbox"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][2]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][2]"
                                                                                     @checked($value1->c_3 != null)>
                                                                             </td>
                                                                             <td><input type="checkbox"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][3]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][3]"
                                                                                     @checked($value1->c_4 != null)>
                                                                             </td>
                                                                             <td><button type="button"
@@ -229,7 +230,7 @@
                                                                                     @disabled($value1->c_5 != null)>check</button>
                                                                             </td>
                                                                             <td><input type="text" style="width:340px;"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][4]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][4]"
                                                                                     class="check_operator form-control"
                                                                                     readonly value="{{ $value1->c_5 }}">
                                                                             </td>
@@ -237,7 +238,7 @@
                                                                                     class="btn btn-primary verify_btn"
                                                                                     disabled>Verify</button></td>
                                                                             <td><input type="text"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][5]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][5]"
                                                                                     class="verify_operator form-control"
                                                                                     readonly></td>
                                                                             <td><button type="button"
@@ -291,7 +292,7 @@
         var jumlah = 1000;
         $('#AddRow').on('click', function() {
             var currentActiveTable = $('#myTabContent .tab-pane');
-            $index = $('#myTabContent .tab-pane.active').index();
+            $index = $('#myTabContent .tab-pane.active').find('.hidden').val();
 
             currentActiveTable.each(function() {
                 if ($(this).hasClass('active')) {
@@ -303,22 +304,22 @@
                     }
                     $length3 = $(this).find('table tbody tr').length + 1;
                     $(this).find('table tbody').append(`<tr>
-                                                            <td>${jumlah} <input type="hidden" value="${jumlah}" name="section[${$index+1}][${$length3}][1]"
+                                                            <td>${jumlah} <input type="hidden" value="${jumlah}" name="section[${$index}][${$length3}][1]"
                                                                     id=""></td>
-                                                            <td><input type="checkbox" name="section[${$index+1}][${$length3}][2]"
+                                                            <td><input type="checkbox" name="section[${$index}][${$length3}][2]"
                                                                     id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="section[${$index+1}][${$length3}][3]"
+                                                            <td><input type="checkbox" name="section[${$index}][${$length3}][3]"
                                                                     id="">
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" style="width:340px;" name="section[${$index+1}][${$length3}][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$index}][${$length3}][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" style="width:340px;" name="section[${$index+1}][${$length3}][5]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$index}][${$length3}][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
@@ -390,6 +391,7 @@
                             $length2 = $('#myTabContent .tab-pane').length + 1;
                             $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${i}" role="tabpanel"
                                                 aria-labelledby="home-tab">
+                                                <input type="hidden" class="hidden" value="${i}">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>
@@ -469,6 +471,7 @@
                         $length2 = $('#myTabContent .tab-pane').length + 1;
                         $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${value}" role="tabpanel"
                                                 aria-labelledby="home-tab">
+                                                <input type="hidden" class="hidden" value="${value}">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>
