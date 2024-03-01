@@ -1,6 +1,6 @@
 $(document).ready(function () {
     let bool = true;
-    $('.table').DataTable({
+    $('.datatable').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,
@@ -127,9 +127,9 @@ $(document).ready(function () {
 
 function AjaxCall(columnsData) {
 
-    $('.table').DataTable().destroy();
+    $('.datatable').DataTable().destroy();
 
-    $('.table').DataTable({
+    $('.datatable').DataTable({
         perPageSelect: [5, 10, 15, ["All", -1]],
         processing: true,
         serverSide: true,

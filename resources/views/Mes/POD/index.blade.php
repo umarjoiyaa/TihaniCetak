@@ -25,7 +25,7 @@
                         <a href="{{route('pod.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table datatable table-striped mt-2" id="example1">
+                        <table class="table datatable table-striped mt-2">
                             <thead>
                                 <tr>
                                     <th rowspan="2" class="text-left">Date</th>

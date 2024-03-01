@@ -25,7 +25,7 @@
                         <a href="{{route('ctp.create')}}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-striped mt-2 text-align-center" id="example1">
+                        <table class="table table-striped mt-2 datatable text-align-center">
                             <thead>
                                 <tr>
                                     <th rowspan="2" class="text-left">Date</th>
