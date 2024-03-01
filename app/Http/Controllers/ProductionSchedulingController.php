@@ -12,10 +12,14 @@ use App\Models\PerfectBind;
 use App\Models\StapleBind;
 use App\Models\Text;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductionSchedulingController extends Controller
 {
     public function index(){
+        if (!Auth::user()->hasPermissionTo('PRODUCTION SCHEDULING View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
         return view('Production.ProductionScheduling.index');
     }
 

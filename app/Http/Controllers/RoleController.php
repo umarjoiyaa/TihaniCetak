@@ -100,12 +100,19 @@ class RoleController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $permissions = Permission::get();
-        $mess = Helper::getpermissions('mess');
+        $managements = Helper::getpermissions('managements');
+        $laporan_rekod_proses = Helper::getpermissions('laporan_rekod_proses');
+        $laporan_pemiriksaan_kualitis = Helper::getpermissions('laporan_pemiriksaan_kualitis');
+        $job_sheets = Helper::getpermissions('job_sheets');
         $productions = Helper::getpermissions('productions');
-        $wmss = Helper::getpermissions('wmss');
-        $settings = Helper::getpermissions('settings');
+        $dashboards = Helper::getpermissions('dashboards');
+        $wms_job_sheets = Helper::getpermissions('wms_job_sheets');
+        $wms_dashboards = Helper::getpermissions('wms_dashboards');
+        $reports = Helper::getpermissions('reports');
+        $administrations = Helper::getpermissions('administrations');
+        $databases = Helper::getpermissions('databases');
         Helper::logSystemActivity('Role', 'Role Create');
-        return view("Setting.Role.create", compact("mess", "productions", "wmss", "settings", "permissions"));
+        return view("Setting.Role.create", compact("managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases", "permissions"));
     }
 
     public function store(Request $request)
@@ -147,15 +154,22 @@ class RoleController extends Controller
         }
         $role = Role::find($request->id);
         $permissions = Permission::get();
-        $mess = Helper::getpermissions('mess');
+        $managements = Helper::getpermissions('managements');
+        $laporan_rekod_proses = Helper::getpermissions('laporan_rekod_proses');
+        $laporan_pemiriksaan_kualitis = Helper::getpermissions('laporan_pemiriksaan_kualitis');
+        $job_sheets = Helper::getpermissions('job_sheets');
         $productions = Helper::getpermissions('productions');
-        $wmss = Helper::getpermissions('wmss');
-        $settings = Helper::getpermissions('settings');
+        $dashboards = Helper::getpermissions('dashboards');
+        $wms_job_sheets = Helper::getpermissions('wms_job_sheets');
+        $wms_dashboards = Helper::getpermissions('wms_dashboards');
+        $reports = Helper::getpermissions('reports');
+        $administrations = Helper::getpermissions('administrations');
+        $databases = Helper::getpermissions('databases');
         $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $request->id)
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
         Helper::logSystemActivity('Role', 'Role Edit');
-        return view("settings.role_assign.edit", compact("mess", "settings", "permissions", "productions", "wmss", "role", "rolePermissions"));
+        return view("settings.role_assign.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
     }
 
     /**
