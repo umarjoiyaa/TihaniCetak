@@ -24,4 +24,9 @@ class Text extends Model
     {
         return $this->belongsTo(SenariSemakCetak::class, 'sale_order_id', 'sale_order_id');
     }
+
+    public function details()
+    {
+        return $this->hasMany(TextDetail::class,'text_id','id');
+    }
 }

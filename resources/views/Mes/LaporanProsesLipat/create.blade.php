@@ -179,7 +179,7 @@
         var jumlah = 1000;
         $('#AddRow').on('click', function() {
             var currentActiveTable = $('#myTabContent .tab-pane');
-            $index = $('#myTabContent .tab-pane.active').index();
+            $index = $('#myTabContent .tab-pane.active').find('.hidden').val();
 
             currentActiveTable.each(function() {
                 if ($(this).hasClass('active')) {
@@ -188,22 +188,22 @@
                     }
                     $length3 = $(this).find('table tbody tr').length + 1;
                     $(this).find('table tbody').append(`<tr>
-                                                            <td>${jumlah} <input type="hidden" value="${jumlah}" name="section[${$index+1}][${$length3}][1]"
+                                                            <td>${jumlah} <input type="hidden" value="${jumlah}" name="section[${$index}][${$length3}][1]"
                                                                     id=""></td>
-                                                            <td><input type="checkbox" name="section[${$index+1}][${$length3}][2]"
+                                                            <td><input type="checkbox" name="section[${$index}][${$length3}][2]"
                                                                     id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="section[${$index+1}][${$length3}][3]"
+                                                            <td><input type="checkbox" name="section[${$index}][${$length3}][3]"
                                                                     id="">
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" style="width:340px;" name="section[${$index+1}][${$length3}][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${$index}][${$length3}][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="section[${$index+1}][${$length3}][5]"
+                                                            <td><input type="text" name="section[${$index}][${$length3}][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
@@ -273,6 +273,7 @@
                         $length2 = $('#myTabContent .tab-pane').length + 1;
                         $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${i}" role="tabpanel"
                                                 aria-labelledby="home-tab">
+                                                <input type="hidden" class="hidden" value="${i}">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>
@@ -352,6 +353,7 @@
                     $length2 = $('#myTabContent .tab-pane').length + 1;
                     $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${value}" role="tabpanel"
                                                 aria-labelledby="home-tab">
+                                                <input type="hidden" class="hidden" value="${value}">
                                                 <div class="table-responsive">
                                                     <table class="table table-bordered">
                                                         <thead>

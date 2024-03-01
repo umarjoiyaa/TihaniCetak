@@ -147,17 +147,17 @@ class LaporanProsesThreeController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('laporan_proses_three.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_proses_three.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_proses_three.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_proses_three.view', $row->id) . '">View</a>
-                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three', $row->id) . '">Delete</a>';
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('laporan_proses_three.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('laporan_proses_three.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('laporan_proses_three.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three', $row->id) . '">Delete</a>';
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('laporan_proses_three.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -527,8 +527,8 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three->status = 'verified';
         $laporan_proses_three->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $laporan_proses_three->verified_by_user = Auth::user()->user_name;
-        $laporan_proses_three->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $laporan_proses_three->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $laporan_proses_three->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $laporan_proses_three->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $laporan_proses_three->save();
 
         foreach($request->semasa as $key => $value){
@@ -554,6 +554,7 @@ class LaporanProsesThreeController extends Controller
     }
 
     public function delete($id){
+        dd($id);
         if (!Auth::user()->hasPermissionTo('LAPORAN PROSES THREE KNIFE Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }

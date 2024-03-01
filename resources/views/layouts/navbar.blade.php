@@ -20,7 +20,7 @@
       nav a:hover{
         color:#fff !important;
       }
-      
+
 
       @media screen and (max-width:992px) {
         nav{
@@ -219,7 +219,7 @@
                       <h6 class="pl-3 pt-3"><b>Production</b></h6>
                       <a class="dropdown-item" href="{{route('production_scheduling')}}">Production
                         Scheduling</a>
-                        <a class="dropdown-item" href="{{route('PrintingProcess_Text')}}">Printing Process</a>
+                        <a class="dropdown-item" href="{{route('printing_process')}}">Printing Process</a>
                       <a class="dropdown-item" href="{{route('CallForAssistance')}}">Call for
                         assistance</a>
                     </div>

@@ -328,8 +328,8 @@ class SalesOrderController extends Controller
         $sale_order->order_status = 'approved';
         $sale_order->approved_by_date = Carbon::now()->format('Y-m-d H:i:s');
         $sale_order->approved_by_user = Auth::user()->user_name;
-        $sale_order->approved_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $sale_order->approved_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $sale_order->approved_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $sale_order->approved_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $sale_order->save();
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Approved');
         return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Approved!');
@@ -364,8 +364,8 @@ class SalesOrderController extends Controller
         $sale_order->order_status = 'published';
         $sale_order->published_by_date = Carbon::now()->format('Y-m-d H:i:s');
         $sale_order->published_by_user = Auth::user()->user_name;
-        $sale_order->published_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $sale_order->published_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $sale_order->published_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $sale_order->published_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $sale_order->save();
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Published');
         return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Published!');

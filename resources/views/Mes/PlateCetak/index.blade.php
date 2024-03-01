@@ -28,13 +28,14 @@
                     <table class="table datatable text-center table-bordered mt-2" border="1" id="example1">
                         <thead>
                             <tr>
-                                <td rowspan="2" class="text-left">Sr.</td>
-                                <td rowspan="2" class="text-left">Masa</td>
-                                <td rowspan="2" class="text-left">Sales Order No.</td>
-                                <td rowspan="2" class="text-left">Tajuk Buku</td>
-                                <td rowspan="2" class="text-left">Kod Buku</td>
-                                <td rowspan="2" class="text-left">Mesin</td>
-                                <td rowspan="2" class="text-left">Seksyen</td>
+                                <td rowspan="2">Sr.</td>
+                                <td rowspan="2">Tarikh</td>
+                                <td rowspan="2">Masa</td>
+                                <td rowspan="2">Sales Order No.</td>
+                                <td rowspan="2">Tajuk Buku</td>
+                                <td rowspan="2">Kod Buku</td>
+                                <td rowspan="2">Mesin</td>
+                                <td rowspan="2">Seksyen</td>
                                 <td colspan="3" class="text-center">Bahagian Plate </td>
                                 <td colspan="6" class="text-center">Warna</td>
                                 <td rowspan="2" class="text-left">Gripper</td>
@@ -61,6 +62,10 @@
                             <tr>
                                 <th></th>
 
+
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search tarikh">
+                                </th>
 
                                 <th>
                                     <input type="text" class="all_column" placeholder="search masa">

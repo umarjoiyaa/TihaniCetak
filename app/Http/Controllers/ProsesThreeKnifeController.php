@@ -31,8 +31,8 @@ class ProsesThreeKnifeController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
-                        ->where('machine', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
+                        ->orWhere('machine', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -42,19 +42,19 @@ class ProsesThreeKnifeController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('b_1', 'like', '%' . $searchLower . '%')
-                        ->where('b_2', 'like', '%' . $searchLower . '%')
-                        ->where('b_3', 'like', '%' . $searchLower . '%')
-                        ->where('b_4', 'like', '%' . $searchLower . '%')
-                        ->where('b_6', 'like', '%' . $searchLower . '%')
-                        ->where('b_7', 'like', '%' . $searchLower . '%')
-                        ->where('b_8', 'like', '%' . $searchLower . '%')
-                        ->where('b_9', 'like', '%' . $searchLower . '%')
-                        ->where('b_10', 'like', '%' . $searchLower . '%')
-                        ->where('b_11', 'like', '%' . $searchLower . '%')
-                        ->where('b_12', 'like', '%' . $searchLower . '%')
-                        ->where('b_13', 'like', '%' . $searchLower . '%')
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_10', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_11', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_12', 'like', '%' . $searchLower . '%')
+                        ->orWhere('b_13', 'like', '%' . $searchLower . '%')
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -247,8 +247,8 @@ class ProsesThreeKnifeController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
-                    ->where('time', 'like', '%' . $searchLower . '%')
-                    ->where('machine', 'like', '%' . $searchLower . '%')
+                    ->orWhere('time', 'like', '%' . $searchLower . '%')
+                    ->orWhere('machine', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('order_no', 'like', '%' . $searchLower . '%');
                     })
@@ -258,19 +258,19 @@ class ProsesThreeKnifeController extends Controller
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('description', 'like', '%' . $searchLower . '%');
                     })
-                    ->where('b_1', 'like', '%' . $searchLower . '%')
-                    ->where('b_2', 'like', '%' . $searchLower . '%')
-                    ->where('b_3', 'like', '%' . $searchLower . '%')
-                    ->where('b_4', 'like', '%' . $searchLower . '%')
-                    ->where('b_6', 'like', '%' . $searchLower . '%')
-                    ->where('b_7', 'like', '%' . $searchLower . '%')
-                    ->where('b_8', 'like', '%' . $searchLower . '%')
-                    ->where('b_9', 'like', '%' . $searchLower . '%')
-                    ->where('b_10', 'like', '%' . $searchLower . '%')
-                    ->where('b_11', 'like', '%' . $searchLower . '%')
-                    ->where('b_12', 'like', '%' . $searchLower . '%')
-                    ->where('b_13', 'like', '%' . $searchLower . '%')
-                    ->where('status', 'like', '%' . $searchLower . '%');
+                    ->orWhere('b_1', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_2', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_3', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_4', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_6', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_7', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_8', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_9', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_10', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_11', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_12', 'like', '%' . $searchLower . '%')
+                    ->orWhere('b_13', 'like', '%' . $searchLower . '%')
+                    ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -545,8 +545,8 @@ class ProsesThreeKnifeController extends Controller
         $proses_three_knife->status = 'verified';
         $proses_three_knife->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $proses_three_knife->verified_by_user = Auth::user()->user_name;
-        $proses_three_knife->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $proses_three_knife->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $proses_three_knife->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $proses_three_knife->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $proses_three_knife->save();
         Helper::logSystemActivity('PROSES THREE KNIFE', 'PROSES THREE KNIFE Verified');
         return redirect()->route('proses_three_knife')->with('custom_success', 'PROSES THREE KNIFE has been Successfully Verified!');

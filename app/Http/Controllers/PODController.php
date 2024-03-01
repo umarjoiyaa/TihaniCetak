@@ -32,7 +32,7 @@ class PODController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -42,26 +42,26 @@ class PODController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('file_artwork_1', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_2', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_3', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_4', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_5', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_6', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_7', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_1', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_2', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_3', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_4', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_5', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_6', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_7', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_8', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_9', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_10', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_11', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_10', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_11', 'like', '%' . $searchLower . '%')
 
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -272,7 +272,7 @@ class PODController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->where('time', 'like', '%' . $searchLower . '%')
+                        ->orWhere('time', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
@@ -282,26 +282,26 @@ class PODController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('file_artwork_1', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_2', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_3', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_4', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_5', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_6', 'like', '%' . $searchLower . '%')
-                        ->where('file_artwork_7', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_1', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_2', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_3', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_4', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_5', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_6', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_7', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_8', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_9', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_10', 'like', '%' . $searchLower . '%')
-                        ->where('first_piece_11', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('file_artwork_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_1', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_2', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_3', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_4', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_5', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_6', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_7', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_8', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_9', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_10', 'like', '%' . $searchLower . '%')
+                        ->orWhere('first_piece_11', 'like', '%' . $searchLower . '%')
 
-                        ->where('status', 'like', '%' . $searchLower . '%');
+                        ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -596,8 +596,8 @@ class PODController extends Controller
         $pod->status = 'verified';
         $pod->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $pod->verified_by_user = Auth::user()->user_name;
-        $pod->verified_by_designation = (Auth::user()->designation != null) ? Auth::user()->designation->name : 'not assign';
-        $pod->verified_by_department = (Auth::user()->department != null) ? Auth::user()->department->name : 'not assign';
+        $pod->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $pod->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $pod->save();
         Helper::logSystemActivity('POD', 'POD Verified');
         return redirect()->route('pod')->with('custom_success', 'POD has been Successfully Verified!');

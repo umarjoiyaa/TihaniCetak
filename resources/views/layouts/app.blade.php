@@ -653,7 +653,7 @@
                                                                     style="color: #a41843"></iconify-icon> Production
                                                                 Scheduling</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('PrintingProcess_Text') }}"
+                                                                href="{{ route('printing_process') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Printing

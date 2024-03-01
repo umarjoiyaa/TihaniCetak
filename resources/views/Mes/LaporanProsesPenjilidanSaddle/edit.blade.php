@@ -3,7 +3,6 @@
     <form action="{{ route('laporan_proses_penjilidan_saddle.update', $laporan_proses_penjilidan_saddle->id) }}"
         method="POST">
         @csrf
-        <div class="container">
             <div class="row">
                 <div class="col-md-12">
                     <div class="card">
@@ -157,7 +156,7 @@
                                                 <td>1</td>
                                                 <td>Kedudukan dawai pin</td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover',this)" name="b_1"
+                                                        onchange="handleCheckboxChange('Cover1',this)" name="b_1"
                                                         value="ok" @checked($laporan_proses_penjilidan_saddle->b_1 == 'ok') id=""></td>
                                                 <td><input type="checkbox" class="Cover1"
                                                         onchange="handleCheckboxChange('Cover1',this)" name="b_1"
@@ -351,7 +350,6 @@
                 </div>
                 <a href="{{ route('laporan_proses_penjilidan_saddle') }}">back to list</a>
             </div>
-        </div>
         </div>
     </form>
 @endsection

@@ -86,7 +86,7 @@
                                         <div class="form-group">
                                             <label for="">Tarikh</label>
                                             <input type="text" name="date"
-                                                value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                            value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}" class="form-control"
                                                 id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
@@ -136,6 +136,15 @@
                                             <input type="number" name="kuantiti_waste" value="{{old('kuantiti_waste')}}" class="form-control">
                                         </div>
                                     </div>
+
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <div class="label">Lebihan Stok</div>
+                                            <input type="number" readonly id="extra_stock" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"></div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -271,8 +280,8 @@
                                             <tbody>
                                                 <tr>
                                                     <td> <input type="text" disabled name="section_date"
-                                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}"
-                                                            class="form-control datepicker" id="datepicker1"
+                                                        value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
+                                                            class="form-control datepicker" id="datepicker_main"
                                                             pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                     <td>
                                                         <select name="section_machine" disabled id="mesin_section"
@@ -581,7 +590,7 @@
             }
         });
 
-        $(document).on('change', '#datepicker1', function() {
+        $(document).on('change', '#datepicker_main', function() {
             var value = $(this).val();
             $("#child_table tbody tr .datepicker").each(function() {
                 $(this).val(value);
@@ -626,7 +635,7 @@
             if (isChecked) {
                 $(this).closest("tr").find('.side_parent_section').attr('disabled', 'disabled');
                 $(this).closest("tr").find('.mesin_parent_section').attr('disabled', 'disabled');
-                $(this).closest("tr").find('#datepicker1').attr('disabled', 'disabled');
+                $(this).closest("tr").find('#datepicker_main').attr('disabled', 'disabled');
                 $(this).closest("tr").find('#last_print_parent_section').attr('disabled', 'disabled');
                 $(this).closest("tr").find('#kuantiti_waste_parent_section').attr('disabled', 'disabled');
 
@@ -650,7 +659,7 @@
 
                 $(this).closest("tr").find('.side_parent_section').removeAttr('disabled');
                 $(this).closest("tr").find('.mesin_parent_section').removeAttr('disabled');
-                $(this).closest("tr").find('#datepicker1').removeAttr('disabled');
+                $(this).closest("tr").find('#datepicker_main').removeAttr('disabled');
                 $(this).closest("tr").find('#last_print_parent_section').removeAttr('disabled');
                 $(this).closest("tr").find('#kuantiti_waste_parent_section').removeAttr('disabled');
 
@@ -701,7 +710,7 @@
                                                     <tr>
                                                 <td>${i}</td>
                                                 <td> <input type="text" disable name="section[${key}][date]"
-                                                     class="form-control datepicker"
+                                                     class="form-control datepicker" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
                                                     id="datepicker${i}"  pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
                                                 <td>
                                                     <select name="section[${key}][machine]" disable style="width:100%" id="mesin${i}" class="form-control form-select mesin_section" id="machine">
@@ -791,6 +800,7 @@
                     $('#status').val(data.sale_order.status);
                     $('#size').val(data.sale_order.size);
                     $('#status').val(data.sale_order.status);
+                    $('#extra_stock').val(data.sale_order.extra_stock);
                     if(data.section != null){
                         $('#seksyen_no').val(data.section.item_cover_text);
                     }else{

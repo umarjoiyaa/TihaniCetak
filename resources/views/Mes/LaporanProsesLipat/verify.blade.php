@@ -218,7 +218,7 @@
                                                                                     class="btn btn-primary verify_btn">Verify</button>
                                                                             </td>
                                                                             <td><input type="text" style="width: 340px"
-                                                                                    name="section[{{ $key1 + 1 }}][{{ $newKey }}][1]"
+                                                                                    name="section[{{ $section->row }}][{{ $newKey }}][1]"
                                                                                     class="verify_operator form-control"
                                                                                     readonly></td>
                                                                         </tr>
