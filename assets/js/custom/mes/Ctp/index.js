@@ -24,7 +24,10 @@ $(document).ready(function () {
                 }
             }
         }, // URL to fetch data
-        columns: [
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            },
             {
                 data: 'date',
                 name: 'date',
@@ -151,7 +154,10 @@ function AjaxCall(columnsData) {
 
             }
         }, // URL to fetch data
-        columns: [
+        columns: [{
+                data: 'sr_no',
+                name: 'sr_no',
+            },
             {
                 data: 'date',
                 name: 'date',
