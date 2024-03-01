@@ -100,6 +100,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Setting/role/create', [RoleController::class,'create'])->name('role.create');
     Route::post('/Setting/role/store', [RoleController::class,'store'])->name('role.store');
     Route::get('/Setting/role/edit/{id}', [RoleController::class,'edit'])->name('role.edit');
+    Route::get('/Setting/role/view/{id}', [RoleController::class,'view'])->name('role.view');
     Route::post('/Setting/role/update/{id}', [RoleController::class,'update'])->name('role.update');
     Route::get('/Setting/role/delete/{id}', [RoleController::class,'delete'])->name('role.destroy');
 

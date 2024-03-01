@@ -172,6 +172,31 @@ class RoleController extends Controller
         return view("settings.role_assign.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
     }
 
+    public function view(Request $request)
+    {
+        if (!Auth::user()->hasPermissionTo('Role View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $role = Role::find($request->id);
+        $permissions = Permission::get();
+        $managements = Helper::getpermissions('managements');
+        $laporan_rekod_proses = Helper::getpermissions('laporan_rekod_proses');
+        $laporan_pemiriksaan_kualitis = Helper::getpermissions('laporan_pemiriksaan_kualitis');
+        $job_sheets = Helper::getpermissions('job_sheets');
+        $productions = Helper::getpermissions('productions');
+        $dashboards = Helper::getpermissions('dashboards');
+        $wms_job_sheets = Helper::getpermissions('wms_job_sheets');
+        $wms_dashboards = Helper::getpermissions('wms_dashboards');
+        $reports = Helper::getpermissions('reports');
+        $administrations = Helper::getpermissions('administrations');
+        $databases = Helper::getpermissions('databases');
+        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $request->id)
+            ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
+            ->all();
+        Helper::logSystemActivity('Role', 'Role View');
+        return view("settings.role_assign.view", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
+    }
+
     /**
      * Update the specified resource in storage.
      *
