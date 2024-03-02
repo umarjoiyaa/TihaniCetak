@@ -23,15 +23,6 @@
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <thead>
-                                    <tr>
-                                        <th></th>
-                                        <th>
-                                            <input type="text" class="all_column" placeholder="search name">
-                                        </th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
                                 <tbody></tbody>
                             </table>
                         </div>

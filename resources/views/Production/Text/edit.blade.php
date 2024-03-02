@@ -66,7 +66,7 @@
 
 @section('content')
     <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-    <form action="{{route('text.update', $text->id)}}" method="post">
+    <form action="{{route('text.update', $text->id)}}" method="post" >
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -284,41 +284,41 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> <input type="text" disabled name="section_date"
-                                                            value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}"
+                                                    <td> <input type="text"  name="parent_section_date"
+                                                        value="{{ $text->parent_section_date }}"
                                                             class="form-control datepicker" id="datepicker_main"
                                                             pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                     <td>
-                                                        <select name="section_machine" disabled id="mesin_section"
+                                                        <select name="parent_section_machine"  id="mesin_section"
                                                             class="form-control mesin_parent_section form-select">
                                                             <option value="-1" disabled selected>Select any Mesin
                                                             </option>
-                                                            <option value="SMZP (2C)">SMZP (2C)</option>
-                                                            <option value="RUOBI (4C)">RUOBI (4C)</option>
-                                                            <option value="KOMORI (8C)">KOMORI (8C)</option>
-                                                            <option value="PANTONE">PANTONE</option>
+                                                            <option value="SMZP (2C)" >SMZP (2C)</option>
+                                                            <option value="RUOBI (4C)" >RUOBI (4C)</option>
+                                                            <option value="KOMORI (8C)" >KOMORI (8C)</option>
+                                                            <option value="PANTONE" >PANTONE</option>
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <select name="section_side" disabled
+                                                        <select name="parent_section_side"
                                                             class="form-control side_parent_section form-select"
-                                                            id="side_">
+                                                            id="side_section">
                                                             <option value="-1" disabled selected>Select any Side
                                                             </option>
-                                                            <option value="A">A</option>
-                                                            <option value="B">B</option>
-                                                            <option value="A/B">A/B</option>
+                                                            <option value="A" >A</option>
+                                                            <option value="B" >B</option>
+                                                            <option value="A/B" >A/B</option>
                                                         </select>
                                                     </td>
-                                                    <td><input type="number" disabled name="section_last_print"
-                                                            id="last_print_parent_section" class="form-control "
+                                                    <td><input type="number"  name="parent_section_last_print"
+                                                            id="last_print_parent_section"  class="form-control "
                                                             id=""></td>
-                                                    <td><input type="number" disabled
-                                                            name="section_kuantiti_waste"
-                                                            id="kuantiti_waste_parent_section" class="form-control"
-                                                            id=""></td>
+                                                    <td><input type="number"
+                                                            name="parent_section_kuantiti_waste"
+                                                            id="kuantiti_waste_parent_section"  class="form-control"
+                                                            ></td>
                                                     <td><label class="switch">
-                                                            <input type="checkbox" class="action" name="action" checked>
+                                                            <input type="checkbox" class="action"  name="parent_action" checked >
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </td>
@@ -525,7 +525,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-12">
-                                <button class="btn btn-primary float-right">Save</button>
+                                <button class="btn btn-primary float-right" id="save">Save</button>
                             </div>
                         </div>
                     </div>
@@ -540,6 +540,14 @@
 @push('custom-scripts')
     <script src="{{ url('/assets/plugins/summernote/js/summernote-bs4.min.js') }}"></script>
     <script>
+        $('#save').on('click',function(){
+            $('#datepicker_main').removeAttr('disabled');
+            $('#mesin_section').removeAttr('disabled');
+            $('#side_section').removeAttr('disabled');
+            $('#last_print_parent_section').removeAttr('disabled');
+            $('#kuantiti_waste_parent_section').removeAttr('disabled');
+            $('#formSubmit').submit();
+        })
         $(document).ready(function(){
             $('#sale_order').trigger('change');
             $('#editor').summernote();
@@ -719,69 +727,84 @@
         })
 
         $(document).on('change', '#seksyen_no', function() {
-            var value = +$(this).val();
-            var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;
-            if (value > 0 && value < length) {
-                var currentLength = length - value;
-                console.log("currentLength:", currentLength); // Check the value of currentLength
-                for (let i = currentLength; i > 0; i--) {
-                    console.log("Iteration:", i); // Check the iteration
-                    $('#child_table tbody tr:last-child').remove();
+    var value = +$(this).val();
+    var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;
+
+    if (value > 0 && value < length) {
+        var currentLength = length - value;
+        console.log("currentLength:", currentLength);
+
+        for (let i = currentLength; i > 0; i--) {
+            console.log("Iteration:", i);
+            $('#child_table tbody tr:last-child').remove();
+        }
+    } else if (value <= 0) {
+        $('#child_table tbody').html('');
+    } else {
+        for (let i = length; i <= value; i++) {
+            // Check if the value already exists in the table
+            var exists = false;
+            $('#child_table tbody tr td:first-child').each(function() {
+                if ($(this).text() == i) {
+                    exists = true;
+                    return false; // Exit the loop early if the value is found
                 }
+            });
+
+            if (exists) {
+                continue; // Skip adding the row if the value already exists
+            }
+
+            if ($('#child_table tbody tr').length > 0) {
+                var key = $('#child_table tbody tr').length + 1;
             } else {
-                for (let i = length; i <= value; i++) {
-                    if ($('#child_table tbody tr').length > 0) {
-                        var key = $('#child_table tbody tr').length + 1;
-                    } else {
-                        var key = 1;
-                    }
+                var key = 1;
+            }
 
-                    if ($('.action').prop('checked') != false) {
-                        var disable = 'disabled';
-                    } else {
-                        var disable = '';
-                    }
+            if ($('.action').prop('checked') != false) {
+                var disable = '';
+            } else {
+                var disable = 'disabled';
+            }
 
-                    $('#child_table tbody').append(`
-                                                    <tr>
-                                                <td>${i}</td>
-                                                <td> <input type="text" disable name="section[${key}][date]"
-                                                     class="form-control datepicker" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
-                                                    id="datepicker${i}"  pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
-                                                <td>
-                                                    <select name="section[${key}][machine]" disable style="width:100%" id="mesin${i}" class="form-control form-select mesin_section" id="machine">
-                                                        <option value="-1" disabled selected>Select any Mesin</option>
-                                                        <option value="SMZP (2C)">SMZP (2C)</option>
-                                                        <option value="RUOBI (4C)">RUOBI (4C)</option>
-                                                        <option value="KOMORI (8C)">KOMORI (8C)</option>
-                                                        <option value="PANTONE">PANTONE</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select name="section[${key}][side]" disable style="width:100%" id="side${i}" class="form-control form-select side_section" id="Ab,A/B">
-                                                        <option value="-1" disabled selected>Select any Side</option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="A/B">A/B</option>
-                                                    </select>
-                                                </td>
-                                                <td><input type="number" disable name="section[${key}][last_print]" class="form-control last_print_section"
-                                                         id=""></td>
-                                                <td><input type="number" disable name="section[${key}][kuantiti_waste]" class="form-control kuantiti_waste_section"
-                                                         id=""></td>
-                                            </tr>`);
+            $('#child_table tbody').append(`
+                <tr>
+                    <td>${i}</td>
+                    <td> <input type="text" ${disable} name="section[${key}][date]"
+                        class="form-control datepicker" value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
+                        id="datepicker${i}" pattern="@{{ '\d{2}-\d{2}-\d{4}' }}"  class="date_section" placeholder="dd-mm-yyyy"></td>
+                    <td>
+                        <select name="section[${key}][machine]" ${disable} style="width:100%" id="mesin${i}" class="form-control form-select mesin_section" id="machine">
+                            <option value="-1" disabled selected>Select any Mesin</option>
+                            <option value="SMZP (2C)">SMZP (2C)</option>
+                            <option value="RUOBI (4C)">RUOBI (4C)</option>
+                            <option value="KOMORI (8C)">KOMORI (8C)</option>
+                            <option value="PANTONE">PANTONE</option>
+                        </select>
+                    </td>
+                    <td>
+                        <select name="section[${key}][side]" ${disable} style="width:100%" id="side${i}" class="form-control form-select side_section" id="Ab,A/B">
+                            <option value="-1" disabled selected>Select any Side</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="A/B">A/B</option>
+                        </select>
+                    </td>
+                    <td><input type="number" ${disable} name="section[${key}][last_print]" class="form-control last_print_section" id=""></td>
+                    <td><input type="number" ${disable} name="section[${key}][kuantiti_waste]" class="form-control kuantiti_waste_section" id=""></td>
+                </tr>`);
 
                     key++
 
                 }
 
-            }
-            $('.mesin_section').select2();
-            $('.side_section').select2();
-            $(".datepicker").datepicker({
-                dateFormat: 'dd-mm-yy'
-            });
-        });
+    $('.mesin_section').select2();
+    $('.side_section').select2();
+    $(".datepicker").datepicker({
+        dateFormat: 'dd-mm-yy'
+    });
+});
+
 
         $('#sale_order').select2({
             ajax: {
@@ -837,13 +860,13 @@
                     $('#size').val(data.sale_order.size);
                     $('#status').val(data.sale_order.status);
                     $('#extra_stock').val(data.sale_order.extra_stock);
-                    if(!$firstAttempt){
-                        if(data.section != null){
-                            $('#seksyen_no').val(data.section.item_cover_text);
-                        }else{
-                            $('#seksyen_no').val(0);
-                        }
-                    }
+                    // if(!$firstAttempt){
+                        // if(data.section != null){
+                        //     $('#seksyen_no').val(data.section.item_cover_text);
+                        // }else{
+                        //     $('#seksyen_no').val(0);
+                        // }
+                    // }
                 }
             });
         });
