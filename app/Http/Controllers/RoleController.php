@@ -59,15 +59,15 @@ class RoleController extends Controller
 
             $roles->each(function ($role, $index) use(&$start) {
                 $role->sr_no = $start + $index + 1;
-                $role->action = '<div class="dropdown">
-                    <a class="btn btn-outline-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Action
-                    </a>
-
-                    <ul class="dropdown-menu">
-                      <li><a class="dropdown-item" href="' . route('role.edit', $role->id) . '">Edit</a></li>
-                      <li><a class="dropdown-item" data-delete="' . route('role.destroy', $role->id) . '" data-kt-ecommerce-category-filter="delete_row" href="' . route('role.destroy', $role->id) . '">Delete</a></li>';
-                $role->action .= '</ul></div>';
+                $role->action = '<div class="dropdown dropdownwidth">
+                    <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
+                    data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                    <div  class="dropdown-menu tx-13">
+                    <a class="dropdown-item" href="' . route('role.edit', $role->id) . '">Edit</a>
+                    <a class="dropdown-item" href="' . route('role.view', $role->id) . '">View</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('role.delete', $role->id) . '">Delete</a>
+                    </div>
+                </div>';
             });
 
             return response()->json([
@@ -125,14 +125,14 @@ class RoleController extends Controller
                 'required',
                 Rule::unique('roles', 'name'),
             ],
-            'permission' => 'required',
+            'permissions' => 'required',
         ]);
         $role = Role::create(['name' => $request->input('name')]);
-        $permissions = $request->input('permission');
+        $permissions = $request->input('permissions');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Store');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Added!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Added!');
     }
     /**
      * Display the specified resource.
@@ -169,7 +169,32 @@ class RoleController extends Controller
             ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
             ->all();
         Helper::logSystemActivity('Role', 'Role Edit');
-        return view("settings.role_assign.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
+        return view("Setting.Role.edit", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
+    }
+
+    public function view(Request $request)
+    {
+        if (!Auth::user()->hasPermissionTo('Role View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $role = Role::find($request->id);
+        $permissions = Permission::get();
+        $managements = Helper::getpermissions('managements');
+        $laporan_rekod_proses = Helper::getpermissions('laporan_rekod_proses');
+        $laporan_pemiriksaan_kualitis = Helper::getpermissions('laporan_pemiriksaan_kualitis');
+        $job_sheets = Helper::getpermissions('job_sheets');
+        $productions = Helper::getpermissions('productions');
+        $dashboards = Helper::getpermissions('dashboards');
+        $wms_job_sheets = Helper::getpermissions('wms_job_sheets');
+        $wms_dashboards = Helper::getpermissions('wms_dashboards');
+        $reports = Helper::getpermissions('reports');
+        $administrations = Helper::getpermissions('administrations');
+        $databases = Helper::getpermissions('databases');
+        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id", $request->id)
+            ->pluck('role_has_permissions.permission_id', 'role_has_permissions.permission_id')
+            ->all();
+        Helper::logSystemActivity('Role', 'Role View');
+        return view("Setting.Role.view", compact("permissions", "role", "rolePermissions", "managements", "laporan_rekod_proses", "laporan_pemiriksaan_kualitis", "job_sheets", "productions", "dashboards", "wms_job_sheets", "wms_dashboards", "reports", "administrations", "databases"));
     }
 
     /**
@@ -189,18 +214,18 @@ class RoleController extends Controller
                 'required',
                 Rule::unique('roles', 'name')->ignore($request->id),
             ],
-            'permission' => 'required',
+            'permissions' => 'required',
         ]);
 
         $role = Role::find($request->id);
         $role->name = $request->input('name');
         $role->save();
 
-        $permissions = $request->input('permission');
+        $permissions = $request->input('permissions');
         $permissionNames = Permission::whereIn('id', $permissions)->pluck('name')->toArray();
         $role->syncPermissions($permissionNames);
         Helper::logSystemActivity('Role', 'Role Update');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Updated!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Updated!');
     }
 
     /**
@@ -225,6 +250,6 @@ class RoleController extends Controller
         }
         DB::table("roles")->where('id', $id)->delete();
         Helper::logSystemActivity('Role', 'Role Delete');
-        return redirect()->route('role.index')->with('custom_success', 'Role has been Succesfully Deleted!');
+        return redirect()->route('role')->with('custom_success', 'Role has been Succesfully Deleted!');
     }
 }
