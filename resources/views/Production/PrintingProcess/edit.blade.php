@@ -332,8 +332,14 @@
                                                         <th>Side</th>
                                                     </tr>
                                                 <tbody>
+                                                    @php
+                                                        $sectionArray = [];
+                                                    @endphp
                                                     @foreach ($printing_process->text->details as $value)
                                                         @if ($value->machine == $printing_process->machine)
+                                                        @php
+                                                            array_push($sectionArray, $value->seksyen_no);
+                                                        @endphp
                                                             <tr>
                                                                 <td>{{ $value->seksyen_no }}</td>
                                                                 <td>{{ $value->side }}</td>
@@ -744,11 +750,11 @@
                 sessionStorage.setItem(`formData${element.printing_detail_id}`, JSON.stringify(dataObject));
             });
 
-            var jumlahSection = @json($printing_process->text->seksyen_no);
+            var jumlahSection = @json($sectionArray);
             $('#section_nos').append(`<option selected disabled>Select Seksyen No</option>`);
-            for (let index = 0; index < jumlahSection; index++) {
-                $('#section_nos').append(`<option value="${index+1}">Seksyen ${index+1}</option>`);
-            }
+            jumlahSection.forEach(element => {
+                $('#section_nos').append(`<option value="${element}">Seksyen ${element}</option>`);
+            });
         });
 
         function check_machines(check_machines) {
