@@ -797,7 +797,7 @@
                     key++
 
                 }
-
+            }
     $('.mesin_section').select2();
     $('.side_section').select2();
     $(".datepicker").datepicker({
