@@ -946,6 +946,7 @@
 
                 sessionStorage.setItem(`formData${element.digital_detail_id}`, JSON.stringify(dataObject));
             });
+            $('#saveModal').trigger('click');
         });
 
         $('#operator').on('change', function() {
