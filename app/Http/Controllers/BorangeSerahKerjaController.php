@@ -143,7 +143,9 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-warning">Checked</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="">Pruchasing</a>
+                    <a class="dropdown-item" href="">Transfer</a>
+                    <a class="dropdown-item" href="">Receive</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
@@ -153,7 +155,9 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="">Pruchasing</a>
+                    <a class="dropdown-item" href="">Transfer</a>
+                    <a class="dropdown-item" href="">Receive</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '" >Delete</a>';
                 }
 
@@ -250,7 +254,9 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-warning">Checked</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="">Pruchasing</a>
+                    <a class="dropdown-item" href="">Transfer</a>
+                    <a class="dropdown-item" href="">Receive</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
                 } else if ($row->status == 'verified') {
                     $row->status = '<span class="badge badge-success">Verified</span>';
@@ -260,7 +266,9 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="">Pruchasing</a>
+                    <a class="dropdown-item" href="">Transfer</a>
+                    <a class="dropdown-item" href="">Receive</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '" >Delete</a>';
                 }
 

@@ -43,12 +43,12 @@ $(document).ready(function () {
                 name: 'sale_order.order_no',
             },
             {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
-            },
-            {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
+            },
+            {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
             },
             {
                 data: 'checklist_1',
@@ -127,12 +127,12 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.order_no',
             },
             {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
-            },
-            {
                 data: 'sale_order.description',
                 name: 'sale_order.description',
+            },
+            {
+                data: 'sale_order.kod_buku',
+                name: 'sale_order.kod_buku',
             },
             {
                 data: 'checklist_1',
