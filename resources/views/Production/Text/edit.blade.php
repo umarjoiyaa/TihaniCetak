@@ -816,7 +816,7 @@
                 return $('<option value=' + data.id + '>' + data.order_no + '</option>');
             },
             templateSelection: function(data) {
-                return data.order_no || "Select Sales Order No";
+                return data.text || "Select Sales Order No";
             }
         });
         $firstAttempt = true;

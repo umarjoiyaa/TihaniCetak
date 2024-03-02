@@ -45,7 +45,7 @@
                     <div class="card" style="background:#f1f0f0;">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label for="">Tarikh</label>
                                         <input type="text" name="date" value="{{ $mesin_lipat->date }}"
@@ -53,13 +53,13 @@
                                             placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <label for="">Disediakan Oleh</label>
                                     <input type="text" readonly name=""
                                         value="{{ $mesin_lipat->user->full_name }}" id="" class="form-control">
                                     <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label for="">Operator</label>
                                         @php
@@ -74,7 +74,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <input type="text" readonly name=""
@@ -82,7 +82,7 @@
                                             class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <div class="label"> Tajuk </div>
                                         <input type="text" readonly name="" id="tajuk" class="form-control"
@@ -90,7 +90,7 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 mt-3">
+                                <div class="col-md-4 ">
                                     <div class="form-group">
                                         <input type="text" readonly id="kod_buku" class="form-control"
                                             value="{{ $mesin_lipat->sale_order->kod_buku }}">
@@ -265,11 +265,11 @@
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                        <div class="modal-content" style="width:1200px; margin-left:-350px;">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Production Output Details
                                                 </h5>
-                                                <span aria-hidden="true">&times;</span>
+                                                <span data-dismiss="modal" style="font-size:30px; color:red; cursor:pointer;">&times;</span>
                                                 <input type="hidden" class="mesin_lipat_detail_id">
                                             </div>
                                             <div class="modal-body">
@@ -290,13 +290,13 @@
                                                         <tbody>
                                                             <tr>
                                                                 <td><input type="text" name="" id=""
-                                                                        class="form-control section_no" readonly></td>
+                                                                        class="form-control section_no" readonly style="width:150px;"></td>
                                                                 <td><input type="text" name="" id=""
-                                                                        class="form-control last_fold"></td>
+                                                                        class="form-control last_fold" style="width:150px;"></td>
                                                                 <td><input type="text" name="" id=""
-                                                                        class="form-control rejection"></td>
+                                                                        class="form-control rejection" style="width:150px;"></td>
                                                                 <td><input type="text" name="" id=""
-                                                                        readonly class="form-control good_count"></td>
+                                                                        readonly class="form-control good_count" style="width:150px;"></td>
                                                                 <td><button disabled type="button"
                                                                         class="btn btn-primary check_operator">Check</button>
                                                                 </td>

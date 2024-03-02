@@ -594,16 +594,13 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-12 pb-3 pr-4">
                             <button class="btn btn-primary float-right">Save</button>
                         </div>
                     </div>
                 </div>
-
-
+                <a href="{{ route('cover_end_paper') }}">back to list</a>
             </div>
-            <a href="{{ route('cover_end_paper') }}">back to list</a>
-        </div>
         </div>
 
 

@@ -797,10 +797,10 @@
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
-            <div class="modal-content" style="width:1000px; margin-left:-350px;">
+            <div class="modal-content" style="width:1200px; margin-left:-350px;">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                    <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true" data-dismiss="modal" style="color:red; font-size:30px; cursor:pointer;">&times;</span>
                     <input type="hidden" class="cover_paper_detail_id">
                 </div>
                 <div class="modal-body">
@@ -821,22 +821,22 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><select name="" id="" class="form-control side">
+                                    <td><select name="" id="box" class="form-control form-select side" style="width:150px;">
                                             <option value="">Select Side</option>
                                             <option value="A">A</option>
                                             <option value="B">B</option>
                                             <option value="A/B">A/B</option>
                                         </select></td>
                                     <td><input type="text" name="" id=""
-                                            class="form-control last_print">
+                                            class="form-control last_print" style="width:150px;">
                                     </td>
                                     <td><input type="text" name="" id=""
-                                            class="form-control waste_paper"></td>
+                                            class="form-control waste_paper" style="width:150px;"></td>
                                     <td><input type="text" name="" id=""
-                                            class="form-control rejection">
+                                            class="form-control rejection" style="width:150px;">
                                     </td>
                                     <td><input type="text" name="" id="" readonly
-                                            class="form-control good_count"></td>
+                                            class="form-control good_count" style="width:150px;"></td>
                                     <td><button disabled type="button"
                                             class="btn btn-primary check_operator">Check</button>
                                     </td>

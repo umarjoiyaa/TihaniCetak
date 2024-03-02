@@ -2,6 +2,9 @@
 
 @section('css')
 <style>
+     .dropdownwidth{
+                width:100px;
+            }
     table td{
         font-size:15px;
     }

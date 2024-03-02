@@ -277,11 +277,11 @@
                             <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
-                                    <div class="modal-content" style="width:1000px; margin-left:-350px;">
+                                    <div class="modal-content" style="width:1200px; margin-left:-350px;">
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLabel">Production Output Details
                                             </h5>
-                                            <span aria-hidden="true">&times;</span>
+                                            <span data-dismiss="modal" style="color:red; font-size:30px; cursor:pointer;">&times;</span>
                                             <input type="hidden" class="knife_detail_id">
                                         </div>
                                         <div class="modal-body">
@@ -301,13 +301,13 @@
                                                     <tbody>
                                                         <tr>
                                                             <td><input type="text" name="" id=""
-                                                                    class="form-control good_count" readonly>
+                                                                    class="form-control good_count" readonly style="width:150px;">
                                                             </td>
                                                             <td><input type="text" name="" id=""
-                                                                    class="form-control rejection" readonly>
+                                                                    class="form-control rejection" readonly style="width:150px;">
                                                             </td>
                                                             <td><input type="text" name="" id=""
-                                                                    class="form-control total_produce" readonly></td>
+                                                                    class="form-control total_produce" readonly style="width:150px;"></td>
                                                             <td><button disabled type="button"
                                                                     class="btn btn-primary check_operator">Check</button>
                                                             </td>

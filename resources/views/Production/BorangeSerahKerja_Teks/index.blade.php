@@ -5,6 +5,9 @@
     table td{
         font-size:12px;
     }
+    .dropdownwidth{
+        width:100px;
+    }
 </style>
 @endsection
 @section('content')

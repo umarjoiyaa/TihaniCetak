@@ -197,7 +197,7 @@
                                                     <li>
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#PRODUCTIONcollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="">
+                                                            <input type="checkbox" name="" id="Myinput2">
                                                             PRODUCTION
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
@@ -205,7 +205,7 @@
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    <input type="checkbox" class="myCheckbox2" name="" id="">
                                                                     JOBSHEET
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
@@ -215,7 +215,7 @@
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital4">
                                                                                 <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
+                                                                                    class="myCheckbox2 c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
@@ -228,7 +228,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox2 c1 c2"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -325,14 +325,14 @@
                                                     <li>
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#WMScollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id=""> WMS
+                                                            <input type="checkbox" name="" id="Myinput3"> WMS
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
                                                         <ul id="WMScollapseOne" class="collapse ">
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#WMStwo">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    <input type="checkbox" class="myCheckbox3" name="" id="">
                                                                     JOBSHEET
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
@@ -342,7 +342,7 @@
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital7">
                                                                                 <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
+                                                                                    class="myCheckbox3 c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
@@ -355,7 +355,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox3 c1 c2"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -452,7 +452,7 @@
                                                     <li>
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#SETTINGScollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="">
+                                                            <input type="checkbox" name="" id="Myinput4">
                                                             SETTINGS
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
@@ -460,7 +460,7 @@
                                                             <li>
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#SETTINGStwo">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    <input type="checkbox" class="myCheckbox4" name="" id="">
                                                                     ADMINISTRATION
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
@@ -470,7 +470,7 @@
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital10">
                                                                                 <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
+                                                                                    class="myCheckbox4 c1" name=""
                                                                                     id="input3">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
@@ -483,7 +483,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox4 c1 c2"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -574,6 +574,36 @@
                     $('.myCheckbox').prop('checked', false);
                 }
             });
+            $('#Myinput2').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Uncheck all checkboxes with class "myCheckbox"
+                    $('.myCheckbox2').prop('checked', true);
+                } else {
+                    // Check all checkboxes with class "myCheckbox"
+                    $('.myCheckbox2').prop('checked', false);
+                }
+            });
+            $('#Myinput3').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Uncheck all checkboxes with class "myCheckbox"
+                    $('.myCheckbox3').prop('checked', true);
+                } else {
+                    // Check all checkboxes with class "myCheckbox"
+                    $('.myCheckbox3').prop('checked', false);
+                }
+            });
+            $('#Myinput4').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Uncheck all checkboxes with class "myCheckbox"
+                    $('.myCheckbox4').prop('checked', true);
+                } else {
+                    // Check all checkboxes with class "myCheckbox"
+                    $('.myCheckbox4').prop('checked', false);
+                }
+            });
             $('#input0, #input1, #input2').change(function() {
                 // Check if all inputs are checked
                 var allChecked = $('#input0').is(':checked') && $('#input1').is(':checked') && $('#input2')
@@ -616,49 +646,111 @@
                 }
             });
 
-            $('#input3').change(function() {
+            $('#input03').change(function() {
                 // Check if the input is checked
                 if ($(this).is(':checked')) {
                     // Check all checkboxes with class "l2"
-                    $('.c2').prop('checked', true);
+                    $('.c0').prop('checked', true);
                 } else {
                     // Uncheck all checkboxes with class "l2"
-                    $('.c2').prop('checked', false);
+                    $('.c0').prop('checked', false);
+                }
+            });
+            $('#input04').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Check all checkboxes with class "l2"
+                    $('.c02').prop('checked', true);
+                } else {
+                    // Uncheck all checkboxes with class "l2"
+                    $('.c02').prop('checked', false);
+                }
+            });
+            $('#input05').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Check all checkboxes with class "l2"
+                    $('.c01').prop('checked', true);
+                } else {
+                    // Uncheck all checkboxes with class "l2"
+                    $('.c01').prop('checked', false);
+                }
+            });
+            $('#input03, #input04, #input05').change(function() {
+                // Check if all inputs are checked
+                var allChecked = $('#input03').is(':checked') && $('#input04').is(':checked') && $('#input05')
+                    .is(':checked');
+
+                // Set Myinput accordingly
+                $('#Myinput2').prop('checked', allChecked);
+            });
+
+            $('#input06').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Check all checkboxes with class "l2"
+                    $('.cl2').prop('checked', true);
+                } else {
+                    // Uncheck all checkboxes with class "l2"
+                    $('.cl2').prop('checked', false);
+                }
+            });
+            $('#input07').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Check all checkboxes with class "l2"
+                    $('.cl1').prop('checked', true);
+                } else {
+                    // Uncheck all checkboxes with class "l2"
+                    $('.cl1').prop('checked', false);
+                }
+            });
+            $('#input08').change(function() {
+                // Check if the input is checked
+                if ($(this).is(':checked')) {
+                    // Check all checkboxes with class "l2"
+                    $('.cl').prop('checked', true);
+                } else {
+                    // Uncheck all checkboxes with class "l2"
+                    $('.cl').prop('checked', false);
                 }
             });
 
-            $('#input4').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.l3').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.l3').prop('checked', false);
-                }
+            $('#input06, #input07, #input08').change(function() {
+                // Check if all inputs are checked
+                var allChecked = $('#input06').is(':checked') && $('#input07').is(':checked') && $('#input08')
+                    .is(':checked');
+
+                // Set Myinput accordingly
+                $('#Myinput3f').prop('checked', allChecked);
             });
 
-
-            $('#input5').change(function() {
+            $('#input09').change(function() {
                 // Check if the input is checked
                 if ($(this).is(':checked')) {
                     // Check all checkboxes with class "l2"
-                    $('.l4').prop('checked', true);
+                    $('.cl4').prop('checked', true);
                 } else {
                     // Uncheck all checkboxes with class "l2"
-                    $('.l4').prop('checked', false);
+                    $('.cl4').prop('checked', false);
                 }
             });
-
-            $('#input05, p1, p2, p3, p4, p5, p6, p7').change(function() {
+            $('#input010').change(function() {
                 // Check if the input is checked
                 if ($(this).is(':checked')) {
                     // Check all checkboxes with class "l2"
-                    $('.l5, .l6, .l7, .l8, .l9, .l10, .l11, .l12').prop('checked', true);
+                    $('.cl3').prop('checked', true);
                 } else {
                     // Uncheck all checkboxes with class "l2"
-                    $('.l5, .l6, .l7, .l8, .l9, .l10, .l11, .l12').prop('checked', false);
+                    $('.cl3').prop('checked', false);
                 }
+            });
+            $('#input09, #input10').change(function() {
+                // Check if all inputs are checked
+                var allChecked = $('#input09').is(':checked') && $('#input10').is(':checked') ;
+
+                // Set Myinput accordingly
+                $('#Myinput4').prop('checked', allChecked);
             });
         });
     </script>
