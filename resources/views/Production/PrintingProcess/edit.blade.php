@@ -536,6 +536,33 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <h4>Total Output Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered" id="output_table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Section No.</th>
+                                                    <th>Side</th>
+                                                    <th>Last Print</th>
+                                                    <th>Waste Paper</th>
+                                                    <th>Rejection</th>
+                                                    <th>Good Count</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <h5><b>Production Machine Detail</b></h5>
                                     </div>
                                     <div class="col-md-12">
@@ -750,6 +777,8 @@
                 sessionStorage.setItem(`formData${element.printing_detail_id}`, JSON.stringify(dataObject));
             });
 
+            $('#saveModal').trigger('click');
+
             var jumlahSection = @json($sectionArray);
             $('#section_nos').append(`<option selected disabled>Select Seksyen No</option>`);
             jumlahSection.forEach(element => {
@@ -871,6 +900,52 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let totals = {};
+
+            $('#output_table tbody').html('');
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    let section = storedData.section_no;
+                    let side = storedData.side;
+
+                    if (!totals[section]) {
+                        totals[section] = {};
+                    }
+                    if (!totals[section][side]) {
+                        totals[section][side] = {
+                            total_last_print: 0,
+                            total_waste_paper: 0,
+                            total_rejection: 0,
+                            total_good_count: 0
+                        };
+                    }
+
+                    totals[section][side].total_last_print += parseFloat(storedData.last_print);
+                    totals[section][side].total_waste_paper += parseFloat(storedData.waste_paper);
+                    totals[section][side].total_rejection += parseFloat(storedData.rejection);
+                    totals[section][side].total_good_count += parseFloat(storedData.good_count);
+                }
+            });
+
+            for (let section in totals) {
+                for (let side in totals[section]) {
+                    let sideTotal = totals[section][side];
+                    $('#output_table tbody').append(`
+                        <tr>
+                            <td>${section}</td>
+                            <td>${side}</td>
+                            <td>${sideTotal.total_last_print}</td>
+                            <td>${sideTotal.total_waste_paper}</td>
+                            <td>${sideTotal.total_rejection}</td>
+                            <td>${sideTotal.total_good_count}</td>
+                        </tr>
+                    `);
+                }
+            }
         });
 
         $(document).on('click', '.check_operator', function() {

@@ -1073,6 +1073,24 @@
                 hiddenId: hiddenId
             };
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let total_last_print = 0;
+            let total_waste_print = 0;
+            let total_rejection = 0;
+            let total_good_count = 0;
+            let total_meter_click = 0;
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    total_last_print += parseFloat(storedData.last_print);
+                    total_waste_print += parseFloat(storedData.waste_print);
+                    total_rejection += parseFloat(storedData.rejection);
+                    total_good_count += parseFloat(storedData.good_count);
+                    total_meter_click += parseFloat(storedData.meter_click);
+                }
+            });
         });
 
         $('#saveForm').on('click', function() {
