@@ -276,7 +276,7 @@
                                                 <tr>
                                                     <th>Kedudukan Kulit buku dan teks</th>
                                                     <th>Artwork Kulit buku dan teks</th>
-                                                    <th>Turutan Seksyen/ muta surat</th>
+                                                    <th>Turutan Seksyen/ muka surat</th>
                                                     <th>Rosak/Koyak</th>
                                                     <th>Kotor</th>
                                                 </tr>

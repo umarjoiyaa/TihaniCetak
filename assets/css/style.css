@@ -14306,7 +14306,7 @@ IE ::-ms-backdrop {
 .main-profile-menu .dropdown-item:focus,
 .main-profile-menu .dropdown-item:hover {
   background-color: transparent;
-  color: #18002D;
+  color: #18002D !important;
 }
 .main-profile-menu .dropdown-item + .dropdown-item {
   border-top: 1px dotted #e2eaf9;

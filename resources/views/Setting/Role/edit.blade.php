@@ -67,15 +67,16 @@
                                                     {{-- MES --}}
                                                     <li>
                                                         <input type="checkbox" name="" id="Myinput"> Mes
-                                                        <label for="" data-toggle="collapse"
+                                                        <label for="" data-toggle="collapse" 
                                                             data-target="#ProductioncollapseOne" style="cursor:pointer;">
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
                                                         <ul id="ProductioncollapseOne" class="collapse ">
                                                             <li>
+                                                            <input type="checkbox" class="  " name=""
+                                                                        id="input0">
                                                                 <label for="">
-                                                                    <input type="checkbox" class="myCheckbox" name=""
-                                                                        id="input0"> Management
+                                                                     Management
                                                                     <i class="ti-angle-down menu-arrow"
                                                                         data-toggle="collapse"
                                                                         data-target="#productiontwo"></i>
@@ -83,10 +84,11 @@
                                                                 <ul id="productiontwo" class="collapse ">
                                                                     @foreach ($managements as $key => $management)
                                                                         <li>
+                                                                        <input type="checkbox" class="myCheckbox a1"
+                                                                                    name="" id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital1">
-                                                                                <input type="checkbox" class="myCheckbox c1"
-                                                                                    name="" id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -98,7 +100,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a1"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -112,20 +114,21 @@
                                                                 </ul>
                                                             </li>
                                                             <li>
+                                                                <input type="checkbox" class="myCheckbox" name=""
+                                                                        id="input1">
                                                                 <label for="">
-                                                                    <input type="checkbox" class="myCheckbox" name=""
-                                                                        id="input1"> Laporan / Rekod Proses<i
+                                                                     Laporan / Rekod Proses<i
                                                                         class="ti-angle-down menu-arrow"
                                                                         data-toggle="collapse"
                                                                         data-target="#productionthree"></i>
                                                                 </label>
                                                                 <ul id="productionthree" class="collapse ">
                                                                     @foreach ($laporan_rekod_proses as $key => $laporan_rekod_prose)
-                                                                        <li>
+                                                                        <li><input type="checkbox" class="myCheckbox a2"
+                                                                                    name="" id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital2">
-                                                                                <input type="checkbox" class="myCheckbox c1"
-                                                                                    name="" id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -137,7 +140,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a2"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -165,8 +168,8 @@
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital3">
                                                                                 <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                                    class="myCheckbox a3" name=""
+                                                                                    id="">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -178,7 +181,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a3"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -195,17 +198,19 @@
                                                     </li>
                                                     {{-- PRODUCTION --}}
                                                     <li>
+                                                    <input type="checkbox" name="" id="Myinput2">
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#PRODUCTIONcollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="Myinput2">
+                                                            
                                                             PRODUCTION
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
                                                         <ul id="PRODUCTIONcollapseOne" class="collapse ">
                                                             <li>
+                                                            <input type="checkbox" class="myCheckbox2" name="" id="input3">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo">
-                                                                    <input type="checkbox" class="myCheckbox2" name="" id="">
+                                                                    
                                                                     JOBSHEET
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
@@ -215,8 +220,8 @@
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital4">
                                                                                 <input type="checkbox"
-                                                                                    class="myCheckbox2 c1" name=""
-                                                                                    id="input3">
+                                                                                    class="myCheckbox2 a4" name=""
+                                                                                    id="">
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -228,7 +233,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox2 c1 c2"
+                                                                                                    class="myCheckbox2 a4"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -242,20 +247,22 @@
                                                                 </ul>
                                                             </li>
                                                             <li>
+                                                                <input type="checkbox" name="" id="input4">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo1">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    
                                                                     PRODUCTION
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="PRODUCTIONtwo1" class="collapse ">
                                                                     @foreach ($productions as $key => $production)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox a5" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital5">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                               
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -267,7 +274,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a5"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -281,20 +288,22 @@
                                                                 </ul>
                                                             </li>
                                                             <li>
+                                                                <input type="checkbox" name="" id="input5">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo2">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    
                                                                     DASHBOARD
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="PRODUCTIONtwo2" class="collapse ">
                                                                     @foreach ($dashboards as $key => $dashboard)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox a6" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital6">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -306,7 +315,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a6"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -323,27 +332,30 @@
                                                     </li>
                                                     {{-- WMS --}}
                                                     <li>
+                                                        <input type="checkbox" name="" id="Myinput3">
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#WMScollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="Myinput3"> WMS
+                                                             WMS
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
                                                         <ul id="WMScollapseOne" class="collapse ">
                                                             <li>
+                                                                <input type="checkbox" class="myCheckbox3" name="" id="input6">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#WMStwo">
-                                                                    <input type="checkbox" class="myCheckbox3" name="" id="">
+                                                                    
                                                                     JOBSHEET
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="WMStwo" class="collapse ">
                                                                     @foreach ($wms_job_sheets as $key => $wms_job_sheet)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox3 a7" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital7">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox3 c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -355,7 +367,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox3 c1 c2"
+                                                                                                    class="myCheckbox3 a7"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -369,20 +381,22 @@
                                                                 </ul>
                                                             </li>
                                                             <li>
+                                                                <input type="checkbox" name="" id="input7">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo3">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    
                                                                     DASHBOARD
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="PRODUCTIONtwo3" class="collapse ">
                                                                     @foreach ($wms_dashboards as $key => $wms_dashboard)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox a8" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital8">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -394,7 +408,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a8"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -407,21 +421,23 @@
                                                                     @endforeach
                                                                 </ul>
                                                             </li>
-                                                            <li>
+                                                            <li> 
+                                                                <input type="checkbox" name="" id="input8">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo4">
-                                                                    <input type="checkbox" name="" id="">
+                                                                   
                                                                     REPORT
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="PRODUCTIONtwo4" class="collapse ">
                                                                     @foreach ($reports as $key => $report)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox a9" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital9">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -433,7 +449,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a9"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -450,28 +466,31 @@
                                                     </li>
                                                     {{-- SETTINGS --}}
                                                     <li>
+                                                        <input type="checkbox" name="" id="Myinput4">
                                                         <label for="" data-toggle="collapse"
                                                             data-target="#SETTINGScollapseOne" style="cursor:pointer;">
-                                                            <input type="checkbox" name="" id="Myinput4">
+                                                           
                                                             SETTINGS
                                                             <i class="ti-angle-down menu-arrow"></i>
                                                         </label>
                                                         <ul id="SETTINGScollapseOne" class="collapse ">
                                                             <li>
+                                                                <input type="checkbox" class="myCheckbox4" name="" id="input9">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#SETTINGStwo">
-                                                                    <input type="checkbox" class="myCheckbox4" name="" id="">
+                                                                    
                                                                     ADMINISTRATION
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="SETTINGStwo" class="collapse ">
                                                                     @foreach ($administrations as $key => $administration)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox4 a10" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital10">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox4 c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -483,7 +502,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox4 c1 c2"
+                                                                                                    class="myCheckbox4 a10"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -497,20 +516,22 @@
                                                                 </ul>
                                                             </li>
                                                             <li>
+                                                                <input type="checkbox" name="" id="input10">
                                                                 <label for="" data-toggle="collapse"
                                                                     data-target="#PRODUCTIONtwo5">
-                                                                    <input type="checkbox" name="" id="">
+                                                                    
                                                                     DATABASE
                                                                     <i class="ti-angle-down menu-arrow"></i>
                                                                 </label>
                                                                 <ul id="PRODUCTIONtwo5" class="collapse ">
                                                                     @foreach ($databases as $key => $database)
                                                                         <li>
+                                                                            <input type="checkbox"
+                                                                                    class="myCheckbox a11" name=""
+                                                                                    id="">
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital11">
-                                                                                <input type="checkbox"
-                                                                                    class="myCheckbox c1" name=""
-                                                                                    id="input3">
+                                                                                
                                                                                 {{ $key }} <i
                                                                                     class="ti-angle-down menu-arrow"></i>
                                                                             </label>
@@ -522,7 +543,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox c1 c2"
+                                                                                                    class="myCheckbox a11"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -560,198 +581,100 @@
     <script>
         $(document).ready(function() {
             $(".menu-arrow").click(function() {
-                $(this).closest('li').siblings().find('ul').hide();
+                var $parentLi = $(this).closest('li');
+                var $siblingsUl = $parentLi.siblings().find('ul');
+                
+                // Close other nested lists
+                $siblingsUl.hide();
+                $siblingsUl.prev('label').find('.menu-arrow').removeClass('ti-angle-up').addClass('ti-angle-down');
+
+                // Toggle current nested list
                 $(this).toggleClass('ti-angle-down ti-angle-up');
                 $(this).closest("label").next('ul').toggle();
             });
-            $('#Myinput').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Uncheck all checkboxes with class "myCheckbox"
-                    $('.myCheckbox').prop('checked', true);
-                } else {
-                    // Check all checkboxes with class "myCheckbox"
-                    $('.myCheckbox').prop('checked', false);
-                }
-            });
-            $('#Myinput2').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Uncheck all checkboxes with class "myCheckbox"
-                    $('.myCheckbox2').prop('checked', true);
-                } else {
-                    // Check all checkboxes with class "myCheckbox"
-                    $('.myCheckbox2').prop('checked', false);
-                }
-            });
-            $('#Myinput3').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Uncheck all checkboxes with class "myCheckbox"
-                    $('.myCheckbox3').prop('checked', true);
-                } else {
-                    // Check all checkboxes with class "myCheckbox"
-                    $('.myCheckbox3').prop('checked', false);
-                }
-            });
-            $('#Myinput4').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Uncheck all checkboxes with class "myCheckbox"
-                    $('.myCheckbox4').prop('checked', true);
-                } else {
-                    // Check all checkboxes with class "myCheckbox"
-                    $('.myCheckbox4').prop('checked', false);
-                }
-            });
-            $('#input0, #input1, #input2').change(function() {
-                // Check if all inputs are checked
-                var allChecked = $('#input0').is(':checked') && $('#input1').is(':checked') && $('#input2')
-                    .is(':checked');
 
-                // Set Myinput accordingly
-                $('#Myinput').prop('checked', allChecked);
+            function handleCheckboxChange(checkbox, childSelector) {
+            checkbox.change(function() {
+                $(childSelector).prop('checked', $(this).is(':checked'));
             });
 
-            $('#input0').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "c1"
-                    $('.c1').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "c1"
-                    $('.c1').prop('checked', false);
-                }
+            $(childSelector).change(function() {
+                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                checkbox.prop('checked', allChecked);
+            });
+        }
+
+        // Handling checkbox changes for parent "Mes"
+        handleCheckboxChange($('#Myinput'), '.myCheckbox');
+
+        // Handling checkbox changes for other parent checkboxes
+        handleCheckboxChange($('#input0'), '.a1');
+        handleCheckboxChange($('#input1'), '.a2');
+        handleCheckboxChange($('#input2'), '.a3');
+
+
+
+
+
+        function handleCheckboxChange(checkbox, childSelector) {
+            checkbox.on('change', function() {
+                $(childSelector).prop('checked', $(this).is(':checked'));
             });
 
-            $('#input1').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l1"
-                    $('.l1').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l1"
-                    $('.l1').prop('checked', false);
-                }
+            $(document).on('change', childSelector, function() {
+                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                checkbox.prop('checked', allChecked);
+            });
+        }
+
+            // Handling checkbox changes for parent "Myinput2"
+            handleCheckboxChange($('#Myinput2'), '.myCheckbox2');
+
+            // Handling checkbox changes for child checkboxes of each section
+            handleCheckboxChange($('#input03'), '.a4');
+            handleCheckboxChange($('#input04'), '.a5');
+            handleCheckboxChange($('#input05'), '.a6');
+
+
+            function handleCheckboxChange(checkbox, childSelector) {
+            checkbox.on('change', function() {
+                $(childSelector).prop('checked', $(this).is(':checked'));
             });
 
-            $('#input2').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.l2').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.l2').prop('checked', false);
-                }
+            $(document).on('change', childSelector, function() {
+                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                checkbox.prop('checked', allChecked);
+            });
+        }
+
+            // Handling checkbox changes for parent "Myinput3"
+            handleCheckboxChange($('#Myinput3'), '.myCheckbox3');
+
+            // Handling checkbox changes for child checkboxes of each section
+            handleCheckboxChange($('#input06'), '.a7');
+            handleCheckboxChange($('#input07'), '.a8');
+            handleCheckboxChange($('#input08'), '.a9');
+
+            function handleCheckboxChange(checkbox, childSelector) {
+            checkbox.on('change', function() {
+                $(childSelector).prop('checked', $(this).is(':checked'));
             });
 
-            $('#input03').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.c0').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.c0').prop('checked', false);
-                }
+            $(document).on('change', childSelector, function() {
+                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                checkbox.prop('checked', allChecked);
             });
-            $('#input04').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.c02').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.c02').prop('checked', false);
-                }
-            });
-            $('#input05').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.c01').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.c01').prop('checked', false);
-                }
-            });
-            $('#input03, #input04, #input05').change(function() {
-                // Check if all inputs are checked
-                var allChecked = $('#input03').is(':checked') && $('#input04').is(':checked') && $('#input05')
-                    .is(':checked');
+        }
 
-                // Set Myinput accordingly
-                $('#Myinput2').prop('checked', allChecked);
-            });
+            // Handling checkbox changes for parent "Myinput4"
+            handleCheckboxChange($('#Myinput4'), '.myCheckbox4');
 
-            $('#input06').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.cl2').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.cl2').prop('checked', false);
-                }
-            });
-            $('#input07').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.cl1').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.cl1').prop('checked', false);
-                }
-            });
-            $('#input08').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.cl').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.cl').prop('checked', false);
-                }
-            });
+            // Handling checkbox changes for child checkboxes of each section
+            handleCheckboxChange($('#input09'), '.a10');
+            handleCheckboxChange($('#input10'), '.a11');
+           
 
-            $('#input06, #input07, #input08').change(function() {
-                // Check if all inputs are checked
-                var allChecked = $('#input06').is(':checked') && $('#input07').is(':checked') && $('#input08')
-                    .is(':checked');
-
-                // Set Myinput accordingly
-                $('#Myinput3f').prop('checked', allChecked);
-            });
-
-            $('#input09').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.cl4').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.cl4').prop('checked', false);
-                }
-            });
-            $('#input010').change(function() {
-                // Check if the input is checked
-                if ($(this).is(':checked')) {
-                    // Check all checkboxes with class "l2"
-                    $('.cl3').prop('checked', true);
-                } else {
-                    // Uncheck all checkboxes with class "l2"
-                    $('.cl3').prop('checked', false);
-                }
-            });
-            $('#input09, #input10').change(function() {
-                // Check if all inputs are checked
-                var allChecked = $('#input09').is(':checked') && $('#input10').is(':checked') ;
-
-                // Set Myinput accordingly
-                $('#Myinput4').prop('checked', allChecked);
-            });
+            
         });
     </script>
 @endpush

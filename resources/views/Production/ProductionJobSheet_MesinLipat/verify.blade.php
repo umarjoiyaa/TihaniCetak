@@ -12,7 +12,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -42,7 +42,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f1f0f0;">
+                    <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-4 ">
@@ -140,7 +140,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -185,7 +185,7 @@
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
@@ -264,8 +264,8 @@
                                 <!-- Modal -->
                                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                                     aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog" role="document">
-                                        <div class="modal-content" style="width:1200px; margin-left:-350px;">
+                                    <div class="modal-dialog modal-xl" role="document">
+                                        <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Production Output Details
                                                 </h5>

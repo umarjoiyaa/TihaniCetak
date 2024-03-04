@@ -15,7 +15,7 @@
         height:200px;
     }
     .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
-        color:#fff;
+        color:;
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {

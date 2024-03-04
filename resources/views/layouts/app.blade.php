@@ -65,10 +65,6 @@
         .dropdown {
             cursor: pointer;
         }
-
-        .horizontalMenu-list .box a:hover {
-            color: #fff;
-        }
         .select2-container--default .select2-selection--multiple .select2-selection__choice{
             background:;
             color:black;
@@ -97,7 +93,12 @@
         .card .card-body .card{
             background:#f4f4ff;
         }
-
+        .main-header-right .dropdown-item:hover{
+            color:#000;
+        }
+        select{
+            width:100% !important;
+        }
     </style>
 
 </head>

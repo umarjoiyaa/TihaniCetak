@@ -1,5 +1,9 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+    
+</style>
+@endsection
 @section('content')
     <form action="{{ route('digital_printing.proses.update', $digital_printing->id) }}" method="POST">
         @csrf
@@ -42,23 +46,23 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0;">
+                        <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5><b>Production Button</b></h5>
                                     </div>
-                                    <div class="col-md-4 ">
+                                    <div class="col-md-4 mt-3">
                                         <button id="play" onclick="machineStarter(1, {{ $digital_printing->id }})"
                                             type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
                                                 class="la la-play" style="font-size:20px;"></i>Start</button>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-3">
                                         <button id="pause" type="button" class="btn btn-light w-100"
                                             style="border:1px solid black;"><i class="la la-pause"
                                                 style="font-size:20px;"></i>Pause</button>
                                     </div>
-                                    <div class="col-md-4  ">
+                                    <div class="col-md-4 mt-3">
                                         <div class="box">
                                             <button id="stop" onclick="machineStarter(3, {{ $digital_printing->id }})"
                                                 type="button" class="btn btn-light w-100"
@@ -73,7 +77,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0;">
+                        <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-4 mt-3">
@@ -251,7 +255,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row mt-3">
                                     <div class="col-md-12">
@@ -316,7 +320,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row mt-3">
                                     <div class="col-md-12">
@@ -376,7 +380,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -563,7 +567,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -721,92 +725,96 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h4>Jobsheet Details</h4>
                                     </div>
                                     <div class="col-md-12">
+                                       <div class="table-responsive">
                                         <table class="table table-bordered" id="jobsheet_detail_table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Action</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total Time(min)</th>
-                                                    <th>Machine</th>
-                                                    <th>Remarks</th>
-                                                    <th>Operator</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
+                                                <thead>
                                                     <tr>
-                                                        <td><button type="button" data-toggle="modal"
-                                                                data-target="#exampleModal"
-                                                                class="btn btn-primary openModal">+</button>
-                                                            <input type="hidden" class="hiddenId"
-                                                                value="{{ $detail->id }}">
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
+                                                        <th>Action</th>
+                                                        <th>Start datetime</th>
+                                                        <th>End datetime</th>
+                                                        <th>Total Time(min)</th>
+                                                        <th>Machine</th>
+                                                        <th>Remarks</th>
+                                                        <th>Operator</th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($details as $detail)
+                                                        <tr>
+                                                            <td><button type="button" data-toggle="modal"
+                                                                    data-target="#exampleModal"
+                                                                    class="btn btn-primary openModal">+</button>
+                                                                <input type="hidden" class="hiddenId"
+                                                                    value="{{ $detail->id }}">
+                                                            </td>
+                                                            <td>{{ $detail->start_time }}</td>
+                                                            <td>{{ $detail->end_time }}</td>
+                                                            <td>{{ $detail->duration }}</td>
+                                                            <td>
+                                                                {{ $detail->machine }}
+                                                            </td>
+                                                            <td>{{ $detail->remarks }}</td>
+                                                            <td class="operator_text"></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                       </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <h5><b>Production Machine Detail</b></h5>
                                     </div>
                                     <div class="col-md-12">
-                                        <table class="table table-bordered" id="machine_detail_table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Process</th>
-                                                    <th>Machine</th>
-                                                    <th>Start datetime</th>
-                                                    <th>End datetime</th>
-                                                    <th>Total time</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                @foreach ($details as $detail)
+                                        <div class="table-responsive">
+                                            <table class="table table-bordered" id="machine_detail_table">
+                                                <thead>
                                                     <tr>
-                                                        <td>
-                                                            @if ($detail->status == 1)
-                                                                <span class="badge badge-success">Started</span>
-                                                            @elseif ($detail->status == 2)
-                                                                <span class="badge badge-warning">Paused</span>
-                                                            @elseif ($detail->status == 3)
-                                                                <span class="badge badge-danger">Stopped</span>
-                                                            @else
-                                                                <span class="badge badge-info">Not-initiated</span>
-                                                            @endif
-                                                        </td>
-                                                        <td>
-                                                            {{ $detail->machine }}
-                                                        </td>
-                                                        <td>{{ $detail->start_time }}</td>
-                                                        <td>{{ $detail->end_time }}</td>
-                                                        <td>{{ $detail->duration }}</td>
+                                                        <th>Process</th>
+                                                        <th>Machine</th>
+                                                        <th>Start datetime</th>
+                                                        <th>End datetime</th>
+                                                        <th>Total time</th>
                                                     </tr>
-                                                @endforeach
-                                            </tbody>
-                                        </table>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($details as $detail)
+                                                        <tr>
+                                                            <td>
+                                                                @if ($detail->status == 1)
+                                                                    <span class="badge badge-success">Started</span>
+                                                                @elseif ($detail->status == 2)
+                                                                    <span class="badge badge-warning">Paused</span>
+                                                                @elseif ($detail->status == 3)
+                                                                    <span class="badge badge-danger">Stopped</span>
+                                                                @else
+                                                                    <span class="badge badge-info">Not-initiated</span>
+                                                                @endif
+                                                            </td>
+                                                            <td>
+                                                                {{ $detail->machine }}
+                                                            </td>
+                                                            <td>{{ $detail->start_time }}</td>
+                                                            <td>{{ $detail->end_time }}</td>
+                                                            <td>{{ $detail->duration }}</td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -855,8 +863,8 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width:1200px; margin-left:-350px;">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content " >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <span aria-hidden="true" data-dismiss="modal" style="color:red; font-size:30px; cursor:pointer;">&times;</span>
@@ -864,43 +872,43 @@
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                        <table class="table table-bordered" id="modalTable">
-                            <thead>
-                                <tr>
-                                    <th>Last Print</th>
-                                    <th>Waste Print</th>
-                                    <th>Rejection</th>
-                                    <th>Good count</th>
-                                    <th>Meter Click</th>
-                                    <th>Check</th>
-                                    <th></th>
-                                    <th>Verify</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control last_print" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control waste_print" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control rejection" style="width:150px;"></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control good_count" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control meter_click" style="width:150px;"></td>
-                                    <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_operator_text"></td>
-                                    <td><button disabled type="button"
-                                            class="btn btn-primary check_verify">Verify</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_verify_text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                            <table class="table table-bordered" id="modalTable">
+                                <thead>
+                                    <tr>
+                                        <th>Last Print</th>
+                                        <th>Waste Print</th>
+                                        <th>Rejection</th>
+                                        <th>Good count</th>
+                                        <th>Meter Click</th>
+                                        <th>Check</th>
+                                        <th></th>
+                                        <th>Verify</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control last_print" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control waste_print" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control rejection" style="width:150px;"></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control good_count" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control meter_click" style="width:150px;"></td>
+                                        <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_operator_text"></td>
+                                        <td><button disabled type="button"
+                                                class="btn btn-primary check_verify">Verify</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_verify_text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
