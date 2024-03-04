@@ -689,6 +689,32 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
+                                <h4>Total Output Details</h4>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table table-bordered" id="output_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Side</th>
+                                            <th>Last Print</th>
+                                            <th>Waste Paper</th>
+                                            <th>Rejection</th>
+                                            <th>Good Count</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
                                 <h5><b>Production Machine Detail</b></h5>
                             </div>
                             <div class="col-md-12">
@@ -912,6 +938,7 @@
                 sessionStorage.setItem(`formData${element.cover_paper_detail_id}`, JSON.stringify(
                     dataObject));
             });
+            $('#saveModal').trigger('click');
         });
 
         function check_machines(check_machines) {
@@ -1016,6 +1043,53 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let sideTotals = {
+                'A': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                },
+                'B': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                },
+                'A/B': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                }
+            };
+
+            $('#output_table tbody').html('');
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    let side = storedData.side;
+                    sideTotals[side].total_last_print += parseFloat(storedData.last_print);
+                    sideTotals[side].total_waste_paper += parseFloat(storedData.waste_paper);
+                    sideTotals[side].total_rejection += parseFloat(storedData.rejection);
+                    sideTotals[side].total_good_count += parseFloat(storedData.good_count);
+                }
+            });
+
+            for (let side in sideTotals) {
+                let sideTotal = sideTotals[side];
+                $('#output_table tbody').append(`
+                <tr>
+                    <td>${side}</td>
+                    <td>${sideTotal.total_last_print}</td>
+                    <td>${sideTotal.total_waste_paper}</td>
+                    <td>${sideTotal.total_rejection}</td>
+                    <td>${sideTotal.total_good_count}</td>
+                </tr>`);
+            }
         });
 
         $(document).on('click', '.check_verify', function() {

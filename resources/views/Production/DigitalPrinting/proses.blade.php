@@ -772,6 +772,70 @@
                             </div>
                         </div>
 
+                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Total Output Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Last Print</th>
+                                                    <th>Waste Print</th>
+                                                    <th>Rejection</th>
+                                                    <th>Good Count</th>
+                                                    <th>Meter Click</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="total_last_print"></td>
+                                                    <td class="total_waste_print"></td>
+                                                    <td class="total_rejection"></td>
+                                                    <td class="total_good_count"></td>
+                                                    <td class="total_meter_click"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Total Output Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Last Print</th>
+                                                    <th>Waste Print</th>
+                                                    <th>Rejection</th>
+                                                    <th>Good Count</th>
+                                                    <th>Meter Click</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="total_last_print"></td>
+                                                    <td class="total_waste_print"></td>
+                                                    <td class="total_rejection"></td>
+                                                    <td class="total_good_count"></td>
+                                                    <td class="total_meter_click"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
@@ -867,7 +931,8 @@
                 <div class="modal-content " >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                        <span aria-hidden="true" data-dismiss="modal" style="color:red; font-size:30px; cursor:pointer;">&times;</span>
+                        <span aria-hidden="true" data-dismiss="modal"
+                            style="color:red; font-size:30px; cursor:pointer;">&times;</span>
                         <input type="hidden" class="digital_printing_detail_id">
                     </div>
                     <div class="modal-body">
@@ -978,6 +1043,7 @@
 
                 sessionStorage.setItem(`formData${element.digital_detail_id}`, JSON.stringify(dataObject));
             });
+            $('#saveModal').trigger('click');
         });
 
         function check_machines(check_machines) {
@@ -1086,6 +1152,30 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let total_last_print = 0;
+            let total_waste_print = 0;
+            let total_rejection = 0;
+            let total_good_count = 0;
+            let total_meter_click = 0;
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    total_last_print += parseFloat(storedData.last_print);
+                    total_waste_print += parseFloat(storedData.waste_print);
+                    total_rejection += parseFloat(storedData.rejection);
+                    total_good_count += parseFloat(storedData.good_count);
+                    total_meter_click += parseFloat(storedData.meter_click);
+                }
+            });
+
+            $('.total_last_print').text(total_last_print);
+            $('.total_waste_print').text(total_waste_print);
+            $('.total_rejection').text(total_rejection);
+            $('.total_good_count').text(total_good_count);
+            $('.total_meter_click').text(total_meter_click);
         });
 
         $(document).on('click', '.check_operator', function() {
@@ -1097,16 +1187,19 @@
         });
 
         function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
         $('#saveForm').on('click', function() {
             let array = [];

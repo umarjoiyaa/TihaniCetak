@@ -7,6 +7,7 @@ use App\Models\PrintingProcess;
 use App\Models\PrintingProcessDetail;
 use App\Models\PrintingProcessDetailB;
 use App\Models\User;
+use App\Models\Text;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -493,6 +494,10 @@ class PrintingProcessController extends Controller
                 $digital = PrintingProcess::find($request->printing_id);
                 $digital->status = 'Completed';
                 $digital->save();
+                $records = PrintingProcess::where('text_id', '=', $digital->text_id)->get();
+                if ($records->every(fn ($record) => $record->status === 'Completed')) {
+                    Text::where('id', $digital->text_id)->update(['status' => 'Completed']);
+                }
                 $check_machine = PrintingProcessDetail::where('machine', '=', $request->machine)->where('printing_id',  '=', $request->printing_id)->orderby('id', 'DESC')->first();
                 $details = PrintingProcessDetail::where('printing_id',  '=', $request->printing_id)->orderby('id', 'ASC')->get();
                 return response()->json([

@@ -28,7 +28,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Time</label>
-                                        <input type="time" name="time"
+                                        <input type="text" name="time"
                                             value="{{ $laporan_proses_penjilidan_saddle->time }}" id="Currenttime"
                                             class="form-control">
                                     </div>
@@ -79,7 +79,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="form-label">Size</div>
+                                            <div class="form-label">Saiz</div>
                                             <input type="text" readonly
                                                 value="{{ $laporan_proses_penjilidan_saddle->sale_order->size }}"
                                                 id="size" class="form-control">
@@ -283,7 +283,7 @@
                                                     <th>Kedudukan dawai pin</th>
                                                     <th>Kedudukan Kulit buku dan teks</th>
                                                     <th>Artwork Kulit buku dan teks</th>
-                                                    <th>Turutan Seksyen/ muta surat</th>
+                                                    <th>Turutan Seksyen/ muka surat</th>
                                                     <th>Saiz potongan</th>
                                                     <th>Rosak/Koyak</th>
                                                     <th>Kotor</th>

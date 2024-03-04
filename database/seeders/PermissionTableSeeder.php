@@ -254,6 +254,7 @@ class PermissionTableSeeder extends Seeder
             'PRINTING PROCESS Update',
             'PRINTING PROCESS Verify',
             'PRINTING PROCESS View',
+            'PRODUCTION SCHEDULING View',
          ];
 
         foreach ($permissions as $permission) {

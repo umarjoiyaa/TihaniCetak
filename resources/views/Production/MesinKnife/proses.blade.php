@@ -185,6 +185,34 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
+                                        <h4>Total Output Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Good Count</th>
+                                                    <th>Rejection</th>
+                                                    <th>Total Produce</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="total_good_count"></td>
+                                                    <td class="total_rejection"></td>
+                                                    <td class="total_total_produce"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
                                         <h5><b>Production Machine Detail</b></h5>
                                     </div>
                                     <div class="col-md-12">
@@ -358,6 +386,7 @@
                 sessionStorage.setItem(`formData${element.knife_detail_id}`, JSON.stringify(
                     dataObject));
             });
+            $('#saveModal').trigger('click');
         });
 
         function check_machines(check_machines) {
@@ -457,6 +486,24 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let total_good_count = 0;
+            let total_rejection = 0;
+            let total_total_produce = 0;
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    total_good_count += parseFloat(storedData.good_count);
+                    total_rejection += parseFloat(storedData.rejection);
+                    total_total_produce += parseFloat(storedData.total_produce);
+                }
+            });
+
+            $('.total_good_count').text(total_good_count);
+            $('.total_rejection').text(total_rejection);
+            $('.total_total_produce').text(total_total_produce);
         });
 
         $(document).on('click', '.check_operator', function() {

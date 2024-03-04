@@ -28,9 +28,9 @@
                                                 class="la la-play" style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
-                                        <button id="pause"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-pause" style="font-size:20px;"></i>Pause</button>
+                                        <button id="pause" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-pause"
+                                                style="font-size:20px;"></i>Pause</button>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="box">
@@ -195,7 +195,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
 
                         <div class="row">
                             <div class="col-md-12">
@@ -207,11 +207,13 @@
                                                 <div class="form-group">
                                                     <div class="row mt-4 ">
                                                         <div class="col-md-1"><input type="checkbox" class="checkbox"
-                                                                name="front" @checked($cover_end_paper->front == 'on') id="">
+                                                                name="front" @checked($cover_end_paper->front == 'on')
+                                                                id="">
                                                         </div>
                                                         <div class="col-md-2">Front</div>
                                                         <div class="col-md-1"><input type="checkbox" class="checkbox"
-                                                                name="back" @checked($cover_end_paper->back == 'on') id="">
+                                                                name="back" @checked($cover_end_paper->back == 'on')
+                                                                id="">
                                                         </div>
                                                         <div class="col-md-2">back</div>
                                                     </div>
@@ -235,7 +237,8 @@
                                         <div class="row mt-2">
                                             <div class="col-md-4 ">
                                                 <label for="">Print Cut</label>
-                                                <select name="print_cut" id="printSelect" class="form-control form-select">
+                                                <select name="print_cut" id="printSelect"
+                                                    class="form-control form-select">
                                                     <option value="1" @selected($cover_end_paper->print_cut == '1')>1</option>
                                                     <option value="2" @selected($cover_end_paper->print_cut == '2')>2</option>
                                                     <option value="3" @selected($cover_end_paper->print_cut == '3')>3</option>
@@ -246,7 +249,8 @@
                                                     <option value="12" @selected($cover_end_paper->print_cut == '12')>12</option>
                                                     <option value="14" @selected($cover_end_paper->print_cut == '14')>14</option>
                                                     <option value="16" @selected($cover_end_paper->print_cut == '16')>16</option>
-                                                    <option value="Others" @selected($cover_end_paper->print_cut == 'Others') id="newInputOption">
+                                                    <option value="Others" @selected($cover_end_paper->print_cut == 'Others')
+                                                        id="newInputOption">
                                                         Others</option>
                                                 </select>
                                             </div>
@@ -278,7 +282,8 @@
                                             <div class="col-md-4">
                                                 <label for="">status</label>
                                                 <input type="text" readonly name="" id="status"
-                                                    class="form-control" value="{{ $cover_end_paper->sale_order->status }}">
+                                                    class="form-control"
+                                                    value="{{ $cover_end_paper->sale_order->status }}">
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="">Plate</label>
@@ -288,7 +293,8 @@
                                             <div class="col-md-4">
                                                 <label for="">Saiz Produk</label>
                                                 <input type="text" readonly name="" id="saiz_produk"
-                                                    class="form-control" value="{{ $cover_end_paper->sale_order->size }}">
+                                                    class="form-control"
+                                                    value="{{ $cover_end_paper->sale_order->size }}">
                                             </div>
                                         </div>
                                     </div>
@@ -328,7 +334,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_1 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_1 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select>
@@ -346,7 +353,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_2 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_2 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -364,7 +372,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_3 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_3 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -383,7 +392,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_4 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_4 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -401,7 +411,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_5 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_5 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -423,7 +434,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_6 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_6 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -440,7 +452,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_7 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_7 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -457,7 +470,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_8 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_8 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -468,13 +482,14 @@
                                                                     class=" mr-5">UV
                                                                 Vanish
                                                             </td>
-                                                            <td><select name="finishing_supplier_9" disabled id="print11"
-                                                                    class="form-control form-select">
+                                                            <td><select name="finishing_supplier_9" disabled
+                                                                    id="print11" class="form-control form-select">
                                                                     <option value="In-house" @selected($cover_end_paper->finishing_supplier_9 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_9 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_9 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -486,13 +501,14 @@
                                                                     class=" mr-5">Spot
                                                                 corse UV
                                                             </td>
-                                                            <td><select name="finishing_supplier_10" disabled id="print12"
-                                                                    class="form-control form-select">
+                                                            <td><select name="finishing_supplier_10" disabled
+                                                                    id="print12" class="form-control form-select">
                                                                     <option value="In-house" @selected($cover_end_paper->finishing_supplier_10 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_10 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_10 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -511,7 +527,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_11 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_11 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -530,7 +547,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_12 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_12 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -548,7 +566,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_13 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_13 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -566,7 +585,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_14 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_14 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -585,7 +605,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_15 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_15 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -604,7 +625,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_16 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_16 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -627,7 +649,8 @@
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($cover_end_paper->finishing_supplier_17 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($cover_end_paper->finishing_supplier_17 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -709,6 +732,32 @@
                         </div>
 
                         <div class="card" style="background:#f4f4ff; border-radius:5px;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h4>Total Output Details</h4>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <table class="table table-bordered" id="output_table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Side</th>
+                                                    <th>Last Print</th>
+                                                    <th>Waste Paper</th>
+                                                    <th>Rejection</th>
+                                                    <th>Good Count</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
@@ -799,51 +848,54 @@
                 <div class="modal-content" >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                        <span aria-hidden="true" data-dismiss="modal" style="color:red; font-size:30px; cursor:pointer;">&times;</span>
+                        <span aria-hidden="true" data-dismiss="modal"
+                            style="color:red; font-size:30px; cursor:pointer;">&times;</span>
                         <input type="hidden" class="cover_paper_detail_id">
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                        <table class="table table-bordered" id="modalTable">
-                            <thead>
-                                <tr>
-                                    <th>Side</th>
-                                    <th>Last Print</th>
-                                    <th>Waste paper</th>
-                                    <th>Rejection</th>
-                                    <th>Good count</th>
-                                    <th>Check</th>
-                                    <th></th>
-                                    <th>Verify</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><select name="" id="" class="form-control side" style="width:150px;">
-                                        <option value="">Select Side</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="A/B">A/B</option>
-                                    </select></td>
-                                    <td><input type="text" name="" id=""
-                                        class="form-control last_print" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control waste_paper" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control rejection" style="width:150px;"></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control good_count" style="width:150px;"></td>
-                                    <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_operator_text"></td>
-                                    <td><button disabled type="button"
-                                            class="btn btn-primary check_verify">Verify</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_verify_text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <table class="table table-bordered" id="modalTable">
+                                <thead>
+                                    <tr>
+                                        <th>Side</th>
+                                        <th>Last Print</th>
+                                        <th>Waste paper</th>
+                                        <th>Rejection</th>
+                                        <th>Good count</th>
+                                        <th>Check</th>
+                                        <th></th>
+                                        <th>Verify</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><select name="" id="" class="form-control side"
+                                                style="width:150px;">
+                                                <option value="">Select Side</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="A/B">A/B</option>
+                                            </select></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control last_print" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control waste_paper" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control rejection" style="width:150px;"></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control good_count" style="width:150px;"></td>
+                                        <td><button type="button" class="btn btn-primary check_operator">Check</button>
+                                        </td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_operator_text"></td>
+                                        <td><button disabled type="button"
+                                                class="btn btn-primary check_verify">Verify</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_verify_text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -853,33 +905,33 @@
                 </div>
             </div>
         </div>
-            <!-- The Modal -->
-    <div class="modal fade" id="pauseModal">
-        <div class="modal-dialog modal-md">
-            <div class="modal-content">
+        <!-- The Modal -->
+        <div class="modal fade" id="pauseModal">
+            <div class="modal-dialog modal-md">
+                <div class="modal-content">
 
-                <!-- Modal Header -->
-                <div class="modal-header d-flex jutify-content-between">
-                    <h4><b>REMARKS</b></h4>
-                    <h4 class="modal-title"></h4>
-                </div>
-
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="form-group">
-                        <textarea id="pauseRemarks" rows="4" class="form-control"></textarea>
+                    <!-- Modal Header -->
+                    <div class="modal-header d-flex jutify-content-between">
+                        <h4><b>REMARKS</b></h4>
+                        <h4 class="modal-title"></h4>
                     </div>
-                </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-warning" onclick="pauseMesin()">Pause</button>
-                </div>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <textarea id="pauseRemarks" rows="4" class="form-control"></textarea>
+                        </div>
+                    </div>
 
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-warning" onclick="pauseMesin()">Pause</button>
+                    </div>
+
+                </div>
             </div>
         </div>
-    </div>
     </form>
 @endsection
 
@@ -948,8 +1000,10 @@
                     hiddenId: element.cover_paper_detail_id
                 };
 
-                sessionStorage.setItem(`formData${element.cover_paper_detail_id}`, JSON.stringify(dataObject));
+                sessionStorage.setItem(`formData${element.cover_paper_detail_id}`, JSON.stringify(
+                    dataObject));
             });
+            $('#saveModal').trigger('click');
         });
 
         function check_machines(check_machines) {
@@ -1058,6 +1112,53 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let sideTotals = {
+                'A': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                },
+                'B': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                },
+                'A/B': {
+                    total_last_print: 0,
+                    total_waste_paper: 0,
+                    total_rejection: 0,
+                    total_good_count: 0
+                }
+            };
+
+            $('#output_table tbody').html('');
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    let side = storedData.side;
+                    sideTotals[side].total_last_print += parseFloat(storedData.last_print);
+                    sideTotals[side].total_waste_paper += parseFloat(storedData.waste_paper);
+                    sideTotals[side].total_rejection += parseFloat(storedData.rejection);
+                    sideTotals[side].total_good_count += parseFloat(storedData.good_count);
+                }
+            });
+
+            for (let side in sideTotals) {
+                let sideTotal = sideTotals[side];
+                $('#output_table tbody').append(`
+                <tr>
+                    <td>${side}</td>
+                    <td>${sideTotal.total_last_print}</td>
+                    <td>${sideTotal.total_waste_paper}</td>
+                    <td>${sideTotal.total_rejection}</td>
+                    <td>${sideTotal.total_good_count}</td>
+                </tr>`);
+            }
         });
 
         $(document).on('click', '.check_operator', function() {
@@ -1069,16 +1170,19 @@
         });
 
         function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
         $('#saveForm').on('click', function() {
             let array = [];
@@ -1166,14 +1270,14 @@
             });
         }
 
-        $('#pause').on('click', function () {
+        $('#pause').on('click', function() {
             $('#pauseModal').modal('show');
         });
 
         function pauseMesin() {
-            if($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null){
+            if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
                 alert("Can`t Pause Without Remarks!");
-            }else{
+            } else {
                 $('#pauseModal').modal('hide');
                 machineStarter(2, @json($cover_end_paper->id));
             }

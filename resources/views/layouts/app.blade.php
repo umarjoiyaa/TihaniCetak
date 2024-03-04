@@ -1725,10 +1725,6 @@
                 dateFormat: 'dd-mm-yy'
             });
 
-            // $("").datepicker({
-            //     dateFormat: 'dd-mm-yy'
-            // });
-
             setTimeout(function() {
                 $('.section-messages').fadeOut();
             }, 5000);
@@ -1741,7 +1737,7 @@
                 $('#wms').removeClass('active');
                 $('#setting').removeClass('active');
                 $('#home').addClass('active');
-            } else if (currentURL.includes('MES')) {
+            } else if (currentURL.includes('Mes')) {
                 $('#home').removeClass('active');
                 $('#production').removeClass('active');
                 $('#wms').removeClass('active');
