@@ -772,39 +772,7 @@
                             </div>
                         </div>
 
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h4>Total Output Details</h4>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Last Print</th>
-                                                    <th>Waste Print</th>
-                                                    <th>Rejection</th>
-                                                    <th>Good Count</th>
-                                                    <th>Meter Click</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td class="total_last_print"></td>
-                                                    <td class="total_waste_print"></td>
-                                                    <td class="total_rejection"></td>
-                                                    <td class="total_good_count"></td>
-                                                    <td class="total_meter_click"></td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card" style="background:#f4f4ff; border-radius:5px;">
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-12">
