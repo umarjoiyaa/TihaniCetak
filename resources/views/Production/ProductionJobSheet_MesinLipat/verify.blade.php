@@ -189,6 +189,31 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <h4>Total Output Details</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered" id="output_table">
+                                        <thead>
+                                            <tr>
+                                                <th>Section No.</th>
+                                                <th>Last Fold</th>
+                                                <th>Rejection</th>
+                                                <th>Good Count</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f1f0f0; border-radius:5px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <h5><b>Production Machine Detail</b></h5>
                                 </div>
                                 <div class="col-md-12">
@@ -362,6 +387,8 @@
                 sessionStorage.setItem(`formData${element.mesin_lipat_detail_id}`, JSON.stringify(
                     dataObject));
             });
+
+            $('#saveModal').trigger('click');
         });
 
         function check_machines(check_machines) {
@@ -463,6 +490,39 @@
             };
 
             sessionStorage.setItem(`formData${hiddenId}`, JSON.stringify(dataObject));
+
+            let sectionTotals = {};
+
+            $('#output_table tbody').html('');
+
+            $('.hiddenId').each(function() {
+                let formData = sessionStorage.getItem(`formData${$(this).val()}`);
+                let storedData = JSON.parse(formData);
+                if (storedData !== null) {
+                    let section = storedData.section_no;
+                    if (!sectionTotals[section]) {
+                        sectionTotals[section] = {
+                            total_last_fold: 0,
+                            total_rejection: 0,
+                            total_good_count: 0
+                        };
+                    }
+                    sectionTotals[section].total_last_fold += parseFloat(storedData.last_fold);
+                    sectionTotals[section].total_rejection += parseFloat(storedData.rejection);
+                    sectionTotals[section].total_good_count += parseFloat(storedData.good_count);
+                }
+            });
+
+            for (let section in sectionTotals) {
+                let sectionTotal = sectionTotals[section];
+                $('#output_table tbody').append(`
+                <tr>
+                    <td>${section}</td>
+                    <td>${sectionTotal.total_last_fold}</td>
+                    <td>${sectionTotal.total_rejection}</td>
+                    <td>${sectionTotal.total_good_count}</td>
+                </tr>`);
+            }
         });
 
         $(document).on('click', '.check_verify', function() {

@@ -132,18 +132,11 @@ class TextController extends Controller
             $index = 0;
             foreach ($uom as $row) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->status == 'Not-initiated') {
-                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
+                if ($row->status == 'In-Progress') {
+                    $row->status = '<span class="badge badge-warning">In-Progress</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Started') {
-                    $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
-                } else if ($row->status == 'Paused') {
-                    $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
@@ -236,18 +229,11 @@ class TextController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->status == 'Not-initiated') {
-                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
+                if ($row->status == 'In-Progress') {
+                    $row->status = '<span class="badge badge-warning">In-Progress</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" id="swal-warning" data-delete="' . route('text.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'Started') {
-                    $row->status = '<span class="badge badge-success">Started</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
-                } else if ($row->status == 'Paused') {
-                    $row->status = '<span class="badge badge-info">Paused</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('text.edit', $row->id) . '">Edit</a>';
                 } else if ($row->status == 'Completed') {
                     $row->status = '<span class="badge badge-success">Completed</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>';
@@ -349,7 +335,7 @@ class TextController extends Controller
         $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
         $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
 
-        $text->status = 'Not-initiated';
+        $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;
         $text->save();
 
@@ -476,7 +462,7 @@ class TextController extends Controller
         $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
         $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
 
-        $text->status = 'Not-initiated';
+        $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;
         $text->save();
 
