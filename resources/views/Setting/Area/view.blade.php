@@ -15,21 +15,29 @@
                             <div class="control-group form-group">
                                 <label class="form-label">Name</label>
                                 <input disabled type="text" class="form-control required" name="name"
-                                    value="{{ $area->name }}" >
+                                    value="{{ $area->name }}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="control-group form-group">
                                 <label class="form-label">Code</label>
                                 <input disabled type="text" class="form-control required" name="code"
-                                    value="{{ $area->code }}" >
+                                    value="{{ $area->code }}">
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="control-group form-group">
+                                @php
+                                    $item = json_decode($area->shelf_id);
+                                @endphp
                                 <label class="form-label">Shelf</label>
-                                <input disabled type="text" class="form-control required" name="shelf"
-                                    value="{{ $area->shelf->name }}">
+                                <select name="shelf[]" class="form-select" multiple>
+                                    @foreach ($shelves as $shelf)
+                                        <option value="{{ $shelf->id }}"
+                                            @if (old('shelf')) {{ in_array(old('shelf'), $shelf->id) ? 'selected' : '' }} @endif>
+                                            {{ $shelf->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

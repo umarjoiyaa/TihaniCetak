@@ -22,7 +22,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shlef');
+            $query = Area::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -30,10 +30,7 @@ class AreaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('shlef', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -44,7 +41,6 @@ class AreaController extends Controller
                 $sortableColumns = [
                     1 => 'name',
                     2 => 'code',
-                    3 => 'shelf_id',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -70,11 +66,6 @@ class AreaController extends Controller
                                 break;
                             case 2:
                                 $q->where('code', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 3:
-                                $q->whereHas('shlef', function ($query) use ($searchLower) {
-                                    $query->where('name', 'like', '%' . $searchLower . '%');
-                                });
                                 break;
                             default:
                                 break;
@@ -128,7 +119,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shelf');
+            $query = Area::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -136,10 +127,7 @@ class AreaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('shelf', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -147,7 +135,6 @@ class AreaController extends Controller
             $sortableColumns = [
                 1 => 'name',
                 2 => 'code',
-                3 => 'shelf_id',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -240,7 +227,7 @@ class AreaController extends Controller
         $area = new Area();
         $area->name = $request->name;
         $area->code = $request->code;
-        $area->shelf_id = $request->shelf;
+        $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
         Helper::logSystemActivity('Area', 'Area Store');
@@ -296,7 +283,7 @@ class AreaController extends Controller
         $area =  Area::find($id);
         $area->name = $request->name;
         $area->code = $request->code;
-        $area->shelf_id = $request->shelf;
+        $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
         Helper::logSystemActivity('Area', 'Area Update');
