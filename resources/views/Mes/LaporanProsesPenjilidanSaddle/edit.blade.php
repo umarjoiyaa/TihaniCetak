@@ -80,7 +80,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="form-label">Jumlah seksyen</div>
-                                            <input type="text" readonly value="" id="size"
+                                            <input type="text" readonly value="" id="jumlah"
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -286,7 +286,7 @@
                                                     <th>Kedudukan dawai pin</th>
                                                     <th>Kedudukan Kulit buku dan teks</th>
                                                     <th>Artwork Kulit buku dan teks</th>
-                                                    <th>Turutan Seksyen/ muta surat</th>
+                                                    <th>Turutan Seksyen/ muka surat</th>
                                                     <th>Saiz potongan</th>
                                                     <th>Rosak/Koyak</th>
                                                     <th>Kotor</th>
