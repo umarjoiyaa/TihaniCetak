@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form action="{{ route('material_request.store') }}" method="POST">
+    <form action="{{ route('material_request.update', $material_request->id) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -18,16 +18,16 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Tarikh</label>
-                                            <input type="text" name="date"
-                                                value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
-                                                id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                            <input type="text" name="date" value="{{ $material_request->date }}"
+                                                class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                                placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Ref No</div>
                                             <input type="text" name="ref_no" readonly
-                                                value="MRF/{{ $year }}/{{ $count }}" class="form-control">
+                                                value="{{ $material_request->ref_no }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -40,27 +40,31 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
-                                                <option value="" selected disabled>Select a Sale Order</option>
+                                            <select name="sale_order" data-id="{{ $material_request->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $material_request->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $material_request->sale_order->order_no }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Discription</div>
-                                            <textarea name="description" rows="1" class="form-control"></textarea>
+                                            <textarea name="description" rows="1" class="form-control">{{ $material_request->description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Location</div>
-                                            <textarea name="location" rows="1" class="form-control"></textarea>
+                                            <textarea name="location" rows="1" class="form-control">{{ $material_request->location }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Remarks</div>
-                                            <textarea name="remarks" rows="1" class="form-control"></textarea>
+                                            <textarea name="remarks" rows="1" class="form-control">{{ $material_request->remarks }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -90,7 +94,52 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    @foreach ($detailbs as $key => $value)
+                                                        <tr>
+                                                            <td><input type='hidden' class="stock_code"
+                                                                    value='{{ $value->stock_code }}'
+                                                                    name="kertas[{{ $key + 1 }}][stock_code]" /><input
+                                                                    type='hidden' value='{{ $value->group }}'
+                                                                    class="group"
+                                                                    name="kertas[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->description }}'
+                                                                    name="kertas[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value->grammage }}'
+                                                                    name="kertas[{{ $key + 1 }}][grammage]" /></td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value->saiz }}'
+                                                                    name="kertas[{{ $key + 1 }}][saiz]" /></td>
+                                                            <td><input type='hidden' value='{{ $value->uom }}'
+                                                                    name="kertas[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->available_qty }}'
+                                                                    name="kertas[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                            </td>
+                                                            <td><select class="form-control"
+                                                                    name="kertas[{{ $key + 1 }}][uom_request]">
+                                                                    <option value="RIM" @selected($value->uom_request == 'RIM')>RIM
+                                                                    </option>
+                                                                    <option @selected($value->uom_request == 'PKT') value="PKT">PKT
+                                                                    </option>
+                                                                    <option @selected($value->uom_request == 'SHEET') value="SHEET">
+                                                                        SHEET</option>
+                                                                </select></td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value->request_qty }}'
+                                                                    name="kertas[{{ $key + 1 }}][request_qty]" />
+                                                            </td>
+                                                            <td>
+                                                                <textarea class="form-control" name="kertas[{{ $key + 1 }}][remarks]">{{ $value->remarks }}</textarea>
+                                                            </td>
+                                                            <td><a class="removeRow"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -119,7 +168,33 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    @foreach ($detailcs as $key => $value)
+                                                        <tr>
+                                                            <td><input type='hidden' class="stock_code"
+                                                                    value='{{ $value->stock_code }}'
+                                                                    name="bahan[{{ $key + 1 }}][stock_code]" /><input
+                                                                    type='hidden' value='{{ $value->group }}'
+                                                                    class="group"
+                                                                    name="bahan[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->description }}'
+                                                                    name="bahan[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->uom }}'
+                                                                    name="bahan[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->available_qty }}'
+                                                                    name="bahan[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value->request_qty }}'
+                                                                    name="bahan[{{ $key + 1 }}][request_qty]" /></td>
+                                                            <td><a class="removeRow1"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -147,7 +222,35 @@
                                                         <td>Action</td>
                                                     </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                    @foreach ($detailds as $key => $value)
+                                                        <tr>
+                                                            <td><input type='hidden' class="stock_code"
+                                                                    value='{{ $value->stock_code }}'
+                                                                    name="wip[{{ $key + 1 }}][stock_code]" /><input
+                                                                    type='hidden' value='{{ $value->group }}'
+                                                                    class="group"
+                                                                    name="wip[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->description }}'
+                                                                    name="wip[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->uom }}'
+                                                                    name="wip[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value->available_qty }}'
+                                                                    name="wip[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value->request_qty }}'
+                                                                    name="wip[{{ $key + 1 }}][request_qty]" /></td>
+                                                            <td><a class="removeRow2"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -371,11 +474,15 @@
                 if (data.loading) {
                     return "Loading...";
                 }
-
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
             },
             templateSelection: function(data) {
-                return data.order_no || "Select Sales Order No";
+                return data.text || null;
             }
         });
 
@@ -438,7 +545,7 @@
 
             $("#table1 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table1').dataTable();
             $('#Table1').dataTable();
@@ -492,7 +599,7 @@
 
             $("#table2 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table2').dataTable();
             $('#Table2').dataTable();
@@ -546,7 +653,7 @@
 
             $("#table3 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table3').dataTable();
             $('#Table3').dataTable();

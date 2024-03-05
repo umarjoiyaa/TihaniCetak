@@ -551,7 +551,11 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_input_2 = $request->finishing_input_2;
         $cover_end_paper->finishing_input_3 = $request->finishing_input_3;
 
-        $cover_end_paper->status = 'Not-initiated';
+        if($cover_end_paper->status == 'Paused'){
+            $cover_end_paper->status = 'Paused';
+        }else{
+            $cover_end_paper->status = 'Not-initiated';
+        }
         $cover_end_paper->save();
 
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');

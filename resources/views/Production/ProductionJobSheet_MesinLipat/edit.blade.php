@@ -77,8 +77,8 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Jumlah Seksyen</div>
-                                            <input type="text" readonly name="" id="jumlah"
-                                                class="form-control">
+                                            <input type="text" readonly id="jumlah"
+                                                class="form-control" name="jumlah_seksyen">
                                         </div>
                                     </div>
 

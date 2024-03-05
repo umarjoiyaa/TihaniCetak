@@ -31,6 +31,10 @@ $(document).ready(function () {
                 name: 'ref_no',
             },
             {
+                data: 'date',
+                name: 'date',
+            },
+            {
                 data: 'sale_order.order_no',
                 name: 'sale_order.order_no',
             },
@@ -89,6 +93,10 @@ function AjaxCall(columnsData) {
             {
                 data: 'ref_no',
                 name: 'ref_no',
+            },
+            {
+                data: 'date',
+                name: 'date',
             },
             {
                 data: 'sale_order.order_no',
