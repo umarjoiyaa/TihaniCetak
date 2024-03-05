@@ -64,7 +64,7 @@
 @endsection
 @push('custom-scripts')
     <script>
-        var data = "";
+        var data = "{{route('material_request.data')}}";
     </script>
     <script src="{{ asset('assets/js/custom/wms/MaterialRequest/index.js') }}"></script>
 @endpush

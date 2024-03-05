@@ -8,6 +8,7 @@ use App\Models\MaterialRequestB;
 use App\Models\MaterialRequestC;
 use App\Models\MaterialRequestD;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class MaterialRequestController extends Controller
@@ -55,7 +56,7 @@ class MaterialRequestController extends Controller
                     3 => 'sale_order_id',
                     4 => 'description',
                     5 => 'created_by',
-                    10 => 'status',
+                    6 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -181,7 +182,7 @@ class MaterialRequestController extends Controller
                 3 => 'sale_order_id',
                 4 => 'description',
                 5 => 'created_by',
-                10 => 'status',
+                6 => 'status',
                 // Add more columns as needed
             ];
 
@@ -248,8 +249,10 @@ class MaterialRequestController extends Controller
         if (!Auth::user()->hasPermissionTo('MATERIAL REQUEST Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
+        $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
+        $count = MaterialRequest::whereYear('date', $year)->count();
         Helper::logSystemActivity('MATERIAL REQUEST', 'MATERIAL REQUEST Create');
-        return view('WMS.MaterialRequest.create');
+        return view('WMS.MaterialRequest.create', compact('year', 'count'));
     }
 
     public function store(Request $request)
@@ -289,6 +292,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_b = new MaterialRequestB();
             $material_request_detail_b->material_id = $material_request->id;
             $material_request_detail_b->stock_code = $value['stock_code'];
+            $material_request_detail_b->group = $value['group'];
             $material_request_detail_b->description = $value['description'];
             $material_request_detail_b->grammage = $value['grammage'];
             $material_request_detail_b->saiz = $value['saiz'];
@@ -304,6 +308,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_c = new MaterialRequestC();
             $material_request_detail_c->material_id = $material_request->id;
             $material_request_detail_c->stock_code = $value['stock_code'];
+            $material_request_detail_c->group = $value['group'];
             $material_request_detail_c->description = $value['description'];
             $material_request_detail_c->uom = $value['uom'];
             $material_request_detail_c->available_qty = $value['available_qty'];
@@ -315,6 +320,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_d = new MaterialRequestD();
             $material_request_detail_d->material_id = $material_request->id;
             $material_request_detail_d->stock_code = $value['stock_code'];
+            $material_request_detail_d->group = $value['group'];
             $material_request_detail_d->description = $value['description'];
             $material_request_detail_d->uom = $value['uom'];
             $material_request_detail_d->available_qty = $value['available_qty'];
@@ -388,6 +394,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_b = new MaterialRequestB();
             $material_request_detail_b->material_id = $material_request->id;
             $material_request_detail_b->stock_code = $value['stock_code'];
+            $material_request_detail_b->group = $value['group'];
             $material_request_detail_b->description = $value['description'];
             $material_request_detail_b->grammage = $value['grammage'];
             $material_request_detail_b->saiz = $value['saiz'];
@@ -405,6 +412,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_c = new MaterialRequestC();
             $material_request_detail_c->material_id = $material_request->id;
             $material_request_detail_c->stock_code = $value['stock_code'];
+            $material_request_detail_c->group = $value['group'];
             $material_request_detail_c->description = $value['description'];
             $material_request_detail_c->uom = $value['uom'];
             $material_request_detail_c->available_qty = $value['available_qty'];
@@ -418,6 +426,7 @@ class MaterialRequestController extends Controller
             $material_request_detail_d = new MaterialRequestD();
             $material_request_detail_d->material_id = $material_request->id;
             $material_request_detail_d->stock_code = $value['stock_code'];
+            $material_request_detail_d->group = $value['group'];
             $material_request_detail_d->description = $value['description'];
             $material_request_detail_d->uom = $value['uom'];
             $material_request_detail_d->available_qty = $value['available_qty'];

@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\Text;
 use App\Models\TextDetail;
 use App\Models\PrintingProcess;
+use App\Models\Supplier;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -132,6 +133,7 @@ class TextController extends Controller
             $index = 0;
             foreach ($uom as $row) {
                 $row->sr_no = $start + $index + 1;
+                // dd($row->status);
                 if ($row->status == 'In-Progress') {
                     $row->status = '<span class="badge badge-warning">In-Progress</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
@@ -229,6 +231,7 @@ class TextController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
+                // dd($row->status);
                 if ($row->status == 'In-Progress') {
                     $row->status = '<span class="badge badge-warning">In-Progress</span>';
                     $actions = '<a class="dropdown-item" href="' . route('text.view', $row->id) . '">View</a>
@@ -277,8 +280,9 @@ class TextController extends Controller
         if (!Auth::user()->hasPermissionTo('TEXT Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
+        $suppliers = Supplier::select('id', 'name')->get();
         Helper::logSystemActivity('TEXT', 'TEXT Create');
-        return view('Production.Text.create');
+        return view('Production.Text.create',compact('suppliers'));
     }
 
     public function store(Request $request)
@@ -341,7 +345,7 @@ class TextController extends Controller
 
         $uniqueMachines = [];
 
-        if(!isset($request->action)){
+        if(isset($request->action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;
@@ -394,8 +398,9 @@ class TextController extends Controller
         }
         $text = Text::find($id);
         $details = TextDetail::where('text_id',  '=', $id)->get();
+        $suppliers = Supplier::select('id', 'name')->get();
         Helper::logSystemActivity('TEXT', 'TEXT Update');
-        return view('Production.Text.edit',compact('text', 'details'));
+        return view('Production.Text.edit',compact('text', 'details','suppliers'));
     }
 
     public function view($id){
@@ -403,9 +408,10 @@ class TextController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $text = Text::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
         $details = TextDetail::where('text_id',  '=', $id)->get();
         Helper::logSystemActivity('TEXT', 'TEXT View');
-        return view('Production.Text.view', compact('text', 'details'));
+        return view('Production.Text.view', compact('text', 'details','suppliers'));
     }
 
     public function update(Request $request,$id)
@@ -470,7 +476,7 @@ class TextController extends Controller
 
         $uniqueMachines = [];
 
-        if(!isset($request->action)){
+        if(isset($request->action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;

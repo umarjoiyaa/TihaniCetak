@@ -26,7 +26,7 @@ use App\Http\Controllers\LaporanProsesLipatController;
 use App\Http\Controllers\LaporanProsesPencetakaniCetakController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboardController;
-use App\Http\Controllers\Manage_TransferController;
+use App\Http\Controllers\ManageTransferController;
 use App\Http\Controllers\MaterialRequestController;
 use App\Http\Controllers\OEEDashboardController;
 use App\Http\Controllers\Pemeriksaan_PenghantaranController;
@@ -680,6 +680,7 @@ Route::middleware('auth')->group(function () {
 
     // Material Requesst
     Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');
+    Route::get('/WMS/material-request/data', [MaterialRequestController::class, 'Data'])->name('material_request.data');
     Route::get('/WMS/material-request/Create', [MaterialRequestController::class, 'create'])->name('material_request.create');
     Route::post('/WMS/material-request/store', [MaterialRequestController::class, 'store'])->name('material_request.store');
     Route::get('/WMS/material-request/edit/{id}', [MaterialRequestController::class, 'edit'])->name('material_request.edit');
@@ -688,9 +689,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/material-request/delete/{id}', [MaterialRequestController::class, 'delete'])->name('material_request.delete');
 
     // Manage Transfer
-    Route::get('/WMS/Manage_tranfer', [Manage_TransferController::class, 'index'])->name('Manage_tranfer');
-    Route::get('/WMS/Manage_tranfer/view', [Manage_TransferController::class, 'view'])->name('Manage_tranfer.view');
-    Route::get('/WMS/Manage_tranfer/Create', [Manage_TransferController::class, 'Create'])->name('Manage_tranfer.create');
+    Route::get('/WMS/manage-transfer', [ManageTransferController::class, 'index'])->name('manage_transfer');
+    Route::get('/WMS/manage-transfer/data', [ManageTransferController::class, 'Data'])->name('manage_transfer.data');
+    Route::get('/WMS/manage-transfer/Create', [ManageTransferController::class, 'create'])->name('manage_transfer.create');
+    Route::post('/WMS/manage-transfer/store', [ManageTransferController::class, 'store'])->name('manage_transfer.store');
+    Route::get('/WMS/manage-transfer/edit/{id}', [ManageTransferController::class, 'edit'])->name('manage_transfer.edit');
+    Route::get('/WMS/manage-transfer/view/{id}', [ManageTransferController::class, 'view'])->name('manage_transfer.view');
+    Route::post('/WMS/manage-transfer/update/{id}', [ManageTransferController::class, 'update'])->name('manage_transfer.update');
+    Route::get('/WMS/manage-transfer/delete/{id}', [ManageTransferController::class, 'delete'])->name('manage_transfer.delete');
 
     // Stock In
     Route::get('/WMS/Stock_in', [Stock_InController::class, 'index'])->name('Stock_in');
