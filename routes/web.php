@@ -680,6 +680,7 @@ Route::middleware('auth')->group(function () {
 
     // Material Requesst
     Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');
+    Route::get('/WMS/material-request/data', [MaterialRequestController::class, 'Data'])->name('material_request.data');
     Route::get('/WMS/material-request/Create', [MaterialRequestController::class, 'create'])->name('material_request.create');
     Route::post('/WMS/material-request/store', [MaterialRequestController::class, 'store'])->name('material_request.store');
     Route::get('/WMS/material-request/edit/{id}', [MaterialRequestController::class, 'edit'])->name('material_request.edit');
