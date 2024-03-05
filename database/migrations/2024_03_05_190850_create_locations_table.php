@@ -16,9 +16,9 @@ return new class extends Migration
             $table->unsignedBigInteger('area_id')->nullable();
             $table->foreign('area_id')->references('id')->on('areas')->nullable();
             $table->unsignedBigInteger('shelf_id')->nullable();
-            $table->foreign('shelf_id')->references('id')->on('shelfs')->nullable();
+            $table->foreign('shelf_id')->references('id')->on('area_shelves')->nullable();
             $table->unsignedBigInteger('level_id')->nullable();
-            $table->foreign('level_id')->references('id')->on('levels')->nullable();
+            $table->foreign('level_id')->references('id')->on('area_levels')->nullable();
             $table->string('used_qty')->nullable();
             $table->softDeletes();
             $table->timestamps();
