@@ -534,8 +534,7 @@
                     <div class="col-md-6">
                         <div class="card childCard card6  h-auto">
                             <div class="card-body text-center ">
-                                <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Laporan
-                                    Pemeriksaan Kualiti </span>
+                                <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
                                         <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">

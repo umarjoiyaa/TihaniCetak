@@ -340,10 +340,10 @@
 
                 <h3><b>Finishing</b></h3>
 
-                <table border="1" >
+                <table border="1" style="width:100% !important;" >
                     <thead>
                         <tr>
-                            <th>Finishing</th>
+                            <th >Finishing</th>
                             <th>Partner</th>
                         </tr>
                     </thead>
@@ -352,425 +352,333 @@
                             <td><input type="checkbox" @checked($digital_printing->finishing_1 != null) name="finishing_1"
                                 id="Form20" class=" mr-5">Gloss
                             Lamination</td>
+
+
                             @if ($digital_printing->finishing_1 == 'In-house')
                             <td>In-house</td>
                            @else
-                           <td>{{ $digital_printing->supplier->name}}</td>
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_1);
+                               @endphp
+                           <td>{{ $name}}</td>
                            @endif
                         </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_2 != null) name="finishing_2"
+                                id="Form20" class=" mr-5">Matt
+                                Lamination</td>
+
+
+                            @if ($digital_printing->finishing_2 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_2);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_3 != null) name="finishing_3"
+                                id="Form20" class=" mr-5">SPOT UV</td>
+
+
+                            @if ($digital_printing->finishing_3 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_3);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_4 != null) name="finishing_4"
+                                id="Form20" class=" mr-5">Hot Stamping</td>
+
+
+                            @if ($digital_printing->finishing_4 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_4);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_5 != null) name="finishing_5"
+                                id="Form20" class=" mr-5">Emboss</td>
+
+
+                            @if ($digital_printing->finishing_5 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_5);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_6 != null) name="finishing_6"
+                                id="Form20" class=" mr-5">Diecut</td>
+
+
+                            @if ($digital_printing->finishing_6 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_6);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_7 != null) name="finishing_7"
+                                id="Form20" class=" mr-5">Round corner</td>
+
+
+                            @if ($digital_printing->finishing_7 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_7);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_8 != null) name="finishing_8"
+                                id="Form20" class=" mr-5">Round back</td>
+
+
+                            @if ($digital_printing->finishing_8 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_8);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_9 != null) name="finishing_9"
+                                id="Form20" class=" mr-5">Square Back</td>
+
+
+                            @if ($digital_printing->finishing_9 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_9);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_10 != null) name="finishing_10"
+                                id="Form20" class=" mr-5">Others:  <label >{{ $digital_printing->finishing_10_val }}</label> </td>
+
+
+
+                            @if ($digital_printing->finishing_11 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->finishing_11);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+
+
+
+
+                    </tbody>
+                </table>
+
+                <br>
+                <h3><b>Binding</b></h3>
+
+                <table border="1" style="width:100% !important;" >
+                    <thead>
+                        <tr>
+                            <th>Binding</th>
+                            <th>Partner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_1 != null) name="binding_1"
+                                id="Form20" class=" mr-5">Perfect
+                                Bind</td>
+
+
+                            @if ($digital_printing->binding_1 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_1);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_2 != null) name="binding_2"
+                                id="Form20" class=" mr-5">Staple Bind</td>
+
+
+                            @if ($digital_printing->binding_2 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_2);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_3 != null) name="binding_3"
+                                id="Form20" class=" mr-5">Wire 0</td>
+
+
+                            @if ($digital_printing->binding_3 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_3);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_4 != null) name="binding_4"
+                                id="Form20" class=" mr-5">Hard Cover</td>
+
+
+                            @if ($digital_printing->binding_4 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_4);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_5 != null) name="binding_5"
+                                id="Form20" class=" mr-5">Creasing
+                                Line</td>
+
+
+                            @if ($digital_printing->binding_5 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_5);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_6 != null) name="binding_6"
+                                id="Form20" class=" mr-5">Cut to Size</td>
+
+
+                            @if ($digital_printing->binding_6 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_6);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_7 != null) name="binding_7"
+                                id="Form20" class=" mr-5">Folding</td>
+
+
+                            @if ($digital_printing->binding_7 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_7);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->binding_8 != null) name="binding_8"
+                                id="Form20" class=" mr-5">Others: <label for="">{{ $digital_printing->binding_8_val }}</label></td>
+
+
+                            @if ($digital_printing->binding_9 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                                 @php
+                                  $name = App\Models\Supplier::find($digital_printing->binding_9);
+                               @endphp
+                           <td>{{ $name}}</td>
+                           @endif
+                        </tr>
+
+
+
 
 
                     </tbody>
                 </table>
 
 
+                <br>
+                <h3><b>Jobsheet Details</b></h3>
 
+                <table border="1" style="width:100% !important;" >
+                    <thead>
+                        <tr>
+                            <th>Start datetime</th>
+                            <th>End datetime</th>
+                            <th>Total Time(min)</th>
+                            <th>Machine</th>
+                            <th>Remarks</th>
+                            <th>Operator</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($details as $detail)
+                        <tr>
+                            <td>{{ $detail->start_time }}</td>
+                            <td>{{ $detail->end_time }}</td>
+                            <td>{{ $detail->duration }}</td>
+                            <td>
+                                {{ $detail->machine }}
+                            </td>
+                            <td>{{ $detail->remarks }}</td>
+                            <td class="operator_text"></td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
 
+                <br>
+                <br>
+                <br>
+                <h3><b>Production Machine Detail</b></h3>
 
-        <div class="card" style="background:#f4f4ff; border-radius:5px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-
-                    </div>
-                    <div class="col-md-6">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Finishing</th>
-                                    <th>Partner</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                    <td>
-                                        <select name="finishing_1_val" @disabled($digital_printing->finishing_1 == null)
-                                            placeholder="select Supplier" id="form20"
-                                            class="form-control form-select " style="width:250px;">
-                                            <option value="In-house" @selected($digital_printing->finishing_1 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_1 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_2 != null) name="finishing_2"
-                                            id="Form1" class=" mr-5">Matt
-                                        Lamination</td>
-                                    <td><select name="finishing_2_val" @disabled($digital_printing->finishing_2 == null)
-                                            placeholder="select Supplier" id="form1"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_2 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_2 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_3 != null) name="finishing_3"
-                                            id="Form2" class=" mr-5">SPOT UV</td>
-                                    <td><select name="finishing_3_val" @disabled($digital_printing->finishing_3 == null)
-                                            placeholder="select Supplier" id="form2"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_3 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_3 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_4 != null) name="finishing_4"
-                                            id="Form3" class=" mr-5">Hot Stamping
-                                    </td>
-                                    <td><select name="finishing_4_val" @disabled($digital_printing->finishing_4 == null)
-                                            placeholder="select Supplier" id="form3"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_4 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_4 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_5 != null) name="finishing_5"
-                                            id="Form4" class=" mr-5">Emboss</td>
-                                    <td><select name="finishing_5_val" @disabled($digital_printing->finishing_5 == null)
-                                            placeholder="select Supplier" id="form4"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_5 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_5 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_6 != null) name="finishing_6"
-                                            id="Form5" class=" mr-5">Diecut</td>
-                                    <td><select name="finishing_6_val" @disabled($digital_printing->finishing_6 == null)
-                                            placeholder="select Supplier" id="form5"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_6 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_6 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_7 != null) name="finishing_7"
-                                            id="Form6" class=" mr-5">Round corner
-                                    </td>
-                                    <td><select name="finishing_7_val" @disabled($digital_printing->finishing_7 == null)
-                                            placeholder="select Supplier" id="form6"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_7 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_7 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_8 != null) name="finishing_8"
-                                            id="Form7" class=" mr-5">Round back
-                                    </td>
-                                    <td><select name="finishing_8_val" @disabled($digital_printing->finishing_8 == null)
-                                            placeholder="select Supplier" id="form7"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_8 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_8 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_9 != null) name="finishing_9"
-                                            id="Form8" class=" mr-5">Square Back
-                                    </td>
-                                    <td><select name="finishing_9_val" @disabled($digital_printing->finishing_9 == null)
-                                            placeholder="select Supplier" id="form8"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_9 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_9 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_10 != null) name="finishing_10"
-                                            id="Form9" class=" mr-5"> Others:
-                                        <input type="text" @disabled($digital_printing->finishing_10 == null) placeholder="User Input"
-                                            name="finishing_10_val" id="input1"
-                                            class="form-control w-50 float-right"
-                                            value="{{ $digital_printing->finishing_10 }}">
-                                    </td>
-                                    <td><select name="finishing_11_val" @disabled($digital_printing->finishing_11 == null)
-                                            placeholder="select Supplier" id="form9"
-                                            class="form-control form-select w-100">
-                                            <option value="In-house" @selected($digital_printing->finishing_11 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_11 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="background:#f4f4ff; border-radius:5px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5><b>Binding</b></h5>
-                    </div>
-                    <div class="col-md-6">
-                        <table class="table table-bordered">
-                            <thead>
-                                <tr>
-                                    <th>Binding</th>
-                                    <th>Partner</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_1 != null) name="binding_1"
-                                            id="Form10" class=" mr-5">Perfect
-                                        Bind
-                                    </td>
-                                    <td><select @disabled($digital_printing->binding_1 == null) name="binding_1_val"
-                                            placeholder="select Supplier" id="form10"
-                                            class="form-control form-select" style="width:250px;">
-                                            <option value="In-house" @selected($digital_printing->binding_1 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_1 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_2 != null) name="binding_2"
-                                            id="Form11" class=" mr-5">Staple Bind
-                                    </td>
-                                    <td><select name="binding_2_val" @disabled($digital_printing->binding_2 == null)
-                                            placeholder="select Supplier" id="form11"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_2 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_2 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_3 != null) name="binding_3"
-                                            id="Form12" class=" mr-5">Wire 0</td>
-                                    <td><select name="binding_3_val" @disabled($digital_printing->binding_3 == null)
-                                            placeholder="select Supplier" id="form12"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_3 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_3 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_4 != null) name="binding_4"
-                                            id="Form13" class=" mr-5">Hard Cover
-                                    </td>
-                                    <td><select name="binding_4_val" @disabled($digital_printing->binding_4 == null)
-                                            placeholder="select Supplier" id="form13"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_4 == 'In-house')>In-house
-                                            </option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_4 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_5 != null) name="binding_5"
-                                            id="Form14" class=" mr-5">Creasing
-                                        Line
-                                    </td>
-                                    <td><select name="binding_5_val" @disabled($digital_printing->binding_5 == null)
-                                            placeholder="select Supplier" id="form14"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_5 == 'In-house')>
-                                                In-house</option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_5 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_6 != null) name="binding_6"
-                                            id="Form15" class=" mr-5">Cut to Size
-                                    </td>
-                                    <td><select name="binding_6_val" @disabled($digital_printing->binding_6 == null)
-                                            placeholder="select Supplier" id="form15"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_6 == 'In-house')>
-                                                In-house</option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_6 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_7 != null) name="binding_7"
-                                            id="Form16" class=" mr-5">Folding
-                                    </td>
-                                    <td><select name="binding_7_val" @disabled($digital_printing->binding_7 == null)
-                                            placeholder="select Supplier" id="form16"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_7 == 'In-house')>
-                                                In-house</option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_7 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                                <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->binding_8 != null) name="binding_8"
-                                            id="Form17" class=" mr-5"> Others:
-                                        <input type="text" @disabled($digital_printing->binding_8 == null) placeholder="User Input"
-                                            name="binding_8_val" id="input" class="form-control w-50 float-right"
-                                            value="{{ $digital_printing->binding_9 }}">
-                                    </td>
-                                    <td><select name="binding_9_val" @disabled($digital_printing->binding_9 == null)
-                                            placeholder="select Supplier" id="form17"
-                                            class="form-control form-select">
-                                            <option value="In-house" @selected($digital_printing->binding_9 == 'In-house')>
-                                                In-house</option>
-                                            @foreach ($suppliers as $supplier)
-                                                <option value="{{ $supplier->id }}" @selected($digital_printing->binding_9 == $supplier->id)>
-                                                    {{ $supplier->name }}
-                                                </option>
-                                            @endforeach
-                                        </select></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="background:#f4f4ff; border-radius:5px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h4>Jobsheet Details</h4>
-                    </div>
-                    <div class="col-md-12">
-                        <table class="table table-bordered" id="jobsheet_detail_table">
-                            <thead>
-                                <tr>
-                                    <th>Action</th>
-                                    <th>Start datetime</th>
-                                    <th>End datetime</th>
-                                    <th>Total Time(min)</th>
-                                    <th>Machine</th>
-                                    <th>Remarks</th>
-                                    <th>Operator</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($details as $detail)
-                                    <tr>
-                                        <td><button type="button" data-toggle="modal" data-target="#exampleModal"
-                                                class="btn btn-primary openModal">+</button>
-                                            <input type="hidden" class="hiddenId" value="{{ $detail->id }}">
-                                        </td>
-                                        <td>{{ $detail->start_time }}</td>
-                                        <td>{{ $detail->end_time }}</td>
-                                        <td>{{ $detail->duration }}</td>
-                                        <td>
-                                            {{ $detail->machine }}
-                                        </td>
-                                        <td>{{ $detail->remarks }}</td>
-                                        <td class="operator_text"></td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="card" style="background:#f4f4ff; border-radius:5px;">
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h5><b>Production Machine Detail</b></h5>
-                    </div>
-                    <div class="col-md-12">
-                        <table class="table table-bordered" id="machine_detail_table">
-                            <thead>
-                                <tr>
-                                    <th>Process</th>
-                                    <th>Machine</th>
-                                    <th>Start datetime</th>
-                                    <th>End datetime</th>
-                                    <th>Total time</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($details as $detail)
+                <table border="1" style="width:100% !important;" >
+                    <thead>
+                        tr>
+                        <th>Process</th>
+                        <th>Machine</th>
+                        <th>Start datetime</th>
+                        <th>End datetime</th>
+                        <th>Total time</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($details as $detail)
                                     <tr>
                                         <td>
                                             @if ($detail->status == 1)
@@ -791,19 +699,13 @@
                                         <td>{{ $detail->duration }}</td>
                                     </tr>
                                 @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
+                    </tbody>
+                </table>
 
-        <div class="row mt-5">
-            <div class="col-md-12">
+                <br>
                 <h3><b>Verified By</b></h3>
-            </div>
-            <div class="col-md-12">
-                <table class="table table-bordered">
+
+                <table border="1" style="width:100% !important;" >
                     <thead>
                         <tr>
                             <th>Date</th>
@@ -825,103 +727,14 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
-                    <div class="row">
-                        <div class="col-md-2"></div>
-                        <div class="col-md-1">
-                            <i class="fe fe-alert-triangle"></i>
-                        </div>
-                        <div class="col-md-6">
-                            <h5 style="font-size:35px;">AMARAN : <br>
-                                <span style="color:black;">
-                                    TIADA SAMPLE JANGAN CETAK <br>
-                                    FIRST PIECE JANGAN LUPA
-                                </span>
-                            </h5>
-                        </div>
-
-                        <div class="col-md-1">
-                            <i class="fe fe-alert-triangle"></i>
-                        </div>
-                        <div class="col-md-1"></div>
-                    </div>
 
 
-                </div>
-            </div>
-        </div>
 
-        <div class="row d-flex">
-            <div class="col-md-12 d-flex justify-content-end">
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                    aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content" style="width:1000px; margin-left:-350px;">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Production Output Details
-                                </h5>
-                                <span aria-hidden="true">&times;</span>
-                                <input type="hidden" class="digital_printing_detail_id">
-                            </div>
-                            <div class="modal-body">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="modalTable">
-                                        <thead>
-                                            <tr>
-                                                <th>Last Print</th>
-                                                <th>Waste Print</th>
-                                                <th>Rejection</th>
-                                                <th>Good count</th>
-                                                <th>Meter Click</th>
-                                                <th>Check</th>
-                                                <th></th>
-                                                <th>Verify</th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="text" name="" id=""
-                                                        class="form-control last_print">
-                                                </td>
-                                                <td><input type="text" name="" id=""
-                                                        class="form-control waste_print"></td>
-                                                <td><input type="text" name="" id=""
-                                                        class="form-control rejection">
-                                                </td>
-                                                <td><input type="text" name="" id="" readonly
-                                                        class="form-control good_count"></td>
-                                                <td><input type="text" name="" id=""
-                                                        class="form-control meter_click"></td>
-                                                <td><button type="button" disabled
-                                                        class="btn btn-primary check_operator">Check</button>
-                                                </td>
-                                                <td><input type="text" name="" id="" readonly
-                                                        class="form-control check_operator_text"></td>
-                                                <td><button type="button" disabled
-                                                        class="btn btn-primary check_verify">Verify</button>
-                                                </td>
-                                                <td><input type="text" name="" id="" readonly
-                                                        class="form-control check_verify_text"></td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
+
     </div>
 </body>
 
