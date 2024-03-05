@@ -287,7 +287,13 @@ class Helper
         ];
 
         $wms_job_sheets = [
-
+            'MATERIAL REQUEST' => [
+                'MATERIAL REQUEST List',
+                'MATERIAL REQUEST Create',
+                'MATERIAL REQUEST Update',
+                'MATERIAL REQUEST View',
+                'MATERIAL REQUEST Delete',
+            ]
         ];
 
         $wms_dashboards = [
