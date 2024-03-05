@@ -56,7 +56,7 @@ class MaterialRequestController extends Controller
                     3 => 'sale_order_id',
                     4 => 'description',
                     5 => 'created_by',
-                    10 => 'status',
+                    6 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -182,7 +182,7 @@ class MaterialRequestController extends Controller
                 3 => 'sale_order_id',
                 4 => 'description',
                 5 => 'created_by',
-                10 => 'status',
+                6 => 'status',
                 // Add more columns as needed
             ];
 
