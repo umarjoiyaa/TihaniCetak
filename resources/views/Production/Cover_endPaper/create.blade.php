@@ -277,6 +277,7 @@
                                                         <td>
                                                             <select name="finishing_supplier_1" id="print3" disabled
                                                                 class="form-control form-select" style="width:250px;">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -292,6 +293,8 @@
                                                             Lamination</td>
                                                         <td><select name="finishing_supplier_2" disabled id="print4"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
+
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -307,6 +310,7 @@
                                                             Lamination</td>
                                                         <td><select name="finishing_supplier_3" disabled id="print5"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -323,6 +327,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_4" disabled id="print6"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -338,6 +343,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_5" disabled id="print7"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -355,6 +361,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_6" disabled id="print8"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -369,6 +376,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_7" disabled id="print9"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -383,6 +391,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_8" disabled id="print10"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -398,6 +407,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_9" disabled id="print11"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -414,6 +424,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_10" disabled id="print12"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -430,6 +441,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_11" disabled id="print13"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -446,6 +458,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_12" disabled id="print14"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -461,6 +474,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_13" disabled id="print15"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -476,6 +490,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_14" disabled id="print16"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -492,6 +507,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_15" disabled id="print17"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -508,6 +524,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_16" disabled id="print18"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -526,6 +543,7 @@
                                                         </td>
                                                         <td><select name="finishing_supplier_17" disabled id="print19"
                                                                 class="form-control form-select">
+                                                                <option value="" selected disabled></option>
                                                                 <option value="In-house">In-house</option>
                                                                 @foreach ($suppliers as $supplier)
                                                                     <option value="{{ $supplier->id }}">
@@ -673,9 +691,11 @@
             $("#Print3").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print3").prop("disabled", false);
+                    $("#print3").val("In-house").trigger('change')
                     $("#input1").prop("disabled", false);
                 } else {
                     $("#print3").prop("disabled", true);
+                    $("#print3").val("").trigger('change')
                     $("#input1").prop("disabled", true);
                 }
             });
@@ -683,41 +703,51 @@
             $("#Print4").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print4").prop("disabled", false);
+                    $("#print4").val("In-house").trigger('change')
                 } else {
                     $("#print4").prop("disabled", true);
+                    $("#print4").val("").trigger('change');
                 }
             });
 
             $("#Print5").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print5").prop("disabled", false);
+                    $("#print5").val("In-house").trigger('change')
                 } else {
                     $("#print5").prop("disabled", true);
+                    $("#print5").val("").trigger('change')
                 }
             });
 
             $("#Print6").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print6").prop("disabled", false);
+                    $("#print6").val("In-house").trigger('change')
                 } else {
                     $("#print6").prop("disabled", true);
+                    $("#print6").val("").trigger('change')
                 }
             });
 
             $("#Print7").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print7").prop("disabled", false);
+                    $("#print7").val("In-house").trigger('change')
                 } else {
                     $("#print7").prop("disabled", true);
+                    $("#print7").val("").trigger('change')
                 }
             });
 
             $("#Print8").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print8").prop("disabled", false);
+                    $("#print8").val("In-house").trigger('change')
                     $("#input2").prop("disabled", false);
                 } else {
                     $("#print8").prop("disabled", true);
+                    $("#print8").val("").trigger('change')
                     $("#input2").prop("disabled", true);
                 }
             });
@@ -725,25 +755,31 @@
             $("#Print9").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print9").prop("disabled", false);
+                    $("#print9").val("In-house").trigger('change')
                 } else {
                     $("#print9").prop("disabled", true);
+                    $("#print9").val("").trigger('change')
                 }
             });
 
             $("#Print10").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print10").prop("disabled", false);
+                    $("#print10").val("In-house").trigger('change')
                 } else {
                     $("#print10").prop("disabled", true);
+                    $("#print10").val("").trigger('change')
                 }
             });
 
             $("#Print11").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print11").prop("disabled", false);
+                    $("#print11").val("In-house").trigger('change')
                     // $("#input1").prop("disabled", false);
                 } else {
                     $("#print11").prop("disabled", true);
+                    $("#print11").val("").trigger('change')
                     // $("#input1").prop("disabled", true);
                 }
             });
@@ -751,65 +787,81 @@
             $("#Print12").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print12").prop("disabled", false);
+                    $("#print12").val("In-house").trigger('change')
                 } else {
                     $("#print12").prop("disabled", true);
+                    $("#print12").val("").trigger('change')
                 }
             });
 
             $("#Print13").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print13").prop("disabled", false);
+                    $("#print13").val("In-house").trigger('change')
                 } else {
                     $("#print13").prop("disabled", true);
+                    $("#print13").val("").trigger('change')
                 }
             });
 
             $("#Print14").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print14").prop("disabled", false);
+                    $("#print14").val("In-house").trigger('change')
                 } else {
                     $("#print14").prop("disabled", true);
+                    $("#print14").val("").trigger('change')
                 }
             });
 
             $("#Print15").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print15").prop("disabled", false);
+                    $("#print15").val("In-house").trigger('change')
                 } else {
                     $("#print15").prop("disabled", true);
+                    $("#print15").val("").trigger('change')
                 }
             });
 
             $("#Print16").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print16").prop("disabled", false);
+                    $("#print16").val("In-house").trigger('change')
                 } else {
                     $("#print16").prop("disabled", true);
+                    $("#print16").val("").trigger('change')
                 }
             });
 
             $("#Print17").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print17").prop("disabled", false);
+                    $("#print17").val("In-house").trigger('change')
                 } else {
                     $("#print17").prop("disabled", true);
+                    $("#print17").val("").trigger('change')
                 }
             });
 
             $("#Print18").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print18").prop("disabled", false);
+                    $("#print18").val("In-house").trigger('change')
                 } else {
                     $("#print18").prop("disabled", true);
+                    $("#print18").val("").trigger('change')
                 }
             });
 
             $("#Print19").change(function() {
                 if ($(this).is(":checked")) {
                     $("#print19").prop("disabled", false);
+                    $("#print19").val("In-house").trigger('change')
                     $("#input").prop("disabled", false);
                 } else {
                     $("#print19").prop("disabled", true);
+                    $("#print19").val("").trigger('change')
                     $("#input").prop("disabled", true);
                 }
             });
