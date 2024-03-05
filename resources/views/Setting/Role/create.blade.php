@@ -34,7 +34,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h4><b>Create Role new</b></h4>
+                    <h4><b>Create New Role</b></h4>
                 </div>
                 <div class="card-body">
                     <div class="row">
@@ -44,7 +44,7 @@
                                     <a class="nav-link active" id="tab1-tab" data-toggle="tab" href="#tab1">Roles</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2">Permission</a>
+                                    <a class="nav-link" id="tab2-tab" data-toggle="tab" href="#tab2">Permissions</a>
                                 </li>
                             </ul>
 
@@ -53,7 +53,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group">
-                                                <label for="">Role Name</label>
+                                                <label for="">Name</label>
                                                 <input type="text" name="name" value="{{old('name')}}" class="form-control">
                                             </div>
                                         </div>
@@ -65,7 +65,7 @@
                                             <ul>
                                                 {{-- MES --}}
                                                 <li>
-                                                    <input type="checkbox" name="" id="Myinput"> Mes
+                                                    <input type="checkbox" name="" id="Myinput"> MES
                                                     <label for="" data-toggle="collapse"
                                                         data-target="#ProductioncollapseOne" style="cursor:pointer;">
                                                         <i class="ti-angle-down menu-arrow"></i>
@@ -98,7 +98,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox a1 "
+                                                                                                class="myCheckbox b1 "
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -136,7 +136,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox  a2"
+                                                                                                class="myCheckbox  b2"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -176,7 +176,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox a3"
+                                                                                                class="myCheckbox b3"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -226,7 +226,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox2 a4"
+                                                                                                class="myCheckbox2 b4"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -264,7 +264,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox2 a5"
+                                                                                                class="myCheckbox2 b5"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -303,7 +303,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox2 a6"
+                                                                                                class="myCheckbox2 b6"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -353,7 +353,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox3 a7"
+                                                                                                class="myCheckbox3 b7"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -391,7 +391,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox3 a8"
+                                                                                                class="myCheckbox3 b8"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -429,7 +429,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox3 cl a9"
+                                                                                                class="myCheckbox3 cl b9"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -479,7 +479,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox4 a10"
+                                                                                                class="myCheckbox4 b10"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -517,7 +517,7 @@
                                                                                             $lastWord = Str::of($value)->explode(' ')->last();
                                                                                         @endphp
                                                                                         <li><input type="checkbox"
-                                                                                                class="myCheckbox4 a11"
+                                                                                                class="myCheckbox4 b11"
                                                                                                 name="permissions[]"
                                                                                                 value="{{ $value1->id }}">
                                                                                             {{ $lastWord }} </li>
@@ -556,48 +556,51 @@
                 var $parentLi = $(this).closest('li');
                 var $siblingsUl = $parentLi.siblings().find('ul');
                 
-                // Close other nested lists
                 $siblingsUl.hide();
                 $siblingsUl.prev('label').find('.menu-arrow').removeClass('ti-angle-up').addClass('ti-angle-down');
 
-                // Toggle current nested list
                 $(this).toggleClass('ti-angle-down ti-angle-up');
                 $(this).closest("label").next('ul').toggle();
             });
 
             function handleCheckboxChange(checkbox, childSelector) {
-            checkbox.change(function() {
-                $(childSelector).prop('checked', $(this).is(':checked'));
-            });
+                checkbox.change(function() {
+                    $(childSelector).prop('checked', $(this).is(':checked'));
+                });
 
-            $(childSelector).change(function() {
-                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
-                checkbox.prop('checked', allChecked);
-            });
-        }
+                $(childSelector).change(function() {
+                    var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                    checkbox.prop('checked', allChecked);
+                });
+            }
 
-        // Handling checkbox changes for parent "Mes"
-        handleCheckboxChange($('#Myinput'), '.myCheckbox');
+            // Handling checkbox changes for parent "Mes"
+            handleCheckboxChange($('#Myinput'), '.myCheckbox');
 
-        // Handling checkbox changes for other parent checkboxes
-        handleCheckboxChange($('#input0'), '.a1');
-        handleCheckboxChange($('#input1'), '.a2');
-        handleCheckboxChange($('#input2'), '.a3');
+            // Handling checkbox changes for other parent checkboxes
+            handleCheckboxChange($('#input0'), '.a1');
+            handleCheckboxChange($('#input1'), '.a2');
+            handleCheckboxChange($('#input2'), '.a3');
+
+            // Handling checkbox changes for class b1, b2, b3
+            handleCheckboxChange($('.a1'), '.b1');
+            handleCheckboxChange($('.a2'), '.b2');
+            handleCheckboxChange($('.a3'), '.b3');
 
 
 
 
 
-        function handleCheckboxChange(checkbox, childSelector) {
-            checkbox.on('change', function() {
-                $(childSelector).prop('checked', $(this).is(':checked'));
-            });
+            function handleCheckboxChange(checkbox, childSelector) {
+                checkbox.change(function() {
+                    $(childSelector).prop('checked', $(this).is(':checked'));
+                });
 
-            $(document).on('change', childSelector, function() {
-                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
-                checkbox.prop('checked', allChecked);
-            });
-        }
+                $(childSelector).change(function() {
+                    var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                    checkbox.prop('checked', allChecked);
+                });
+            }
 
             // Handling checkbox changes for parent "Myinput2"
             handleCheckboxChange($('#Myinput2'), '.myCheckbox2');
@@ -606,18 +609,21 @@
             handleCheckboxChange($('#input03'), '.a4');
             handleCheckboxChange($('#input04'), '.a5');
             handleCheckboxChange($('#input05'), '.a6');
+            handleCheckboxChange($('.a4'), '.b4');
+            handleCheckboxChange($('.a5'), '.b5');
+            handleCheckboxChange($('.a6'), '.b6');
 
 
             function handleCheckboxChange(checkbox, childSelector) {
-            checkbox.on('change', function() {
-                $(childSelector).prop('checked', $(this).is(':checked'));
-            });
+                checkbox.change(function() {
+                    $(childSelector).prop('checked', $(this).is(':checked'));
+                });
 
-            $(document).on('change', childSelector, function() {
-                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
-                checkbox.prop('checked', allChecked);
-            });
-        }
+                $(childSelector).change(function() {
+                    var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                    checkbox.prop('checked', allChecked);
+                });
+            }
 
             // Handling checkbox changes for parent "Myinput3"
             handleCheckboxChange($('#Myinput3'), '.myCheckbox3');
@@ -626,17 +632,20 @@
             handleCheckboxChange($('#input06'), '.a7');
             handleCheckboxChange($('#input07'), '.a8');
             handleCheckboxChange($('#input08'), '.a9');
+            handleCheckboxChange($('.a7'), '.b7');
+            handleCheckboxChange($('.a8'), '.b8');
+            handleCheckboxChange($('.a9'), '.b9');
 
             function handleCheckboxChange(checkbox, childSelector) {
-            checkbox.on('change', function() {
-                $(childSelector).prop('checked', $(this).is(':checked'));
-            });
+                checkbox.change(function() {
+                    $(childSelector).prop('checked', $(this).is(':checked'));
+                });
 
-            $(document).on('change', childSelector, function() {
-                var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
-                checkbox.prop('checked', allChecked);
-            });
-        }
+                $(childSelector).change(function() {
+                    var allChecked = $(childSelector + ':checked').length === $(childSelector).length;
+                    checkbox.prop('checked', allChecked);
+                });
+            }
 
             // Handling checkbox changes for parent "Myinput4"
             handleCheckboxChange($('#Myinput4'), '.myCheckbox4');
@@ -644,6 +653,9 @@
             // Handling checkbox changes for child checkboxes of each section
             handleCheckboxChange($('#input09'), '.a10');
             handleCheckboxChange($('#input10'), '.a11');
+
+            handleCheckboxChange($('.a10'), '.b10');
+            handleCheckboxChange($('.a11'), '.b11');
            
 
             

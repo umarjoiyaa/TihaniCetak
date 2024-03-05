@@ -870,8 +870,8 @@
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td><select name="" id="" class="form-control side"
-                                                style="width:150px;">
+                                        <td><select name="" id="" class="form-control form-select side"
+                                                style="width:250px;">
                                                 <option value="">Select Side</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>

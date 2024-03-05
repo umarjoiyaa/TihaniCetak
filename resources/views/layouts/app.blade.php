@@ -96,7 +96,7 @@
         .main-header-right .dropdown-item:hover{
             color:#000;
         }
-        select{
+        .select2{
             width:100% !important;
         }
     </style>
