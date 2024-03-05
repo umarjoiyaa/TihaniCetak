@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Area;
 use App\Models\AreaShelf;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -230,6 +231,20 @@ class AreaController extends Controller
         $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
+
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                $location = new Location();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level->id;
+                $location->used_qty = 0;
+                $location->save();
+            }
+        }
+
         Helper::logSystemActivity('Area', 'Area Store');
         return redirect()->route('area')->with('custom_success', 'Area has been Created Successfully !');
     }
@@ -280,12 +295,27 @@ class AreaController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $area =  Area::find($id);
+        $area = Area::find($id);
         $area->name = $request->name;
         $area->code = $request->code;
         $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
+
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+                $location = new Location();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level->id;
+                $location->used_qty = 0;
+                $location->save();
+            }
+        }
+
         Helper::logSystemActivity('Area', 'Area Update');
         return redirect()->route('area')->with('custom_success', 'Area has been Updated Successfully !');
     }
@@ -297,6 +327,13 @@ class AreaController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area = Area::find($id);
+        $shelves = AreaShelf::whereIn('id', $area->shelf_id)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+            }
+        }
         $area->delete();
         Helper::logSystemActivity('Area', 'Area Delete');
         return redirect()->route('area')->with('custom_success', 'Area has been Deleted Successfully !');
