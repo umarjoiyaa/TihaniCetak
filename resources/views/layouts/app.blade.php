@@ -730,7 +730,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Material Request</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Manage_tranfer') }}"
+                                                                        href="{{ route('manage_transfer') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

@@ -560,7 +560,7 @@
 
                                     <div class="col-md-3 ">
                                         <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Manage_tranfer')}}">
+                                            <a href="{{route('manage_transfer')}}">
                                                 <iconify-icon icon="pepicons-pop:file" width="20"
                                                     height="20"></iconify-icon><br>
                                                 <span style="font-weight: bold;">Manage
