@@ -723,7 +723,7 @@
                                                                             style="color: #a41843"></iconify-icon> Good
                                                                         Receiving</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Material_request') }}"
+                                                                        href="{{ route('material_request') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
