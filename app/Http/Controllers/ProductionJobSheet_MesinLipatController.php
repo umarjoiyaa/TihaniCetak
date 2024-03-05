@@ -432,7 +432,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $mesin_lipat =  MesinLipat::find($id);
+        $mesin_lipat = MesinLipat::find($id);
         $mesin_lipat->sale_order_id = $request->sale_order;
         $mesin_lipat->date = $request->date;
         $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen;
@@ -440,8 +440,11 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $mesin_lipat->jenis_lipatan = $request->jenis_lipatan;
         $mesin_lipat->created_by = Auth::user()->id;
 
-
-        $mesin_lipat->status = 'Not-initiated';
+        if($mesin_lipat->status == 'Paused'){
+            $mesin_lipat->status = 'Paused';
+        }else{
+            $mesin_lipat->status = 'Not-initiated';
+        }
         $mesin_lipat->save();
 
         Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT update');

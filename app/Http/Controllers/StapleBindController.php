@@ -441,7 +441,11 @@ class StapleBindController extends Controller
         $staple_bind->mesin = $request->mesin;
         $staple_bind->created_by = Auth::user()->id;
 
-        $staple_bind->status = 'Not-initiated';
+        if($staple_bind->status == 'Paused'){
+            $staple_bind->status = 'Paused';
+        }else{
+            $staple_bind->status = 'Not-initiated';
+        }
         $staple_bind->save();
 
         Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND update');
