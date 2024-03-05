@@ -437,7 +437,11 @@ class PerfectBindController extends Controller
         $perfect_bind->jenis = $request->jenis;
         $perfect_bind->created_by = Auth::user()->id;
 
-        $perfect_bind->status = 'Not-initiated';
+        if($perfect_bind->status == 'Paused'){
+            $perfect_bind->status = 'Paused';
+        }else{
+            $perfect_bind->status = 'Not-initiated';
+        }
         $perfect_bind->save();
 
         Helper::logSystemActivity('PERFECT BIND', 'PERFECT BIND update');

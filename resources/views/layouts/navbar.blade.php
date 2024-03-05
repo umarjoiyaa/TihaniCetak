@@ -252,7 +252,7 @@
                           <div class="col-md-8">
                             <a class="dropdown-item" href="{{route('Good_Receiving')}}">Good
                               Receiving</a>
-                            <a class="dropdown-item" href="{{route('Material_request')}}">Material Request</a>
+                            <a class="dropdown-item" href="{{route('material_request')}}">Material Request</a>
                             <a class="dropdown-item" href="{{route('Manage_tranfer')}}">Manage Transfer</a>
                             <a class="dropdown-item" href="{{route('Stock_in')}}">Stock In</a>
                             <a class="dropdown-item" href="{{route('Stock_Transfer')}}">Stock Transfer</a>

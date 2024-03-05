@@ -426,7 +426,11 @@ class MesinKnifeController extends Controller
         $mesin_knife->mesin = $request->mesin;
         $mesin_knife->created_by = Auth::user()->id;
 
-        $mesin_knife->status = 'Not-initiated';
+        if($mesin_knife->status == 'Paused'){
+            $mesin_knife->status = 'Paused';
+        }else{
+            $mesin_knife->status = 'Not-initiated';
+        }
         $mesin_knife->save();
 
         Helper::logSystemActivity('MESIN 3 KNIFE', 'MESIN 3 KNIFE update');

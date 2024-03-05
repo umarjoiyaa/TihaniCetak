@@ -434,7 +434,6 @@ class DigitalPrintingController extends Controller
 
     public function print($id){
         $digital_printing = DigitalPrinting::find($id);
-        $suppliers = Supplier::select('id', 'name')->get();
         $users = User::all();
         $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
@@ -443,7 +442,6 @@ class DigitalPrintingController extends Controller
 
         $pdf = PDF::loadView('Production.DigitalPrinting.pdf', [
             'digital_printing' => $digital_printing,
-            'suppliers' => $suppliers,
             'users' => $users,
             'check_machines' => $check_machines,
             'details' => $details,

@@ -171,9 +171,9 @@
                                             @foreach ($sections as $key1 => $section)
                                                 <li class="nav-item">
                                                     <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
-                                                        id="tab{{ $key1 }}" data-toggle="tab"
-                                                        href="#Seksyen{{ $section->row }}" role="tab"
-                                                        aria-controls="Seksyen{{ $section->row }}"
+                                                        id="tab{{ $section->row }}" data-toggle="tab"
+                                                        href="#Seksyen{{ $key }}_{{ $section->row }}" role="tab"
+                                                        aria-controls="Seksyen{{ $section->row }}_{{ $key }}"
                                                         aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
                                                         {{ $section->row }}</a>
                                                     <input type="hidden" name="section[{{ $key1 + 1 }}]"
@@ -186,8 +186,8 @@
                                         <div class="tab-content" id="myTabContent">
                                             @foreach ($sections as $key1 => $section)
                                                 <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                    id="Seksyen{{ $section->row }}" role="tabpanel"
-                                                    aria-labelledby="tab{{ $key1 }}">
+                                                    id="Seksyen{{ $section->row }}_{{ $key }}" role="tabpanel"
+                                                    aria-labelledby="tab{{ $section->row }}">
                                                     <input type="hidden" class="hidden" value="{{ $section->row }}">
                                                     <div class="table-responsive">
                                                         <table class="table table-bordered">
@@ -361,250 +361,206 @@
         });
     }
 
+// Function to initialize sectionRanges based on the input value
+var sectionRanges = {};
+function initializeSectionRanges(inputValue) {
+    var inputValues = inputValue.split(',').map(value => value.trim());
 
-        var StartingNumber;
-        var EndingNumber;
+    var currentSection = 1;
 
-        $(".SectionNumber").on("change", function() {
-            const regex = /^[0-9,-]+$/;
-            const newValue = $(this).val().replace(/[^0-9,-]+/g, "");
-            $(this).val(newValue);
-            var newValueArray = newValue.split(',');
+    inputValues.forEach(function (input) {
+        if (input.includes('-')) {
+            var rangeArray = input.split('-');
+            var start = parseInt(rangeArray[0]);
+            var end = parseInt(rangeArray[1]);
 
-            var sectionsToRemove = [];
+            sectionRanges[currentSection] = {
+                start: start,
+                end: end
+            };
 
-            $('#tableSection tbody tr').each(function() {
-                var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
-                sectionsToRemove.push(sectionNumber);
-            });
-
-
-            // Iterate through each value in the array
-            newValueArray.forEach(function(value) {
-                StartingNumber = 0;
-                EndingNumber = 0;
-                if (/^\d+-\d+$/.test(value)) {
-                    //Range code
-
-                    var splitValue = value.split('-');
-                    StartingNumber = +splitValue[0];
-                    EndingNumber = +splitValue[1];
-
-                    // if ($('#tableSection tbody tr').length > 0) {
-                    //     StartingNumber = $('#tableSection tbody tr').length + 1;
-                    // }
-
-                    if (!isRangeExists(StartingNumber, EndingNumber)) {
-                        for (let i = StartingNumber; i <= EndingNumber; i++) {
-                            $length = $('#tableSection tbody tr').length + 1;
-                            $('#tableSection tbody').append(`<tr>
-                                        <td>Seksyen ${i} <input type="hidden" value="Seksyen ${i}" name="pengesahan[${$length}][1]"></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][2]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][3]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][4]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][5]" id=""></td>
-                                    </tr>`);
-                            $length1 = $('#myTab li').length + 1;
-                            $('#myTab').append(`<li class="nav-item">
-                                    <a class="nav-link " id="home-tab" data-toggle="tab" href="#Seksyen${i}"
-                                        role="tab" aria-controls="Seksyen${i}" aria-selected="true">Seksyen ${i}</a>
-                                        <input type="hidden" name="section[${i}]" value="Seksyen ${i}">
-                                </li>`);
-                            $length2 = $('#myTabContent .tab-pane').length + 1;
-                            $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${i}" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <input type="hidden" class="hidden" value="${i}">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen ${i}</th>
-                                                                <th rowspan="2">Check</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Verify</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Action</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                            <td>1000 <input type="hidden" value="1000" name="section[${i}][1][1]"
-                                                                    id=""></td>
-                                                            <td><input type="checkbox" name="section[${i}][1][2]"
-                                                                    id="">
-                                                            </td>
-                                                            <td><input type="checkbox" name="section[${i}][1][3]"
-                                                                    id="">
-                                                            </td>
-                                                            <td><button type="button" class="btn btn-primary check_btn"
-                                                                    style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${i}][1][4]"
-                                                                    class="check_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-primary verify_btn"
-                                                                    disabled>Verify</button>
-                                                            </td>
-                                                            <td><input type="text" name="section[${i}][1][5]"
-                                                                    class="verify_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-danger remove"
-                                                                    style="border-radius:5px; ">X</button></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>`);
-                        }
-                    }
-                    //
-
-                    sectionsToRemove = sectionsToRemove.filter(function(section) {
-                        return section < StartingNumber || section > EndingNumber;
-                    });
-                    console.log("Range:", value);
-                } else if (/^\d+$/.test(value)) {
-
-                    var soloNumber = parseInt(value);
-
-
-                    if (!isSoloNumberExists(soloNumber)) {
-
-                        // Solo number code
-                        $length = $('#tableSection tbody tr').length + 1;
-                        $('#tableSection tbody').append(`<tr>
-                                        <td>Seksyen ${value} <input type="hidden" value="Seksyen ${value}" name="pengesahan[${$length}][1]"></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][2]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][3]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][4]" id=""></td>
-                                        <td><input type="checkbox" name="pengesahan[${$length}][5]" id=""></td>
-                                    </tr>`);
-
-
-                        $length1 = $('#myTab li').length + 1;
-                        $('#myTab').append(`<li class="nav-item">
-                                    <a class="nav-link " id="home-tab" data-toggle="tab" href="#Seksyen${value}"
-                                        role="tab" aria-controls="Seksyen${value}" aria-selected="true">Seksyen ${value}</a>
-                                        <input type="hidden" name="section[${value}]" value="Seksyen ${value}">
-                                </li>`);
-
-                        $length2 = $('#myTabContent .tab-pane').length + 1;
-                        $('#myTabContent').append(` <div class="tab-pane fade show" id="Seksyen${value}" role="tabpanel"
-                                                aria-labelledby="home-tab">
-                                                <input type="hidden" class="hidden" value="${value}">
-                                                <div class="table-responsive">
-                                                    <table class="table table-bordered">
-                                                        <thead>
-                                                            <tr>
-                                                                <th rowspan="2">Jumlah </th>
-                                                                <th colspan="2">Seksyen ${value}</th>
-                                                                <th rowspan="2">Check</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Verify</th>
-                                                                <th rowspan="2">Username / datetime</th>
-                                                                <th rowspan="2">Action</th>
-                                                            </tr>
-                                                            <tr>
-                                                                <th>KL</th>
-                                                                <th>K</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                            <td>1000 <input type="hidden" value="1000" name="section[${value}][1][1]"
-                                                                    id=""></td>
-                                                            <td><input type="checkbox" name="section[${value}][1][2]"
-                                                                    id="">
-                                                            </td>
-                                                            <td><input type="checkbox" name="section[${value}][1][3]"
-                                                                    id="">
-                                                            </td>
-                                                            <td><button type="button" class="btn btn-primary check_btn"
-                                                                    style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${value}][1][4]"
-                                                                    class="check_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-primary verify_btn"
-                                                                    disabled>Verify</button>
-                                                            </td>
-                                                            <td><input type="text" name="section[${value}][1][5]"
-                                                                    class="verify_operator form-control" readonly></td>
-                                                            <td><button type="button" class="btn btn-danger remove"
-                                                                    style="border-radius:5px; ">X</button></td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>`);
-                        //
-
-                        console.log("Solo Number:", value);
-                    }
-
-                    sectionsToRemove = sectionsToRemove.filter(function(section) {
-                        return section != value;
-                    });
-
-                } else {
-                    console.log("Invalid Format:", value);
-                }
-            });
-
-            sectionsToRemove.forEach(function(sectionToRemove) {
-                removeSection(sectionToRemove);
-            });
-
-        });
-
-
-        function removeSection(sectionNumber) {
-    $('#tableSection tbody tr').each(function () {
-        var currentSectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
-        if (currentSectionNumber == sectionNumber) {
-            $(this).remove();
-            return false;
+            currentSection++;
+        } else {
+            currentSection++;
         }
     });
 
-    $('#myTab li, #myTabContent .tab-pane').each(function () {
-        var currentSectionNumber = parseInt($(this).find('input[name^="section"]').val().match(/\d+/)[0]);
-        if (currentSectionNumber == sectionNumber) {
-            $(this).remove();
-            return false;
-        }
-    });
+    return sectionRanges;
 }
 
 
-        function isRangeExists(start, end) {
-            // Check if the range already exists in the table
-            var rangeExists = false;
-            $('#tableSection tbody tr').each(function () {
-                var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
-                if (sectionNumber >= start && sectionNumber <= end) {
-                    rangeExists = true;
-                    return false; // exit the loop
+    $(document).ready(function() {
+        var initialValue = $('.SectionNumber').val();
+        // Initialize sectionRanges with the initial value
+        var sectionRanges = initializeSectionRanges(initialValue);
+
+
+
+var sectionNumber = 1;
+
+$('.SectionNumber').on('change', function() {
+    var inputValue = $(this).val().trim();
+    if (inputValue === '' || inputValue === '0') {
+        // Clear tabs and content if the input is empty or zero
+        $('#myTab').empty();
+        $('#myTabContent').empty();
+        sectionRanges = {}; // Clear sectionRanges when input is empty
+        sectionNumber = 1; // Reset sectionNumber
+        return;
+    }
+
+    var inputValues = inputValue.split(',').map(value => value.trim());
+
+    // Store existing section numbers to track removed tabs
+    var existingSectionNumbers = [];
+
+    // Iterate through input values to update or add sections
+    inputValues.forEach(function(input) {
+        if (input.includes('-')) {
+            // It's a range
+            var rangeArray = input.split('-');
+            var start = parseInt(rangeArray[0]);
+            var end = parseInt(rangeArray[1]);
+
+            // Check if the range is already present
+            if (sectionRanges[sectionNumber] && sectionRanges[sectionNumber].end >=
+                start) {
+                // Extend the existing range
+                sectionRanges[sectionNumber].end = Math.max(end, sectionRanges[
+                    sectionNumber].end);
+            } else {
+                // Add or update the range for the section
+                sectionRanges[sectionNumber] = {
+                    start: start,
+                    end: end
+                };
+            }
+
+            // Iterate through the range to add or update sections
+            for (var i = start; i <= end; i++) {
+                if (!$(`#myTab #tab${i}`).length) {
+                    createTabAndTable(sectionNumber, i);
                 }
-            });
-            return rangeExists;
+                existingSectionNumbers.push(i);
+            }
+
+            // Move to the next section after processing the entire range
+            sectionNumber++;
+
+        } else {
+            var soloNumber = parseInt(input);
+            if (!$(`#myTab #tab${soloNumber}`).length) {
+                // It's a solo number and not already created
+                createTabAndTable(sectionNumber, soloNumber);
+            }
+            existingSectionNumbers.push(soloNumber);
+
+            // Move to the next section
+            sectionNumber++;
         }
+    });
 
-        function isSoloNumberExists(soloNumber) {
-            // Check if the solo number already exists in the table
-            var soloNumberExists = false;
-            $('#tableSection tbody tr').each(function () {
-                var sectionNumber = parseInt($(this).find('td:first-child').text().match(/\d+/)[0]);
-                if (sectionNumber === soloNumber) {
-                    soloNumberExists = true;
-                    return false; // exit the loop
-                }
-            });
-            return soloNumberExists;
+    // Remove tabs corresponding to removed section numbers
+
+
+    $('#myTab li').each(function() {
+        var tabId = $(this).find('a').attr('href').replace('#Seksyen', '');
+        var tabNumber = parseInt(tabId.split('_')[1]);
+
+        if (!existingSectionNumbers.includes(tabNumber)) {
+            // Remove the tab if the section number is not present in the input
+            $(this).remove();
+            // Remove the corresponding tab content
+            $('#myTabContent').find(`#Seksyen${tabId}`).remove();
         }
+    });
+
+    $('#tableSection tbody tr').each(function() {
+        var currentSectionNumber = parseInt($(this).find('td:first-child').text().match(
+            /\d+/)[0]);
+        if (!existingSectionNumbers.includes(currentSectionNumber)) {
+            $(this).remove();
+            // return false;
+        }
+    });
+
+});
+
+function createTabAndTable(sectionNumber, number) {
+    var tabIndex = $('#myTab li').length + 1;
+
+    $length = $('#tableSection tbody tr').length + 1;
+    $('#tableSection tbody').append(`
+<tr>
+<td>Seksyen ${number} <input type="hidden" value="Seksyen ${number}" name="pengesahan[${$length}][1]"></td>
+<td><input type="checkbox" name="pengesahan[${$length}][2]" id=""></td>
+<td><input type="checkbox" name="pengesahan[${$length}][3]" id=""></td>
+<td><input type="checkbox" name="pengesahan[${$length}][4]" id=""></td>
+<td><input type="checkbox" name="pengesahan[${$length}][5]" id=""></td>
+</tr>`);
+
+    $length1 = $('#myTab li').length + 1;
+    $('#myTab').append(`
+<li class="nav-item">
+<a class="nav-link" id="tab${number}" data-toggle="tab" href="#Seksyen${sectionNumber}_${number}"
+    role="tab" aria-controls="Seksyen${sectionNumber}_${number}" aria-selected="true">
+    Seksyen ${number}
+</a>
+<input type="hidden" name="section[${number}]" value="Seksyen ${sectionNumber} - ${number}">
+</li>`);
+
+    $length2 = $('#myTabContent .tab-pane').length + 1;
+    $('#myTabContent').append(`
+<div class="tab-pane fade" id="Seksyen${sectionNumber}_${number}" role="tabpanel"
+aria-labelledby="tab${number}">
+<input type="hidden" class="hidden" value="${number}">
+<div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th rowspan="2">Jumlah </th>
+                                                    <th colspan="2">Seksyen ${number}</th>
+                                                    <th rowspan="2">Check</th>
+                                                    <th rowspan="2">Username / datetime</th>
+                                                    <th rowspan="2">Verify</th>
+                                                    <th rowspan="2">Username / datetime</th>
+                                                    <th rowspan="2">Action</th>
+                                                </tr>
+                                                <tr>
+                                                    <th>KL</th>
+                                                    <th>K</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                <td>1000 <input type="hidden" value="1000" name="section[${number}][1][1]"
+                                                        id=""></td>
+                                                <td><input type="checkbox" name="section[${number}][1][2]"
+                                                        id="">
+                                                </td>
+                                                <td><input type="checkbox" name="section[${number}][1][3]"
+                                                        id="">
+                                                </td>
+                                                <td><button type="button" class="btn btn-primary check_btn"
+                                                        style="border-radius:5px; ">check</button></td>
+                                                <td><input type="text" name="section[${number}][1][4]"
+                                                        class="check_operator form-control" readonly></td>
+                                                <td><button type="button" class="btn btn-primary verify_btn"
+                                                        disabled>Verify</button>
+                                                </td>
+                                                <td><input type="text" name="section[${number}][1][5]"
+                                                        class="verify_operator form-control" readonly></td>
+                                                <td><button type="button" class="btn btn-danger remove d-none"
+                                                        style="border-radius:5px; ">X</button></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+</div>`);
+};
 
 
-        $(document).ready(function() {
+
             $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {

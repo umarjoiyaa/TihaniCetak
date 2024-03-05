@@ -27,7 +27,7 @@ use App\Http\Controllers\LaporanProsesPencetakaniCetakController;
 use App\Http\Controllers\MachineController;
 use App\Http\Controllers\MachineDashboardController;
 use App\Http\Controllers\Manage_TransferController;
-use App\Http\Controllers\Material_requestController;
+use App\Http\Controllers\MaterialRequestController;
 use App\Http\Controllers\OEEDashboardController;
 use App\Http\Controllers\Pemeriksaan_PenghantaranController;
 use App\Http\Controllers\PlateCetakController;
@@ -679,9 +679,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/Good_Receiving/Receive', [GoodReceivingController::class, 'receive'])->name('Good_Receiving.receive');
 
     // Material Requesst
-    Route::get('/WMS/Material_request', [Material_requestController::class, 'index'])->name('Material_request');
-    Route::get('/WMS/Material_request/view', [Material_requestController::class, 'view'])->name('Material_request.view');
-    Route::get('/WMS/Material_request/Create', [Material_requestController::class, 'Create'])->name('Material_request.create');
+    Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');
+    Route::get('/WMS/material-request/data', [MaterialRequestController::class, 'Data'])->name('material_request.data');
+    Route::get('/WMS/material-request/Create', [MaterialRequestController::class, 'create'])->name('material_request.create');
+    Route::post('/WMS/material-request/store', [MaterialRequestController::class, 'store'])->name('material_request.store');
+    Route::get('/WMS/material-request/edit/{id}', [MaterialRequestController::class, 'edit'])->name('material_request.edit');
+    Route::get('/WMS/material-request/view/{id}', [MaterialRequestController::class, 'view'])->name('material_request.view');
+    Route::post('/WMS/material-request/update/{id}', [MaterialRequestController::class, 'update'])->name('material_request.update');
+    Route::get('/WMS/material-request/delete/{id}', [MaterialRequestController::class, 'delete'])->name('material_request.delete');
 
     // Manage Transfer
     Route::get('/WMS/Manage_tranfer', [Manage_TransferController::class, 'index'])->name('Manage_tranfer');

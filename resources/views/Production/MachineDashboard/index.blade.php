@@ -1,15 +1,24 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+    .card .card{
+        width:250px;
+        border-radius:25px;
+        margin-left:50px;
+    }
+    .card .card p{
+        font-size:10px;
+        width:150px;
+        
+    }
+</style>
+@endSection
 @section('content')
 
+
 <div class="row">
     <div class="col-md-12">
-        <h3><b>Machine Dashboard</b></h3>
-    </div>
-</div>
-<div class="row">
-    <div class="col-md-12">
-        <div class="card" style="background:#330252;">
+        <div class="card" style="">
             <div class="card-header">
                 <div class="text-center">
                     <h2><b>Machine Status</b></h2>
@@ -23,151 +32,148 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
+                        <div class="card">
+                           
                             <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>C1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
+                                <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">C1</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Title :</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
+                                    <div class="col-md-6">
+                                        <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Type :</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
+                                    <div class="col-md-6">
+                                        <p>Paper</p>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Planned Qty.:</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
+                                    <div class="col-md-6">
+                                        <p>5000</p>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>prod. Qty.:</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>345</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 style="font-size:;">Status :</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <span class="badge badge-success">Started</span>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>C2</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-danger">Stoped</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">C2</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-danger">Stopped</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:-100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>C3</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-warning">Paused</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">C3</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-warning">Paused</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                 </div>
                 <div class="row">
@@ -177,152 +183,148 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>p1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">P1</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-success">Started</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>P2</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;" class="p-0 m-0">IQRO GENIUS - RUMI (NEW
-                                            COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-danger">Stoped</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">P2</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-danger">Stopped</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:-100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>P3</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-warning">Paused</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">P3</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-warning">Paused</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                 </div>
                 <div class="row">
@@ -332,151 +334,148 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>F1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">F1</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-success">Started</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>F2</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-danger">Stoped</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">F2</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-danger">Stopped</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:-100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>F3</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-warning">Paused</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">F3</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                   <span class="badge badge-warning">Paused</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                 </div>
                 <div class="row">
@@ -486,151 +485,148 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>B1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">B1</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-success">Started</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>B2</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-danger">Stoped</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">B2</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                        <span class="badge badge-danger">Stopped</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:-100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>B3</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-warning">Paused</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:50%;">B3</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                        <span class="badge badge-warning">Paused</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                 </div>
 
@@ -641,150 +637,147 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>3knife1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:10px;">3KNIFE1</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <span class="badge badge-success">Started</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>3knife2</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-danger">Stoped</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card">
+                           
+                           <div class="card-body">
+                               <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:10px;">3KNIFE2</span>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Title :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Type :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>Paper</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>Planned Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>5000</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6>prod. Qty.:</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                       <p>345</p>
+                                   </div>
+                               </div>
+                               <div class="row">
+                                   <div class="col-md-6">
+                                       <h6 style="font-size:;">Status :</h6>
+                                   </div>
+                                   <div class="col-md-6">
+                                   <span class="badge badge-danger">Stopped</span>
+                                   </div>
+                               </div>
+                           </div>                            
+                       </div>
                     </div>
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:-100px;">
+                        <div class="card">
+                            
                             <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>3knife3</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
+                                <span class="badge badge-success mb-3 p-2" style="font-size:20px; margin-top:-50px; border-radius:10px;">3KNIFE3</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Title :</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
+                                    <div class="col-md-6">
+                                        <p>IQRO GENIUS - RUMI <br> (NEW COVER)</p>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Type :</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
+                                    <div class="col-md-6">
+                                        <p>Paper</p>
                                     </div>
                                 </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Planned Qty.:</h6>
                                     </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-warning">Paused</span>
+                                    <div class="col-md-6">
+                                        <p>5000</p>
                                     </div>
                                 </div>
-                            </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>prod. Qty.:</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <p>345</p>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 style="font-size:;">Status :</h6>
+                                    </div>
+                                    <div class="col-md-6">
+                                    <span class="badge badge-warning">Pause</span>
+                                    </div>
+                                </div>
+                            </div>                            
                         </div>
                     </div>
                 </div>
