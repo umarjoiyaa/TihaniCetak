@@ -255,6 +255,11 @@ class PermissionTableSeeder extends Seeder
             'PRINTING PROCESS Verify',
             'PRINTING PROCESS View',
             'PRODUCTION SCHEDULING View',
+            'MATERIAL REQUEST List',
+            'MATERIAL REQUEST Create',
+            'MATERIAL REQUEST Update',
+            'MATERIAL REQUEST View',
+            'MATERIAL REQUEST Delete',
          ];
 
         foreach ($permissions as $permission) {

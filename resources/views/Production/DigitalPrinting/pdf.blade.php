@@ -19,7 +19,7 @@
             </div>
         </div>
 
-            <div class="row">
+            {{-- <div class="row">
                 <div class="col-md-12">
                     <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
                         <div class="row">
@@ -45,7 +45,7 @@
 
                     </div>
                 </div>
-            </div>
+            </div> --}}
 
         {{-- <div class="card" style="background:#f4f4ff;">
             <div class="card-body">
@@ -78,22 +78,19 @@
         </div> --}}
 
 
-                <div class="row mt-2 mx-2" >
-                    <div >
-                        <div class="form-group">
-                            <label for="">Date</label><br>
-                            <label>{{ $digital_printing->date }}</label>
-
-                        </div>
+                <div class="row mt-5 mx-2" >
+                    <div>
+                            <label for="" class="font-weight-bold">Date</label><br>
+                            <label >{{ $digital_printing->date }}</label>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="">By</label><br>
+                        <label for="" class="font-weight-bold">By</label><br>
                         <label>{{ $digital_printing->user->full_name }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            <label for=""> Operators</label>
+                            <label for="" class="font-weight-bold"> Operators</label>
                             @php
                                 $selectedOperatorIds = json_decode($digital_printing->operator);
                             @endphp
@@ -119,20 +116,20 @@
 
                 <div class="row mt-2 mx-2" >
                     <div >
-                        <div class="form-group">
-                            <label for="">Sales Order No.</label><br>
+                        <div class="form-group" >
+                            <label for="" class="font-weight-bold">Sales Order No.</label><br>
                             <label>{{ $digital_printing->sale_order->order_no }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="">Tajuk</label><br>
+                        <label for="" class="font-weight-bold">Tajuk</label><br>
                         <label>{{ $digital_printing->sale_order->description }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            <label for=""> Kod Buku</label><br>
+                            <label for="" class="font-weight-bold"> Kod Buku</label><br>
                             <label>
                                 {{ $digital_printing->sale_order->kod_buku }}
                             </label>
@@ -144,19 +141,19 @@
                 <div class="row mt-2 mx-2" >
                     <div >
                         <div class="form-group">
-                            <label for="">Pelanggan</label><br>
+                            <label for="" class="font-weight-bold">Pelanggan</label><br>
                             <label>{{ $digital_printing->sale_order->customer }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="">Saiz Produk</label><br>
+                        <label for="" class="font-weight-bold">Saiz Produk</label><br>
                         <label>{{ $digital_printing->sale_order->size }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            <label for="">Kuantiti SO</label><br>
+                            <label for="" class="font-weight-bold" style="width:100px!important;">Kuantiti SO</label><br>
                             <label>
                                 {{ $digital_printing->sale_order->sale_order_qty }}
                             </label>
@@ -168,19 +165,19 @@
                 <div class="row mt-2 mx-2" >
                     <div >
                         <div class="form-group">
-                            <label for="">Jumlah mukasurat</label><br>
+                            <label for="" class="font-weight-bold">Jumlah mukasurat</label><br>
                             <label>{{ $digital_printing->jumlah_mukasurat }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="">Kuantiti Waste</label><br>
+                        <label for="" class="font-weight-bold">Kuantiti Waste</label><br>
                         <label>{{ $digital_printing->kuantiti_waste }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            <label for="">Remark</label><br>
+                            <label for="" class="font-weight-bold">Remark</label><br>
                             <label>
                                 {{ $digital_printing->remarks }}
                             </label>
@@ -189,206 +186,192 @@
 
                 </div>
 
+                <div class="row  mx-2" >
+                    <div >
+                        <div class="form-group " >
+                            <label for="" class="font-weight-bold">Mesin</label><br>
+                            <label>{{ $digital_printing->mesin }}</label>
 
-
-
-
-
-                <div class="row mt-5">
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="">Mesin</label>
-                            <input type="text" class="form-control" value="{{ $digital_printing->mesin }}">
                         </div>
                     </div>
-                    @if ($digital_printing->mesin == 'OTHERS')
-                        <input type="hidden" id="machine" value="{{ $digital_printing->mesin_others }}">
-                    @else
-                        <input type="hidden" id="machine" value="{{ $digital_printing->mesin }}">
-                    @endif
-                    <div class="col-md-4">
-                        <div id="box1">
-                            @if ($digital_printing->mesin == 'OTHERS')
-                                <div id="box1"><label for="newInput">Lain-lain mesin (Sila
-                                        nyatakan)</label><input type="text" name="mesin_others"
-                                        class="form-control" id="newInput"
-                                        value="{{ $digital_printing->mesin_others }}"></div>
+
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        @if ($digital_printing->mesin == 'OTHERS')
+                                <label for="newInput" class="font-weight-bold">Lain-lain mesin (Sila
+                                        nyatakan)</label>
+                                <label>{{ $digital_printing->mesin_others }}</label>
                             @endif
-                        </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4 ">
-                        <div class="form-group">
-                            <div class="label">Kategori job</div>
-                            <input type="text" class="form-control"
-                                value="{{ $digital_printing->kategori_job }}">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <label for="">Jenis produk</label>
-                            <input type="text" class="form-control"
-                                value="{{ $digital_printing->jenis_produk }}">
-                        </div>
 
                     </div>
-                    <div class="col-md-4">
-                        <!-- <label for="">Other (Please state)</label> -->
-                        <div id="box2">
+                </div>
+
+                <div class="row mt-2 mx-2" style="margin-top:70px!important;">
+                    <div >
+                        <div class="form-group">
+                            <label for="" class="font-weight-bold">Kategori job</label><br>
+                            <label>{{ $digital_printing->kategori_job }}</label>
+
+                        </div>
+                    </div>
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        <label for="" class="font-weight-bold">Jenis produk</label><br>
+                        <label>{{ $digital_printing->jenis_produk }}</label>
+
+                    </div>
+                    <div >
+                        <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
                             @if ($digital_printing->jenis_produk == 'OTHERS')
-                                <label for="newInput">Other (please state)</label><input type="text"
-                                    name="jenis_produk_others" class="form-control" id="newInput"
-                                    value="{{ $digital_printing->jenis_produk_others }}">
+                                <label for="newInput" class="font-weight-bold">Other (please state)</label>
+                                <span>{{ $digital_printing->jenis_produk_others }}</span>
                             @endif
-                        </div>
-
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <div class="label">Kertas: teks</div>
-                            <input type="text" name="kertas_teks" id="" class="form-control"
-                                value="{{ $digital_printing->kertas_teks }}">
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="form-group">
-                            <div class="label">Kertas: Cover</div>
-                            <input type="text" name="kertas_cover" id="" class="form-control"
-                                value="{{ $digital_printing->kertas_cover }}">
                         </div>
                     </div>
 
                 </div>
 
+                <div class="row mt-2 mx-2" >
+                    <div >
+                        <div class="form-group">
+                            <label for="" class="font-weight-bold">Kertas: teks</label><br>
+                            <label>{{ $digital_printing->kertas_teks }}</label>
 
-
-        <div class="card" style="background:#f1f0f0; border-radius:5px;">
-            <div class="card-body">
-                <div class="row ">
-                    <div class="col-md-12">
-                        <h5><b>Text</b></h5>
+                        </div>
                     </div>
-                    <div class="col-md-4 ">
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        <label for="" class="font-weight-bold">Kertas: Cover</label><br>
+                        <label>{{ $digital_printing->kertas_cover }}</label>
+
+                    </div>
+
+                </div>
+
+                <br>
+                <h3><b>Text</b></h3>
+
+                <div class="row mt-2 mx-2" >
+                    <div >
                         <div class="form-group">
                             <div class="row">
-                                <div class="col-md-1"><input type="checkbox" name="text_front" id=""
+                                <div>
+                                <div class="col-md-1"><input disabled type="checkbox" name="text_front" id=""
                                         @checked($digital_printing->text_front != null)></div>
-                                <div class="col-md-2">Front</div>
-                                <div class="col-md-1"><input type="checkbox" name="text_back" id=""
+                                <div class="col-md-2" class="font-weight-bold">Front</div>
+                            </div>
+                            <div style="margin-left: 70px!important;margin-top:-55px !important">
+                                <div class="col-md-1"><input disabled type="checkbox" name="text_back" id=""
                                         @checked($digital_printing->text_back != null)></div>
-                                <div class="col-md-2">back</div>
+                                <div class="col-md-2" class="font-weight-bold">back</div>
+                            </div>
                             </div>
 
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="">Print</label>
-                        <select name="text_print" id="print0" placeholder="Pilih print"
-                            class="form-control form-select">
-                            <option value="1C" @selected($digital_printing->text_print == '1C')>1C</option>
-                            <option value="4C" @selected($digital_printing->text_print == '4C')>4C</option>
-                        </select>
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        <label for="" class="font-weight-bold">Print</label><br>
+                        <label>{{ $digital_printing->text_print }}</label>
+
                     </div>
-                    <div class="col-md-4">
+                    <div >
+                        <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
+                            <label for="" class="font-weight-bold">Jumlah Up</label><br>
+                            <label>
+                                {{ $digital_printing->text_jumlah_up }}
+                            </label>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="row mt-2 mx-2" style="margin-bottom: 40px !important;">
+                    <div >
                         <div class="form-group">
-                            <label for="">Jumlah Up</label>
-                            <input type="text" name="text_jumlah_up" id="" class="form-control"
-                                value="{{ $digital_printing->text_jumlah_up }}">
+                            <label for="" class="font-weight-bold">Print Cut</label><br>
+                            <label>{{ $digital_printing->text_print_cut }}</label>
                         </div>
                     </div>
-                    <div class="col-md-4 ">
-                        <label for="">Print Cut</label>
-                        <select name="text_print_cut" id="printSelect" class="form-control form-select">
-                            <option value="1" @selected($digital_printing->text_print_cut == '1')>1</option>
-                            <option value="2" @selected($digital_printing->text_print_cut == '2')>2</option>
-                            <option value="3" @selected($digital_printing->text_print_cut == '3')>3</option>
-                            <option value="4" @selected($digital_printing->text_print_cut == '4')>4</option>
-                            <option value="6" @selected($digital_printing->text_print_cut == '6')>6</option>
-                            <option value="8" @selected($digital_printing->text_print_cut == '8')>8</option>
-                            <option value="10" @selected($digital_printing->text_print_cut == '10')>10</option>
-                            <option value="12" @selected($digital_printing->text_print_cut == '12')>12</option>
-                            <option value="14" @selected($digital_printing->text_print_cut == '14')>14</option>
-                            <option value="16" @selected($digital_printing->text_print_cut == '16')>16</option>
-                            <option value="OTHERS" id="newInputOption" @selected($digital_printing->text_print_cut == 'OTHERS')>Other
-                            </option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 ">
-                        <label for=""></label>
-                        <div id="box">
-                            @if ($digital_printing->text_print_cut == 'OTHERS')
-                                <input type="text" name="text_print_cut_others" class="form-control"
-                                    id="newInput" value="{{ $digital_printing->text_print_cut_others }}">
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        @if ($digital_printing->text_print_cut == 'OTHERS')
+                                <span>{{ $digital_printing->text_print_cut_others }}</span>
                             @endif
-                        </div>
+
                     </div>
                 </div>
-            </div>
-        </div>
 
-        <div class="card" style="background:#f4f4ff; border-radius:5px;">
-            <div class="card-body">
-                <div class="row ">
-                    <div class="col-md-12">
-                        <h5><b>Cover</b></h5>
-                    </div>
-                    <div class="col-md-4 ">
-                        <div class="form-group">
-                            <div class="row">
-                                <div class="col-md-1"><input type="checkbox" name="cover_front" id=""
-                                        @checked($digital_printing->cover_front != null)></div>
-                                <div class="col-md-2">Front</div>
-                                <div class="col-md-1"><input type="checkbox" name="cover_back" id=""
-                                        @checked($digital_printing->cover_back != null)></div>
-                                <div class="col-md-2">back</div>
-                            </div>
+                <br>
+                <h3><b>Cover</b></h3>
 
+
+                <div class="row mt-2 mx-2" >
+                    <div >
+                        <div class="row">
+                            <div>
+                            <div class="col-md-1"><input disabled type="checkbox" name="text_front" id=""
+                                    @checked($digital_printing->cover_front != null)></div>
+                            <div class="col-md-2" class="font-weight-bold">Front</div>
+                        </div>
+                        <div style="margin-left: 70px!important;margin-top:-55px !important">
+                            <div class="col-md-1"><input disabled type="checkbox" name="cover_back" id=""
+                                    @checked($digital_printing->cover_back != null)></div>
+                            <div class="col-md-2" class="font-weight-bold">back</div>
+                        </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="">Print</label>
-                        <select name="cover_print" id="print1" placeholder="Pilih print"
-                            class="form-control form-select">
-                            <option value="1C" @selected($digital_printing->cover_print == '1C')>1C</option>
-                            <option value="4C" @selected($digital_printing->cover_print == '$C')>4C</option>
-                        </select>
+                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                        <label for="">Print Cut</label><br>
+                        <label>{{ $digital_printing->cover_print_cut }}</label>
+
                     </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-4">
-                        <label for="">Print Cut</label>
-                        <select name="cover_print_cut" id="printSelect1" class="form-control form-select">
-                            <option value="1" @selected($digital_printing->cover_print_cut == '1')>1</option>
-                            <option value="2" @selected($digital_printing->cover_print_cut == '2')>2</option>
-                            <option value="3" @selected($digital_printing->cover_print_cut == '3')>3</option>
-                            <option value="4" @selected($digital_printing->cover_print_cut == '4')>4</option>
-                            <option value="6" @selected($digital_printing->cover_print_cut == '6')>6</option>
-                            <option value="8" @selected($digital_printing->cover_print_cut == '8')>8</option>
-                            <option value="10" @selected($digital_printing->cover_print_cut == '10')>10</option>
-                            <option value="12" @selected($digital_printing->cover_print_cut == '12')>12</option>
-                            <option value="14" @selected($digital_printing->cover_print_cut == '14')>14</option>
-                            <option value="16" @selected($digital_printing->cover_print_cut == '16')>16</option>
-                            <option value="OTHERS" id="newInputOption1" @selected($digital_printing->cover_print_cut == 'OTHERS')>
-                                Other</option>
-                        </select>
-                    </div>
-                    <div class="col-md-4 ">
-                        <label for=""></label>
-                        <div id="box4">
-                            @if ($digital_printing->cover_print_cut == 'OTHERS')
-                                <input type="text" name="cover_print_cut_others" class="form-control"
-                                    id="newInput" value="{{ $digital_printing->cover_print_cut_others }}">
-                            @endif
-                        </div>
+
+
+                </div>
+
+                <div class="row mt-2 mx-2" >
+                    <div>
+                        @if ($digital_printing->cover_print_cut == 'OTHERS')
+                        <label >{{ $digital_printing->cover_print_cut_others }}</label>
+                        @endif
                     </div>
                 </div>
-            </div>
-        </div>
+
+                <br>
+                <br>
+                <br>
+                <br>
+
+                <h3><b>Finishing</b></h3>
+
+                <table border="1" >
+                    <thead>
+                        <tr>
+                            <th>Finishing</th>
+                            <th>Partner</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox" @checked($digital_printing->finishing_1 != null) name="finishing_1"
+                                id="Form20" class=" mr-5">Gloss
+                            Lamination</td>
+                            @if ($digital_printing->finishing_1 == 'In-house')
+                            <td>In-house</td>
+                           @else
+                           <td>{{ $digital_printing->supplier->name}}</td>
+                           @endif
+                        </tr>
+
+
+                    </tbody>
+                </table>
+
+
+
+
 
         <div class="card" style="background:#f4f4ff; border-radius:5px;">
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <h5><b>Finishing</b></h5>
+
                     </div>
                     <div class="col-md-6">
                         <table class="table table-bordered">
@@ -400,9 +383,7 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="checkbox" @checked($digital_printing->finishing_1 != null) name="finishing_1"
-                                            id="Form20" class=" mr-5">Gloss
-                                        Lamination</td>
+                                    <td>
                                     <td>
                                         <select name="finishing_1_val" @disabled($digital_printing->finishing_1 == null)
                                             placeholder="select Supplier" id="form20"
