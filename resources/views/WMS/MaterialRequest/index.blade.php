@@ -10,7 +10,7 @@
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-12">
-                        <a href="{{route('material_request.create')}}" class="btn btn-primary float-right">Create</a>
+                        <a href="{{route('material_request.create')}}"  class="btn btn-primary float-right">Create</a>
                     </div>
                 </div>
                 <div class="row mt-3">
@@ -64,7 +64,7 @@
 @endsection
 @push('custom-scripts')
     <script>
-        var data = "{{ route('material_request.data') }}";
+        var data = "";
     </script>
     <script src="{{ asset('assets/js/custom/wms/MaterialRequest/index.js') }}"></script>
 @endpush

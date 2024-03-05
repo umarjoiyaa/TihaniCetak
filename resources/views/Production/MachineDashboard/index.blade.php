@@ -2,11 +2,7 @@
 
 @section('content')
 
-<div class="row">
-    <div class="col-md-12">
-        <h3><b>Machine Dashboard</b></h3>
-    </div>
-</div>
+
 <div class="row">
     <div class="col-md-12">
         <div class="card" style="background:#330252;">
@@ -23,53 +19,8 @@
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        <div class="card" style="width:200px; height:160px; margin-left:100px;">
-                            <div class="card-body">
-                                <div class="text-center">
-                                    <h6><b>C1</b></h6>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Title:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">IQRO GENIUS - RUMI (NEW COVER)</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Type:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">paper</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:8px;">Planned QTy.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">5000</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-8px;color:black;font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Prod QTY.:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:8px;">345</span>
-                                    </div>
-                                </div>
-                                <div class="row" style="margin-top:-5px; color:black; font-weight:bold;">
-                                    <div class="col-md-5">
-                                        <span style="font-size:10px;">Status:</span>
-                                    </div>
-                                    <div class="col-md-7">
-                                        <span style="font-size:11px;" class="badge badge-success">Started</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                    <div class="card" style="width: 18rem;">
+                        
                     </div>
                     <div class="col-md-4">
                         <div class="card" style="width:200px; height:160px;">
