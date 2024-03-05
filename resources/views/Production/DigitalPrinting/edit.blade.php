@@ -335,6 +335,8 @@
                                                         <select name="finishing_1_val" @disabled($digital_printing->finishing_1 == null)
                                                             placeholder="select Supplier" id="form20"
                                                             class="form-control form-select " style="width:250px;">
+                                                            <option value="" @selected($digital_printing->finishing_1 == null) disabled></option>
+
                                                             <option value="In-house" @selected($digital_printing->finishing_1 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -352,6 +354,7 @@
                                                     <td><select name="finishing_2_val" @disabled($digital_printing->finishing_2 == null)
                                                             placeholder="select Supplier" id="form1"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_2 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_2 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -368,6 +371,7 @@
                                                     <td><select name="finishing_3_val" @disabled($digital_printing->finishing_3 == null)
                                                             placeholder="select Supplier" id="form2"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_3 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_3 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -385,6 +389,7 @@
                                                     <td><select name="finishing_4_val" @disabled($digital_printing->finishing_4 == null)
                                                             placeholder="select Supplier" id="form3"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_4 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_4 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -400,6 +405,7 @@
                                                     <td><select name="finishing_5_val" @disabled($digital_printing->finishing_5 == null)
                                                             placeholder="select Supplier" id="form4"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_5 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_5 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -415,6 +421,7 @@
                                                     <td><select name="finishing_6_val" @disabled($digital_printing->finishing_6 == null)
                                                             placeholder="select Supplier" id="form5"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_6 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_6 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -431,6 +438,7 @@
                                                     <td><select name="finishing_7_val" @disabled($digital_printing->finishing_7 == null)
                                                             placeholder="select Supplier" id="form6"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_7 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_7 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -447,6 +455,7 @@
                                                     <td><select name="finishing_8_val" @disabled($digital_printing->finishing_8 == null)
                                                             placeholder="select Supplier" id="form7"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_8 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_8 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -463,6 +472,7 @@
                                                     <td><select name="finishing_9_val" @disabled($digital_printing->finishing_9 == null)
                                                             placeholder="select Supplier" id="form8"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_9 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_9 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -483,6 +493,7 @@
                                                     <td><select name="finishing_11_val" @disabled($digital_printing->finishing_11 == null)
                                                             placeholder="select Supplier" id="form9"
                                                             class="form-control form-select w-100">
+                                                            <option value="" @selected($digital_printing->finishing_11 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->finishing_11 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -524,6 +535,7 @@
                                                     <td><select @disabled($digital_printing->binding_1 == null) name="binding_1_val"
                                                             placeholder="select Supplier" id="form10"
                                                             class="form-control form-select" style="width:250px;">
+                                                            <option value="" @selected($digital_printing->binding_1 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_1 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -541,6 +553,7 @@
                                                     <td><select name="binding_2_val" @disabled($digital_printing->binding_2 == null)
                                                             placeholder="select Supplier" id="form11"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_2 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_2 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -556,6 +569,7 @@
                                                     <td><select name="binding_3_val" @disabled($digital_printing->binding_3 == null)
                                                             placeholder="select Supplier" id="form12"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_3 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_3 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -572,6 +586,7 @@
                                                     <td><select name="binding_4_val" @disabled($digital_printing->binding_4 == null)
                                                             placeholder="select Supplier" id="form13"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_4 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_4 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -589,6 +604,7 @@
                                                     <td><select name="binding_5_val" @disabled($digital_printing->binding_5 == null)
                                                             placeholder="select Supplier" id="form14"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_5 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_5 == 'In-house')>
                                                                 In-house</option>
                                                             @foreach ($suppliers as $supplier)
@@ -605,6 +621,7 @@
                                                     <td><select name="binding_6_val" @disabled($digital_printing->binding_6 == null)
                                                             placeholder="select Supplier" id="form15"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_6 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_6 == 'In-house')>
                                                                 In-house</option>
                                                             @foreach ($suppliers as $supplier)
@@ -621,6 +638,7 @@
                                                     <td><select name="binding_7_val" @disabled($digital_printing->binding_7 == null)
                                                             placeholder="select Supplier" id="form16"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_7 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_7 == 'In-house')>
                                                                 In-house</option>
                                                             @foreach ($suppliers as $supplier)
@@ -641,6 +659,7 @@
                                                     <td><select name="binding_9_val" @disabled($digital_printing->binding_9 == null)
                                                             placeholder="select Supplier" id="form17"
                                                             class="form-control form-select">
+                                                            <option value="" @selected($digital_printing->binding_9 == null) disabled></option>
                                                             <option value="In-house" @selected($digital_printing->binding_9 == 'In-house')>
                                                                 In-house</option>
                                                             @foreach ($suppliers as $supplier)
@@ -786,8 +805,11 @@
 
             $("#Form1").change(function() {
                 if ($(this).is(":checked")) {
+
                     $("#form1").prop("disabled", false);
+                    $("#form1").val("In-house").trigger('change')
                 } else {
+                    $("#form1").val('').trigger('change');
                     $("#form1").prop("disabled", true);
                 }
             });
@@ -795,7 +817,9 @@
             $("#Form2").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form2").prop("disabled", false);
+                    $("#form2").val("In-house").trigger('change');
                 } else {
+                    $("#form2").val('').trigger('change');
                     $("#form2").prop("disabled", true);
                 }
             });
@@ -803,7 +827,9 @@
             $("#Form3").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form3").prop("disabled", false);
+                    $("#form3").val("In-house").trigger('change');
                 } else {
+                    $("#form3").val('').trigger('change');
                     $("#form3").prop("disabled", true);
                 }
             });
@@ -811,7 +837,9 @@
             $("#Form4").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form4").prop("disabled", false);
+                    $("#form4").val("In-house").trigger('change');
                 } else {
+                    $("#form4").val('').trigger('change');
                     $("#form4").prop("disabled", true);
                 }
             });
@@ -819,7 +847,9 @@
             $("#Form5").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form5").prop("disabled", false);
+                    $("#form5").val('In-house').trigger('change');
                 } else {
+                    $("#form5").val('').trigger('change');
                     $("#form5").prop("disabled", true);
                 }
             });
@@ -827,7 +857,9 @@
             $("#Form6").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form6").prop("disabled", false);
+                    $("#form6").val("In-house").trigger('change');
                 } else {
+                    $("#form6").val('').trigger('change');
                     $("#form6").prop("disabled", true);
                 }
             });
@@ -835,7 +867,9 @@
             $("#Form7").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form7").prop("disabled", false);
+                    $("#form7").val("In-house").trigger('change');
                 } else {
+                    $("#form7").val('').trigger('change');
                     $("#form7").prop("disabled", true);
                 }
             });
@@ -843,7 +877,9 @@
             $("#Form8").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form8").prop("disabled", false);
+                    $("#form8").val("In-house").trigger('change');
                 } else {
+                    $("#form8").val('').trigger('change');
                     $("#form8").prop("disabled", true);
                 }
             });
@@ -851,9 +887,11 @@
             $("#Form9").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form9").prop("disabled", false);
+                    $("#form9").val("In-house").trigger('change');
                     $("#input1").prop("disabled", false);
                 } else {
                     $("#form9").prop("disabled", true);
+                    $("#form9").val('').trigger('change');
                     $("#input1").prop("disabled", true);
                 }
             });
@@ -861,7 +899,9 @@
             $("#Form10").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form10").prop("disabled", false);
+                    $("#form10").val("In-house").trigger('change');
                 } else {
+                    $("#form10").val('').trigger('change');
                     $("#form10").prop("disabled", true);
                 }
             });
@@ -869,7 +909,9 @@
             $("#Form11").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form11").prop("disabled", false);
+                    $("#form11").val("In-house").trigger('change');
                 } else {
+                    $("#form11").val('').trigger('change');
                     $("#form11").prop("disabled", true);
                 }
             });
@@ -877,7 +919,9 @@
             $("#Form12").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form12").prop("disabled", false);
+                    $("#form12").val("In-house").trigger('change');
                 } else {
+                    $("#form12").val('').trigger('change');
                     $("#form12").prop("disabled", true);
                 }
             });
@@ -885,7 +929,9 @@
             $("#Form13").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form13").prop("disabled", false);
+                    $("#form13").val("In-house").trigger('change');
                 } else {
+                    $("#form13").val("").trigger('change');
                     $("#form13").prop("disabled", true);
                 }
             });
@@ -893,7 +939,9 @@
             $("#Form14").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form14").prop("disabled", false);
+                    $("#form14").val("In-house").trigger('change');
                 } else {
+                    $("#form14").val("").trigger('change');
                     $("#form14").prop("disabled", true);
                 }
             });
@@ -901,7 +949,9 @@
             $("#Form15").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form15").prop("disabled", false);
+                    $("#form15").val("In-house").trigger('change');
                 } else {
+                    $("#form15").val("").trigger('change');
                     $("#form15").prop("disabled", true);
                 }
             });
@@ -909,7 +959,9 @@
             $("#Form16").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form16").prop("disabled", false);
+                    $("#form16").val("In-house").trigger('change');
                 } else {
+                    $("#form16").val("").trigger('change');
                     $("#form16").prop("disabled", true);
                 }
             });
@@ -917,8 +969,10 @@
             $("#Form17").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form17").prop("disabled", false);
+                    $("#form17").val("In-house").trigger('change');
                     $("#input").prop("disabled", false);
                 } else {
+                    $("#form17").val("").trigger('change');
                     $("#form17").prop("disabled", true);
                     $("#input").prop("disabled", true);
                 }
@@ -927,7 +981,9 @@
             $("#Form20").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form20").prop("disabled", false);
+                    $("#form20").val("In-house").trigger('change');
                 } else {
+                    $("#form20").val('').trigger('change');
                     $("#form20").prop("disabled", true);
                 }
             });

@@ -367,72 +367,142 @@
                                                         <select name="binding_1_val" disabled placeholder="select Supplier"
                                                             id="staplebind" class="form-control form-select"
                                                             style="width:340px;">
+                                                            <option value="" selected disabled></option>
                                                             <option value="In-house">In-house</option>
-                                                            <option value="SupplierA">Supplier A</option>
-                                                            <option value="SupplierB">Supplier B</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
                                                         </select>
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_2" id="Input2"
                                                             class=" mr-5">Perfect Bind</td>
-                                                    <td><input type="text" disabled name="binding_2_val" id="input2"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_2_val" disabled placeholder="select Supplier"
+                                                        id="input2" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select>
+
+
+                                                        </td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_3" id="Input3"
                                                             class=" mr-5">Lock Bind</td>
-                                                    <td><input type="text" disabled name="binding_3_val" id="input3"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_3_val" disabled placeholder="select Supplier"
+                                                        id="input3" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_4" id="Input4"
                                                             class=" mr-5">Wire O
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_4_val" id="input4"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_4_val" disabled placeholder="select Supplier"
+                                                        id="input4" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_5" id="Input5"
                                                             class=" mr-5">Hard Cover -
                                                         Square Back
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_5_val" id="input5"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_5_val" disabled placeholder="select Supplier"
+                                                        id="input5" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_6" id="Input6"
                                                             class=" mr-5">Hard Cover -
                                                         Round Back</td>
-                                                    <td><input type="text" disabled name="binding_6_val" id="input6"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_6_val" disabled placeholder="select Supplier"
+                                                        id="input6" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_7" id="Input7"
                                                             class=" mr-5">Sewing
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_7_val" id="input7"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_7_val" disabled placeholder="select Supplier"
+                                                        id="input7" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_8" id="Input8"
                                                             class=" mr-5">Round corner
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_8_val" id="input8"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_8_val" disabled placeholder="select Supplier"
+                                                        id="input8" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
 
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_9" id="Input9"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" disabled name="binding_9_val" id="input10"
+                                                        <input type="text" disabled name="binding_9_val" id="input9"
                                                             class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><input type="text" disabled name="binding_10_val" id="input9"
-                                                            class="form-control"></td>
+                                                    <td><select name="binding_10_val" disabled placeholder="select Supplier"
+                                                        id="input10" class="form-control form-select"
+                                                        style="width:340px;">
+                                                        <option value="" selected disabled></option>
+                                                        <option value="In-house">In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -513,9 +583,11 @@
         $("#Input1").change(function() {
             if ($(this).is(":checked")) {
                 $("#staplebind").prop("disabled", false);
+                 $("#staplebind").val("In-house").trigger('change');
                 // $("#input1").prop("disabled", false);
             } else {
                 $("#staplebind").prop("disabled", true);
+                 $("#staplebind").val("").trigger('change');
                 // $("#input1").prop("disabled", true);
             }
         });
@@ -523,41 +595,51 @@
         $("#Input2").change(function() {
             if ($(this).is(":checked")) {
                 $("#input2").prop("disabled", false);
+                $("#input2").val("In-house").trigger('change');
             } else {
                 $("#input2").prop("disabled", true);
+                $("#input2").val("").trigger('change');
             }
         });
 
         $("#Input3").change(function() {
             if ($(this).is(":checked")) {
                 $("#input3").prop("disabled", false);
+                $("#input3").val("In-house").trigger('change');
             } else {
                 $("#input3").prop("disabled", true);
+                $("#input3").val("").trigger('change');
             }
         });
 
         $("#Input4").change(function() {
             if ($(this).is(":checked")) {
                 $("#input4").prop("disabled", false);
+                $("#input4").val("In-house").trigger('change');
             } else {
                 $("#input4").prop("disabled", true);
+                $("#input4").val("").trigger('change');
             }
         });
 
         $("#Input5").change(function() {
             if ($(this).is(":checked")) {
                 $("#input5").prop("disabled", false);
+                $("#input5").val("In-house").trigger('change');
             } else {
                 $("#input5").prop("disabled", true);
+                $("#input5").val("").trigger('change');
             }
         });
 
         $("#Input6").change(function() {
             if ($(this).is(":checked")) {
                 $("#input6").prop("disabled", false);
-                // $("#input2").prop("disabled", false);
+                $("#input6").val("In-house").trigger('change');
+                // $("#input6").prop("disabled", false);
             } else {
                 $("#input6").prop("disabled", true);
+                $("#input6").val("").trigger('change');
                 // $("#input2").prop("disabled", true);
             }
         });
@@ -565,16 +647,20 @@
         $("#Input7").change(function() {
             if ($(this).is(":checked")) {
                 $("#input7").prop("disabled", false);
+                $("#input7").val("In-house").trigger('change');
             } else {
                 $("#input7").prop("disabled", true);
+                $("#input7").val("").trigger('change');
             }
         });
 
         $("#Input8").change(function() {
             if ($(this).is(":checked")) {
                 $("#input8").prop("disabled", false);
+                $("#input8").val("In-house").trigger('change');
             } else {
                 $("#input8").prop("disabled", true);
+                $("#input8").val("").trigger('change');
             }
         });
 
@@ -582,10 +668,12 @@
             if ($(this).is(":checked")) {
                 $("#input9").prop("disabled", false);
                 $("#input10").prop("disabled", false);
+                $("#input10").val("In-house").trigger('change');
 
             } else {
                 $("#input9").prop("disabled", true);
                 $("#input10").prop("disabled", true);
+                $("#input10").val("").trigger('change');
 
             }
         });

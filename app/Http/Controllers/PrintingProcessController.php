@@ -262,6 +262,7 @@ class PrintingProcessController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
+
                 if ($row->status == 'Not-initiated') {
                     $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('printing_process.proses', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('printing_process.view', $row->id) . '">View</a>';
