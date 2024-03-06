@@ -706,7 +706,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('printing_process') }}">back to list</a>
+            <a href="{{ route('printing_process') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 @endsection

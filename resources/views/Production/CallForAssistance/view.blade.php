@@ -64,7 +64,7 @@
             </div>
         </div>
 
-        <a href="{{route('CallForAssistance.index')}}">Go back</a>
+        <a href="{{route('CallForAssistance.index')}}"><i class="ti-arrow-left mx-2 mt-1"></i> Go back</a>
     </div>
 </div>
 @endsection

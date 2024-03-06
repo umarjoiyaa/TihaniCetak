@@ -559,7 +559,7 @@
 
 
             </div>
-            <a href="{{route('digitalPrinting.index')}}">back to list</a>
+            <a href="{{route('digitalPrinting.index')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 

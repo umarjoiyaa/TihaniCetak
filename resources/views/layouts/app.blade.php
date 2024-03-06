@@ -99,6 +99,20 @@
         .select2{
             width:100% !important;
         }
+        div#DataTables_Table_0_wrapper {
+            width: auto;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        div.dt-layout-cell  {
+            height: auto;
+            overflow-y: auto;
+        }
+
+       
+
+        
     </style>
 
 </head>

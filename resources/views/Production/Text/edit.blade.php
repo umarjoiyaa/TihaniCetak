@@ -617,7 +617,7 @@
 
 
                 </div>
-                <a href="{{ route('text') }}">back to list</a>
+                <a href="{{ route('text') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     </form>

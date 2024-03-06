@@ -713,7 +713,7 @@
 
 
                 </div>
-                <a href="{{ route('digital_printing') }}">back to list</a>
+                <a href="{{ route('digital_printing') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     </form>
