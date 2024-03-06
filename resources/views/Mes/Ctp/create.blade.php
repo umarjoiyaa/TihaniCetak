@@ -305,7 +305,7 @@
                     <td>148mmx210mm</td>
                     <td>5.82<sup>m</sup>8.28<sup>m</sup></td>
                     <td>635mmx902mm</td>
-                    <td>25<sup>m</sup>35.4<sup>m</sup></td>
+                    <td>25<sup>m</sup>x35.4<sup>m</sup></td>
                     <td>10mm</td>
                     <td>10mm</td>
                 </tr>
@@ -314,7 +314,7 @@
                     <td>190mmx260mm</td>
                     <td>7.48<sup>m</sup>10.24<sup>m</sup></td>
                     <td>787mmx1092mm <br> (cut 2.787mmx546)</td>
-                    <td>31<sup>m</sup>43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
                     <td>10mm</td>
                     <td>4mm</td>
                 </tr>
@@ -323,7 +323,7 @@
                     <td>190.5mmx254mm</td>
                     <td>7.48<sup>m</sup>x10<sup>m</sup></td>
                     <td>787mmx1092mm <br> (cut 2.787mmx546)</td>
-                    <td>31<sup>m</sup>43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
+                    <td>31<sup>m</sup>x43<sup>m</sup>(cut 2.31<sup>m</sup> x 21.5<sup>m</sup>)</td>
                     <td>10mm</td>
                     <td>10mm</td>
                 </tr>
