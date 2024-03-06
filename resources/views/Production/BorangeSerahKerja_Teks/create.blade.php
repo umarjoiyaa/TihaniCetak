@@ -71,7 +71,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Jumlah Seksyen </div>
-                                        <input type="text" readonly name="" id="jumlah" class="form-control">
+                                        <input type="number"  name="jumlah"  class="form-control">
                                     </div>
                                 </div>
 
@@ -148,7 +148,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_5" id="createinput"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_5" id="Other"></div>
                                         <div class="col-md-6">
 
                                             <div class="row">
@@ -156,7 +156,7 @@
                                                 <h5 style="padding-left:px;">Others</h5>
                                                 </div>
                                                 <div class="col-md-8" >
-                                                    <div id="input" style="width:150px;"></div>
+                                                    <div id="input" class="others" style="width:150px;"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -164,13 +164,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 ">
-                                    <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_6" id=""></div>
-                                        <div class="col-md-6">
-                                            <h5>Gloss Lamination</h5>
-                                        </div>
 
-                                    </div>
 
                                     <div class="row">
                                         <div class="col-md-1"><input type="checkbox" name="jenis_7" id=""></div>
@@ -198,18 +192,14 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_10" id="newInput"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_10" id="Ribbon"></div>
                                         <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <p style="font-size:13px; font-weight:600;">Ribbon </p>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="boxinput" style="width:100px;"></div>
-                                                </div>
-                                                <div class="col-md-2">
-                                                    <div id="labelContainer1"></div>
-                                                </div>
+                                            <div class="row d-flex" >
+                                                    <h5>Ribbon</h5>
+                                                    <div class="boxinput  mx-1" style="width:100px;">
+                                                    <input type="text" name="jenis_input_10" style="width:100px;display:none;" class="ribbon" >
+                                                    </div>
+                                                    <div id="labelContainer1" class="ribbon" style="display: none;">pcs</div>
                                             </div>
                                         </div>
 
@@ -239,20 +229,18 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_14" id="chipinput"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_14" id="Chipboard"></div>
                                         <div class="col-md-6">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <p style="font-size:12px;font-weight:600;">Chipboard</9>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div id="chipinput1"></div>
-                                                </div>
-                                                <div class="col-md-2" id="labelContainer"></div>
-                                            </div>
+                                            <div class="row d-flex">
+                                                    <h5 >Chipboard</h5>
+                                                    <div id="chipinput1" class="mx-1" style="width:100px;">
+                                                        <input type="text" class="Chipboard" style="width:100px;display:none;" name="jenis_input_14" >
+                                                    </div>
+                                                <div id="labelContainer" class="Chipboard" style="display:none;">gsm</div>
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             </div>
                             <div class="row mt-3">
                                 <div class="col-md-12">
@@ -318,7 +306,6 @@
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <button class="btn btn-primary mx-2 mt-3">Save</button>
-                            <button class="btn btn-primary  mt-3">Print</button>
                         </div>
                     </div>
                 </div>
@@ -394,50 +381,29 @@
 
 
 
-        const createInputCheckbox = $('#createinput');
-        const inputContainer = $('#input');
-
-        createInputCheckbox.change(function () {
-            if (createInputCheckbox.prop('checked')) {
-                const newInput = $('<input type="text" class="form-control w-100" name="jenis_input_5">');
-
-                inputContainer.append(newInput);
-            } else {
-                inputContainer.empty();
-            }
-        });
-
-        const chipinputCheckbox = $('#chipinput');
-        const chipinputContainer = $('#chipinput1');
-        const labelContainer = $('#labelContainer');
-
-        chipinputCheckbox.change(function() {
-            if (chipinputCheckbox.prop('checked')) {
-                const newInput = $('<input type="text" name="jenis_input_14" class="form-control">');
-
-                const newLabel = $('<label>gsm</label>');
-
-                chipinputContainer.append(newInput);
-
-                labelContainer.append(newLabel);
-            }
-        });
-
-            const chipinputCheckbox1 = $('#newInput');
-            const chipinputContainer1 = $('.boxinput');
-            const labelContainer1 = $('#labelContainer1');
-
-            chipinputCheckbox1.change(function() {
-                if (chipinputCheckbox1.prop('checked')) {
-                const newInput1 = $('<input type="text" name="jenis_input_10" class="form-control">');
-
-                const newLabel1 = $('<label>pcs</label>');
-
-                chipinputContainer1.append(newInput1);
-
-                labelContainer1.append(newLabel1);
+            $("#Other").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others').css('display','')
+                }else{
+                    $('.Others').css('display','none')
                 }
-            });
+            })
+
+            $("#Ribbon").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.ribbon').css('display','')
+                }else{
+                    $('.ribbon').css('display','none');
+                }
+            })
+
+            $("#Chipboard").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Chipboard').css('display','')
+                }else{
+                    $('.Chipboard').css('display','none')
+                }
+            })
     });
 
     </script>

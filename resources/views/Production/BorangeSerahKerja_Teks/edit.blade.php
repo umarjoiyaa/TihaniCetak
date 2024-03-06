@@ -79,8 +79,8 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Jumlah Seksyen </div>
-                                            <input type="text" readonly name="" id="jumlah"
-                                                class="form-control">
+                                            <input type="number" value="{{ $borange_serah_kerja_teks->jumlah }}" name="jumlah" class="form-control">
+
                                         </div>
                                     </div>
 
@@ -199,14 +199,7 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="jenis_6"
-                                                    @checked($borange_serah_kerja_teks->jenis_6 == 'on') id=""></div>
-                                            <div class="col-md-6">
-                                                <h5>Gloss Lamination</h5>
-                                            </div>
 
-                                        </div>
 
                                         <div class="row">
                                             <div class="col-md-1"><input type="checkbox" name="jenis_7"
@@ -240,12 +233,9 @@
                                             <div class="col-md-1"><input type="checkbox" name="jenis_10"
                                                     @checked($borange_serah_kerja_teks->jenis_10 == 'on') id="Ribbon"></div>
                                             <div class="col-md-6">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <p style="font-size:13px; font-weight:600;">Ribbon </p>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="boxinput" style="width:100px;">
+                                                <div class="row d-flex">
+                                                        <h5 >Ribbon </h5>
+                                                        <div class="boxinput mx-1" style="width:100px;">
                                                             @if ($borange_serah_kerja_teks->jenis_10 == 'on')
                                                                 <input type="text" name="jenis_input_10"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_10 }}"
@@ -254,9 +244,8 @@
                                                             <input style="display: none" type="text" name="jenis_input_10"
                                                             class="form-control ribbon">
                                                             @endif
-                                                        </div>
                                                     </div>
-                                                    <div class="col-md-2">
+
                                                         <div id="labelContainer1">
                                                             @if ($borange_serah_kerja_teks->jenis_10 == 'on')
                                                                 <label class="ribbon">pcs</label>
@@ -264,7 +253,6 @@
                                                             <label class="ribbon" style="display: none">pcs</label>
                                                             @endif
                                                         </div>
-                                                    </div>
                                                 </div>
                                             </div>
 
@@ -296,16 +284,13 @@
                                                 <h5>Hard Cover</h5>
                                             </div>
                                         </div>
-                                        <div class="row">
+                                        <div class="row ">
                                             <div class="col-md-1"><input type="checkbox" name="jenis_14"
                                                     @checked($borange_serah_kerja_teks->jenis_14 == 'on') id="Chipboard"></div>
                                             <div class="col-md-6">
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <p style="font-size:12px;font-weight:600;">Chipboard</9>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div id="chipinput1">
+                                                <div class="row d-flex">
+                                                        <h5>Chipboard</h5>
+                                                        <div id="chipinput1" class="mx-1" style="width:100px;">
                                                             @if ($borange_serah_kerja_teks->jenis_14 == 'on')
                                                                 <input type="text" name="jenis_input_14"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_14 }}"
@@ -316,8 +301,7 @@
                                                                     class="form-control Chipboard" style="display: none;">
                                                             @endif
                                                         </div>
-                                                    </div>
-                                                    <div class="col-md-2" id="labelContainer">
+                                                    <div  id="labelContainer">
                                                         @if ($borange_serah_kerja_teks->jenis_14 == 'on')
                                                             <label class="Chipboard">gsm</label>
                                                          @else
@@ -397,7 +381,6 @@
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-12 d-flex justify-content-end">
                                 <button class="btn btn-primary mx-2 mt-3">Save</button>
-                                <button class="btn btn-primary  mt-3">Print</button>
                             </div>
                         </div>
                     </div>

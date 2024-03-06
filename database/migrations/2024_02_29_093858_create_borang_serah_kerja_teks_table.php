@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('status')->nullable();
             $table->string('date')->nullable();
             $table->string('po_no')->nullable();
+            $table->string('jumlah')->nullable();
             $table->string('nama')->nullable();
             $table->string('jenis')->nullable();
             $table->string('jenis_text')->nullable();
@@ -33,7 +34,6 @@ return new class extends Migration
             $table->string('jenis_4')->nullable();
             $table->string('jenis_5')->nullable();
             $table->string('jenis_input_5')->nullable();
-            $table->string('jenis_6')->nullable();
             $table->string('jenis_7')->nullable();
             $table->string('jenis_8')->nullable();
             $table->string('jenis_9')->nullable();

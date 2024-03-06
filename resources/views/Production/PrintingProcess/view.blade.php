@@ -746,10 +746,10 @@
                         };
                     }
 
-                    totals[section][side].total_last_print += parseFloat(storedData.last_print);
-                    totals[section][side].total_waste_paper += parseFloat(storedData.waste_paper);
-                    totals[section][side].total_rejection += parseFloat(storedData.rejection);
-                    totals[section][side].total_good_count += parseFloat(storedData.good_count);
+                    totals[section][side].total_last_print += parseFloat(storedData.last_print) || 0;
+                    totals[section][side].total_waste_paper += parseFloat(storedData.waste_paper) || 0;
+                    totals[section][side].total_rejection += parseFloat(storedData.rejection) || 0;
+                    totals[section][side].total_good_count += parseFloat(storedData.good_count) || 0;
                 }
             });
 

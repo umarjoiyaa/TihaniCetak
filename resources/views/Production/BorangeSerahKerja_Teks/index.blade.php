@@ -40,6 +40,9 @@
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
+
+                        </thead>
+                        <thead>
                             <tr>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search Tarikh">
