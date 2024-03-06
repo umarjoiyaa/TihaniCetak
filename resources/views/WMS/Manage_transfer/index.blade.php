@@ -10,7 +10,7 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <a href="{{route('Manage_tranfer.create')}}" class="btn btn-primary mt-3 mb-3 float-right">Create</a>
+                            <a href="{{route('manage_transfer.create')}}" class="btn btn-primary mt-3 mb-3 float-right">Create</a>
                         </div>
                     </div>
                     <div class="table-responsive">
