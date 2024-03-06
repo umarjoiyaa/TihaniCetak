@@ -29,11 +29,10 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf</label>
-                                    <select name="shelf" class="form-select">
-                                        <option value="" disabled selected>Select any option</option>
+                                    <select name="shelf[]" class="form-select" multiple>
                                         @foreach ($shelves as $shelf)
-                                            <option value="{{ $shelf->id }}" @selected(old('shelf') == $shelf->id)>
-                                                {{ $shelf->name }}</option>
+                                        <option value="{{ $shelf->id }}" @if(old('shelf')) {{ in_array(old('shelf'), $shelf->id) ? 'selected' : '' }} @endif>
+                                            {{ $shelf->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

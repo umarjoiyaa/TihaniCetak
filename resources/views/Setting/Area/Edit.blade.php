@@ -17,23 +17,26 @@
                                 <div class="control-group form-group">
                                     <label class="form-label">Name</label>
                                     <input type="text" class="form-control required" name="name"
-                                        value="{{ $area->name }}" >
+                                        value="{{ $area->name }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Code</label>
                                     <input type="text" class="form-control required" name="code"
-                                        value="{{ $area->code }}" >
+                                        value="{{ $area->code }}">
                                 </div>
                             </div>
                             <div class="col-md-4">
+                                @php
+                                    $item = json_decode($area->shelf_id);
+                                @endphp
                                 <div class="control-group form-group">
                                     <label class="form-label">Shelf</label>
-                                    <select name="shelf" class="form-select">
-                                        <option value="" disabled selected>Select any option</option>
+                                    <select name="shelf[]" class="form-select" multiple>
                                         @foreach ($shelves as $shelf)
-                                            <option value="{{ $shelf->id }}" @selected($area->shelf_id == $shelf->id)>
+                                            <option value="{{ $shelf->id }}"
+                                                @if (old('shelf')) {{ in_array(old('shelf'), $shelf->id) ? 'selected' : '' }} @endif>
                                                 {{ $shelf->name }}</option>
                                         @endforeach
                                     </select>

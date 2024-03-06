@@ -11,7 +11,7 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('area_shelf.update', $area_shelf->id) }}" method="post">
-                    <div class="row mt-3">
+                        <div class="row mt-3">
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
@@ -30,30 +30,33 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Level</label>
-                                    <select name="level" class="form-select">
-                                        <option value="" disabled selected>Select any option</option>
+                                    @php
+                                        $item = json_decode($area_shelf->level_id);
+                                    @endphp
+                                    <select name="level[]" class="form-select" multiple>
                                         @foreach ($levels as $level)
-                                            <option value="{{ $level->id }}" @selected($area_shelf->level_id == $level->id)>
+                                            <option value="{{ $level->id }}"
+                                                @if ($item) {{ in_array($item, $level->id) ? 'selected' : '' }} @endif>
                                                 {{ $level->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                    </div>
-                    <div class="row mt-3 d-flex justify-content-end">
-                        <div class="col-md-4 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
-                        </form>
-                    </div>
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="{{ route('area_shelf') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
-                    list</a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ route('area_shelf') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
+                list</a>
         </div>
+    </div>
     </div>
 @endsection

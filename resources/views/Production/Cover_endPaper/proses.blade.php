@@ -872,7 +872,6 @@
                                     <tr>
                                         <td><select name="" id="" class="form-control  side"
                                                 style="width:150px;">
-                                                <option value="">Select Side</option>
                                                 <option value="A">A</option>
                                                 <option value="B">B</option>
                                                 <option value="A/B">A/B</option>

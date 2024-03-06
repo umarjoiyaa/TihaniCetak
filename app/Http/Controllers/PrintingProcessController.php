@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\PrintingProcess;
 use App\Models\PrintingProcessDetail;
 use App\Models\PrintingProcessDetailB;
+use App\Models\Supplier;
 use App\Models\User;
 use App\Models\Text;
 use Carbon\Carbon;
@@ -337,9 +338,10 @@ class PrintingProcessController extends Controller
         $check_machines = PrintingProcessDetail::where('machine', '=', $printing_process->text->mesin)->where('printing_id',  '=', $id)->orderby('id', 'DESC')->first();
         $details = PrintingProcessDetail::where('printing_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
+        $suppliers = Supplier::select('id', 'name')->get();
         $detailbs = PrintingProcessDetailB::whereIn('printing_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('PRINTING PROCESS', 'PRINTING PROCESS Update');
-        return view('Production.PrintingProcess.edit', compact('printing_process', 'users', 'check_machines', 'details', 'detailbs'));
+        return view('Production.PrintingProcess.edit', compact('suppliers','printing_process', 'users', 'check_machines', 'details', 'detailbs'));
     }
 
     public function proses_update(Request $request, $id)

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Area;
 use App\Models\AreaShelf;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -22,7 +23,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shlef');
+            $query = Area::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -30,10 +31,7 @@ class AreaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('shlef', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -44,7 +42,6 @@ class AreaController extends Controller
                 $sortableColumns = [
                     1 => 'name',
                     2 => 'code',
-                    3 => 'shelf_id',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -70,11 +67,6 @@ class AreaController extends Controller
                                 break;
                             case 2:
                                 $q->where('code', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 3:
-                                $q->whereHas('shlef', function ($query) use ($searchLower) {
-                                    $query->where('name', 'like', '%' . $searchLower . '%');
-                                });
                                 break;
                             default:
                                 break;
@@ -128,7 +120,7 @@ class AreaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Area::select('id', 'name', 'code', 'shelf_id')->with('shelf');
+            $query = Area::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -136,10 +128,7 @@ class AreaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('shelf', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -147,7 +136,6 @@ class AreaController extends Controller
             $sortableColumns = [
                 1 => 'name',
                 2 => 'code',
-                3 => 'shelf_id',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -240,9 +228,23 @@ class AreaController extends Controller
         $area = new Area();
         $area->name = $request->name;
         $area->code = $request->code;
-        $area->shelf_id = $request->shelf;
+        $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
+
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                $location = new Location();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level->id;
+                $location->used_qty = 0;
+                $location->save();
+            }
+        }
+
         Helper::logSystemActivity('Area', 'Area Store');
         return redirect()->route('area')->with('custom_success', 'Area has been Created Successfully !');
     }
@@ -293,12 +295,27 @@ class AreaController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $area =  Area::find($id);
+        $area = Area::find($id);
         $area->name = $request->name;
         $area->code = $request->code;
-        $area->shelf_id = $request->shelf;
+        $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
+
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+                $location = new Location();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level->id;
+                $location->used_qty = 0;
+                $location->save();
+            }
+        }
+
         Helper::logSystemActivity('Area', 'Area Update');
         return redirect()->route('area')->with('custom_success', 'Area has been Updated Successfully !');
     }
@@ -310,6 +327,13 @@ class AreaController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area = Area::find($id);
+        $shelves = AreaShelf::whereIn('id', $area->shelf_id)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+            }
+        }
         $area->delete();
         Helper::logSystemActivity('Area', 'Area Delete');
         return redirect()->route('area')->with('custom_success', 'Area has been Deleted Successfully !');

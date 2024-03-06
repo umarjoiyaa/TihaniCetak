@@ -17,8 +17,7 @@ return new class extends Migration
             $table->string('code')->nullable();
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
-            $table->unsignedBigInteger('level_id')->nullable();
-            $table->foreign('level_id')->references('id')->on('area_levels')->nullable();
+            $table->string('level_id')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

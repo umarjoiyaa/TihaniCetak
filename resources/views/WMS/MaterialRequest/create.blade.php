@@ -90,7 +90,59 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    @if (old('kertas'))
+                                                        @foreach (old('kertas') as $key => $value)
+                                                            <tr>
+                                                                <td><input type='hidden' class="stock_code"
+                                                                        value='{{ $value['stock_code'] }}'
+                                                                        name="kertas[{{ $key }}][stock_code]" /><input
+                                                                        type='hidden' value='{{ $value['group'] }}'
+                                                                        class="group"
+                                                                        name="kertas[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                </td>
+                                                                <td><input type='hidden' value='{{ $value['description'] }}'
+                                                                        name="kertas[{{ $key }}][description]" />{{ $value['description'] }}
+                                                                </td>
+                                                                <td><input type='number' class="form-control"
+                                                                        value='{{ $value['grammage'] }}'
+                                                                        name="kertas[{{ $key }}][grammage]" />
+                                                                </td>
+                                                                <td><input type='number' class="form-control"
+                                                                        value='{{ $value['saiz'] }}'
+                                                                        name="kertas[{{ $key }}][saiz]" /></td>
+                                                                <td><input type='hidden' value='{{ $value['uom'] }}'
+                                                                        name="kertas[{{ $key }}][uom]" />{{ $value['uom'] }}
+                                                                </td>
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['available_qty'] }}'
+                                                                        name="kertas[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
+                                                                </td>
+                                                                <td><select class="form-control"
+                                                                        name="kertas[{{ $key }}][uom_request]">
+                                                                        <option value="RIM"
+                                                                            @selected($value['uom_request'] == 'RIM')>RIM
+                                                                        </option>
+                                                                        <option @selected($value['uom_request'] == 'PKT')
+                                                                            value="PKT">PKT
+                                                                        </option>
+                                                                        <option @selected($value['uom_request'] == 'SHEET')
+                                                                            value="SHEET">
+                                                                            SHEET</option>
+                                                                    </select></td>
+                                                                <td><input type='number' class="form-control"
+                                                                        value='{{ $value['request_qty'] }}'
+                                                                        name="kertas[{{ $key }}][request_qty]" />
+                                                                </td>
+                                                                <td>
+                                                                    <textarea class="form-control" name="kertas[{{ $key }}][remarks]">{{ $value['remarks'] }}</textarea>
+                                                                </td>
+                                                                <td><a class="removeRow"><iconify-icon
+                                                                            icon="fluent:delete-dismiss-24-filled"
+                                                                            width="20" height="20"
+                                                                            style="color: red;"></iconify-icon><a></td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -119,7 +171,37 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-
+                                                    @if (old('bahan'))
+                                                    @foreach (old('bahan') as $key => $value)
+                                                        <tr>
+                                                            <td><input type='hidden' class="stock_code"
+                                                                    value='{{ $value['stock_code'] }}'
+                                                                    name="bahan[{{ $key }}][stock_code]" /><input
+                                                                    type='hidden' value='{{ $value['group'] }}'
+                                                                    class="group"
+                                                                    name="bahan[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value['description'] }}'
+                                                                    name="bahan[{{ $key }}][description]" />{{ $value['description'] }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value['uom'] }}'
+                                                                    name="bahan[{{ $key }}][uom]" />{{ $value['uom'] }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value['available_qty'] }}'
+                                                                    name="bahan[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value['request_qty'] }}'
+                                                                    name="bahan[{{ $key }}][request_qty]" />
+                                                            </td>
+                                                            <td><a class="removeRow1"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -147,7 +229,39 @@
                                                         <td>Action</td>
                                                     </tr>
                                                 </thead>
-                                                <tbody></tbody>
+                                                <tbody>
+                                                    @if (old('wip'))
+                                                    @foreach (old('wip') as $key => $value)
+                                                        <tr>
+                                                            <td><input type='hidden' class="stock_code"
+                                                                    value='{{ $value['stock_code'] }}'
+                                                                    name="wip[{{ $key }}][stock_code]" /><input
+                                                                    type='hidden' value='{{ $value['group'] }}'
+                                                                    class="group"
+                                                                    name="wip[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value['description'] }}'
+                                                                    name="wip[{{ $key }}][description]" />{{ $value['description'] }}
+                                                            </td>
+                                                            <td><input type='hidden' value='{{ $value['uom'] }}'
+                                                                    name="wip[{{ $key }}][uom]" />{{ $value['uom'] }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value['available_qty'] }}'
+                                                                    name="wip[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control"
+                                                                    value='{{ $value['request_qty'] }}'
+                                                                    name="wip[{{ $key }}][request_qty]" />
+                                                            </td>
+                                                            <td><a class="removeRow2"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
+                                                @endif
+                                                </tbody>
                                             </table>
                                         </div>
                                     </div>
@@ -438,7 +552,7 @@
 
             $("#table1 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table1').dataTable();
             $('#Table1').dataTable();
@@ -492,7 +606,7 @@
 
             $("#table2 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table2').dataTable();
             $('#Table2').dataTable();
@@ -546,7 +660,7 @@
 
             $("#table3 tbody").append(
                 `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
-                );
+            );
             $(this).closest('tr').remove();
             $('#table3').dataTable();
             $('#Table3').dataTable();
