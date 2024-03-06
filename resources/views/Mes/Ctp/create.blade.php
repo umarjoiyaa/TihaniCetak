@@ -280,16 +280,16 @@
             <tbody>
                 <tr>
                     <td rowspan="2">1</td>
-                    <td rowspan="2"><span>210mmx297mm</span></td>
-                    <td rowspan="2"></td>
-                    <td></td>
-                    <td></td>
-                    <td rowspan="2"></td>
-                    <td rowspan="2"></td>
+                    <td rowspan="2"><span>210mm<sup>m</sup>x297mm<sup>m</sup></span></td>
+                    <td rowspan="2">8.28x11.69</td>
+                    <td>635mmX902mm</td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
+                    <td rowspan="2">8mm</td>
+                    <td rowspan="2">8mm</td>
                 </tr>
                 <tr>
-                    <td></td>
-                    <td></td>
+                    <td>635mmx876mm</td>
+                    <td>25<sup>m</sup>x34.5<sup>m</sup></td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -346,7 +346,7 @@
                     <td>5mm</td>
                 </tr>
                 <tr>
-                    <td rowspan="2">1</td>
+                    <td rowspan="2">8</td>
                     <td rowspan="2"><span>165mmx210mm</span></td>
                     <td rowspan="2">6.5<sup>m</sup>x8.28<sup>m</sup></td>
                     <td>711mmx1016mm</td>
@@ -363,36 +363,36 @@
                 <tr>
                     <td>9</td>
                     <td>198.12mmx198.12mm</td>
-                    <td>7.8<sup>m</sup>7.8<sup>m</sup></td>
+                    <td>7.8<sup>m</sup>x7.8<sup>m</sup></td>
                     <td>635mmx902mm</td>
-                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
                     <td>4mm</td>
                     <td style="background:red; color:#fff;">Tidak Boleh dicetak</td>
                 </tr>
                 <tr>
                     <td>10</td>
                     <td>105mmx148mm</td>
-                    <td>4.13<sup>m</sup>5.83<sup>m</sup></td>
+                    <td>4.13<sup>m</sup>x5.83<sup>m</sup></td>
                     <td>635mmx902mm</td>
-                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
                     <td>10mm</td>
                     <td>5mm</td>
                 </tr>
                 <tr>
                     <td>11</td>
                     <td>139.7mm215.9mm</td>
-                    <td>5.5<sup>m</sup>8.5<sup>m</sup></td>
+                    <td>5.5<sup>m</sup>x8.5<sup>m</sup></td>
                     <td>635mmx902mm</td>
-                    <td>25<sup>m</sup>35.5<sup>m</sup></td>
+                    <td>25<sup>m</sup>x35.5<sup>m</sup></td>
                     <td>8mm</td>
                     <td>8mm</td>
                 </tr>
                 <tr>
                     <td rowspan="2">12</td>
                     <td rowspan="2"><span>165mmx240mm</span></td>
-                    <td rowspan="2">6.5<sup>m</sup>9.45<sup>m</sup></td>
+                    <td rowspan="2">6.5<sup>m</sup>x9.45<sup>m</sup></td>
                     <td>711mmx1092mm</td>
-                    <td>28<sup>m</sup>40<sup>m</sup></td>
+                    <td>28<sup>m</sup>x40<sup>m</sup></td>
                     <td rowspan="2" style="background:#b57502;">6mm <br> (P3 Sahaja)</td>
                     <td rowspan="2">6mm</td>
                 </tr>
@@ -425,7 +425,7 @@
                 <tr>
                     <td>15</td>
                     <td>152.4mmx228.6mm</td>
-                    <td>6sup>m</sup>x9sup>m</sup></td>
+                    <td>6<sup>m</sup>x 9<sup>m</sup></td>
                     <td>635mmx940mm</td>
                     <td>25<sup>m</sup>x37<sup>m</sup></td>
                     <td style="background:#b57502;">5mm <br> (P3 Sahaja)</td>
