@@ -410,9 +410,9 @@
                 }
             });
 
-            $('.total_good_count').text(total_good_count);
-            $('.total_rejection').text(total_rejection);
-            $('.total_total_produce').text(total_total_produce);
+            $('.total_good_count').text(total_good_count) || 0;
+            $('.total_rejection').text(total_rejection) || 0;
+            $('.total_total_produce').text(total_total_produce) || 0;
         });
 
         function check_machines(check_machines) {

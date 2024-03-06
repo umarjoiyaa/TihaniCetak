@@ -760,6 +760,38 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
+                                    <h4>Total Output Details</h4>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Last Print</th>
+                                                <th>Waste Print</th>
+                                                <th>Rejection</th>
+                                                <th>Good Count</th>
+                                                <th>Meter Click</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td class="total_last_print"></td>
+                                                <td class="total_waste_print"></td>
+                                                <td class="total_rejection"></td>
+                                                <td class="total_good_count"></td>
+                                                <td class="total_meter_click"></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
                                     <h5><b>Production Machine Detail</b></h5>
                                 </div>
                                 <div class="col-md-12">
@@ -1084,13 +1116,19 @@
                 let formData = sessionStorage.getItem(`formData${$(this).val()}`);
                 let storedData = JSON.parse(formData);
                 if (storedData !== null) {
-                    total_last_print += parseFloat(storedData.last_print);
-                    total_waste_print += parseFloat(storedData.waste_print);
-                    total_rejection += parseFloat(storedData.rejection);
-                    total_good_count += parseFloat(storedData.good_count);
-                    total_meter_click += parseFloat(storedData.meter_click);
+                    total_last_print += parseFloat(storedData.last_print) || 0;
+                    total_waste_print += parseFloat(storedData.waste_print) || 0;
+                    total_rejection += parseFloat(storedData.rejection) || 0;
+                    total_good_count += parseFloat(storedData.good_count) || 0;
+                    total_meter_click += parseFloat(storedData.meter_click) || 0;
                 }
             });
+
+            $('.total_last_print').text(total_last_print);
+            $('.total_waste_print').text(total_waste_print);
+            $('.total_rejection').text(total_rejection);
+            $('.total_good_count').text(total_good_count);
+            $('.total_meter_click').text(total_meter_click);
         });
 
         $('#saveForm').on('click', function() {

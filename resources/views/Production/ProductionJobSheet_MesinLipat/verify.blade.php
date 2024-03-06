@@ -507,9 +507,9 @@
                             total_good_count: 0
                         };
                     }
-                    sectionTotals[section].total_last_fold += parseFloat(storedData.last_fold);
-                    sectionTotals[section].total_rejection += parseFloat(storedData.rejection);
-                    sectionTotals[section].total_good_count += parseFloat(storedData.good_count);
+                    sectionTotals[section].total_last_fold += parseFloat(storedData.last_fold) || 0;
+                    sectionTotals[section].total_rejection += parseFloat(storedData.rejection) || 0;
+                    sectionTotals[section].total_good_count += parseFloat(storedData.good_count) || 0;
                 }
             });
 
