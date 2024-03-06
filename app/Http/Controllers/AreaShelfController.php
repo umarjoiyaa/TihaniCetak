@@ -23,7 +23,7 @@ class AreaShelfController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = AreaShelf::select('id', 'name', 'code', 'level_id')->with('level');
+            $query = AreaShelf::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -31,10 +31,7 @@ class AreaShelfController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('level', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -45,7 +42,6 @@ class AreaShelfController extends Controller
                 $sortableColumns = [
                     1 => 'name',
                     2 => 'code',
-                    3 => 'level_id',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -71,11 +67,6 @@ class AreaShelfController extends Controller
                                 break;
                             case 2:
                                 $q->where('code', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 3:
-                                $q->whereHas('level', function ($query) use ($searchLower) {
-                                    $query->where('name', 'like', '%' . $searchLower . '%');
-                                });
                                 break;
                             default:
                                 break;
@@ -129,7 +120,7 @@ class AreaShelfController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = AreaShelf::select('id', 'name', 'code', 'level_id')->with('level');
+            $query = AreaShelf::select('id', 'name', 'code');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -137,10 +128,7 @@ class AreaShelfController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('name', 'like', '%' . $searchLower . '%')
-                        ->orWhere('code', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('level', function ($query) use ($searchLower) {
-                            $query->where('name', 'like', '%' . $searchLower . '%');
-                        });
+                        ->orWhere('code', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
             }
@@ -148,7 +136,6 @@ class AreaShelfController extends Controller
             $sortableColumns = [
                 1 => 'name',
                 2 => 'code',
-                3 => 'level_id',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -241,7 +228,7 @@ class AreaShelfController extends Controller
         $area_Shelf = new AreaShelf();
         $area_Shelf->name = $request->name;
         $area_Shelf->code = $request->code;
-        $area_Shelf->level_id = $request->level;
+        $area_Shelf->level_id = json_encode($request->level);
         $area_Shelf->created_by = Auth::user()->id;
         $area_Shelf->save();
         Helper::logSystemActivity('Area Shelf', 'Area Shelf Store');
@@ -297,7 +284,7 @@ class AreaShelfController extends Controller
         $area_Shelf =  AreaShelf::find($id);
         $area_Shelf->name = $request->name;
         $area_Shelf->code = $request->code;
-        $area_Shelf->level_id = $request->level;
+        $area_Shelf->level_id = json_encode($request->level);
         $area_Shelf->created_by = Auth::user()->id;
         $area_Shelf->save();
         Helper::logSystemActivity('Area Shelf', 'Area Shelf Update');

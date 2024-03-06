@@ -216,7 +216,7 @@
                         <button type="submit" class="btn btn-primary float-right">Save</button>
                     </div>
                 </div>
-                <a href="{{route('Manage_tranfer.index')}}" class="">Back to list</a>
+                <a href="{{route('Manage_tranfer')}}" class="">Back to list</a>
 
             </div>
 

@@ -330,7 +330,7 @@
                                         <td><button type="button" class="btn btn-primary check_operator">Check</button>
                                         </td>
                                         <td><input type="text" name="" id="" readonly
-                                                class="form-control check_operator_text" style="width:150px;"></td>
+                                                class="form-control check_operator_text" ></td>
                                         <td><button disabled type="button"
                                                 class="btn btn-primary check_verify">Verify</button></td>
                                         <td><input type="text" name="" id="" readonly

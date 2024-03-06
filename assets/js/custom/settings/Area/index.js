@@ -35,10 +35,6 @@ $(document).ready(function () {
                 name: 'code',
             },
             {
-                data: 'shelf.name',
-                name: 'shelf.name',
-            },
-            {
                 data: 'action',
                 name: 'action',
                 orderable: false
@@ -85,10 +81,6 @@ function AjaxCall(columnsData) {
             {
                 data: 'code',
                 name: 'code',
-            },
-            {
-                data: 'shelf.name',
-                name: 'shelf.name',
             },
             {
                 data: 'action',

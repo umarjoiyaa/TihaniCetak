@@ -24,7 +24,7 @@
                             <h4><b>SALES ORDER</b></h4>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mt-3">
                         <div class="box" style="width:400px; padding:10px; height:180px; border:1px solid black;">
                             <p>EDUKID DISTRIBUTORS SDN BHD</p>
                             <p>
@@ -38,50 +38,50 @@
 
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="row">
-                            <div class="col-md-6">
+                    <div class="col-md-6 mt-3">
+                        <div class="row ml-5">
+                            <div class="col-sm-5">
                                 <p>Your Ref No. </p>
                             </div>
-                            <div class="col-md-4">
-                            <snap ><span>: </span>{{ $sale_order->order_no }}</span>
+                            <div class="col-sm-7">
+                            <snap ><span style="margin-left:-55px;" >: </span>{{ $sale_order->order_no }}</span>
 
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row ml-5">
+                            <div class="col-sm-5">
                                 <p>Our Ref No</p>
                             </div>
-                            <div class="col-md-4">
-                                <span style="margin-left:-40px;">:</span>
+                            <div class="col-sm-7">
+                                <span style="margin-left:-55px;">:</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row ml-5">
+                            <div class="col-sm-5">
                                 <p>Terms </p>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-sm-7">
                                 <span
-                                style="margin-left:-10px;" >:</span>
+                                style="margin-left:-55px;" >:</span>
                                     <snap>{{ $sale_order->terms }}</span>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row ml-5">
+                            <div class="col-sm-5">
                                 <p>Date</p>
                             </div>
-                            <div class="col-md-4">
-                            <span style="margin-left:40px;">:</span>
+                            <div class="col-sm-7">
+                            <span style="margin-left:-55px;">:</span>
                                     <snap>{{ $sale_order->date }}</span>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
+                        <div class="row ml-5">
+                            <div class="col-sm-5">
                                 <p>Page</p>
                             </div>
-                            <div class="col-md-4">
-                            <span style="margin-left:-30px;">:</span>
+                            <div class="col-sm-7">
+                            <span style="margin-left:-55px;">:</span>
                             </div>
                         </div>
                     </div>
@@ -89,30 +89,32 @@
 
                 <div class="row w-100">
                     <div class="col-md-12">
-                        <table class="table table-bordered mt-3 w-100">
-                            <thead>
-                                <tr>
-                                    <th>Item</th>
-                                    <th>Description</th>
-                                    <th>QTY</th>
-                                    <th>UOM</th>
-                                    <th>U/price</th>
-                                    <th>Disc</th>
-                                    <th>Total RM</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>{{ $sale_order->item }}</td>
-                                    <td>{{ $sale_order->description }}</td>
-                                    <td>{{ $sale_order->uom }}</td>
-                                    <td>{{ $sale_order->sale_order_qty }}</td>
-                                    <td>{{ $sale_order->delivery_qty }}</td>
-                                    <td></td>
-                                    <td>{{ $sale_order->remaining_qty }}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-bordered mt-3 w-100">
+                                <thead>
+                                    <tr>
+                                        <th>Item</th>
+                                        <th>Description</th>
+                                        <th>QTY</th>
+                                        <th>UOM</th>
+                                        <th>U/price</th>
+                                        <th>Disc</th>
+                                        <th>Total RM</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>{{ $sale_order->item }}</td>
+                                        <td>{{ $sale_order->description }}</td>
+                                        <td>{{ $sale_order->uom }}</td>
+                                        <td>{{ $sale_order->sale_order_qty }}</td>
+                                        <td>{{ $sale_order->delivery_qty }}</td>
+                                        <td></td>
+                                        <td>{{ $sale_order->remaining_qty }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
 
@@ -160,7 +162,7 @@
                                     </tr>
 
                                     <tr>
-                                        <td rowspan="2">Priting</td>
+                                        <td rowspan="2">Printing</td>
                                         <td>Cover</td>
                                         <td>{{ $sale_order->printing_cover }}</td>
                                     </tr>
@@ -223,52 +225,56 @@
                     <div class="col-md-12">
                         <div class="row mt-3">
                             <div class="col-md-12">
-                                <h3><b>Apprved By</b></h3>
+                                <h3><b>Approved By</b></h3>
                             </div>
-                            <div class="col-md-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Username</th>
-                                            <th>Desgination</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{ $sale_order->approved_by_date }}</td>
-                                            <td>{{ $sale_order->approved_by_user }}</td>
-                                            <td>{{ $sale_order->approved_by_designation }}</td>
-                                            <td>{{ $sale_order->approved_by_department }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-md-10">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Desgination</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $sale_order->approved_by_date }}</td>
+                                                <td>{{ $sale_order->approved_by_user }}</td>
+                                                <td>{{ $sale_order->approved_by_designation }}</td>
+                                                <td>{{ $sale_order->approved_by_department }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12">
                                 <h3><b>Published By</b></h3>
                             </div>
-                            <div class="col-md-12">
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <tr>
-                                            <th>Date</th>
-                                            <th>Username</th>
-                                            <th>Desgination</th>
-                                            <th>Department</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>{{ $sale_order->published_by_date }}</td>
-                                            <td>{{ $sale_order->published_by_user }}</td>
-                                            <td>{{ $sale_order->published_by_designation }}</td>
-                                            <td>{{ $sale_order->published_by_department }}</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
+                            <div class="col-md-10">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Desgination</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $sale_order->published_by_date }}</td>
+                                                <td>{{ $sale_order->published_by_user }}</td>
+                                                <td>{{ $sale_order->published_by_designation }}</td>
+                                                <td>{{ $sale_order->published_by_department }}</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -283,8 +289,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <a class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> <a href="{{ route('sale_order') }}"
-                class="btn d-flex">
+            <a  href="{{ route('sale_order') }}" class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> 
         </div>
 
     </div>

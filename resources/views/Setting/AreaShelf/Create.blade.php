@@ -30,10 +30,9 @@
                             <div class="col-md-4">
                                 <div class="control-group form-group">
                                     <label class="form-label">Level</label>
-                                    <select name="level" class="form-select">
-                                        <option value="" disabled selected>Select any option</option>
+                                    <select name="level[]" class="form-select" multiple>
                                         @foreach ($levels as $level)
-                                            <option value="{{ $level->id }}" @selected(old('level') == $level->id)>
+                                            <option value="{{ $level->id }}" @if(old('level')) {{ in_array(old('level'), $level->id) ? 'selected' : '' }} @endif>
                                                 {{ $level->name }}</option>
                                         @endforeach
                                     </select>

@@ -751,6 +751,14 @@ class Cover_endPaperController extends Controller
                     'details' => $details
                 ]);
             }
+        }else{
+            $check_machine = CoverEndPaperDetail::where('machine', '=', $request->machine)->where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'DESC')->first();
+            $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $request->cover_paper_id)->orderby('id', 'ASC')->get();
+            return response()->json([
+                'message' => 'Same Machine Is Running On Other Cover End Paper!',
+                'check_machine' => $check_machine,
+                'details' => $details
+            ]);
         }
     }
 }

@@ -26,11 +26,17 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="control-group form-group">
-                                <label class="form-label">Level</label>
-                                <input disabled type="text" class="form-control required" name="level"
-                                    value="{{ $area_shelf->level->name }}">
-                            </div>
+                            <label class="form-label">Level</label>
+                            @php
+                                $item = json_decode($area_shelf->level_id);
+                            @endphp
+                            <select name="level[]" class="form-select" multiple>
+                                @foreach ($levels as $level)
+                                    <option value="{{ $level->id }}"
+                                        @if ($item) {{ in_array($item, $level->id) ? 'selected' : '' }} @endif>
+                                        {{ $level->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
                     </div>
                     <div class="row mt-3 d-flex justify-content-end">

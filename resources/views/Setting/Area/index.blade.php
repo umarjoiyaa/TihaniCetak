@@ -21,7 +21,6 @@
                                     <th class="wd-15p border-bottom-0">Sr.</th>
                                     <th class="wd-15p border-bottom-0">name</th>
                                     <th class="wd-15p border-bottom-0">code</th>
-                                    <th class="wd-15p border-bottom-0">Shelf</th>
                                     <th class="wd-25p border-bottom-0">Action</th>
                                 </tr>
                             </thead>
@@ -33,9 +32,6 @@
                                     </th>
                                     <th>
                                         <input type="text" class="all_column" placeholder="search code">
-                                    </th>
-                                    <th>
-                                        <input type="text" class="all_column" placeholder="search shelf">
                                     </th>
                                     <th></th>
                                 </tr>

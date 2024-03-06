@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Manage_TransferController extends Controller
+class ManageTransferController extends Controller
 {
     public function index(){
         return view('WMS.Manage_transfer.index');

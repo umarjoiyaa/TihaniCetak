@@ -290,7 +290,7 @@ class SalesOrderController extends Controller
         $validator = null;
 
         $validatedData = $request->validate([
-            'soft_copy' => 'required'
+            'soft_copy' => 'required|mimes:pdf,jpg,jpeg,png'
         ]);
 
         // If validations fail

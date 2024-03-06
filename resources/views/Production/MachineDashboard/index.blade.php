@@ -2,9 +2,10 @@
 @section('css')
 <style>
     .card .card{
-        width:250px;
+        width:300px;
         border-radius:25px;
-        margin-left:50px;
+        margin-left:0px;
+        border:1px solid #18002d;
     }
     .card .card p{
         font-size:10px;
