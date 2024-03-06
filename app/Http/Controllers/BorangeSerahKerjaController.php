@@ -31,7 +31,7 @@ class BorangeSerahKerjaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
-                        ->OrWhere('po_no', 'like', '%' . $searchLower . '%')
+                        ->orWhere('po_no', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('supplier', function ($query) use ($searchLower) {
                             $query->where('name', 'like', '%' . $searchLower . '%');
                         })
@@ -56,14 +56,14 @@ class BorangeSerahKerjaController extends Controller
 
             if (!empty($columnsData)) {
                 $sortableColumns = [
-                    1 => 'date',
-                    2 => 'po_no',
-                    3 => 'supplier',
+                    0 => 'date',
+                    1 => 'po_no',
+                    2 => 'nama',
+                    3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
                     6 => 'sale_order_id',
-                    7 => 'sale_order_id',
-                    8 => 'status',
+                    7 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -84,39 +84,39 @@ class BorangeSerahKerjaController extends Controller
                         $searchLower = strtolower($column['value']);
 
                         switch ($column['index']) {
-                            case 1:
+                            case 0:
                                 $q->where('date', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 2:
+                            case 1:
                                 $q->where('po_no', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 3:
+                            case 2:
                                 $q->whereHas('supplier', function ($query) use ($searchLower) {
                                     $query->where('name', 'like', '%' . $searchLower . '%');
                                 });
 
                                 break;
-                            case 4:
+                            case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 5:
+                            case 4:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 6:
+                            case 5:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 7:
+                            case 6:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('size', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 8:
+                            case 7:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -199,7 +199,7 @@ class BorangeSerahKerjaController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
-                    ->OrWhere('po_no', 'like', '%' . $searchLower . '%')
+                    ->orWhere('po_no', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('supplier', function ($query) use ($searchLower) {
                         $query->where('name', 'like', '%' . $searchLower . '%');
                     })
@@ -221,14 +221,14 @@ class BorangeSerahKerjaController extends Controller
             }
 
             $sortableColumns = [
-                1 => 'date',
-                2 => 'po_no',
-                3 => 'supplier',
+                0 => 'date',
+                1 => 'po_no',
+                2 => 'nama',
+                3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
                 6 => 'sale_order_id',
-                7 => 'sale_order_id',
-                8 => 'status',
+                7 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -344,6 +344,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->nama = $request->nama;
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->siap_1 = $request->siap_1;
+        
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->created_by = Auth::user()->id;
 
@@ -417,6 +418,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
         $borange_serah_kerja->po_no = $request->po_no;
+        
         $borange_serah_kerja->siap_1 = $request->siap_1;
 
         $borange_serah_kerja->date_line = $request->date_line;

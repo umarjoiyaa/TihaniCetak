@@ -156,7 +156,7 @@
                                     <div class="row">
                                         <div class="col-md-1"><input type="checkbox" name="jenis_7"  @checked($borange_serah_kerja->jenis_7 == "on") id=""></div>
                                         <div class="col-md-4">
-                                            <h5>Punch Hole</h5>
+                                            <h5>Perforation</h5>
                                         </div>
 
                                     </div>

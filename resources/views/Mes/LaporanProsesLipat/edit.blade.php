@@ -405,9 +405,10 @@
 
             $('.SectionNumber').on('change', function() {
                 var inputValue = $(this).val().trim();
-                if (inputValue === '' || inputValue === '0') {
+                if (inputValue == '' || inputValue === '0') {
                     // Clear tabs and content if the input is empty or zero
                     $('#myTab').empty();
+                    $('#tableSection tbody').empty();
                     $('#myTabContent').empty();
                     sectionRanges = {}; // Clear sectionRanges when input is empty
                     sectionNumber = 1; // Reset sectionNumber
@@ -488,8 +489,25 @@
                         // return false;
                     }
                 });
-
+                sortTableRows()
             });
+
+
+            function sortTableRows() {
+                var table = $('#tableSection tbody');
+                var rows = table.find('tr').get();
+
+                rows.sort(function (a, b) {
+                    var keyA = parseInt($(a).find('td:first-child').text().match(/\d+/)[0]);
+                    var keyB = parseInt($(b).find('td:first-child').text().match(/\d+/)[0]);
+
+                    return keyA - keyB;
+                });
+
+                $.each(rows, function (index, row) {
+                    table.append(row);
+                });
+            }
 
             function createTabAndTable(sectionNumber, number) {
                 var tabIndex = $('#myTab li').length + 1;

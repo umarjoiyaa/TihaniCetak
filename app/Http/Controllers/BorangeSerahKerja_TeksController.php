@@ -22,7 +22,7 @@ class BorangeSerahKerja_TeksController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date','date_line','jenis_text')->with('sale_order',"supplier",'senari_semak');
+            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'nama', 'jumlah','sale_order_id', 'status','date','date_line','jenis_text')->with('sale_order',"supplier",'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -40,9 +40,7 @@ class BorangeSerahKerja_TeksController extends Controller
                         ->orWhereHas('supplier', function ($query) use ($searchLower) {
                             $query->where('name', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
+                        ->orWhere('jumlah', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis_text', 'like', '%' . $searchLower . '%')
                         ->orWhere('date_line', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
@@ -55,15 +53,15 @@ class BorangeSerahKerja_TeksController extends Controller
 
             if (!empty($columnsData)) {
                 $sortableColumns = [
-                    1 => 'date',
-                    2 => 'po_no',
+                    0 => 'date',
+                    1 => 'po_no',
+                    2 => 'sale_order_id',
                     3 => 'sale_order_id',
-                    4 => 'sale_order_id',
-                    5 => 'nama',
-                    6 => 'senari_semak',
-                    7 => 'jenis_text',
-                    8 => 'date_line',
-                    9 => 'status',
+                    4 => 'nama',
+                    5 => 'jumlah',
+                    6 => 'jenis_text',
+                    7 => 'date_line',
+                    8 => 'status',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -84,40 +82,39 @@ class BorangeSerahKerja_TeksController extends Controller
                         $searchLower = strtolower($column['value']);
 
                         switch ($column['index']) {
-                            case 1:
+                            case 0:
                                 $q->where('date', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 2:
+                            case 1:
                                 $q->where('po_no', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 3:
+                            case 2:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 4:
+                            case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 5:
+                            case 4:
                                 $q->whereHas('supplier', function ($query) use ($searchLower) {
                                     $query->where('name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
-                            case 6:
+                            case 5:
 
-                                $q->whereHas('senari_semak', function ($query) use ($searchLower) {
-                                    $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('jumlah', 'like', '%' . $searchLower . '%');
+
                                 break;
-                            case 7:
+                            case 6:
                                 $q->where('jenis_text', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 8:
+                            case 7:
                                 $q->where('date_line', 'like', '%' . $searchLower . '%');
                                 break;
-                            case 9:
+                            case 8:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -188,7 +185,7 @@ class BorangeSerahKerja_TeksController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date','jenis_text','date_line')->with('sale_order',"supplier",'senari_semak');
+            $query = BorangSerahKerjaTeks::select('id', 'po_no', 'jumlah','nama', 'sale_order_id', 'status','date','jenis_text','date_line')->with('sale_order',"supplier",'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -207,9 +204,8 @@ class BorangeSerahKerja_TeksController extends Controller
                         ->orWhereHas('supplier', function ($query) use ($searchLower) {
                             $query->where('name', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
+
+                        ->orWhere('jumlah', 'like', '%' . $searchLower . '%')
                         ->orWhere('jenis_text', 'like', '%' . $searchLower . '%')
                         ->orWhere('date_line', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
@@ -219,15 +215,15 @@ class BorangeSerahKerja_TeksController extends Controller
             }
 
             $sortableColumns = [
-                1 => 'date',
-                2 => 'po_no',
+                0 => 'date',
+                1 => 'po_no',
+                2 => 'sale_order_id',
                 3 => 'sale_order_id',
-                4 => 'sale_order_id',
-                5 => 'nama',
-                6 => 'senari_semak',
-                7 => 'jenis_text',
-                8 => 'date_line',
-                9 => 'status',
+                4 => 'nama',
+                5 => 'jumlah',
+                6 => 'jenis_text',
+                7 => 'date_line',
+                8 => 'status',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -344,6 +340,8 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
+        $borange_serah_kerja->jumlah = $request->jumlah;
+
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->Qty_slap_binding = $request->Qty_slap_binding;
         $borange_serah_kerja->waste_binding = $request->waste_binding;
@@ -356,7 +354,6 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_4 = ($request->jenis_4 != null) ? $request->jenis_4 : null;
         $borange_serah_kerja->jenis_5 = ($request->jenis_5 != null) ? $request->jenis_5 : null;
         $borange_serah_kerja->jenis_input_5 = $request->jenis_input_5;
-        $borange_serah_kerja->jenis_6 = ($request->jenis_6 != null) ? $request->jenis_6 : null;
         $borange_serah_kerja->jenis_7 = ($request->jenis_7 != null) ? $request->jenis_7 : null;
         $borange_serah_kerja->jenis_8 = ($request->jenis_8 != null) ? $request->jenis_8 : null;
         $borange_serah_kerja->jenis_9 = ($request->jenis_9 != null) ? $request->jenis_9 : null;
@@ -408,6 +405,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->waste_binding = $request->waste_binding;
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
+        $borange_serah_kerja->jumlah = $request->jumlah;
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->created_by = Auth::user()->id;
 
@@ -418,7 +416,6 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_4 = ($request->jenis_4 != null) ? $request->jenis_4 : null;
         $borange_serah_kerja->jenis_5 = ($request->jenis_5 != null) ? $request->jenis_5 : null;
         $borange_serah_kerja->jenis_input_5 = $request->jenis_input_5;
-        $borange_serah_kerja->jenis_6 = ($request->jenis_6 != null) ? $request->jenis_6 : null;
         $borange_serah_kerja->jenis_7 = ($request->jenis_7 != null) ? $request->jenis_7 : null;
         $borange_serah_kerja->jenis_8 = ($request->jenis_8 != null) ? $request->jenis_8 : null;
         $borange_serah_kerja->jenis_9 = ($request->jenis_9 != null) ? $request->jenis_9 : null;

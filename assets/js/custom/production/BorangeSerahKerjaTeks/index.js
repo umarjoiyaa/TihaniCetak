@@ -45,11 +45,11 @@ $(document).ready(function () {
                 name: 'supplier.name',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
+                data: 'jumlah',
+                name: 'jumlah',
                 render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
+                    if (data) {
+                        return data;
                     } else {
                         return 0;
                     }
@@ -126,11 +126,11 @@ function AjaxCall(columnsData) {
                 name: 'supplier.name',
             },
             {
-                data: 'senari_semak',
-                name: 'senari_semak',
+                data: 'jumlah',
+                name: 'jumlah',
                 render: function (data, type, full, meta) {
-                    if (data && data.item_cover_text !== null) {
-                        return data.item_cover_text;
+                    if (data) {
+                        return data;
                     } else {
                         return 0;
                     }
