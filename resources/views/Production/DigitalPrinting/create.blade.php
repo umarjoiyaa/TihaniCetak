@@ -173,12 +173,28 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-1"><input type="checkbox" name="text_front"
-                                                        id=""></div>
-                                                <div class="col-md-2">Front</div>
-                                                <div class="col-md-1"><input type="checkbox" name="text_back"
-                                                        id=""></div>
-                                                <div class="col-md-2">back</div>
+                                                <div class="col-sm-4">
+                                                    <div class="row">
+                                                        <div class="col-sm-1">
+                                                            <input type="checkbox" name="text_front"
+                                                            id="">
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <span>Front</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="row">
+                                                        <div class="col-sm-1">
+                                                            <input type="checkbox" name="text_back"
+                                                            id="">
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <span>back</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -231,12 +247,28 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="row">
-                                                <div class="col-md-1"><input type="checkbox" name="cover_front"
-                                                        id=""></div>
-                                                <div class="col-md-2">Front</div>
-                                                <div class="col-md-1"><input type="checkbox" name="cover_back"
-                                                        id=""></div>
-                                                <div class="col-md-2">back</div>
+                                                <div class="col-sm-4">
+                                                    <div class="row">
+                                                        <div class="col-sm-1">
+                                                            <input type="checkbox" name="cover_front"
+                                                            id="">
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <span>Front</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <div class="row">
+                                                        <div class="col-sm-1">
+                                                            <input type="checkbox" name="cover_back"
+                                                            id="">
+                                                        </div>
+                                                        <div class="col-sm-8">
+                                                            <span>back</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
 
                                         </div>
@@ -637,7 +669,7 @@
 
 
                 </div>
-                <a href="{{ route('digital_printing') }}">back to list</a>
+                <a href="{{ route('digital_printing') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     </form>

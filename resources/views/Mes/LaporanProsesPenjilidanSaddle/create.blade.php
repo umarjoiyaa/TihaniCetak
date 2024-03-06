@@ -326,7 +326,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('laporan_proses_penjilidan_saddle') }}">back to list</a>
+                <a href="{{ route('laporan_proses_penjilidan_saddle') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
 
     </form>

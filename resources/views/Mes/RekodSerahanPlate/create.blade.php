@@ -156,7 +156,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('rekod_serahan_plate') }}">back to list</a>
+        <a href="{{ route('rekod_serahan_plate') }}"><i class="ti-arrow-left mx-2 mt-1"></i>back to list</a>
     </div>
 </form>
 @endsection

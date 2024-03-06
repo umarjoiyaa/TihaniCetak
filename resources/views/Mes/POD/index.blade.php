@@ -8,6 +8,29 @@
     table thead th {
             text-align: center;
         }
+        div#DataTables_Table_0_wrapper {
+            width: auto;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        div.dt-layout-cell  {
+            height: auto;
+            overflow-y: auto;
+        }
+
+       
+
+        .table-responsive {
+            overflow-x: auto;
+        }
+
+        table {
+            position: relative;
+            border-collapse: collapse;
+            text-align: center;
+        }
+
 </style>
 @endsection
 @section('content')
