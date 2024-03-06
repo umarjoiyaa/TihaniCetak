@@ -507,8 +507,28 @@
                 $.each(rows, function (index, row) {
                     table.append(row);
                 });
-            }
 
+                // tabs sorting
+
+
+                var $myTab = $('#myTab');
+                    var tabs = $myTab.find('li').get();
+
+                    tabs.sort(function (a, b) {
+                        var keyA = parseInt($(a).find('a').text().match(/\d+/)[0]);
+                        var keyB = parseInt($(b).find('a').text().match(/\d+/)[0]);
+
+                        return keyA - keyB;
+                    });
+
+                    // Detach and reattach the sorted tabs
+                    $.each(tabs, function (index, tab) {
+                        $myTab.append(tab);
+                    });
+
+
+
+            }
             function createTabAndTable(sectionNumber, number) {
                 var tabIndex = $('#myTab li').length + 1;
 
