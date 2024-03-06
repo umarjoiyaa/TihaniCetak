@@ -118,7 +118,7 @@
                     </div>
                 </div>
 
-                
+
                 <div class="row w-100 d-flex justify-content-center">
 
                     <div class="col-md-2"></div>
@@ -245,6 +245,18 @@
                                                 <td>{{ $sale_order->approved_by_designation }}</td>
                                                 <td>{{ $sale_order->approved_by_department }}</td>
                                             </tr>
+                                            <tr>
+                                                <td>{{ $sale_order->approved_by_date2 }}</td>
+                                                <td>{{ $sale_order->approved_by_user2 }}</td>
+                                                <td>{{ $sale_order->approved_by_designation2 }}</td>
+                                                <td>{{ $sale_order->approved_by_department2 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td>{{ $sale_order->approved_by_date3 }}</td>
+                                                <td>{{ $sale_order->approved_by_user3 }}</td>
+                                                <td>{{ $sale_order->approved_by_designation3 }}</td>
+                                                <td>{{ $sale_order->approved_by_department3 }}</td>
+                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -279,9 +291,9 @@
                         </div>
                     </div>
                 </div>
-                
 
-                
+
+
 
             </div>
         </div>
@@ -289,7 +301,7 @@
     <div class="row">
         <div class="col-md-12">
 
-            <a  href="{{ route('sale_order') }}" class="ti-arrow-left mx-2 mt-1"></i> Back to list</a> 
+            <a  href="{{ route('sale_order') }}" class="ti-arrow-left mx-2 mt-1"></i> Back to list</a>
         </div>
 
     </div>

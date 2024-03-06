@@ -43,12 +43,16 @@ $(document).ready(function () {
                 name: 'date',
             },
             {
-                data: 'status',
-                name: 'status',
-            },
-            {
                 data: 'order_status',
                 name: 'order_status',
+            },
+            {
+                data: 'approval_status',
+                name: 'approval_status',
+            },
+            {
+                data: 'sale_order_qty',
+                name: 'sale_order_qty',
             },
             {
                 data: 'delivery_qty',
@@ -115,12 +119,16 @@ function AjaxCall(columnsData) {
                 name: 'date',
             },
             {
-                data: 'status',
-                name: 'status',
-            },
-            {
                 data: 'order_status',
                 name: 'order_status',
+            },
+            {
+                data: 'approval_status',
+                name: 'approval_status',
+            },
+            {
+                data: 'sale_order_qty',
+                name: 'sale_order_qty',
             },
             {
                 data: 'delivery_qty',

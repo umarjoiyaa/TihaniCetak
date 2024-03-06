@@ -35,7 +35,7 @@ class SalesOrderController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = SaleOrder::select('id', 'order_no', 'customer', 'po_no', 'date', 'status', 'order_status', 'delivery_qty', 'remaining_qty');
+            $query = SaleOrder::select('id', 'order_no', 'customer', 'po_no', 'date', 'approval_status', 'sale_order_qty', 'order_status', 'delivery_qty', 'remaining_qty', 'progress');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -46,8 +46,9 @@ class SalesOrderController extends Controller
                         ->orWhere('customer', 'like', '%' . $searchLower . '%')
                         ->orWhere('po_no', 'like', '%' . $searchLower . '%')
                         ->orWhere('date', 'like', '%' . $searchLower . '%')
-                        ->orWhere('status', 'like', '%' . $searchLower . '%')
                         ->orWhere('order_status', 'like', '%' . $searchLower . '%')
+                        ->orWhere('approval_status', 'like', '%' . $searchLower . '%')
+                        ->orWhere('sale_order_qty', 'like', '%' . $searchLower . '%')
                         ->orWhere('delivery_qty', 'like', '%' . $searchLower . '%')
                         ->orWhere('remaining_qty', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -62,10 +63,11 @@ class SalesOrderController extends Controller
                     2 => 'customer',
                     3 => 'po_no',
                     4 => 'date',
-                    5 => 'status',
-                    6 => 'order_status',
-                    7 => 'delivery_qty',
-                    8 => 'remaining_qty',
+                    5 => 'order_status',
+                    6 => 'approval_status',
+                    7 => 'sale_order_qty',
+                    8 => 'delivery_qty',
+                    9 => 'remaining_qty',
                     // Add more columns as needed
                 ];
                 if($orderByColumnIndex != null){
@@ -99,15 +101,18 @@ class SalesOrderController extends Controller
                                 $q->where('date', 'like', '%' . $searchLower . '%');
                                 break;
                             case 5:
-                                $q->where('status', 'like', '%' . $searchLower . '%');
-                                break;
-                            case 6:
                                 $q->where('order_status', 'like', '%' . $searchLower . '%');
                                 break;
+                            case 6:
+                                $q->where('approval_status', 'like', '%' . $searchLower . '%');
+                                break;
                             case 7:
-                                $q->where('delivery_qty', 'like', '%' . $searchLower . '%');
+                                $q->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                                 break;
                             case 8:
+                                $q->where('delivery_qty', 'like', '%' . $searchLower . '%');
+                                break;
+                            case 9:
                                 $q->where('remaining_qty', 'like', '%' . $searchLower . '%');
                                 break;
                             default:
@@ -130,23 +135,29 @@ class SalesOrderController extends Controller
             $index = 0;
             foreach ($sale as $row) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->order_status == 'pending') {
-                    $row->order_status = '<span class="badge badge-warning">Pending</span>';
+                if ($row->remaining_qty != 0) {
+                    $row->order_status = '<span class="badge badge-warning">In-Progress</span>';
+                } else if ($row->remaining_qty == 0) {
+                    $row->order_status = '<span class="badge badge-success">Completed</span>';
+                }
+
+                if($row->approval_status == 'declined'){
+                    $row->approval_status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 'approved') {
-                    $row->order_status = '<span class="badge badge-success">Approved</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
-                } else if ($row->order_status == 'declined') {
-                    $row->order_status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
-                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 'published') {
-                    $row->order_status = '<span class="badge badge-success">Published</span>';
+                } else if($row->approval_status == 'published'){
+                    $row->approval_status = '<span class="badge badge-success">Published</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
+                } else if($row->progress == 3){
+                    $row->approval_status = '<span class="badge badge-info">Approved</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
+                } else if($row->progress != 3){
+                    $row->approval_status = '';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -179,7 +190,7 @@ class SalesOrderController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = SaleOrder::select('id', 'order_no', 'customer', 'po_no', 'date', 'status', 'order_status', 'delivery_qty', 'remaining_qty');
+            $query = SaleOrder::select('id', 'order_no', 'customer', 'po_no', 'date', 'approval_status', 'sale_order_qty', 'order_status', 'delivery_qty', 'remaining_qty', 'progress');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -190,8 +201,9 @@ class SalesOrderController extends Controller
                         ->orWhere('customer', 'like', '%' . $searchLower . '%')
                         ->orWhere('po_no', 'like', '%' . $searchLower . '%')
                         ->orWhere('date', 'like', '%' . $searchLower . '%')
-                        ->orWhere('status', 'like', '%' . $searchLower . '%')
                         ->orWhere('order_status', 'like', '%' . $searchLower . '%')
+                        ->orWhere('approval_status', 'like', '%' . $searchLower . '%')
+                        ->orWhere('sale_order_qty', 'like', '%' . $searchLower . '%')
                         ->orWhere('delivery_qty', 'like', '%' . $searchLower . '%')
                         ->orWhere('remaining_qty', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -203,10 +215,11 @@ class SalesOrderController extends Controller
                 2 => 'customer',
                 3 => 'po_no',
                 4 => 'date',
-                5 => 'status',
-                6 => 'order_status',
-                7 => 'delivery_qty',
-                8 => 'remaining_qty',
+                5 => 'order_status',
+                6 => 'approval_status',
+                7 => 'sale_order_qty',
+                8 => 'delivery_qty',
+                9 => 'remaining_qty',
                 // Add more columns as needed
             ];
             if($orderByColumnIndex != null){
@@ -228,23 +241,29 @@ class SalesOrderController extends Controller
 
             $sale->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                if ($row->order_status == 'pending') {
-                    $row->order_status = '<span class="badge badge-warning">Pending</span>';
+                if ($row->remaining_qty != 0) {
+                    $row->order_status = '<span class="badge badge-warning">In-Progress</span>';
+                } else if ($row->remaining_qty == 0) {
+                    $row->order_status = '<span class="badge badge-success">Completed</span>';
+                }
+
+                if($row->approval_status == 'declined'){
+                    $row->approval_status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
                     <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 'approved') {
-                    $row->order_status = '<span class="badge badge-success">Approved</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
-                } else if ($row->order_status == 'declined') {
-                    $row->order_status = '<span class="badge badge-danger">Declined</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
-                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
-                } else if ($row->order_status == 'published') {
-                    $row->order_status = '<span class="badge badge-success">Published</span>';
+                } else if($row->approval_status == 'published'){
+                    $row->approval_status = '<span class="badge badge-success">Published</span>';
                     $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>';
+                } else if($row->progress == 3){
+                    $row->approval_status = '<span class="badge badge-info">Approved</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.publish', $row->id) . '">Publish</a>';
+                } else if($row->progress != 3){
+                    $row->approval_status = '';
+                    $actions = '<a class="dropdown-item" href="' . route('sale_order.view', $row->id) . '">View</a>
+                    <a class="dropdown-item" href="' . route('sale_order.upload', $row->id) . '">Upload</a>
+                    <a class="dropdown-item" href="' . route('sale_order.approve', $row->id) . '">Approve</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -325,11 +344,26 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 'approved';
-        $sale_order->approved_by_date = Carbon::now()->format('Y-m-d H:i:s');
-        $sale_order->approved_by_user = Auth::user()->user_name;
-        $sale_order->approved_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
-        $sale_order->approved_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $sale_order->approval_status = null;
+        if($sale_order->progress == null){
+            $sale_order->progress = 1;
+            $sale_order->approved_by_date = Carbon::now()->format('Y-m-d H:i:s');
+            $sale_order->approved_by_user = Auth::user()->user_name;
+            $sale_order->approved_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+            $sale_order->approved_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        } else if($sale_order->progress == 1){
+            $sale_order->progress = 2;
+            $sale_order->approved_by_date2 = Carbon::now()->format('Y-m-d H:i:s');
+            $sale_order->approved_by_user2 = Auth::user()->user_name;
+            $sale_order->approved_by_designation2 = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+            $sale_order->approved_by_department2 = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        } else if($sale_order->progress == 2){
+            $sale_order->progress = 3;
+            $sale_order->approved_by_date3 = Carbon::now()->format('Y-m-d H:i:s');
+            $sale_order->approved_by_user3 = Auth::user()->user_name;
+            $sale_order->approved_by_designation3 = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+            $sale_order->approved_by_department3 = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        }
         $sale_order->save();
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Approved');
         return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Approved!');
@@ -341,7 +375,20 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 'declined';
+        $sale_order->approval_status = 'declined';
+        $sale_order->progress = null;
+        $sale_order->approved_by_date = null;
+        $sale_order->approved_by_user = null;
+        $sale_order->approved_by_designation = null;
+        $sale_order->approved_by_department = null;
+        $sale_order->approved_by_date2 = null;
+        $sale_order->approved_by_user2 = null;
+        $sale_order->approved_by_designation2 = null;
+        $sale_order->approved_by_department2 = null;
+        $sale_order->approved_by_date3 = null;
+        $sale_order->approved_by_user3 = null;
+        $sale_order->approved_by_designation3 = null;
+        $sale_order->approved_by_department3 = null;
         $sale_order->save();
         Helper::logSystemActivity('SaleOrder', 'SaleOrder Declined');
         return redirect()->route('sale_order')->with('custom_success', 'SaleOrder has been Successfully Declined!');
@@ -361,7 +408,7 @@ class SalesOrderController extends Controller
         }
 
         $sale_order = SaleOrder::find($id);
-        $sale_order->order_status = 'published';
+        $sale_order->approval_status = 'published';
         $sale_order->published_by_date = Carbon::now()->format('Y-m-d H:i:s');
         $sale_order->published_by_user = Auth::user()->user_name;
         $sale_order->published_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
