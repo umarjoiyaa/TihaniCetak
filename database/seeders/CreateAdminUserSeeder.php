@@ -65,7 +65,7 @@ class CreateAdminUserSeeder extends Seeder
             'extra_stock' => '100',
             'remarks' => 'abc',
             'delivery_date' => '02-03-2023',
-            'order_status' => 'published',
+            'order_status' => 'In-Progress',
         ]);
 
         SaleOrder::create([
@@ -96,7 +96,7 @@ class CreateAdminUserSeeder extends Seeder
             'extra_stock' => '90',
             'remarks' => 'qwerty',
             'delivery_date' => '01-03-2023',
-            'order_status' => 'published',
+            'order_status' => 'In-Progress',
         ]);
 
         Supplier::create([

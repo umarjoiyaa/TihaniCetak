@@ -105,7 +105,7 @@
             </div>
 
         </div>
-        <a href="{{ route('user') }}" class="btn">Back To List</a>
+        <a href="{{ route('user') }}" class="btn"><i class="ti-arrow-left mx-2 mt-1"></i> Back To List</a>
     </div>
 </div>
 @endsection

@@ -128,7 +128,7 @@
                         </div>
                     </div>
                 </div>
-                <a href="{{ route('staple_bind') }}">back to list</a>
+                <a href="{{ route('staple_bind') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     </form>

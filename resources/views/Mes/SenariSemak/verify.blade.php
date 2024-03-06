@@ -772,7 +772,7 @@
 
                     </div>
                 </div>
-                <a href="{{ route('senari_semak') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
+                <a href="{{ route('senari_semak') }}" class="btn"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
                     list</a>
             </div>
         </div>

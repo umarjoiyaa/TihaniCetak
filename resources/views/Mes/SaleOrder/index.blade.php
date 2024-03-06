@@ -32,6 +32,7 @@
                                 <th style="font-size:11px;" class="text-left">Date Issue</th>
                                 <th style="font-size:11px;" class="text-left">Status</th>
                                 <th style="font-size:11px;" class="text-left">Status Approval</th>
+                                <th style="font-size:11px;" class="text-left">Sale Order Qty</th>
                                 <th style="font-size:11px;" class="text-left">Delivery Qty</th>
                                 <th style="font-size:11px;" class="text-left">Remaining Qty</th>
                                 <th style="font-size:11px;" class="text-left">Action</th>
@@ -57,6 +58,9 @@
                                 </th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search status approval">
+                                </th>
+                                <th>
+                                    <input type="text" class="all_column" placeholder="search sale order qty">
                                 </th>
                                 <th>
                                     <input type="text" class="all_column" placeholder="search delivery qty">

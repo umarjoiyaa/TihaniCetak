@@ -359,7 +359,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('staple_bind') }}">back to list</a>
+            <a href="{{ route('staple_bind') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 @endsection
@@ -490,9 +490,9 @@
                 let formData = sessionStorage.getItem(`formData${$(this).val()}`);
                 let storedData = JSON.parse(formData);
                 if (storedData !== null) {
-                    total_good_count += parseFloat(storedData.good_count);
-                    total_rejection += parseFloat(storedData.rejection);
-                    total_total_produce += parseFloat(storedData.total_produce);
+                    total_good_count += parseFloat(storedData.good_count) || 0;
+                    total_rejection += parseFloat(storedData.rejection) || 0;
+                    total_total_produce += parseFloat(storedData.total_produce) || 0;
                 }
             });
 

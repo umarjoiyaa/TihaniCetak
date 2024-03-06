@@ -216,7 +216,7 @@
                         <button type="submit" class="btn btn-primary float-right">Save</button>
                     </div>
                 </div>
-                <a href="{{route('Manage_tranfer')}}" class="">Back to list</a>
+                <a href="{{route('manage_transfer')}}" class="">Back to list</a>
 
             </div>
 
@@ -224,4 +224,86 @@
     </div>
 </div>
 
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-xl">
+    <div class="modal-content ">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Item:</b>A-123</h5>
+        <p class="float-right"><b>Total Qty:</b>24 <b>| Total transfer qty: </b>0</p>
+      </div>
+      <div class="modal-body">
+        <table class="table" id="table1">
+            <thead>
+                <tr>
+                    <th>Loaction</th>
+                    <th>Avaliable Qty</th>
+                    <th>qty</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <select name="location" id="" class="form-control">
+                            <option value="">Store >R1>S1 </option>
+                        </select>
+                    </td>
+                    <td><input type="text" class="form-control" name="avaliable-qty" value="28"></td>
+                    <td><input type="text" class="form-control" name="qty"></td>
+                    <td><button class="btn btn-primary addrow" style="font-size:20px;" id="addrow">+</button>
+                    <button class="btn btn-danger removeRowButton d-none" style="font-size:20px;">-</button></td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 @endsection
+@push('custom-scripts')
+<script>
+
+$(document).ready(function(){
+    var key = 0;
+    
+    $('#table1').on('click', '.addrow', function(){
+        var currentRow = $(this).closest('tr');
+        var $length = $("#table1 tbody tr").length;
+        
+        var newRow = $(
+            `<tr>
+                <td><select class="form-control" name="key[${$length}][location]"><option value="RIM">Store>R1>S1</option></select></td>
+                <td><input type='number' class="form-control" name="key[${$length}][avaliable_qty]" value="28"/></td>
+                <td><input type="text" class="form-control" name="key[${$length}][qty]"></td>
+                <td>
+                    <button class="btn btn-primary addrow" style="font-size:20px;">+</button>
+                    <button class="btn btn-danger removeRowButton" style="font-size:20px;">-</button>
+                </td>
+            </tr>`
+        );
+        
+        newRow.find('.removeRowButton').removeClass('d-none');
+        currentRow.after(newRow);
+    });
+
+    $('#table1').on('click', '.removeRowButton', function(){
+        $(this).closest('tr').remove();
+    });
+});
+
+
+
+
+</script>
+@endPush

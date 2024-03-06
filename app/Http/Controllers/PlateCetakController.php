@@ -347,7 +347,7 @@ class PlateCetakController extends Controller
         $page = $request->input('page', 1);
         $search = $request->input('q');
 
-        $query = SaleOrder::select('id', 'order_no')->where('order_status', '=', 'published');
+        $query = SaleOrder::select('id', 'order_no')->where('approval_status', '=', 'published');
         if ($search) {
             $query->where('order_no', 'like', '%' . $search . '%');
         }

@@ -243,7 +243,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('ctp')}}">back to list</a>
+        <a href="{{route('ctp')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
     </div>
 </div>
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

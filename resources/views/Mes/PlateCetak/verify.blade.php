@@ -224,7 +224,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{route('plate_cetak')}}">back to list</a>
+        <a href="{{route('plate_cetak')}}"><i class="ti-arrow-left mx-2 mt-1"></i>back to list</a>
     </div>
 </div>
 @endsection

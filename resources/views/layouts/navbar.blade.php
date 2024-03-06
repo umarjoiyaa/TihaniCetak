@@ -29,6 +29,11 @@
         .navbar-toggler{
           width:80%;
         }
+        .navbar-toggler:focus {
+            outline: none;
+            box-shadow: none;
+        }
+
         .navbar-toggler-icon{
           color:#fff;
           font-size:20px;

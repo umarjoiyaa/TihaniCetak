@@ -370,7 +370,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('perfect_bind') }}">back to list</a>
+            <a href="{{ route('perfect_bind') }}"> <i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 @endsection
@@ -410,9 +410,9 @@
                 }
             });
 
-            $('.total_good_count').text(total_good_count);
-            $('.total_rejection').text(total_rejection);
-            $('.total_total_produce').text(total_total_produce);
+            $('.total_good_count').text(total_good_count) || 0;
+            $('.total_rejection').text(total_rejection) || 0;
+            $('.total_total_produce').text(total_total_produce) || 0;
         });
 
         function check_machines(check_machines) {

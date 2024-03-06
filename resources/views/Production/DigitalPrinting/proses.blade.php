@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @section('css')
 <style>
-    
+
 </style>
 @endsection
 @section('content')
@@ -889,7 +889,7 @@
 
 
                 </div>
-                <a href="{{ route('digital_printing') }}">back to list</a>
+                <a href="{{ route('digital_printing') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
         <!-- Modal -->
@@ -1131,11 +1131,11 @@
                 let formData = sessionStorage.getItem(`formData${$(this).val()}`);
                 let storedData = JSON.parse(formData);
                 if (storedData !== null) {
-                    total_last_print += parseFloat(storedData.last_print);
-                    total_waste_print += parseFloat(storedData.waste_print);
-                    total_rejection += parseFloat(storedData.rejection);
-                    total_good_count += parseFloat(storedData.good_count);
-                    total_meter_click += parseFloat(storedData.meter_click);
+                    total_last_print += parseFloat(storedData.last_print) || 0;
+                    total_waste_print += parseFloat(storedData.waste_print) || 0;
+                    total_rejection += parseFloat(storedData.rejection) || 0;
+                    total_good_count += parseFloat(storedData.good_count) || 0;
+                    total_meter_click += parseFloat(storedData.meter_click) || 0;
                 }
             });
 

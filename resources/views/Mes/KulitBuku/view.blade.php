@@ -167,7 +167,7 @@
                 </div>
             </div>
 
-            <a href="{{ route('kulit_buku') }}">back to list</a>
+            <a href="{{ route('kulit_buku') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
 @endsection
 @push('custom-scripts')

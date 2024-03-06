@@ -35,7 +35,7 @@
                                 <th>Kod Buku</th>
                                 <th>Tajuk</th>
                                 <th>Kuantiti</th>
-                                <th>Size</th>
+                                <th>SAIZ bUKU</th>
                                 <th>Mesin</th>
                                 <th>Status</th>
                                 <th>Action</th>

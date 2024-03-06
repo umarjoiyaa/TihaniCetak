@@ -706,7 +706,7 @@
                     </div>
                 </div>
             </div>
-            <a href="{{ route('printing_process') }}">back to list</a>
+            <a href="{{ route('printing_process') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 @endsection
@@ -881,10 +881,10 @@
                         };
                     }
 
-                    totals[section][side].total_last_print += parseFloat(storedData.last_print);
-                    totals[section][side].total_waste_paper += parseFloat(storedData.waste_paper);
-                    totals[section][side].total_rejection += parseFloat(storedData.rejection);
-                    totals[section][side].total_good_count += parseFloat(storedData.good_count);
+                    totals[section][side].total_last_print += parseFloat(storedData.last_print) || 0;
+                    totals[section][side].total_waste_paper += parseFloat(storedData.waste_paper) || 0;
+                    totals[section][side].total_rejection += parseFloat(storedData.rejection) || 0;
+                    totals[section][side].total_good_count += parseFloat(storedData.good_count) || 0;
                 }
             });
 

@@ -816,7 +816,7 @@
                 </div>
             </div>
         </div>
-        <a href="{{ route('cover_end_paper') }}">back to list</a>
+        <a href="{{ route('cover_end_paper') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
     </div>
     </div>
     <!-- Modal -->
@@ -973,10 +973,10 @@
                 let storedData = JSON.parse(formData);
                 if (storedData !== null) {
                     let side = storedData.side;
-                    sideTotals[side].total_last_print += parseFloat(storedData.last_print);
-                    sideTotals[side].total_waste_paper += parseFloat(storedData.waste_paper);
-                    sideTotals[side].total_rejection += parseFloat(storedData.rejection);
-                    sideTotals[side].total_good_count += parseFloat(storedData.good_count);
+                    sideTotals[side].total_last_print += parseFloat(storedData.last_print) || 0;
+                    sideTotals[side].total_waste_paper += parseFloat(storedData.waste_paper) || 0;
+                    sideTotals[side].total_rejection += parseFloat(storedData.rejection) || 0;
+                    sideTotals[side].total_good_count += parseFloat(storedData.good_count) || 0;
                 }
             });
 
