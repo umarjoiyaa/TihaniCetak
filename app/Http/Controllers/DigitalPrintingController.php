@@ -569,17 +569,15 @@ class DigitalPrintingController extends Controller
         DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new DigitalPrintingDetailB();
-                $detail->digital_detail_id = $value['hiddenId'] ?? null;
-                $detail->last_print = $value['last_print'] ?? null;
-                $detail->waste_print = $value['waste_print'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->meter_click = $value['meter_click'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
-                $detail->save();
-            }
+            $detail = new DigitalPrintingDetailB();
+            $detail->digital_detail_id = $value['hiddenId'] ?? null;
+            $detail->last_print = $value['last_print'] ?? null;
+            $detail->waste_print = $value['waste_print'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->meter_click = $value['meter_click'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
         }
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Proses Update');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Proses Updated Successfully !');

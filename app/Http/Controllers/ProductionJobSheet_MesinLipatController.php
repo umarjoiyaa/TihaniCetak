@@ -480,16 +480,14 @@ class ProductionJobSheet_MesinLipatController extends Controller
         MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new MesinLipatDetailB();
-                $detail->mesin_lipat_detail_id = $value['hiddenId'] ?? null;
-                $detail->section_no = $value['section_no'] ?? null;
-                $detail->last_fold = $value['last_fold'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
-                $detail->save();
-            }
+            $detail = new MesinLipatDetailB();
+            $detail->mesin_lipat_detail_id = $value['hiddenId'] ?? null;
+            $detail->section_no = $value['section_no'] ?? null;
+            $detail->last_fold = $value['last_fold'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
         }
         Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Proses Update');
         return redirect()->route('mesin_lipat')->with('custom_success', 'MESIN LIPAT has been Proses Updated Successfully !');
