@@ -127,21 +127,21 @@
                                     <tr>
                                         <td>Dummy Lipat</td>
                                         <td><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" name="dummy_lipat" id=""
+                                                onchange="handleCheckboxChange('Cover1',this)" name="dummy_lipat" id="" @checked(old('dummy_lipat') == "ok")
                                                 value="ok">
                                         </td>
                                         <td><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" checked
+                                                onchange="handleCheckboxChange('Cover1',this)" @if (old('dummy_lipat')) @else checked @endif @checked(old('dummy_lipat') == "ng")
                                                 name="dummy_lipat" value="ng" id=""></td>
                                     </tr>
                                     <tr>
                                         <td>Sample</td>
                                         <td><input type="checkbox" class="Cover2"
-                                                onchange="handleCheckboxChange('Cover2',this)" name="sample" id=""
+                                                onchange="handleCheckboxChange('Cover2',this)" name="sample" id="" @checked(old('sample') == "ok")
                                                 value="ok">
                                         </td>
                                         <td><input type="checkbox" class="Cover2"
-                                                onchange="handleCheckboxChange('Cover2',this)" checked name="sample"
+                                                onchange="handleCheckboxChange('Cover2',this)"  name="sample" @if (old('sample')) @else checked @endif @checked(old('dummy_lipat') == "ng")
                                                 id="" value="ng"></td>
                                     </tr>
                                 </tbody>

@@ -103,123 +103,123 @@
 
                                                 <tr>
                                                     <td style="background:wheat;">saiz yang betul</td>
-                                                    <td><input type="checkbox" name="b_1" class="b_1"
+                                                    <td><input type="checkbox" name="b_1" class="b_1" @checked(old('b_1') == 'ok')
                                                             onchange="handleCheckboxChange('b_1',this)" value="ok"
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_1" class="b_1"
-                                                            onchange="handleCheckboxChange('b_1',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_1" class="b_1"
+                                                            onchange="handleCheckboxChange('b_1',this)" value="ng" @checked(old('b_1') == 'ng') @if(old('b_1')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kedudukan potongan</td>
                                                     <td><input type="checkbox" name="b_2" class="b_2"
-                                                            onchange="handleCheckboxChange('b_2',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_2',this)" value="ok" @checked(old('b_2') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_2" class="b_2"
-                                                            onchange="handleCheckboxChange('b_2',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_2" class="b_2"
+                                                            onchange="handleCheckboxChange('b_2',this)" value="ng" @checked(old('b_2') == 'ng') @if(old('b_2')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>teks tidak terpotong</td>
                                                     <td><input type="checkbox" name="b_3" class="b_3"
-                                                            onchange="handleCheckboxChange('b_3',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_3',this)" value="ok" @checked(old('b_3') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_3" class="b_3"
-                                                            onchange="handleCheckboxChange('b_3',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_3" class="b_3"
+                                                            onchange="handleCheckboxChange('b_3',this)" value="ng" @checked(old('b_3') == 'ng') @if(old('b_3')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kepetekan / squareness</td>
                                                     <td><input type="checkbox" name="b_4" class="b_4"
-                                                            onchange="handleCheckboxChange('b_4',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_4',this)" value="ok" @checked(old('b_4') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_4" class="b_4"
-                                                            onchange="handleCheckboxChange('b_4',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_4" class="b_4"
+                                                            onchange="handleCheckboxChange('b_4',this)" value="ng" @checked(old('b_4') == 'ng') @if(old('b_4')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Potongan yang bersih</td>
                                                     <td><input type="checkbox" name="b_5" class="b_5"
-                                                            onchange="handleCheckboxChange('b_5',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_5',this)" value="ok" @checked(old('b_5') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_5" class="b_5"
-                                                            onchange="handleCheckboxChange('b_5',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_5" class="b_5"
+                                                            onchange="handleCheckboxChange('b_5',this)" value="ng" @checked(old('b_5') == 'ng') @if(old('b_5')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Turutan muka surat</td>
                                                     <td><input type="checkbox" name="b_6" class="b_6"
-                                                            onchange="handleCheckboxChange('b_6',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_6',this)" value="ok" @checked(old('b_6') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_6" class="b_6"
-                                                            onchange="handleCheckboxChange('b_6',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_6" class="b_6"
+                                                            onchange="handleCheckboxChange('b_6',this)" value="ng" @checked(old('b_6') == 'ng') @if(old('b_6')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kotor</td>
                                                     <td><input type="checkbox" name="b_7" class="b_7"
-                                                            onchange="handleCheckboxChange('b_7',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_7',this)" value="ok" @checked(old('b_7') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_7" class="b_7"
-                                                            onchange="handleCheckboxChange('b_7',this)" value="ng"
+                                                    <td><input type="checkbox" name="b_7" class="b_7"
+                                                            onchange="handleCheckboxChange('b_7',this)" value="ng" @checked(old('b_7') == 'ng') @if(old('b_7')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Koyak</td>
                                                     <td><input type="checkbox" name="b_8" class="b_8"
-                                                            onchange="handleCheckboxChange('b_8',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_8',this)" value="ok" @checked(old('b_8') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_8" class="b_8"
-                                                            onchange="handleCheckboxChange('b_8',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_8" class="b_8"
+                                                            onchange="handleCheckboxChange('b_8',this)" value="ng" @checked(old('b_8') == 'ng') @if(old('b_8')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Melekat</td>
                                                     <td><input type="checkbox" name="b_9" class="b_9"
-                                                            onchange="handleCheckboxChange('b_9',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_9',this)" value="ok" @checked(old('b_9') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_9" class="b_9"
-                                                            onchange="handleCheckboxChange('b_9',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_9" class="b_9"
+                                                            onchange="handleCheckboxChange('b_9',this)" value="ng" @checked(old('b_9') == 'ng') @if(old('b_9')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Calar</td>
                                                     <td><input type="checkbox" name="b_10" class="b_10"
-                                                            onchange="handleCheckboxChange('b_10',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_10',this)" value="ok" @checked(old('b_10') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_10" class="b_10"
-                                                            onchange="handleCheckboxChange('b_10',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_10" class="b_10"
+                                                            onchange="handleCheckboxChange('b_10',this)" value="ng" @checked(old('b_10') == 'ng') @if(old('b_10')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Kemik</td>
                                                     <td><input type="checkbox" name="b_11" class="b_11"
-                                                            onchange="handleCheckboxChange('b_11',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_11',this)" value="ok" @checked(old('b_11') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_11" class="b_11"
-                                                            onchange="handleCheckboxChange('b_11',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_11" class="b_11"
+                                                            onchange="handleCheckboxChange('b_11',this)" value="ng" @checked(old('b_11') == 'ng') @if(old('b_11')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Label yang betul</td>
                                                     <td><input type="checkbox" name="b_12" class="b_12"
-                                                            onchange="handleCheckboxChange('b_12',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_12',this)" value="ok" @checked(old('b_12') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_12" class="b_12"
-                                                            onchange="handleCheckboxChange('b_12',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_12" class="b_12"
+                                                            onchange="handleCheckboxChange('b_12',this)" value="ng" @checked(old('b_12') == 'ng') @if(old('b_12')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Pematuhan SOP</td>
                                                     <td><input type="checkbox" name="b_13" class="b_13"
-                                                            onchange="handleCheckboxChange('b_13',this)" value="ok"
+                                                            onchange="handleCheckboxChange('b_13',this)" value="ok" @checked(old('b_13') == 'ok')
                                                             id=""></td>
-                                                    <td><input type="checkbox" checked name="b_13" class="b_13"
-                                                            onchange="handleCheckboxChange('b_13',this)" value="ng"
+                                                    <td><input type="checkbox"  name="b_13" class="b_13"
+                                                            onchange="handleCheckboxChange('b_13',this)" value="ng" @checked(old('b_13') == 'ng') @if(old('b_13')) @else checked @endif
                                                             id=""></td>
                                                 </tr>
 

@@ -21,7 +21,7 @@
                                             <div class="col-md-4 mt-3">
                                                 <div class="form-group">
                                                     <label class="form-label">Saler Order No.</label>
-                                                    <select name="sale_order" id="sale_order"  class="form-control">
+                                                    <select name="sale_order" value="{{ old('sale_order') }}" id="sale_order"  class="form-control">
                                                         <option value="" selected disabled>Select any Sale Order</option>
 
                                                     </select>
@@ -935,17 +935,7 @@
                         templateSelection: function(data) {
                             return data.order_no || "Select Sales Order No";
                         },
-                        initSelection: function(element, callback) {
-                            // Set the initial selection based on the old value
-                            var initialValue = '{{ old('sale_order') }}'; // Replace 'sale_order' with your actual field name
-                            if (initialValue !== '') {
-                                var selectedOption = {
-                                    id: initialValue,
-                                    order_no: initialValue // Assuming 'order_no' is the display text
-                                };
-                                callback(selectedOption);
-                            }
-                        }
+
                     });
 
                     $('#sale_order').on('change', function() {
