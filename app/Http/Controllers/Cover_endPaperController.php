@@ -592,17 +592,15 @@ class Cover_endPaperController extends Controller
         CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new CoverEndPaperDetailB();
-                $detail->cover_paper_detail_id = $value['hiddenId'] ?? null;
-                $detail->side = $value['side'] ?? null;
-                $detail->last_print = $value['last_print'] ?? null;
-                $detail->waste_paper = $value['waste_paper'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
-                $detail->save();
-            }
+            $detail = new CoverEndPaperDetailB();
+            $detail->cover_paper_detail_id = $value['hiddenId'] ?? null;
+            $detail->side = $value['side'] ?? null;
+            $detail->last_print = $value['last_print'] ?? null;
+            $detail->waste_paper = $value['waste_paper'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
         }
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Proses Update');
         return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Proses Updated Successfully !');

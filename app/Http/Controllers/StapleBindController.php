@@ -481,15 +481,13 @@ class StapleBindController extends Controller
         StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new StapleBindDetailB();
-                $detail->staple_detail_id = $value['hiddenId'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->total_produce = $value['total_produce'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
-                $detail->save();
-            }
+            $detail = new StapleBindDetailB();
+            $detail->staple_detail_id = $value['hiddenId'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->total_produce = $value['total_produce'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
         }
         Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Proses Update');
         return redirect()->route('staple_bind')->with('custom_success', 'STAPLE BIND has been Proses Updated Successfully !');

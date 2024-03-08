@@ -276,7 +276,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Plate</label>
-                                        <input type="number" value="{{ $cover_end_paper->plate }}"
+                                        <input type="text" value="{{ $cover_end_paper->plate }}"
                                             class="form-control">
                                     </div>
                                     <div class="col-md-4">

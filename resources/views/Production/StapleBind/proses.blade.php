@@ -541,6 +541,9 @@
             let array = [];
             $('.hiddenId').each(function() {
                 let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
+                if(storedData == null){
+                    storedData = `{"hiddenId":"${$(this).val()}"}`;
+                }
                 array.push(JSON.parse(storedData));
             });
             $('#storedData').val(JSON.stringify(array));
