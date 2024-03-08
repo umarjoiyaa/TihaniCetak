@@ -124,26 +124,26 @@
                                                 <tbody>
                                                     <tr style="background:wheat;">
                                                         <td>Artwork</td>
-                                                        <td><input type="checkbox" class="Cover1"
+                                                        <td><input type="checkbox" class="Cover1" @checked(old('b_1') == 'ok')
                                                                 onchange="handleCheckboxChange('Cover1',this)"
                                                                 name="b_1" value="ok" id=""></td>
-                                                        <td><input checked type="checkbox" class="Cover1"
-                                                                onchange="handleCheckboxChange('Cover1',this)"
-                                                                name="b_1" value="ng" id=""></td>
                                                         <td><input type="checkbox" class="Cover1"
                                                                 onchange="handleCheckboxChange('Cover1',this)"
-                                                                name="b_1" value="na" id=""></td>
+                                                                name="b_1" value="ng" @checked(old('b_1') == 'ng') @if(old('b_1') == 'ng') @else checked @endif id=""></td>
+                                                        <td><input type="checkbox" class="Cover1"
+                                                                onchange="handleCheckboxChange('Cover1',this)"
+                                                                name="b_1" value="na" @checked(old('b_1') == 'na') id=""></td>
 
                                                     </tr>
                                                     <tr style="background:wheat;">
                                                         <td>Turutan muka surat</td>
-                                                        <td><input type="checkbox" class="Text1"
+                                                        <td><input type="checkbox" class="Text1" @checked(old('b_2') == 'ok')
                                                                 onchange="handleCheckboxChange('Text1',this)"
                                                                 name="b_2" value="ok" id=""></td>
-                                                        <td><input checked type="checkbox" class="Text1"
+                                                        <td><input @if(old('b_2') == 'ng') @else checked @endif @checked(old('b_2') == 'ok') type="checkbox" class="Text1"
                                                                 onchange="handleCheckboxChange('Text1',this)"
                                                                 name="b_2" value="ng" id=""></td>
-                                                        <td><input type="checkbox" class="Text1"
+                                                        <td><input type="checkbox" class="Text1" @checked(old('b_2') == 'ok')
                                                                 onchange="handleCheckboxChange('Text1',this)"
                                                                 name="b_2" value="na" id=""></td>
 

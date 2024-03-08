@@ -466,15 +466,13 @@ class MesinKnifeController extends Controller
         MesinKnifeDetailB::whereIn('knife_detail_id', $detailIds)->delete();
 
         foreach($storedData as $key => $value){
-            if ($value != null) {
-                $detail = new MesinKnifeDetailB();
-                $detail->knife_detail_id = $value['hiddenId'] ?? null;
-                $detail->good_count = $value['good_count'] ?? null;
-                $detail->rejection = $value['rejection'] ?? null;
-                $detail->total_produce = $value['total_produce'] ?? null;
-                $detail->check_operator_text = $value['check_operator_text'] ?? null;
-                $detail->save();
-            }
+            $detail = new MesinKnifeDetailB();
+            $detail->knife_detail_id = $value['hiddenId'] ?? null;
+            $detail->good_count = $value['good_count'] ?? null;
+            $detail->rejection = $value['rejection'] ?? null;
+            $detail->total_produce = $value['total_produce'] ?? null;
+            $detail->check_operator_text = $value['check_operator_text'] ?? null;
+            $detail->save();
         }
         Helper::logSystemActivity('MESIN 3 KNIFE', 'MESIN 3 KNIFE Proses Update');
         return redirect()->route('mesin_knife')->with('custom_success', 'MESIN 3 KNIFE has been Proses Updated Successfully !');

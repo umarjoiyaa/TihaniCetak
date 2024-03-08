@@ -75,16 +75,16 @@
                                     <label for="">Mesin</label>
                                     <select name="machine" id="Mesin" class="form-control form-select">
                                         <!-- <option selected disabled value="">Select any Mesin</option> -->
-                                        <option value="P1">P1</option>
-                                        <option value="P2">P2</option>
-                                        <option value="P3">P3</option>
+                                        <option value="P1" {{ old('machine') == "P1" ? 'selected' : '' }}>P1</option>
+                                        <option value="P2" {{ old('machine') == "P2" ? 'selected' : '' }}>P2</option>
+                                        <option value="P3" {{ old('machine') == "P3" ? 'selected' : '' }}>P3</option>
                                     </select>
                                 </div>
                             </div>
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <label for="">Seksyen</label>
-                                    <input type="number" name="section" id="" class="form-control">
+                                    <input type="number" value="{{ old('section') }}" name="section" id="" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4">
@@ -92,16 +92,16 @@
                                     <label for="">Bahagain plate</label>
                                     <select  name="section_plate" id="" class="form-control form-select">
                                         <!-- <option selected disabled value="">Select any Bahagain plate</option> -->
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="A/B">A/B</option>
+                                        <option value="A" {{ old('section_plate') == "A" ? 'selected' : '' }}>A</option>
+                                        <option value="B" {{ old('section_plate') == "B" ? 'selected' : '' }}>B</option>
+                                        <option value="A/B" {{ old('section_plate') == "A/B" ? 'selected' : '' }}>A/B</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row">   
+                <div class="row">
                     <div class="col-md-12 mt-3">
                         <table class="table table-bordered table-warna text-center" border="1">
                             <thead>
@@ -125,18 +125,18 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td><input type="checkbox" class="checkbox" name="warna_1" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_2" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_3" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_4" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_5" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox"  name="warna_6" value="no" id=""></td>
-                                    <td><input type="text" name="warna_7" id="" class="form-control"></td>
-                                    <td><input type="text" name="warna_8" id="" class="form-control"></td>
-                                    <td><input type="text" name="warna_9" id="" class="form-control"></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_10" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox"  name="warna_11" value="no" id=""></td>
-                                    <td><input type="checkbox" class="checkbox" name="warna_12" value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_1" {{ old('warna_1') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_2" {{ old('warna_2') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_3" {{ old('warna_3') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_4" {{ old('warna_4') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_5" {{ old('warna_5') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox"  name="warna_6" {{ old('warna_6') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="text" value="{{ old("warna_7") }}" name="warna_7" id="" class="form-control"></td>
+                                    <td><input type="text" value="{{ old("warna_8") }}" name="warna_8" id="" class="form-control"></td>
+                                    <td><input type="text" value="{{ old("warna_9") }}" name="warna_9" id="" class="form-control"></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_10" {{ old('warna_10') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox"  name="warna_11" {{ old('warna_11') == "yes" ? "checked":'' }} value="no" id=""></td>
+                                    <td><input type="checkbox" class="checkbox" name="warna_12" {{ old('warna_12') == "yes" ? "checked":'' }} value="no" id=""></td>
                                 </tr>
                             </tbody>
                         </table>

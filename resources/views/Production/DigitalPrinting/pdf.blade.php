@@ -458,7 +458,6 @@
                                @endif
                                @else
                                <td></td>
-                               @endifyle="text-align: center;">{{ $name->name}}</td>
                         @endif
                         </tr>
                         <tr>
@@ -743,13 +742,12 @@
                 </table>
 
                 <br>
-                <br>
-                <br>
+
                 <h3><b>Production Machine Detail</b></h3>
 
                 <table border="1" class="customize" style="width:100% !important;" >
                     <thead>
-                        tr>
+                        <tr>
                         <th>Process</th>
                         <th>Machine</th>
                         <th>Start datetime</th>
