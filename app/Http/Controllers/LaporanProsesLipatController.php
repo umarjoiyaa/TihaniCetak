@@ -395,8 +395,8 @@ class LaporanProsesLipatController extends Controller
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
-        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderBy('c_1', 'asc')->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderBy('c_1', 'asc')->get();
+        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return view('Mes.LaporanProsesLipat.edit', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
@@ -408,8 +408,8 @@ class LaporanProsesLipatController extends Controller
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
-        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderBy('c_1', 'asc')->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderBy('c_1', 'asc')->get();
+        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT View');
         return view('Mes.LaporanProsesLipat.view', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
@@ -520,8 +520,8 @@ class LaporanProsesLipatController extends Controller
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
-        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->get();
-        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->get();
+        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
+        $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return view('Mes.LaporanProsesLipat.verify', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));
