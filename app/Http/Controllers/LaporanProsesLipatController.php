@@ -332,8 +332,6 @@ class LaporanProsesLipatController extends Controller
         $carbonTime = Carbon::createFromFormat('H:i', $request->time);
         $timeIn12HourFormat = $carbonTime->format('h:i A');
 
-
-
         $userText = implode(', ', $userNames);
 
         $laporan_proses_lipat = new LaporanProsesLipat();
@@ -399,7 +397,6 @@ class LaporanProsesLipatController extends Controller
         $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderBy('c_1', 'asc')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderBy('c_1', 'asc')->get();
-        dd($detailss);
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return view('Mes.LaporanProsesLipat.edit', compact('laporan_proses_lipat', 'users', 'details', 'detailss', 'sections'));

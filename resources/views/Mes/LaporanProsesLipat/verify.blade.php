@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('css')
-<style>
-    .button1{
-        margin-left: 150px;
-    }
-</style>
+    <style>
+        .button1 {
+            margin-left: 150px;
+        }
+    </style>
 @endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="float-left">LAPORAN PROSES LIPAT</h5>
-                                    <p class="float-right">TCSB-B61 (Rev.0)</p>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left">LAPORAN PROSES LIPAT</h5>
+                            <p class="float-right">TCSB-B61 (Rev.0)</p>
+                        </div>
+                    </div>
 
                     <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
@@ -225,12 +225,8 @@
                                                                         @php
                                                                             $newKey++;
                                                                         @endphp
-                                                                    @else
-                                                                        @php
-                                                                            $newKey = 1;
-                                                                        @endphp
                                                                     @endif
-                                                                    @endforeach
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -274,25 +270,28 @@
             $('input[type="hidden"]').removeAttr('disabled');
         });
 
-            function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+        function formatDateWithAMPM(date) {
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
-                $(document).on('click', '.verify_btn', function() {
-                    $(this).attr('disabled', 'disabled');
-                    const currentDate = new Date();
-                    const formattedDateTime = formatDateWithAMPM(currentDate);
-                    let checked_by = $('#checked_by').val();
-                    const combinedValue = `${checked_by}/${formattedDateTime}`;
-                    $(this).closest('tr').find('.verify_operator').val(combinedValue);
-                });
+        $(document).on('click', '.verify_btn', function() {
+            $(this).attr('disabled', 'disabled');
+            const currentDate = new Date();
+            const formattedDateTime = formatDateWithAMPM(currentDate);
+            let checked_by = $('#checked_by').val();
+            const combinedValue = `${checked_by}/${formattedDateTime}`;
+            $(this).closest('tr').find('.verify_operator').val(combinedValue);
+        });
     </script>
 @endpush
