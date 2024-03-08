@@ -78,9 +78,9 @@
                                     <label for="">Kategori</label>
                                     <select name="kategori" class="form-control form-select" id="kategori">
                                         <option value="-1" selected disabled>pilih Kategori</option>
-                                        <option value="Shrink Wrap + Packing">Shrink Wrap + Packing</option>
-                                        <option value="Packing">Packing</option>
-                                        <option value="Kotak">Kotak</option>
+                                        <option value="Shrink Wrap + Packing" {{ old('kategori') == 'Shrink Wrap + Packing' ? 'selected': ''}}>Shrink Wrap + Packing</option>
+                                        <option value="Packing" {{ old('kategori') == 'Packing' ? 'selected': ''}}>Packing</option>
+                                        <option value="Kotak" {{ old('kategori') == 'Kotak' ? 'selected': ''}}>Kotak</option>
                                     </select>
                                 </div>
                             </div>
@@ -106,37 +106,37 @@
                                             <tr>
                                                 <td >Kuantiti yang betul </td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover1',this)" name="checklist_1" value="ok" id="">
+                                                        onchange="handleCheckboxChange('Cover1',this)" name="checklist_1" value="ok" id="" {{ old('checklist_1') == 'ok' ? 'checked' : '' }} >
                                                 </td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover1',this)" checked value="ng" name="checklist_1"
+                                                        onchange="handleCheckboxChange('Cover1',this)"  value="ng" name="checklist_1"  {{ old('checklist_1') == 'ng' ? 'checked' : '' }} @if (old('checklist_1')) @else checked @endif
                                                         id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Koyak</td>
                                                 <td><input type="checkbox" class="Text1"
-                                                        onchange="handleCheckboxChange('Text1',this)" name="checklist_2" value="ok" id="">
+                                                        onchange="handleCheckboxChange('Text1',this)" name="checklist_2" value="ok" {{ old('checklist_2') == 'ok' ? 'checked' : '' }}>
                                                 </td>
                                                 <td><input type="checkbox" class="Text1"
-                                                        onchange="handleCheckboxChange('Text1',this)" checked value="ng" name="checklist_2"
+                                                        onchange="handleCheckboxChange('Text1',this)"  value="ng" name="checklist_2" @if (old('checklist_2')) @else checked @endif {{ old('checklist_2') == 'ng' ? 'checked' : '' }}
                                                         id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Kotor</td>
                                                 <td><input type="checkbox" class="Cover2"
-                                                        onchange="handleCheckboxChange('Cover2',this)" name="checklist_3" value="ok" id="">
+                                                        onchange="handleCheckboxChange('Cover2',this)" name="checklist_3" value="ok" {{ old('checklist_3') == 'ok' ? 'checked' : '' }}>
                                                 </td>
                                                 <td><input type="checkbox" class="Cover2"
-                                                        onchange="handleCheckboxChange('Cover2',this)" checked value="ng" name="checklist_3"
+                                                        onchange="handleCheckboxChange('Cover2',this)"  value="ng" name="checklist_3" @if (old('checklist_3')) @else checked @endif {{ old('checklist_3') == 'ng' ? 'checked' : '' }}
                                                         id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Pematuhan Sop</td>
                                                 <td><input type="checkbox" class="Text2"
-                                                        onchange="handleCheckboxChange('Text2',this)" name="checklist_4" value="ok" id="">
+                                                        onchange="handleCheckboxChange('Text2',this)" name="checklist_4" value="ok" {{ old('checklist_4') == 'ok' ? 'checked' : '' }}>
                                                 </td>
                                                 <td><input type="checkbox" class="Text2"
-                                                        onchange="handleCheckboxChange('Text2',this)" checked value="ng" name="checklist_4"
+                                                        onchange="handleCheckboxChange('Text2',this)"  value="ng" name="checklist_4" @if (old('checklist_4')) @else checked @endif {{ old('checklist_4') == 'ng' ? 'checked' : '' }}
                                                         id=""></td>
                                             </tr>
                                         </tbody>

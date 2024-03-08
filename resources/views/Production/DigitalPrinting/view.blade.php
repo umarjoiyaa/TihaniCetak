@@ -571,13 +571,14 @@
 
 
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_1 != null) name="binding_1"
-                                                        id="Form10" class=" mr-5">Perfect
+                                                <td><input type="checkbox" @checked($digital_printing->binding_1 != null)
+                                                        name="binding_1" id="Form10" class=" mr-5">Perfect
                                                     Bind
                                                 </td>
                                                 <td><select @disabled($digital_printing->binding_1 == null) name="binding_1_val"
                                                         placeholder="select Supplier" id="form10"
                                                         class="form-control form-select" style="width:250px;">
+                                                        <option value="" @selected($digital_printing->binding_1 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_1 == 'In-house')>In-house
                                                         </option>
                                                         @foreach ($suppliers as $supplier)
@@ -589,12 +590,13 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_2 != null) name="binding_2"
-                                                        id="Form11" class=" mr-5">Staple Bind
+                                                <td><input type="checkbox" @checked($digital_printing->binding_2 != null)
+                                                        name="binding_2" id="Form11" class=" mr-5">Staple Bind
                                                 </td>
                                                 <td><select name="binding_2_val" @disabled($digital_printing->binding_2 == null)
                                                         placeholder="select Supplier" id="form11"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_2 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_2 == 'In-house')>In-house
                                                         </option>
                                                         @foreach ($suppliers as $supplier)
@@ -605,11 +607,12 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_3 != null) name="binding_3"
-                                                        id="Form12" class=" mr-5">Wire 0</td>
+                                                <td><input type="checkbox" @checked($digital_printing->binding_3 != null)
+                                                        name="binding_3" id="Form12" class=" mr-5">Wire 0</td>
                                                 <td><select name="binding_3_val" @disabled($digital_printing->binding_3 == null)
                                                         placeholder="select Supplier" id="form12"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_3 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_3 == 'In-house')>In-house
                                                         </option>
                                                         @foreach ($suppliers as $supplier)
@@ -620,12 +623,13 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_4 != null) name="binding_4"
-                                                        id="Form13" class=" mr-5">Hard Cover
+                                                <td><input type="checkbox" @checked($digital_printing->binding_4 != null)
+                                                        name="binding_4" id="Form13" class=" mr-5">Hard Cover
                                                 </td>
                                                 <td><select name="binding_4_val" @disabled($digital_printing->binding_4 == null)
                                                         placeholder="select Supplier" id="form13"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_4 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_4 == 'In-house')>In-house
                                                         </option>
                                                         @foreach ($suppliers as $supplier)
@@ -636,13 +640,14 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_5 != null) name="binding_5"
-                                                        id="Form14" class=" mr-5">Creasing
+                                                <td><input type="checkbox" @checked($digital_printing->binding_5 != null)
+                                                        name="binding_5" id="Form14" class=" mr-5">Creasing
                                                     Line
                                                 </td>
                                                 <td><select name="binding_5_val" @disabled($digital_printing->binding_5 == null)
                                                         placeholder="select Supplier" id="form14"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_5 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_5 == 'In-house')>
                                                             In-house</option>
                                                         @foreach ($suppliers as $supplier)
@@ -653,12 +658,13 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_6 != null) name="binding_6"
-                                                        id="Form15" class=" mr-5">Cut to Size
+                                                <td><input type="checkbox" @checked($digital_printing->binding_6 != null)
+                                                        name="binding_6" id="Form15" class=" mr-5">Cut to Size
                                                 </td>
                                                 <td><select name="binding_6_val" @disabled($digital_printing->binding_6 == null)
                                                         placeholder="select Supplier" id="form15"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_6 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_6 == 'In-house')>
                                                             In-house</option>
                                                         @foreach ($suppliers as $supplier)
@@ -669,12 +675,13 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_7 != null) name="binding_7"
-                                                        id="Form16" class=" mr-5">Folding
+                                                <td><input type="checkbox" @checked($digital_printing->binding_7 != null)
+                                                        name="binding_7" id="Form16" class=" mr-5">Folding
                                                 </td>
                                                 <td><select name="binding_7_val" @disabled($digital_printing->binding_7 == null)
                                                         placeholder="select Supplier" id="form16"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_7 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_7 == 'In-house')>
                                                             In-house</option>
                                                         @foreach ($suppliers as $supplier)
@@ -685,16 +692,17 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" @checked($digital_printing->binding_8 != null) name="binding_8"
-                                                        id="Form17" class=" mr-5"> Others:
+                                                <td><input type="checkbox" @checked($digital_printing->binding_8 != null)
+                                                        name="binding_8" id="Form17" class=" mr-5"> Others:
                                                     <input type="text" @disabled($digital_printing->binding_8 == null)
                                                         placeholder="User Input" name="binding_8_val" id="input"
                                                         class="form-control w-50 float-right"
-                                                        value="{{ $digital_printing->binding_9 }}">
+                                                        value="{{ $digital_printing->binding_8 }}">
                                                 </td>
                                                 <td><select name="binding_9_val" @disabled($digital_printing->binding_9 == null)
                                                         placeholder="select Supplier" id="form17"
                                                         class="form-control form-select">
+                                                        <option value="" @selected($digital_printing->binding_9 == null) disabled></option>
                                                         <option value="In-house" @selected($digital_printing->binding_9 == 'In-house')>
                                                             In-house</option>
                                                         @foreach ($suppliers as $supplier)
@@ -894,7 +902,7 @@
 
                     <div class="row">
                         <div class="col-md-12">
-                            <a class="btn btn-primary float-right" href="{{route('digital_printing.print', $digital_printing->id)}}" >Print</a>
+                            <a class="btn btn-primary float-right" target="_blank" href="{{route('digital_printing.print', $digital_printing->id)}}" >Print</a>
                         </div>
                     </div>
 
