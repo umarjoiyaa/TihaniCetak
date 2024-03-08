@@ -6,7 +6,7 @@
                     <div class="card-body">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h5 class="float-left">REKOD SERAHAN PLATE CETAK DAN SAMPLE</h5>
+                                    <h5 class="float-left"><b>REKOD SERAHAN PLATE CETAK DAN SAMPLE</b></h5>
                                     <p class="float-right">TCSB-BO4(Rev.11)</p>
                                 </div>
                             </div>

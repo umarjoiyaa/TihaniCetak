@@ -16,6 +16,11 @@
                         <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
+                                    <div class="col-md-12">
+                                        <h6><b>A) Informasi</b></h6>
+                                    </div>
+                                </div>
+                                <div class="row">
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Date</label>

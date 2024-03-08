@@ -257,8 +257,7 @@
         </div>
         <div class="row">
             <div class="col-md-12">
-                <a href="{{route('proses_three_knife')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
-                    back to list</a>
+                    <a href="{{ route('proses_three_knife') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     </div>

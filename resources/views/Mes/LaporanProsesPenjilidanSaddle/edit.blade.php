@@ -9,7 +9,7 @@
                         <div class="card-body">
                         <div class="row">
                                 <div class="col-md-12">
-                                    <h5 class="float-left">LAPORAN PROSES PENJILIDAN (SADDLE STITCH)</h5>
+                                    <h5 class="float-left"><b>LAPORAN PROSES PENJILIDAN (SADDLE STITCH)</b></h5>
                                     <p class="float-right">TCSB-B61 (Rev.0)</p>
                                 </div>
                             </div>

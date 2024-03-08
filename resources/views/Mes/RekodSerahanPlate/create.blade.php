@@ -9,7 +9,7 @@
                     <!-- <h5>REKOD SERAHAN PLATE CETAK DAN SAMPLE</h5> -->
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h5 class="float-left">REKOD SERAHAN PLATE CETAK DAN SAMPLE</h5>
+                                    <h5 class="float-left"><b>REKOD SERAHAN PLATE CETAK DAN SAMPLE</b></h5>
                                     <p class="float-right">TCSB-BO4(Rev.11)</p>
                                 </div>
                             </div>
@@ -101,7 +101,7 @@
                                 <div class="row mt-2">
                                 <div class="col-md-4 ">
                                     <div class="form-group">
-                                        <label for="">status Job</label>
+                                        <label for="">Status Job</label>
                                         <input type="text" readonly id="status" class="form-control">
                                     </div>
                                 </div>

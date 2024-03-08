@@ -51,7 +51,7 @@
                         <table class="table datatable table-striped mt-2">
                             <thead>
                                 <tr>
-                                    <th rowspan="2" class="text-left">Sr #</th>
+                                    <th rowspan="2" class="text-left">Sr#</th>
                                     <th rowspan="2" class="text-left">Date</th>
                                     <th rowspan="2" class="text-left">Time</th>
                                     <th rowspan="2" class="text-left">Sales Order NO</th>
