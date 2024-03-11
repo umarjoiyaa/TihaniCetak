@@ -32,13 +32,20 @@
     }
     @media screen and (max-width:768px){
         .card .card{
-            width:300px;
+            width:224px;
             margin-inline:auto;
         }
         .card .card p{
             font-size:10px;
             width:130px;
         
+        }
+    }
+
+    @media screen and (max-width:760px){
+        .card .card{
+            width:300px;
+            margin-inline:auto;
         }
     }
 </style>

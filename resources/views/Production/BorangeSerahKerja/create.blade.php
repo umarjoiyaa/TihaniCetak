@@ -270,8 +270,8 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-2"><input type="checkbox" name="jenis_22" id="jenis_22"><span
-                                                class="ml-5">Lain-lain</span></div>
-                                        <div class="col-md-3"><input disabled type="text" name="jenis_input_22" id="jenis_input_22"
+                                                class="ml-2">Lain-lain</span></div>
+                                        <div class="col-md-3" style="margin-left:-100px;"><input disabled type="text" name="jenis_input_22" id="jenis_input_22"
                                                 class="form-control"></div>
                                     </div>
                                 </div>

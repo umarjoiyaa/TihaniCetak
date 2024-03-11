@@ -274,8 +274,8 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-2"><input type="checkbox" @checked($borange_serah_kerja->jenis_22 == "on") name="jenis_22" id="jenis_22"><span
-                                                class="ml-5">Lain-lain</span></div>
-                                        <div class="col-md-3"><input disabled type="text" @disabled($borange_serah_kerja->jenis_22 != "on") value="{{ $borange_serah_kerja->jenis_input_22  }}" name="jenis_input_22" id="jenis_input_22"
+                                                class="ml-2">Lain-lain</span></div>
+                                        <div class="col-md-3" style="margin-left:-100px;"><input disabled type="text" @disabled($borange_serah_kerja->jenis_22 != "on") value="{{ $borange_serah_kerja->jenis_input_22  }}" name="jenis_input_22" id="jenis_input_22"
                                                 class="form-control"></div>
                                     </div>
                                 </div>

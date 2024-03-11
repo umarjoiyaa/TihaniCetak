@@ -153,7 +153,7 @@
 
                                             <div class="row">
                                                 <div class="col-md2">
-                                                <h5 style="padding-left:px;">Others</h5>
+                                                <h5 style="margin-left:20px;">Others</h5>
                                                 </div>
                                                 <div class="col-md-8" >
                                                     <div id="input" class="others" style="width:150px;"></div>
@@ -195,7 +195,7 @@
                                         <div class="col-md-1"><input type="checkbox" name="jenis_10" id="Ribbon"></div>
                                         <div class="col-md-6">
                                             <div class="row d-flex" >
-                                                    <h5>Ribbon</h5>
+                                                    <h5 class="ml-2">Ribbon</h5>
                                                     <div class="boxinput  mx-1" style="width:100px;">
                                                     <input type="text" name="jenis_input_10" style="width:100px;display:none;" class="ribbon" >
                                                     </div>
@@ -233,7 +233,7 @@
                                         <div class="col-md-6">
                                             <div class="row d-flex">
                                                     <h5 >Chipboard</h5>
-                                                    <div id="chipinput1" class="mx-1" style="width:100px;">
+                                                    <div id="chipinput1" class="" style="width:100px;">
                                                         <input type="text" class="Chipboard" style="width:100px;display:none;" name="jenis_input_14" >
                                                     </div>
                                                 <div id="labelContainer" class="Chipboard" style="display:none;">gsm</div>

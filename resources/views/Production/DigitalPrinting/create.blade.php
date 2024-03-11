@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>PRODUCTION JOBSHEET LIST- DIGITAL PRINTING</b></h5>
+                                <h5 class="float-left"><b>PRODUCTION JOBSHEET - DIGITAL PRINTING</b></h5>
                                 <p class="float-right">TCBS-B66 (Rev.1)</p>
                             </div>
                         </div>
@@ -191,7 +191,7 @@
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
-                                                            <span>back</span>
+                                                            <span>Back</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -265,7 +265,7 @@
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
-                                                            <span>back</span>
+                                                            <span>Back</span>
                                                         </div>
                                                     </div>
                                                 </div>

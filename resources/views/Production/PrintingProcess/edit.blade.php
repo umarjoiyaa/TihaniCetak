@@ -716,8 +716,8 @@
         <!-- Modal -->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content" style="width:1000px; margin-left:-350px;">
+            <div class="modal-dialog modal-xl" role="document">
+                <div class="modal-content" >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <span aria-hidden="true">&times;</span>
@@ -745,20 +745,20 @@
                                 <tr>
                                     <td><input type="text" name="" id=""
                                         class="form-control section_no" readonly></td>
-                                    <td><select name="" id="" class="form-control side">
+                                    <td><select name="" id="" class="form-control side" style="width:150px;">
                                         <option value="">Select Side</option>
                                         <option value="A">A</option>
                                         <option value="B">B</option>
                                         <option value="A/B">A/B</option>
                                     </select></td>
                                     <td><input type="text" name="" id=""
-                                        class="form-control last_print"></td>
+                                        class="form-control last_print" style="width:150px;"></td>
                                     <td><input type="text" name="" id=""
-                                            class="form-control waste_paper"></td>
+                                            class="form-control waste_paper" style="width:150px;"></td>
                                     <td><input type="text" name="" id=""
-                                            class="form-control rejection"></td>
+                                            class="form-control rejection" style="width:150px;"></td>
                                     <td><input type="text" name="" id="" readonly
-                                            class="form-control good_count"></td>
+                                            class="form-control good_count" style="width:150px;"></td>
                                     <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
                                     <td><input type="text" name="" id="" readonly
                                             class="form-control check_operator_text"></td>
