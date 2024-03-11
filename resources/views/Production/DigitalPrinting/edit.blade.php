@@ -201,7 +201,7 @@
                                                 <div class="col-md-2">Front</div>
                                                 <div class="col-md-1"><input type="checkbox" name="text_back"
                                                         id="" @checked($digital_printing->text_back != null)></div>
-                                                <div class="col-md-2">back</div>
+                                                <div class="col-md-2">Back</div>
                                             </div>
 
                                         </div>
@@ -266,7 +266,7 @@
                                                 <div class="col-md-2">Front</div>
                                                 <div class="col-md-1"><input type="checkbox" name="cover_back"
                                                         id="" @checked($digital_printing->cover_back != null)></div>
-                                                <div class="col-md-2">back</div>
+                                                <div class="col-md-2">Back</div>
                                             </div>
 
                                         </div>

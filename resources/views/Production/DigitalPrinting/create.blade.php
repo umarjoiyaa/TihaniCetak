@@ -81,7 +81,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Jumlah mukasurat</div>
-                                            <input type="text" name="jumlah_mukasurat" id="jumlah"
+                                            <input type="text" name="jumlah_mukasurat" value="{{ old('jumlah_mukasurat') }}" id="jumlah"
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -89,14 +89,14 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Kuantiti Waste</div>
-                                            <input type="number" name="kuantiti_waste" id="" class="form-control">
+                                            <input type="number" name="kuantiti_waste" value="{{ old('kuantiti_waste') }}" id="" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Remark</div>
-                                            <textarea name="remarks" id="" cols="30" rows="1" class="form-control"></textarea>
+                                            <textarea name="remarks" id="" cols="30" rows="1" class="form-control">{{ old('remarks') }}</textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -106,8 +106,8 @@
                                         <div class="form-group">
                                             <label for="">Mesin</label>
                                             <select name="mesin" id="Mesin1" class="form-control form-select">
-                                                <option value="REVORIA SC170 FUJIFIILM">REVORIA SC170 FUJIFIILM</option>
-                                                <option value="OTHERS" id="selectBox">OTHERS</option>
+                                                <option value="REVORIA SC170 FUJIFIILM" @selected(old('mesin') == "REVORIA SC170 FUJIFIILM")>REVORIA SC170 FUJIFIILM</option>
+                                                <option value="OTHERS" id="selectBox" @selected(old('mesin') == "OTHERS")>OTHERS</option>
                                             </select>
                                         </div>
                                     </div>
@@ -119,8 +119,8 @@
                                         <div class="form-group">
                                             <div class="label">Kategori job</div>
                                             <select name="kategori_job" id="kategori1" class="form-select form-control">
-                                                <option value="MOCK UP">MOCK UP</option>
-                                                <option value="PENEGELUAREN">PENEGELUAREN</option>
+                                                <option value="MOCK UP" @selected(old('kategori_job') == "MOCK UP")>MOCK UP</option>
+                                                <option value="PENEGELUAREN" @selected(old('kategori_job') == "PENEGELUAREN")>PENEGELUAREN</option>
                                             </select>
                                         </div>
                                     </div>
@@ -129,13 +129,13 @@
                                             <label for="">Jenis produk</label>
                                             <select name="jenis_produk" id="printCutSelect1"
                                                 class="form-control form-select">
-                                                <option value="BUKU">BUKU</option>
-                                                <option value="FLYERS">FLYERS</option>
-                                                <option value="POSTER">POSTER</option>
-                                                <option value="BUSINESS CARD">BUSINESS CARD</option>
-                                                <option value="KAD KAHWIN">KAD KAHWIN</option>
-                                                <option value="STICKERS">STICKERS</option>
-                                                <option value="OTHERS" id="selectBox1">OTHERS</option>
+                                                <option value="BUKU" @selected(old('jenis_produk') == "BUKU")>BUKU</option>
+                                                <option value="FLYERS" @selected(old('jenis_produk') == "FLYERS")>FLYERS</option>
+                                                <option value="POSTER" @selected(old('jenis_produk') == "POSTER")>POSTER</option>
+                                                <option value="BUSINESS CARD" @selected(old('jenis_produk') == "BUSINESS CARD")>BUSINESS CARD</option>
+                                                <option value="KAD KAHWIN" @selected(old('jenis_produk') == "KAD KAHWIN")>KAD KAHWIN</option>
+                                                <option value="STICKERS" @selected(old('jenis_produk') == "STICKERS")>STICKERS</option>
+                                                <option value="OTHERS" id="selectBox1" @selected(old('jenis_produk') == "OTHERS")>OTHERS</option>
                                             </select>
                                         </div>
 
@@ -148,14 +148,14 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Kertas: teks</div>
-                                            <input type="text" name="kertas_teks" id=""
+                                            <input type="text" name="kertas_teks" value="{{ old('kertas_teks') }}" id=""
                                                 class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Kertas: Cover</div>
-                                            <input type="text" name="kertas_cover" id=""
+                                            <input type="text" name="kertas_cover" value="{{ old('kertas_cover') }}" id=""
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -176,7 +176,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="row">
                                                         <div class="col-sm-1">
-                                                            <input type="checkbox" name="text_front"
+                                                            <input type="checkbox" @checked(old('text_front') == 'on') name="text_front"
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
@@ -187,11 +187,11 @@
                                                 <div class="col-sm-4">
                                                     <div class="row">
                                                         <div class="col-sm-1">
-                                                            <input type="checkbox" name="text_back"
+                                                            <input type="checkbox" @checked(old('text_back') == 'on') name="text_back"
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
-                                                            <span>back</span>
+                                                            <span>Back</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -203,8 +203,8 @@
                                         <label for="">Print</label>
                                         <select name="text_print" id="print0" placeholder="Pilih print"
                                             class="form-control form-select">
-                                            <option value="1C">1C</option>
-                                            <option value="4C">4C</option>
+                                            <option value="1C" @selected(old('text_print') == "1C")>1C</option>
+                                            <option value="4C" @selected(old('text_print') == "4C")>4C</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4">
@@ -217,17 +217,17 @@
                                     <div class="col-md-4 mt-2">
                                         <label for="">Print Cut</label>
                                         <select name="text_print_cut" id="printSelect" class="form-control form-select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="6">6</option>
-                                            <option value="8">8</option>
-                                            <option value="10">10</option>
-                                            <option value="12">12</option>
-                                            <option value="14">14</option>
-                                            <option value="16">16</option>
-                                            <option value="OTHERS" id="newInputOption">Other</option>
+                                            <option value="1" @selected(old('text_print_cut') == "1")>1</option>
+                                            <option value="2" @selected(old('text_print_cut') == "2")>2</option>
+                                            <option value="3" @selected(old('text_print_cut') == "3")>3</option>
+                                            <option value="4" @selected(old('text_print_cut') == "4")>4</option>
+                                            <option value="6" @selected(old('text_print_cut') == "6")>6</option>
+                                            <option value="8" @selected(old('text_print_cut') == "8")>8</option>
+                                            <option value="10" @selected(old('text_print_cut') == "10")>10</option>
+                                            <option value="12" @selected(old('text_print_cut') == "12")>12</option>
+                                            <option value="14" @selected(old('text_print_cut') == "14")>14</option>
+                                            <option value="16" @selected(old('text_print_cut') == "16")>16</option>
+                                            <option value="OTHERS" id="newInputOption " @selected(old('text_print_cut') == "OTHERS")>Other</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -250,7 +250,7 @@
                                                 <div class="col-sm-4">
                                                     <div class="row">
                                                         <div class="col-sm-1">
-                                                            <input type="checkbox" name="cover_front"
+                                                            <input type="checkbox" @checked(old('cover_front') == 'on') name="cover_front"
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
@@ -261,11 +261,11 @@
                                                 <div class="col-sm-4">
                                                     <div class="row">
                                                         <div class="col-sm-1">
-                                                            <input type="checkbox" name="cover_back"
+                                                            <input type="checkbox" name="cover_back" @checked(old('cover_back') == 'on')
                                                             id="">
                                                         </div>
                                                         <div class="col-sm-8">
-                                                            <span>back</span>
+                                                            <span>Back</span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -277,8 +277,8 @@
                                         <label for="">Print</label>
                                         <select name="cover_print" id="print1" placeholder="Pilih print"
                                             class="form-control form-select">
-                                            <option value="1C">1C</option>
-                                            <option value="4C">4C</option>
+                                            <option value="1C" @selected(old('cover_print') == '1C')>1C</option>
+                                            <option value="4C" @selected(old('cover_print') == '4C')>4C</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4"></div>
@@ -286,17 +286,17 @@
                                         <label for="">Print Cut</label>
                                         <select name="cover_print_cut" id="printSelect1"
                                             class="form-control form-select">
-                                            <option value="1">1</option>
-                                            <option value="2">2</option>
-                                            <option value="3">3</option>
-                                            <option value="4">4</option>
-                                            <option value="6">6</option>
-                                            <option value="8">8</option>
-                                            <option value="10">10</option>
-                                            <option value="12">12</option>
-                                            <option value="14">14</option>
-                                            <option value="16">16</option>
-                                            <option value="OTHERS" id="newInputOption1">OTHERS</option>
+                                            <option value="1" @selected(old('cover_print_cut') == '1')>1</option>
+                                            <option value="2" @selected(old('cover_print_cut') == '2')>2</option>
+                                            <option value="3" @selected(old('cover_print_cut') == '3')>3</option>
+                                            <option value="4" @selected(old('cover_print_cut') == '4')>4</option>
+                                            <option value="6" @selected(old('cover_print_cut') == '6')>6</option>
+                                            <option value="8" @selected(old('cover_print_cut') == '8')>8</option>
+                                            <option value="10" @selected(old('cover_print_cut') == '10')>10</option>
+                                            <option value="12" @selected(old('cover_print_cut') == '12')>12</option>
+                                            <option value="14" @selected(old('cover_print_cut') == '14')>14</option>
+                                            <option value="16" @selected(old('cover_print_cut') == '16')>16</option>
+                                            <option value="OTHERS" id="newInputOption1" @selected(old('cover_print_cut') == 'OTHERS')>OTHERS</option>
                                         </select>
                                     </div>
                                     <div class="col-md-4 mt-2">
@@ -323,155 +323,155 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_1" id="Form20"
+                                                    <td><input type="checkbox" name="finishing_1" @checked(old('finishing_1') == 'on') id="Form20"
                                                             class=" mr-5">Gloss
                                                         Lamination</td>
                                                     <td>
-                                                        <select name="finishing_1_val" disabled
+                                                        <select name="finishing_1_val" @disabled(old('finishing_1') != 'on')
                                                             placeholder="select Supplier" id="form20"
                                                             class="form-control form-select " style="width:250px;">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_1_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"  @selected(old('finishing_1_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_2" id="Form1"
+                                                    <td><input type="checkbox" name="finishing_2" @checked(old('finishing_2') == 'on') id="Form1"
                                                             class=" mr-5">Matt
                                                         Lamination</td>
-                                                    <td><select name="finishing_2_val" disabled
+                                                    <td><select name="finishing_2_val" @disabled(old('finishing_2') != 'on')
                                                             placeholder="select Supplier" id="form1"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_2_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_2_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_3" id="Form2"
+                                                    <td><input type="checkbox" name="finishing_3" @checked(old('finishing_3') == 'on') id="Form2"
                                                             class=" mr-5">SPOT UV</td>
-                                                    <td><select name="finishing_3_val" disabled
+                                                    <td><select name="finishing_3_val" @disabled(old('finishing_3') != 'on')
                                                             placeholder="select Supplier" id="form2"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_3_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_3_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_4" id="Form3"
+                                                    <td><input type="checkbox" name="finishing_4" @checked(old('finishing_4') == 'on') id="Form3"
                                                             class=" mr-5">Hot Stamping
                                                     </td>
-                                                    <td><select name="finishing_4_val" disabled
+                                                    <td><select name="finishing_4_val" @disabled(old('finishing_4') != 'on')
                                                             placeholder="select Supplier" id="form3"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_4_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_4_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_5" id="Form4"
+                                                    <td><input type="checkbox" name="finishing_5" @checked(old('finishing_5') == 'on') id="Form4"
                                                             class=" mr-5">Emboss</td>
-                                                    <td><select name="finishing_5_val" disabled
+                                                    <td><select name="finishing_5_val" @disabled(old('finishing_5') != 'on')
                                                             placeholder="select Supplier" id="form4"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_5_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_5_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_6" id="Form5"
+                                                    <td><input type="checkbox" name="finishing_6" @checked(old('finishing_6') == 'on') id="Form5"
                                                             class=" mr-5">Diecut</td>
-                                                    <td><select name="finishing_6_val" disabled
+                                                    <td><select name="finishing_6_val" @disabled(old('finishing_6') != 'on')
                                                             placeholder="select Supplier" id="form5"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_6_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_6_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_7" id="Form6"
+                                                    <td><input type="checkbox" name="finishing_7" @checked(old('finishing_7') == 'on') id="Form6"
                                                             class=" mr-5">Round corner
                                                     </td>
-                                                    <td><select name="finishing_7_val" disabled
+                                                    <td><select name="finishing_7_val" @disabled(old('finishing_7') != 'on')
                                                             placeholder="select Supplier" id="form6"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_7_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_7_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_8" id="Form7"
+                                                    <td><input type="checkbox" name="finishing_8" @checked(old('finishing_8') == 'on') id="Form7"
                                                             class=" mr-5">Round back
                                                     </td>
-                                                    <td><select name="finishing_8_val" disabled
+                                                    <td><select name="finishing_8_val" @disabled(old('finishing_8') != 'on')
                                                             placeholder="select Supplier" id="form7"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_8_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_8_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_9" id="Form8"
+                                                    <td><input type="checkbox" name="finishing_9" @checked(old('finishing_9') == 'on') id="Form8"
                                                             class=" mr-5">Square Back
                                                     </td>
-                                                    <td><select name="finishing_9_val" disabled
+                                                    <td><select name="finishing_9_val" @disabled(old('finishing_9') != 'on')
                                                             placeholder="select Supplier" id="form8"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_9_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_9_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_10" id="Form9"
+                                                    <td><input type="checkbox" name="finishing_10" @checked(old('finishing_10') == 'on') id="Form9"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" disabled placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_10') != 'on') @if(old('finishing_10')) @else disabled @endif placeholder="User Input"
                                                             name="finishing_10_val" id="input1"
-                                                            class="form-control w-50 float-right">
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_10_val') }}">
                                                     </td>
-                                                    <td><select name="finishing_11_val" disabled
+                                                    <td><select name="finishing_11_val" @disabled(old('finishing_11') != 'on')
                                                             placeholder="select Supplier" id="form9"
                                                             class="form-control form-select w-100">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('finishing_11_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_11_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
@@ -501,126 +501,126 @@
 
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_1" id="Form10"
+                                                    <td><input type="checkbox" name="binding_1" @checked(old('binding_1') == 'on') id="Form10"
                                                             class=" mr-5">Perfect
                                                         Bind
                                                     </td>
-                                                    <td><select disabled name="binding_1_val"
+                                                    <td><select @disabled(old('binding_1') != 'on') name="binding_1_val"
                                                             placeholder="select Supplier" id="form10"
                                                             class="form-control form-select" style="width:250px;">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_1_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_1_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_2" id="Form11"
+                                                    <td><input type="checkbox" name="binding_2" @checked(old('binding_2') == 'on') id="Form11"
                                                             class=" mr-5">Staple Bind
                                                     </td>
-                                                    <td><select name="binding_2_val" disabled
+                                                    <td><select name="binding_2_val" @disabled(old('binding_2') != 'on')
                                                             placeholder="select Supplier" id="form11"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_2_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_1_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_3" id="Form12"
+                                                    <td><input type="checkbox" name="binding_3"  @checked(old('binding_3') == 'on') id="Form12"
                                                             class=" mr-5">Wire 0</td>
-                                                    <td><select name="binding_3_val" disabled
+                                                    <td><select name="binding_3_val" @disabled(old('binding_3') != 'on')
                                                             placeholder="select Supplier" id="form12"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_3_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_3_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_4" id="Form13"
+                                                    <td><input type="checkbox" name="binding_4" @checked(old('binding_4') == 'on') id="Form13"
                                                             class=" mr-5">Hard Cover
                                                     </td>
-                                                    <td><select name="binding_4_val" disabled
+                                                    <td><select name="binding_4_val" @disabled(old('binding_4') != 'on')
                                                             placeholder="select Supplier" id="form13"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_4_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_4_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_5" id="Form14"
+                                                    <td><input type="checkbox" name="binding_5" @checked(old('binding_5') == 'on') id="Form14"
                                                             class=" mr-5">Creasing
                                                         Line
                                                     </td>
-                                                    <td><select name="binding_5_val" disabled
+                                                    <td><select name="binding_5_val" @disabled(old('binding_5') != 'on')
                                                             placeholder="select Supplier" id="form14"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_5_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_5_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_6" id="Form15"
+                                                    <td><input type="checkbox" name="binding_6" @checked(old('binding_6') == 'on') id="Form15"
                                                             class=" mr-5">Cut to Size
                                                     </td>
-                                                    <td><select name="binding_6_val" disabled
+                                                    <td><select name="binding_6_val" @disabled(old('binding_6') != 'on')
                                                             placeholder="select Supplier" id="form15"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_6_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_6_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_7" id="Form16"
+                                                    <td><input type="checkbox" name="binding_7" @checked(old('binding_7') == 'on') id="Form16"
                                                             class=" mr-5">Folding
                                                     </td>
-                                                    <td><select name="binding_7_val" disabled
+                                                    <td><select name="binding_7_val" @disabled(old('binding_7') != 'on')
                                                             placeholder="select Supplier" id="form16"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_7_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_7_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_8" id="Form17"
+                                                    <td><input type="checkbox" name="binding_8" @checked(old('binding_8') == 'on') id="Form17"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" disabled placeholder="User Input"
+                                                        <input type="text" @disabled(old('binding_8') != 'on') placeholder="User Input"
                                                             name="binding_8_val" id="input"
-                                                            class="form-control w-50 float-right">
+                                                            class="form-control w-50 float-right" value="{{ old('binding_8_val')  }}">
                                                     </td>
-                                                    <td><select name="binding_9_val" disabled
+                                                    <td><select name="binding_9_val" @disabled(old('binding_8') != 'on')
                                                             placeholder="select Supplier" id="form17"
                                                             class="form-control form-select">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_9_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_9_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>

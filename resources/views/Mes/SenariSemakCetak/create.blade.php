@@ -64,20 +64,20 @@
                                             <tbody>
                                                 <tr>
                                                     <td>cover</td>
-                                                    <td><input type="checkbox" name="item_cover_availibility" checked
+                                                    <td><input type="checkbox" name="item_cover_availibility" @checked(old('item_cover_availibility') == 'on') @if(old('item_cover_availibility')) @else checked @endif
                                                             id="Cover">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>End/Leaflet</td>
-                                                    <td><input type="checkbox" name="item_leaflet_availibility" checked
+                                                    <td><input type="checkbox" name="item_leaflet_availibility" @checked(old('item_leaflet_availibility') == 'on') @if(old('item_leaflet_availibility')) @else checked @endif
                                                             id="Endpaper">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>Section No</td>
                                                     <td><input type="number" class="form-control" value="1"
-                                                            name="item_cover_text" min="1" checked id="Text"></td>
+                                                            name="item_cover_text" min="1"  id="Text"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -130,77 +130,77 @@
                                     <tr>
                                         <td>1</td>
                                         <td>File Format - CMYK (buat preflight inspection)</td>
-                                        <td class="cover"><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
-                                                value="ok">
+                                        <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA[2][1]" @checked(old('bahagianA[2][1]') == 'ok')
+                                                onchange="handleCheckboxChange('Cover1',this)"
+                                                >
                                         </td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" checked
-                                                name="bahagianA[2][1]" id="" value="ng"></td>
+                                                onchange="handleCheckboxChange('Cover1',this)"
+                                                name="bahagianA[2][1]" id="" value="ng" @checked(old('bahagianA[2][1]') == 'ng') @if(old('bahagianA[2][1]')) @else checked @endif></td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
                                                 onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
-                                                id="" value="na"></td>
-                                        <td class="text"><input type="checkbox" class="Text1"
+                                                id="" value="na"  @checked(old('bahagianA[2][1]') == 'na')></td>
+                                        <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'ok')
                                                 onchange="handleCheckboxChange('Text1',this)" name="bahagianA[3][1]"
                                                 id="" value="ok"></td>
-                                        <td class="text"><input type="checkbox" class="Text1"
-                                                onchange="handleCheckboxChange('Text1',this)" checked
+                                        <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'ng')
+                                                onchange="handleCheckboxChange('Text1',this)" @if(old('bahagianA[3][1]')) @else checked @endif
                                                 name="bahagianA[3][1]" id="" value="ng"></td>
-                                        <td class="text"><input type="checkbox" class="Text1"
+                                        <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'na')
                                                 onchange="handleCheckboxChange('Text1',this)" name="bahagianA[3][1]"
                                                 id="" value="na"></td>
                                         <td class="endpaper"><input type="checkbox" class="Endpaper1"
-                                                onchange="handleCheckboxChange('Endpaper1',this)" name="bahagianA[4][1]"
+                                                onchange="handleCheckboxChange('Endpaper1',this)" name="bahagianA[4][1]" @checked(old('bahagianA[4][1]') == 'ok')
                                                 id="" value="ok"></td>
-                                        <td class="endpaper"><input type="checkbox" class="Endpaper1"
-                                                onchange="handleCheckboxChange('Endpaper1',this)" checked
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper1"  @checked(old('bahagianA[4][1]') == 'ng')
+                                                onchange="handleCheckboxChange('Endpaper1',this)" @if(old('bahagianA[4][1]')) @else checked @endif
                                                 name="bahagianA[4][1]" id="" value="ng"></td>
-                                        <td class="endpaper"><input type="checkbox" class="Endpaper1"
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper1"  @checked(old('bahagianA[4][1]') == 'na')
                                                 onchange="handleCheckboxChange('Endpaper1',this)" name="bahagianA[4][1]"
                                                 id="" value="na"></td>
                                     </tr>
                                     <tr>
                                         <td>2</td>
                                         <td>Jumlah Warna (bandingkan TMS dan file artwork)</td>
-                                        <td class="cover"><input type="checkbox" class="Cover2"
+                                        <td class="cover"><input type="checkbox" class="Cover2" @checked(old('bahagianA[2][2]') == 'ok')
                                                 onchange="handleCheckboxChange('Cover2',this)" name="bahagianA[2][2]"
                                                 id="" value="ok"></td>
-                                        <td class="cover"><input type="checkbox" class="Cover2"
-                                                onchange="handleCheckboxChange('Cover2',this)" checked
+                                        <td class="cover"><input type="checkbox" class="Cover2" @checked(old('bahagianA[2][2]') == 'ng')
+                                                onchange="handleCheckboxChange('Cover2',this)" @if(old('bahagianA[2][2]')) @else checked @endif
                                                 name="bahagianA[2][2]" id="" value="ng"></td>
-                                        <td class="cover"><input type="checkbox" class="Cover2"
+                                        <td class="cover"><input type="checkbox" class="Cover2" @checked(old('bahagianA[2][2]') == 'na')
                                                 onchange="handleCheckboxChange('Cover2',this)" name="bahagianA[2][2]"
                                                 id="" value="na"></td>
                                         <td class="text"><input type="checkbox" class="Text2"
-                                                onchange="handleCheckboxChange('Text2',this)" name="bahagianA[3][2]"
+                                                onchange="handleCheckboxChange('Text2',this)" name="bahagianA[3][2]" @checked(old('bahagianA[3][2]') == 'ok')
                                                 id="" value="ok"></td>
-                                        <td class="text"><input type="checkbox" class="Text2"
-                                                onchange="handleCheckboxChange('Text2',this)" checked
+                                        <td class="text"><input type="checkbox" class="Text2" @checked(old('bahagianA[3][2]') == 'ng')
+                                                onchange="handleCheckboxChange('Text2',this)" @if(old('bahagianA[3][2]')) @else checked @endif
                                                 name="bahagianA[3][2]" id="" value="ng"></td>
-                                        <td class="text"><input type="checkbox" class="Text2"
+                                        <td class="text"><input type="checkbox" class="Text2" @checked(old('bahagianA[3][2]') == 'na')
                                                 onchange="handleCheckboxChange('Text2',this)" name="bahagianA[3][2]"
                                                 id="" value="na"></td>
-                                        <td class="endpaper"><input type="checkbox" class="Endpaper2"
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" @checked(old('bahagianA[4][2]') == 'ok')
                                                 onchange="handleCheckboxChange('Endpaper2',this)" name="bahagianA[4][2]"
                                                 id="" value="ok"></td>
-                                        <td class="endpaper"><input type="checkbox" class="Endpaper2"
-                                                onchange="handleCheckboxChange('Endpaper2',this)" checked
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" @checked(old('bahagianA[4][2]') == 'ng')
+                                                onchange="handleCheckboxChange('Endpaper2',this)" @if(old('bahagianA[4][2]')) @else checked @endif
                                                 name="bahagianA[4][2]" id="" value="ng"></td>
-                                        <td class="endpaper"><input type="checkbox" class="Endpaper2"
+                                        <td class="endpaper"><input type="checkbox" class="Endpaper2" @checked(old('bahagianA[4][2]') == 'na')
                                                 onchange="handleCheckboxChange('Endpaper2',this)" name="bahagianA[4][2]"
                                                 id="" value="na"></td>
                                     </tr>
                                     <tr>
                                         <td>3</td>
                                         <td>Saiz product (bandingkan TMS dan file artwork)</td>
-                                        <td class="cover" colspan="3"><input type="text" class="Cover3"
+                                        <td class="cover" colspan="3"><input type="text" class="Cover3" value="{{ old('bahagianA[2][3]') }}"
                                                 onchange="handleCheckboxChange('Cover3',this)"
                                                 class="form-control" name="bahagianA[2][3]" id=""></td>
                                         <td class="text" colspan="3"><input type="text" class="Text3"
-                                                onchange="handleCheckboxChange('Text3',this)"
+                                                onchange="handleCheckboxChange('Text3',this)" value="{{ old('bahagianA[3][3]') }}"
                                                 class="form-control" name="bahagianA[3][3]" id=""></td>
                                         <td class="endpaper" colspan="3"><input type="text" class="Endpaper3"
-                                                onchange="handleCheckboxChange('Endpaper3',this)"
+                                                onchange="handleCheckboxChange('Endpaper3',this)" value="{{ old('bahagianA[4][3]') }}"
                                                 class="form-control" name="bahagianA[4][3]"
                                                 id=""></td>
                                     </tr>
@@ -208,20 +208,20 @@
                                         <td>4</td>
                                         <td>Design clearance 8mm (stitching binding)</td>
                                         <td class="cover" colspan="3"><input type="text" readonly
-                                                name="bahagianA[2][4]" class="form-control"
+                                                name="bahagianA[2][4]" class="form-control" @checked(old('bahagianA[2][4]') == 'on')
                                                 id=""></td>
-                                        <td class="text endpaper"><input type="checkbox" class="Text4"
+                                        <td class="text endpaper"><input type="checkbox" class="Text4" @checked(old('bahagianA[3][4]') == 'ok')
                                                 onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                 id="" value="ok"></td>
-                                        <td class="text endpaper"><input type="checkbox" class="Text4"
+                                        <td class="text endpaper"><input type="checkbox" class="Text4" @checked(old('bahagianA[3][4]') == 'ng')
                                                 onchange="handleCheckboxChange('Text4',this)"
-                                                checked name="bahagianA[3][4]" id="" value="ng"></td>
-                                        <td class="text endpaper"><input type="checkbox" class="Text4"
+                                                @if(old('bahagianA[3][4]')) @else checked @endif name="bahagianA[3][4]" id="" value="ng"></td>
+                                        <td class="text endpaper"><input type="checkbox" class="Text4" @checked(old('bahagianA[3][4]') == 'na')
                                                 onchange="handleCheckboxChange('Text4',this)" name="bahagianA[3][4]"
                                                 id="" value="na"></td>
                                         <td class="endpaper" colspan="3"><input readonly type="text"
                                                class="form-control"
-                                                name="bahagianA[4][4]" id="">
+                                                name="bahagianA[4][4]" @checked(old('bahagianA[4][4]') == 'on') id="">
                                         </td>
                                     </tr>
                                     <tr>

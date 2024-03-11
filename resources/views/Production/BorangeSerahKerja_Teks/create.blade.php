@@ -156,7 +156,10 @@
                                                 <h5 style="padding-left:px;">Others</h5>
                                                 </div>
                                                 <div class="col-md-8" >
-                                                    <div id="input" class="others" style="width:150px;"></div>
+                                                    <div id="input" class="others" style="width:150px;">
+                                                        <input type="text" name="jenis_input_5"
+                                                        class="form-control Others" style="display:none;">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>

@@ -172,7 +172,7 @@
                                                     <div class="col-md-2">Front</div>
                                                     <div class="col-md-1"><input type="checkbox" name="back"
                                                             id=""></div>
-                                                    <div class="col-md-2">back</div>
+                                                    <div class="col-md-2">Back</div>
                                                 </div>
 
                                             </div>
