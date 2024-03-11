@@ -280,8 +280,9 @@
                 success: function(data) {
                     $('#sale_order').val(data.material.sale_order.order_no);
                     $('#description').val(data.material.description);
-                    $('#oleh').val(data.user.material.full_name);
+                    $('#oleh').val(data.material.user.full_name);
 
+                    $length = 1;
                     $('#table1 tbody').html('');
                     data.material_b.forEach((element, index) => {
                         $('#table1 tbody').append(`<tr>
@@ -298,8 +299,47 @@
                             <td><input type="number" readonly class="form-control"/></td>
                             <td>${element.request_qty}</td>
                             <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
-                            <td><a class="removeRow"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td>
+                            <td><a class="addStock"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>
                         </tr>`);
+                        $length++;
+                    });
+
+                    $length1 = 1;
+                    $('#table2 tbody').html('');
+                    data.material_c.forEach((element, index) => {
+                        $('#table2 tbody').append(`<tr>
+                            <td><input type='hidden' value='${element.stock_code}' class="stock_code" name="bahan[${$length1}][stock_code]"/>${element.stock_code}</td>
+                            <td>${element.description}</td>
+                            <td>${element.uom}</td>
+                            <td>${element.available_qty}</td>
+                            <td><input type='hidden' value='${element.request_qty}' name="bahan[${$length1}][request_qty]"/>${element.request_qty}</td>
+                            <td>0</td>
+                            <td>${element.request_qty}</td>
+                            <td><input type="number" readonly class="form-control"/></td>
+                            <td>${element.request_qty}</td>
+                            <td><textarea class="form-control" name="bahan[${$length1}][remarks]"></textarea></td>
+                            <td><a class="addStock"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>
+                        </tr>`);
+                        $length1++;
+                    });
+
+                    $length2 = 1;
+                    $('#table3 tbody').html('');
+                    data.material_d.forEach((element, index) => {
+                        $('#table3 tbody').append(`<tr>
+                            <td><input type='hidden' value='${element.stock_code}' class="stock_code" name="wip[${$length2}][stock_code]"/>${element.stock_code}</td>
+                            <td>${element.description}</td>
+                            <td>${element.uom}</td>
+                            <td>${element.available_qty}</td>
+                            <td><input type='hidden' value='${element.request_qty}' name="wip[${$length2}][request_qty]"/>${element.request_qty}</td>
+                            <td>0</td>
+                            <td>${element.request_qty}</td>
+                            <td><input type="number" readonly class="form-control"/></td>
+                            <td>${element.request_qty}</td>
+                            <td><textarea class="form-control" name="wip[${$length2}][remarks]"></textarea></td>
+                            <td><a class="addStock"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>
+                        </tr>`);
+                        $length2++;
                     });
                 }
             });

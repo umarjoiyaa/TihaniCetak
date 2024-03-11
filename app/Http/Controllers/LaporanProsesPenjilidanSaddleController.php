@@ -46,8 +46,10 @@ class LaporanProsesPenjilidanSaddleController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('size', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                        ->orWhere(function ($query) use ($searchLower) {
+                            $query->whereHas('senari_semak', function ($q) use ($searchLower) {
+                                $q->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                            })->orWhereDoesntHave('senari_semak');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -110,8 +112,10 @@ class LaporanProsesPenjilidanSaddleController extends Controller
                                 });
                                 break;
                             case 6:
-                                $q->whereHas('senari_semak', function ($query) use ($searchLower) {
-                                    $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                                $q->where(function ($query) use ($searchLower) {
+                                    $query->whereHas('senari_semak', function ($q) use ($searchLower) {
+                                        $q->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                                    })->orWhereDoesntHave('senari_semak');
                                 });
                                 break;
                             case 7:
@@ -219,8 +223,10 @@ class LaporanProsesPenjilidanSaddleController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('size', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                        ->orWhere(function ($query) use ($searchLower) {
+                            $query->whereHas('senari_semak', function ($q) use ($searchLower) {
+                                $q->where('item_cover_text', 'like', '%' . $searchLower . '%');
+                            })->orWhereDoesntHave('senari_semak');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed

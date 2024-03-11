@@ -20,9 +20,9 @@ class ManageTransferController extends Controller
 
     public function ref(Request $request){
         $material = MaterialRequest::where('id', '=', $request->id)->with('sale_order', 'user')->first();
-        $material_b = MaterialRequestB::where('request_id', '=', $request->id)->get();
-        $material_c = MaterialRequestC::where('request_id', '=', $request->id)->get();
-        $material_d = MaterialRequestD::where('request_id', '=', $request->id)->get();
+        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->get();
+        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->get();
+        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->get();
         return response()->json(['material' => $material, 'material_b' => $material_b, 'material_c' => $material_c, 'material_d' => $material_d]);
     }
 }

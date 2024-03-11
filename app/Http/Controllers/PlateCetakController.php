@@ -43,7 +43,10 @@ class PlateCetakController extends Controller
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('machine', 'like', '%' . $searchLower . '%')
-                        ->orWhere('section', 'like', '%' . $searchLower . '%')
+                        ->orWhere(function ($query) use ($searchLower) {
+                            $query->where('section', 'like', '%' . $searchLower . '%')
+                                  ->orWhereNull('section');
+                        })
                         ->orWhere('warna_7', 'like', '%' . $searchLower . '%')
                         ->orWhere('warna_8', 'like', '%' . $searchLower . '%')
                         ->orWhere('warna_9', 'like', '%' . $searchLower . '%')
@@ -118,7 +121,10 @@ class PlateCetakController extends Controller
                                 $q->where('machine', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
-                                $q->where('section', 'like', '%' . $searchLower . '%');
+                                $q->where(function ($query) use ($searchLower) {
+                                    $query->where('section', 'like', '%' . $searchLower . '%')
+                                          ->orWhereNull('section');
+                                });
                                 break;
                             case 10:
                                 $q->where(function($query) use ($searchLower) {
@@ -235,7 +241,10 @@ class PlateCetakController extends Controller
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('machine', 'like', '%' . $searchLower . '%')
-                        ->orWhere('section', 'like', '%' . $searchLower . '%')
+                        ->orWhere(function ($query) use ($searchLower) {
+                            $query->where('section', 'like', '%' . $searchLower . '%')
+                                  ->orWhereNull('section');
+                        })
                         ->orWhere('warna_7', 'like', '%' . $searchLower . '%')
                         ->orWhere('warna_8', 'like', '%' . $searchLower . '%')
                         ->orWhere('warna_9', 'like', '%' . $searchLower . '%')

@@ -337,8 +337,7 @@
                                                         @checked($detail->c_6 != null)>
                                                 </td>
                                                 <td><button type="button" class="btn btn-primary check_btn"
-                                                        style="border-radius:5px;" @disabled($detail->c_7 !=
-                                                        null)>check</button></td>
+                                                        style="border-radius:5px;" disabled>check</button></td>
                                                 <td><input type="text" style="width:340px" name="semasa[{{$key+1}}][7]"
                                                         class="check_operator form-control" value="{{$detail->c_7}}"
                                                         readonly></td>
