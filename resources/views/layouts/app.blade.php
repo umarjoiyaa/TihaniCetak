@@ -59,60 +59,70 @@
 
     @yield('css')
     <style>
-        .check_operator_text, .check_verify_text{
+        .check_operator_text,
+        .check_verify_text {
             width: 340px;
         }
+
         .dropdown {
             cursor: pointer;
         }
-        .select2-container--default .select2-selection--multiple .select2-selection__choice{
-            background:;
-            color:black;
-            opacity: 1;
-        }
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
-            color:#000;
 
-        }
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove{
+        .select2-container--default .select2-selection--multiple .select2-selection__choice {
+            background: ;
+            color: black;
             opacity: 1;
         }
 
-        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            color: #000;
+
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove {
+            opacity: 1;
+        }
+
+        .select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover {
             /* background:; */
-            color:black;
+            color: black;
             opacity: 1;
         }
+
         /* .select2-container--default .select2-results__option--highlighted.select2-results__option--selectable{
             background:#18002D;
             color:white;
         } */
-        table.dataTable thead th{
-            text-align:center;
+        table.dataTable thead th {
+            text-align: center;
         }
-        .card .card-body .card{
-            background:#f4f4ff;
+
+        .addStock {
+            cursor: pointer;
         }
-        .main-header-right .dropdown-item:hover{
-            color:#000;
+
+        .card .card-body .card {
+            background: #f4f4ff;
         }
-        .select2{
-            width:100% !important;
+
+        .main-header-right .dropdown-item:hover {
+            color: #000;
         }
+
+        .select2 {
+            width: 100% !important;
+        }
+
         div#DataTables_Table_0_wrapper {
             width: auto;
             margin: 0 auto;
             position: relative;
         }
 
-        div.dt-layout-cell  {
+        div.dt-layout-cell {
             height: auto;
             overflow-y: auto;
         }
-
-       
-
-        
     </style>
 
 </head>

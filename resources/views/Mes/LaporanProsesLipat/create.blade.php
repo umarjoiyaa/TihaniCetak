@@ -71,8 +71,8 @@
                                         <div class="form-group">
                                             <label for="">Mesin</label>
                                             <select name="mesin" class="form-select">
-                                                <option value="F1">F1</option>
-                                                <option value="F2">F2</option>
+                                                <option value="F1" @selectect(old('mesin') == "F1")>F1</option>
+                                                <option value="F2" @selectect(old('mesin') == "F2")>F2</option>
                                             </select>
                                         </div>
                                     </div>
@@ -92,7 +92,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Seksyen No.</div>
-                                            <input type="text" name="seksyen_no" id=""
+                                            <input type="text" name="seksyen_no" value="{{ old('seksyen_no') }}"
                                                 class="SectionNumber form-control">
                                         </div>
                                     </div>
@@ -121,7 +121,25 @@
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        @if (old('pengesahan'))
 
+                                        @foreach (old('pengesahan') as $key => $detail)
+                                        <tr>
+
+                                            <td>{{ $detail[1] ?? '' }} <input type="hidden" value="{{ $detail[1] ?? '' }}"
+                                                    name="pengesahan[{{ $key + 1 }}][1]">
+                                            </td>
+                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][2]"
+                                                    @checked($detail[2] ?? '' != null)></td>
+                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][3]"
+                                                    @checked($detail[3] ?? '' != null) id=""></td>
+                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][4]"
+                                                    @checked($detail[4] ?? '' != null) id=""></td>
+                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][5]"
+                                                    @checked($detail[5] ?? '' != null) id=""></td>
+                                        </tr>
+                                    @endforeach
+                                    @endif
 
                                     </tbody>
                                 </table>
@@ -148,7 +166,24 @@
                                     <div class="col-md-2">
                                         <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
                                             role="tablist">
-
+                                            @if (old('section'))
+                                            @php
+                                                dd(old('section'))
+                                            @endphp
+                                            @foreach (old('section') as $key1 => $section)
+                                            <li class="nav-item">
+                                                <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
+                                                    id="tab{{ $section->row }}" data-toggle="tab"
+                                                    href="#Seksyen{{ $key }}_{{ $section->row }}"
+                                                    role="tab"
+                                                    aria-controls="Seksyen{{ $section->row }}_{{ $key }}"
+                                                    aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
+                                                    {{ $section->row }}</a>
+                                                <input type="hidden" name="section[{{ $section->row }}]"
+                                                    value="Seksyen {{ $section->row }}">
+                                            </li>
+                                        @endforeach
+                                        @endif
                                         </ul>
                                     </div>
                                     <div class="col-md-10">

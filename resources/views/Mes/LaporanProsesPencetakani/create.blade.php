@@ -67,13 +67,13 @@
                                         <div class="col-md-4 ">
                                             <div class="form-group">
                                                 <label for="">Seksyen No.</label>
-                                                <input type="text" name="seksyen_no" id="" class="form-control">
+                                                <input type="text" name="seksyen_no" value="{{ old('seksyen_no')  }}" id="" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label for="">Kuantiti cetakan</label>
-                                                <input type="number" name="kuaniti_cetakan" id=""
+                                                <input type="number" name="kuaniti_cetakan" value="{{ old('kuaniti_cetakan')  }}" id=""
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -82,7 +82,7 @@
                                         <div class="col-md-4 ">
                                             <div class="form-group">
                                                 <label for="">Kuantiti waste</label>
-                                                <input type="number" name="kuaniti_waste" id=""
+                                                <input type="number" name="kuaniti_waste" value="{{ old('kuaniti_waste')  }}" id=""
                                                     class="form-control">
                                             </div>
                                         </div>
@@ -134,113 +134,123 @@
                                                     <tr>
                                                         <td>1</td>
                                                         <td>Artwork (Gambar/teks)</td>
-                                                        <td><input type="checkbox" name="b_1" id="" class="Cover1"
+                                                        <td><input type="checkbox" name="b_1" id="" class="Cover1" @checked(old('b_1') == 'ok')
                                                         onchange="handleCheckboxChange('Cover1',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_1" id="" class="Cover1"
+                                                        <td><input type="checkbox"  name="b_1" id="" class="Cover1" @checked(old('b_1') == 'ng')
+                                                            @if (old('b_1')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover1',this)"  value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_1" id="" class="Cover1"
-                                                        onchange="handleCheckboxChange('Cover1',this)" value="na"></td>
+                                                        <td><input type="checkbox" name="b_1" id="" class="Cover1" @checked(old('b_1') == 'na')
+                                                        onchange="handleCheckboxChange('Cover1',this)" value="na" ></td>
                                                     </tr>
                                                     <tr>
                                                         <td>2</td>
                                                         <td>Warna</td>
-                                                        <td><input type="checkbox" name="b_2" id="" class="Cover2"
+                                                        <td><input type="checkbox" name="b_2" id="" class="Cover2" @checked(old('b_2') == 'ok')
                                                         onchange="handleCheckboxChange('Cover2',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_2" class="Cover2"
+                                                        <td><input type="checkbox"  name="b_2" class="Cover2" @checked(old('b_2') == 'ng')
+                                                            @if (old('b_2')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover2',this)" id=""
                                                                 value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_2" id="" class="Cover2"
+                                                        <td><input type="checkbox" name="b_2" id="" class="Cover2" @checked(old('b_2') == 'na')
                                                         onchange="handleCheckboxChange('Cover2',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>3</td>
                                                         <td>Bleed</td>
-                                                        <td><input type="checkbox" name="b_3" id="" class="Cover3"
+                                                        <td><input type="checkbox" name="b_3" id="" class="Cover3" @checked(old('b_3') == 'ok')
                                                         onchange="handleCheckboxChange('Cover3',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_3" id="" class="Cover3"
+                                                        <td><input type="checkbox"  name="b_3" id="" class="Cover3" @checked(old('b_3') == 'ng')
+                                                            @if (old('b_3')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover3',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_3" id="" class="Cover3"
-                                                        onchange="handleCheckboxChange('Cover3',this)" value="na"></td>
+                                                        <td><input type="checkbox" name="b_3" id="" class="Cover3" @checked(old('b_3') == 'na')
+                                                        onchange="handleCheckboxChange('Cover3',this)" value="na" ></td>
                                                     </tr>
                                                     <tr>
                                                         <td>4</td>
                                                         <td>Saiz spine (untuk cover sahaja) </td>
-                                                        <td><input type="checkbox" name="b_4" id="" class="Cover10"
+                                                        <td><input type="checkbox" name="b_4" id="" class="Cover10" @checked(old('b_4') == 'ok')
                                                         onchange="handleCheckboxChange('Cover10',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_4" id="" class="Cover10"
+                                                        <td><input type="checkbox"  name="b_4" id="" class="Cover10" @checked(old('b_4') == 'ng')
+                                                            @if (old('b_4')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover10',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_4" id="" class="Cover10"
+                                                        <td><input type="checkbox" name="b_4" id="" class="Cover10"  @checked(old('b_4') == 'na')
                                                         onchange="handleCheckboxChange('Cover10',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>5</td>
                                                         <td>Register depan belakang</td>
-                                                        <td><input type="checkbox" name="b_5" id="" class="Cover4"
+                                                        <td><input type="checkbox" name="b_5" id="" class="Cover4" @checked(old('b_5') == 'ok')
                                                         onchange="handleCheckboxChange('Cover4',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_5" id="" class="Cover4"
+                                                        <td><input type="checkbox"  name="b_5" id="" class="Cover4" @checked(old('b_5') == 'ng')
+                                                            @if (old('b_5')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover4',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_5" id="" class="Cover4"
+                                                        <td><input type="checkbox" name="b_5" id="" class="Cover4" @checked(old('b_5') == 'na')
                                                         onchange="handleCheckboxChange('Cover4',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>6</td>
                                                         <td>Turutan muka surat</td>
-                                                        <td><input type="checkbox" name="b_6" id="" class="Cover5"
+                                                        <td><input type="checkbox" name="b_6" id="" class="Cover5" @checked(old('b_6') == 'ok')
                                                         onchange="handleCheckboxChange('Cover5',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_6" id="" class="Cover5"
+                                                        <td><input type="checkbox"  name="b_6" id="" class="Cover5" @checked(old('b_6') == 'ng')
+                                                            @if (old('b_6')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover5',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_6" id="" class="Cover5"
+                                                        <td><input type="checkbox" name="b_6" id="" class="Cover5" @checked(old('b_6') == 'na')
                                                         onchange="handleCheckboxChange('Cover5',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>7</td>
                                                         <td>Tiada set off, kotor, hickies</td>
-                                                        <td><input type="checkbox" name="b_7" id="" class="Cover6"
+                                                        <td><input type="checkbox" name="b_7" id="" class="Cover6" @checked(old('b_7') == 'ok')
                                                         onchange="handleCheckboxChange('Cover6',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_7" id="" class="Cover6"
+                                                        <td><input type="checkbox"  name="b_7" id="" class="Cover6" @checked(old('b_7') == 'ng')
+                                                            @if (old('b_7')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover6',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_7" id="" class="Cover6"
+                                                        <td><input type="checkbox" name="b_7" id="" class="Cover6" @checked(old('b_7') == 'na')
                                                         onchange="handleCheckboxChange('Cover6',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>8</td>
                                                         <td>Periksa powder</td>
-                                                        <td><input type="checkbox" name="b_8" id="" class="Cover7"
+                                                        <td><input type="checkbox" name="b_8" id="" class="Cover7"  @checked(old('b_8') == 'ok')
                                                         onchange="handleCheckboxChange('Cover7',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_8" id="" class="Cover7"
+                                                        <td><input type="checkbox"  name="b_8" id="" class="Cover7" @checked(old('b_8') == 'ng')
+                                                            @if (old('b_8')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover7',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_8" id="" class="Cover7"
+                                                        <td><input type="checkbox" name="b_8" id="" class="Cover7" @checked(old('b_8') == 'na')
                                                         onchange="handleCheckboxChange('Cover7',this)" value="na"></td>
 
                                                     </tr>
                                                     <tr>
                                                         <td>9</td>
                                                         <td>Tiada doubling</td>
-                                                        <td><input type="checkbox" name="b_9" id="" class="Cover8"
+                                                        <td><input type="checkbox" name="b_9" id="" class="Cover8"  @checked(old('b_9') == 'ok')
                                                         onchange="handleCheckboxChange('Cover8',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_9" id="" class="Cover8"
+                                                        <td><input type="checkbox"  name="b_9" id="" class="Cover8"  @checked(old('b_9') == 'ng')
+                                                            @if (old('b_8')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover8',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_9" id="" class="Cover8"
+                                                        <td><input type="checkbox" name="b_9" id="" class="Cover8" @checked(old('b_9') == 'na')
                                                         onchange="handleCheckboxChange('Cover8',this)" value="na"></td>
                                                     </tr>
                                                     <tr>
                                                         <td>10</td>
                                                         <td>Frontlay & sidelay</td>
-                                                        <td><input type="checkbox" name="b_10" id="" class="Cover9"
+                                                        <td><input type="checkbox" name="b_10" id="" class="Cover9"  @checked(old('b_10') == 'ok')
                                                         onchange="handleCheckboxChange('Cover9',this)" value="ok"></td>
-                                                        <td><input type="checkbox" checked name="b_10" id="" class="Cover9"
+                                                        <td><input type="checkbox"  name="b_10" id="" class="Cover9" @checked(old('b_10') == 'ng')
+                                                            @if (old('b_8')) @else checked @endif
                                                         onchange="handleCheckboxChange('Cover9',this)" value="ng">
                                                         </td>
-                                                        <td><input type="checkbox" name="b_10" id="" class="Cover9"
+                                                        <td><input type="checkbox" name="b_10" id="" class="Cover9" @checked(old('b_10') == 'na')
                                                         onchange="handleCheckboxChange('Cover9',this)" value="na"></td>
                                                     </tr>
 
@@ -284,43 +294,97 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
+                                                        @if (old('semasa'))
+                                                        {{-- @php
+                                                            dd(old('semasa'));
+                                                        @endphp --}}
+                                                        @foreach (old('semasa') as $key => $value)
+                                                            <tr>
+                                                                <td>
+                                                                    {{ $value[1]  ?? '' }}
+                                                                </td>
+                                                                <td>
+                                                                    <input type="hidden" value="{{ $value[1]  ?? ''}}"
+                                                                        name="{{ "semasa[$key][1]" }}"><input type="checkbox"
+                                                                        name="{{ "semasa[$key][2]" }}"
+                                                                        @checked($value[2] ?? '' == 'on')
+                                                                        value="{{ $value[2]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][3]" }}"
+                                                                        @checked($value[3] ?? '' == 'on')
+                                                                        value="{{ $value[3] ?? '' }}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][4]" }}"
+                                                                        @checked($value[4] ?? '' == 'on')
+                                                                        value="{{ $value[4]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][5]" }}"
+                                                                        @checked($value[5] ?? '' == 'on')
+                                                                        value="{{ $value[5]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][6]" }}"
+                                                                        @checked($value[6] ?? '' == 'on')
+                                                                        value="{{ $value[6]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][7]" }}"
+                                                                        @checked($value[7] ?? '' == 'on')
+                                                                        value="{{ $value[7]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><input type="checkbox" name="{{ "semasa[$key][8]" }}"
+                                                                        @checked($value[8] ?? '' == 'on')
+                                                                        value="{{ $value[8]  ?? ''}}" id="">
+                                                                </td>
+                                                                <td><button type="button" class="btn btn-primary check_btn"
+                                                                        style="border-radius:5px; " @disabled($value[9])>check</button></td>
+                                                                <td><input type="text" style="width:340px;"
+                                                                        name="{{ "semasa[$key][9]" }}"
+                                                                        class="check_operator form-control"
+                                                                        value="{{ $value[9] ?? '' }}" readonly></td>
+                                                                        <td><button type="button" class="btn btn-primary verify_btn"
+                                                                            disabled>Verify</button>
+                                                                    </td>
+
+                                                                <td><input type="text"name="{{ "semasa[$key][10]" }}"
+                                                                        class="verify_operator form-control"
+                                                                        value="{{ $value[10] ?? '' }}" readonly></td>
+                                                                <td><button type="button" class="btn btn-danger remove"
+                                                                        style="border-radius:5px; ">X</button>
+                                                                </td>
+
+                                                            </tr>
+                                                        @endforeach
+                                                    @else
                                                         <tr>
                                                             <td>500</td>
-                                                            <td><input type="hidden" value="500"
-                                                                    name="semasa[0][1]"><input type="checkbox"
-                                                                    name="semasa[0][2]" id="">
+                                                            <td><input type="hidden" value="500" name="semasa[1][1]"><input
+                                                                    type="checkbox" name="semasa[1][2]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][3]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][3]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][4]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][4]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][5]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][5]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][6]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][6]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][7]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][7]" id="">
                                                             </td>
-                                                            <td><input type="checkbox" name="semasa[0][8]"
-                                                                    id="">
+                                                            <td><input type="checkbox" name="semasa[1][8]" id="">
                                                             </td>
-                                                            <td><button type="button" class="btn btn-primary check_btn"
+                                                            <td><button type="button"  class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="semasa[0][9]"
+                                                            <td><input type="text" style="width:340px;" name="semasa[1][9]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="semasa[0][10]"
+                                                            <td><input type="text" name="semasa[1][10]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button>
                                                             </td>
                                                         </tr>
+                                                    @endif
                                                     </tbody>
                                                 </table>
                                             </div>

@@ -175,9 +175,9 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
                                                         id="tab{{ $section->row }}" data-toggle="tab"
-                                                        href="#Seksyen{{ $key }}_{{ $section->row }}"
+                                                        href="#Seksyen{{ $section->row }}"
                                                         role="tab"
-                                                        aria-controls="Seksyen{{ $section->row }}_{{ $key }}"
+                                                        aria-controls="Seksyen{{ $section->row }}"
                                                         aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
                                                         {{ $section->row }}</a>
                                                     <input type="hidden" name="section[{{ $section->row }}]"
@@ -190,7 +190,7 @@
                                         <div class="tab-content" id="myTabContent">
                                             @foreach ($sections as $key1 => $section)
                                                 <div class="tab-pane fade {{ $key1 == 0 ? 'show active' : '' }}"
-                                                    id="Seksyen{{ $section->row }}_{{ $key }}" role="tabpanel"
+                                                    id="Seksyen{{ $section->row }}" role="tabpanel"
                                                     aria-labelledby="tab{{ $section->row }}">
                                                     <input type="hidden" class="hidden" value="{{ $section->row }}">
                                                     <div class="table-responsive">
@@ -252,10 +252,6 @@
                                                                         </tr>
                                                                         @php
                                                                             $newKey++;
-                                                                        @endphp
-                                                                    @else
-                                                                        @php
-                                                                            $newKey = 1;
                                                                         @endphp
                                                                     @endif
                                                                 @endforeach
