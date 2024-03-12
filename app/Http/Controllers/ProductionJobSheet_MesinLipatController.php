@@ -8,6 +8,7 @@ use App\Models\MesinLipatDetail;
 use App\Models\MesinLipatDetailB;
 use App\Models\User;
 use Carbon\Carbon;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -505,6 +506,25 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('MESIN LIPAT', 'MESIN LIPAT Update');
         return view('Production.ProductionJobSheet_MesinLipat.verify', compact('mesin_lipat', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+
+    public function print($id){
+        $mesin_lipat = MesinLipat::find($id);
+        $users = User::all();
+        $check_machines = MesinLipatDetail::where('machine', '=', $mesin_lipat->mesin)->where('mesin_lipat_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = MesinLipatDetail::where('mesin_lipat_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.DigitalPrinting.pdf', [
+            'mesin_lipat' => $mesin_lipat,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.ProductionJobSheet_MesinLipat.pdf');
     }
 
     public function approve_approve(Request $request, $id){

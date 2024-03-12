@@ -20,7 +20,17 @@
                                     <div class="form-group">
                                         <div class="label">Sale Order NO.</div>
                                         <select name="sale_order" id="sale_order" class="form-control">
-                                            <option value="" selected disabled>Select any Sale Order</option>
+                                            @if (old('sale_order') != null)
+                                            @php
+                                                $name = App\Models\SaleOrder::find(old('sale_order'));
+                                            @endphp
+                                            <option value="{{ old('sale_order') }}" selected
+                                                style="color: black; !important">
+                                                {{ $name->order_no }}</option>
+                                        @else
+                                            <option value="" selected disabled>Select any Sale Order
+                                            </option>
+                                        @endif
 
                                         </select>
                                     </div>
@@ -132,17 +142,20 @@
                                     <tr>
                                         <td>1</td>
                                         <td>File Format - CMYK (buat preflight inspection)</td>
-                                        <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA[2][1]" @checked(old('bahagianA[2][1]') == 'ok')
+                                            @php
+                                                dd(old('bahagianA'));
+                                            @endphp
+                                        <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA" @checked(old('bahagianA') == 'ok')
                                                 onchange="handleCheckboxChange('Cover1',this)"
                                                 >
                                         </td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
                                                 onchange="handleCheckboxChange('Cover1',this)"
-                                                name="bahagianA[2][1]" id="" value="ng" @checked(old('bahagianA[2][1]') == 'ng') @if(old('bahagianA[2][1]')) @else checked @endif></td>
+                                                name="bahagianA" id="" value="ng" @checked(old('bahagianA') == 'ng') @if(old('bahagianA')) @else checked @endif></td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
-                                                id="" value="na"  @checked(old('bahagianA[2][1]') == 'na')></td>
-                                               
+                                                onchange="handleCheckboxChange('Cover1',this)" name="bahagianA"
+                                                id="" value="na"  @checked(old('bahagianA') == 'na')></td>
+
                                         <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'ok')
                                                 onchange="handleCheckboxChange('Text1',this)" name="bahagianA[3][1]"
                                                 id="" value="ok"></td>
@@ -1171,44 +1184,54 @@
         }
     }
     $(document).ready(function () {
-        $('#sale_order').select2({
-            ajax: {
-                url: '{{ route('senari_semak_cetak.sale_order.get') }}',
-                dataType: 'json',
-                delay: 1000,
-                data: function (params) {
-                    return {
-                        q: params.term,
-                        page: params.page || 1,
-                    };
-                },
-                processResults: function (data, params) {
-                    params.page = params.page || 1;
+        $('#sale_order').trigger('change');
 
-                    return {
-                        results: data.results,
-                        pagination: {
-                            more: data.pagination.more
-                        }
-                    };
-                },
-                cache: true
-            },
-            containerCssClass: 'form-control',
-            placeholder: "Select Sales Order No",
-            templateResult: function (data) {
-                if (data.loading) {
-                    return "Loading...";
+$('#sale_order').select2({
+    ajax: {
+        url: '{{ route('sale_order.get') }}',
+        dataType: 'json',
+        delay: 1000,
+        data: function(params) {
+            return {
+                q: params.term,
+                page: params.page || 1,
+            };
+        },
+        processResults: function(data, params) {
+            params.page = params.page || 1;
+
+            return {
+                results: data.results,
+                pagination: {
+                    more: data.pagination.more
                 }
+            };
+        },
+        cache: true
+    },
+    containerCssClass: 'form-control',
+    placeholder: "Select Sales Order No",
+    templateResult: function(data) {
+        if (data.loading) {
+            return "Loading...";
+        }
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-                },
-                templateSelection: function(data) {
-                    return data.order_no || "Select Sales Order No";
-                }
-            });
+        if ($('#sale_order').data('id') == data.id) {
+            return $('<option value=' + data.id + ' selected>' + data.order_no +
+                '</option>');
+        } else {
+            return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+        }
+    },
+    templateSelection: function(data) {
+        return data.text || "Select Sales Order No";
+    }
+});
 
-        $('#sale_order').on('change', function () {
+
+    });
+
+    $('#sale_order').on('change', function () {
             const id = $(this).val();
             $.ajax({
                 type: 'GET',
@@ -1222,7 +1245,7 @@
                 }
             });
         });
-    });
+
 
     $(document).on('change', '#Cover', function () {
         if (!$(this).prop('checked')) {

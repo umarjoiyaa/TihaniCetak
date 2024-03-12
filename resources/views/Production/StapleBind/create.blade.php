@@ -35,7 +35,17 @@
                                     <div class="form-group">
                                         <label for="" class="form-label">Sales Order No.</label>
                                         <select name="sale_order" id="sale_order" class="form-control">
-                                            <option value="-1" selected disabled >Select a Sale Order</option>
+                                            @if (old('sale_order') != null)
+                                            @php
+                                                $name = App\Models\SaleOrder::find(old('sale_order'));
+                                            @endphp
+                                            <option value="{{ old('sale_order') }}" selected
+                                                style="color: black; !important">
+                                                {{ $name->order_no }}</option>
+                                        @else
+                                            <option value="" selected disabled>Select any Sale Order
+                                            </option>
+                                        @endif
 
                                         </select>
                                     </div>
@@ -133,42 +143,49 @@
 @push('custom-scripts')
     <script>
         $(document).ready(function() {
-            $('#sale_order').select2({
-                ajax: {
-                    url: '{{ route('sale_order.get') }}',
-                    dataType: 'json',
-                    delay: 1000,
-                    data: function(params) {
-                        return {
-                            q: params.term,
-                            page: params.page || 1,
-                        };
-                    },
-                    processResults: function(data, params) {
-                        params.page = params.page || 1;
+            $('#sale_order').trigger('change');
 
-                        return {
-                            results: data.results,
-                            pagination: {
-                                more: data.pagination.more
-                            }
-                        };
-                    },
-                    cache: true
-                },
-                containerCssClass: 'form-control',
-                placeholder: "Select Sales Order No",
-                templateResult: function(data) {
-                    if (data.loading) {
-                        return "Loading...";
-                    }
+$('#sale_order').select2({
+    ajax: {
+        url: '{{ route('sale_order.get') }}',
+        dataType: 'json',
+        delay: 1000,
+        data: function(params) {
+            return {
+                q: params.term,
+                page: params.page || 1,
+            };
+        },
+        processResults: function(data, params) {
+            params.page = params.page || 1;
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
-                },
-                templateSelection: function(data) {
-                    return data.order_no || "Select Sales Order No";
+            return {
+                results: data.results,
+                pagination: {
+                    more: data.pagination.more
                 }
-            });
+            };
+        },
+        cache: true
+    },
+    containerCssClass: 'form-control',
+    placeholder: "Select Sales Order No",
+    templateResult: function(data) {
+        if (data.loading) {
+            return "Loading...";
+        }
+
+        if ($('#sale_order').data('id') == data.id) {
+            return $('<option value=' + data.id + ' selected>' + data.order_no +
+                '</option>');
+        } else {
+            return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+        }
+    },
+    templateSelection: function(data) {
+        return data.text || "Select Sales Order No";
+    }
+});
 
             $('#sale_order').on('change', function() {
                 const id = $(this).val();
