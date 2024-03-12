@@ -345,7 +345,7 @@ class TextController extends Controller
 
         $uniqueMachines = [];
 
-        if(isset($request->action)){
+        if(!isset($request->parent_action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;
@@ -476,7 +476,7 @@ class TextController extends Controller
 
         $uniqueMachines = [];
 
-        if(isset($request->action)){
+        if(!isset($request->parent_action)){
             for ($index = 1; $index <= $request->seksyen_no; $index++) {
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;

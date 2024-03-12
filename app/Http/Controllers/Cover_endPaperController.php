@@ -452,7 +452,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper = CoverAndEndpaper::find($id);
         $suppliers = Supplier::select('id', 'name')->get();
         $users = User::all();
-        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
         $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
@@ -569,7 +569,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper = CoverAndEndpaper::find($id);
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
-        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
         $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
@@ -613,7 +613,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper = CoverAndEndpaper::find($id);
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
-        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->where('cover_paper_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $check_machines = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
         $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
