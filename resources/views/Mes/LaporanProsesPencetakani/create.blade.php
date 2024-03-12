@@ -45,8 +45,17 @@
                                             <div class="form-group">
                                                 <label for="">Sales Order No.</label>
                                                 <select name="sale_order" id="sale_order" class="form-control form-select">
-                                                    <option value="" selected disabled>Select any Sale Order</option>
-
+                                                    @if (old('sale_order') != null)
+                                                    @php
+                                                        $name = App\Models\SaleOrder::find(old('sale_order'));
+                                                    @endphp
+                                                    <option value="{{ old('sale_order') }}" selected
+                                                        style="color: black; !important">
+                                                        {{ $name->order_no }}</option>
+                                                @else
+                                                    <option value="" selected disabled>Select any Sale Order
+                                                    </option>
+                                                @endif
                                                 </select>
                                             </div>
                                         </div>
@@ -453,6 +462,7 @@
         });
 
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -483,13 +493,17 @@
                         return "Loading...";
                     }
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    if ($('#sale_order').data('id') == data.id) {
+                        return $('<option value=' + data.id + ' selected>' + data.order_no +
+                            '</option>');
+                    } else {
+                        return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    }
                 },
                 templateSelection: function(data) {
-                    return data.order_no || "Select Sales Order No";
+                    return data.text || "Select Sales Order No";
                 }
             });
-
             function formatDateWithAMPM(date) {
             const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
             const formattedDate = date.toLocaleString('en-US', options);

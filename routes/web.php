@@ -526,6 +526,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/MesinLipat/view/{id}', [ProductionJobSheet_MesinLipatController::class, 'view'])->name('mesin_lipat.view');
     Route::get('/Production/MesinLipat/edit/{id}', [ProductionJobSheet_MesinLipatController::class, 'edit'])->name('mesin_lipat.edit');
     Route::post('/Production/MesinLipat/update/{id}', [ProductionJobSheet_MesinLipatController::class, 'update'])->name('mesin_lipat.update');
+    Route::get('/Production/DigitalPrinting/print/{id}', [ProductionJobSheet_MesinLipatController::class, 'print'])->name('mesin_lipat.print');
     Route::get('/Production/MesinLipat/proses/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses'])->name('mesin_lipat.proses');
     Route::post('/Production/MesinLipat/proses_update/{id}', [ProductionJobSheet_MesinLipatController::class, 'proses_update'])->name('mesin_lipat.proses.update');
     Route::post('/Production/MesinLipat/Machine/Starter', [ProductionJobSheet_MesinLipatController::class, 'machine_starter'])->name('mesin_lipat.machine.starter');

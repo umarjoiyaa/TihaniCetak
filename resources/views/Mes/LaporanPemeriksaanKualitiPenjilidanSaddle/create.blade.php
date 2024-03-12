@@ -40,7 +40,17 @@
                                             <div class="form-group">
                                                 <div class="form-label">Sales Order No.</div>
                                                 <select name="sale_order" id="sale_order" class="form-control">
-                                                    <option value="" selected disabled>Select any Sale Order</option>
+                                                    @if (old('sale_order') != null)
+                                                    @php
+                                                        $name = App\Models\SaleOrder::find(old('sale_order'));
+                                                    @endphp
+                                                    <option value="{{ old('sale_order') }}" selected
+                                                        style="color: black; !important">
+                                                        {{ $name->order_no }}</option>
+                                                @else
+                                                    <option value="" selected disabled>Select any Sale Order
+                                                    </option>
+                                                @endif
 
                                                 </select>
                                             </div>
@@ -232,6 +242,8 @@
         }
 
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
+
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -262,13 +274,17 @@
                         return "Loading...";
                     }
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    if ($('#sale_order').data('id') == data.id) {
+                        return $('<option value=' + data.id + ' selected>' + data.order_no +
+                            '</option>');
+                    } else {
+                        return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    }
                 },
                 templateSelection: function(data) {
-                    return data.order_no || null;
+                    return data.text || "Select Sales Order No";
                 }
             });
-
             $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
