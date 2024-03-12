@@ -112,7 +112,15 @@
                                         </div>
                                     </div>
                                     <div class="col-md-4">
-                                        <div id="box1"></div>
+                                        <div id="box1">
+                                            @if (old('mesin') == "OTHERS")
+                                            <label for="" class="mesin_element">Lain-lain mesin (Sila nyatakan)</label>
+                                            <input type="text" class="form-control mesin_element" value="{{ old('mesin_others') }}" name="mesin_others">
+                                            @else
+                                            <label for="" style="display:none;" class="mesin_element">Lain-lain mesin (Sila nyatakan)</label>
+                                            <input type="text" class="form-control mesin_element" value="{{ old('mesin_others') }}" style="display:none;" name="mesin_others">
+                                            @endif
+                                        </div>
                                     </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4 mt-2">
@@ -232,7 +240,9 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for=""></label>
-                                        <div id="box"></div>
+                                        <div id="box">
+                                            <input type="text" class="form-control" name="text_print_cut_others" value="{{ old('text_print_cut_others') }}" @if (old('text_print_cut') == "OTHERS") @else style="display:none;" @endif>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -301,7 +311,9 @@
                                     </div>
                                     <div class="col-md-4 mt-2">
                                         <label for=""></label>
-                                        <div id="box4"></div>
+                                        <div id="box4">
+                                            <input type="text" class="form-control" name="cover_print_cut_others" value="{{ old('cover_print_cut_others') }}" @if (old('cover_print_cut') == "OTHERS") @else style="display:none;" @endif>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -679,59 +691,31 @@
         $(document).ready(function() {
             $('#printSelect').change(function() {
                 if ($(this).val() === "OTHERS") {
-                    var newInput = $("<input>", {
-                        type: "text",
-                        name: "text_print_cut_others",
-                        class: "form-control",
-                        id: "newInput",
-
-                    });
-
-                    // Clear existing content in #box and append the new input element
-                    $("#box").empty().append(newInput);
+                    $('input[name=text_print_cut_others]').css('display','');
                 } else {
-                    // Clear the content of #box if an option other than "OTHERS" is selected
-                    $("#box").empty();
+
+                    $('input[name=text_print_cut_others]').css('display','none');
+
                 }
             });
 
             $('#printSelect1').change(function() {
                 if ($(this).val() === "OTHERS") {
-                    var newInput = $("<input>", {
-                        type: "text",
-                        name: "cover_print_cut_others",
-                        class: "form-control",
-                        id: "newInput",
-
-                    });
-
-                    // Clear existing content in #box1 and append the new input element
-                    $("#box4").empty().append(newInput);
+                    $('input[name=cover_print_cut_others]').css('display','');
                 } else {
-                    // Clear the content of #box4 if an option other than "OTHERS" is selected
-                    $("#box4").empty();
+
+                    $('input[name=cover_print_cut_others]').css('display','none');
+
                 }
             });
 
             $('#Mesin1').change(function() {
                 if ($(this).val() === "OTHERS") {
-                    var newLabel = $("<label>", {
-                        for: "newInput",
-                        text: "Lain-lain mesin (Sila nyatakan)"
-                    });
-
-                    var newInput = $("<input>", {
-                        type: "text",
-                        name: "mesin_others",
-                        class: "form-control",
-                        id: "newInput",
-                    });
-
-                    // Clear existing content in #box1 and append the new label and input elements
-                    $("#box1").empty().append(newLabel, newInput);
+                    $('.mesin_element').css('display','');
                 } else {
-                    // Clear the content of #box1 if an option other than "OTHERS" is selected
-                    $("#box1").empty();
+
+                    $('.mesin_element').css('display','none');
+
                 }
             });
 

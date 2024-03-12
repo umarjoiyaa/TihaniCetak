@@ -64,25 +64,27 @@
                                             <tbody>
                                                 <tr>
                                                     <td>cover</td>
-                                                    <td><input type="checkbox" name="item_cover_availibility" @checked(old('item_cover_availibility') == 'on') @if(old('item_cover_availibility')) @else checked @endif
+
+                                                    <td><input type="checkbox" name="item_cover_availibility" @checked(old('item_cover_availibility') == 'on') @if(old('item_cover_availibility') == 'on')  @else checked @endif
                                                             id="Cover">
                                                     </td>
                                                 </tr>
                                                 <tr>
                                                     <td>End/Leaflet</td>
-                                                    <td><input type="checkbox" name="item_leaflet_availibility" @checked(old('item_leaflet_availibility') == 'on') @if(old('item_leaflet_availibility')) @else checked @endif
+                                                    <td><input type="checkbox" name="item_leaflet_availibility" @checked(old('item_leaflet_availibility') == 'on') @if(old('item_leaflet_availibility') == 'on')  @else checked @endif
                                                             id="Endpaper">
                                                     </td>
+
                                                 </tr>
                                                 <tr>
                                                     <td>Section No</td>
-                                                    <td><input type="number" class="form-control" value="1"
+                                                    <td><input type="number" class="form-control" value="{{ old('item_cover_text') }}"
                                                             name="item_cover_text" min="1"  id="Text"></td>
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        </div>
                                     </div>
-                                </div>
 
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
@@ -140,6 +142,7 @@
                                         <td class="cover"><input type="checkbox" class="Cover1"
                                                 onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
                                                 id="" value="na"  @checked(old('bahagianA[2][1]') == 'na')></td>
+                                               
                                         <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'ok')
                                                 onchange="handleCheckboxChange('Text1',this)" name="bahagianA[3][1]"
                                                 id="" value="ok"></td>

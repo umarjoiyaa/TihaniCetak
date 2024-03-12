@@ -260,7 +260,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <label for="">Seksyen No.</label>
-                                        <input type="number" name="seksyen_no" id="seksyen_no" class="form-control">
+                                        <input type="number" name="seksyen_no" value="{{ old('seksyen_no') }}" id="seksyen_no" class="form-control">
                                     </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4"></div>
@@ -279,41 +279,41 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> <input type="text" disabled name="parent_section_date"
+                                                    <td> <input type="text" @disabled(old('parent_action') == 'on') name="parent_section_date"
                                                         value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
                                                             class="form-control datepicker" id="datepicker_main"
                                                             pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                     <td>
-                                                        <select name="parent_section_machine" disabled id="mesin_section"
+                                                        <select name="parent_section_machine" @disabled(old('parent_action') == 'on') id="mesin_section"
                                                             class="form-control mesin_parent_section form-select">
                                                             <option value="-1" disabled selected>Select any Mesin
                                                             </option>
-                                                            <option value="SMZP (2C)">SMZP (2C)</option>
-                                                            <option value="RUOBI (4C)">RUOBI (4C)</option>
-                                                            <option value="KOMORI (8C)">KOMORI (8C)</option>
-                                                            <option value="PANTONE">PANTONE</option>
+                                                            <option value="SMZP (2C)" @selected(old('parent_section_machine') == 'SMZP (2C)')>SMZP (2C)</option>
+                                                            <option value="RUOBI (4C)" @selected(old('parent_section_machine') == 'RUOBI (4C)')>RUOBI (4C)</option>
+                                                            <option value="KOMORI (8C)" @selected(old('parent_section_machine') == 'KOMORI (8C)')>KOMORI (8C)</option>
+                                                            <option value="PANTONE" @selected(old('parent_section_machine') == 'PANTONE')>PANTONE</option>
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <select name="parent_section_side" disabled
+                                                        <select name="parent_section_side" @disabled(old('parent_action') == 'on')
                                                             class="form-control side_parent_section form-select"
                                                             id="side_">
                                                             <option value="-1" disabled selected>Select any Side
                                                             </option>
-                                                            <option value="A">A</option>
-                                                            <option value="B">B</option>
-                                                            <option value="A/B">A/B</option>
+                                                            <option value="A" @selected(old('parent_section_machine') == 'A')>A</option>
+                                                            <option value="B" @selected(old('parent_section_machine') == 'B')>B</option>
+                                                            <option value="A/B" @selected(old('parent_section_machine') == 'A/B')>A/B</option>
                                                         </select>
                                                     </td>
-                                                    <td><input type="number" disabled name="parent_section_last_print"
+                                                    <td><input type="number" @disabled(old('parent_action') == 'on') name="parent_section_last_print"
                                                             id="last_print_parent_section" class="form-control "
                                                             id=""></td>
-                                                    <td><input type="number" disabled
+                                                    <td><input type="number" @disabled(old('parent_action') == 'on')
                                                             name="parent_section_kuantiti_waste"
                                                             id="kuantiti_waste_parent_section" class="form-control"
                                                             id=""></td>
                                                     <td><label class="switch">
-                                                            <input type="checkbox" class="action" name="parent_action" checked>
+                                                            <input type="checkbox" class="action" name="parent_action" @checked(old('parent_action') == 'on') @if(old('parent_action')) @else checked @endif>
                                                             <span class="slider round"></span>
                                                         </label>
                                                     </td>
@@ -335,7 +335,38 @@
                                                     <th>Kuantiti Waste</th>
                                                 </tr>
                                             <tbody>
+                                                @if(old('section'))
 
+                                                @foreach (old('section') as $key => $value)
+                                                <tr>
+                                                    <td>{{$key}}</td>
+                                                    <td> <input type="text" name="section[{{$key}}][date]"
+                                                        class="form-control datepicker"
+                                                        id="datepicker{{$key}}" value="{{$value['date']}}" pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
+                                                    <td>
+                                                        <select name="section[{{$key}}][machine]" style="width:100%" id="mesin{{$key}}" class="form-control form-select mesin_section" id="machine">
+                                                            <option value="-1" selected>Select any Mesin</option>
+                                                            <option value="SMZP (2C)" @selected($value['machine'] == 'SMZP (2C)')>SMZP (2C)</option>
+                                                            <option value="RUOBI (4C)" @selected($value['machine'] == 'RUOBI (4C)')>RUOBI (4C)</option>
+                                                            <option value="KOMORI (8C)" @selected($value['machine'] == 'KOMORI (8C)')>KOMORI (8C)</option>
+                                                            <option value="PANTONE" @selected($value['machine'] == 'PANTONE')>PANTONE</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>
+                                                        <select name="section[{{$key}}][side]" style="width:100%" id="side{{$key}}" class="form-control form-select side_section" id="Ab,A/B">
+                                                            <option value="-1" selected>Select any Side</option>
+                                                            <option value="A" @selected($value['side'] == 'A')>A</option>
+                                                            <option value="B" @selected($value['side'] == 'B')>B</option>
+                                                            <option value="A/B" @selected($value['side'] == 'A/B')>A/B</option>
+                                                        </select>
+                                                    </td>
+                                                    <td><input type="number" name="section[{{$key}}][last_print]" value="{{$value['last_print']}}" class="form-control last_print_section"
+                                                            id=""></td>
+                                                    <td><input type="number" value="{{$value['kuantiti_waste']}}" name="section[{{$key}}][kuantiti_waste]" class="form-control kuantiti_waste_section"
+                                                            id=""></td>
+                                                </tr>
+                                                    @endforeach
+                                                @endif
                                             </tbody>
                                             </thead>
                                         </table>
@@ -361,31 +392,31 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_1" id="Input1"
+                                                    <td><input type="checkbox" name="binding_1" @checked(old('binding_1') == 'on') id="Input1"
                                                             class=" mr-5">Staple Bind</td>
                                                     <td>
-                                                        <select name="binding_1_val" disabled placeholder="select Supplier"
+                                                        <select name="binding_1_val" @disabled(old('binding_1') != 'on') placeholder="select Supplier"
                                                             id="staplebind" class="form-control form-select"
                                                             style="width:340px;">
                                                             <option value="" selected disabled></option>
-                                                            <option value="In-house">In-house</option>
+                                                            <option value="In-house" @selected(old('binding_1_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_1_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select>
                                                     </td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_2" id="Input2"
+                                                    <td><input type="checkbox" name="binding_2" @checked(old('binding_2') == 'on') id="Input2"
                                                             class=" mr-5">Perfect Bind</td>
-                                                    <td><select name="binding_2_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_2_val" @disabled(old('binding_2') != 'on') placeholder="select Supplier"
                                                         id="input2" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_2_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_2_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select>
@@ -395,92 +426,92 @@
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_3" id="Input3"
+                                                    <td><input type="checkbox" name="binding_3" @checked(old('binding_3') == 'on') id="Input3"
                                                             class=" mr-5">Lock Bind</td>
-                                                    <td><select name="binding_3_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_3_val" @disabled(old('binding_3') != 'on') placeholder="select Supplier"
                                                         id="input3" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_3_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_3_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_4" id="Input4"
+                                                    <td><input type="checkbox" name="binding_4" @checked(old('binding_4') == 'on') id="Input4"
                                                             class=" mr-5">Wire O
                                                     </td>
-                                                    <td><select name="binding_4_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_4_val" @disabled(old('binding_4') != 'on') placeholder="select Supplier"
                                                         id="input4" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house"  @selected(old('binding_4_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_4_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_5" id="Input5"
+                                                    <td><input type="checkbox" name="binding_5" @checked(old('binding_5') == 'on') id="Input5"
                                                             class=" mr-5">Hard Cover -
                                                         Square Back
                                                     </td>
-                                                    <td><select name="binding_5_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_5_val" @disabled(old('binding_5') != 'on') placeholder="select Supplier"
                                                         id="input5" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_5_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_5_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_6" id="Input6"
+                                                    <td><input type="checkbox" name="binding_6" @checked(old('binding_6') == 'on') id="Input6"
                                                             class=" mr-5">Hard Cover -
                                                         Round Back</td>
-                                                    <td><select name="binding_6_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_6_val" @disabled(old('binding_6') != 'on') placeholder="select Supplier"
                                                         id="input6" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_6_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_6_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_7" id="Input7"
+                                                    <td><input type="checkbox" name="binding_7" @checked(old('binding_7') == 'on') id="Input7"
                                                             class=" mr-5">Sewing
                                                     </td>
-                                                    <td><select name="binding_7_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_7_val" @disabled(old('binding_7') != 'on')  placeholder="select Supplier"
                                                         id="input7" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_7_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_7_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
                                                 </tr>
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_8" id="Input8"
+                                                    <td><input type="checkbox" name="binding_8" @checked(old('binding_8') == 'on') id="Input8"
                                                             class=" mr-5">Round corner
                                                     </td>
-                                                    <td><select name="binding_8_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_8_val" @disabled(old('binding_8') != 'on') placeholder="select Supplier"
                                                         id="input8" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_8_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_8_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
@@ -488,18 +519,18 @@
 
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="binding_9" id="Input9"
+                                                    <td><input type="checkbox" name="binding_9" @checked(old('binding_9') == 'on') id="Input9"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" disabled name="binding_9_val" id="input9"
-                                                            class="form-control w-50 float-right">
+                                                        <input type="text" @disabled(old('binding_9') != 'on') name="binding_9_val" id="input9"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_9_val') }}">
                                                     </td>
-                                                    <td><select name="binding_10_val" disabled placeholder="select Supplier"
+                                                    <td><select name="binding_10_val" @disabled(old('binding_9') != 'on') placeholder="select Supplier"
                                                         id="input10" class="form-control form-select"
                                                         style="width:340px;">
                                                         <option value="" selected disabled></option>
-                                                        <option value="In-house">In-house</option>
+                                                        <option value="In-house" @selected(old('binding_10_val') == 'In-house')>In-house</option>
                                                         @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                            <option value="{{ $supplier->id }}" @selected(old('binding_10_val') == $supplier->id)>{{ $supplier->name }}
                                                             </option>
                                                         @endforeach
                                                     </select></td>
@@ -769,7 +800,7 @@
 
             }
         })
-
+        var key = 1;
         $(document).on('change', '#seksyen_no', function() {
     var value = +$(this).val();
     var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;
@@ -799,11 +830,7 @@
                 continue; // Skip adding the row if the value already exists
             }
 
-            if ($('#child_table tbody tr').length > 0) {
-                var key = $('#child_table tbody tr').length + 1;
-            } else {
-                var key = 1;
-            }
+
 
             if ($('.action').prop('checked') != false) {
                 var disable = 'disabled';

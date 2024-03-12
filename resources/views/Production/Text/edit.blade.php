@@ -828,7 +828,7 @@
 
             }
         })
-
+        var key = 1;
         $(document).on('change', '#seksyen_no', function() {
     var value = +$(this).val();
     var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;
@@ -858,11 +858,7 @@
                 continue; // Skip adding the row if the value already exists
             }
 
-            if ($('#child_table tbody tr').length > 0) {
-                var key = $('#child_table tbody tr').length + 1;
-            } else {
-                var key = 1;
-            }
+
 
             if ($('.action').prop('checked') != false) {
                 var disable = '';

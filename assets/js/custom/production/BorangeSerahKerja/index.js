@@ -44,12 +44,12 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
-                data: 'sale_order.sale_order_qty',
-                name: 'sale_order.sale_order_qty',
+                data: 'qty',
+                name: 'qty',
             },
             {
-                data: 'sale_order.size',
-                name: 'sale_order.size',
+                data: 'size',
+                name: 'size',
             },
             {
                 data: 'status',
@@ -113,12 +113,12 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.description',
             },
             {
-                data: 'sale_order.sale_order_qty',
-                name: 'sale_order.sale_order_qty',
+                data: 'qty',
+                name: 'qty',
             },
             {
-                data: 'sale_order.size',
-                name: 'sale_order.size',
+                data: 'size',
+                name: 'size',
             },
             {
                 data: 'status',
