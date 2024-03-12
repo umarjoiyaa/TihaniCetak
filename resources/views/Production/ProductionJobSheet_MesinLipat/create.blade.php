@@ -83,9 +83,9 @@
                                         <label for="" class="form-label">Jenis Lipatan</label>
                                         <select name="jenis_lipatan" id="jenis" placeholder="" class="form-control form-select">
 
-                                            <option value="Prefect Bind">Prefect Bind</option>
-                                            <option value="Lock Bind">Lock Bind</option>
-                                            <option value="Staple Bind">Staple Bind</option>
+                                            <option value="Prefect Bind" @selected(old('jenis_lipatan') == "Prefect Bind")>Prefect Bind</option>
+                                            <option value="Lock Bind" @selected(old('jenis_lipatan') == "Lock Bind")>Lock Bind</option>
+                                            <option value="Staple Bind" @selected(old('jenis_lipatan') == "Staple Bind")>Staple Bind</option>
                                         </select>
                                     </div>
                                 </div>
@@ -95,8 +95,8 @@
                                     <div class="form-group">
                                         <label for="" class="form-label">Mesin</label>
                                         <select name="mesin" id="mesin" class="form-control form-select">
-                                            <option value="F1">F1</option>
-                                            <option value="F2">F2</option>
+                                            <option value="F1"  @selected(old('mesin') == "F1")>F1</option>
+                                            <option value="F2"  @selected(old('mesin') == "F2")>F2</option>
                                         </select>
                                     </div>
                                 </div>

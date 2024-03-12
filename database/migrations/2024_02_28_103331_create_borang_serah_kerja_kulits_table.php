@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('po_no')->nullable();
             $table->string('nama')->nullable();
+            $table->string('qty')->nullable();
+            $table->string('size')->nullable();
 
             //jenis Finishing code
             $table->string('jenis_1')->nullable();

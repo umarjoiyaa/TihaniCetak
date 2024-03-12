@@ -284,12 +284,12 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> <input type="text"  name="parent_section_date"
-                                                        value="{{ $text->parent_section_date }}"
+                                                    <td> <input type="text" disabled name="parent_section_date"
+                                                        value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
                                                             class="form-control datepicker" id="datepicker_main"
                                                             pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                     <td>
-                                                        <select name="parent_section_machine"  id="mesin_section"
+                                                        <select name="parent_section_machine" disabled id="mesin_section"
                                                             class="form-control mesin_parent_section form-select">
                                                             <option value="-1" disabled selected>Select any Mesin
                                                             </option>
@@ -300,7 +300,7 @@
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <select name="parent_section_side"
+                                                        <select name="parent_section_side" disabled
                                                             class="form-control side_parent_section form-select"
                                                             id="side_section">
                                                             <option value="-1" disabled selected>Select any Side
@@ -310,10 +310,10 @@
                                                             <option value="A/B" >A/B</option>
                                                         </select>
                                                     </td>
-                                                    <td><input type="number"  name="parent_section_last_print"
+                                                    <td><input type="number" disabled name="parent_section_last_print"
                                                             id="last_print_parent_section"  class="form-control "
                                                             id=""></td>
-                                                    <td><input type="number"
+                                                    <td><input type="number" disabled
                                                             name="parent_section_kuantiti_waste"
                                                             id="kuantiti_waste_parent_section"  class="form-control"
                                                             ></td>
@@ -828,7 +828,7 @@
 
             }
         })
-
+        var key = 1;
         $(document).on('change', '#seksyen_no', function() {
     var value = +$(this).val();
     var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;
@@ -858,11 +858,7 @@
                 continue; // Skip adding the row if the value already exists
             }
 
-            if ($('#child_table tbody tr').length > 0) {
-                var key = $('#child_table tbody tr').length + 1;
-            } else {
-                var key = 1;
-            }
+
 
             if ($('.action').prop('checked') != false) {
                 var disable = '';

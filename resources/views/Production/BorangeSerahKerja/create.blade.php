@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Po No</label>
-                                    <input type="text"  name="po_no" id="" class="form-control">
+                                    <input type="text"  name="po_no"  value="{{ old('po_no') }}" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -62,7 +62,7 @@
                                         <label class="form-label" for="">Nama Subkontraktor</label>
                                         <select name="nama" id="nama" class="form-control form-select">
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}">{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}" @selected(old('nama') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                         </select>
@@ -71,16 +71,16 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="form-label" for="">Kuantiti </label>
-                                        <input type="text" readonly name="" id="sale_order_qty"
+                                        <div class="label">Kuantiti </div>
+                                        <input type="number"  name="qty" value="{{ old('qty') }}"
                                         class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="form-label" for="">Saiz Kertas</label>
-                                        <input type="text"  name="" readonly id="size"
+                                        <div class="label">Saiz Kertas</div>
+                                        <input type="number"  name="size" value="{{ old('size') }}"
                                             class="form-control">
                                     </div>
                                 </div>
@@ -100,16 +100,16 @@
                             <div class="row mt-4">
                                 <div class="col-md-6">
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_1" id="jenis_1"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_1" @checked(old('jenis_1') == 'on') id="jenis_1"></div>
                                         <div class="col-md-4">
                                             <h5>UV+Texture Emboss</h5>
                                         </div>
-                                        <div class="col-md-6"><input type="text" disabled  name="jenis_input_1" id="jenis_input_1"
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_1') != 'on')  value="{{ old('jenis_input_1') }}" name="jenis_input_1" id="jenis_input_1"
                                                 class="form-control"></div>
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_2" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" @checked(old('jenis_2') == 'on') name="jenis_2" id=""></div>
                                         <div class="col-md-4">
                                             <h5>Matt Lamination</h5>
                                         </div>
@@ -117,7 +117,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_3" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_3" @checked(old('jenis_3') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Spot Miraval</h5>
 
@@ -126,7 +126,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_4" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_4" @checked(old('jenis_4') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Emboss</h5>
                                         </div>
@@ -134,7 +134,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_5" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_5" @checked(old('jenis_5') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>UV Vanish</h5>
                                         </div>
@@ -142,7 +142,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_6" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_6" @checked(old('jenis_6') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Creasing Line</h5>
                                         </div>
@@ -150,7 +150,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_7" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_7" @checked(old('jenis_7') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Perforation</h5>
                                         </div>
@@ -158,7 +158,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_8" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_8" @checked(old('jenis_8') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Punch Hole</h5>
                                         </div>
@@ -166,18 +166,18 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_9" id="jenis_9"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_9" @checked(old('jenis_9') == 'on') id="jenis_9"></div>
                                         <div class="col-md-3">
                                             <h5>Others</h5>
                                         </div>
-                                        <div class="col-md-6"><input type="text" disabled name="jenis_input_9" id="jenis_input_9"
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_9') != 'on') value="{{ old('jenis_input_9') }}" name="jenis_input_9" id="jenis_input_9"
                                                 class="form-control"></div>
                                     </div>
 
                                 </div>
                                 <div class="col-md-6">
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_10" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_10" @checked(old('jenis_10') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Gloss Lamination</h5>
                                         </div>
@@ -185,7 +185,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_11" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_11" @checked(old('jenis_11') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Spot UV</h5>
                                         </div>
@@ -193,17 +193,17 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_12" id="jenis_12"></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_12" @checked(old('jenis_12') == 'on') id="jenis_12"></div>
                                         <div class="col-md-4">
                                             <h5>Hot Stamping</h5>
                                         </div>
-                                        <div class="col-md-6"><input type="text" disabled  name="jenis_input_12" id="jenis_input_12"
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_12') != 'on') value="{{ old('jenis_input_12') }}"  name="jenis_input_12" id="jenis_input_12"
                                                 class="form-control"></div>
 
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_13" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_13" @checked(old('jenis_13') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Deboss</h5>
                                         </div>
@@ -211,7 +211,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_14" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_14" @checked(old('jenis_14') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Spot Corse UV</h5>
                                         </div>
@@ -219,7 +219,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_15" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_15" @checked(old('jenis_15') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Die Cut</h5>
                                         </div>
@@ -227,7 +227,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_16" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_16" @checked(old('jenis_16') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Numbering</h5>
                                         </div>
@@ -235,7 +235,7 @@
                                     </div>
 
                                     <div class="row">
-                                        <div class="col-md-1"><input type="checkbox" name="jenis_17" id=""></div>
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_17" @checked(old('jenis_17') == 'on') id=""></div>
                                         <div class="col-md-4">
                                             <h5>Round Corner</h5>
                                         </div>
@@ -254,13 +254,13 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-2"><input type="checkbox" name="jenis_18" id="jenis_18"><span
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_18" @checked(old('jenis_18') == 'on') id="jenis_18"><span
                                                 class="ml-3">Emboss</span></div>
-                                        <div class="col-md-2"><input type="checkbox" name="jenis_19" id="jenis_19"><span
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_19" @checked(old('jenis_19') == 'on') id="jenis_19"><span
                                                 class="ml-3">Deboss</span></div>
-                                        <div class="col-md-2"><input type="checkbox" name="jenis_20" id="jenis_20"><span
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_20" @checked(old('jenis_20') == 'on') id="jenis_20"><span
                                                 class="ml-3">Hotstamping</span></div>
-                                        <div class="col-md-2"><input type="checkbox" name="jenis_21" id="jenis_21"><span
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_21" @checked(old('jenis_21') == 'on') id="jenis_21"><span
                                                 class="ml-3">Spot Uv</span></div>
 
                                     </div>
@@ -269,9 +269,9 @@
                             <div class="row mt-4">
                                 <div class="col-md-12">
                                     <div class="row">
-                                        <div class="col-md-2"><input type="checkbox" name="jenis_22" id="jenis_22"><span
-                                                class="ml-2">Lain-lain</span></div>
-                                        <div class="col-md-3" style="margin-left:-100px;"><input disabled type="text" name="jenis_input_22" id="jenis_input_22"
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_22" @checked(old('jenis_22') == 'on') id="jenis_22"><span
+                                                class="ml-5">Lain-lain</span></div>
+                                        <div class="col-md-3"><input @disabled(old('jenis_22') != 'on') value="{{ old('jenis_input_22') }}" type="text" name="jenis_input_22" id="jenis_input_22"
                                                 class="form-control"></div>
                                     </div>
                                 </div>
@@ -284,7 +284,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <label for="">Siap Finishing hantar ke </label>
-                                    <input type="text" class="form-control"  name="siap_1" id="siap_1">
+                                    <input type="text" class="form-control" value="{{ old('siap_1') }}" name="siap_1" id="siap_1">
                                 </div>
                                 <div class="col-md-4">
                                     <label for="">Dateline:</label>
@@ -412,8 +412,7 @@
                     success: function(data) {
                         $('#tajuk').val(data.sale_order.description);
                         $('#customer').val(data.sale_order.customer);
-                        $('#size').val(data.sale_order.size);
-                        $('#sale_order_qty').val(data.sale_order.sale_order_qty);
+
                     }
                 });
             });

@@ -272,64 +272,6 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
                                 <div class="table-responsive mt-3">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-
-                                                <th>Date</th>
-                                                <th>Machine</th>
-                                                <th>Side</th>
-                                                <th>last Print</th>
-                                                <th>Kuantiti Waste</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> <input type="text" disabled name="section_date"
-                                                        value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}"
-                                                        class="form-control datepicker" id="datepicker1"
-                                                        pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
-                                                <td>
-                                                    <select name="section_machine" disabled id="mesin_section"
-                                                        class="form-control mesin_parent_section form-select">
-                                                        <option value="-1" disabled selected>Select any Mesin
-                                                        </option>
-                                                        <option value="SMZP (2C)">SMZP (2C)</option>
-                                                        <option value="RUOBI (4C)">RUOBI (4C)</option>
-                                                        <option value="KOMORI (8C)">KOMORI (8C)</option>
-                                                        <option value="PANTONE">PANTONE</option>
-                                                    </select>
-                                                </td>
-                                                <td>
-                                                    <select name="section_side" disabled
-                                                        class="form-control side_parent_section form-select"
-                                                        id="side_">
-                                                        <option value="-1" disabled selected>Select any Side
-                                                        </option>
-                                                        <option value="A">A</option>
-                                                        <option value="B">B</option>
-                                                        <option value="A/B">A/B</option>
-                                                    </select>
-                                                </td>
-                                                <td><input type="number" disabled name="section_last_print"
-                                                        id="last_print_parent_section" class="form-control "
-                                                        id=""></td>
-                                                <td><input type="number" disabled name="section_kuantiti_waste"
-                                                        id="kuantiti_waste_parent_section" class="form-control"
-                                                        id=""></td>
-                                                <td><label class="switch">
-                                                        <input type="checkbox" class="action" name="action" checked>
-                                                        <span class="slider round"></span>
-                                                    </label>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-
-
-                                </div>
-                                <div class="table-responsive">
                                     <table class="table table-bordered" id="child_table">
                                         <thead>
                                             <tr>

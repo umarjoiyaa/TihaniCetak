@@ -75,16 +75,16 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="" class="form-label">Kuantiti </label>
-                                        <input type="text" readonly name="" id="sale_order_qty"
+                                        <div class="label">Kuantiti </div>
+                                        <input type="text"  name="qty" value="{{ $borange_serah_kerja->qty }}"
                                         class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="" class="form-label">Saiz Kertas</label>
-                                        <input type="text"  name="" readonly id="size"
+                                        <div class="label">Saiz Kertas</div>
+                                        <input type="text"  name="size" value="{{ $borange_serah_kerja->size }}"
                                             class="form-control">
                                     </div>
                                 </div>

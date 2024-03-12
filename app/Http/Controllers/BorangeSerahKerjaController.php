@@ -23,7 +23,7 @@ class BorangeSerahKerjaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = BorangSerahKerjaKulit::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date')->with('sale_order',"supplier");
+            $query = BorangSerahKerjaKulit::select('id', 'po_no', 'qty','size' , 'nama', 'sale_order_id', 'status','date')->with('sale_order',"supplier");
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -41,12 +41,8 @@ class BorangeSerahKerjaController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                        })
-                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                            $query->where('size', 'like', '%' . $searchLower . '%');
-                        })
+                        ->orWhere('qty', 'like', '%' . $searchLower . '%')
+                        ->orWhere('size', 'like', '%' . $searchLower . '%')
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -61,8 +57,8 @@ class BorangeSerahKerjaController extends Controller
                     2 => 'nama',
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
-                    5 => 'sale_order_id',
-                    6 => 'sale_order_id',
+                    5 => 'qty',
+                    6 => 'size',
                     7 => 'status',
                     // Add more columns as needed
                 ];
@@ -107,14 +103,10 @@ class BorangeSerahKerjaController extends Controller
                                 });
                                 break;
                             case 5:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('qty', 'like', '%' . $searchLower . '%');
                                 break;
                             case 6:
-                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('size', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('size', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
@@ -191,7 +183,7 @@ class BorangeSerahKerjaController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = BorangSerahKerjaKulit::select('id', 'po_no', 'nama', 'sale_order_id', 'status','date')->with('sale_order','supplier');
+            $query = BorangSerahKerjaKulit::select('id', 'po_no', 'qty','size' , 'nama', 'sale_order_id', 'status','date')->with('sale_order',"supplier");
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -209,12 +201,8 @@ class BorangeSerahKerjaController extends Controller
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('description', 'like', '%' . $searchLower . '%');
                     })
-                    ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                        $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
-                    })
-                    ->orWhereHas('sale_order', function ($query) use ($searchLower) {
-                        $query->where('size', 'like', '%' . $searchLower . '%');
-                    })
+                    ->orWhere('qty', 'like', '%' . $searchLower . '%')
+                    ->orWhere('size', 'like', '%' . $searchLower . '%')
                     ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -226,8 +214,8 @@ class BorangeSerahKerjaController extends Controller
                 2 => 'nama',
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
-                5 => 'sale_order_id',
-                6 => 'sale_order_id',
+                5 => 'qty',
+                6 => 'size',
                 7 => 'status',
                 // Add more columns as needed
             ];
@@ -342,9 +330,11 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->sale_order_id = $request->sale_order;
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
+        $borange_serah_kerja->qty = $request->qty;
+        $borange_serah_kerja->size = $request->size;
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->siap_1 = $request->siap_1;
-        
+
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->created_by = Auth::user()->id;
 
@@ -417,8 +407,10 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->sale_order_id = $request->sale_order;
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
+        $borange_serah_kerja->qty = $request->qty;
+        $borange_serah_kerja->size = $request->size;
         $borange_serah_kerja->po_no = $request->po_no;
-        
+
         $borange_serah_kerja->siap_1 = $request->siap_1;
 
         $borange_serah_kerja->date_line = $request->date_line;

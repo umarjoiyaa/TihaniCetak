@@ -47,9 +47,19 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
-                                                <option value="" selected disabled>Select any Sale Order</option>
-
+                                            <select name="sale_order" data-id="{{ old('sale_order') }}" id="sale_order"
+                                                class="form-control">
+                                                @if (old('sale_order') != null)
+                                                    @php
+                                                        $name = App\Models\SaleOrder::find(old('sale_order'));
+                                                    @endphp
+                                                    <option value="{{ old('sale_order') }}" selected
+                                                        style="color: black; !important">
+                                                        {{ $name->order_no }}</option>
+                                                @else
+                                                    <option value="" selected disabled>Select any Sale Order
+                                                    </option>
+                                                @endif
                                             </select>
                                         </div>
                                     </div>
@@ -71,8 +81,8 @@
                                         <div class="form-group">
                                             <label for="">Mesin</label>
                                             <select name="mesin" class="form-select">
-                                                <option value="F1" @selectect(old('mesin') == "F1")>F1</option>
-                                                <option value="F2" @selectect(old('mesin') == "F2")>F2</option>
+                                                <option value="F1" @selectect(old('mesin') == 'F1')>F1</option>
+                                                <option value="F2" @selectect(old('mesin') == 'F2')>F2</option>
                                             </select>
                                         </div>
                                     </div>
@@ -122,24 +132,24 @@
                                     </thead>
                                     <tbody>
                                         @if (old('pengesahan'))
+                                            @foreach (old('pengesahan') as $key => $detail)
+                                                <tr>
 
-                                        @foreach (old('pengesahan') as $key => $detail)
-                                        <tr>
-
-                                            <td>{{ $detail[1] ?? '' }} <input type="hidden" value="{{ $detail[1] ?? '' }}"
-                                                    name="pengesahan[{{ $key + 1 }}][1]">
-                                            </td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][2]"
-                                                    @checked($detail[2] ?? '' != null)></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][3]"
-                                                    @checked($detail[3] ?? '' != null) id=""></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][4]"
-                                                    @checked($detail[4] ?? '' != null) id=""></td>
-                                            <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][5]"
-                                                    @checked($detail[5] ?? '' != null) id=""></td>
-                                        </tr>
-                                    @endforeach
-                                    @endif
+                                                    <td>{{ $detail[1] ?? '' }} <input type="hidden"
+                                                            value="{{ $detail[1] ?? '' }}"
+                                                            name="pengesahan[{{ $key + 1 }}][1]">
+                                                    </td>
+                                                    <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][2]"
+                                                            @checked($detail[2] ?? '' != null)></td>
+                                                    <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][3]"
+                                                            @checked($detail[3] ?? '' != null) id=""></td>
+                                                    <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][4]"
+                                                            @checked($detail[4] ?? '' != null) id=""></td>
+                                                    <td><input type="checkbox" name="pengesahan[{{ $key + 1 }}][5]"
+                                                            @checked($detail[5] ?? '' != null) id=""></td>
+                                                </tr>
+                                            @endforeach
+                                        @endif
 
                                     </tbody>
                                 </table>
@@ -167,23 +177,23 @@
                                         <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
                                             role="tablist">
                                             @if (old('section'))
-                                            @php
-                                                dd(old('section'))
-                                            @endphp
-                                            @foreach (old('section') as $key1 => $section)
-                                            <li class="nav-item">
-                                                <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
-                                                    id="tab{{ $section->row }}" data-toggle="tab"
-                                                    href="#Seksyen{{ $key }}_{{ $section->row }}"
-                                                    role="tab"
-                                                    aria-controls="Seksyen{{ $section->row }}_{{ $key }}"
-                                                    aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
-                                                    {{ $section->row }}</a>
-                                                <input type="hidden" name="section[{{ $section->row }}]"
-                                                    value="Seksyen {{ $section->row }}">
-                                            </li>
-                                        @endforeach
-                                        @endif
+                                                @php
+                                                    dd(old('section'));
+                                                @endphp
+                                                @foreach (old('section') as $key1 => $section)
+                                                    <li class="nav-item">
+                                                        <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
+                                                            id="tab{{ $section->row }}" data-toggle="tab"
+                                                            href="#Seksyen{{ $key }}_{{ $section->row }}"
+                                                            role="tab"
+                                                            aria-controls="Seksyen{{ $section->row }}_{{ $key }}"
+                                                            aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
+                                                            {{ $section->row }}</a>
+                                                        <input type="hidden" name="section[{{ $section->row }}]"
+                                                            value="Seksyen {{ $section->row }}">
+                                                    </li>
+                                                @endforeach
+                                            @endif
                                         </ul>
                                     </div>
                                     <div class="col-md-10">
@@ -292,6 +302,7 @@
 
         // start
         $(document).ready(function() {
+            $('#sale_order').trigger('change');
 
             var sectionNumber = 1;
             var sectionRanges = {}; // Map to store the ranges for each section
@@ -463,14 +474,14 @@
                 var table = $('#tableSection tbody');
                 var rows = table.find('tr').get();
 
-                rows.sort(function (a, b) {
+                rows.sort(function(a, b) {
                     var keyA = parseInt($(a).find('td:first-child').text().match(/\d+/)[0]);
                     var keyB = parseInt($(b).find('td:first-child').text().match(/\d+/)[0]);
 
                     return keyA - keyB;
                 });
 
-                $.each(rows, function (index, row) {
+                $.each(rows, function(index, row) {
                     table.append(row);
                 });
 
@@ -478,19 +489,19 @@
 
 
                 var $myTab = $('#myTab');
-                    var tabs = $myTab.find('li').get();
+                var tabs = $myTab.find('li').get();
 
-                    tabs.sort(function (a, b) {
-                        var keyA = parseInt($(a).find('a').text().match(/\d+/)[0]);
-                        var keyB = parseInt($(b).find('a').text().match(/\d+/)[0]);
+                tabs.sort(function(a, b) {
+                    var keyA = parseInt($(a).find('a').text().match(/\d+/)[0]);
+                    var keyB = parseInt($(b).find('a').text().match(/\d+/)[0]);
 
-                        return keyA - keyB;
-                    });
+                    return keyA - keyB;
+                });
 
-                    // Detach and reattach the sorted tabs
-                    $.each(tabs, function (index, tab) {
-                        $myTab.append(tab);
-                    });
+                // Detach and reattach the sorted tabs
+                $.each(tabs, function(index, tab) {
+                    $myTab.append(tab);
+                });
 
 
 
@@ -528,10 +539,15 @@
                         return "Loading...";
                     }
 
-                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    if ($('#sale_order').data('id') == data.id) {
+                        return $('<option value=' + data.id + ' selected>' + data.order_no +
+                            '</option>');
+                    } else {
+                        return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    }
                 },
                 templateSelection: function(data) {
-                    return data.order_no || "Select Sales Order No";
+                    return data.text || "Select Sales Order No";
                 }
             });
 
@@ -577,19 +593,19 @@
                 $(this).closest('tr').find('.check_operator').val(combinedValue);
             });
 
-            $('#sale_order').on('change', function() {
-                const id = $(this).val();
-                $.ajax({
-                    type: 'GET',
-                    url: '{{ route('sale_order.detail.get') }}',
-                    data: {
-                        "id": id
-                    },
-                    success: function(data) {
-                        $('#kod_buku').val(data.kod_buku);
-                        $('#tajuk').val(data.description);
-                    }
-                });
+        });
+        $('#sale_order').on('change', function() {
+            const id = $(this).val();
+            $.ajax({
+                type: 'GET',
+                url: '{{ route('sale_order.detail.get') }}',
+                data: {
+                    "id": id
+                },
+                success: function(data) {
+                    $('#kod_buku').val(data.kod_buku);
+                    $('#tajuk').val(data.description);
+                }
             });
         });
     </script>
