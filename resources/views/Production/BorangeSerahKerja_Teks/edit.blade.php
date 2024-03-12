@@ -179,7 +179,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5 style="padding-left:px;">Others</h5>
+                                                        <h5  style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -234,7 +234,7 @@
                                                     @checked($borange_serah_kerja_teks->jenis_10 == 'on') id="Ribbon"></div>
                                             <div class="col-md-6">
                                                 <div class="row d-flex">
-                                                        <h5 >Ribbon </h5>
+                                                        <h5 class="ml-2">Ribbon </h5>
                                                         <div class="boxinput mx-1" style="width:100px;">
                                                             @if ($borange_serah_kerja_teks->jenis_10 == 'on')
                                                                 <input type="text" name="jenis_input_10"
@@ -289,7 +289,7 @@
                                                     @checked($borange_serah_kerja_teks->jenis_14 == 'on') id="Chipboard"></div>
                                             <div class="col-md-6">
                                                 <div class="row d-flex">
-                                                        <h5>Chipboard</h5>
+                                                        <h5 class="ml-2">Chipboard</h5>
                                                         <div id="chipinput1" class="mx-1" style="width:100px;">
                                                             @if ($borange_serah_kerja_teks->jenis_14 == 'on')
                                                                 <input type="text" name="jenis_input_14"

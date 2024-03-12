@@ -38,7 +38,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <label for="" class="form-label">Sales Order No.</label>
                                             <select name="sale_order" data-id="{{ $cover_end_paper->sale_order_id }}"
                                                 id="sale_order" class="form-control">
                                                 <option value="{{ $cover_end_paper->sale_order_id }}" selected
@@ -50,7 +50,7 @@
                                     </div>
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Tajuk</div>
+                                            <label for="" class="form-label">Tajuk</label>
                                             <input type="text" readonly name="" id="tajuk"
                                                 class="form-control">
                                         </div>
@@ -58,7 +58,7 @@
 
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Kod Buku</div>
+                                            <label for="" class="form-label">Kod Buku</label>
                                             <input type="text" readonly id="kod_buku" class="form-control">
                                         </div>
                                     </div>
@@ -66,7 +66,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Pelanggan</div>
+                                            <label for="" class="form-label">Pelanggan</label>
                                             <input type="text" readonly name="" id="customer"
                                                 class="form-control">
                                         </div>
@@ -74,7 +74,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti So </div>
+                                            <label for="" class="form-label">Kuantiti So </label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control">
                                         </div>
@@ -82,7 +82,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti Waste</div>
+                                            <label for="" class="form-label">Kuantiti Waste</label>
                                             <input type="text" name="kuantiti_waste"
                                                 value="{{ $cover_end_paper->kuantiti_waste }}" id=""
                                                 class="form-control">
@@ -93,7 +93,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jenis : </div>
+                                            <label for="" class="form-label">Jenis : </label>
                                             <select name="jenis" id="printCutSelect1" class="form-control form-select">
                                                 <option value="Cover" @selected($cover_end_paper->jenis == 'Cover')>Cover</option>
                                                 <option value="Endpaper" @selected($cover_end_paper->jenis == 'Endpaper')>Endpaper</option>
@@ -107,7 +107,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <label for="" class="form-label">Mesin</label>
                                             <select name="mesin" id="Mesin2" class="form-control form-select">
                                                 <option value="SMZP (2C)" @selected($cover_end_paper->mesin == 'SMZP (2C)')>SMZP (2C)</option>
                                                 <option value="RYOBI (4C)" @selected($cover_end_paper->mesin == 'RYOBI (4C)')>RYOBI (4C)</option>
@@ -124,14 +124,14 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kertas: </div>
+                                            <label for="" class="form-label">Kertas: </label>
                                             <input type="text" name="kertas" value="{{ $cover_end_paper->kertas }}"
                                                 id="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Saiz Potong:</div>
+                                            <label for="" class="form-label">Saiz Potong:</label>
                                             <input type="text" name="saiz_potong"
                                                 value="{{ $cover_end_paper->saiz_potong }}" id=""
                                                 class="form-control">

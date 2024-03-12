@@ -77,14 +77,14 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label for="" class="form-label">Sales Order No.</label>
                                         <input type="text" readonly class="form-control"
                                             value="{{ $staple_bind->sale_order->order_no }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label"> Tajuk </div>
+                                        <label for="" class="form-label"> Tajuk </label>
                                         <input type="text" readonly name="" id="tajuk" class="form-control"
                                             value="{{ $staple_bind->sale_order->description }}">
                                     </div>
@@ -92,14 +92,14 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label for="" class="form-label">Kod Buku</label>
                                         <input type="text" readonly id="kod_buku" class="form-control"
                                             value="{{ $staple_bind->sale_order->kod_buku }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Pelanggan</div>
+                                        <label for="" class="form-label">Pelanggan</label>
                                         <input type="text" readonly name="" id="customer" class="form-control"
                                             value="{{ $staple_bind->sale_order->customer }}">
                                     </div>
@@ -107,7 +107,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti</div>
+                                        <label for="" class="form-label">Kuantiti</label>
                                         <input type="text" readonly name="" id="sale_order_qty"
                                             class="form-control" value="{{ $staple_bind->sale_order->sale_order_qty }}">
                                     </div>
@@ -115,7 +115,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jumlah Seksyen</div>
+                                        <label for="" class="form-label">Jumlah Seksyen</label>
                                         <input type="text" readonly id="jumlah" class="form-control"
                                             value="{{ $staple_bind->senari_semak->item_cover_text ?? 0 }}">
                                     </div>
@@ -123,7 +123,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Saiz Buku</div>
+                                        <label for="" class="form-label">Saiz Buku</label>
                                         <input type="text" readonly id="size" class="form-control"
                                             value="{{ $staple_bind->sale_order->size }}">
                                     </div>
@@ -131,7 +131,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <label for="" class="form-label">Mesin</label>
                                         <input type="text" readonly class="form-control"
                                             value="{{ $staple_bind->mesin }}" id="machine">
                                     </div>

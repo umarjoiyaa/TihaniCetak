@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Disediakan Oleh</div>
+                                        <label class="form-label" for="">Disediakan Oleh</label>
                                         <input type="text" readonly value="{{ Auth::user()->full_name }}" class="form-control">
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label"> Sales Order No </div>
+                                        <label class="form-label" for=""> Sales Order No </label>
                                         <select name="sale_order" id="sale_order" class="form-control">
 
                                         </select>
@@ -50,7 +50,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label class="form-label" for="">Tajuk</label>
                                         <input type="text" readonly name="" id="tajuk"
                                                 class="form-control">
                                     </div>
@@ -59,7 +59,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Nama Subkontraktor</div>
+                                        <label class="form-label" for="">Nama Subkontraktor</label>
                                         <select name="nama" id="nama" class="form-control form-select">
                                                             @foreach ($suppliers as $supplier)
                                                                 <option value="{{ $supplier->id }}">{{ $supplier->name }}
@@ -71,7 +71,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti </div>
+                                        <label class="form-label" for="">Kuantiti </label>
                                         <input type="text" readonly name="" id="sale_order_qty"
                                         class="form-control">
                                     </div>
@@ -79,7 +79,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Saiz Kertas</div>
+                                        <label class="form-label" for="">Saiz Kertas</label>
                                         <input type="text"  name="" readonly id="size"
                                             class="form-control">
                                     </div>

@@ -159,7 +159,7 @@
 
                                         <div class="row">
                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-5">
                                                 <h5>Others</h5>
                                             </div>
 
@@ -202,7 +202,7 @@
                                         <div class="row">
                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
                                             <div class="col-md-6">
-                                                <h5>Ribbon  </h5>
+                                                <h5 >Ribbon  </h5>
                                             </div>
 
                                         </div>
@@ -233,7 +233,7 @@
                                         <div class="row">
                                             <div class="col-md-1"><input type="checkbox" name="" id=""></div>
                                             <div class="col-md-6">
-                                                <h5>Chipboard</h5>
+                                                <h5 >Chipboard</h5>
                                             </div>
                                         </div>
                                     </div>
@@ -284,7 +284,7 @@
                     </div>
                 </div>
 
-                <a href="{{route('BorangeSerahKerja_Teks.index')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
+                <a href="{{route('borange_serah_kerja_teks ')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>
         </div>
     

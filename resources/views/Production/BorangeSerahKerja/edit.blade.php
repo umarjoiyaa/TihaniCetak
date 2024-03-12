@@ -32,7 +32,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Disediakan Oleh</div>
+                                        <div for="" class="form-label">Disediakan Oleh</div>
                                         <input type="text" readonly value="{{ Auth::user()->full_name }}" class="form-control">
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label"> Sales Order No </div>
+                                        <label for="" class="form-label"> Sales Order No </label>
                                         <select name="sale_order" data-id="{{ $borange_serah_kerja->sale_order_id }}"
                                             id="sale_order" class="form-control">
                                             <option value="{{ $borange_serah_kerja->sale_order_id }}" selected
@@ -54,7 +54,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label for="" class="form-label">Tajuk</label>
                                         <input type="text" readonly name="" id="tajuk"
                                                 class="form-control">
                                     </div>
@@ -63,7 +63,7 @@
                             <div class="row mt-2">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Nama Subkontraktor</div>
+                                        <label for="" class="form-label">Nama Subkontraktor</label>
                                         <select name="nama" id="nama" class="form-control  form-select" data-id="{{ $borange_serah_kerja->nama }}">
                                                     @foreach ($suppliers as $supplier)
                                                         <option value="{{ $supplier->id }}" @selected($borange_serah_kerja->nama == $supplier->id)>{{ $supplier->name }}
@@ -75,7 +75,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti </div>
+                                        <label for="" class="form-label">Kuantiti </label>
                                         <input type="text" readonly name="" id="sale_order_qty"
                                         class="form-control">
                                     </div>
@@ -83,7 +83,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Saiz Kertas</div>
+                                        <label for="" class="form-label">Saiz Kertas</label>
                                         <input type="text"  name="" readonly id="size"
                                             class="form-control">
                                     </div>

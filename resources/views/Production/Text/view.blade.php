@@ -96,7 +96,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label for="" class="form-label">Sales Order No.</label>
                                         <select name="sale_order" data-id="{{ $text->sale_order_id }}" id="sale_order"
                                             class="form-control">
                                             <option value="{{ $text->sale_order_id }}" selected
@@ -108,34 +108,34 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label for="" class="form-label">Kod Buku</label>
                                         <input type="text" readonly id="kod_buku" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label"> Tajuk</div>
+                                        <label for="" class="form-label"> Tajuk</label>
                                         <input type="text" id="tajuk" readonly class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Pelanggan</div>
+                                        <label for="" class="form-label">Pelanggan</label>
                                         <input type="text" readonly id="customer" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti So </div>
+                                        <label for="" class="form-label">Kuantiti So </label>
                                         <input type="text" readonly id="sale_order_qty" class="form-control">
                                     </div>
                                 </div>
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti Waste</div>
+                                        <label for="" class="form-label">Kuantiti Waste</label>
                                         <input type="number" readonly name="kuantiti_waste" value="{{ $text->kuantiti_waste }}"
                                             class="form-control">
                                     </div>
@@ -143,7 +143,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Lebihan Stok</div>
+                                        <label for="" class="form-label">Lebihan Stok</label>
                                         <input type="number" id="extra_stock" class="form-control">
                                     </div>
                                 </div>
@@ -152,7 +152,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <label for="" class="form-label">Mesin</label>
                                         <select name="mesin" id="mesin" class="form-control form-select">
                                             <option value="SMZP (2C)" @selected($text->mesin == 'SMZP (2C)')>SMZP (2C)</option>
                                             <option value="RUOBI (4C)" @selected($text->mesin == 'RUOBI (4C)')>RUOBI (4C)</option>
@@ -165,14 +165,14 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kertas: </div>
+                                        <label for="" class="form-label">Kertas: </label>
                                         <input type="text" name="kertas" value="{{ $text->kertas }}"
                                             class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Saiz Potong:</div>
+                                        <label for="" class="form-label">Saiz Potong:</label>
                                         <input type="text" name="saiz_potong" value="{{ $text->saiz_potong }}"
                                             class="form-control">
                                     </div>

@@ -84,7 +84,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <label for="" class="form-label">Sales Order No.</label>
                                             <input type="text" readonly name=""
                                                 value="{{ $cover_end_paper->sale_order->order_no }}" id=""
                                                 class="form-control">
@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Tajuk</div>
+                                            <label for="" class="form-label">Tajuk</label>
                                             <input type="text" readonly name="" id="tajuk"
                                                 class="form-control"
                                                 value="{{ $cover_end_paper->sale_order->description }}">
@@ -101,7 +101,7 @@
 
                                     <div class="col-md-4 ">
                                         <div class="form-group">
-                                            <div class="label">Kod Buku</div>
+                                            <label for="" class="form-label">Kod Buku</label>
                                             <input type="text" readonly id="kod_buku" class="form-control"
                                                 value="{{ $cover_end_paper->sale_order->kod_buku }}">
                                         </div>
@@ -110,7 +110,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Pelanggan</div>
+                                            <label for="" class="form-label">Pelanggan</label>
                                             <input type="text" readonly name="" id="customer"
                                                 class="form-control"
                                                 value="{{ $cover_end_paper->sale_order->customer }}">
@@ -118,7 +118,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti SO</div>
+                                            <label for="" class="form-label">Kuantiti SO</label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control"
                                                 value="{{ $cover_end_paper->sale_order->sale_order_qty }}">
@@ -127,7 +127,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti Waste</div>
+                                            <label for="" class="form-label">Kuantiti Waste</label>
                                             <input type="number" value="{{ $cover_end_paper->kuantiti_waste }}"
                                                 name="kuantiti_waste" id="" class="form-control">
                                         </div>
@@ -137,7 +137,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jenis : </div>
+                                            <label for="" class="form-label">Jenis : </label>
                                             <input type="text" value="{{ $cover_end_paper->jenis }}"
                                                 class="form-control">
                                         </div>
@@ -145,7 +145,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <label for="" class="form-label">Mesin</label>
                                             <input type="text" value="{{ $cover_end_paper->mesin }}"
                                                 class="form-control" id="machine">
                                         </div>
@@ -160,14 +160,14 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kertas: </div>
+                                            <label for="" class="form-label">Kertas: </label>
                                             <input type="text" name="kertas" value="{{ $cover_end_paper->kertas }}"
                                                 id="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Saiz Potong:</div>
+                                            <label for="" class="form-label">Saiz Potong:</label>
                                             <input type="text" name="saiz_potong"
                                                 value="{{ $cover_end_paper->saiz_potong }}" id=""
                                                 class="form-control">

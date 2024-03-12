@@ -38,7 +38,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <label for="" class="form-label">Sales Order No.</label>
                                             <select name="sale_order" id="sale_order" class="form-control">
                                                 <option value="" selected disabled>Select a Sale Order</option>
                                             </select>
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Tajuk</div>
+                                            <label for="" class="form-label">Tajuk</label>
                                             <input type="text" readonly name="" id="tajuk"
                                                 class="form-control">
                                         </div>
@@ -54,7 +54,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kod Buku</div>
+                                            <label for="" class="form-label">Kod Buku</label>
                                             <input type="text" readonly id="kod_buku" class="form-control">
                                         </div>
                                     </div>
@@ -63,7 +63,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Pelanggan</div>
+                                            <label for="" class="form-label">Pelanggan</label>
                                             <input type="text" readonly name="" id="customer"
                                                 class="form-control">
                                         </div>
@@ -71,7 +71,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti So </div>
+                                            <label for="" class="form-label">Kuantiti So </label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control">
                                         </div>
@@ -79,7 +79,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti Waste</div>
+                                            <label for="" class="form-label">Kuantiti Waste</label>
                                             <input type="text" name="kuantiti_waste" class="form-control">
                                         </div>
                                     </div>
@@ -104,7 +104,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <label for="" class="form-label">Mesin</label>
                                             <select name="mesin" id="Mesin2" class="form-control form-select">
                                                 <option value="SMZP (2C)">SMZP (2C)</option>
                                                 <option value="RYOBI (4C)">RYOBI (4C)</option>
@@ -120,13 +120,13 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kertas: </div>
+                                            <label for="" class="form-label">Kertas: </label>
                                             <input type="text" name="kertas" id="" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Saiz Potong:</div>
+                                            <label for="" class="form-label">Saiz Potong:</label>
                                             <input type="text" name="saiz_potong" id=""
                                                 class="form-control">
                                         </div>

@@ -80,7 +80,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <label for="" class="form-label">Sales Order No.</label>
                                             <input type="text" readonly name=""
                                                 value="{{ $mesin_lipat->sale_order->order_no }}" id=""
                                                 class="form-control">
@@ -88,7 +88,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label"> Tajuk </div>
+                                            <label for="" class="form-label"> Tajuk </label>
                                             <input type="text" readonly name="" id="tajuk"
                                                 class="form-control" value="{{ $mesin_lipat->sale_order->description }}">
                                         </div>
@@ -102,7 +102,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Pelanggan</div>
+                                            <label for="" class="form-label">Pelanggan</label>
                                             <input type="text" readonly name="" id="customer"
                                                 class="form-control" value="{{ $mesin_lipat->sale_order->customer }}">
                                         </div>
@@ -110,7 +110,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti So </div>
+                                            <label for="" class="form-label">Kuantiti So </label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control"
                                                 value="{{ $mesin_lipat->sale_order->sale_order_qty }}">
@@ -119,7 +119,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jumlah Seksyen</div>
+                                            <label for="" class="form-label">Jumlah Seksyen</label>
                                             <input type="text" value="{{ $mesin_lipat->jumlah_seksyen }}"
                                                 name="jumlah_mukasurat" id="jumlah" class="form-control">
                                         </div>
@@ -127,7 +127,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Jenis Lipatan</div>
+                                            <label for="" class="form-label">Jenis Lipatan</label>
                                             <input type="text" value="{{ $mesin_lipat->jenis_lipatan }}"
                                                 class="form-control">
                                         </div>
@@ -136,7 +136,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <label for="" class="form-label">Mesin</label>
                                             <input type="text" value="{{ $mesin_lipat->mesin }}" class="form-control"
                                                 id="machine">
                                         </div>

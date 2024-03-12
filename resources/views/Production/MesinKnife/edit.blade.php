@@ -34,7 +34,7 @@
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
+                                            <label for="" class="form-label">Sales Order No.</label>
                                             <select name="sale_order" data-id="{{ $mesin_knife->sale_order_id }}"
                                                 id="sale_order" class="form-control">
                                                 <option value="{{ $mesin_knife->sale_order_id }}" selected
@@ -46,7 +46,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label"> Tajuk </div>
+                                            <label for="" class="form-label"> Tajuk </label>
                                             <input type="text" readonly name="" id="tajuk"
                                                 class="form-control">
                                         </div>
@@ -54,13 +54,13 @@
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
-                                            <div class="label">Kod Buku</div>
+                                            <label for="" class="form-label">Kod Buku</label>
                                             <input type="text" readonly id="kod_buku" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Pelanggan</div>
+                                            <label for="" class="form-label">Pelanggan</label>
                                             <input type="text" readonly name="" id="customer"
                                                 class="form-control">
                                         </div>
@@ -68,7 +68,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Kuantiti (SO)</div>
+                                            <label for="" class="form-label">Kuantiti (SO)</label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control">
                                         </div>
@@ -76,14 +76,14 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">SAIZ BUKU</div>
+                                            <label for="" class="form-label">SAIZ BUKU</label>
                                             <input type="text" readonly id="size" class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <div class="label">Mesin</div>
+                                            <label for="" class="form-label">Mesin</label>
                                             <input type="text" readonly id="machine"
                                                 class="form-control" value="3 Knife" name="mesin">
                                         </div>

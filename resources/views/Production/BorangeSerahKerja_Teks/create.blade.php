@@ -41,7 +41,7 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label"> Sales Order No </div>
+                                        <label class="label"> Sales Order No </label>
                                         <select name="sale_order" id="sale_order" class="form-control">
 
                                         </select>
@@ -50,7 +50,7 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label class="label">Tajuk</label>
                                         <input type="text" readonly class="form-control" id="tajuk">
                                     </div>
                                 </div>
@@ -58,7 +58,8 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Nama Subkontraktor</div>
+                                        <label
+                                         class="label">Nama Subkontraktor</label>
                                         <select name="nama" id="nama" class="form-control form-select">
                                             @foreach ($suppliers as $supplier)
                                                 <option value="{{ $supplier->id }}">{{ $supplier->name }}
@@ -153,7 +154,7 @@
 
                                             <div class="row">
                                                 <div class="col-md2">
-                                                <h5 style="margin-left:20px;">Others</h5>
+                                                <h5 style="margin-left:10px;">Others</h5>
                                                 </div>
                                                 <div class="col-md-8" >
                                                     <div id="input" class="others" style="width:150px;">

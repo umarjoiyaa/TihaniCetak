@@ -105,7 +105,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label for="" class="form-label">Sales Order No.</label>
                                         <input type="text" readonly name=""
                                             value="{{ $digital_printing->sale_order->order_no }}" id=""
                                             class="form-control">
@@ -113,7 +113,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Tajuk</div>
+                                        <label for="" class="form-label">Tajuk</label>
                                         <input type="text" readonly name="" id="tajuk" class="form-control"
                                             value="{{ $digital_printing->sale_order->description }}">
                                     </div>
@@ -121,14 +121,14 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label for="" class="form-label">Kod Buku</label>
                                         <input type="text" readonly id="kod_buku" class="form-control"
                                             value="{{ $digital_printing->sale_order->kod_buku }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Pelanggan</div>
+                                        <label for="" class="form-label">Pelanggan</label>
                                         <input type="text" readonly name="" id="customer"
                                             class="form-control" value="{{ $digital_printing->sale_order->customer }}">
                                     </div>
@@ -136,7 +136,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Saiz Produk </div>
+                                        <label for="" class="form-label">Saiz Produk </label>
                                         <input type="text" readonly name="" id="size"
                                             class="form-control" value="{{ $digital_printing->sale_order->size }}">
                                     </div>
@@ -144,7 +144,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti SO</div>
+                                        <label for="" class="form-label">Kuantiti SO</label>
                                         <input type="text" readonly name="" id="sale_order_qty"
                                             class="form-control"
                                             value="{{ $digital_printing->sale_order->sale_order_qty }}">
@@ -153,7 +153,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jumlah mukasurat</div>
+                                        <label for="" class="form-label">Jumlah mukasurat</label>
                                         <input type="text" value="{{ $digital_printing->jumlah_mukasurat }}"
                                             name="jumlah_mukasurat" id="jumlah" class="form-control">
                                     </div>
@@ -161,7 +161,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti Waste</div>
+                                        <label for="" class="form-label">Kuantiti Waste</label>
                                         <input type="number" value="{{ $digital_printing->kuantiti_waste }}"
                                             name="kuantiti_waste" id="" class="form-control">
                                     </div>
@@ -169,7 +169,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Remark</div>
+                                        <label for="" class="form-label">Remark</label>
                                         <textarea disabled name="remarks" id="" cols="30" rows="1" class="form-control">{{ $digital_printing->remarks }}</textarea>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-2">
                                     <div class="form-group">
-                                        <div class="label">Kategori job</div>
+                                        <div for="" class="form-label">Kategori job</div>
                                         <input type="text" class="form-control"
                                             value="{{ $digital_printing->kategori_job }}">
                                     </div>
@@ -227,14 +227,14 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kertas: teks</div>
+                                        <div for="" class="form-label">Kertas: teks</div>
                                         <input type="text" name="kertas_teks" id="" class="form-control"
                                             value="{{ $digital_printing->kertas_teks }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kertas: Cover</div>
+                                        <div for="" class="form-label">Kertas: Cover</div>
                                         <input type="text" name="kertas_cover" id="" class="form-control"
                                             value="{{ $digital_printing->kertas_cover }}">
                                     </div>

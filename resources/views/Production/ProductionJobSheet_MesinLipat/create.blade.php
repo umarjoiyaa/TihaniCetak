@@ -33,7 +33,7 @@
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Sales Order No.</div>
+                                        <label for="" class="form-label">Sales Order No.</label>
                                         <select name="sale_order" id="sale_order" class="form-control">
                                             <option value="-1" selected disabled >Select a Sale Order</option>
 
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label"> Tajuk </div>
+                                        <label for="" class="form-label"> Tajuk </label>
                                         <input type="text"  readonly name="" id="tajuk"
                                             class="form-control">
                                     </div>
@@ -50,13 +50,13 @@
 
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div class="label">Kod Buku</div>
+                                        <label for="" class="form-label">Kod Buku</label>
                                         <input type="text" readonly  id="kod_buku" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Pelanggan</div>
+                                        <label for="" class="form-label">Pelanggan</label>
                                         <input type="text"  readonly name="" id="customer"
                                             class="form-control">
                                     </div>
@@ -64,7 +64,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti So </div>
+                                        <label for="" class="form-label">Kuantiti So </label>
                                         <input type="text"  readonly name="" id="sale_order_qty"
                                             class="form-control">
                                     </div>
@@ -72,7 +72,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jumlah Seksyen</div>
+                                        <label for="" class="form-label">Jumlah Seksyen</label>
                                         <input type="text"  readonly name="jumlah_seksyen" id="jumlah"
                                             class="form-control">
                                     </div>
@@ -80,7 +80,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Jenis Lipatan</div>
+                                        <label for="" class="form-label">Jenis Lipatan</label>
                                         <select name="jenis_lipatan" id="jenis" placeholder="" class="form-control form-select">
 
                                             <option value="Prefect Bind">Prefect Bind</option>
@@ -93,7 +93,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Mesin</div>
+                                        <label for="" class="form-label">Mesin</label>
                                         <select name="mesin" id="mesin" class="form-control form-select">
                                             <option value="F1">F1</option>
                                             <option value="F2">F2</option>
