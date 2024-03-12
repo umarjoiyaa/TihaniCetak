@@ -28,16 +28,16 @@
                         <table class="table datatable table-bordered table-striped mt-2">
                             <thead>
                                 <tr>
-                                    <th>Sr.</th>
-                                    <th>Date</th>
-                                    <th>Sales Order NO</th>
-                                    <th>Customer Name</th>
-                                    <th>Kod Buku</th>
-                                    <th>Kategori job</th>
-                                    <th>Jenis Produk</th>
-                                    <th>Quantity</th>
-                                    <th>Status</th>
-                                    <th>Action</th>
+                                    <th class="text-left">Sr.</th>
+                                    <th class="text-left">Date</th>
+                                    <th class="text-left">Sales Order NO</th>
+                                    <th class="text-left">Customer Name</th>
+                                    <th class="text-left">Kod Buku</th>
+                                    <th class="text-left">Kategori job</th>
+                                    <th class="text-left">Jenis Produk</th>
+                                    <th class="text-left">Quantity</th>
+                                    <th class="text-left">Status</th>
+                                    <th class="text-left">Action</th>
                                 </tr>
                             </thead>
                             <thead>

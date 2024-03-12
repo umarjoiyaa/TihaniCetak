@@ -206,41 +206,41 @@ Route::middleware('auth')->group(function () {
 
     // END SETTINGS //
 
-    // START MES //
+    // START Mes //
 
     // Sales Order List
-    Route::get('/MES/SalesOrderList', [SalesOrderController::class, 'index'])->name('sale_order');
-    Route::get('/MES/SalesOrderList/data', [SalesOrderController::class, 'data'])->name('sale_order.data');
-    Route::get('/MES/SalesOrderList/view/{id}', [SalesOrderController::class, 'view'])->name('sale_order.view');
-    Route::get('/MES/SalesOrderList/upload/{id}', [SalesOrderController::class, 'upload'])->name('sale_order.upload');
-    Route::post('/MES/SalesOrderList/upload/submit/{id}', [SalesOrderController::class, 'upload_submit'])->name('sale_order.upload.submit');
-    Route::get('/MES/SalesOrderList/approve/{id}', [SalesOrderController::class, 'approve'])->name('sale_order.approve');
-    Route::post('/MES/SalesOrderList/approve/approve/{id}', [SalesOrderController::class, 'approve_approve'])->name('sale_order.approve.approve');
-    Route::post('/MES/SalesOrderList/approve/decline/{id}', [SalesOrderController::class, 'approve_decline'])->name('sale_order.approve.decline');
-    Route::get('/MES/SalesOrderList/publish/{id}', [SalesOrderController::class, 'publish'])->name('sale_order.publish');
-    Route::post('/MES/SalesOrderList/publish/submit/{id}', [SalesOrderController::class, 'publish_submit'])->name('sale_order.publish.submit');
+    Route::get('/Mes/SalesOrderList', [SalesOrderController::class, 'index'])->name('sale_order');
+    Route::get('/Mes/SalesOrderList/data', [SalesOrderController::class, 'data'])->name('sale_order.data');
+    Route::get('/Mes/SalesOrderList/view/{id}', [SalesOrderController::class, 'view'])->name('sale_order.view');
+    Route::get('/Mes/SalesOrderList/upload/{id}', [SalesOrderController::class, 'upload'])->name('sale_order.upload');
+    Route::post('/Mes/SalesOrderList/upload/submit/{id}', [SalesOrderController::class, 'upload_submit'])->name('sale_order.upload.submit');
+    Route::get('/Mes/SalesOrderList/approve/{id}', [SalesOrderController::class, 'approve'])->name('sale_order.approve');
+    Route::post('/Mes/SalesOrderList/approve/approve/{id}', [SalesOrderController::class, 'approve_approve'])->name('sale_order.approve.approve');
+    Route::post('/Mes/SalesOrderList/approve/decline/{id}', [SalesOrderController::class, 'approve_decline'])->name('sale_order.approve.decline');
+    Route::get('/Mes/SalesOrderList/publish/{id}', [SalesOrderController::class, 'publish'])->name('sale_order.publish');
+    Route::post('/Mes/SalesOrderList/publish/submit/{id}', [SalesOrderController::class, 'publish_submit'])->name('sale_order.publish.submit');
 
     // Senari Semak
-    Route::get('/MES/SenariSemak', [SenariSemakController::class, 'index'])->name('senari_semak');
-    Route::get('/MES/SenariSemak/data', [SenariSemakController::class, 'Data'])->name('senari_semak.data');
-    Route::get('/MES/SenariSemak/create', [SenariSemakController::class, 'create'])->name('senari_semak.create');
-    Route::get('/MES/SenariSemak/SaleOrder/get', [SenariSemakController::class, 'sale_order'])->name('sale_order.get');
-    Route::get('/MES/SenariSemak/SaleOrder/detail/get', [SenariSemakController::class, 'sale_order_detail'])->name('sale_order.detail.get');
-    Route::post('/MES/SenariSemak/store', [SenariSemakController::class, 'store'])->name('senari_semak.store');
-    Route::get('/MES/SenariSemak/view/{id}', [SenariSemakController::class, 'view'])->name('senari_semak.view');
-    Route::get('/MES/SenariSemak/edit/{id}', [SenariSemakController::class, 'edit'])->name('senari_semak.edit');
-    Route::post('/MES/SenariSemak/update/{id}', [SenariSemakController::class, 'update'])->name('senari_semak.update');
-    Route::get('/MES/SenariSemak/verify/{id}', [SenariSemakController::class, 'verify'])->name('senari_semak.verify');
-    Route::post('/MES/SenariSemak/approve/approve/{id}', [SenariSemakController::class, 'approve_approve'])->name('senari_semak.approve.approve');
-    Route::post('/MES/SenariSemak/approve/decline/{id}', [SenariSemakController::class, 'approve_decline'])->name('senari_semak.approve.decline');
-    Route::get('/MES/SenariSemak/delete/{id}', [SenariSemakController::class, 'delete'])->name('senari_semak.delete');
+    Route::get('/Mes/SenariSemak', [SenariSemakController::class, 'index'])->name('senari_semak');
+    Route::get('/Mes/SenariSemak/data', [SenariSemakController::class, 'Data'])->name('senari_semak.data');
+    Route::get('/Mes/SenariSemak/create', [SenariSemakController::class, 'create'])->name('senari_semak.create');
+    Route::get('/Mes/SenariSemak/SaleOrder/get', [SenariSemakController::class, 'sale_order'])->name('sale_order.get');
+    Route::get('/Mes/SenariSemak/SaleOrder/detail/get', [SenariSemakController::class, 'sale_order_detail'])->name('sale_order.detail.get');
+    Route::post('/Mes/SenariSemak/store', [SenariSemakController::class, 'store'])->name('senari_semak.store');
+    Route::get('/Mes/SenariSemak/view/{id}', [SenariSemakController::class, 'view'])->name('senari_semak.view');
+    Route::get('/Mes/SenariSemak/edit/{id}', [SenariSemakController::class, 'edit'])->name('senari_semak.edit');
+    Route::post('/Mes/SenariSemak/update/{id}', [SenariSemakController::class, 'update'])->name('senari_semak.update');
+    Route::get('/Mes/SenariSemak/verify/{id}', [SenariSemakController::class, 'verify'])->name('senari_semak.verify');
+    Route::post('/Mes/SenariSemak/approve/approve/{id}', [SenariSemakController::class, 'approve_approve'])->name('senari_semak.approve.approve');
+    Route::post('/Mes/SenariSemak/approve/decline/{id}', [SenariSemakController::class, 'approve_decline'])->name('senari_semak.approve.decline');
+    Route::get('/Mes/SenariSemak/delete/{id}', [SenariSemakController::class, 'delete'])->name('senari_semak.delete');
 
     // Senari Semak Cetak
     Route::get('/Mes/SenariSemakCetak', [SenariSemakCetakController::class, 'index'])->name('senari_semak_cetak');
     Route::get('/Mes/SenariSemakCetak/data', [SenariSemakCetakController::class, 'Data'])->name('senari_semak_cetak.data');
     Route::get('/Mes/SenariSemakCetak/create', [SenariSemakCetakController::class, 'create'])->name('senari_semak_cetak.create');
-    Route::get('/MES/SenariSemakCetak/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order'])->name('senari_semak_cetak.sale_order.get');
-    Route::get('/MES/SenariSemakCetakEdit/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order_edit'])->name('senari_semak_cetak_edit.sale_order.get');
+    Route::get('/Mes/SenariSemakCetak/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order'])->name('senari_semak_cetak.sale_order.get');
+    Route::get('/Mes/SenariSemakCetakEdit/SaleOrder/get', [SenariSemakCetakController::class, 'sale_order_edit'])->name('senari_semak_cetak_edit.sale_order.get');
     Route::post('/Mes/SenariSemakCetak/store', [SenariSemakCetakController::class, 'store'])->name('senari_semak_cetak.store');
     Route::get('/Mes/SenariSemakCetak/view/{id}', [SenariSemakCetakController::class, 'view'])->name('senari_semak_cetak.view');
     Route::get('/Mes/SenariSemakCetak/edit/{id}', [SenariSemakCetakController::class, 'edit'])->name('senari_semak_cetak.edit');
@@ -251,27 +251,27 @@ Route::middleware('auth')->group(function () {
     Route::get('/Mes/SenariSemakCetak/delete/{id}', [SenariSemakCetakController::class, 'delete'])->name('senari_semak_cetak.delete');
 
     // RekodSerahanPlate
-    Route::get('/MES/RekodSerahanPlate', [RekodSerahanPlateController::class, 'index'])->name('rekod_serahan_plate');
-    Route::get('/MES/RekodSerahanPlate/Data', [RekodSerahanPlateController::class, 'Data'])->name('rekod_serahan_plate.data');
-    Route::get('/MES/RekodSerahanPlate/Create', [RekodSerahanPlateController::class, 'Create'])->name('rekod_serahan_plate.create');
-    Route::post('/MES/RekodSerahanPlate/Store', [RekodSerahanPlateController::class, 'Store'])->name('rekod_serahan_plate.store');
-    Route::get('/MES/RekodSerahanPlate/Edit/{id}', [RekodSerahanPlateController::class, 'Edit'])->name('rekod_serahan_plate.edit');
-    Route::get('/MES/RekodSerahanPlate/View/{id}', [RekodSerahanPlateController::class, 'View'])->name('rekod_serahan_plate.view');
-    Route::post('/MES/RekodSerahanPlate/Update/{id}', [RekodSerahanPlateController::class, 'Update'])->name('rekod_serahan_plate.update');
-    Route::get('/MES/RekodSerahanPlate/Delete/{id}', [RekodSerahanPlateController::class, 'Delete'])->name('rekod_serahan_plate.delete');
+    Route::get('/Mes/RekodSerahanPlate', [RekodSerahanPlateController::class, 'index'])->name('rekod_serahan_plate');
+    Route::get('/Mes/RekodSerahanPlate/Data', [RekodSerahanPlateController::class, 'Data'])->name('rekod_serahan_plate.data');
+    Route::get('/Mes/RekodSerahanPlate/Create', [RekodSerahanPlateController::class, 'Create'])->name('rekod_serahan_plate.create');
+    Route::post('/Mes/RekodSerahanPlate/Store', [RekodSerahanPlateController::class, 'Store'])->name('rekod_serahan_plate.store');
+    Route::get('/Mes/RekodSerahanPlate/Edit/{id}', [RekodSerahanPlateController::class, 'Edit'])->name('rekod_serahan_plate.edit');
+    Route::get('/Mes/RekodSerahanPlate/View/{id}', [RekodSerahanPlateController::class, 'View'])->name('rekod_serahan_plate.view');
+    Route::post('/Mes/RekodSerahanPlate/Update/{id}', [RekodSerahanPlateController::class, 'Update'])->name('rekod_serahan_plate.update');
+    Route::get('/Mes/RekodSerahanPlate/Delete/{id}', [RekodSerahanPlateController::class, 'Delete'])->name('rekod_serahan_plate.delete');
 
     // Laporan Proses Pencetakani
-    Route::get('/MES/LaporanProsesPencetakani', [LaporanProsesPencetakaniCetakController::class, 'index'])->name('laporan_proses_pencetakani');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/data', [LaporanProsesPencetakaniCetakController::class, 'Data'])->name('laporan_proses_pencetakani.data');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/create', [LaporanProsesPencetakaniCetakController::class, 'create'])->name('laporan_proses_pencetakani.create');
-    Route::post('/MES/LaporanProsesPencetakaniCetak/store', [LaporanProsesPencetakaniCetakController::class, 'store'])->name('laporan_proses_pencetakani.store');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/view/{id}', [LaporanProsesPencetakaniCetakController::class, 'view'])->name('laporan_proses_pencetakani.view');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/edit/{id}', [LaporanProsesPencetakaniCetakController::class, 'edit'])->name('laporan_proses_pencetakani.edit');
-    Route::post('/MES/LaporanProsesPencetakaniCetak/update/{id}', [LaporanProsesPencetakaniCetakController::class, 'update'])->name('laporan_proses_pencetakani.update');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/verify/{id}', [LaporanProsesPencetakaniCetakController::class, 'verify'])->name('laporan_proses_pencetakani.verify');
-    Route::post('/MES/LaporanProsesPencetakaniCetak/approve/approve/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_approve'])->name('laporan_proses_pencetakani.approve.approve');
-    Route::post('/MES/LaporanProsesPencetakaniCetak/approve/decline/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_decline'])->name('laporan_proses_pencetakani.approve.decline');
-    Route::get('/MES/LaporanProsesPencetakaniCetak/delete/{id}', [LaporanProsesPencetakaniCetakController::class, 'delete'])->name('laporan_proses_pencetakani.delete');
+    Route::get('/Mes/LaporanProsesPencetakani', [LaporanProsesPencetakaniCetakController::class, 'index'])->name('laporan_proses_pencetakani');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/data', [LaporanProsesPencetakaniCetakController::class, 'Data'])->name('laporan_proses_pencetakani.data');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/create', [LaporanProsesPencetakaniCetakController::class, 'create'])->name('laporan_proses_pencetakani.create');
+    Route::post('/Mes/LaporanProsesPencetakaniCetak/store', [LaporanProsesPencetakaniCetakController::class, 'store'])->name('laporan_proses_pencetakani.store');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/view/{id}', [LaporanProsesPencetakaniCetakController::class, 'view'])->name('laporan_proses_pencetakani.view');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/edit/{id}', [LaporanProsesPencetakaniCetakController::class, 'edit'])->name('laporan_proses_pencetakani.edit');
+    Route::post('/Mes/LaporanProsesPencetakaniCetak/update/{id}', [LaporanProsesPencetakaniCetakController::class, 'update'])->name('laporan_proses_pencetakani.update');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/verify/{id}', [LaporanProsesPencetakaniCetakController::class, 'verify'])->name('laporan_proses_pencetakani.verify');
+    Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/approve/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_approve'])->name('laporan_proses_pencetakani.approve.approve');
+    Route::post('/Mes/LaporanProsesPencetakaniCetak/approve/decline/{id}', [LaporanProsesPencetakaniCetakController::class, 'approve_decline'])->name('laporan_proses_pencetakani.approve.decline');
+    Route::get('/Mes/LaporanProsesPencetakaniCetak/delete/{id}', [LaporanProsesPencetakaniCetakController::class, 'delete'])->name('laporan_proses_pencetakani.delete');
 
     // Laporan Proses Lipat
     Route::get('/Mes/LaporanProsesLipat', [LaporanProsesLipatController::class, 'index'])->name('laporan_proses_lipat');
@@ -405,71 +405,71 @@ Route::middleware('auth')->group(function () {
     Route::get('/Mes/KulitBuku/delete/{id}', [KulitBukuController::class, 'delete'])->name('kulit_buku.delete');
 
     // CTP
-    Route::get('/MES/Ctp', [CtpController::class, 'index'])->name('ctp');
-    Route::get('/MES/Ctp/data', [CtpController::class, 'Data'])->name('ctp.data');
-    Route::get('/MES/Ctp/create', [CtpController::class, 'create'])->name('ctp.create');
-    Route::post('/MES/Ctp/store', [CtpController::class, 'store'])->name('ctp.store');
-    Route::get('/MES/Ctp/view/{id}', [CtpController::class, 'view'])->name('ctp.view');
-    Route::get('/MES/Ctp/edit/{id}', [CtpController::class, 'edit'])->name('ctp.edit');
-    Route::post('/MES/Ctp/update/{id}', [CtpController::class, 'update'])->name('ctp.update');
-    Route::get('/MES/Ctp/verify/{id}', [CtpController::class, 'verify'])->name('ctp.verify');
-    Route::post('/MES/Ctp/approve/approve/{id}', [CtpController::class, 'approve_approve'])->name('ctp.approve.approve');
-    Route::post('/MES/Ctp/approve/decline/{id}', [CtpController::class, 'approve_decline'])->name('ctp.approve.decline');
-    Route::get('/MES/Ctp/delete/{id}', [CtpController::class, 'delete'])->name('ctp.delete');
+    Route::get('/Mes/Ctp', [CtpController::class, 'index'])->name('ctp');
+    Route::get('/Mes/Ctp/data', [CtpController::class, 'Data'])->name('ctp.data');
+    Route::get('/Mes/Ctp/create', [CtpController::class, 'create'])->name('ctp.create');
+    Route::post('/Mes/Ctp/store', [CtpController::class, 'store'])->name('ctp.store');
+    Route::get('/Mes/Ctp/view/{id}', [CtpController::class, 'view'])->name('ctp.view');
+    Route::get('/Mes/Ctp/edit/{id}', [CtpController::class, 'edit'])->name('ctp.edit');
+    Route::post('/Mes/Ctp/update/{id}', [CtpController::class, 'update'])->name('ctp.update');
+    Route::get('/Mes/Ctp/verify/{id}', [CtpController::class, 'verify'])->name('ctp.verify');
+    Route::post('/Mes/Ctp/approve/approve/{id}', [CtpController::class, 'approve_approve'])->name('ctp.approve.approve');
+    Route::post('/Mes/Ctp/approve/decline/{id}', [CtpController::class, 'approve_decline'])->name('ctp.approve.decline');
+    Route::get('/Mes/Ctp/delete/{id}', [CtpController::class, 'delete'])->name('ctp.delete');
 
     // POD
-    Route::get('/MES/Pod', [PodController::class, 'index'])->name('pod');
-    Route::get('/MES/Pod/data', [PodController::class, 'Data'])->name('pod.data');
-    Route::get('/MES/Pod/create', [PodController::class, 'create'])->name('pod.create');
-    Route::post('/MES/Pod/store', [PodController::class, 'store'])->name('pod.store');
-    Route::get('/MES/Pod/view/{id}', [PodController::class, 'view'])->name('pod.view');
-    Route::get('/MES/Pod/edit/{id}', [PodController::class, 'edit'])->name('pod.edit');
-    Route::post('/MES/Pod/update/{id}', [PodController::class, 'update'])->name('pod.update');
-    Route::get('/MES/Pod/verify/{id}', [PodController::class, 'verify'])->name('pod.verify');
-    Route::post('/MES/Pod/approve/approve/{id}', [PodController::class, 'approve_approve'])->name('pod.approve.approve');
-    Route::post('/MES/Pod/approve/decline/{id}', [PodController::class, 'approve_decline'])->name('pod.approve.decline');
-    Route::get('/MES/Pod/delete/{id}', [PodController::class, 'delete'])->name('pod.delete');
+    Route::get('/Mes/Pod', [PodController::class, 'index'])->name('pod');
+    Route::get('/Mes/Pod/data', [PodController::class, 'Data'])->name('pod.data');
+    Route::get('/Mes/Pod/create', [PodController::class, 'create'])->name('pod.create');
+    Route::post('/Mes/Pod/store', [PodController::class, 'store'])->name('pod.store');
+    Route::get('/Mes/Pod/view/{id}', [PodController::class, 'view'])->name('pod.view');
+    Route::get('/Mes/Pod/edit/{id}', [PodController::class, 'edit'])->name('pod.edit');
+    Route::post('/Mes/Pod/update/{id}', [PodController::class, 'update'])->name('pod.update');
+    Route::get('/Mes/Pod/verify/{id}', [PodController::class, 'verify'])->name('pod.verify');
+    Route::post('/Mes/Pod/approve/approve/{id}', [PodController::class, 'approve_approve'])->name('pod.approve.approve');
+    Route::post('/Mes/Pod/approve/decline/{id}', [PodController::class, 'approve_decline'])->name('pod.approve.decline');
+    Route::get('/Mes/Pod/delete/{id}', [PodController::class, 'delete'])->name('pod.delete');
 
     // PlateCetak
-    Route::get('/MES/PlateCetak', [PlateCetakController::class, 'index'])->name('plate_cetak');
-    Route::get('/MES/PlateCetak/data', [PlateCetakController::class, 'Data'])->name('plate_cetak.data');
-    Route::get('/MES/PlateCetak/create', [PlateCetakController::class, 'create'])->name('plate_cetak.create');
-    Route::post('/MES/PlateCetak/store', [PlateCetakController::class, 'store'])->name('plate_cetak.store');
-    Route::get('/MES/PlateCetak/view/{id}', [PlateCetakController::class, 'view'])->name('plate_cetak.view');
-    Route::get('/MES/PlateCetak/edit/{id}', [PlateCetakController::class, 'edit'])->name('plate_cetak.edit');
-    Route::post('/MES/PlateCetak/update/{id}', [PlateCetakController::class, 'update'])->name('plate_cetak.update');
-    Route::get('/MES/PlateCetak/verify/{id}', [PlateCetakController::class, 'verify'])->name('plate_cetak.verify');
-    Route::post('/MES/PlateCetak/approve/approve/{id}', [PlateCetakController::class, 'approve_approve'])->name('plate_cetak.approve.approve');
-    Route::post('/MES/PlateCetak/approve/decline/{id}', [PlateCetakController::class, 'approve_decline'])->name('plate_cetak.approve.decline');
-    Route::get('/MES/PlateCetak/delete/{id}', [PlateCetakController::class, 'delete'])->name('plate_cetak.delete');
+    Route::get('/Mes/PlateCetak', [PlateCetakController::class, 'index'])->name('plate_cetak');
+    Route::get('/Mes/PlateCetak/data', [PlateCetakController::class, 'Data'])->name('plate_cetak.data');
+    Route::get('/Mes/PlateCetak/create', [PlateCetakController::class, 'create'])->name('plate_cetak.create');
+    Route::post('/Mes/PlateCetak/store', [PlateCetakController::class, 'store'])->name('plate_cetak.store');
+    Route::get('/Mes/PlateCetak/view/{id}', [PlateCetakController::class, 'view'])->name('plate_cetak.view');
+    Route::get('/Mes/PlateCetak/edit/{id}', [PlateCetakController::class, 'edit'])->name('plate_cetak.edit');
+    Route::post('/Mes/PlateCetak/update/{id}', [PlateCetakController::class, 'update'])->name('plate_cetak.update');
+    Route::get('/Mes/PlateCetak/verify/{id}', [PlateCetakController::class, 'verify'])->name('plate_cetak.verify');
+    Route::post('/Mes/PlateCetak/approve/approve/{id}', [PlateCetakController::class, 'approve_approve'])->name('plate_cetak.approve.approve');
+    Route::post('/Mes/PlateCetak/approve/decline/{id}', [PlateCetakController::class, 'approve_decline'])->name('plate_cetak.approve.decline');
+    Route::get('/Mes/PlateCetak/delete/{id}', [PlateCetakController::class, 'delete'])->name('plate_cetak.delete');
 
     // PlateCetak
-    Route::get('/MES/ProsesThreeKnife', [ProsesThreeKnifeController::class, 'index'])->name('proses_three_knife');
-    Route::get('/MES/ProsesThreeKnife/data', [ProsesThreeKnifeController::class, 'Data'])->name('proses_three_knife.data');
-    Route::get('/MES/ProsesThreeKnife/create', [ProsesThreeKnifeController::class, 'create'])->name('proses_three_knife.create');
-    Route::post('/MES/ProsesThreeKnife/store', [ProsesThreeKnifeController::class, 'store'])->name('proses_three_knife.store');
-    Route::get('/MES/ProsesThreeKnife/view/{id}', [ProsesThreeKnifeController::class, 'view'])->name('proses_three_knife.view');
-    Route::get('/MES/ProsesThreeKnife/edit/{id}', [ProsesThreeKnifeController::class, 'edit'])->name('proses_three_knife.edit');
-    Route::post('/MES/ProsesThreeKnife/update/{id}', [ProsesThreeKnifeController::class, 'update'])->name('proses_three_knife.update');
-    Route::get('/MES/ProsesThreeKnife/verify/{id}', [ProsesThreeKnifeController::class, 'verify'])->name('proses_three_knife.verify');
-    Route::post('/MES/ProsesThreeKnife/approve/approve/{id}', [ProsesThreeKnifeController::class, 'approve_approve'])->name('proses_three_knife.approve.approve');
-    Route::post('/MES/ProsesThreeKnife/approve/decline/{id}', [ProsesThreeKnifeController::class, 'approve_decline'])->name('proses_three_knife.approve.decline');
-    Route::get('/MES/ProsesThreeKnife/delete/{id}', [ProsesThreeKnifeController::class, 'delete'])->name('proses_three_knife.delete');
+    Route::get('/Mes/ProsesThreeKnife', [ProsesThreeKnifeController::class, 'index'])->name('proses_three_knife');
+    Route::get('/Mes/ProsesThreeKnife/data', [ProsesThreeKnifeController::class, 'Data'])->name('proses_three_knife.data');
+    Route::get('/Mes/ProsesThreeKnife/create', [ProsesThreeKnifeController::class, 'create'])->name('proses_three_knife.create');
+    Route::post('/Mes/ProsesThreeKnife/store', [ProsesThreeKnifeController::class, 'store'])->name('proses_three_knife.store');
+    Route::get('/Mes/ProsesThreeKnife/view/{id}', [ProsesThreeKnifeController::class, 'view'])->name('proses_three_knife.view');
+    Route::get('/Mes/ProsesThreeKnife/edit/{id}', [ProsesThreeKnifeController::class, 'edit'])->name('proses_three_knife.edit');
+    Route::post('/Mes/ProsesThreeKnife/update/{id}', [ProsesThreeKnifeController::class, 'update'])->name('proses_three_knife.update');
+    Route::get('/Mes/ProsesThreeKnife/verify/{id}', [ProsesThreeKnifeController::class, 'verify'])->name('proses_three_knife.verify');
+    Route::post('/Mes/ProsesThreeKnife/approve/approve/{id}', [ProsesThreeKnifeController::class, 'approve_approve'])->name('proses_three_knife.approve.approve');
+    Route::post('/Mes/ProsesThreeKnife/approve/decline/{id}', [ProsesThreeKnifeController::class, 'approve_decline'])->name('proses_three_knife.approve.decline');
+    Route::get('/Mes/ProsesThreeKnife/delete/{id}', [ProsesThreeKnifeController::class, 'delete'])->name('proses_three_knife.delete');
 
     // PlateCetak
-    Route::get('/MES/ProsesPembungkusan', [ProsesPembungkusanController::class, 'index'])->name('proses_pembungkusan');
-    Route::get('/MES/ProsesPembungkusan/data', [ProsesPembungkusanController::class, 'Data'])->name('proses_pembungkusan.data');
-    Route::get('/MES/ProsesPembungkusan/create', [ProsesPembungkusanController::class, 'create'])->name('proses_pembungkusan.create');
-    Route::post('/MES/ProsesPembungkusan/store', [ProsesPembungkusanController::class, 'store'])->name('proses_pembungkusan.store');
-    Route::get('/MES/ProsesPembungkusan/view/{id}', [ProsesPembungkusanController::class, 'view'])->name('proses_pembungkusan.view');
-    Route::get('/MES/ProsesPembungkusan/edit/{id}', [ProsesPembungkusanController::class, 'edit'])->name('proses_pembungkusan.edit');
-    Route::post('/MES/ProsesPembungkusan/update/{id}', [ProsesPembungkusanController::class, 'update'])->name('proses_pembungkusan.update');
-    Route::get('/MES/ProsesPembungkusan/verify/{id}', [ProsesPembungkusanController::class, 'verify'])->name('proses_pembungkusan.verify');
-    Route::post('/MES/ProsesPembungkusan/approve/approve/{id}', [ProsesPembungkusanController::class, 'approve_approve'])->name('proses_pembungkusan.approve.approve');
-    Route::post('/MES/ProsesPembungkusan/approve/decline/{id}', [ProsesPembungkusanController::class, 'approve_decline'])->name('proses_pembungkusan.approve.decline');
-    Route::get('/MES/ProsesPembungkusan/delete/{id}', [ProsesPembungkusanController::class, 'delete'])->name('proses_pembungkusan.delete');
+    Route::get('/Mes/ProsesPembungkusan', [ProsesPembungkusanController::class, 'index'])->name('proses_pembungkusan');
+    Route::get('/Mes/ProsesPembungkusan/data', [ProsesPembungkusanController::class, 'Data'])->name('proses_pembungkusan.data');
+    Route::get('/Mes/ProsesPembungkusan/create', [ProsesPembungkusanController::class, 'create'])->name('proses_pembungkusan.create');
+    Route::post('/Mes/ProsesPembungkusan/store', [ProsesPembungkusanController::class, 'store'])->name('proses_pembungkusan.store');
+    Route::get('/Mes/ProsesPembungkusan/view/{id}', [ProsesPembungkusanController::class, 'view'])->name('proses_pembungkusan.view');
+    Route::get('/Mes/ProsesPembungkusan/edit/{id}', [ProsesPembungkusanController::class, 'edit'])->name('proses_pembungkusan.edit');
+    Route::post('/Mes/ProsesPembungkusan/update/{id}', [ProsesPembungkusanController::class, 'update'])->name('proses_pembungkusan.update');
+    Route::get('/Mes/ProsesPembungkusan/verify/{id}', [ProsesPembungkusanController::class, 'verify'])->name('proses_pembungkusan.verify');
+    Route::post('/Mes/ProsesPembungkusan/approve/approve/{id}', [ProsesPembungkusanController::class, 'approve_approve'])->name('proses_pembungkusan.approve.approve');
+    Route::post('/Mes/ProsesPembungkusan/approve/decline/{id}', [ProsesPembungkusanController::class, 'approve_decline'])->name('proses_pembungkusan.approve.decline');
+    Route::get('/Mes/ProsesPembungkusan/delete/{id}', [ProsesPembungkusanController::class, 'delete'])->name('proses_pembungkusan.delete');
 
-    // END MES //
+    // END Mes //
 
     // START PRODUCTION
 

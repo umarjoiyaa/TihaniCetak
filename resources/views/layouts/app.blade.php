@@ -1761,18 +1761,18 @@
                 $('#wms').removeClass('active');
                 $('#setting').removeClass('active');
                 $('#home').addClass('active');
-            } else if (currentURL.includes('Mes')) {
-                $('#home').removeClass('active');
-                $('#production').removeClass('active');
-                $('#wms').removeClass('active');
-                $('#setting').removeClass('active');
-                $('#mes').addClass('active');
             } else if (currentURL.includes('Production')) {
                 $('#home').removeClass('active');
                 $('#mes').removeClass('active');
                 $('#wms').removeClass('active');
                 $('#setting').removeClass('active');
                 $('#production').addClass('active');
+            } else if (currentURL.includes('Mes')) {
+                $('#home').removeClass('active');
+                $('#production').removeClass('active');
+                $('#wms').removeClass('active');
+                $('#setting').removeClass('active');
+                $('#mes').addClass('active');
             } else if (currentURL.includes('WMS')) {
                 $('#home').removeClass('active');
                 $('#mes').removeClass('active');

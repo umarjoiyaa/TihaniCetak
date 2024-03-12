@@ -11,7 +11,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>PRODUCTION JOBSHEET LIST- COVER & ENDPAPER</b></h5>
+                                <h5 class="float-left"><b>PRODUCTION JOBSHEET- COVER DAN ENDPAPER</b></h5>
                                 <p class="float-right">TCBS-B62 (Rev.0)</p>
                             </div>
                         </div>

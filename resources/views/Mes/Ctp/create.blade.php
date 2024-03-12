@@ -26,7 +26,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
-                                    <label for="">Masa</label>
+                                    <label for="">Time</label>
                                     <input name="time" type="time" id="Currenttime"
                                     value="{{ Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('H:i') }}"
                                     class="form-control">

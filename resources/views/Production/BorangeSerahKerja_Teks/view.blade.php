@@ -8,8 +8,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>JOBSHEET - THREE KNIFE</b></h5>
-                                <p class="float-right">TCBS-B52 (Rev.1)</p>
+                                <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Create</b></h5>
+                                <p class="float-right">TCBS-B34 (Rev. 2)</p>
                             </div>
                         </div>
                         <div class="card" style="background:#f4f4ff;">

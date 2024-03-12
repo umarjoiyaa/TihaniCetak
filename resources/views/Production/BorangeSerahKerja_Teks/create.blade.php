@@ -153,7 +153,7 @@
 
                                             <div class="row">
                                                 <div class="col-md2">
-                                                <h5 style="padding-left:px;">Others</h5>
+                                                <h5 style="margin-left:20px;">Others</h5>
                                                 </div>
                                                 <div class="col-md-8" >
                                                     <div id="input" class="others" style="width:150px;">
@@ -198,7 +198,7 @@
                                         <div class="col-md-1"><input type="checkbox" name="jenis_10" @checked(old('jenis_10') == 'on') id="Ribbon"></div>
                                         <div class="col-md-6">
                                             <div class="row d-flex" >
-                                                    <h5>Ribbon</h5>
+                                                    <h5 class="ml-2">Ribbon</h5>
                                                     <div class="boxinput  mx-1" style="width:100px;">
                                                     <input type="text" name="jenis_input_10" value="{{ old('jenis_input_10') }}" @if(old('jenis_10') == 'on') style="width:100px;" @else style="width:100px;display:none;" @endif class="ribbon" >
                                                     </div>

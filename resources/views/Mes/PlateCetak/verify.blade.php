@@ -208,7 +208,7 @@
 
 
 
-                <div class="row d-flex justify-content-end mt-5">
+                <div class="row d-flex justify-content-end mt-5 mb-3">
                     <div class="col-md-12 d-flex justify-content-end">
                         <form action="{{ route('plate_cetak.approve.decline', $plate_cetak->id) }}" method="POST"
                             enctype="multipart/form-data">

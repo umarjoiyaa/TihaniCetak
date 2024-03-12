@@ -29,16 +29,16 @@
                     <table class="table table-bordered mt-2 datatable" id="example1">
                         <thead>
                             <tr>
-                                <th>Tarikh</th>
-                                <th>Po No</th>
-                                <th>Sales Order no</th>
-                                <th>Tajuk</th>
-                                <th>Nama Subkontraktor</th>
-                                <th>Jumlah Seksyen</th>
-                                <th>Jenis</th>
-                                <th>Dateline</th>
-                                <th>Status</th>
-                                <th>Action</th>
+                                <th class="text-left">Tarikh</th>
+                                <th class="text-left">Po No</th>
+                                <th class="text-left">Sales Order no</th>
+                                <th class="text-left">Tajuk</th>
+                                <th class="text-left">Nama Subkontraktor</th>
+                                <th class="text-left">Jumlah Seksyen</th>
+                                <th class="text-left">Jenis</th>
+                                <th class="text-left">Dateline</th>
+                                <th class="text-left">Status</th>
+                                <th class="text-left">Action</th>
                             </tr>
 
                         </thead>

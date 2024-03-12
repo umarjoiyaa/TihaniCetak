@@ -20,14 +20,27 @@
       nav a:hover{
         color:#fff !important;
       }
-
+      .main-right{
+        display:none;
+      }
+      .abc{
+        display:none;
+      }
 
       @media screen and (max-width:992px) {
+        .main-right{
+          display:block;
+          /* margin-inline:auto; */
+          float:right;
+        }
+        form{
+          display:none;
+        }
         nav{
           display: block !important;
         }
         .navbar-toggler{
-          width:80%;
+          width:65%;
         }
         .navbar-toggler:focus {
             outline: none;
@@ -37,7 +50,7 @@
         .navbar-toggler-icon{
           color:#fff;
           font-size:20px;
-          margin-left: 680px;
+          margin-left: 576px;
         }
         .dropdown-item{
           font-size:13px;
@@ -45,67 +58,74 @@
       }
      @media screen and (max-width:907px){
       .navbar-toggler{
-          width:72%;
+          width:60%;
         }
         .navbar-toggler-icon{
-          margin-left: 550px;
+          margin-left: 500px;
         }
      }
 
      @media screen and (max-width:808px){
       .navbar-toggler-icon{
-        margin-left: 490px;
+        margin-left: 380px;
       }
      }
 
      @media screen and (max-width:710px){
       .navbar-toggler{
-          width:100%;
-          margin-top: -30px;
+          width:50%;
+          /* margin-top: 30px; */
           /* margin-left: 150px; */
         }
       .navbar-toggler-icon{
-        margin-left: 420px;
-        margin-top: -70px;
+        margin-left: 280px;
+        /* margin-top: 70px; */
       }
-      .navbar-toggler-icon{
-        margin-left: 370px;
-      }
+      
      }
 
      @media screen and (max-width:610px){
-      .navbar-toggler-icon{
-        margin-left: 500px;
+      .navbar-toggler{
+          width:40%;
+          /* margin-top: 30px; */
+          /* margin-left: 150px; */
+        }
+        .main-right{
+        display:none;
+      }
+      .abc{
+        display:block;
       }
      }
 
      @media screen and (max-width:558px){
       .navbar-toggler-icon{
-        margin-left: 400px;
+        margin-left: 200px;
       }
      }
 
      @media screen and (max-width:456px){
       .navbar-toggler-icon{
-        margin-left: 350px;
+        margin-left: 150px;
       }
      }
 
      @media screen and (max-width:406px){
       .navbar-toggler-icon{
-        margin-left: 300px;
+        margin-left: 100px;
       }
      }
 
      @media screen and (max-width:358px){
       .navbar-toggler-icon{
-        margin-left: 250px;
+        margin-left: 70px;
       }
      }
 
      @media screen and (max-width:306px){
       .navbar-toggler-icon{
         margin-left: 200px;
+        margin-top: -90px;
       }
      }
 
@@ -123,7 +143,142 @@
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation ">
           <span class="navbar-toggler-icon"> <i class="fe fe-align-justify"></i></span>
         </button>
+                        <div class="main-header-right main-right ">
+                            <div class="nav nav-item  navbar-nav-right ml-auto">
+                                <form class="navbar-form nav-item my-auto d-lg-none" role="search">
+                                    <div class="input-group nav-item my-auto">
+                                        <input type="text" class="form-control" placeholder="Search">
+                                        <span class="input-group-btn">
+                                            <button type="reset" class="btn btn-default">
+                                                <i class="ti-close"></i>
+                                            </button>
+                                            <button type="submit" class="btn btn-default nav-link">
+                                                <i class="ti-search"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </form>
+                                <div class="dropdown nav-item main-header-notification">
+                                    <a class="new nav-link " href="#"><i
+                                            class="ti-bell animated bell-animations text-white" id="bell  "></i><span
+                                            class=" pulse"></span></a>
+                                    <div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
+                                        <div class="menu-header-content text-left d-flex">
+                                            <div class="">
+                                                <h6 class="menu-header-title text-white mb-0">7 new Notifications</h6>
+                                            </div>
+                                            <div class="my-auto ml-auto">
+                                                <span class="badge badge-pill badge-warning float-right">Mark All
+                                                    Read</span>
+                                            </div>
+                                        </div>
+                                        <div class="main-notification-list Notification-scroll">
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-success-transparent">
+                                                    <i class="la la-shopping-basket text-success"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">New Order Received</h5>
+                                                    <div class="notification-subtext">1 hour ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-danger-transparent">
+                                                    <i class="la la-user-check text-danger"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">22 verified registrations</h5>
+                                                    <div class="notification-subtext">2 hour ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-primary-transparent">
+                                                    <i class="la la-check-circle text-primary"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">Project has been approved</h5>
+                                                    <div class="notification-subtext">4 hour ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-pink-transparent">
+                                                    <i class="la la-file-alt text-pink"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">New files available</h5>
+                                                    <div class="notification-subtext">10 hour ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-warning-transparent">
+                                                    <i class="la la-envelope-open text-warning"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">New review received</h5>
+                                                    <div class="notification-subtext">1 day ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3" href="#">
+                                                <div class="notifyimg bg-purple-transparent">
+                                                    <i class="la la-gem text-purple"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">Updates Available</h5>
+                                                    <div class="notification-subtext">2 days ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                        </div>
+                                        <div class="dropdown-footer">
+                                            <a href="#">VIEW ALL</a>
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <button class="navbar-toggler navresponsive-toggler d-sm-none" type="button"
+                                    data-toggle="collapse" data-target="#navbarSupportedContent-4"
+                                    aria-controls="navbarSupportedContent-4" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon fe fe-more-vertical"></span>
+                                </button>
+                                <div class="dropdown main-profile-menu nav nav-item nav-link">
+                                    <a class="profile-user" href="#" id="dropdownMenuLink"
+                                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
+                                            alt="" src="{{ asset('assets/img/user.png') }}"></a>
+                                    <div class="dropdown-menu mt-3" aria-labelledby="dropdownMenuButton">
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-user"></i>{{ Auth::user()->full_name }}</a>
+                                        <a class="dropdown-item" href="#"><i
+                                                class="fas fa-envelope"></i>{{ Auth::user()->email }}</a>
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
+                                            onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                                                class="fas fa-sign-out-alt"></i>
+                                            Logout</a>
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
@@ -322,9 +477,134 @@
                 </div>
               </li>
 
+              <li class="nav-item dropdown  abc">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                <img alt="" width="30px" src="{{ asset('assets/img/user.png') }}">
+                </a>
+                <div class="dropdown-menu">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      
+                      <a class="dropdown-item" href="#"><i
+                        class="fas fa-user"></i>{{ Auth::user()->full_name }}</a>
+                      <a class="dropdown-item" href="#"><i
+                        class="fas fa-envelope"></i>{{ Auth::user()->email }}</a>
+                      <a class="dropdown-item" href="{{ route('logout') }}"
+                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"><i
+                        class="fas fa-sign-out-alt"></i>
+                      Logout</a>
+                    </div>
+                  </div>
+
+
+                </div>
+              </li>
+
+              <li class="nav-item dropdown  abcd">
+            <a class="new nav-link " href="#"><i
+                  class="ti-bell animated bell-animations text-white" id="bell"></i><span
+                  class="pulse"></span></a>
+                <div class="dropdown-menu">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <div class="dropdown-menu dropdown-menu-arrow animated fadeInUp">
+                        <div class="menu-header-content text-left d-flex">
+                          <div class="">
+                            <h6 class="menu-header-title text-white mb-0">7 new Notifications</h6>
+                          </div>
+                          <div class="my-auto ml-auto">
+                            <span class="badge badge-pill badge-warning float-right">Mark All
+                             Read</span>
+                          </div>
+                        </div>
+                        <div class="main-notification-list Notification-scroll">
+                          <a class="d-flex p-3 border-bottom" href="#">
+                            <div class="notifyimg bg-success-transparent">
+                              <i class="la la-shopping-basket text-success"></i>
+                            </div>
+                            <div class="ml-3">
+                              <h5 class="notification-label mb-1">New Order Received</h5>
+                            <div class="notification-subtext">1 hour ago</div>
+                            </div>
+                            <div class="ml-auto">
+                              <i class="las la-angle-right text-right text-muted"></i>
+                            </div>
+                          </a>
+                          <a class="d-flex p-3 border-bottom" href="#">
+                            <div class="notifyimg bg-danger-transparent">
+                              <i class="la la-user-check text-danger"></i>
+                            </div>
+                            <div class="ml-3">
+                              <h5 class="notification-label mb-1">22 verified registrations</h5>
+                            <div class="notification-subtext">2 hour ago</div>
+                            </div>
+                            <div class="ml-auto">
+                              <i class="las la-angle-right text-right text-muted"></i>
+                            </div>
+                          </a>
+                          <a class="d-flex p-3 border-bottom" href="#">
+                            <div class="notifyimg bg-primary-transparent">
+                              <i class="la la-check-circle text-primary"></i>
+                            </div>
+                            <div class="ml-3">
+                              <h5 class="notification-label mb-1">Project has been approved</h5>
+                            <div class="notification-subtext">4 hour ago</div>
+                            </div>
+                            <div class="ml-auto">
+                              <i class="las la-angle-right text-right text-muted"></i>
+                            </div>
+                          </a>
+                          <a class="d-flex p-3 border-bottom" href="#">
+                            <div class="notifyimg bg-pink-transparent">
+                              <i class="la la-file-alt text-pink"></i>
+                            </div>
+                            <div class="ml-3">
+                              <h5 class="notification-label mb-1">New files available</h5>
+                            <div class="notification-subtext">10 hour ago</div>
+                            </div>
+                            <div class="ml-auto">
+                              <i class="las la-angle-right text-right text-muted"></i>
+                            </div>
+                            </a>
+                                            <a class="d-flex p-3 border-bottom" href="#">
+                                                <div class="notifyimg bg-warning-transparent">
+                                                    <i class="la la-envelope-open text-warning"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">New review received</h5>
+                                                    <div class="notification-subtext">1 day ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                            <a class="d-flex p-3" href="#">
+                                                <div class="notifyimg bg-purple-transparent">
+                                                    <i class="la la-gem text-purple"></i>
+                                                </div>
+                                                <div class="ml-3">
+                                                    <h5 class="notification-label mb-1">Updates Available</h5>
+                                                    <div class="notification-subtext">2 days ago</div>
+                                                </div>
+                                                <div class="ml-auto">
+                                                    <i class="las la-angle-right text-right text-muted"></i>
+                                                </div>
+                                            </a>
+                                        
+                                        <div class="dropdown-footer">
+                                            <a href="#">VIEW ALL</a>
+                                        </div>
+                    </div>
+                  </div>
+
+
+                </div>
+              </li>
+
         </div>
       </nav>
-
+                                    
+                                    
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

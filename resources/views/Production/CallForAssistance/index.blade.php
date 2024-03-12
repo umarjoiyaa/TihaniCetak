@@ -27,16 +27,16 @@
                     <table class="table table-bordered table-striped mt-2" id="example1">
                         <thead>
                             <tr>
-                                <th>Sr.</th>
-                                <th>Machine</th>
-                                <th>Calling Datetime</th>
-                                <th>Attended Datetime</th>
-                                <th>Attended PIC</th>
-                                <th>Remarks</th>
-                                <th>Submitted Datetime</th>
-                                <th>Status</th>
-                                <th>Image</th>
-                                <th>Action</th>
+                                <th class="text-left">Sr.</th>
+                                <th class="text-left">Machine</th>
+                                <th class="text-left">Calling Datetime</th>
+                                <th class="text-left">Attended Datetime</th>
+                                <th class="text-left">Attended PIC</th>
+                                <th class="text-left">Remarks</th>
+                                <th class="text-left">Submitted Datetime</th>
+                                <th class="text-left">Status</th>
+                                <th class="text-left">Image</th>
+                                <th class="text-left">Action</th>
                             </tr>
 
                         </thead>
