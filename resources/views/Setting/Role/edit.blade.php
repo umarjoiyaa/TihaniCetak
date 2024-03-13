@@ -85,7 +85,7 @@
                                                                     @foreach ($managements as $key => $management)
                                                                         <li>
                                                                         <input type="checkbox" class="myCheckbox a1"
-                                                                                    name="" id="">
+                                                                                    name="" id="" >
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital1">
                                                                                 

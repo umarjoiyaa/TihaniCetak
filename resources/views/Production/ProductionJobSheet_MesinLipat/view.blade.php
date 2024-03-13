@@ -92,6 +92,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
+                                        <label for="">Kod Buku</label>
                                         <input type="text" readonly id="kod_buku" class="form-control"
                                             value="{{ $mesin_lipat->sale_order->kod_buku }}">
                                     </div>

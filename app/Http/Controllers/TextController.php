@@ -7,6 +7,7 @@ use App\Models\Text;
 use App\Models\TextDetail;
 use App\Models\PrintingProcess;
 use App\Models\Supplier;
+use PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -413,6 +414,22 @@ class TextController extends Controller
         Helper::logSystemActivity('TEXT', 'TEXT View');
         return view('Production.Text.view', compact('text', 'details','suppliers'));
     }
+
+
+    public function print($id){
+        $text = Text::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        $details = TextDetail::where('text_id',  '=', $id)->get();
+
+
+        $pdf = PDF::loadView('Production.Text.pdf', [
+            'text' => $text,
+            'suppliers' => $suppliers,
+            'details' => $details,
+        ]);
+        return $pdf->stream('Production.Text.pdf');
+    }
+
 
     public function update(Request $request,$id)
     {

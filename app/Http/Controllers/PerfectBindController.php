@@ -10,7 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
 class PerfectBindController extends Controller
 {
     public function Data(Request $request)
@@ -460,6 +460,24 @@ class PerfectBindController extends Controller
         $detailbs = PerfectBindDetailB::whereIn('perfect_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('PERFECT BIND', 'PERFECT BIND Update');
         return view('Production.PerfectBind.proses', compact('perfect_bind', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+    public function print($id){
+        $perfect_bind = PerfectBind::find($id);
+        $users = User::all();
+        $check_machines = PerfectBindDetail::where('machine', '=', $perfect_bind->mesin)->where('perfect_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = PerfectBindDetail::where('perfect_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = PerfectBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.PerfectBind.pdf', [
+            'perfect_bind' => $perfect_bind,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.PerfectBind.pdf');
     }
 
     public function proses_update(Request $request, $id)

@@ -307,6 +307,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row d-flex justify-content-end">
+                                    <a class="btn btn-primary float-right" target="_blank" href="{{route('perfect_bind.print', $perfect_bind->id)}}" >Print</a>
+
+                                </div>
+
+
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <!-- Modal -->

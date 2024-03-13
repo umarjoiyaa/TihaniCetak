@@ -10,7 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
 class MesinKnifeController extends Controller
 {
     public function Data(Request $request)
@@ -450,6 +450,25 @@ class MesinKnifeController extends Controller
         Helper::logSystemActivity('MESIN 3 KNIFE', 'MESIN 3 KNIFE Update');
         return view('Production.MesinKnife.proses', compact('mesin_knife', 'users', 'check_machines', 'details', 'detailbs'));
     }
+
+    public function print($id){
+        $mesin_knife = MesinKnife::find($id);
+        $users = User::all();
+        $check_machines = MesinKnifeDetail::where('machine', '=', $mesin_knife->mesin)->where('knife_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = MesinKnifeDetail::where('knife_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = MesinKnifeDetailB::whereIn('knife_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.MesinKnife.pdf', [
+            'mesin_knife' => $mesin_knife,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.MesinKnife.pdf');
+    }
+
 
     public function proses_update(Request $request, $id)
     {

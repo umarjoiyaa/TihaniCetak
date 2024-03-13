@@ -17,7 +17,7 @@
 <body>
         <div class="row">
             <div class="col-md-12">
-                <h5 class="float-left"><b>PRODUCTION JOBSHEET- MESIN LIPAT</b></h5>
+                <h5 class="float-left"><b>PRODUCTION JOBSHEET- MESIN 3KNIFE</b></h5>
                 <p class="float-right">TCBS-B66 (Rev.1)</p>
             </div>
         </div>
@@ -84,18 +84,18 @@
                 <div class="row mt-5 mx-2" >
                     <div>
                             <label for="" class="font-weight-bold">Tarikh</label><br>
-                            <label >{{ $mesin_lipat->date }}</label>
+                            <label >{{ $mesin_knife->date }}</label>
                     </div>
-                    <div style="margin-left:300px!important;margin-top:-98px !important">
+                    <div style="margin-left:300px!important;margin-top:-98px !important;min-width:150px;">
                         <label for="" class="font-weight-bold">Disediakan Oleh</label><br>
-                        <label>{{ $mesin_lipat->user->full_name }}</label>
+                        <label>{{ $mesin_knife->user->full_name }}</label>
 
                     </div>
                     <div >
                     <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
                             <label for="" class="font-weight-bold"> Operator</label>
                             @php
-                                $selectedOperatorIds = json_decode($mesin_lipat->operator);
+                                $selectedOperatorIds = json_decode($mesin_knife->operator);
                             @endphp
                             <label>
                                 @if ($selectedOperatorIds)
@@ -121,20 +121,20 @@
                     <div >
                         <div class="form-group" >
                             <label for="" class="font-weight-bold">Sales Order No.</label><br>
-                            <label>{{ $mesin_lipat->sale_order->order_no }}</label>
+                            <label>{{ $mesin_knife->sale_order->order_no }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">Tajuk</label><br>
-                        <label>{{ $mesin_lipat->sale_order->description }}</label>
+                        <label>{{ $mesin_knife->sale_order->description }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
                             <label for="" class="font-weight-bold"> Kod Buku</label><br>
                             <label>
-                                {{ $mesin_lipat->sale_order->kod_buku }}
+                                {{ $mesin_knife->sale_order->kod_buku }}
                             </label>
                         </div>
                     </div>
@@ -145,48 +145,37 @@
                     <div >
                         <div class="form-group">
                             <label for="" class="font-weight-bold">Pelanggan</label><br>
-                            <label>{{ $mesin_lipat->sale_order->customer }}</label>
+                            <label>{{ $mesin_knife->sale_order->customer }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="" class="font-weight-bold" style="width:100px!important;">Kuantiti SO</label><br>
+                        <label for="" class="font-weight-bold" style="width:100px!important;">Kuantiti (SO)</label><br>
                             <label>
-                                {{ $mesin_lipat->sale_order->sale_order_qty }}
+                                {{ $mesin_knife->sale_order->sale_order_qty }}
                             </label>
 
 
                     </div>
-                    <div >
-                        <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important;min-width:150px;">
-                            <label for="" class="font-weight-bold">Jumlah Seksyen</label><br>
-                            <label>{{ $mesin_lipat->jumlah_seksyen }}</label>
+                    <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
+                        <label for="" class="font-weight-bold">Saiz Buku</label><br>
+                            <label>{{ $mesin_knife->sale_order->size }}</label>
+
                         </div>
-                    </div>
 
                 </div>
 
                 <div class="row mt-2 mx-2" >
                     <div >
-                        <div class="form-group">
-                            <label for="" class="font-weight-bold">Jenis Lipatan</label><br>
-                            <label>{{ $mesin_lipat->jenis_lipatan }}</label>
-
-                        </div>
+                        <label for="" class="font-weight-bold">Mesin</label><br>
+                            <label>{{ $mesin_knife->mesin }}</label>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                            <label for="" class="font-weight-bold">Mesin</label><br>
-                            <label>{{ $mesin_lipat->mesin }}</label>
+                            
 
                     </div>
                   <div>
-                  <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important;min-width:150px;">
-                  @if ($mesin_lipat->mesin == 'OTHERS')
-                                <label for="newInput" class="font-weight-bold">Lain-lain mesin (Sila
-                                        nyatakan)</label>
-                                <label>{{ $mesin_lipat->mesin_others }}</label>
-                            @endif
-                  </div>
+                  
 
                   </div>
 
@@ -196,7 +185,7 @@
                 
 
                 <br>
-                <h3><b>Jobsheet Details</b></h3>
+                <h3 class="mt-5"><b>Jobsheet Details</b></h3>
 
                 <table border="1" class="customize" style="width:100% !important;" >
                     <thead>
@@ -302,13 +291,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $mesin_lipat->verified_by_date }}
+                            <td>{{ $mesin_knife->verified_by_date }}
                             </td>
-                            <td>{{ $mesin_lipat->verified_by_user }}
+                            <td>{{ $mesin_knife->verified_by_user }}
                             </td>
-                            <td>{{ $mesin_lipat->verified_by_designation }}
+                            <td>{{ $mesin_knife->verified_by_designation }}
                             </td>
-                            <td>{{ $mesin_lipat->verified_by_department }}
+                            <td>{{ $mesin_knife->verified_by_department }}
                             </td>
                         </tr>
                     </tbody>

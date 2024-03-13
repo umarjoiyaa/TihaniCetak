@@ -498,6 +498,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
     Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
     Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
+    Route::get('/Production/CoverAndEndpaper/print/{id}', [Cover_endPaperController::class, 'print'])->name('cover_end_paper.print');
     Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
     Route::post('/Production/CoverAndEndpaper/proses_update/{id}', [Cover_endPaperController::class, 'proses_update'])->name('cover_end_paper.proses.update');
     Route::post('/Production/CoverAndEndpaper/Machine/Starter', [Cover_endPaperController::class, 'machine_starter'])->name('cover_end_paper.machine.starter');
@@ -513,6 +514,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/Text/store', [TextController::class, 'store'])->name('text.store');
     Route::get('/Production/Text/edit/{id}', [TextController::class, 'edit'])->name('text.edit');
     Route::get('/Production/Text/view/{id}', [TextController::class, 'view'])->name('text.view');
+    Route::get('/Production/Text/print/{id}', [TextController::class, 'print'])->name('text.print');
     Route::post('/Production/Text/update/{id}', [TextController::class, 'update'])->name('text.update');
     Route::get('/Production/Text/delete/{id}', [TextController::class, 'delete'])->name('text.delete');
 
@@ -543,6 +545,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/StapleBind/view/{id}', [StapleBindController::class, 'view'])->name('staple_bind.view');
     Route::get('/Production/StapleBind/edit/{id}', [StapleBindController::class, 'edit'])->name('staple_bind.edit');
     Route::post('/Production/StapleBind/update/{id}', [StapleBindController::class, 'update'])->name('staple_bind.update');
+    Route::get('/Production/StapleBind/print/{id}', [StapleBindController::class, 'print'])->name('staple_bind.print');
     Route::get('/Production/StapleBind/proses/{id}', [StapleBindController::class, 'proses'])->name('staple_bind.proses');
     Route::post('/Production/StapleBind/proses_update/{id}', [StapleBindController::class, 'proses_update'])->name('staple_bind.proses.update');
     Route::post('/Production/StapleBind/Machine/Starter', [StapleBindController::class, 'machine_starter'])->name('staple_bind.machine.starter');
@@ -559,6 +562,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/PerfectBind/view/{id}', [PerfectBindController::class, 'view'])->name('perfect_bind.view');
     Route::get('/Production/PerfectBind/edit/{id}', [PerfectBindController::class, 'edit'])->name('perfect_bind.edit');
     Route::post('/Production/PerfectBind/update/{id}', [PerfectBindController::class, 'update'])->name('perfect_bind.update');
+    Route::get('/Production/PerfectBind/print/{id}', [PerfectBindController::class, 'print'])->name('perfect_bind.print');
     Route::get('/Production/PerfectBind/proses/{id}', [PerfectBindController::class, 'proses'])->name('perfect_bind.proses');
     Route::post('/Production/PerfectBind/proses_update/{id}', [PerfectBindController::class, 'proses_update'])->name('perfect_bind.proses.update');
     Route::post('/Production/PerfectBind/Machine/Starter', [PerfectBindController::class, 'machine_starter'])->name('perfect_bind.machine.starter');
@@ -575,6 +579,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/MesinKnife/view/{id}', [MesinKnifeController::class, 'view'])->name('mesin_knife.view');
     Route::get('/Production/MesinKnife/edit/{id}', [MesinKnifeController::class, 'edit'])->name('mesin_knife.edit');
     Route::post('/Production/MesinKnife/update/{id}', [MesinKnifeController::class, 'update'])->name('mesin_knife.update');
+    Route::get('/Production/MesinKnife/print/{id}', [MesinKnifeController::class, 'print'])->name('mesin_knife.print');
     Route::get('/Production/MesinKnife/proses/{id}', [MesinKnifeController::class, 'proses'])->name('mesin_knife.proses');
     Route::post('/Production/MesinKnife/proses_update/{id}', [MesinKnifeController::class, 'proses_update'])->name('mesin_knife.proses.update');
     Route::post('/Production/MesinKnife/Machine/Starter', [MesinKnifeController::class, 'machine_starter'])->name('mesin_knife.machine.starter');

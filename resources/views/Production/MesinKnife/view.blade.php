@@ -299,6 +299,14 @@
                             </div>
                         </div>
                     </div>
+
+
+                    <div class="row d-flex justify-content-end">
+                                    <a class="btn btn-primary float-right" target="_blank" href="{{route('mesin_knife.print', $mesin_knife->id)}}" >Print</a>
+
+                                </div>
+
+
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <!-- Modal -->

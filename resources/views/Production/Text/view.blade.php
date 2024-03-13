@@ -282,6 +282,7 @@
                                                 <th>last Print</th>
                                                 <th>Kuantiti Waste</th>
                                             </tr>
+                                            </thead>
                                         <tbody>
                                             @foreach ($details as $value)
                                                 <tr>
@@ -330,7 +331,6 @@
                                                 </tr>
                                             @endforeach
                                         </tbody>
-                                        </thead>
                                     </table>
 
                                 </div>
@@ -568,6 +568,14 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <a class="btn btn-primary float-right mx-2 mb-3" target="_blank" href="{{route('text.print', $text->id)}}" >Print</a>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             <a href="{{ route('text') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
