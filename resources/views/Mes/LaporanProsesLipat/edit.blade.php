@@ -541,8 +541,8 @@
                 $length1 = $('#myTab li').length + 1;
                 $('#myTab').append(`
 <li class="nav-item">
-<a class="nav-link" id="tab${number}" data-toggle="tab" href="#Seksyen${sectionNumber}_${number}"
-    role="tab" aria-controls="Seksyen${sectionNumber}_${number}" aria-selected="true">
+<a class="nav-link" id="tab${number}" data-toggle="tab" href="#Seksyen${number}"
+    role="tab" aria-controls="Seksyen${number}" aria-selected="true">
     Seksyen ${number}
 </a>
 <input type="hidden" name="section[${number}]" value="Seksyen ${sectionNumber} - ${number}">
@@ -550,7 +550,7 @@
 
                 $length2 = $('#myTabContent .tab-pane').length + 1;
                 $('#myTabContent').append(`
-<div class="tab-pane fade" id="Seksyen${sectionNumber}_${number}" role="tabpanel"
+<div class="tab-pane fade" id="Seksyen${number}" role="tabpanel"
 aria-labelledby="tab${number}">
 <input type="hidden" class="hidden" value="${number}">
 <div class="table-responsive">
