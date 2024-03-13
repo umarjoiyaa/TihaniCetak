@@ -10,7 +10,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
 class StapleBindController extends Controller
 {
     public function Data(Request $request)
@@ -506,6 +506,26 @@ class StapleBindController extends Controller
         Helper::logSystemActivity('STAPLE BIND', 'STAPLE BIND Update');
         return view('Production.StapleBind.verify', compact('staple_bind', 'users', 'check_machines', 'details', 'detailbs'));
     }
+
+    public function print($id){
+        $staple_bind = StapleBind::find($id);
+        $users = User::all();
+        $check_machines = StapleBindDetail::where('machine', '=', $staple_bind->mesin)->where('staple_id',  '=', $id)->orderby('id', 'DESC')->first();
+        $details = StapleBindDetail::where('staple_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = StapleBindDetailB::whereIn('staple_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.StapleBind.pdf', [
+            'staple_bind' => $staple_bind,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.StapleBind.pdf');
+    }
+
+
 
     public function approve_approve(Request $request, $id){
         if (!Auth::user()->hasPermissionTo('STAPLE BIND Verify')) {

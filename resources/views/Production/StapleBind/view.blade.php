@@ -289,6 +289,9 @@
                         </div>
                     </div>
 
+                   
+
+
                     <div class="row">
                         <div class="col-md-12">
                             <div class="text-center" style="font-size:20px; color:red; dispaly:inline-block;">
@@ -307,6 +310,13 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="row d-flex justify-content-end">
+                                    <a class="btn btn-primary float-right" target="_blank" href="{{route('staple_bind.print', $staple_bind->id)}}" >Print</a>
+
+                                </div>
+
+
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
                             <!-- Modal -->

@@ -807,7 +807,7 @@
                 <br>
                 <h3><b>Verified By</b></h3>
 
-                <table border="1" style="width:100% !important;" >
+                <table border="1px" style="width:100% !important;" >
                     <thead>
                         <tr>
                             <th>Date</th>
