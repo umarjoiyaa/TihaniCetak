@@ -350,14 +350,14 @@ class TextController extends Controller
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;
                 $detail->seksyen_no = $index;
-                $detail->date = $request->section_date;
-                $detail->machine = $request->section_machine;
-                $detail->side = $request->section_side;
-                $detail->last_print = $request->section_last_print;
-                $detail->kuantiti_waste = $request->section_kuantiti_waste;
+                $detail->date = $request->parent_section_date;
+                $detail->machine = $request->parent_section_machine;
+                $detail->side = $request->parent_section_side;
+                $detail->last_print = $request->parent_section_last_print;
+                $detail->kuantiti_waste = $request->parent_section_kuantiti_waste;
                 $detail->save();
-                if (!in_array($request->section_machine, $uniqueMachines)) {
-                    $uniqueMachines[] = $request->section_machine;
+                if (!in_array($request->parent_section_machine, $uniqueMachines)) {
+                    $uniqueMachines[] = $request->parent_section_machine;
                 }
             }
         }else{
@@ -481,14 +481,14 @@ class TextController extends Controller
                 $detail = new TextDetail();
                 $detail->text_id = $text->id;
                 $detail->seksyen_no = $index;
-                $detail->date = $request->section_date;
-                $detail->machine = $request->section_machine;
-                $detail->side = $request->section_side;
-                $detail->last_print = $request->section_last_print;
-                $detail->kuantiti_waste = $request->section_kuantiti_waste;
+                $detail->date = $request->parent_section_date;
+                $detail->machine = $request->parent_section_machine;
+                $detail->side = $request->parent_section_side;
+                $detail->last_print = $request->parent_section_last_print;
+                $detail->kuantiti_waste = $request->parent_section_kuantiti_waste;
                 $detail->save();
-                if (!in_array($request->section_machine, $uniqueMachines)) {
-                    $uniqueMachines[] = $request->section_machine;
+                if (!in_array($request->parent_section_machine, $uniqueMachines)) {
+                    $uniqueMachines[] = $request->parent_section_machine;
                 }
             }
         }else{
