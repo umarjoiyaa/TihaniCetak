@@ -11,7 +11,7 @@ use App\Models\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use PDF;
 class Cover_endPaperController extends Controller
 {
 
@@ -458,6 +458,25 @@ class Cover_endPaperController extends Controller
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER View');
         return view('Production.Cover_endPaper.view', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+    }
+
+
+    public function print($id){
+        $cover_end_paper = CoverAndEndpaper::find($id);
+        $users = User::all();
+        $check_machines = CoverEndPaperDetail::where('machine', '=', $cover_end_paper->mesin)->where('cover_paper_id',  '=', $id)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
+        $details = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->orderby('id', 'ASC')->get();
+        $detailIds = $details->pluck('id')->toArray();
+        $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
+
+        $pdf = PDF::loadView('Production.Cover_endPaper.pdf', [
+            'cover_end_paper' => $cover_end_paper,
+            'users' => $users,
+            'check_machines' => $check_machines,
+            'details' => $details,
+            'detailbs' => $detailbs
+        ]);
+        return $pdf->stream('Production.Cover_endPaper.pdf');
     }
 
     public function update(Request $request,$id)

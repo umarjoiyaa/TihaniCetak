@@ -128,7 +128,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Kuantiti Waste</div>
-                                            <input type="number" value="{{ $cover_end_paper->kuantiti_waste }}"
+                                            <input type="text" value="{{ $cover_end_paper->kuantiti_waste }}"
                                                 name="kuantiti_waste" id="" class="form-control">
                                         </div>
                                     </div>

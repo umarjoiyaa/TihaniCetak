@@ -498,6 +498,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/CoverAndEndpaper/view/{id}', [Cover_endPaperController::class, 'view'])->name('cover_end_paper.view');
     Route::get('/Production/CoverAndEndpaper/edit/{id}', [Cover_endPaperController::class, 'edit'])->name('cover_end_paper.edit');
     Route::post('/Production/CoverAndEndpaper/update/{id}', [Cover_endPaperController::class, 'update'])->name('cover_end_paper.update');
+    Route::get('/Production/CoverAndEndpaper/print/{id}', [Cover_endPaperController::class, 'print'])->name('cover_end_paper.print');
     Route::get('/Production/CoverAndEndpaper/proses/{id}', [Cover_endPaperController::class, 'proses'])->name('cover_end_paper.proses');
     Route::post('/Production/CoverAndEndpaper/proses_update/{id}', [Cover_endPaperController::class, 'proses_update'])->name('cover_end_paper.proses.update');
     Route::post('/Production/CoverAndEndpaper/Machine/Starter', [Cover_endPaperController::class, 'machine_starter'])->name('cover_end_paper.machine.starter');
@@ -513,6 +514,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/Text/store', [TextController::class, 'store'])->name('text.store');
     Route::get('/Production/Text/edit/{id}', [TextController::class, 'edit'])->name('text.edit');
     Route::get('/Production/Text/view/{id}', [TextController::class, 'view'])->name('text.view');
+    Route::get('/Production/Text/print/{id}', [TextController::class, 'print'])->name('text.print');
     Route::post('/Production/Text/update/{id}', [TextController::class, 'update'])->name('text.update');
     Route::get('/Production/Text/delete/{id}', [TextController::class, 'delete'])->name('text.delete');
 

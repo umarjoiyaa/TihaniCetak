@@ -122,7 +122,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="label">Kuantiti Waste</div>
-                                        <input type="number" value="{{ $cover_end_paper->kuantiti_waste }}"
+                                        <input type="text" value="{{ $cover_end_paper->kuantiti_waste }}"
                                             name="kuantiti_waste" id="" class="form-control">
                                     </div>
                                 </div>
@@ -814,6 +814,17 @@
                         </div>
                     </div>
                 </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-12 ">
+                            <a class="btn btn-primary float-right mx-2 mb-3" target="_blank" href="{{route('cover_end_paper.print', $cover_end_paper->id)}}" >Print</a>
+                        </div>
+                    </div>
+
+
+
             </div>
         </div>
         <a href="{{ route('cover_end_paper') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>

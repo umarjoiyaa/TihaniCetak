@@ -290,12 +290,12 @@
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td> <input type="text" @disabled(old('parent_action') == 'on') name="parent_section_date"
+                                                    <td> <input type="text" @disabled(old('parent_action') != 'on') name="parent_section_date"
                                                         value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
                                                             class="form-control datepicker" id="datepicker_main"
                                                             pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy"></td>
                                                     <td>
-                                                        <select name="parent_section_machine" @disabled(old('parent_action') == 'on') id="mesin_section"
+                                                        <select name="parent_section_machine" @disabled(old('parent_action') != 'on') id="mesin_section"
                                                             class="form-control mesin_parent_section form-select">
                                                             <option value="-1" disabled selected>Select any Mesin
                                                             </option>
@@ -306,7 +306,7 @@
                                                         </select>
                                                     </td>
                                                     <td>
-                                                        <select name="parent_section_side" @disabled(old('parent_action') == 'on')
+                                                        <select name="parent_section_side" @disabled(old('parent_action') != 'on')
                                                             class="form-control side_parent_section form-select"
                                                             id="side_">
                                                             <option value="-1" disabled selected>Select any Side
@@ -316,10 +316,10 @@
                                                             <option value="A/B" @selected(old('parent_section_machine') == 'A/B')>A/B</option>
                                                         </select>
                                                     </td>
-                                                    <td><input type="number" @disabled(old('parent_action') == 'on') name="parent_section_last_print"
+                                                    <td><input type="number" @disabled(old('parent_action') != 'on') name="parent_section_last_print"
                                                             id="last_print_parent_section" class="form-control "
                                                             id=""></td>
-                                                    <td><input type="number" @disabled(old('parent_action') == 'on')
+                                                    <td><input type="number" @disabled(old('parent_action') != 'on')
                                                             name="parent_section_kuantiti_waste"
                                                             id="kuantiti_waste_parent_section" class="form-control"
                                                             id=""></td>
