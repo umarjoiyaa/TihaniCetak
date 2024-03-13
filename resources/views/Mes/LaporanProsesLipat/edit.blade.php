@@ -467,7 +467,7 @@
 
                 $('#myTab li').each(function() {
                     var tabId = $(this).find('a').attr('href').replace('#Seksyen', '');
-                    var tabNumber = parseInt(tabId.split('_')[1]);
+                    var tabNumber = parseInt(tabId);
 
                     if (!existingSectionNumbers.includes(tabNumber)) {
                         // Remove the tab if the section number is not present in the input
