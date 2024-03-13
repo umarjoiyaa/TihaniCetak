@@ -167,16 +167,16 @@
                     <div >
                         <div class="form-group " >
                             <label for="" class="font-weight-bold">Mesin</label><br>
-                            <label>{{ $digital_printing->mesin }}</label>
+                            <label>{{ $mesin_lipat->mesin }}</label>
 
                         </div>
                     </div>
 
                     <div style="margin-left:300px!important;margin-top:-98px !important">
-                        @if ($digital_printing->mesin == 'OTHERS')
+                        @if ($mesin_lipat->mesin == 'OTHERS')
                                 <label for="newInput" class="font-weight-bold">Lain-lain mesin (Sila
                                         nyatakan)</label>
-                                <label>{{ $digital_printing->mesin_others }}</label>
+                                <label>{{ $mesin_lipat->mesin_others }}</label>
                             @endif
 
                     </div>
@@ -186,20 +186,20 @@
                     <div >
                         <div class="form-group">
                             <label for="" class="font-weight-bold">Kategori job</label><br>
-                            <label>{{ $digital_printing->kategori_job }}</label>
+                            <label>{{ $mesin_lipat->kategori_job }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">Jenis produk</label><br>
-                        <label>{{ $digital_printing->jenis_produk }}</label>
+                        <label>{{ $mesin_lipat->jenis_produk }}</label>
 
                     </div>
                     <div >
                         <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            @if ($digital_printing->jenis_produk == 'OTHERS')
+                            @if ($mesin_lipat->jenis_produk == 'OTHERS')
                                 <label for="newInput" class="font-weight-bold">Other (please state)</label>
-                                <span>{{ $digital_printing->jenis_produk_others }}</span>
+                                <span>{{ $mesin_lipat->jenis_produk_others }}</span>
                             @endif
                         </div>
                     </div>
@@ -210,481 +210,17 @@
                     <div >
                         <div class="form-group">
                             <label for="" class="font-weight-bold">Kertas: teks</label><br>
-                            <label>{{ $digital_printing->kertas_teks }}</label>
+                            <label>{{ $mesin_lipat->kertas_teks }}</label>
 
                         </div>
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">Kertas: Cover</label><br>
-                        <label>{{ $digital_printing->kertas_cover }}</label>
+                        <label>{{ $mesin_lipat->kertas_cover }}</label>
 
                     </div>
 
                 </div>
-
-                <br>
-                <h3><b>Text</b></h3>
-
-                <div class="row mt-2 mx-2" >
-                    <div >
-                        <div class="form-group">
-                            <div class="row">
-                                <div>
-                                <div class="col-md-1"><input disabled type="checkbox" name="text_front" id=""
-                                        @checked($digital_printing->text_front != null)></div>
-                                <div class="col-md-2" class="font-weight-bold">Front</div>
-                            </div>
-                            <div style="margin-left: 70px!important;margin-top:-55px !important">
-                                <div class="col-md-1"><input disabled type="checkbox" name="text_back" id=""
-                                        @checked($digital_printing->text_back != null)></div>
-                                <div class="col-md-2" class="font-weight-bold">back</div>
-                            </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="" class="font-weight-bold">Print</label><br>
-                        <label>{{ $digital_printing->text_print }}</label>
-
-                    </div>
-                    <div >
-                        <div class="form-group" style="margin-left:600px!important;margin-top:-66px !important">
-                            <label for="" class="font-weight-bold">Jumlah Up</label><br>
-                            <label>
-                                {{ $digital_printing->text_jumlah_up }}
-                            </label>
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="row mt-2 mx-2" style="margin-bottom: 40px !important;">
-                    <div >
-                        <div class="form-group">
-                            <label for="" class="font-weight-bold">Print Cut</label><br>
-                            <label>{{ $digital_printing->text_print_cut }}</label>
-                        </div>
-                    </div>
-                    <div style="margin-left:300px!important;margin-top:-98px !important">
-                        @if ($digital_printing->text_print_cut == 'OTHERS')
-                                <span>{{ $digital_printing->text_print_cut_others }}</span>
-                            @endif
-
-                    </div>
-                </div>
-
-                <br>
-                <h3><b>Cover</b></h3>
-
-
-                <div class="row mt-2 mx-2" >
-                    <div >
-                        <div class="row">
-                            <div>
-                            <div class="col-md-1"><input disabled type="checkbox" name="text_front" id=""
-                                    @checked($digital_printing->cover_front != null)></div>
-                            <div class="col-md-2" class="font-weight-bold">Front</div>
-                        </div>
-                        <div style="margin-left: 70px!important;margin-top:-55px !important">
-                            <div class="col-md-1"><input disabled type="checkbox" name="cover_back" id=""
-                                    @checked($digital_printing->cover_back != null)></div>
-                            <div class="col-md-2" class="font-weight-bold">back</div>
-                        </div>
-                        </div>
-                    </div>
-                    <div style="margin-left:300px!important;margin-top:-98px !important">
-                        <label for="">Print Cut</label><br>
-                        <label>{{ $digital_printing->cover_print_cut }}</label>
-
-                    </div>
-
-
-                </div>
-
-                <div class="row mt-2 mx-2" >
-                    <div>
-                        @if ($digital_printing->cover_print_cut == 'OTHERS')
-                        <label >{{ $digital_printing->cover_print_cut_others }}</label>
-                        @endif
-                    </div>
-                </div>
-
-                <br>
-                <br>
-                <br>
-                <br>
-
-                <h3><b>Finishing</b></h3>
-
-                <table border="1" style="width:100% !important;" >
-                    <thead>
-                        <tr>
-                            <th >Finishing</th>
-                            <th style="text-align: center;">Partner</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_1 != null) name="finishing_1"
-                                id="Form20" class=" mr-5">Gloss
-                            Lamination</td>
-
-                            @if($digital_printing->finishing_1 != null)
-                            @if ($digital_printing->finishing_1 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-                                  $name = App\Models\Supplier::find($digital_printing->finishing_1);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name}}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_2 != null) name="finishing_2"
-                                id="Form20" class=" mr-5">Matt
-                                Lamination</td>
-
-
-                                @if($digital_printing->finishing_2 != null)
-                                @if ($digital_printing->finishing_2 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_2);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_3 != null) name="finishing_3"
-                                id="Form20" class=" mr-5">SPOT UV</td>
-
-
-                                @if($digital_printing->finishing_3 != null)
-                                @if ($digital_printing->finishing_3 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_3);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_4 != null) name="finishing_4"
-                                id="Form20" class=" mr-5">Hot Stamping</td>
-
-
-                                @if($digital_printing->finishing_4 != null)
-                                @if ($digital_printing->finishing_4 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_4);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_5 != null) name="finishing_5"
-                                id="Form20" class=" mr-5">Emboss</td>
-
-
-                                @if($digital_printing->finishing_5 != null)
-                                @if ($digital_printing->finishing_5 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_5);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_6 != null) name="finishing_6"
-                                id="Form20" class=" mr-5">Diecut</td>
-
-
-                                @if($digital_printing->finishing_6 != null)
-                                @if ($digital_printing->finishing_6 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_6);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                        @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_7 != null) name="finishing_7"
-                                id="Form20" class=" mr-5">Round corner</td>
-
-
-                                @if($digital_printing->finishing_7 != null)
-                                @if ($digital_printing->finishing_7 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_7);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_8 != null) name="finishing_8"
-                                id="Form20" class=" mr-5">Round back</td>
-
-
-                                @if($digital_printing->finishing_8 != null)
-                                @if ($digital_printing->finishing_8 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_8);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_9 != null) name="finishing_9"
-                                id="Form20" class=" mr-5">Square Back</td>
-
-
-                                @if($digital_printing->finishing_9 != null)
-                                @if ($digital_printing->finishing_9 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_9);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-                        <tr>
-                            <td><input type="checkbox" @checked($digital_printing->finishing_10 != null) name="finishing_10"
-                                id="Form20" class=" mr-5">Others:  <label >{{ $digital_printing->finishing_10_val }}</label> </td>
-
-
-
-                                @if($digital_printing->finishing_11 != null)
-                                @if ($digital_printing->finishing_11 == 'In-house')
-                                <td style="text-align: center;">In-house</td>
-                               @else
-                                     @php
-                                      $name = App\Models\Supplier::find($digital_printing->finishing_11);
-                                   @endphp
-                               <td style="text-align: center;">{{ $name->name}}</td>
-                               @endif
-                               @else
-                               <td></td>
-                               @endif
-                        </tr>
-
-
-
-
-                    </tbody>
-                </table>
-
-                <br>
-                <h3><b>Binding</b></h3>
-
-                <table  border="1" style="width:100% !important;" >
-                    <thead>
-                        <tr>
-                            <th>Binding</th>
-                            <th style="text-align: center;">Partner</th>
-                        </tr>
-                    </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_1 != null) name="binding_1"
-                            id="Form20" class=" mr-5">Perfect
-                            Bind</td>
-
-                        @if($digital_printing->binding_1 != null)
-                        @if ($digital_printing->binding_1 == 'In-house')
-                        <td style="text-align: center;">In-house</td>
-                       @else
-                             @php
-
-                              $name = App\Models\Supplier::find($digital_printing->binding_1);
-                           @endphp
-                       <td style="text-align: center;">{{ $name->name }}</td>
-                       @endif
-                       @else
-                       <td></td>
-                       @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_2 != null) name="binding_2"
-                            id="Form20" class=" mr-5">Staple Bind</td>
-
-
-                            @if($digital_printing->binding_2 != null)
-                            @if ($digital_printing->binding_2 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-
-                                  $name = App\Models\Supplier::find($digital_printing->binding_2);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_3 != null) name="binding_3"
-                            id="Form20" class=" mr-5">Wire 0</td>
-
-
-                            @if($digital_printing->binding_3 != null)
-                            @if ($digital_printing->binding_3 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-
-                                  $name = App\Models\Supplier::find($digital_printing->binding_3);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_4 != null) name="binding_4"
-                            id="Form20" class=" mr-5">Hard Cover</td>
-
-
-                            @if($digital_printing->binding_4 != null)
-                            @if ($digital_printing->binding_4 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-
-                                  $name = App\Models\Supplier::find($digital_printing->binding_4);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_5 != null) name="binding_5"
-                            id="Form20" class=" mr-5">Creasing
-                            Line</td>
-
-
-                            @if($digital_printing->binding_5 != null)
-                            @if ($digital_printing->binding_5 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-
-                                  $name = App\Models\Supplier::find($digital_printing->binding_5);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_6 != null) name="binding_6"
-                            id="Form20" class=" mr-5">Cut to Size</td>
-
-
-                            @if($digital_printing->binding_6 != null)
-                            @if ($digital_printing->binding_6 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-                                  $name = App\Models\Supplier::find($digital_printing->binding_6);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_7 != null) name="binding_7"
-                            id="Form20" class=" mr-5">Folding</td>
-
-
-                            @if($digital_printing->binding_7 != null)
-                            @if ($digital_printing->binding_7 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-                                  $name = App\Models\Supplier::find($digital_printing->binding_7);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-
-                    <tr>
-                        <td><input type="checkbox" @checked($digital_printing->binding_8 != null) name="binding_8"
-                            id="Form20" class=" mr-5">Others:  <label >{{ $digital_printing->binding_8_val }}</label> </td>
-
-
-
-                            @if($digital_printing->binding_9 != null)
-                            @if ($digital_printing->binding_9 == 'In-house')
-                            <td style="text-align: center;">In-house</td>
-                           @else
-                                 @php
-                                  $name = App\Models\Supplier::find($digital_printing->binding_9);
-                               @endphp
-                           <td style="text-align: center;">{{ $name->name }}</td>
-                           @endif
-                           @else
-                           <td></td>
-                           @endif
-                    </tr>
-
-
-
-
-                </tbody>
-                </table>
-
-
                 <br>
                 <h3><b>Jobsheet Details</b></h3>
 
@@ -792,13 +328,13 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>{{ $digital_printing->verified_by_date }}
+                            <td>{{ $mesin_lipat->verified_by_date }}
                             </td>
-                            <td>{{ $digital_printing->verified_by_user }}
+                            <td>{{ $mesin_lipat->verified_by_user }}
                             </td>
-                            <td>{{ $digital_printing->verified_by_designation }}
+                            <td>{{ $mesin_lipat->verified_by_designation }}
                             </td>
-                            <td>{{ $digital_printing->verified_by_department }}
+                            <td>{{ $mesin_lipat->verified_by_department }}
                             </td>
                         </tr>
                     </tbody>

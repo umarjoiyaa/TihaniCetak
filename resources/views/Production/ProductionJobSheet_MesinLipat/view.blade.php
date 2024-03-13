@@ -302,7 +302,7 @@
                                 </div>
 
                                 <div class="row d-flex justify-content-end">
-                                    <a class="btn btn-primary float-right" target="_blank" href="{{route('mesin_lipat.print', $digital_printing->id)}}" >Print</a>
+                                    <a class="btn btn-primary float-right" target="_blank" href="{{route('mesin_lipat.print', $mesin_lipat->id)}}" >Print</a>
 
                                 </div>
 

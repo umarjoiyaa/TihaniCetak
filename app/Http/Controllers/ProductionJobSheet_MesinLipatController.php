@@ -517,7 +517,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = MesinLipatDetailB::whereIn('mesin_lipat_detail_id', $detailIds)->orderby('id', 'ASC')->get();
 
-        $pdf = PDF::loadView('Production.DigitalPrinting.pdf', [
+        $pdf = PDF::loadView('Production.ProductionJobSheet_MesinLipat.pdf', [
             'mesin_lipat' => $mesin_lipat,
             'users' => $users,
             'check_machines' => $check_machines,
