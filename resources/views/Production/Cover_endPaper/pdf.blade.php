@@ -17,7 +17,7 @@
 <body>
         <div class="row d-flex">
             <div class="col-md-12">
-                        <h3 class="float-left"><b>PRODUCTION JOBSHEET- COVER & ENDPAPER</b></h3>
+                        <h5 class="float-left"><b>PRODUCTION JOBSHEET- COVER & ENDPAPER</b></h5>
                         <p class="float-right">TCBS-B66 (Rev.1)</p>
                 </div>
         </div>
@@ -117,7 +117,7 @@
 
                 </div>
 
-                <div class="row mt-5 mx-2" >
+                <div class="row mt-2 mx-2" >
                     <div >
                         <div class="form-group" >
                             <label for="" class="font-weight-bold">Sales Order No.</label><br>
@@ -214,7 +214,7 @@
 
 
                 <br>
-                <h3><b>Print Details</b></h3>
+                <h5><b>Print Details</b></h5>
 
                 <div class="row mt-2 mx-2" >
                     <div >
@@ -269,7 +269,7 @@
                 </div>
 
                 <br>
-                <h3><b>Status</b></h3>
+                <h5><b>Status</b></h5>
 
 
                 <div class="row mt-2 mx-2" >
@@ -298,7 +298,7 @@
                 <br>
                 <br>
 
-                <h3><b>Finishing</b></h3>
+                <h5><b>Finishing</b></h5>
 
                 <table border="1" style="width:100% !important;" >
                     <thead>
@@ -311,7 +311,7 @@
                         <tr>
                             <td><input type="checkbox" @checked($cover_end_paper->finishing_1 != null) name="finishing_1"
                                 id="Form20" class=" mr-5">UV+Texture
-                                Emboss   <label for="" style="margin-left: 50px;">{{ $cover_end_paper->finishing_input_1 }}</label></td>
+                                Emboss   <label for="" style="margin-left:50px;">{{ $cover_end_paper->finishing_input_1 }}</label></td>
 
                             @if($cover_end_paper->finishing_supplier_1 != null)
                             @if ($cover_end_paper->finishing_supplier_1 == 'In-house')
@@ -367,7 +367,7 @@
                         <tr>
                             <td><input type="checkbox" @checked($cover_end_paper->finishing_4 != null) name="finishing_4"
                                 id="Form20" class=" mr-5">Spot
-                                UV</td>
+                                UV </td>
 
 
                                 @if($cover_end_paper->finishing_supplier_4 != null)
@@ -405,7 +405,7 @@
                         <tr>
                             <td><input type="checkbox" @checked($cover_end_paper->finishing_6 != null) name="finishing_6"
                                 id="Form20" class=" mr-5">Hot
-                                Stamping</td>
+                                Stamping  <label for="" style="margin-left:50px;">{{ $cover_end_paper->finishing_input_2 }}</label></td>
 
 
                                 @if($cover_end_paper->finishing_supplier_6 != null)
@@ -641,11 +641,23 @@
                 </table>
 
                 <br>
+                <div class="row mt-2 mx-2" style="margin-top:70px!important;">
+                    <div >
+                        <div class="form-group">
+                            <label for="" class="font-weight-bold">Catatan</label><br>
+                            <label>{{ $cover_end_paper->catatan_texteditor }}</label>
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <br>
 
 
 
                 <br>
-                <h3><b>Jobsheet Details</b></h3>
+                <h5><b>Jobsheet Details</b></h5>
 
                 <table border="1" class="customize" style="width:100% !important;" >
                     <thead>
@@ -676,7 +688,7 @@
 
                 <br>
 
-                <h3><b>Production Machine Detail</b></h3>
+                <h5><b>Production Machine Detail</b></h5>
 
                 <table border="1" class="customize" style="width:100% !important;" >
                     <thead>
@@ -738,7 +750,7 @@
 
 
                 <br>
-                <h3><b>Verified By</b></h3>
+                <h5><b>Verified By</b></h5>
 
                 <table border="1" style="width:100% !important;" >
                     <thead>
