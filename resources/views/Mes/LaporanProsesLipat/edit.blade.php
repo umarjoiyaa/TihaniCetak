@@ -395,12 +395,29 @@
             // Initialize sectionRanges with the initial value
             var sectionRanges = initializeSectionRanges(initialValue);
 
+            $('.SectionNumber').on('keyup', function() {
+            var inputValue = $(this).val().trim();
 
+            var pattern = /^-?\d*(,\d*)?$/;
+
+            inputValue = inputValue.replace(/[^0-9,-]/g, '');
+
+            $(this).val(inputValue);
+
+            });
 
             var sectionNumber = 1;
 
             $('.SectionNumber').on('change', function() {
                 var inputValue = $(this).val().trim();
+
+
+                var inputValue = $(this).val().trim();
+
+                var pattern = /^-?\d*(,\d*)?$/;
+
+                inputValue = inputValue.replace(/[^0-9,-]/g, '');
+
                 if (inputValue == '' || inputValue === '0') {
                     // Clear tabs and content if the input is empty or zero
                     $('#myTab').empty();
