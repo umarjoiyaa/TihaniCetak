@@ -142,9 +142,6 @@
                                     <tr>
                                         <td>1</td>
                                         <td>File Format - CMYK (buat preflight inspection)</td>
-                                            @php
-                                                dd(old('bahagianA'));
-                                            @endphp
                                         <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA" @checked(old('bahagianA') == 'ok')
                                                 onchange="handleCheckboxChange('Cover1',this)"
                                                 >
