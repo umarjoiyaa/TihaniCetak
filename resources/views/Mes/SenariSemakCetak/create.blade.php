@@ -142,16 +142,15 @@
                                     <tr>
                                         <td>1</td>
                                         <td>File Format - CMYK (buat preflight inspection)</td>
-                                        <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA" @checked(old('bahagianA') == 'ok')
-                                                onchange="handleCheckboxChange('Cover1',this)"
-                                                >
+                                        <td class="cover"><input type="checkbox" class="Cover1" value="ok" name="bahagianA[2][1]" @checked(old('bahagianA.2.1') == 'ok')
+                                                onchange="handleCheckboxChange('Cover1',this)">
                                         </td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
                                                 onchange="handleCheckboxChange('Cover1',this)"
-                                                name="bahagianA" id="" value="ng" @checked(old('bahagianA') == 'ng') @if(old('bahagianA')) @else checked @endif></td>
+                                                name="bahagianA[2][1]" id="" value="ng" @checked(old('bahagianA.2.1') != 'ok' && old('bahagianA.2.1') != 'na')></td>
                                         <td class="cover"><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" name="bahagianA"
-                                                id="" value="na"  @checked(old('bahagianA') == 'na')></td>
+                                                onchange="handleCheckboxChange('Cover1',this)" name="bahagianA[2][1]"
+                                                id="" value="na"  @checked(old('bahagianA.2.1') == 'na')></td>
 
                                         <td class="text"><input type="checkbox" class="Text1" @checked(old('bahagianA[3][1]') == 'ok')
                                                 onchange="handleCheckboxChange('Text1',this)" name="bahagianA[3][1]"
