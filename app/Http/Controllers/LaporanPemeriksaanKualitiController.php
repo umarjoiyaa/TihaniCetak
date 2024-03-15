@@ -344,7 +344,7 @@ class LaporanPemeriksaanKualitiController extends Controller
             'time' => 'required',
             'mesin' => 'required',
             'jenis' => 'required',
-            'seksyen_no' => 'required',
+
         ]);
 
         // If validations fail
@@ -413,7 +413,7 @@ class LaporanPemeriksaanKualitiController extends Controller
             'time' => 'required',
             'mesin' => 'required',
             'jenis' => 'required',
-            'seksyen_no' => 'required',
+            
         ]);
 
         // If validations fail
