@@ -617,6 +617,7 @@ Route::middleware('auth')->group(function () {
 
     // Production Scheduling
     Route::get('/Production/ProductionScheduling', [ProductionSchedulingController::class, 'index'])->name('production_scheduling');
+    Route::get('/Production/ProductionScheduling/records', [ProductionSchedulingController::class, 'records'])->name('production_scheduling.records');
     Route::get('/Production/ProductionScheduling/detail', [ProductionSchedulingController::class, 'detail'])->name('production_scheduling.detail');
 
     // Printing Process

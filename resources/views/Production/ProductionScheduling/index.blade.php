@@ -1,8 +1,23 @@
 @extends('layouts.app')
 @section('content')
     <style>
-        #calendar a {
-            cursor: pointer !important;
+        .custom-button {
+            display: block;
+            width: 100%;
+            padding: 5px;
+            background-color: rgb(243, 243, 132);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        /* Style for the date text */
+        .custom-date {
+            font-size: 0.8em;
+            text-align: right;
+            padding: 3px;
+            cursor: pointer;
         }
     </style>
     <div class="card p-5">
@@ -63,8 +78,25 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
-                dateClick: function(info) {
-                    openModal(info.dateStr);
+                dayCellContent: function(info) {
+                    var container = document.createElement('div');
+
+                    var dateText = document.createElement('div');
+                    dateText.classList.add('custom-date');
+                    dateText.textContent = info.date.getDate();
+                    container.appendChild(dateText);
+
+                    var button = document.createElement('button');
+                    button.innerHTML = 'View';
+                    button.classList.add('custom-button');
+                    button.onclick = function() {
+                        openModal(info.date.toISOString().substring(0, 10));
+                    };
+                    container.appendChild(button);
+
+                    return {
+                        domNodes: [container]
+                    };
                 }
             });
             calendar.render();
@@ -98,47 +130,47 @@
                     success: function(data) {
                         data.DigitalPrinting.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Digital Printing</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Digital Printing</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.CoverEndPaper.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Cover & End Paper</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Cover & End Paper</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.Text.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Text</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Text</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.MesinLipat.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin Lipat</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Mesin Lipat</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.StapleBind.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Staple Bind</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Staple Bind</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.MesinPerfectBind.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin Perfect Bind</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Mesin Perfect Bind</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.Mesin3Knife.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Mesin 3 Knife</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Mesin 3 Knife</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.KulitBuku.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Kulit Buku/Cover</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Kulit Buku/Cover</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         data.Teks.forEach(element => {
                             $('#myTable tbody').append(
-                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin}</td><td><span class="badge badge-info">${element.status}</span></td><td>Teks</td></tr>`
+                                `<tr><td>${element.sale_order.order_no}</td><td>${element.sale_order.kod_buku}</td><td>${element.sale_order.description}</td><td>${element.mesin === 'OTHERS' ? element.mesin_other : element.mesin}</td><td>Teks</td><td><span class="badge badge-info">${element.status}</span></td></tr>`
                             );
                         });
                         $('#myTable').DataTable();

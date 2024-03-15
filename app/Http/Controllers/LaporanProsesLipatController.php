@@ -394,7 +394,7 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(b_1 AS UNSIGNED)')->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
@@ -407,7 +407,7 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(b_1 AS UNSIGNED)')->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
@@ -519,7 +519,7 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(b_1 AS UNSIGNED)')->get();
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
