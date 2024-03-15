@@ -887,6 +887,7 @@
     });
 });
 
+$(document).ready(function() {
 
 $('#sale_order').trigger('change');
 
@@ -932,6 +933,7 @@ $('#sale_order').select2({
     }
 });
 
+});
         $('#sale_order').on('change', function() {
             const id = $(this).val();
             $.ajax({

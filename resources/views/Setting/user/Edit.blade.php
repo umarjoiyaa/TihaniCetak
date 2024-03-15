@@ -12,13 +12,16 @@
                             <div class="col-md-6">
                                 <h4>User Information </h4>
                             </div>
-
+                        </div>
                         <form action="{{route('user.update', $user->id)}}" method="post">
                             @csrf
-                            <div class="col-md-6 d-flex justify-content-end">
+                            
+                            
+                        <div class="row">
+                            <div class="col-md-10 d-flex justify-content-end">
                                 <div class="form-group">
-                                    <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">IsActive</span></label>
-                            </div>
+                                    <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Active user</span></label>
+                                </div>
                             </div>
                         </div>
                             <div class="row">
@@ -94,7 +97,7 @@
                             </div>
                             <div class="row d-flex justify-content-end">
                                 <div class="col-md-4 d-flex justify-content-end">
-                                    <button class="btn  btn-primary">Submit</button>
+                                    <button class="btn  btn-primary">save</button>
                                 </div>
                             </div>
                     </div>

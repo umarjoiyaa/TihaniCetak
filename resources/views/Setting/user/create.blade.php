@@ -14,12 +14,14 @@
                     </div>
                     <form action="{{route('user.store')}}" method="post">
                         @csrf
-                        <div class="col-md-4 d-flex justify-content-end">
+                       <div class="row">
+                       <div class="col-md-10 d-flex justify-content-end">
                             <div class="form-group">
                                 <label class="ckbox"><input @if(!old('is_active')) checked @else @checked(old('is_active') != null) @endif type="checkbox" name="is_active"><span
-                                        class="tx-17">Is Active</span></label>
+                                        class="tx-17">Active User</span></label>
                             </div>
                         </div>
+                       </div>
                         <div class="row">
                             <div class="col-md-4">
                                 <div class="form-group">
@@ -96,7 +98,7 @@
                         </div>
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-4 d-flex justify-content-end">
-                                <button class="btn btn-sm btn-primary ">Submit</button>
+                                <button class="btn  btn-primary ">save</button>
                             </div>
                         </div>
                 </div>

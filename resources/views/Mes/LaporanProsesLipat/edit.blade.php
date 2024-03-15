@@ -215,6 +215,9 @@
                                                                     $newKey = 1;
                                                                 @endphp
                                                                 @foreach ($detailss as $key2 => $value1)
+                                                                {{-- @php
+                                                                    dd($detailss);
+                                                                @endphp --}}
                                                                     @if ($value1->row == $section->row)
                                                                         <tr>
                                                                             <td>{{ $value1->c_2 }} <input type="hidden"
@@ -391,6 +394,19 @@
 
 
         $(document).ready(function() {
+
+            $('.tab-content').each(function() {
+    $(this).find('.table').each(function() {
+        var closestTable = $(this);
+        var visibleRows = closestTable.find('tbody tr');
+
+        if (visibleRows.length === 1) {
+            visibleRows.find('.remove').addClass('d-none');
+        }
+    });
+});
+
+
             var initialValue = $('.SectionNumber').val();
             // Initialize sectionRanges with the initial value
             var sectionRanges = initializeSectionRanges(initialValue);

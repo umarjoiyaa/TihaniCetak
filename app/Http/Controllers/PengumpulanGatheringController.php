@@ -343,7 +343,6 @@ class PengumpulanGatheringController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'seksyen_no' => 'required'
         ]);
 
         // If validations fail
@@ -409,7 +408,6 @@ class PengumpulanGatheringController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'seksyen_no' => 'required'
         ]);
 
         // If validations fail
