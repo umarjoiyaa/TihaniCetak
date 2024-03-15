@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -95,7 +94,7 @@
                             </div>
                             <div class="row d-flex justify-content-end">
                                 <div class="col-md-4 d-flex justify-content-end">
-                                    <button class="btn btn-sm btn-primary">Submit</button>
+                                    <button class="btn  btn-primary">Submit</button>
                                 </div>
                             </div>
                     </div>
@@ -106,5 +105,4 @@
             </div>
             <a href="{{ route('user') }}" class="btn"><i class="ti-arrow-left mx-2 mt-1"></i> Back To List</a>
         </div>
-    </div>
 @endsection

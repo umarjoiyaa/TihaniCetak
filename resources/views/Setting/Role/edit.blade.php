@@ -74,7 +74,7 @@
                                                         <ul id="ProductioncollapseOne" class="collapse ">
                                                             <li>
                                                             <input type="checkbox" class="  " name=""
-                                                                        id="input0">
+                                                                        id="input0" >
                                                                 <label for="">
                                                                      Management
                                                                     <i class="ti-angle-down menu-arrow"
@@ -85,7 +85,7 @@
                                                                     @foreach ($managements as $key => $management)
                                                                         <li>
                                                                         <input type="checkbox" class="myCheckbox a1"
-                                                                                    name="" id="" >
+                                                                                    name="" id=""  >
                                                                             <label for="" data-toggle="collapse"
                                                                                 data-target="#Digital1">
                                                                                 
@@ -100,7 +100,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b1"
+                                                                                                    class="myCheckbox trigger b1"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -140,7 +140,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b2"
+                                                                                                    class="myCheckbox trigger b2"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -181,7 +181,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b3"
+                                                                                                    class="myCheckbox trigger b3"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -233,7 +233,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox2 b4"
+                                                                                                    class="myCheckbox2 trigger b4"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -274,7 +274,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b5"
+                                                                                                    class="myCheckbox trigger b5"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -315,7 +315,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b6"
+                                                                                                    class="myCheckbox trigger b6"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -367,7 +367,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox3 b7"
+                                                                                                    class="myCheckbox3 trigger b7"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -408,7 +408,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b8"
+                                                                                                    class="myCheckbox trigger b8"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -449,7 +449,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b9"
+                                                                                                    class="myCheckbox trigger b9"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -502,7 +502,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox4 b10"
+                                                                                                    class="myCheckbox4 trigger b10"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -543,7 +543,7 @@
                                                                                                 $lastWord = Str::of($value)->explode(' ')->last();
                                                                                             @endphp
                                                                                             <li><input type="checkbox"
-                                                                                                    class="myCheckbox b11"
+                                                                                                    class="myCheckbox trigger b11"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @if (in_array($value1->id, $rolePermissions)) checked @endif>
@@ -580,6 +580,7 @@
 @push('custom-scripts')
     <script>
         $(document).ready(function() {
+            $('.trigger').trigger('change');
             $(".menu-arrow").click(function() {
                 var $parentLi = $(this).closest('li');
                 var $siblingsUl = $parentLi.siblings().find('ul');
