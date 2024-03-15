@@ -177,9 +177,7 @@
                                         <ul class="nav nav-tabs flex-column" style="width:100%;" id="myTab"
                                             role="tablist">
                                             @if (old('section'))
-                                                @php
-                                                    dd(old('section'));
-                                                @endphp
+
                                                 @foreach (old('section') as $key1 => $section)
                                                     <li class="nav-item">
                                                         <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
@@ -307,8 +305,26 @@
             var sectionNumber = 1;
             var sectionRanges = {}; // Map to store the ranges for each section
 
+            $('.SectionNumber').on('keyup', function() {
+            var inputValue = $(this).val().trim();
+
+            var pattern = /^-?\d*(,\d*)?$/;
+
+            inputValue = inputValue.replace(/[^0-9,-]/g, '');
+
+            $(this).val(inputValue);
+
+            });
+
             $('.SectionNumber').on('change', function() {
                 var inputValue = $(this).val().trim();
+
+                var pattern = /^-?\d*(,\d*)?$/;
+
+                inputValue = inputValue.replace(/[^0-9,-]/g, '');
+
+                $(this).val(inputValue);
+
                 if (inputValue == "" || inputValue === '0') {
                     // Clear tabs and content if the input is empty or zero
                     $('#myTab').empty();
