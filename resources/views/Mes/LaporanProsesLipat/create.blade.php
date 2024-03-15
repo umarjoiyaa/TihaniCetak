@@ -257,7 +257,7 @@
                                                                     disabled>Verify</button>
                                                             </td>
                                                             <td><input type="text" name="section[${$index}][${$length3}][5]"
-                                                                    class="verify_operator form-control" readonly></td>
+                                                                    class="verify_operator form-control" readonly ></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
                                                         </tr>`);
