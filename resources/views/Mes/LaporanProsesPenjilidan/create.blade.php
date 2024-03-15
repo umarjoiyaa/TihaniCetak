@@ -545,7 +545,9 @@
                 $(this).closest('tr').find('.check_operator').val(combinedValue);
             });
 
-            $('#sale_order').on('change', function() {
+
+        });
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -565,6 +567,5 @@
                     }
                 });
             });
-        });
     </script>
 @endpush

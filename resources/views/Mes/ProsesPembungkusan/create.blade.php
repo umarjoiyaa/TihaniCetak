@@ -65,13 +65,13 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="form-label">Tajuk</div>
-                                    <input type="text" value="auto Display" readonly name="" id="tajuk" class="form-control">
+                                    <input type="text"  readonly name="" id="tajuk" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="form-label">Kod Buku</div>
-                                    <input type="text" readonly value="auto Display" name="" id="kod_buku" class="form-control">
+                                    <input type="text" readonly  name="" id="kod_buku" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -231,7 +231,10 @@ $('#sale_order').select2({
     }
 });
 
-            $('#sale_order').on('change', function() {
+
+        });
+
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -247,7 +250,6 @@ $('#sale_order').select2({
                     }
                 });
             });
-        });
 
 </script>
 @endpush
