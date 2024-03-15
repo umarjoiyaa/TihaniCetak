@@ -468,6 +468,9 @@
 
                     } else {
                         var soloNumber = parseInt(input);
+                        if(input == ""){
+                            return;
+                        }
                         if (!$(`#myTab #tab${soloNumber}`).length) {
                             // It's a solo number and not already created
                             createTabAndTable(sectionNumber, soloNumber);

@@ -374,6 +374,9 @@
                         sectionNumber++;
 
                     } else {
+                        if(input == ""){
+                            return;
+                        }
                         var soloNumber = parseInt(input);
                         if (!$(`#myTab #tab${soloNumber}`).length) {
                             // It's a solo number and not already created
