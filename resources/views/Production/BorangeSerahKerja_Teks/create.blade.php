@@ -380,24 +380,7 @@ $('#sale_order').select2({
     }
 });
 
-            $('#sale_order').on('change', function() {
-                const id = $(this).val();
-                $.ajax({
-                    type: 'GET',
-                    url: '{{ route('sale_order_penjilidan.detail.get') }}',
-                    data: {
-                        "id": id
-                    },
-                    success: function(data) {
-                        $('#tajuk').val(data.sale_order.description);
-                        if(data.section != null){
-                            $('#jumlah').val(data.section.item_cover_text);
-                        }else{
-                            $('#jumlah').val(0);
-                        }
-                    }
-                });
-            });
+
 
 
 
@@ -426,6 +409,25 @@ $('#sale_order').select2({
                 }
             })
     });
+
+    $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order_penjilidan.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                        $('#tajuk').val(data.sale_order.description);
+                        if(data.section != null){
+                            $('#jumlah').val(data.section.item_cover_text);
+                        }else{
+                            $('#jumlah').val(0);
+                        }
+                    }
+                });
+            });
 
     </script>
 @endpush

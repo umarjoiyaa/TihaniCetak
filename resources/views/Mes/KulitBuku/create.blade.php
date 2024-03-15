@@ -169,7 +169,7 @@
 
         $(document).ready(function() {
             $('#sale_order').trigger('change');
-            
+
             $('#sale_order').select2({
                 ajax: {
                     url: '{{ route('sale_order.get') }}',
@@ -212,7 +212,10 @@
                 }
             });
 
-            $('#sale_order').on('change', function() {
+
+        });
+
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -226,6 +229,5 @@
                     }
                 });
             });
-        });
     </script>
 @endpush

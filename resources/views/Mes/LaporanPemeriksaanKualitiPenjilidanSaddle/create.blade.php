@@ -285,7 +285,10 @@
                     return data.text || "Select Sales Order No";
                 }
             });
-            $('#sale_order').on('change', function() {
+
+        });
+
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -304,6 +307,5 @@
                     }
                 });
             });
-        });
     </script>
 @endpush

@@ -194,7 +194,10 @@ $('#sale_order').select2({
     }
 });
 
-            $('#sale_order').on('change', function() {
+
+        });
+
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -216,6 +219,5 @@ $('#sale_order').select2({
                     }
                 });
             });
-        });
     </script>
 @endpush
