@@ -130,7 +130,7 @@
                                                         <td><input type="checkbox" class="Cover2"
                                                                 onchange="handleCheckboxChange('Cover2',this)" @checked(old('b_3') == 'ok')
                                                                 name="b_3" value="ok" id=""></td>
-                                                        <td><input type="checkbox" class="Cover3"
+                                                        <td><input type="checkbox" class="Cover2"
                                                                 onchange="handleCheckboxChange('Cover2',this)" @checked(old('b_3') == 'ng') @if(old('b_3')) @else checked @endif
                                                                 name="b_3" value="ng" id=""></td>
                                                     </tr>
@@ -277,7 +277,10 @@
                     return data.text || "Select Sales Order No";
                 }
             });
-            $('#sale_order').on('change', function() {
+
+        });
+
+        $('#sale_order').on('change', function() {
                 const id = $(this).val();
                 $.ajax({
                     type: 'GET',
@@ -296,6 +299,5 @@
                     }
                 });
             });
-        });
     </script>
 @endpush
