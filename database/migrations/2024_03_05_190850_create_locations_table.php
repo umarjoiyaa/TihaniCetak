@@ -19,6 +19,9 @@ return new class extends Migration
             $table->foreign('shelf_id')->references('id')->on('area_shelves')->nullable();
             $table->unsignedBigInteger('level_id')->nullable();
             $table->foreign('level_id')->references('id')->on('area_levels')->nullable();
+            $table->string('item_code')->nullable();
+            $table->string('description')->nullable();
+            $table->string('uom')->nullable();
             $table->string('used_qty')->nullable();
             $table->softDeletes();
             $table->timestamps();

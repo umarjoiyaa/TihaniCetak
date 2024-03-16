@@ -680,10 +680,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/Stock_Transfer_location/receive', [Stock_Transfer_locationController::class, 'receive'])->name('stock_Transfer_location.receive');
 
     //Good Receiving
-    Route::get('/WMS/Good_Receiving', [GoodReceivingController::class, 'index'])->name('Good_Receiving');
-    Route::get('/WMS/Good_Receiving/view', [GoodReceivingController::class, 'view'])->name('Good_Receiving.view');
-    Route::get('/WMS/Good_Receiving/Create', [GoodReceivingController::class, 'Create'])->name('Good_Receiving.create');
-    Route::get('/WMS/Good_Receiving/Receive', [GoodReceivingController::class, 'receive'])->name('Good_Receiving.receive');
+    Route::get('/WMS/GoodReceiving', [GoodReceivingController::class, 'index'])->name('good_receiving');
+    Route::get('/WMS/GoodReceiving/data', [GoodReceivingController::class, 'Data'])->name('good_receiving.data');
+    Route::get('/WMS/GoodReceiving/view', [GoodReceivingController::class, 'view'])->name('good_receiving.view');
+    Route::get('/WMS/GoodReceiving/receive/{id}', [GoodReceivingController::class, 'receive'])->name('good_receiving.receive');
+    Route::post('/WMS/GoodReceiving/receive/update/{id}', [GoodReceivingController::class, 'receive_upadte'])->name('good_receiving.receive.update');
 
     // Material Requesst
     Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');

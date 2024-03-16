@@ -232,19 +232,6 @@ class AreaController extends Controller
         $area->created_by = Auth::user()->id;
         $area->save();
 
-        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
-        foreach($shelves as $shelf){
-            $levels = json_decode($shelf->level_id);
-            foreach($levels as $level){
-                $location = new Location();
-                $location->area_id = $area->id;
-                $location->shelf_id = $shelf->id;
-                $location->level_id = $level->id;
-                $location->used_qty = 0;
-                $location->save();
-            }
-        }
-
         Helper::logSystemActivity('Area', 'Area Store');
         return redirect()->route('area')->with('custom_success', 'Area has been Created Successfully !');
     }
@@ -280,11 +267,11 @@ class AreaController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('areas', 'name')->whereNull('deleted_at'),
+                Rule::unique('areas', 'name')->whereNull('deleted_at')->ignore($id),
             ],
             'code' => [
                 'required',
-                Rule::unique('areas', 'code')->whereNull('deleted_at'),
+                Rule::unique('areas', 'code')->whereNull('deleted_at')->ignore($id),
             ],
             'shelf' => 'required'
         ]);
@@ -296,25 +283,21 @@ class AreaController extends Controller
         }
 
         $area = Area::find($id);
+        $existingShelves = json_decode($area->shelf_id);
+
+        $shelvesToRemove = array_diff($existingShelves, $request->shelf);
+
+        $locationsWithUsedQty = Location::where('area_id', $area->id)->whereIn('shelf_id', $shelvesToRemove)->where('used_qty', '!=', 0)->exists();
+
+        if ($locationsWithUsedQty) {
+            return redirect()->back()->with('custom_errors', 'You try to remove SHELF or SHELVES which contain`s some quantity !');
+        }
+
         $area->name = $request->name;
         $area->code = $request->code;
         $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
-
-        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
-        foreach($shelves as $shelf){
-            $levels = json_decode($shelf->level_id);
-            foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
-                $location = new Location();
-                $location->area_id = $area->id;
-                $location->shelf_id = $shelf->id;
-                $location->level_id = $level->id;
-                $location->used_qty = 0;
-                $location->save();
-            }
-        }
 
         Helper::logSystemActivity('Area', 'Area Update');
         return redirect()->route('area')->with('custom_success', 'Area has been Updated Successfully !');

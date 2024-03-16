@@ -262,11 +262,11 @@ class AreaLevelController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('area_levels', 'name')->whereNull('deleted_at'),
+                Rule::unique('area_levels', 'name')->whereNull('deleted_at')->ignore($id),
             ],
             'code' => [
                 'required',
-                Rule::unique('area_levels', 'code')->whereNull('deleted_at'),
+                Rule::unique('area_levels', 'code')->whereNull('deleted_at')->ignore($id),
             ]
         ]);
 

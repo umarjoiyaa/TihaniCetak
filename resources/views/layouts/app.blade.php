@@ -740,7 +740,7 @@
                                                         <div class="row">
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Good_Receiving') }}"
+                                                                        href="{{ route('good_receiving') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

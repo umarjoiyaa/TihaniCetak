@@ -2,7 +2,8 @@
 
 namespace Database\Seeders;
 
-use App\Models\Department;
+use App\Models\GoodReceiving;
+use App\Models\GoodReceivingProduct;
 use App\Models\SaleOrder;
 use App\Models\Supplier;
 use Illuminate\Database\Seeder;
@@ -114,6 +115,34 @@ class CreateAdminUserSeeder extends Seeder
         Supplier::create([
             'name' => 'Supplier C',
             'code' => 'SPC'
+        ]);
+
+        $good_receiving = GoodReceiving::create([
+            'doc_key' => '454574',
+            'doc_no' => 'P003654',
+            'doc_date' => '16-03-2024',
+            'incomming_qty' => 400,
+            'receive_qty' => 0,
+            'po_no' => 'PO-11231-1',
+            'creditor_name' => 'Supplier A',
+        ]);
+
+        GoodReceivingProduct::create([
+            'receiving_id' => $good_receiving->id,
+            'item_code' => 'AA',
+            'description' => 'Item A',
+            'uom' => 'Unit',
+            'quantity' => 200,
+            'delivery_date' => '20-03-2024',
+        ]);
+
+        GoodReceivingProduct::create([
+            'receiving_id' => $good_receiving->id,
+            'item_code' => 'BB',
+            'description' => 'Item B',
+            'uom' => 'Unit',
+            'quantity' => 200,
+            'delivery_date' => '20-03-2024',
         ]);
     }
 }
