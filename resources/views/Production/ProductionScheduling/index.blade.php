@@ -12,7 +12,6 @@
             text-align: center;
         }
 
-        /* Style for the date text */
         .custom-date {
             font-size: 0.8em;
             text-align: right;
@@ -75,6 +74,8 @@
     <script src="{{ asset('assets/js/index.global.min.js') }}"></script>
     <script>
         $(document).ready(function() {
+            $data = @json($data);
+            const datesArray = Object.values($data).map(item => item.date);
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
@@ -86,13 +87,21 @@
                     dateText.textContent = info.date.getDate();
                     container.appendChild(dateText);
 
-                    var button = document.createElement('button');
-                    button.innerHTML = 'View';
-                    button.classList.add('custom-button');
-                    button.onclick = function() {
-                        openModal(info.date.toISOString().substring(0, 10));
-                    };
-                    container.appendChild(button);
+                    var dateStr = formatDate(info.date);
+
+                    var dateExists = datesArray.some(function(item) {
+                        return item === dateStr;
+                    });
+
+                    if (dateExists) {
+                        var button = document.createElement('button');
+                        button.innerHTML = 'View';
+                        button.classList.add('custom-button');
+                        button.onclick = function() {
+                            openModal(dateStr);
+                        };
+                        container.appendChild(button);
+                    }
 
                     return {
                         domNodes: [container]
@@ -102,8 +111,8 @@
             calendar.render();
 
             function openModal(date) {
-                $('.modal-title').text(formatDate(date));
-                getData(formatDate(date));
+                $('.modal-title').text(date);
+                getData(date);
             }
 
             function formatDate(dateStr) {
