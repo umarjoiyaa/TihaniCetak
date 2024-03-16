@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
         <div class="row">
             <div class="col-md-12">
@@ -76,9 +82,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
-                                            <th rowspan="2">
-                                                <div class="text-center">kriteria</div>
-                                            </th>
+                                            <th rowspan="2">kriteria</th>
                                             <th colspan="3">cover</th>
                                             <th colspan="3">text</th>
 
@@ -268,9 +272,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
-                                            <th rowspan="2">
-                                                <div class="text-center">kriteria</div>
-                                            </th>
+                                            <th rowspan="2">kriteria</th>
                                             <th colspan="3">cover</th>
                                             <th colspan="3">text</th>
 
@@ -514,9 +516,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
-                                            <th rowspan="2">
-                                                <div class="text-center">kriteria pemeriksaan</div>
-                                            </th>
+                                            <th rowspan="2">kriteria</th>
                                             <th colspan="3">Operator Pod</th>
                                             <th colspan="3">Qc</th>
 

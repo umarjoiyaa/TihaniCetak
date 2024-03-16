@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
 <form action="{{ route('plate_cetak.store') }}" method="POST">
     @csrf
@@ -113,7 +119,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-12 mt-3">
-                        <table class="table table-bordered table-warna text-center" border="1">
+                        <table class="table table-bordered table-warna" border="1">
                             <thead>
                                 <tr>
                                     <td colspan="6">Warna</td>

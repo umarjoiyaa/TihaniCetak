@@ -104,7 +104,7 @@
                     
 
                     <div class="col-md-12 mt-3">
-                        <table class="table table-bordered table-warna text-center" border="1">
+                        <table class="table table-bordered table-warna" border="1">
                             <thead>
                                 <tr>
                                     <td colspan="6">Warna</td>

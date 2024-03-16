@@ -1,5 +1,11 @@
 @extends('layouts.app')
-
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
             <div class="row">
                 <div class="col-md-12">
@@ -75,21 +81,19 @@
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
-                                                <th rowspan="2">No</th>
-                                                <th rowspan="2">
-                                                    <div class="text-center">kriteria</div>
-                                                </th>
-                                                <th colspan="3">cover</th>
-                                                <th colspan="3">text</th>
+                                                <th rowspan="2"class="text-left">No</th>
+                                                <th rowspan="2" class="text-left">kriteria</th>
+                                                <th colspan="3" class="text-left">cover</th>
+                                                <th colspan="3" class="text-left">text</th>
 
                                             </tr>
                                             <tr>
-                                                <th>OK</th>
-                                                <th>NG</th>
-                                                <th>NA</th>
-                                                <th>OK</th>
-                                                <th>NG</th>
-                                                <th>NA</th>
+                                                <th class="text-left">OK</th>
+                                                <th class="text-left">NG</th>
+                                                <th class="text-left">NA</th>
+                                                <th class="text-left">OK</th>
+                                                <th class="text-left">NG</th>
+                                                <th class="text-left">NA</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -268,9 +272,7 @@
                                         <thead>
                                             <tr>
                                                 <th rowspan="2">No</th>
-                                                <th rowspan="2">
-                                                    <div class="text-center">kriteria</div>
-                                                </th>
+                                                <th rowspan="2">kriteria</th>
                                                 <th colspan="3">cover</th>
                                                 <th colspan="3">text</th>
 
@@ -514,9 +516,7 @@
                                         <thead>
                                             <tr>
                                                 <th rowspan="2">No</th>
-                                                <th rowspan="2">
-                                                    <div class="text-center">kriteria pemeriksaan</div>
-                                                </th>
+                                                <th rowspan="2">kriteria Pemeriksaan</th>
                                                 <th colspan="3">Opertor Pod</th>
                                                 <th colspan="3">Qc</th>
 

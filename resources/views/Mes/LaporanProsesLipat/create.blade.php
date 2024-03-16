@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
     <form action="{{ route('laporan_proses_lipat.store') }}" method="POST">
         @csrf
@@ -257,7 +264,7 @@
                                                                     disabled>Verify</button>
                                                             </td>
                                                             <td><input type="text" name="section[${$index}][${$length3}][5]"
-                                                                    class="verify_operator form-control" readonly ></td>
+                                                                    class="verify_operator form-control" style="width:340px;" readonly ></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button></td>
                                                         </tr>`);

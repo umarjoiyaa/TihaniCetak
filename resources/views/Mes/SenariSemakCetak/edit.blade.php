@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
     <form action="{{ route('senari_semak_cetak.update', $senari_semak_cetak->id) }}" method="POST">
         @csrf
@@ -117,9 +124,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
-                                            <th rowspan="2">
-                                                <div class="text-center">kriteria</div>
-                                            </th>
+                                            <th rowspan="2">kriteria</th>
                                             <th colspan="3" class="cover">cover</th>
                                             <th colspan="3" class="text">text</th>
                                             <th colspan="3" class="endpaper">Endpaper/leftlet</th>

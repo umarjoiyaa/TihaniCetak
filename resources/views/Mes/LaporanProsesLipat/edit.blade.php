@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
     <form action="{{ route('laporan_proses_lipat.update', $laporan_proses_lipat->id) }}" method="POST">
         @csrf
@@ -244,10 +251,10 @@
                                                                             <td><button type="button"
                                                                                     class="btn btn-primary verify_btn"
                                                                                     disabled>Verify</button></td>
-                                                                            <td><input type="text"
+                                                                            <td><input style="width:340px;" type="text"
                                                                                     name="section[{{ $section->row }}][{{ $newKey }}][5]"
                                                                                     class="verify_operator form-control"
-                                                                                    readonly></td>
+                                                                                    readonly ></td>
                                                                             <td><button type="button"
                                                                                     class="btn btn-danger remove"
                                                                                     style="border-radius:5px;">X</button>
