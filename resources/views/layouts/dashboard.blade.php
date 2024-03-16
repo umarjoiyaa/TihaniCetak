@@ -14,6 +14,12 @@
     .card1{
         height:200px;
     }
+    .card .card .card{
+        width{
+            width:140px;
+        2   height:120px;
+        }
+    }
     .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
         color:;
     }
@@ -102,16 +108,18 @@
                         <div class="card childCard ht-40p card1">
                             <div class="card-body text-center ">
                                 <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
-                                <div class="card " style="border-radius:17px;background:#ddcdf0;">
-                                    <div class="card-body">
-                                        <a href="{{route('sale_order')}}">
-                                            <iconify-icon icon="pepicons-pop:file" width="24"
-                                                height="24"></iconify-icon><br>
-                                            <span style="font-weight: bold;">Sales Order
-                                                List</span>
-                                        </a>
+                                <a href="{{route('sale_order')}}">
+                                    <div class="card " style="border-radius:17px;background:#ddcdf0; width:140px; height:120px;">
+                                        <div class="card-body">
+                                            
+                                                <iconify-icon icon="pepicons-pop:file" width="24"
+                                                    height="24"></iconify-icon><br>
+                                                <span style="font-weight: bold;">Sales Order
+                                                    List</span>
+                                        
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -122,122 +130,140 @@
                                     Jobsheet </span>
                                 <div class="row mt-2">
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('digital_printing')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Digital
-                                                        printing</span><br><br>
-                                                </a>
+                                        <a href="{{route('digital_printing')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Digital
+                                                            printing</span><br><br>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('cover_end_paper')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Cover &
-                                                        Endpaper</span>
-                                                </a>
+                                        <a href="{{route('cover_end_paper')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Cover &
+                                                            Endpaper</span>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('text')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span
-                                                        style="font-weight: bold;">Text</span>
-                                                    <br>
-                                                    <br>
+                                        <a href="{{route('text')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span
+                                                            style="font-weight: bold;">Text</span>
+                                                        <br>
+                                                        <br>
 
-                                                </a>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('mesin_lipat')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Mesin
-                                                        Lipat</span><br><br>
-                                                </a>
+                                        <a href="{{route('mesin_lipat')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Mesin
+                                                            Lipat</span><br><br>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('staple_bind')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Staple
-                                                        Bind</span><br><br>
-                                                </a>
+                                        <a href="{{route('staple_bind')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Staple
+                                                            Bind</span><br><br>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('perfect_bind')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style="font-weight: bold;">Mesin
-                                                        Perfect Bind</span>
+                                        <a href="{{route('perfect_bind')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style="font-weight: bold;">Mesin
+                                                            Perfect Bind</span>
 
-                                                </a>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('mesin_knife')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Mesin
-                                                        Three Knife</span>
-                                                </a>
+                                        <a href="{{route('mesin_knife')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Mesin
+                                                            Three Knife</span>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('borange_serah_kerja')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style="font-size:10px !important; font-weight: bold;">Borang
-                                                        Serahan Kerja (Kulit Buku/ Cover)</span>
-                                                </a>
+                                        <a href="{{route('borange_serah_kerja')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style="font-size:10px !important; font-weight: bold;">Borang
+                                                            Serahan Kerja (Kulit Buku/ Cover)</span>
+                                                
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('borange_serah_kerja_teks')}}">
-                                                    <iconify-icon icon="mdi:file-cog-outline" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style="font-size:10px !important;font-weight: bold;">Borang
-                                                        Serahan Kerja (Teks)</span>
+                                        <a href="{{route('borange_serah_kerja_teks')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="mdi:file-cog-outline" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style="font-size:10px !important;font-weight: bold;">Borang
+                                                            Serahan Kerja (Teks)</span>
 
 
-                                                </a>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -251,43 +277,49 @@
                                 </span>
                                 <div class="row mt-2 d-flex justify-content-between">
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('production_scheduling')}}">
-                                                    <iconify-icon icon="pepicons-pop:file" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span
-                                                        style=" font-weight: bold;">Production
-                                                        Scheduling</span>
-                                                </a>
+                                        <a href="{{route('production_scheduling')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="pepicons-pop:file" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span
+                                                            style=" font-weight: bold;">Production
+                                                            Scheduling</span>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('printing_process')}}">
-                                                    <iconify-icon icon="pepicons-pop:file" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style=" font-weight: bold;">Printing
-                                                        Process</span>
-                                                </a>
+                                        <a href="{{route('printing_process')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                    
+                                                        <iconify-icon icon="pepicons-pop:file" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style=" font-weight: bold;">Printing
+                                                            Process</span>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card " style="border-radius:17px;background:#788fd5;">
-                                            <div class="card-body">
-                                                <a href="{{route('CallForAssistance')}}">
-                                                    <iconify-icon icon="pepicons-pop:file" width="24"
-                                                        height="24"></iconify-icon><br>
-                                                    <span style="font-weight: bold;">Call for
-                                                        assistance</span>
+                                        <a href="{{route('CallForAssistance')}}">
+                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                                <div class="card-body">
+                                                
+                                                        <iconify-icon icon="pepicons-pop:file" width="24"
+                                                            height="24"></iconify-icon><br>
+                                                        <span style="font-weight: bold;">Call for
+                                                            assistance</span>
 
 
-                                                </a>
+                                                    
+                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
                                 </div>
 
@@ -301,90 +333,106 @@
                                     Laporan / Rekod Proses </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('senari_semak')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Senarai
-                                                    semak Pencetakan Digital</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('senari_semak')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon icon="pepicons-pop:file" style="margin-left:55px; margin-top:10px;" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Senarai
+                                                        semak Pencetakan Digital</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('senari_semak_cetak')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Senarai
-                                                    semak Pra Cetak</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('senari_semak_cetak')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Senarai
+                                                        semak Pra Cetak</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4 w-100">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('rekod_serahan_plate')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Rekod serahan
-                                                    plate cetak serta sample</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('rekod_serahan_plate')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Rekod serahan
+                                                        plate cetak serta sample</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('laporan_proses_pencetakani')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Laporan
-                                                    Process Pencetakan</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_pencetakani')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Laporan
+                                                        Process Pencetakan</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('laporan_proses_lipat')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Laporan
-                                                    Proses Lipat</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_lipat')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Laporan
+                                                        Proses Lipat</span><br><br>
+                                            
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('laporan_proses_penjilidan')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-size:12px !important;font-weight: bold;">Laporan
-                                                    proses Penjilidan (Perfect Bind)</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_penjilidan')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important;font-weight: bold;">Laporan
+                                                        proses Penjilidan (Perfect Bind)</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-4 offset-2">
-                                        <div class="card p-2 c1" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('laporan_proses_penjilidan_saddle')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-size:12px !important; font-weight: bold;">Laporan
-                                                    Proses Penjilidan (Saddle Stitch)</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_penjilidan_saddle')}}">
+                                            <div class="card p-2 c1" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important; font-weight: bold;">Laporan
+                                                        Proses Penjilidan (Saddle Stitch)</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                     <div class="col-md-4">
-                                        <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
-                                            <a href="{{route('laporan_proses_three')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-size:12px !important; font-weight: bold;">Laporan
-                                                    proses Three Knife</span> <br> <br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_three')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-size:12px !important; font-weight: bold;">Laporan
+                                                        proses Three Knife</span> <br> <br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
 
@@ -403,126 +451,148 @@
                                     Pemeriksaan Kualiti </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('ctp')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span
-                                                    style=" font-weight: bold;">CTP</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('ctp')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span
+                                                        style=" font-weight: bold;">CTP</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('pod')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">POD</span>
-                                                <br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('pod')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                            
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">POD</span>
+                                                    <br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('plate_cetak')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Plate
-                                                    Cetak</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('plate_cetak')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Plate
+                                                        Cetak</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('proses_pencetakan')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Proses
-                                                    Pencetakan</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('proses_pencetakan')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                            
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Proses
+                                                        Pencetakan</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('laporan_proses_lipat')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Proses
-                                                    Lipat</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_lipat')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Proses
+                                                        Lipat</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('laporan_proses_penjilidan')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Penjilidan
-                                                    Perfect Bind</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_penjilidan')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Penjilidan
+                                                        Perfect Bind</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('laporan_proses_penjilidan_saddle')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Penjilidan
-                                                    Saddle Stitch</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_penjilidan_saddle')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Penjilidan
+                                                        Saddle Stitch</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('laporan_proses_three')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Proses Three
-                                                    Knife</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('laporan_proses_three')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Proses Three
+                                                        Knife</span>
+                                            
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row mt-2 d-flex justify-content-center ">
                                     <div class="col-md-3 ">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('proses_pembungkusan')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span
-                                                    style=" font-weight: bold;">Pembungkusan</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('proses_pembungkusan')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span
+                                                        style=" font-weight: bold;">Pembungkusan</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('pengumpulan_gathering')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Pengumpulan
-                                                    / Gathering</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('pengumpulan_gathering')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Pengumpulan
+                                                        / Gathering</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5b875;">
-                                            <a href="{{route('kulit_buku')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Pemotongan
-                                                    Kulit Buku/ Teks</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('kulit_buku')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5b875; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Pemotongan
+                                                        Kulit Buku/ Teks</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
 
@@ -537,81 +607,95 @@
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Good_Receiving')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Good
-                                                    Receiving</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Good_Receiving')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Good
+                                                        Receiving</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('material_request')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Material
-                                                    Request</span> <br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('material_request')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Material
+                                                        Request</span> <br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('manage_transfer')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Manage
-                                                    Transfer</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('manage_transfer')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Manage
+                                                        Transfer</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Stock_in')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Stock
-                                                    In</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Stock_in')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Stock
+                                                        In</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Stock_Transfer')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Stock
-                                                    Transfer</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Stock_Transfer')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Stock
+                                                        Transfer</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('stock_Transfer_location')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Stock
-                                                    Transfer (Location)</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('stock_Transfer_location')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Stock
+                                                        Transfer (Location)</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-6 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Laporan_Pemeriksaan')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Laporan
-                                                    Pemeriksaan Akhir, Pembungkusan & Penghantaran ke stor</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Laporan_Pemeriksaan')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:140px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Laporan
+                                                        Pemeriksaan Akhir, Pembungkusan & Penghantaran ke stor</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
 
@@ -620,14 +704,16 @@
 
 
                                     <div class="col-md-4 d-flex justify-content-center ">
-                                        <div class="card p-2" style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('Pemeriksaan_Penghantaran')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Pemeriksaan
-                                                    penghantaran</span>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Pemeriksaan_Penghantaran')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Pemeriksaan
+                                                        penghantaran</span>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
 
@@ -646,47 +732,55 @@
                                 </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('MachineDashboard')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Machine
-                                                    Dashboard</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('MachineDashboard')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#e6b4a0; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Machine
+                                                        Dashboard</span><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
-                                        <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('ShopFloor')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Production
-                                                    Shopfloor</span> <br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('ShopFloor')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Production
+                                                        Shopfloor</span> <br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('OEEDashboard')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span
-                                                    style="font-weight: bold;">OEE</span><br><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('OEEDashboard')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span
+                                                        style="font-weight: bold;">OEE</span><br><br><br>
+                                                
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <div class="card p-2" style="border-radius:17px;background:#e6b4a0;">
-                                            <a href="{{route('invertory_ShopFloor')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style="font-weight: bold;">Inventory
-                                                    Shopfloor</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('invertory_ShopFloor')}}">
+                                            <div class="card p-2" style="border-radius:17px;background:#e6b4a0; width:140px; height:120px;">
+                                                
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style="font-weight: bold;">Inventory
+                                                        Shopfloor</span><br><br>
+                                            
+                                            </div>
+                                        </a>
                                     </div>
                                 </div>
 
