@@ -2,13 +2,10 @@
 @section('content')
     <style>
         .custom-button {
-            display: block;
-            width: 100%;
             padding: 5px;
+            width: 100%;
             background-color: rgb(243, 243, 132);
             border: none;
-            border-radius: 5px;
-            cursor: pointer;
             text-align: center;
         }
 
@@ -17,6 +14,16 @@
             text-align: right;
             padding: 3px;
             cursor: pointer;
+        }
+
+        .fc-daygrid-day-number {
+            width: 100% !important;
+        }
+
+        .fc-daygrid-day-frame.fc-scrollgrid-sync-inner {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
     </style>
     <div class="card p-5">
