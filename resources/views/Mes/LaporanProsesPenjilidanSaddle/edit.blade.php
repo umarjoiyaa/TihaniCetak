@@ -341,8 +341,8 @@
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-md-12">
-                                    <button class="btn btn-primary float-right">Save</button>
+                                <div class="col-md-12 mt-3">
+                                    <button class="btn btn-primary float-right">update</button>
                                 </div>
                             </div>
                         </div>
