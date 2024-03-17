@@ -20,7 +20,8 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="">Date</label>
-                                <input type="text" name="date" value="{{ $good_receiving->date ?? \Carbon\Carbon::now()->format('d-m-Y') }}"
+                                <input type="text" name="date"
+                                    value="{{ $good_receiving->date ?? \Carbon\Carbon::now()->format('d-m-Y') }}"
                                     class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
                                     placeholder="dd-mm-yyyy">
                             </div>
@@ -147,15 +148,15 @@
             } else {
                 Swal.fire({
                     text: "Can`t remove row, if one row left!",
-                    icon: "warning",
-                    buttonsStyling: false,
-                    confirmButtonText: "Okay!",
-                    customClass: {
-                        confirmButton: "btn fw-bold btn-danger",
-                    }
-                }).then(function(result) {
-                    if (result.value) {}
-                });
+                icon: "warning",
+                buttonsStyling: false,
+                confirmButtonText: "Okay!",
+                customClass: {
+                    confirmButton: "btn fw-bold btn-danger",
+                }
+            }).then(function(result) {
+                if (result.value) {}
+            });
         }
         $('.receive_qty').trigger('keyup');
         $('.datatable1').DataTable();
@@ -205,52 +206,54 @@
                     }
                     optionsHtml +=
                         `<option
-                                                                                                                            data-area-id="${location.area_id}"
-                                                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                                                            data-level-id="${location.level_id}"
-                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                        </option>`;
+                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                    </option>`;
                 });
                 $('#myTable').append(
-                `<tr>
-                                                                                                                        <td>
-                                                                                                                        <select class="form-control location">
-                                                                                                                            ${optionsHtml}
-                                                                                                                        </select>
-                                                                                                                        </td>
-                                                                                                                        <td><input type="text" readonly class="form-control uom" value="${element.uom}"></td>
-                                                                                                                        <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
-                                                                                                                        <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
-                                                                                                                        <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
-                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
-                                                                                                                    </tr>`);
+                    `<tr>
+                                                                                                                                    <td>
+                                                                                                                                    <select class="form-control location">
+                                                                                                                                        ${optionsHtml}
+                                                                                                                                    </select>
+                                                                                                                                    </td>
+                                                                                                                                    <td><input type="text" readonly class="form-control uom" value="${element.uom}"></td>
+                                                                                                                                    <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
+                                                                                                                                    <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
+                                                                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
+                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                </tr>`
+                );
             });
         } else {
             let optionsHtml = '';
             locations.forEach(location => {
                 optionsHtml +=
                     `<option
-                                                                                                                            data-area-id="${location.area_id}"
-                                                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                                                            data-level-id="${location.level_id}"
-                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                        </option>`;
+                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                    </option>`;
             });
-            let defaultRow = `
-                                                                                                                <tr>
-                                                                                                                    <td>
-                                                                                                                        <select class="form-control location">
-                                                                                                                            ${optionsHtml}
-                                                                                                                        </select>
-                                                                                                                    </td>
-                                                                                                                    <td><input type="text" readonly class="form-control uom"></td>
-                                                                                                                    <td><input type="number" class="form-control receive_qty"></td>
-                                                                                                                    <td><textarea class="form-control remarks"></textarea></td>
-                                                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
-                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
-                                                                                                                </tr>`;
+            let defaultRow =
+                `
+                                                                                                                            <tr>
+                                                                                                                                <td>
+                                                                                                                                    <select class="form-control location">
+                                                                                                                                        ${optionsHtml}
+                                                                                                                                    </select>
+                                                                                                                                </td>
+                                                                                                                                <td><input type="text" readonly class="form-control uom"></td>
+                                                                                                                                <td><input type="number" class="form-control receive_qty"></td>
+                                                                                                                                <td><textarea class="form-control remarks"></textarea></td>
+                                                                                                                                <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
+                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                            </tr>`;
             $('#myTable').html(defaultRow);
         }
 
@@ -302,16 +305,109 @@
             let storedData = sessionStorage.getItem(`modalData${$(this).val()}`);
             if (storedData == null) {
                 storedData = `{"hiddenId":"${$(this).val()}"}`;
-                }
-                array.push(JSON.parse(storedData));
-            });
+            }
+            array.push(JSON.parse(storedData));
+        });
 
-            array = array.reduce(function(acc, val) {
-                return acc.concat(val);
-            }, []);
+        array = array.reduce(function(acc, val) {
+            return acc.concat(val);
+        }, []);
 
-            $('#storedData').val(JSON.stringify(array));
-            $(this).closest('form').submit();
+        $('#storedData').val(JSON.stringify(array));
+        $(this).closest('form').submit();
+    });
+
+    $(document).on('click', '.remarks_btn', function() {
+        var newTab = window.open('', '_blank');
+
+        let datepicker = $('#datepicker').val();
+        let item_code = $('.item_code_text').text();
+        let description = $('.description_text').text();
+        let quantity = $('.quantity_text').text();
+        let location = $(this).closest('tr').find('.location option:selected').text();
+        let uom = $(this).closest('tr').find('.uom').val();
+        let remarks = $(this).closest('tr').find('.remarks').val();
+
+        var htmlContent = `
+                    <html>
+                    <head>
+                        <link rel="icon" href="{{ asset('assets/img/tihani.png') }}"/>
+                        <title>Good Receiving</title>
+                        <style>
+                            .container {
+                                width: 50%;
+                                padding: 10px;
+                                border: 1px solid darkgray;
+                                margin: 0 auto; /* Center the container */
+                                text-align: center; /* Center align the content inside */
+                            }
+
+                            .logo {
+                                margin-bottom: 10px; /* Adjust as needed */
+                            }
+
+                            .logo img {
+                                max-width: 100%;
+                                height: auto;
+                            }
+
+                            .data-table {
+                                width: 100%;
+                                border-collapse: collapse;
+                            }
+
+                            .data-table th {
+                                text-align: left;
+                                border: 1px solid black;
+                                padding: 8px;
+                            }
+                        </style>
+                    </head>
+                    <body>
+                        <div class="container">
+                            <div class="logo">
+                                <img src="{{ asset('assets/img/tihani.png') }}" width="50" alt="Logo"><h3>Tihani Cetak</h3>
+                            </div>
+                            <table class="data-table">
+                                <tbody>
+                                    <tr>
+                                        <th>DATE</th>
+                                        <th>${datepicker}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>ITEM CODE</th>
+                                        <th>${item_code}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>DESCRIPTION</th>
+                                        <th>${description}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>LOCATION</th>
+                                        <th>${location}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>UOM</th>
+                                        <th>${uom}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>RECEIVING QTY</th>
+                                        <th>${quantity}</th>
+                                    </tr>
+                                    <tr>
+                                        <th>REMARKS</th>
+                                        <th>${remarks}</th>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </body>
+                    </html>
+                `;
+
+            newTab.document.open();
+            newTab.document.write(htmlContent);
+            newTab.document.close();
         });
     </script>
 @endpush

@@ -100,7 +100,8 @@
                                                                         class="group"
                                                                         name="kertas[{{ $key }}][group]" />{{ $value['stock_code'] }}
                                                                 </td>
-                                                                <td><input type='hidden' value='{{ $value['description'] }}'
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['description'] }}'
                                                                         name="kertas[{{ $key }}][description]" />{{ $value['description'] }}
                                                                 </td>
                                                                 <td><input type='number' class="form-control"
@@ -172,36 +173,37 @@
                                                 </thead>
                                                 <tbody>
                                                     @if (old('bahan'))
-                                                    @foreach (old('bahan') as $key => $value)
-                                                        <tr>
-                                                            <td><input type='hidden' class="stock_code"
-                                                                    value='{{ $value['stock_code'] }}'
-                                                                    name="bahan[{{ $key }}][stock_code]" /><input
-                                                                    type='hidden' value='{{ $value['group'] }}'
-                                                                    class="group"
-                                                                    name="bahan[{{ $key }}][group]" />{{ $value['stock_code'] }}
-                                                            </td>
-                                                            <td><input type='hidden' value='{{ $value['description'] }}'
-                                                                    name="bahan[{{ $key }}][description]" />{{ $value['description'] }}
-                                                            </td>
-                                                            <td><input type='hidden' value='{{ $value['uom'] }}'
-                                                                    name="bahan[{{ $key }}][uom]" />{{ $value['uom'] }}
-                                                            </td>
-                                                            <td><input type='hidden'
-                                                                    value='{{ $value['available_qty'] }}'
-                                                                    name="bahan[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
-                                                            </td>
-                                                            <td><input type='number' class="form-control"
-                                                                    value='{{ $value['request_qty'] }}'
-                                                                    name="bahan[{{ $key }}][request_qty]" />
-                                                            </td>
-                                                            <td><a class="removeRow1"><iconify-icon
-                                                                        icon="fluent:delete-dismiss-24-filled"
-                                                                        width="20" height="20"
-                                                                        style="color: red;"></iconify-icon><a></td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endif
+                                                        @foreach (old('bahan') as $key => $value)
+                                                            <tr>
+                                                                <td><input type='hidden' class="stock_code"
+                                                                        value='{{ $value['stock_code'] }}'
+                                                                        name="bahan[{{ $key }}][stock_code]" /><input
+                                                                        type='hidden' value='{{ $value['group'] }}'
+                                                                        class="group"
+                                                                        name="bahan[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                </td>
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['description'] }}'
+                                                                        name="bahan[{{ $key }}][description]" />{{ $value['description'] }}
+                                                                </td>
+                                                                <td><input type='hidden' value='{{ $value['uom'] }}'
+                                                                        name="bahan[{{ $key }}][uom]" />{{ $value['uom'] }}
+                                                                </td>
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['available_qty'] }}'
+                                                                        name="bahan[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
+                                                                </td>
+                                                                <td><input type='number' class="form-control"
+                                                                        value='{{ $value['request_qty'] }}'
+                                                                        name="bahan[{{ $key }}][request_qty]" />
+                                                                </td>
+                                                                <td><a class="removeRow1"><iconify-icon
+                                                                            icon="fluent:delete-dismiss-24-filled"
+                                                                            width="20" height="20"
+                                                                            style="color: red;"></iconify-icon><a></td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -231,36 +233,37 @@
                                                 </thead>
                                                 <tbody>
                                                     @if (old('wip'))
-                                                    @foreach (old('wip') as $key => $value)
-                                                        <tr>
-                                                            <td><input type='hidden' class="stock_code"
-                                                                    value='{{ $value['stock_code'] }}'
-                                                                    name="wip[{{ $key }}][stock_code]" /><input
-                                                                    type='hidden' value='{{ $value['group'] }}'
-                                                                    class="group"
-                                                                    name="wip[{{ $key }}][group]" />{{ $value['stock_code'] }}
-                                                            </td>
-                                                            <td><input type='hidden' value='{{ $value['description'] }}'
-                                                                    name="wip[{{ $key }}][description]" />{{ $value['description'] }}
-                                                            </td>
-                                                            <td><input type='hidden' value='{{ $value['uom'] }}'
-                                                                    name="wip[{{ $key }}][uom]" />{{ $value['uom'] }}
-                                                            </td>
-                                                            <td><input type='hidden'
-                                                                    value='{{ $value['available_qty'] }}'
-                                                                    name="wip[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
-                                                            </td>
-                                                            <td><input type='number' class="form-control"
-                                                                    value='{{ $value['request_qty'] }}'
-                                                                    name="wip[{{ $key }}][request_qty]" />
-                                                            </td>
-                                                            <td><a class="removeRow2"><iconify-icon
-                                                                        icon="fluent:delete-dismiss-24-filled"
-                                                                        width="20" height="20"
-                                                                        style="color: red;"></iconify-icon><a></td>
-                                                        </tr>
-                                                    @endforeach
-                                                @endif
+                                                        @foreach (old('wip') as $key => $value)
+                                                            <tr>
+                                                                <td><input type='hidden' class="stock_code"
+                                                                        value='{{ $value['stock_code'] }}'
+                                                                        name="wip[{{ $key }}][stock_code]" /><input
+                                                                        type='hidden' value='{{ $value['group'] }}'
+                                                                        class="group"
+                                                                        name="wip[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                </td>
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['description'] }}'
+                                                                        name="wip[{{ $key }}][description]" />{{ $value['description'] }}
+                                                                </td>
+                                                                <td><input type='hidden' value='{{ $value['uom'] }}'
+                                                                        name="wip[{{ $key }}][uom]" />{{ $value['uom'] }}
+                                                                </td>
+                                                                <td><input type='hidden'
+                                                                        value='{{ $value['available_qty'] }}'
+                                                                        name="wip[{{ $key }}][available_qty]" />{{ $value['available_qty'] }}
+                                                                </td>
+                                                                <td><input type='number' class="form-control"
+                                                                        value='{{ $value['request_qty'] }}'
+                                                                        name="wip[{{ $key }}][request_qty]" />
+                                                                </td>
+                                                                <td><a class="removeRow2"><iconify-icon
+                                                                            icon="fluent:delete-dismiss-24-filled"
+                                                                            width="20" height="20"
+                                                                            style="color: red;"></iconify-icon><a></td>
+                                                            </tr>
+                                                        @endforeach
+                                                    @endif
                                                 </tbody>
                                             </table>
                                         </div>
@@ -284,12 +287,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table1">
+                            <table class="table w-100" id="table1">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -331,7 +333,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows">Add</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows">Add</button>
                     </div>
                 </div>
             </div>
@@ -342,12 +344,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table2">
+                            <table class="table w-100" id="table2">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -389,7 +390,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows1">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows1">Save
+                            changes</button>
                     </div>
                 </div>
             </div>
@@ -400,12 +402,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table3">
+                            <table class="table w-100" id="table3">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -447,7 +448,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows2">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows2">Save
+                            changes</button>
                     </div>
                 </div>
             </div>

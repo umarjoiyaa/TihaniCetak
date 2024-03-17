@@ -273,12 +273,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table1">
+                            <table class="table w-100" id="table1">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -320,7 +319,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows">Add</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows">Add</button>
                     </div>
                 </div>
             </div>
@@ -331,12 +330,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table2">
+                            <table class="table w-100" id="table2">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -378,7 +376,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows1">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows1">Save
+                            changes</button>
                     </div>
                 </div>
             </div>
@@ -389,12 +388,11 @@
             <div class="modal-dialog modal-xl">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <!-- <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button> -->
+                        <h5 class="modal-title" id="exampleModalLabel">Products</h5>
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                            <table class="table" id="table3">
+                            <table class="table w-100" id="table3">
                                 <thead>
                                     <tr>
                                         <th></th>
@@ -436,7 +434,8 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary" id="addrows2">Save changes</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows2">Save
+                            changes</button>
                     </div>
                 </div>
             </div>
