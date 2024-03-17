@@ -20,7 +20,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="">Date</label>
-                                <input type="text" name="date" value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}"
+                                <input type="text" name="date" value="{{ $good_receiving->date ?? \Carbon\Carbon::now()->format('d-m-Y') }}"
                                     class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
                                     placeholder="dd-mm-yyyy">
                             </div>
