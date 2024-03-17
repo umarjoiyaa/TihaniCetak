@@ -10,8 +10,8 @@
                     </div>
                 </div>
                 <div class="card-body">
-                    <div class="row mt-3">
-                        <form action="{{ route('area.update', $area->id) }}" method="post">
+                    <form action="{{ route('area.update', $area->id) }}" method="post">
+                        <div class="row mt-3">
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
@@ -42,13 +42,13 @@
                                     </select>
                                 </div>
                             </div>
-                    </div>
-                    <div class="row mt-3 d-flex justify-content-end">
-                        <div class="col-md-4 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
-                        </form>
-                    </div>
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

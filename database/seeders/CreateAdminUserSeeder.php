@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Area;
+use App\Models\AreaLevel;
+use App\Models\AreaShelf;
 use App\Models\GoodReceiving;
 use App\Models\GoodReceivingProduct;
 use App\Models\SaleOrder;
@@ -144,5 +147,16 @@ class CreateAdminUserSeeder extends Seeder
             'quantity' => 200,
             'delivery_date' => '20-03-2024',
         ]);
+
+        AreaLevel::create([
+            'name' => 'Level 1',
+            'code' => 'Level 1'
+        ]);
+
+        AreaLevel::create([
+            'name' => 'Level 2',
+            'code' => 'Level 2'
+        ]);
+
     }
 }

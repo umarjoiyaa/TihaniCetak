@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\AreaLevel;
 use App\Models\AreaShelf;
+use App\Models\Location;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -292,7 +293,7 @@ class AreaLevelController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area_level = AreaLevel::find($id);
-        $level = AreaShelf::where('level_id', '=', $area_level->id)->first();
+        $level = AreaShelf::whereJsonContains('level_id', $area_level->id)->first();
         if($level){
             return back()->with('custom_errors', 'This LEVEL is used in SHELF!');
         }

@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\Area;
 use App\Models\AreaShelf;
 use App\Models\Location;
+use App\Models\AreaLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -232,6 +233,19 @@ class AreaController extends Controller
         $area->created_by = Auth::user()->id;
         $area->save();
 
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                $location = new AreaLocation();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level;
+                $location->save();
+            }
+        }
+
         Helper::logSystemActivity('Area', 'Area Store');
         return redirect()->route('area')->with('custom_success', 'Area has been Created Successfully !');
     }
@@ -287,7 +301,7 @@ class AreaController extends Controller
 
         $shelvesToRemove = array_diff($existingShelves, $request->shelf);
 
-        $locationsWithUsedQty = Location::where('area_id', $area->id)->whereIn('shelf_id', $shelvesToRemove)->where('used_qty', '!=', 0)->exists();
+        $locationsWithUsedQty = Location::where('area_id', $area->id)->whereIn('shelf_id', $shelvesToRemove)->where('used_qty', '!=', 0)->orWhere('used_qty', '!=', null)->exists();
 
         if ($locationsWithUsedQty) {
             return redirect()->back()->with('custom_errors', 'You try to remove SHELF or SHELVES which contain`s some quantity !');
@@ -298,6 +312,19 @@ class AreaController extends Controller
         $area->shelf_id = json_encode($request->shelf);
         $area->created_by = Auth::user()->id;
         $area->save();
+
+        $shelves = AreaShelf::whereIn('id', $request->shelf)->get();
+        foreach($shelves as $shelf){
+            $levels = json_decode($shelf->level_id);
+            foreach($levels as $level){
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                $location = new AreaLocation();
+                $location->area_id = $area->id;
+                $location->shelf_id = $shelf->id;
+                $location->level_id = $level;
+                $location->save();
+            }
+        }
 
         Helper::logSystemActivity('Area', 'Area Update');
         return redirect()->route('area')->with('custom_success', 'Area has been Updated Successfully !');
@@ -310,11 +337,15 @@ class AreaController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area = Area::find($id);
+        $location = Location::where('area_id', '=', $id)->where('used_qty', '!=', 0)->orWhere('used_qty', '!=', null)->first();
+        if ($location) {
+            return redirect()->back()->with('custom_errors', 'You try to delete AREA which contain`s some quantity !');
+        }
         $shelves = AreaShelf::whereIn('id', $area->shelf_id)->get();
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+                AreaLocation::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
             }
         }
         $area->delete();

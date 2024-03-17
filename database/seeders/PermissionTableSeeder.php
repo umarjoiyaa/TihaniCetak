@@ -263,18 +263,15 @@ class PermissionTableSeeder extends Seeder
             'MATERIAL REQUEST Update',
             'MATERIAL REQUEST View',
             'MATERIAL REQUEST Delete',
+            'INVENTORY REPORT View'
          ];
 
         foreach ($permissions as $permission) {
-            if (!Permission::where('name', $permission)->exists()) {
-                Permission::create(['name' => $permission]);
-            }
+            Permission::create(['name' => $permission]);
         }
 
         foreach ($permissionss as $perm) {
-            if (!Permission::where('name', $perm)->exists()) {
-                Permission::create(['name' => $perm]);
-            }
+            Permission::create(['name' => $perm]);
         }
     }
 }

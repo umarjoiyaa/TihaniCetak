@@ -828,7 +828,7 @@
                                                                     style="color: #a41843"></iconify-icon> Stock Card
                                                                 Report</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('Invertory_report') }}"
+                                                                href="{{ route('inventory_report') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Inventory

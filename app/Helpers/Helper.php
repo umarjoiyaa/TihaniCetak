@@ -287,6 +287,11 @@ class Helper
         ];
 
         $wms_job_sheets = [
+            'GOOD RECEIVING' => [
+                'GOOD RECEIVING List',
+                'GOOD RECEIVING Receive',
+                'GOOD RECEIVING View',
+            ],
             'MATERIAL REQUEST' => [
                 'MATERIAL REQUEST List',
                 'MATERIAL REQUEST Create',
@@ -301,7 +306,9 @@ class Helper
         ];
 
         $reports = [
-
+            'INVENTORY REPORT' => [
+                'INVENTORY REPORT View',
+            ],
         ];
 
         $administrations = [

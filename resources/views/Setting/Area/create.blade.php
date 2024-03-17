@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <form action="{{ route('area.store') }}" method="post">
-                    <div class="row mt-3">
+                        <div class="row mt-3">
                             @csrf
                             <div class="col-md-4">
                                 <div class="control-group form-group">
@@ -31,27 +31,28 @@
                                     <label class="form-label">Shelf</label>
                                     <select name="shelf[]" class="form-select" multiple>
                                         @foreach ($shelves as $shelf)
-                                        <option value="{{ $shelf->id }}" @if(old('shelf')) {{ in_array(old('shelf'), $shelf->id) ? 'selected' : '' }} @endif>
-                                            {{ $shelf->name }}</option>
+                                            <option value="{{ $shelf->id }}"
+                                                @if (old('shelf')) {{ in_array(old('shelf'), $shelf->id) ? 'selected' : '' }} @endif>
+                                                {{ $shelf->name }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                    </div>
-                    <div class="row mt-3 d-flex justify-content-end">
-                        <div class="col-md-4 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Save</button>
                         </div>
-                        </form>
-                    </div>
+                        <div class="row mt-3 d-flex justify-content-end">
+                            <div class="col-md-4 d-flex justify-content-end">
+                                <button class="btn btn-primary" type="submit">Save</button>
+                            </div>
+                    </form>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12">
-                <a href="{{ route('area') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
-                    list</a>
-            </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <a href="{{ route('area') }}" class="btn d-flex"><i class="ti-arrow-left mx-2 mt-1"></i> Back to
+                list</a>
         </div>
+    </div>
     </div>
 @endsection

@@ -4,7 +4,8 @@
     <div class="row">
         <div class="col-md-12">
             <div class="card">
-                <form action="{{ route('good_receiving.receive.update') }}" method="POST">
+                <form action="{{ route('good_receiving.receive.update', $good_receiving->id) }}" method="POST">
+                    @csrf
                     <div class="card-header">
                         <h4>Good Receiving</h4>
                     </div>
@@ -53,14 +54,14 @@
                                         <td>{{ $good_receiving_product->description }}</td>
                                         <td>{{ $good_receiving_product->uom }}</td>
                                         <td>{{ $good_receiving_product->quantity }}</td>
-                                        <td><input type="number" value="0" readonly
-                                                class="form-control receiving_qty">
+                                        <td><input type="number" value="{{ $good_receiving_product->receiving_qty ?? 0 }}"
+                                                readonly class="form-control receiving_qty">
                                         </td>
                                         <td>{{ $good_receiving_product->delivery_date }}</td>
                                         <td>
                                             <input type="hidden" class="hiddenId"
                                                 value="{{ $good_receiving_product->id }}">
-                                            <button class="btn btn-primary openModal" data-toggle="modal"
+                                            <button type="button" class="btn btn-primary openModal" data-toggle="modal"
                                                 data-target="#exampleModal">+</button>
                                         </td>
                                     </tr>
@@ -99,7 +100,7 @@
                     </div>
                     <br>
                     <div class="table-responsive">
-                        <table class="table datatable">
+                        <table class="table datatable1 w-100">
                             <thead>
                                 <tr>
                                     <th>Location</th>
@@ -128,40 +129,66 @@
         $('.datatable').DataTable();
 
         function addRow(button) {
+            if ($.fn.DataTable.isDataTable('.datatable1')) {
+                $('.datatable').DataTable().destroy();
+            }
             var row = button.parentNode.parentNode.cloneNode(true);
             button.parentNode.parentNode.parentNode.insertBefore(row, button.parentNode.parentNode.nextSibling);
             $('.receive_qty').trigger('keyup');
+            $('.datatable1').DataTable();
         }
 
         function removeRow(button) {
+            if ($.fn.DataTable.isDataTable('.datatable1')) {
+                $('.datatable').DataTable().destroy();
+            }
             if ($('#myTable tr').length > 1) {
                 $(button).closest('tr').remove();
             } else {
-                alert("Can`t remove row, if one row left!");
+                Swal.fire({
+                    text: "Can`t remove row, if one row left!",
+                    icon: "warning",
+                    buttonsStyling: false,
+                    confirmButtonText: "Okay!",
+                    customClass: {
+                        confirmButton: "btn fw-bold btn-danger",
+                    }
+                }).then(function(result) {
+                    if (result.value) {}
+                });
         }
         $('.receive_qty').trigger('keyup');
+        $('.datatable1').DataTable();
     }
+    let locations = [];
     $(document).ready(function() {
         sessionStorage.clear();
         var detailsb = @json($good_receiving_locations);
         detailsb.forEach(element => {
             let dataObject = {
-                'location': element.location,
+                'location': `${element.area_id}->${element.shelf_id}->${element.level_id}`,
                 'area': element.area_id,
                 'shelf': element.shelf_id,
                 'level': element.level_id,
                 'uom': element.uom,
-                'receive_qty': element.receive_qty,
-                'remarks': element.remarks
+                'receive_qty': element.receiving_qty,
+                'remarks': element.remarks,
                 'hiddenId': element.product_id
             };
 
-            sessionStorage.setItem(`formData${element.product_id}`, JSON.stringify(dataObject));
+            let existingData = sessionStorage.getItem(`modalData${element.product_id}`);
+            let dataArray = existingData ? JSON.parse(existingData) : [];
+            dataArray.push(dataObject);
+
+            sessionStorage.setItem(`modalData${element.product_id}`, JSON.stringify(dataArray));
         });
+        locations = @json($locations);
     });
-    let locations = @json($locations);
 
     $(document).on('click', '.openModal', function() {
+        if ($.fn.DataTable.isDataTable('.datatable1')) {
+            $('.datatable1').DataTable().destroy();
+        }
         let hiddenId = $(this).closest('tr').find('.hiddenId').val();
         $('.product_id').val(hiddenId);
         let storedData = sessionStorage.getItem(`modalData${hiddenId}`);
@@ -176,51 +203,54 @@
                         `${location.area_id}->${location.shelf_id}->${location.level_id}`) {
                         selected = 'selected';
                     }
-                    optionsHtml += `<option
-                                                                                            data-area-id="${location.area_id}"
-                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                            data-level-id="${location.level_id}"
-                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                        </option>`;
+                    optionsHtml +=
+                        `<option
+                                                                                                                            data-area-id="${location.area_id}"
+                                                                                                                            data-shelf-id="${location.shelf_id}"
+                                                                                                                            data-level-id="${location.level_id}"
+                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                        </option>`;
                 });
-                $('#myTable').append(`<tr>
-                                                                                        <td>
-                                                                                        <select class="form-control location">
-                                                                                            ${optionsHtml}
-                                                                                        </select>
-                                                                                        </td>
-                                                                                        <td><input type="text" readonly class="form-control uom" value="${element.uom}"></td>
-                                                                                        <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
-                                                                                        <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
-                                                                                        <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
-                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
-                                                                                    </tr>`);
+                $('#myTable').append(
+                `<tr>
+                                                                                                                        <td>
+                                                                                                                        <select class="form-control location">
+                                                                                                                            ${optionsHtml}
+                                                                                                                        </select>
+                                                                                                                        </td>
+                                                                                                                        <td><input type="text" readonly class="form-control uom" value="${element.uom}"></td>
+                                                                                                                        <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
+                                                                                                                        <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
+                                                                                                                        <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
+                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
+                                                                                                                    </tr>`);
             });
         } else {
             let optionsHtml = '';
             locations.forEach(location => {
-                optionsHtml += `<option
-                                                                                            data-area-id="${location.area_id}"
-                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                            data-level-id="${location.level_id}"
-                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                        </option>`;
+                optionsHtml +=
+                    `<option
+                                                                                                                            data-area-id="${location.area_id}"
+                                                                                                                            data-shelf-id="${location.shelf_id}"
+                                                                                                                            data-level-id="${location.level_id}"
+                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                        </option>`;
             });
             let defaultRow = `
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <select class="form-control location">
-                                                                                            ${optionsHtml}
-                                                                                        </select>
-                                                                                    </td>
-                                                                                    <td><input type="text" readonly class="form-control uom"></td>
-                                                                                    <td><input type="number" class="form-control receive_qty"></td>
-                                                                                    <td><textarea class="form-control remarks"></textarea></td>
-                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
-                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
-                                                                                </tr>`;
+                                                                                                                <tr>
+                                                                                                                    <td>
+                                                                                                                        <select class="form-control location">
+                                                                                                                            ${optionsHtml}
+                                                                                                                        </select>
+                                                                                                                    </td>
+                                                                                                                    <td><input type="text" readonly class="form-control uom"></td>
+                                                                                                                    <td><input type="number" class="form-control receive_qty"></td>
+                                                                                                                    <td><textarea class="form-control remarks"></textarea></td>
+                                                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print"></i></button></td>
+                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus" onclick="removeRow(this)"></i></td>
+                                                                                                                </tr>`;
             $('#myTable').html(defaultRow);
         }
 
@@ -231,6 +261,7 @@
         $('.description_text').text(description_text);
         $('.quantity_text').text(quantity_text);
         $('.receive_qty').trigger('keyup');
+        $('.datatable1').DataTable();
     });
 
     $('#saveModal').on('click', function() {
@@ -239,9 +270,9 @@
         $('#myTable tr').each(function() {
             let rowData = {};
             rowData['location'] = $(this).find('.location').val();
-            rowData['area'] = $(this).find('.location').data('area-id');
-            rowData['shelf'] = $(this).find('.location').data('shelf-id');
-            rowData['level'] = $(this).find('.location').data('level-id');
+            rowData['area'] = $(this).find('.location option:selected').attr('data-area-id');
+            rowData['shelf'] = $(this).find('.location option:selected').attr('data-shelf-id');
+            rowData['level'] = $(this).find('.location option:selected').attr('data-level-id');
             rowData['uom'] = $(this).find('.uom').val();
             rowData['receive_qty'] = $(this).find('.receive_qty').val();
             rowData['remarks'] = $(this).find('.remarks').val();
@@ -274,6 +305,11 @@
                 }
                 array.push(JSON.parse(storedData));
             });
+
+            array = array.reduce(function(acc, val) {
+                return acc.concat(val);
+            }, []);
+
             $('#storedData').val(JSON.stringify(array));
             $(this).closest('form').submit();
         });

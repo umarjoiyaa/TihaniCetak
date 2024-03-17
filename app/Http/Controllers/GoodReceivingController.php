@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\Location;
+use App\Models\AreaLocation;
 use App\Models\GoodReceiving;
 use App\Models\GoodReceivingProduct;
 use App\Models\GoodReceivingLocation;
@@ -222,7 +223,7 @@ class GoodReceivingController extends Controller
         $good_receiving = GoodReceiving::find($id);
         $good_receiving_products = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
         $good_receiving_locations = GoodReceivingLocation::where('receiving_id', '=', $id)->get();
-        $locations = Location::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         return view('WMS.GoodReceiving.receive', compact('good_receiving', 'good_receiving_products', 'good_receiving_locations', 'locations'));
     }
 
@@ -244,7 +245,6 @@ class GoodReceivingController extends Controller
 
         $good_receiving = GoodReceiving::find($id);
         $good_receiving->date = $request->date;
-        $good_receiving->save();
         $details = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
         $detailIds = $details->pluck('id')->toArray();
 
@@ -271,16 +271,21 @@ class GoodReceivingController extends Controller
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
             $detail->uom = $value['uom'] ?? null;
-            $detail->receiving_qty = $value['receiving_qty'] ?? null;
+            $detail->receiving_qty = $value['receive_qty'] ?? null;
             $detail->remarks = $value['remarks'] ?? null;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->first();
-
+            $product = GoodReceivingProduct::find($detail->product_id);
+            if($product->receiving_qty == null){
+                $product->receiving_qty = (int)$detail->receiving_qty;
+            }else{
+                $product->receiving_qty += (int)$detail->receiving_qty;
+            }
+            $product->save();
             if ($location) {
                 $location->used_qty += (int)$detail->receiving_qty;
             } else {
-                $product = GoodReceivingProduct::find($detail->product_id);
                 $location = new Location();
                 $location->area_id = $detail->area_id;
                 $location->shelf_id = $detail->shelf_id;
@@ -294,8 +299,23 @@ class GoodReceivingController extends Controller
             $location->save();
         }
 
+        $sum = GoodReceivingProduct::where('receiving_id', $id)->sum('receiving_qty');
+        $good_receiving->receive_qty = $sum;
+        $good_receiving->save();
+
         Helper::logSystemActivity('GOOD RECEIVING', 'GOOD RECEIVING Received');
-        return redirect()->route('cover_end_paper')->with('custom_success', 'GOOD RECEIVING has been Received Successfully !');
+        return redirect()->route('good_receiving')->with('custom_success', 'GOOD RECEIVING has been Received Successfully !');
+    }
+
+    public function view($id){
+        if (!Auth::user()->hasPermissionTo('GOOD RECEIVING View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $good_receiving = GoodReceiving::find($id);
+        $good_receiving_products = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
+        $good_receiving_locations = GoodReceivingLocation::where('receiving_id', '=', $id)->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        return view('WMS.GoodReceiving.view', compact('good_receiving', 'good_receiving_products', 'good_receiving_locations', 'locations'));
     }
 
 }
