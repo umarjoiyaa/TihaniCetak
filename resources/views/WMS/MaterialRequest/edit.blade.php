@@ -116,18 +116,18 @@
                                                                     name="kertas[{{ $key + 1 }}][uom]" />{{ $value->uom }}
                                                             </td>
                                                             <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                    name="kertas[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                    name="kertas[{{ $key + 1 }}][available_qty]"
+                                                                    class="available_qty" />{{ $value->available_qty }}
                                                             </td>
                                                             <td><select class="form-control"
                                                                     name="kertas[{{ $key + 1 }}][uom_request]">
-                                                                    <option value="RIM" @selected($value->uom_request == 'RIM')>RIM
-                                                                    </option>
-                                                                    <option @selected($value->uom_request == 'PKT') value="PKT">PKT
-                                                                    </option>
-                                                                    <option @selected($value->uom_request == 'SHEET') value="SHEET">
-                                                                        SHEET</option>
+                                                                    @foreach ($uoms as $uom)
+                                                                        <option value="{{ $uom->id }}"
+                                                                            @selected($value->uom_request == $uom->id)>
+                                                                            {{ $uom->name }}</option>
+                                                                    @endforeach
                                                                 </select></td>
-                                                            <td><input type='number' class="form-control"
+                                                            <td><input type='number' class="form-control request_qty"
                                                                     value='{{ $value->request_qty }}'
                                                                     name="kertas[{{ $key + 1 }}][request_qty]" />
                                                             </td>
@@ -184,9 +184,10 @@
                                                                     name="bahan[{{ $key + 1 }}][uom]" />{{ $value->uom }}
                                                             </td>
                                                             <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                    name="bahan[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                    name="bahan[{{ $key + 1 }}][available_qty]"
+                                                                    class="available_qty" />{{ $value->available_qty }}
                                                             </td>
-                                                            <td><input type='number' class="form-control"
+                                                            <td><input type='number' class="form-control request_qty"
                                                                     value='{{ $value->request_qty }}'
                                                                     name="bahan[{{ $key + 1 }}][request_qty]" /></td>
                                                             <td><a class="removeRow1"><iconify-icon
@@ -239,9 +240,10 @@
                                                                     name="wip[{{ $key + 1 }}][uom]" />{{ $value->uom }}
                                                             </td>
                                                             <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                    name="wip[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                    name="wip[{{ $key + 1 }}][available_qty]"
+                                                                    class="available_qty" />{{ $value->available_qty }}
                                                             </td>
-                                                            <td><input type='number' class="form-control"
+                                                            <td><input type='number' class="form-control request_qty"
                                                                     value='{{ $value->request_qty }}'
                                                                     name="wip[{{ $key + 1 }}][request_qty]" /></td>
                                                             <td><a class="removeRow2"><iconify-icon
@@ -492,6 +494,15 @@
         $('#Table2').dataTable();
         $('#Table3').dataTable();
 
+        let uoms = @json($uoms);
+        let options = ``;
+        uoms.forEach(uom => {
+            let option = document.createElement('option');
+            option.value = uom.id;
+            option.text = uom.name;
+            options += option;
+        });
+
         $('#addrows').click(function() {
             $('#table1').DataTable().destroy();
             $('#Table1').DataTable().destroy();
@@ -514,9 +525,9 @@
                     <td><input type='number' class="form-control" value='' name="kertas[${$length}][grammage]"/></td>
                     <td><input type='number' class="form-control" value='' name="kertas[${$length}][saiz]"/></td>
                     <td><input type='hidden' value='${uom}' name="kertas[${$length}][uom]"/>${uom}</td>
-                    <td><input type='hidden' value='${available_qty}' name="kertas[${$length}][available_qty]"/>${available_qty}</td>
-                    <td><select class="form-control" name="kertas[${$length}][uom_request]"><option value="RIM">RIM</option><option value="PKT">PKT</option><option value="SHEET">SHEET</option></select></td>
-                    <td><input type='number' class="form-control" value='${available_qty}' name="kertas[${$length}][request_qty]"/></td>
+                    <td><input type='hidden' value='${available_qty}' name="kertas[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
+                    <td><select class="form-control" name="kertas[${$length}][uom_request]">${options}</select></td>
+                    <td><input type='number' class="form-control request_qty" value='${available_qty}' name="kertas[${$length}][request_qty]"/></td>
                     <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
                     <td><a class="removeRow"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
                 );
@@ -570,8 +581,8 @@
                     <td><input type='hidden' value='${stock_code}' class="stock_code" name="bahan[${$length}][stock_code]"/><input type='hidden' value='${group}' class="group" name="bahan[${$length}][group]"/>${stock_code}</td>
                     <td><input type='hidden' value='${description}' name="bahan[${$length}][description]"/>${description}</td>
                     <td><input type='hidden' value='${uom}' name="bahan[${$length}][uom]"/>${uom}</td>
-                    <td><input type='hidden' value='${available_qty}' name="bahan[${$length}][available_qty]"/>${available_qty}</td>
-                    <td><input type='number' class="form-control" value='${available_qty}' name="bahan[${$length}][request_qty]"/></td>
+                    <td><input type='hidden' value='${available_qty}' name="bahan[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
+                    <td><input type='number' class="form-control request_qty" value='${available_qty}' name="bahan[${$length}][request_qty]"/></td>
                     <td><a class="removeRow1"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
                 );
 
@@ -624,8 +635,8 @@
                     <td><input type='hidden' value='${stock_code}' class="stock_code" name="wip[${$length}][stock_code]"/><input type='hidden' value='${group}' class="group" name="wip[${$length}][group]"/>${stock_code}</td>
                     <td><input type='hidden' value='${description}' name="wip[${$length}][description]"/>${description}</td>
                     <td><input type='hidden' value='${uom}' name="wip[${$length}][uom]"/>${uom}</td>
-                    <td><input type='hidden' value='${available_qty}' name="wip[${$length}][available_qty]"/>${available_qty}</td>
-                    <td><input type='number' class="form-control" value='${available_qty}' name="wip[${$length}][request_qty]"/></td>
+                    <td><input type='hidden' value='${available_qty}' name="wip[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
+                    <td><input type='number' class="form-control request_qty" value='${available_qty}' name="wip[${$length}][request_qty]"/></td>
                     <td><a class="removeRow2"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
                 );
 
@@ -716,5 +727,11 @@
             }
         });
         //important work
+
+        $(document).on('keyup change', '.request_qty', function() {
+            if (parseFloat($(this).closest('tr').find('.available_qty').val()) < parseFloat($(this).val())) {
+                $(this).val($(this).closest('tr').find('.available_qty').val());
+            }
+        });
     </script>
 @endpush

@@ -298,6 +298,14 @@ class Helper
                 'MATERIAL REQUEST Update',
                 'MATERIAL REQUEST View',
                 'MATERIAL REQUEST Delete',
+            ],
+            'MANAGE TRANSFER' => [
+                'MANAGE TRNASFER List',
+                'MANAGE TRNASFER Create',
+                'MANAGE TRNASFER Update',
+                'MANAGE TRNASFER Receive',
+                'MANAGE TRNASFER View',
+                'MANAGE TRNASFER Delete',
             ]
         ];
 

@@ -108,12 +108,11 @@
                                                         </td>
                                                         <td><select class="form-control"
                                                                 name="kertas[{{ $key + 1 }}][uom_request]">
-                                                                <option value="RIM" @selected($value->uom_request == 'RIM')>RIM
-                                                                </option>
-                                                                <option @selected($value->uom_request == 'PKT') value="PKT">PKT
-                                                                </option>
-                                                                <option @selected($value->uom_request == 'SHEET') value="SHEET">
-                                                                    SHEET</option>
+                                                                @foreach ($uoms as $uom)
+                                                                    <option value="{{ $uom->id }}"
+                                                                        @selected($value->uom_request == $uom->id)>
+                                                                        {{ $uom->name }}</option>
+                                                                @endforeach
                                                             </select></td>
                                                         <td><input type='number' class="form-control"
                                                                 value='{{ $value->request_qty }}'
