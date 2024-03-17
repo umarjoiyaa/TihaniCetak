@@ -59,6 +59,9 @@
 
     @yield('css')
     <style>
+         table th{
+                text-align:left;
+        }
         .check_operator_text,
         .check_verify_text {
             width: 340px;

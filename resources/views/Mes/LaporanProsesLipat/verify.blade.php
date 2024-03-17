@@ -4,6 +4,9 @@
         .button1 {
             margin-left: 150px;
         }
+        table th{
+            text-align:left;
+        }
     </style>
 @endsection
 @section('content')

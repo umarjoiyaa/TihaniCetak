@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
     <form action="{{ route('senari_semak_cetak.update', $senari_semak_cetak->id) }}" method="POST">
         @csrf
@@ -99,7 +106,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Checked By</div>
-                                            <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                                 class="form-control" name="" id="">
                                         </div>
                                     </div>
@@ -117,9 +124,7 @@
                                     <thead>
                                         <tr>
                                             <th rowspan="2">No</th>
-                                            <th rowspan="2">
-                                                <div class="text-center">kriteria</div>
-                                            </th>
+                                            <th rowspan="2">kriteria</th>
                                             <th colspan="3" class="cover">cover</th>
                                             <th colspan="3" class="text">text</th>
                                             <th colspan="3" class="endpaper">Endpaper/leftlet</th>

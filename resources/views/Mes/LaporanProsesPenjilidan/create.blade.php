@@ -375,7 +375,7 @@
                                                                     disabled>Verify</button>
                                                             </td>
 
-                                                        <td><input type="text"name="{{ "semasa[$key][8]" }}"
+                                                        <td><input type="text" style="width:340px" name="{{ "semasa[$key][8]" }}"
                                                                 class="verify_operator form-control"
                                                                 value="{{ $value[8] ?? '' }}" readonly></td>
                                                         <td><button type="button" class="btn btn-danger remove"
@@ -405,7 +405,7 @@
                                                     <td><button type="button" class="btn btn-primary verify_btn"
                                                             disabled>Verify</button>
                                                     </td>
-                                                    <td><input type="text" name="semasa[1][8]"
+                                                    <td><input type="text" style="width:340px" name="semasa[1][8]"
                                                             class="verify_operator form-control" readonly></td>
                                                     <td><button type="button" class="btn btn-danger remove"
                                                             style="border-radius:5px; ">X</button>
@@ -464,7 +464,7 @@
                                                             <td><input type="text" name="semasa[${length}][7]" style="width:340px" class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn" disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="semasa[${length}][8]" class="verify_operator form-control" readonly></td>
+                                                            <td><input type="text" style="width:340px" name="semasa[${length}][8]" class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove"
                                                                     style="border-radius:5px; ">X</button>
                                                             </td>`);

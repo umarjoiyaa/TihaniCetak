@@ -1,4 +1,11 @@
 @extends('layouts.app')
+@section('css')
+<style>
+        table th{
+                text-align:left;
+        }
+</style>
+@endsection
 @section('content')
 <form action="{{ route('senari_semak_cetak.store') }}" method="POST">
     @csrf
@@ -100,7 +107,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Checked By</div>
-                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
+                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly
                                             class="form-control" name="" id="">
                                     </div>
                                 </div>
@@ -960,12 +967,14 @@
                         <tbody>
                             @if(old('bahagianC'))
                                 @php
-                               
                                     $count = 1;
                                 @endphp
 
                             @foreach (old('bahagianC') as $key => $detail)
                             @if($key == 1)
+                            @php
+                            dd(old($detail));
+                            @endphp
                             <tr class="cover">
                                 <td>Cover</td>
                                 <td><input type="checkbox" class="Cover16"
@@ -1008,7 +1017,7 @@
                                 <td><input type="checkbox" class="Text21" onchange="handleCheckboxChange('Text21',this)" @checked(old('bahagianC.{{ $key }}.5') == 'na')
                                         name="bahagianC[{{ $key }}][5]" id="" value="na"></td>
                                 <td><input type="text"  name="bahagianC[{{ $key }}][6]" id=""
-                                        class="form-control" value="{{ old('bahagianC.{{ $key }}.6') }}"></td>
+                                        class="form-control" value="{{ old('bahagianC.'.$key.'.6') }}"></td>
                             </tr>
 
 
@@ -1060,13 +1069,13 @@
                                         onchange="handleCheckboxChange('Cover19',this)" name="bahagianC[{{ $key }}][5]" id="" @checked(old('bahagianC.{{ $key }}.5') == 'na')
                                         value="na"></td>
                                 <td><input type="text"  name="bahagianC[{{ $key }}][6]" id=""
-                                        class="form-control" value="{{ old('bahagianC.{{ $key }}.6') }}"></td>
+                                        class="form-control" value="{{ old('bahagianC.'.$key.'.6') }}"></td>
                             </tr>
 
 
 
                             @else
-
+                           
                             <tr class="section">
                                 <td>Section {{ $count }}</td>
                                 <td><input type="checkbox" class="PDLP{{ $key }}" onchange="handleCheckboxChange('PDLP{{ $key }}',this)" @checked(old('bahagianC.{{ $key }}.1') == 'ok')
@@ -1109,15 +1118,19 @@
                                         onchange="handleCheckboxChange('PM{{ $key }}',this)" name="bahagianC[{{ $key }}][5]" id="" @checked(old('bahagianC.{{ $key }}.5') == 'na')
                                         value="na"></td>
                                 <td><input type="text"  name="bahagianC[{{ $key }}][6]" id=""
-                                        class="form-control" value="{{ old('bahagianC.{{ $key }}.6') }}"></td>
+                                        class="form-control" value="{{ old('bahagianC.'.$key.'.6') }}"></td>
                             </tr>
-
-                            @endif
 
 
                             @php
                                 $count++;
                             @endphp
+
+
+                            @endif
+
+
+                            
                             @endforeach
                             @else
 
