@@ -16,7 +16,7 @@
         <div class="card ">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h6 class="card-title tx-20 mg-b-0 p-2"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSAN</b>
+                    <h6 class="card-title tx-20 mg-b-0 p-2">LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSAN
                     </h6>
                 </div>
 

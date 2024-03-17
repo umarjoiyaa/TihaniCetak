@@ -16,7 +16,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h4 class="card-title tx-20 mg-b-0 p-2"><b>REKOD SERAHAN PLATE CETAK DAN SAMPLE</b></h4>
+                    <h4 class="card-title tx-20 mg-b-0 p-2">REKOD SERAHAN PLATE CETAK DAN SAMPLE</h4>
                 </div>
 
             </div>
