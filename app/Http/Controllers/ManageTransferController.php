@@ -6,6 +6,12 @@ use App\Helpers\Helper;
 use App\Models\AreaLocation;
 use App\Models\Location;
 use App\Models\ManageTransfer;
+use App\Models\ManageTransferB;
+use App\Models\ManageTransferC;
+use App\Models\ManageTransferD;
+use App\Models\ManageTransferLocation1;
+use App\Models\ManageTransferLocation2;
+use App\Models\ManageTransferLocation3;
 use App\Models\MaterialRequest;
 use App\Models\MaterialRequestB;
 use App\Models\MaterialRequestC;
@@ -314,7 +320,7 @@ class ManageTransferController extends Controller
         $manage_transfer->save();
 
         foreach($request->kertas as $value){
-            $manage_transfer_detail_b = new MaterialRequestB();
+            $manage_transfer_detail_b = new ManageTransferB();
             $manage_transfer_detail_b->transfer_id = $manage_transfer->id;
             $manage_transfer_detail_b->stock_code = $value['stock_code'] ?? null;
             $manage_transfer_detail_b->previous_qty = $value['previous_qty'] ?? 0;
@@ -326,7 +332,7 @@ class ManageTransferController extends Controller
         }
 
         foreach($request->bahan as $value){
-            $manage_transfer_detail_c = new MaterialRequestB();
+            $manage_transfer_detail_c = new ManageTransferC();
             $manage_transfer_detail_c->transfer_id = $manage_transfer->id;
             $manage_transfer_detail_c->stock_code = $value['stock_code'] ?? null;
             $manage_transfer_detail_c->previous_qty = $value['previous_qty'] ?? 0;
@@ -338,7 +344,7 @@ class ManageTransferController extends Controller
         }
 
         foreach($request->wip as $value){
-            $manage_transfer_detail_d = new MaterialRequestB();
+            $manage_transfer_detail_d = new ManageTransferD();
             $manage_transfer_detail_d->transfer_id = $manage_transfer->id;
             $manage_transfer_detail_d->stock_code = $value['stock_code'] ?? null;
             $manage_transfer_detail_d->previous_qty = $value['previous_qty'] ?? 0;
@@ -347,6 +353,43 @@ class ManageTransferController extends Controller
             $manage_transfer_detail_d->remaining_qty = $value['remaining_qty'] ?? 0;
             $manage_transfer_detail_d->remarks = $value['remarks'] ?? null;
             $manage_transfer_detail_d->save();
+        }
+
+        $storedData = json_decode($request->input('details'), true);
+
+        foreach ($storedData as $key => $value) {
+            if($value['tableId'] == 1){
+                $detail = new ManageTransferLocation1();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->save();
+            } else if($value['tableId'] == 2){
+                $detail = new ManageTransferLocation2();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->save();
+            } else if($value['tableId'] == 3){
+                $detail = new ManageTransferLocation3();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->save();
+            }
+
+            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('item_code', '=', $value['stock_code'])->where('description', '=', $value['description'])->first();
+            $location->used_qty -= (int)$value['transfer_qty'];
+            $location->save();
         }
 
         Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Store');
