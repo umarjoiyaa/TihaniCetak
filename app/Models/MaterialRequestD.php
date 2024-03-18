@@ -9,4 +9,9 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MaterialRequestD extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function manage_transfer_d()
+    {
+        return $this->belongsTo(ManageTransferD::class, 'stock_code', 'stock_code');
+    }
 }

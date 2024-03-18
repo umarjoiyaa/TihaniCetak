@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
+use App\Models\AreaLocation;
+use App\Models\Location;
 use App\Models\ManageTransfer;
 use App\Models\MaterialRequest;
 use App\Models\MaterialRequestB;
@@ -269,14 +271,20 @@ class ManageTransferController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $ref_nos = MaterialRequest::all();
-        return view('WMS.ManageTransfer.create', compact('ref_nos'));
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        return view('WMS.ManageTransfer.create', compact('ref_nos', 'locations'));
     }
 
     public function ref(Request $request){
         $material = MaterialRequest::where('id', '=', $request->id)->with('sale_order', 'user')->first();
-        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->get();
-        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->get();
-        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->get();
+        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->with('manage_transfer_b')->get();
+        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->with('manage_transfer_c')->get();
+        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->with('manage_transfer_d')->get();
         return response()->json(['material' => $material, 'material_b' => $material_b, 'material_c' => $material_c, 'material_d' => $material_d]);
+    }
+
+    public function available_qty(Request $request){
+        $qty = Location::select('used_qty')->where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->first();
+        return $qty;
     }
 }

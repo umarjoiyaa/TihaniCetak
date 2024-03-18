@@ -706,6 +706,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/manage-transfer/data', [ManageTransferController::class, 'Data'])->name('manage_transfer.data');
     Route::get('/WMS/manage-transfer/Create', [ManageTransferController::class, 'create'])->name('manage_transfer.create');
     Route::get('/WMS/manage-transfer/Ref', [ManageTransferController::class, 'ref'])->name('ref.get');
+    Route::get('/WMS/manage-transfer/AvailableQty', [ManageTransferController::class, 'available_qty'])->name('get.available_qty');
     Route::post('/WMS/manage-transfer/store', [ManageTransferController::class, 'store'])->name('manage_transfer.store');
     Route::get('/WMS/manage-transfer/edit/{id}', [ManageTransferController::class, 'edit'])->name('manage_transfer.edit');
     Route::get('/WMS/manage-transfer/view/{id}', [ManageTransferController::class, 'view'])->name('manage_transfer.view');

@@ -268,9 +268,9 @@
     });
 
     $('#saveModal').on('click', function() {
+        let receive_qty = $('.receive_quantity_text').text();
+        let qty = $('.quantity_text').text();
         if (receive_qty > qty) {
-            let receive_qty = $('.receive_quantity_text').text();
-            let qty = $('.quantity_text').text();
             alert("Can`t add more qty!");
             } else {
                 $('#exampleModal').modal('hide');
