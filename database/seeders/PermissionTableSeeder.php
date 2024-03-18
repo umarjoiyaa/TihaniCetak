@@ -265,12 +265,12 @@ class PermissionTableSeeder extends Seeder
             'MATERIAL REQUEST Update',
             'MATERIAL REQUEST View',
             'MATERIAL REQUEST Delete',
-            'MANAGE TRNASFER List',
-            'MANAGE TRNASFER Create',
-            'MANAGE TRNASFER Update',
-            'MANAGE TRNASFER Receive',
-            'MANAGE TRNASFER View',
-            'MANAGE TRNASFER Delete',
+            'MANAGE TRANSFER List',
+            'MANAGE TRANSFER Create',
+            'MANAGE TRANSFER Update',
+            'MANAGE TRANSFER Receive',
+            'MANAGE TRANSFER View',
+            'MANAGE TRANSFER Delete',
             'INVENTORY REPORT View'
          ];
 
