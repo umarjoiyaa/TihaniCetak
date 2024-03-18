@@ -1122,16 +1122,15 @@
                                         class="form-control" value="{{ old('bahagianC.' . $key . '.6') }}"></td>
                             </tr>
 
-
                             @php
-                                $count++;
-                            @endphp
+                            $count++;
+                                 @endphp
 
 
                             @endif
 
 
-                            
+
                             @endforeach
                             @else
 
