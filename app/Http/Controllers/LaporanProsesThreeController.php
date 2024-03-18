@@ -324,7 +324,9 @@ class LaporanProsesThreeController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'semasa' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -355,7 +357,7 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three->time = $timeIn12HourFormat;
         $laporan_proses_three->created_by = Auth::user()->id;
 
-        $laporan_proses_three->good_count = $request->good_count;
+        $laporan_proses_three->good_count = $request->good_count == null ? '' :  $request->good_count;
         $laporan_proses_three->user_id = json_encode($userIds);
         $laporan_proses_three->user_text = $userText;
 
@@ -373,7 +375,7 @@ class LaporanProsesThreeController extends Controller
 
         $laporan_proses_three->status = 'checked';
         $laporan_proses_three->save();
-
+        if($request->semasa != null){
         foreach($request->semasa as $value){
            $detail = new LaporanProsesThreeC();
            $detail->proses_three_id = $laporan_proses_three->id;
@@ -392,6 +394,8 @@ class LaporanProsesThreeController extends Controller
            $detail->c_13 = $value['13'] ?? null;
            $detail->save();
         }
+    }
+
 
         Helper::logSystemActivity('LAPORAN PROSES THREE KNIFE', 'LAPORAN PROSES THREE KNIFE Store');
         return redirect()->route('laporan_proses_three')->with('custom_success', 'LAPORAN PROSES THREE KNIFE has been Created Successfully !');
@@ -432,7 +436,9 @@ class LaporanProsesThreeController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'semasa' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -463,7 +469,7 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three->time = $timeIn12HourFormat;
         $laporan_proses_three->created_by = Auth::user()->id;
 
-        $laporan_proses_three->good_count = $request->good_count;
+        $laporan_proses_three->good_count = $request->good_count == null ? '' :  $request->good_count;
         $laporan_proses_three->user_id = json_encode($userIds);
         $laporan_proses_three->user_text = $userText;
 
@@ -483,7 +489,7 @@ class LaporanProsesThreeController extends Controller
         $laporan_proses_three->save();
 
         LaporanProsesThreeC::where('proses_three_id', '=', $id)->delete();
-
+        if($request->semasa != null){
         foreach($request->semasa as $value){
            $detail = new LaporanProsesThreeC();
            $detail->proses_three_id = $laporan_proses_three->id;
@@ -502,6 +508,8 @@ class LaporanProsesThreeController extends Controller
            $detail->c_13 = $value['13'] ?? null;
            $detail->save();
         }
+    }
+
 
         Helper::logSystemActivity('LAPORAN PROSES THREE KNIFE', 'LAPORAN PROSES THREE KNIFE Update');
         return redirect()->route('laporan_proses_three')->with('custom_success', 'LAPORAN PROSES THREE KNIFE has been Updated Successfully !');

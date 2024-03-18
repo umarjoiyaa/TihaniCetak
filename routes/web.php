@@ -596,9 +596,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerja/view/{id}', [BorangeSerahKerjaController::class, 'view'])->name('borange_serah_kerja.view');
     Route::get('/Production/BorangeSerahKerja/edit/{id}', [BorangeSerahKerjaController::class, 'edit'])->name('borange_serah_kerja.edit');
     Route::post('/Production/BorangeSerahKerja/update/{id}', [BorangeSerahKerjaController::class, 'update'])->name('borange_serah_kerja.update');
-    Route::get('/Production/BorangeSerahKerja/verify/{id}', [BorangeSerahKerjaController::class, 'verify'])->name('borange_serah_kerja.verify');
-    Route::post('/Production/BorangeSerahKerja/approve/approve/{id}', [BorangeSerahKerjaController::class, 'approve_approve'])->name('borange_serah_kerja.approve.approve');
-    Route::post('/Production/BorangeSerahKerja/approve/decline/{id}', [BorangeSerahKerjaController::class, 'approve_decline'])->name('borange_serah_kerja.approve.decline');
+    Route::get('/Production/BorangeSerahKerja/purchasing/{id}', [BorangeSerahKerjaController::class, 'purchasing'])->name('borange_serah_kerja.purchasing');
+    Route::post('/Production/BorangeSerahKerja/purchasing/approve/{id}', [BorangeSerahKerjaController::class, 'purchasing_approve'])->name('borange_serah_kerja.purchasing.approve');
+    Route::post('/Production/BorangeSerahKerja/purchasing/decline/{id}', [BorangeSerahKerjaController::class, 'purchasing_decline'])->name('borange_serah_kerja.purchasing.decline');
+    Route::get('/Production/BorangeSerahKerja/transfer/{id}', [BorangeSerahKerjaController::class, 'transfer'])->name('borange_serah_kerja.transfer');
+    Route::post('/Production/BorangeSerahKerja/transfer/approve/{id}', [BorangeSerahKerjaController::class, 'transfer_approve'])->name('borange_serah_kerja.transfer.approve');
+    Route::post('/Production/BorangeSerahKerja/transfer/decline/{id}', [BorangeSerahKerjaController::class, 'transfer_decline'])->name('borange_serah_kerja.transfer.decline');
+    Route::get('/Production/BorangeSerahKerja/receive/{id}', [BorangeSerahKerjaController::class, 'receive'])->name('borange_serah_kerja.receive');
+    Route::post('/Production/BorangeSerahKerja/receive/approve/{id}', [BorangeSerahKerjaController::class, 'receive_approve'])->name('borange_serah_kerja.receive.approve');
+    Route::post('/Production/BorangeSerahKerja/receive/decline/{id}', [BorangeSerahKerjaController::class, 'receive_decline'])->name('borange_serah_kerja.receive.decline');
     Route::get('/Production/BorangeSerahKerja/delete/{id}', [BorangeSerahKerjaController::class, 'delete'])->name('borange_serah_kerja.delete');
 
 

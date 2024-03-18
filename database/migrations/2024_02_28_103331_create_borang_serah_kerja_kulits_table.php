@@ -48,16 +48,26 @@ return new class extends Migration
             $table->string('jenis_20')->nullable();
             $table->string('jenis_21')->nullable();
             $table->string('jenis_22')->nullable();
-
             $table->string('jenis_input_22')->nullable();
 
             $table->string('siap_1')->nullable();
             $table->string('date_line')->nullable();
 
-            $table->string('verified_by_date')->nullable();
-            $table->string('verified_by_user')->nullable();
-            $table->string('verified_by_designation')->nullable();
-            $table->string('verified_by_department')->nullable();
+            $table->string('purchased_by_date')->nullable();
+            $table->string('purchased_by_user')->nullable();
+            $table->string('purchased_by_designation')->nullable();
+            $table->string('purchased_by_department')->nullable();
+
+            $table->string('transfer_by_date')->nullable();
+            $table->string('transfer_by_user')->nullable();
+            $table->string('transfer_by_designation')->nullable();
+            $table->string('transfer_by_department')->nullable();
+
+            $table->string('received_by_date')->nullable();
+            $table->string('received_by_user')->nullable();
+            $table->string('received_by_designation')->nullable();
+            $table->string('received_by_department')->nullable();
+
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();

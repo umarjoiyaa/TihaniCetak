@@ -360,9 +360,6 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jenis_lipatan' => 'required',
-            'mesin' => 'required',
-
         ]);
 
         // If validations fail
@@ -422,8 +419,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jenis_lipatan' => 'required',
-            'mesin' => 'required',
+
 
         ]);
 

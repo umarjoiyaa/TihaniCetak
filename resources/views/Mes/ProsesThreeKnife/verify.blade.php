@@ -36,7 +36,7 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <label class="form-label">Checked By</label>
-                                    <input type="text" disabled value="{{ Auth::user()->user_name }}" readonly
+                                    <input type="text" disabled value="{{ $proses_three_knife->user->full_name }}" readonly
                                         class="form-control" name="" id="">
                                 </div>
                             </div>

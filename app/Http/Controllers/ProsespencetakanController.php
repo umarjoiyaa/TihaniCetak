@@ -414,10 +414,6 @@ class ProsesPencetakanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'mesin' => 'required',
-            'jenis' => 'required',
-            'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail
@@ -497,10 +493,6 @@ class ProsesPencetakanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'mesin' => 'required',
-            'jenis' => 'required',
-            'seksyen_no' => 'required',
-            'side' => 'required'
         ]);
 
         // If validations fail

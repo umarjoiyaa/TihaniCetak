@@ -32,7 +32,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Disemak Oleh</div>
-                                        <input type="text" disabled value="{{ Auth::user()->user_name }}" readonly
+                                        <input type="text" disabled value="{{ Auth::user()->full_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
                                 </div>
