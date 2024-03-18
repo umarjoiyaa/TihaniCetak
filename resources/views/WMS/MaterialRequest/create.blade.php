@@ -483,7 +483,7 @@
             let option = document.createElement('option');
             option.value = uom.id;
             option.text = uom.name;
-            options += option;
+            options += option.outerHTML;
         });
 
         $('#addrows').click(function() {
