@@ -68,7 +68,7 @@
 
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="" class="form-label">Kuantiti So </label>
+                                            <label for="" class="form-label">Kuantiti SO </label>
                                             <input type="text" readonly name="" id="sale_order_qty"
                                                 class="form-control">
                                         </div>
