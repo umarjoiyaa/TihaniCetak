@@ -176,6 +176,25 @@
                                         </div>
 
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_17" @checked(old('jenis_17') == 'on') id="Other17"></div>
+                                        <div class="col-md-6">
+
+                                            <div class="row mt-2">
+                                                <div class="col-md2">
+                                                <h5 style="margin-left:10px;">Others</h5>
+                                                </div>
+                                                <div class="col-md-8" >
+                                                    <div id="input" class="others17" style="width:150px;">
+                                                        <input type="text" name="jenis_input_17" value="{{ old('jenis_input_17') }}"
+                                                        class="form-control Others17" @if(old('jenis_17') == 'on') @else style="display:none;" @endif>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <div class="col-md-4 ">
 
@@ -218,6 +237,44 @@
                                         </div>
 
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_18" @checked(old('jenis_18') == 'on') id="Other18"></div>
+                                        <div class="col-md-6">
+
+                                            <div class="row">
+                                                <div class="col-md2">
+                                                <h5 style="margin-left:10px;">Others</h5>
+                                                </div>
+                                                <div class="col-md-8" >
+                                                    <div id="input" class="others18" style="width:150px;">
+                                                        <input type="text" name="jenis_input_18" value="{{ old('jenis_input_18') }}"
+                                                        class="form-control Others18" @if(old('jenis_18') == 'on') @else style="display:none;" @endif>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_20" @checked(old('jenis_20') == 'on') id="Other20"></div>
+                                        <div class="col-md-6">
+
+                                            <div class="row">
+                                                <div class="col-md2">
+                                                <h5 style="margin-left:10px;">Others</h5>
+                                                </div>
+                                                <div class="col-md-8" >
+                                                    <div id="input" class="other20" style="width:150px;">
+                                                        <input type="text" name="jenis_input_20" value="{{ old('jenis_input_20') }}"
+                                                        class="form-control Others20" @if(old('jenis_20') == 'on') @else style="display:none;" @endif>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
                                 </div>
                                 <div class="col-md-5 ">
                                     <div class="row">
@@ -253,6 +310,44 @@
                                                 <div id="labelContainer" class="Chipboard" @if(old('jenis_14') == 'on') @else style="display:none;" @endif>gsm</div>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-1"><input type="checkbox" name="jenis_19" @checked(old('jenis_19') == 'on') id="Other19"></div>
+                                    <div class="col-md-6">
+
+                                        <div class="row">
+                                            <div class="col-md2">
+                                            <h5 style="margin-left:10px;">Others</h5>
+                                            </div>
+                                            <div class="col-md-8" >
+                                                <div id="input" class="other19" style="width:150px;">
+                                                    <input type="text" name="jenis_input_19" value="{{ old('jenis_input_19') }}"
+                                                    class="form-control Others19" @if(old('jenis_19') == 'on') @else style="display:none;" @endif>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row mt-2">
+                                    <div class="col-md-1"><input type="checkbox" name="jenis_21" @checked(old('jenis_21') == 'on') id="Other21"></div>
+                                    <div class="col-md-6">
+
+                                        <div class="row">
+                                            <div class="col-md2">
+                                            <h5 style="margin-left:10px;">Others</h5>
+                                            </div>
+                                            <div class="col-md-8" >
+                                                <div id="input" class="other21" style="width:150px;">
+                                                    <input type="text" name="jenis_input_21" value="{{ old('jenis_input_21') }}"
+                                                    class="form-control Others21" @if(old('jenis_21') == 'on') @else style="display:none;" @endif>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             </div>
@@ -392,6 +487,47 @@ $('#sale_order').select2({
                     $('.Others').css('display','none')
                 }
             })
+
+            $("#Other17").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others17').css('display','')
+                }else{
+                    $('.Others17').css('display','none')
+                }
+            })
+
+            $("#Other18").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others18').css('display','')
+                }else{
+                    $('.Others18').css('display','none')
+                }
+            })
+
+            $("#Other19").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others19').css('display','')
+                }else{
+                    $('.Others19').css('display','none')
+                }
+            })
+
+            $("#Other20").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others20').css('display','')
+                }else{
+                    $('.Others20').css('display','none')
+                }
+            })
+
+            $("#Other21").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others21').css('display','')
+                }else{
+                    $('.Others21').css('display','none')
+                }
+            })
+
 
             $("#Ribbon").on('change',function(){
                 if($(this).prop('checked')){
