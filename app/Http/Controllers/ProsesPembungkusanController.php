@@ -335,7 +335,7 @@ class ProsesPembungkusanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'kategori' => 'required',
+
 
         ]);
 
@@ -402,7 +402,7 @@ class ProsesPembungkusanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'kategori' => 'required',
+            
         ]);
 
         // If validations fail

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\BorangSerahKerjaKulit;
 use App\Models\Supplier;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -131,19 +132,27 @@ class BorangeSerahKerjaController extends Controller
             $index = 0;
             foreach ($uom as $row) {
 
-                if ($row->status == 'checked') {
-                    $row->status = '<span class="badge badge-warning">Checked</span>';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="">Pruchasing</a>
-                    <a class="dropdown-item" href="">Transfer</a>
-                    <a class="dropdown-item" href="">Receive</a>
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja.purchasing', $row->id) . '">Purchasing</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
+                } else if ($row->status == 'purchased') {
+                    $row->status = '<span class="badge badge-success">Purchased</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.transfer', $row->id) . '">Transfer</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'declined') {
+                } else if ($row->status == 'transfer') {
+                    $row->status = '<span class="badge badge-success">Transfer</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.receive', $row->id) . '">Receive</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'received') {
+                    $row->status = '<span class="badge badge-success">Received</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>';
+                }
+                else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
@@ -238,19 +247,27 @@ class BorangeSerahKerjaController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
 
-                if ($row->status == 'checked') {
-                    $row->status = '<span class="badge badge-warning">Checked</span>';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-warning">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="">Pruchasing</a>
-                    <a class="dropdown-item" href="">Transfer</a>
-                    <a class="dropdown-item" href="">Receive</a>
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja.purchasing', $row->id) . '">Purchasing</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
+                } else if ($row->status == 'purchased') {
+                    $row->status = '<span class="badge badge-success">Purchased</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.transfer', $row->id) . '">Transfer</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'declined') {
+                } else if ($row->status == 'transfer') {
+                    $row->status = '<span class="badge badge-success">Transfer</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.receive', $row->id) . '">Receive</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'received') {
+                    $row->status = '<span class="badge badge-success">Received</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>';
+                }
+                else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
@@ -364,7 +381,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
         $borange_serah_kerja->jenis_22 = ($request->jenis_22 != null) ? $request->jenis_22 : null;
         $borange_serah_kerja->jenis_input_22 = $request->jenis_input_22;
-        $borange_serah_kerja->status = 'checked';
+        $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
         Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Store');
@@ -442,7 +459,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
         $borange_serah_kerja->jenis_22 = ($request->jenis_22 != null) ? $request->jenis_22 : null;
         $borange_serah_kerja->jenis_input_22 = $request->jenis_input_22;
-        $borange_serah_kerja->status = 'checked';
+        $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
         Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Update');
@@ -462,17 +479,136 @@ class BorangeSerahKerjaController extends Controller
         return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Deleted Successfully !');
     }
 
+    public function purchasing($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Purchasing')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Update');
+        return view('Production.BorangeSerahKerja.purchasing', compact('borange_serah_kerja','suppliers'));
+    }
+
+
+    public function transfer($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Transfer')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Update');
+        return view('Production.BorangeSerahKerja.transfer', compact('borange_serah_kerja','suppliers'));
+    }
+
+    public function receive($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Update');
+        return view('Production.BorangeSerahKerja.receive', compact('borange_serah_kerja','suppliers'));
+    }
+
+    public function purchasing_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Purchasing')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'purchased';
+        $borange_serah_kerja->po_no = $request->po_no;
+        $borange_serah_kerja->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja->purchased_by_user = Auth::user()->user_name;
+        $borange_serah_kerja->purchased_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->purchased_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Purchased');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'CTP has been Successfully Purchased!');
+    }
+
+    public function transfer_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Transfer')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'transfered';
+        $borange_serah_kerja->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja->transfer_by_user = Auth::user()->user_name;
+        $borange_serah_kerja->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->transfer_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Transfered');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Transfered!');
+    }
+
+    public function receive_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'received';
+        $borange_serah_kerja->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja->received_by_user = Auth::user()->user_name;
+        $borange_serah_kerja->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->received_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Received');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Received!');
+    }
+
+    public function purchasing_decline(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Purchasing')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'declined';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Declined');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Declined!');
+    }
+
+    public function transfer_decline(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Transfer')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'declined';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Declined');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Declined!');
+    }
+
+    public function receive_decline(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $borange_serah_kerja->status = 'declined';
+        $borange_serah_kerja->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Declined');
+        return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Declined!');
+    }
+
+
+
+
     public function view(){
         return view('Production.BorangeSerahKerja.view');
     }
 
-    public function purchasing(){
-        return view('Production.BorangeSerahKerja.purchasing');
-    }
-    public function transfer(){
-        return view('Production.BorangeSerahKerja.Transfer');
-    }
-    public function receive(){
-        return view('Production.BorangeSerahKerja.receive');
-    }
 }

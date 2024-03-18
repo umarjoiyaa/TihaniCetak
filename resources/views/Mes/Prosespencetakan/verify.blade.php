@@ -31,7 +31,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Diperiksa oleh</label>
-                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
+                                        <input type="text" value="{{ $proses_pencetakan->user->full_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
@@ -400,7 +400,7 @@
                             </div>
                     <div class="row d-flex justify-content-end">
                         <div class="col-md-12 d-flex justify-content-end">
-                            
+
 
                             <form action="{{ route('proses_pencetakan.approve.decline', $proses_pencetakan->id) }}"
                                 method="POST" enctype="multipart/form-data">

@@ -24,7 +24,7 @@ class PODController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = pod::select('id', 'sale_order_id', 'date', 'status','time','file_artwork_1','file_artwork_2','file_artwork_3','file_artwork_4','file_artwork_5','file_artwork_6','file_artwork_7','first_piece_1','first_piece_2','first_piece_3','first_piece_4','first_piece_5','first_piece_6','first_piece_7','first_piece_8','first_piece_9','first_piece_10','first_piece_11')->with('sale_order');
+            $query = pod::select('id', 'sale_order_id', 'date','created_by', 'status','time','file_artwork_1','file_artwork_2','file_artwork_3','file_artwork_4','file_artwork_5','file_artwork_6','file_artwork_7','first_piece_1','first_piece_2','first_piece_3','first_piece_4','first_piece_5','first_piece_6','first_piece_7','first_piece_8','first_piece_9','first_piece_10','first_piece_11')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -264,7 +264,7 @@ class PODController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = pod::select('id', 'sale_order_id', 'date', 'status','time','file_artwork_1','file_artwork_2','file_artwork_3','file_artwork_4','file_artwork_5','file_artwork_6','file_artwork_7','first_piece_1','first_piece_2','first_piece_3','first_piece_4','first_piece_5','first_piece_6','first_piece_7','first_piece_8','first_piece_9','first_piece_10','first_piece_11')->with('sale_order');
+            $query = pod::select('id', 'sale_order_id', 'date','created_by','status','time','file_artwork_1','file_artwork_2','file_artwork_3','file_artwork_4','file_artwork_5','file_artwork_6','file_artwork_7','first_piece_1','first_piece_2','first_piece_3','first_piece_4','first_piece_5','first_piece_6','first_piece_7','first_piece_8','first_piece_9','first_piece_10','first_piece_11')->with('sale_order');
 
             // Apply search if a search term is provided
             if (!empty($search)) {

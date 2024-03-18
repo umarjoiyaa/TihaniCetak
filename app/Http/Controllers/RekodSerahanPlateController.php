@@ -270,10 +270,9 @@ class RekodSerahanPlateController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'user' => 'required',
-            'jenis' => 'required',
-            'mesin' => 'required',
-            'seksyen_no' => 'required',
-            'kuaniti_plate' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -307,11 +306,11 @@ class RekodSerahanPlateController extends Controller
         }else{
             $rekod_serahan_plate->user_input = '';
         }
-        $rekod_serahan_plate->mesin = $request->mesin;
-        $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
-        $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate;
-        $rekod_serahan_plate->dummy_lipat = $request->dummy_lipat;
-        $rekod_serahan_plate->sample = $request->sample;
+        $rekod_serahan_plate->mesin = $request->mesin == null ? '' : $request->mesin ;
+        $rekod_serahan_plate->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
+        $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate == null ? '' :$request->kuaniti_plate ;
+        $rekod_serahan_plate->dummy_lipat = $request->dummy_lipat == null ? '' : $request->dummy_lipat;
+        $rekod_serahan_plate->sample = $request->sample == null ? '' : $request->sample ;
         $rekod_serahan_plate->created_by = Auth::user()->id;
         $rekod_serahan_plate->save();
         Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Store');
@@ -351,10 +350,9 @@ class RekodSerahanPlateController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'user' => 'required',
-            'jenis' => 'required',
-            'mesin' => 'required',
-            'seksyen_no' => 'required',
-            'kuaniti_plate' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -376,7 +374,7 @@ class RekodSerahanPlateController extends Controller
         $userText = implode(', ', $userNames);
 
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
-        $rekod_serahan_plate->sale_order_id = $request->sale_order;
+        $rekod_serahan_plate->sale_order_id = $request->sale_order ;
         $rekod_serahan_plate->date = $request->date;
         $rekod_serahan_plate->user_id = json_encode($userIds);
         $rekod_serahan_plate->user_text = $userText;
@@ -386,11 +384,11 @@ class RekodSerahanPlateController extends Controller
         }else{
             $rekod_serahan_plate->user_input = '';
         }
-        $rekod_serahan_plate->mesin = $request->mesin;
-        $rekod_serahan_plate->seksyen_no = $request->seksyen_no;
-        $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate;
-        $rekod_serahan_plate->dummy_lipat = $request->dummy_lipat;
-        $rekod_serahan_plate->sample = $request->sample;
+        $rekod_serahan_plate->mesin = $request->mesin == null ? '' : $request->mesin ;
+        $rekod_serahan_plate->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
+        $rekod_serahan_plate->kuaniti_plate = $request->kuaniti_plate == null ? '' :$request->kuaniti_plate ;
+        $rekod_serahan_plate->dummy_lipat = $request->dummy_lipat == null ? '' : $request->dummy_lipat;
+        $rekod_serahan_plate->sample = $request->sample == null ? '' : $request->sample ;
         $rekod_serahan_plate->created_by = Auth::user()->id;
         $rekod_serahan_plate->save();
         Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Update');

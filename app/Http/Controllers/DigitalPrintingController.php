@@ -5,6 +5,7 @@ use App\Helpers\Helper;
 use App\Models\DigitalPrinting;
 use App\Models\DigitalPrintingDetailB;
 use App\Models\DigitalPrintingDetail;
+use App\Models\OtherDigitalPrinting;
 use App\Models\User;
 use App\Models\Supplier;
 use Carbon\Carbon;
@@ -333,13 +334,8 @@ class DigitalPrintingController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jumlah_mukasurat' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kategori_job' => 'required',
-            'jenis_produk' => 'required',
-            'kertas_teks' => 'required',
-            'kertas_cover' => 'required'
+
+
         ]);
 
         // If validations fail
@@ -351,7 +347,7 @@ class DigitalPrintingController extends Controller
         $digital_printing = new DigitalPrinting();
         $digital_printing->sale_order_id = $request->sale_order;
         $digital_printing->date = $request->date;
-        $digital_printing->jumlah_mukasurat = $request->jumlah_mukasurat;
+        $digital_printing->jumlah_mukasurat = $request->jumlah_mukasurat == null ? '' : $request->jumlah_mukasurat;
         $digital_printing->kuantiti_waste = $request->kuantiti_waste;
         $digital_printing->remarks = $request->remarks;
         $digital_printing->mesin = $request->mesin;
@@ -360,8 +356,8 @@ class DigitalPrintingController extends Controller
         $digital_printing->kategori_job = $request->kategori_job;
         $digital_printing->jenis_produk = $request->jenis_produk;
         $digital_printing->jenis_produk_others = $request->jenis_produk_others;
-        $digital_printing->kertas_teks = $request->kertas_teks;
-        $digital_printing->kertas_cover = $request->kertas_cover;
+        $digital_printing->kertas_teks = $request->kertas_teks == null ? '' : $request->kertas_teks ;
+        $digital_printing->kertas_cover = $request->kertas_cover == null ? '' : $request->kertas_cover;
 
         $digital_printing->created_by = Auth::user()->id;
 
@@ -389,6 +385,17 @@ class DigitalPrintingController extends Controller
         $digital_printing->finishing_9 = ($request->finishing_9 != null) ? $request->finishing_9_val : null;
         $digital_printing->finishing_10 = ($request->finishing_10 != null) ? $request->finishing_10_val : null;
         $digital_printing->finishing_11 = ($request->finishing_10 != null) ? $request->finishing_11_val : null;
+        $digital_printing->finishing_12 = ($request->finishing_12 != null) ? $request->finishing_12_val : null;
+        $digital_printing->finishing_13 = ($request->finishing_12 != null) ? $request->finishing_13_val : null;
+        $digital_printing->finishing_14 = ($request->finishing_14 != null) ? $request->finishing_14_val : null;
+        $digital_printing->finishing_15 = ($request->finishing_14 != null) ? $request->finishing_15_val : null;
+        $digital_printing->finishing_16 = ($request->finishing_16 != null) ? $request->finishing_16_val : null;
+        $digital_printing->finishing_17 = ($request->finishing_16 != null) ? $request->finishing_17_val : null;
+        $digital_printing->finishing_18 = ($request->finishing_18 != null) ? $request->finishing_18_val : null;
+        $digital_printing->finishing_19 = ($request->finishing_18 != null) ? $request->finishing_19_val : null;
+        $digital_printing->finishing_20 = ($request->finishing_20 != null) ? $request->finishing_20_val : null;
+        $digital_printing->finishing_21 = ($request->finishing_20 != null) ? $request->finishing_21_val : null;
+
 
         $digital_printing->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
         $digital_printing->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
@@ -400,8 +407,28 @@ class DigitalPrintingController extends Controller
         $digital_printing->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
         $digital_printing->binding_9 = ($request->binding_8 != null) ? $request->binding_9_val : null;
 
+        // dd($request->binding_10);
+
+
+
+
         $digital_printing->status = 'Not-initiated';
         $digital_printing->save();
+
+
+        $digital_printing_other = new OtherDigitalPrinting();
+        $digital_printing_other->Parent_id = $digital_printing->id;
+        $digital_printing_other->binding_10 = ($request->binding_10 != null) ? $request->binding_10_val : null;
+        $digital_printing_other->binding_11 = ($request->binding_10 != null) ? $request->binding_11_val : null;
+        $digital_printing_other->binding_12 = ($request->binding_12 != null) ? $request->binding_12_val : null;
+        $digital_printing_other->binding_13 = ($request->binding_12 != null) ? $request->binding_13_val : null;
+        $digital_printing_other->binding_14 = ($request->binding_14 != null) ? $request->binding_14_val : null;
+        $digital_printing_other->binding_15 = ($request->binding_14 != null) ? $request->binding_15_val : null;
+        $digital_printing_other->binding_16 = ($request->binding_16 != null) ? $request->binding_16_val : null;
+        $digital_printing_other->binding_17 = ($request->binding_16 != null) ? $request->binding_17_val : null;
+        $digital_printing_other->binding_18 = ($request->binding_18 != null) ? $request->binding_18_val : null;
+        $digital_printing_other->binding_19 = ($request->binding_18 != null) ? $request->binding_19_val : null;
+        $digital_printing_other->save();
 
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Store');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Created Successfully !');
@@ -412,9 +439,11 @@ class DigitalPrintingController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $digital_printing = DigitalPrinting::find($id);
+        $digital_printing_other = OtherDigitalPrinting::where('Parent_id',  '=',$digital_printing->id)->first();
+        // dd($digital_printing_other);
         $suppliers = Supplier::select('id', 'name')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.edit', compact('digital_printing', 'suppliers'));
+        return view('Production.DigitalPrinting.edit', compact('digital_printing', 'suppliers','digital_printing_other'));
     }
 
     public function view($id){
@@ -461,13 +490,7 @@ class DigitalPrintingController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'jumlah_mukasurat' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kategori_job' => 'required',
-            'jenis_produk' => 'required',
-            'kertas_teks' => 'required',
-            'kertas_cover' => 'required'
+
         ]);
 
         // If validations fail
@@ -479,7 +502,7 @@ class DigitalPrintingController extends Controller
         $digital_printing = DigitalPrinting::find($id);
         $digital_printing->sale_order_id = $request->sale_order;
         $digital_printing->date = $request->date;
-        $digital_printing->jumlah_mukasurat = $request->jumlah_mukasurat;
+        $digital_printing->jumlah_mukasurat = $request->jumlah_mukasurat == null ? '' : $request->jumlah_mukasurat;
         $digital_printing->kuantiti_waste = $request->kuantiti_waste;
         $digital_printing->remarks = $request->remarks;
         $digital_printing->mesin = $request->mesin;
@@ -488,8 +511,8 @@ class DigitalPrintingController extends Controller
         $digital_printing->kategori_job = $request->kategori_job;
         $digital_printing->jenis_produk = $request->jenis_produk;
         $digital_printing->jenis_produk_others = $request->jenis_produk_others;
-        $digital_printing->kertas_teks = $request->kertas_teks;
-        $digital_printing->kertas_cover = $request->kertas_cover;
+        $digital_printing->kertas_teks = $request->kertas_teks == null ? '' : $request->kertas_teks ;
+        $digital_printing->kertas_cover = $request->kertas_cover == null ? '' : $request->kertas_cover;
 
         $digital_printing->created_by = Auth::user()->id;
 
@@ -517,6 +540,16 @@ class DigitalPrintingController extends Controller
         $digital_printing->finishing_9 = ($request->finishing_9 != null) ? $request->finishing_9_val : null;
         $digital_printing->finishing_10 = ($request->finishing_10 != null) ? $request->finishing_10_val : null;
         $digital_printing->finishing_11 = ($request->finishing_10 != null) ? $request->finishing_11_val : null;
+        $digital_printing->finishing_12 = ($request->finishing_12 != null) ? $request->finishing_12_val : null;
+        $digital_printing->finishing_13 = ($request->finishing_12 != null) ? $request->finishing_13_val : null;
+        $digital_printing->finishing_14 = ($request->finishing_14 != null) ? $request->finishing_14_val : null;
+        $digital_printing->finishing_15 = ($request->finishing_14 != null) ? $request->finishing_15_val : null;
+        $digital_printing->finishing_16 = ($request->finishing_16 != null) ? $request->finishing_16_val : null;
+        $digital_printing->finishing_17 = ($request->finishing_16 != null) ? $request->finishing_17_val : null;
+        $digital_printing->finishing_18 = ($request->finishing_18 != null) ? $request->finishing_18_val : null;
+        $digital_printing->finishing_19 = ($request->finishing_18 != null) ? $request->finishing_19_val : null;
+        $digital_printing->finishing_20 = ($request->finishing_20 != null) ? $request->finishing_20_val : null;
+        $digital_printing->finishing_21 = ($request->finishing_20 != null) ? $request->finishing_21_val : null;
 
         $digital_printing->binding_1 = ($request->binding_1 != null) ? $request->binding_1_val : null;
         $digital_printing->binding_2 = ($request->binding_2 != null) ? $request->binding_2_val : null;
@@ -528,12 +561,28 @@ class DigitalPrintingController extends Controller
         $digital_printing->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
         $digital_printing->binding_9 = ($request->binding_8 != null) ? $request->binding_9_val : null;
 
+
+
+
         if($digital_printing->status == 'Paused'){
             $digital_printing->status = 'Paused';
         }else{
             $digital_printing->status = 'Not-initiated';
         }
         $digital_printing->save();
+
+        $digital_printing_other = OtherDigitalPrinting::where('parent_id','=',$id)->first();
+        $digital_printing_other->binding_10 = ($request->binding_10 != null) ? $request->binding_10_val : null;
+        $digital_printing_other->binding_11 = ($request->binding_10 != null) ? $request->binding_11_val : null;
+        $digital_printing_other->binding_12 = ($request->binding_12 != null) ? $request->binding_12_val : null;
+        $digital_printing_other->binding_13 = ($request->binding_12 != null) ? $request->binding_13_val : null;
+        $digital_printing_other->binding_14 = ($request->binding_14 != null) ? $request->binding_14_val : null;
+        $digital_printing_other->binding_15 = ($request->binding_14 != null) ? $request->binding_15_val : null;
+        $digital_printing_other->binding_16 = ($request->binding_16 != null) ? $request->binding_16_val : null;
+        $digital_printing_other->binding_17 = ($request->binding_16 != null) ? $request->binding_17_val : null;
+        $digital_printing_other->binding_18 = ($request->binding_18 != null) ? $request->binding_18_val : null;
+        $digital_printing_other->binding_19 = ($request->binding_18 != null) ? $request->binding_19_val : null;
+        $digital_printing_other->save();
 
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
         return redirect()->route('digital_printing')->with('custom_success', 'DIGITAL PRINTING has been Updated Successfully !');

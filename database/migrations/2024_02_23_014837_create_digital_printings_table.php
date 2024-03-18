@@ -52,6 +52,16 @@ return new class extends Migration
             $table->string('finishing_9')->nullable();
             $table->string('finishing_10')->nullable();
             $table->string('finishing_11')->nullable();
+            $table->string('finishing_12')->nullable();
+            $table->string('finishing_13')->nullable();
+            $table->string('finishing_14')->nullable();
+            $table->string('finishing_15')->nullable();
+            $table->string('finishing_16')->nullable();
+            $table->string('finishing_17')->nullable();
+            $table->string('finishing_18')->nullable();
+            $table->string('finishing_19')->nullable();
+            $table->string('finishing_20')->nullable();
+            $table->string('finishing_21')->nullable();
 
             $table->string('binding_1')->nullable();
             $table->string('binding_2')->nullable();
@@ -62,6 +72,7 @@ return new class extends Migration
             $table->string('binding_7')->nullable();
             $table->string('binding_8')->nullable();
             $table->string('binding_9')->nullable();
+            
 
             $table->string('operator')->nullable();
             $table->string('verified_by_date')->nullable();
