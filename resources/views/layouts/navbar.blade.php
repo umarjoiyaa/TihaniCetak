@@ -39,6 +39,9 @@
         nav{
           display: block !important;
         }
+        .abcd{
+          display:none;
+        }
         .navbar-toggler{
           width:65%;
         }
@@ -96,6 +99,9 @@
       .abc{
         display:block;
       }
+      .abcd{
+        display:block;
+      }
      }
 
      @media screen and (max-width:558px){
@@ -134,6 +140,7 @@
         margin-left: 160px;
       }
      }
+
     </style>
   </head>
   <body>
@@ -282,7 +289,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{route('dashboard')}}">Home <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item dropdown">
@@ -304,7 +311,7 @@
                       <a class="dropdown-item" href="{{route('senari_semak_cetak')}}">Senarai
                           Semak Pra Cetak</a>
                       <a class="dropdown-item" href="{{route('rekod_serahan_plate')}}">Rekod
-                          serahan plate cetak <br> serta Sample</a>
+                          Serahan Plate Cetak <br> Serta Sample</a>
                       <a class="dropdown-item" href="{{route('laporan_proses_pencetakani')}}">Laporan
                           Proses Pencetakan</a>
                       </div>
@@ -501,9 +508,10 @@
               </li>
 
               <li class="nav-item dropdown  abcd">
-            <a class="new nav-link " href="#"><i
+                <a class="new nav-link " href="#"><i
                   class="ti-bell animated bell-animations text-white" id="bell"></i><span
-                  class="pulse"></span></a>
+                  class="pulse"></span>
+                </a>
                 <div class="dropdown-menu">
                   <div class="row">
                     <div class="col-sm-4">

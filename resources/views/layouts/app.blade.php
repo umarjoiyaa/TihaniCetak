@@ -438,7 +438,7 @@
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
                                                                             style="color: #a41843"></iconify-icon>Rekod
-                                                                        serahan plate cetak <br> serta Sample</a></li>
+                                                                        Serahan Plate Cetak <br> Serta Sample</a></li>
                                                                 <li aria-haspopup="true"><a
                                                                         href="{{ route('laporan_proses_pencetakani') }}"
                                                                         class="slide-item"><iconify-icon
