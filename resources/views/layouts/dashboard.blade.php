@@ -31,15 +31,25 @@
         width:180px;
     }
     .card .col-md-4 .card{
-        width:140px;
-        height:120px;
-        
+        width:130px;
+        height:150px;
+    }
+    .card .col-md-5 .card{
+        width:130px;
+        height:150px;
+    }
+    .card2 .card span{
+        margin-top: 50px;
     }
     .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
         color:;
     }
 
     @media screen  and (max-width:1260px){
+        .card .col-md-4 .card{
+            width:120px;
+            height:120px;
+        }
         .card .col-md-3 .card{
             width:110px;
             height:110px;
@@ -48,10 +58,15 @@
             margin-inline:auto;
         }
     }
-
+    @media screen  and (max-width:1200px){
+        .card .col-md-4 .card{
+            width:200px;
+            height:150px;
+        }
+    }
     @media screen  and (max-width:1165px){
         .card .col-md-4 .card{
-            width:110px;
+            width:200px;
             height:120px;
         }
          .card1{
@@ -70,38 +85,51 @@
             width:100px;
             height:110px;
         }
+        .card .col-md-4 .card{
+            width:200px;
+            height:150px;
+        }
         .card .col-md-3 .card i{
             margin-inline:auto;
         }
     }
-
     
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+        .card .card1 {
+            width: 160px;
+            height: 190px;
+        }
        .card1 .card{
-            width:100px;
+            margin-inline:auto;
+            width:120px;
             height:100px;
        }
        .card2{
         margin-inline:50px;
        }
 
-       .card3{
-        margin-inline:;
-        width:600px;
-       }
-       .card4{
-        margin-inline:;
-        width:600px;
+       .card .card-width{
+        width:200px;
+        height:150px;
        }
        
         .card .col-md-4 .card{
-            width:150px;
-            height:120px;
+            width:auto;
+            height:140px;
+            padding:10px;
+            font-size:15px;
        }
 
        .card .col-md-3 .card{
-            width:90px;
-            height:100px;
+            width:auto;
+            height:120px;
+            font-size:15px;
+       }
+
+       .card .col-md-5 .card{
+            width:150px;
+            height:120px;
+            font-size:15px;
        }
 
        .card span{
@@ -115,28 +143,39 @@
    
     
    @media screen  and (max-width:768px){
-    .childcard{
-        width: 700px;
-    }
+        
+        .card .card-width {
+            margin-inline: auto;
+            width: 180px;
+            height: 120px;
+        }
         .card .col-md-4 .card{
             margin-inline:auto;
-            width:150px;
+            width:180px;
+            height:140px;
+            font-size:14px;
+        }
+        .card .col-md-5 .card{
+            width:180px;
             height:120px;
-        }
-        .card4 .cardmargin{
-            margin-left: -50px;
-        }
-
+            font-size:15px;
+       }
         .card .col-md-3 .card{
             margin-inline:auto;
-            width:150px;
+            width:180px;
+            height:140px;
+        }
+        .card .card1 {
+            width: 203px;
+            height: 212px;
+        }
+
+        .card .card1 .card{
+            margin-inline:auto;
+            width:140px;
             height:120px;
         }
-        .card .card-width{
-            margin-inline:auto;
-            width:150px;
-            height:140px;
-        }  
+         
     }
 </style>
 @endsection
@@ -173,10 +212,10 @@
                     <h4 class="card-title tx-20 mg-b-0 p-2">Dashboard</h4>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-2 col-lg-2">
+                    <div class="col-md-2 col-xl-2">
                         <div class="card childCard ht-40p card1">
                             <div class="card-body text-center ">
-                                <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
+                                <span class="badge  p-2 text-xl-center mb-2 Management"> Management</span>
                                 <a href="{{route('sale_order')}}">
                                     <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
@@ -192,7 +231,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-lg-5">
+                    <div class="col-md-10 col-xl-5">
                         <div class="card childCard  card2" >
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
@@ -339,7 +378,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-5">
+                    <div class="col-md-12 col-xl-5">
                         <div class="card childCard  card3">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
@@ -512,7 +551,7 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
                         <div class="card childCard  card5  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Laporan
@@ -669,7 +708,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6">
                         <div class="card childCard  card6  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
@@ -753,7 +792,7 @@
                                         </a>
                                     </div>
 
-                                    <div class="col-md-6 ">
+                                    <div class="col-md-6">
                                         <a href="{{route('Laporan_Pemeriksaan')}}">
                                             <div class="card p-2 card-width" style="border-radius:17px;background:#f5d98f;">
                                                 
@@ -771,7 +810,7 @@
                                 <div class="row mt-2 d-flex justify-content-center">
 
 
-                                    <div class="col-md-4 d-flex justify-content-center ">
+                                    <div class="col-md-5 d-flex justify-content-center ">
                                         <a href="{{route('Pemeriksaan_Penghantaran')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#f5d98f; ">
                                                 
@@ -793,7 +832,7 @@
                 </div>
 
                 <div class="row mt-3 d-flex justify-content-center">
-                    <div class="col-md-6">
+                    <div class="col-md-12 col-lg-6  ">
                         <div class="card childCard  card7">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Dashboard
