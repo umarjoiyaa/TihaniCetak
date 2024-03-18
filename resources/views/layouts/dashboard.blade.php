@@ -20,6 +20,14 @@
         
     }
 
+    .card1 {
+        width:180px;
+    }
+
+    
+
+     
+
     .card .col-md-4 .card{
         width:140px;
         height:120px;
@@ -44,6 +52,15 @@
             width:110px;
             height:120px;
         }
+         .card1{
+            width:110px;
+            margin-inline:auto;
+            height:110px;
+        }
+        .card .card1{
+            width:150px;
+            height: 170px; 
+        }
         
     }
     @media screen  and (max-width:1040px){
@@ -57,10 +74,7 @@
     }
 
     @media screen  and (max-width:1025px){
-        .card  .card{
-            width:100px;
-            height:110px;
-        }
+       
         
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -149,7 +163,7 @@
                             <div class="card-body text-center ">
                                 <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
                                 <a href="{{route('sale_order')}}">
-                                    <div class="card " style="border-radius:17px;background:#ddcdf0;">
+                                    <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
                                             
                                                 <iconify-icon icon="pepicons-pop:file" width="24"
@@ -164,7 +178,7 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="card childCard card2" >
+                        <div class="card childCard  card2" >
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
                                     Jobsheet </span>
@@ -311,7 +325,7 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="card childCard card3">
+                        <div class="card childCard  card3">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
                                 </span>
@@ -367,7 +381,7 @@
 
                             </div>
                         </div>
-                        <div class="card childCard card4  ">
+                        <div class="card childCard  card4  ">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production -
                                     Laporan / Rekod Proses </span>
@@ -396,7 +410,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="col-md-4 w-100">
+                                    <div class="col-md-4 ">
                                         <a href="{{route('rekod_serahan_plate')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#7dc4d5;">
                                                 
@@ -485,7 +499,7 @@
 
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <div class="card childCard card5  h-auto">
+                        <div class="card childCard  card5  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Laporan
                                     Pemeriksaan Kualiti </span>
@@ -642,7 +656,7 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card childCard card6  h-auto">
+                        <div class="card childCard  card6  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
@@ -766,7 +780,7 @@
 
                 <div class="row mt-3 d-flex justify-content-center">
                     <div class="col-md-6">
-                        <div class="card childCard card7">
+                        <div class="card childCard  card7">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Dashboard
                                 </span>
