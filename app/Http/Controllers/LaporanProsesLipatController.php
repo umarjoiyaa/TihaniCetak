@@ -307,10 +307,10 @@ class LaporanProsesLipatController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'seksyen_no' => 'required',
-            'mesin' => 'required',
-            'pengesahan' => 'required',
-            'section' => 'required'
+
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -340,7 +340,7 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat->time = $timeIn12HourFormat;
         $laporan_proses_lipat->created_by = Auth::user()->id;
 
-        $laporan_proses_lipat->seksyen_no = $request->seksyen_no;
+        $laporan_proses_lipat->seksyen_no = $request->seksyen_no == null ? '' :  $request->seksyen_no ;
         $laporan_proses_lipat->mesin = $request->mesin;
         $laporan_proses_lipat->user_id = json_encode($userIds);
         $laporan_proses_lipat->user_text = $userText;
@@ -349,8 +349,8 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat->save();
 
         $pengesahan = $request->pengesahan;
-        ksort($pengesahan);
-
+        if($pengesahan != null){
+            ksort($pengesahan);
         foreach($pengesahan as $value){
            $detail = new LaporanProsesLipatB();
            $detail->proses_lipat_id = $laporan_proses_lipat->id;
@@ -361,15 +361,16 @@ class LaporanProsesLipatController extends Controller
            $detail->b_5 = $value['5'] ?? null;
            $detail->save();
         }
+        }
 
         $section = $request->section;
-        ksort($section);
-
+        if($section != null){
+            ksort($section);
         foreach($section as $key => $value){
 
             $section_b = $value;
             ksort($section_b);
-
+            if($section_b != null){
             foreach($section_b as $key1 => $value1){
 
                 $detail_b = new LaporanProsesLipatC();
@@ -383,6 +384,8 @@ class LaporanProsesLipatController extends Controller
                 $detail_b->c_6 = $value1['5'] ?? null;
                 $detail_b->save();
             }
+         }
+         }
          }
 
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Store');
@@ -435,10 +438,9 @@ class LaporanProsesLipatController extends Controller
             'date' => 'required',
             'time' => 'required',
             'user' => 'required',
-            'seksyen_no' => 'required',
-            'mesin' => 'required',
-            'pengesahan' => 'required',
-            'section' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -469,7 +471,7 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat->time = $timeIn12HourFormat;
         $laporan_proses_lipat->created_by = Auth::user()->id;
 
-        $laporan_proses_lipat->seksyen_no = $request->seksyen_no;
+        $laporan_proses_lipat->seksyen_no = $request->seksyen_no == null ? '' :  $request->seksyen_no;
         $laporan_proses_lipat->mesin = $request->mesin;
         $laporan_proses_lipat->user_id = json_encode($userIds);
         $laporan_proses_lipat->user_text = $userText;
@@ -480,42 +482,47 @@ class LaporanProsesLipatController extends Controller
         LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->delete();
 
         $pengesahan = $request->pengesahan;
-        ksort($pengesahan);
-
-        foreach($pengesahan as $value){
-           $detail = new LaporanProsesLipatB();
-           $detail->proses_lipat_id = $laporan_proses_lipat->id;
-           $detail->b_1 = $value['1'] ?? null;
-           $detail->b_2 = $value['2'] ?? null;
-           $detail->b_3 = $value['3'] ?? null;
-           $detail->b_4 = $value['4'] ?? null;
-           $detail->b_5 = $value['5'] ?? null;
-           $detail->save();
+        if($pengesahan != null){
+            ksort($pengesahan);
+            foreach($pengesahan as $value){
+                $detail = new LaporanProsesLipatB();
+                $detail->proses_lipat_id = $laporan_proses_lipat->id;
+                $detail->b_1 = $value['1'] ?? null;
+                $detail->b_2 = $value['2'] ?? null;
+                $detail->b_3 = $value['3'] ?? null;
+                $detail->b_4 = $value['4'] ?? null;
+                $detail->b_5 = $value['5'] ?? null;
+                $detail->save();
+             }
         }
+
 
         LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->delete();
 
         $section = $request->section;
-        ksort($section);
+        if($section != null){
+            ksort($section);
+            foreach($section as $key => $value){
+                $section_b = $value;
+                ksort($section_b);
+            if($section_b != null){
+                foreach($section_b as $key1 => $value1){
 
-        foreach($section as $key => $value){
-            $section_b = $value;
-            ksort($section_b);
-
-            foreach($section_b as $key1 => $value1){
-
-                $detail_b = new LaporanProsesLipatC();
-                $detail_b->proses_lipat_id = $laporan_proses_lipat->id;
-                $detail_b->row = $key;
-                $detail_b->c_1 = $key1;
-                $detail_b->c_2 = $value1['1'] ?? null;
-                $detail_b->c_3 = $value1['2'] ?? null;
-                $detail_b->c_4 = $value1['3'] ?? null;
-                $detail_b->c_5 = $value1['4'] ?? null;
-                $detail_b->c_6 = $value1['5'] ?? null;
-                $detail_b->save();
+                    $detail_b = new LaporanProsesLipatC();
+                    $detail_b->proses_lipat_id = $laporan_proses_lipat->id;
+                    $detail_b->row = $key;
+                    $detail_b->c_1 = $key1;
+                    $detail_b->c_2 = $value1['1'] ?? null;
+                    $detail_b->c_3 = $value1['2'] ?? null;
+                    $detail_b->c_4 = $value1['3'] ?? null;
+                    $detail_b->c_5 = $value1['4'] ?? null;
+                    $detail_b->c_6 = $value1['5'] ?? null;
+                    $detail_b->save();
+                }
             }
          }
+    }
+
 
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');
         return redirect()->route('laporan_proses_lipat')->with('custom_success', 'LAPORAN PROSES LIPAT has been Updated Successfully !');

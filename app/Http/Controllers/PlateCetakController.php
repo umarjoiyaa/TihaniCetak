@@ -391,8 +391,8 @@ class PlateCetakController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'machine' => 'required',
-            'section_plate' => 'required',
+
+
         ]);
 
         // If validations fail
@@ -404,6 +404,8 @@ class PlateCetakController extends Controller
         $carbonTime = Carbon::createFromFormat('H:i', $request->time);
         $timeIn12HourFormat = $carbonTime->format('h:i A');
 
+
+// dd($request->section);
 
         $plate_cetak = new PlateCetak();
         $plate_cetak->sale_order_id = $request->sale_order;
@@ -464,8 +466,6 @@ class PlateCetakController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'machine' => 'required',
-            'section_plate' => 'required',
         ]);
 
         // If validations fail

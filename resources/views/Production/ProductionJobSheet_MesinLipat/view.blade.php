@@ -107,7 +107,7 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <div class="label">Kuantiti So </div>
+                                        <div class="label">Kuantiti SO</div>
                                         <input type="text" readonly name="" id="sale_order_qty"
                                             class="form-control" value="{{ $mesin_lipat->sale_order->sale_order_qty }}">
                                     </div>

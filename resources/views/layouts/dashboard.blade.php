@@ -14,14 +14,68 @@
     .card1{
         height:200px;
     }
-    .card .card .card{
-        width{
-            width:140px;
-        2   height:120px;
-        }
+    .card .col-md-3 .card{
+        width:140px;
+        height:120px;
+
+    }
+
+    .card1 {
+        width:180px;
+    }
+
+
+
+
+
+    .card .col-md-4 .card{
+        width:140px;
+        height:120px;
+
     }
     .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
         color:;
+    }
+
+    @media screen  and (max-width:1260px){
+        .card .col-md-3 .card{
+            width:110px;
+            height:110px;
+        }
+        .card .col-md-3 .card i{
+            margin-inline:auto;
+        }
+    }
+
+    @media screen  and (max-width:1165px){
+        .card .col-md-4 .card{
+            width:110px;
+            height:120px;
+        }
+         .card1{
+            width:110px;
+            margin-inline:auto;
+            height:110px;
+        }
+        .card .card1{
+            width:150px;
+            height: 170px;
+        }
+
+    }
+    @media screen  and (max-width:1040px){
+        .card .col-md-3 .card{
+            width:100px;
+            height:110px;
+        }
+        .card .col-md-3 .card i{
+            margin-inline:auto;
+        }
+    }
+
+    @media screen  and (max-width:1025px){
+
+
     }
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
@@ -109,7 +163,7 @@
                             <div class="card-body text-center ">
                                 <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
                                 <a href="{{route('sale_order')}}">
-                                    <div class="card " style="border-radius:17px;background:#ddcdf0; width:140px; height:120px;">
+                                    <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
 
                                                 <iconify-icon icon="pepicons-pop:file" width="24"
@@ -124,14 +178,14 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="card childCard card2" >
+                        <div class="card childCard  card2" >
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
                                     Jobsheet </span>
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <a href="{{route('digital_printing')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -145,7 +199,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('cover_end_paper')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -159,7 +213,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('text')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -178,7 +232,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <a href="{{route('mesin_lipat')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -192,7 +246,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('staple_bind')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -206,7 +260,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('perfect_bind')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -223,7 +277,7 @@
                                 <div class="row mt-2">
                                     <div class="col-md-4">
                                         <a href="{{route('mesin_knife')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -237,7 +291,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('borange_serah_kerja')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -251,7 +305,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('borange_serah_kerja_teks')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="mdi:file-cog-outline" width="24"
@@ -271,14 +325,14 @@
                         </div>
                     </div>
                     <div class="col-md-5">
-                        <div class="card childCard card3">
+                        <div class="card childCard  card3">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
                                 </span>
                                 <div class="row mt-2 d-flex justify-content-between">
                                     <div class="col-md-4">
                                         <a href="{{route('production_scheduling')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="pepicons-pop:file" width="24"
@@ -293,7 +347,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('printing_process')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="pepicons-pop:file" width="24"
@@ -307,7 +361,7 @@
                                     </div>
                                     <div class="col-md-4">
                                         <a href="{{route('CallForAssistance')}}">
-                                            <div class="card " style="border-radius:17px;background:#788fd5; width:140px; height:120px;">
+                                            <div class="card " style="border-radius:17px;background:#788fd5;">
                                                 <div class="card-body">
 
                                                         <iconify-icon icon="pepicons-pop:file" width="24"
@@ -327,7 +381,7 @@
 
                             </div>
                         </div>
-                        <div class="card childCard card4  ">
+                        <div class="card childCard  card4  ">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production -
                                     Laporan / Rekod Proses </span>
@@ -356,7 +410,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="col-md-4 w-100">
+                                    <div class="col-md-4 ">
                                         <a href="{{route('rekod_serahan_plate')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#7dc4d5; width:140px; height:120px;">
 
@@ -445,7 +499,7 @@
 
                 <div class="row mt-3">
                     <div class="col-md-6">
-                        <div class="card childCard card5  h-auto">
+                        <div class="card childCard  card5  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Laporan
                                     Pemeriksaan Kualiti </span>
@@ -602,19 +656,21 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="card childCard card6  h-auto">
+                        <div class="card childCard  card6  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <div class="card p-2 " style="border-radius:17px;background:#f5d98f;">
-                                            <a href="{{route('good_receiving')}}">
-                                                <iconify-icon icon="pepicons-pop:file" width="20"
-                                                    height="20"></iconify-icon><br>
-                                                <span style=" font-weight: bold;">Good
-                                                    Receiving</span><br><br>
-                                            </a>
-                                        </div>
+                                        <a href="{{route('Good_Receiving')}}">
+                                            <div class="card p-2 " style="border-radius:17px;background:#f5d98f; width:140px; height:120px;">
+
+                                                    <iconify-icon style="margin-left:55px; margin-top:10px;" icon="pepicons-pop:file" width="20"
+                                                        height="20"></iconify-icon><br>
+                                                    <span style=" font-weight: bold;">Good
+                                                        Receiving</span><br><br>
+
+                                            </div>
+                                        </a>
                                     </div>
 
                                     <div class="col-md-3">
@@ -724,7 +780,7 @@
 
                 <div class="row mt-3 d-flex justify-content-center">
                     <div class="col-md-6">
-                        <div class="card childCard card7">
+                        <div class="card childCard  card7">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Dashboard
                                 </span>

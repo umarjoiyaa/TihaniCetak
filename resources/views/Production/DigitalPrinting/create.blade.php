@@ -483,7 +483,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_10" @checked(old('finishing_10') == 'on') id="Form9"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_10') != 'on') @if(old('finishing_10')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_10') != 'on') @if(old('finishing_10')) @else disabled @endif
                                                             name="finishing_10_val" id="input1"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_10_val') }}">
                                                     </td>
@@ -494,6 +494,114 @@
                                                             <option value="In-house" @selected(old('finishing_11_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
                                                                 <option value="{{ $supplier->id }}" @selected(old('finishing_11_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Finishing</th>
+                                                    <th>Partner</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="finishing_12" @checked(old('finishing_12') == 'on') id="Form27"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('finishing_12') != 'on') @if(old('finishing_12')) @else disabled @endif
+                                                            name="finishing_12_val" id="input2"
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_12_val') }}">
+                                                    </td>
+                                                    <td><select name="finishing_13_val" @disabled(old('finishing_12') != 'on')
+                                                            placeholder="select Supplier" id="form27"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('finishing_13_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_13_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="finishing_14" @checked(old('finishing_14') == 'on') id="Form26"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('finishing_14') != 'on') @if(old('finishing_14')) @else disabled @endif
+                                                            name="finishing_14_val" id="input3"
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_14_val') }}">
+                                                    </td>
+                                                    <td><select name="finishing_15_val" @disabled(old('finishing_14') != 'on')
+                                                            placeholder="select Supplier" id="form26"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('finishing_15_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_15_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="finishing_16" @checked(old('finishing_16') == 'on') id="Form23"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('finishing_16') != 'on') @if(old('finishing_16')) @else disabled @endif
+                                                            name="finishing_16_val" id="input4"
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_16_val') }}">
+                                                    </td>
+                                                    <td><select name="finishing_17_val" @disabled(old('finishing_16') != 'on')
+                                                            placeholder="select Supplier" id="form23"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('finishing_17_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_17_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="finishing_18" @checked(old('finishing_18') == 'on') id="Form24"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('finishing_18') != 'on') @if(old('finishing_18')) @else disabled @endif
+                                                            name="finishing_18_val" id="input5"
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_18_val') }}">
+                                                    </td>
+                                                    <td><select name="finishing_19_val" @disabled(old('finishing_18') != 'on')
+                                                            placeholder="select Supplier" id="form24"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('finishing_19_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_19_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><input type="checkbox" name="finishing_20" @checked(old('finishing_20') == 'on') id="Form25"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('finishing_20') != 'on') @if(old('finishing_20')) @else disabled @endif
+                                                            name="finishing_20_val" id="input6"
+                                                            class="form-control w-50 float-right" value="{{ old('finishing_20_val') }}">
+                                                    </td>
+                                                    <td><select name="finishing_21_val" @disabled(old('finishing_20') != 'on')
+                                                            placeholder="select Supplier" id="form25"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('finishing_21_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_21_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
@@ -632,7 +740,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_8" @checked(old('binding_8') == 'on') id="Form17"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('binding_8') != 'on') placeholder="User Input"
+                                                        <input type="text" @disabled(old('binding_8') != 'on')
                                                             name="binding_8_val" id="input"
                                                             class="form-control w-50 float-right" value="{{ old('binding_8_val')  }}">
                                                     </td>
@@ -643,6 +751,115 @@
                                                             <option value="In-house" @selected(old('binding_9_val') == 'In-house')>In-house</option>
                                                             @foreach ($suppliers as $supplier)
                                                                 <option value="{{ $supplier->id }}" @selected(old('binding_9_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Binding</th>
+                                                    <th>Partner</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="binding_10" @checked(old('binding_10') == 'on') id="Form30"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('binding_10') != 'on') @if(old('binding_10')) @else disabled @endif
+                                                            name="binding_10_val" id="input7"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_10_val') }}">
+                                                    </td>
+                                                    <td><select name="binding_11_val" @disabled(old('binding_10') != 'on')
+                                                            placeholder="select Supplier" id="form30"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('binding_11_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_11_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="binding_12" @checked(old('binding_12') == 'on') id="Form31"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('binding_12') != 'on') @if(old('binding_12')) @else disabled @endif
+                                                            name="binding_12_val" id="input8"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_12_val') }}">
+                                                    </td>
+                                                    <td><select name="binding_13_val" @disabled(old('binding_12') != 'on')
+                                                            placeholder="select Supplier" id="form31"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('binding_13_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_13_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="binding_14" @checked(old('binding_14') == 'on') id="Form32"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('binding_14') != 'on') @if(old('binding_14')) @else disabled @endif
+                                                            name="binding_14_val" id="input9"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_14_val') }}">
+                                                    </td>
+                                                    <td><select name="binding_15_val" @disabled(old('binding_14') != 'on')
+                                                            placeholder="select Supplier" id="form32"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('binding_15_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_15_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="binding_16" @checked(old('binding_16') == 'on') id="Form33"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('binding_16') != 'on') @if(old('binding_16')) @else disabled @endif
+                                                            name="binding_16_val" id="input10"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_16_val') }}">
+                                                    </td>
+                                                    <td><select name="binding_17_val" @disabled(old('binding_16') != 'on')
+                                                            placeholder="select Supplier" id="form33"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('binding_17_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_17_val') == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><input type="checkbox" name="binding_18" @checked(old('binding_18') == 'on') id="Form34"
+                                                            class=" mr-5"> Others:
+                                                        <input type="text" @disabled(old('binding_18') != 'on') @if(old('binding_18')) @else disabled @endif
+                                                            name="binding_18_val" id="input11"
+                                                            class="form-control w-50 float-right" value="{{ old('binding_18_val') }}">
+                                                    </td>
+                                                    <td><select name="binding_19_val" @disabled(old('binding_18') != 'on')
+                                                            placeholder="select Supplier" id="form34"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" selected disabled></option>
+                                                            <option value="In-house" @selected(old('binding_19_val') == 'In-house')>In-house</option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}" @selected(old('binding_19_val') == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
@@ -846,6 +1063,126 @@
                 }
             });
 
+
+
+            $("#Form23").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form23").prop("disabled", false);
+                    $("#form23").val("In-house").trigger('change');
+                    $("#input4").prop("disabled", false);
+                } else {
+                    $("#form23").prop("disabled", true);
+                    $("#form23").val('').trigger('change');
+                    $("#input4").prop("disabled", true);
+                }
+            });
+            $("#Form24").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form24").prop("disabled", false);
+                    $("#form24").val("In-house").trigger('change');
+                    $("#input5").prop("disabled", false);
+                } else {
+                    $("#form24").prop("disabled", true);
+                    $("#form24").val('').trigger('change');
+                    $("#input5").prop("disabled", true);
+                }
+            });
+
+            $("#Form25").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form25").prop("disabled", false);
+                    $("#form25").val("In-house").trigger('change');
+                    $("#input6").prop("disabled", false);
+                } else {
+                    $("#form25").prop("disabled", true);
+                    $("#form25").val('').trigger('change');
+                    $("#input6").prop("disabled", true);
+                }
+            });
+
+            $("#Form26").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form26").prop("disabled", false);
+                    $("#form26").val("In-house").trigger('change');
+                    $("#input3").prop("disabled", false);
+                } else {
+                    $("#form26").prop("disabled", true);
+                    $("#form26").val('').trigger('change');
+                    $("#input3").prop("disabled", true);
+                }
+            });
+            $("#Form27").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form27").prop("disabled", false);
+                    $("#form27").val("In-house").trigger('change');
+                    $("#input2").prop("disabled", false);
+                } else {
+                    $("#form27").prop("disabled", true);
+                    $("#form27").val('').trigger('change');
+                    $("#input2").prop("disabled", true);
+                }
+            });
+
+            $("#Form30").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form30").prop("disabled", false);
+                    $("#form30").val("In-house").trigger('change');
+                    $("#input7").prop("disabled", false);
+                } else {
+                    $("#form30").prop("disabled", true);
+                    $("#form30").val('').trigger('change');
+                    $("#input7").prop("disabled", true);
+                }
+            });
+
+            $("#Form31").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form31").prop("disabled", false);
+                    $("#form31").val("In-house").trigger('change');
+                    $("#input8").prop("disabled", false);
+                } else {
+                    $("#form31").prop("disabled", true);
+                    $("#form31").val('').trigger('change');
+                    $("#input8").prop("disabled", true);
+                }
+            });
+
+            $("#Form32").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form32").prop("disabled", false);
+                    $("#form32").val("In-house").trigger('change');
+                    $("#input9").prop("disabled", false);
+                } else {
+                    $("#form32").prop("disabled", true);
+                    $("#form32").val('').trigger('change');
+                    $("#input9").prop("disabled", true);
+                }
+            });
+            $("#Form33").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form33").prop("disabled", false);
+                    $("#form33").val("In-house").trigger('change');
+                    $("#input10").prop("disabled", false);
+                } else {
+                    $("#form33").prop("disabled", true);
+                    $("#form33").val('').trigger('change');
+                    $("#input10").prop("disabled", true);
+                }
+            });
+            $("#Form34").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#form34").prop("disabled", false);
+                    $("#form34").val("In-house").trigger('change');
+                    $("#input11").prop("disabled", false);
+                } else {
+                    $("#form34").prop("disabled", true);
+                    $("#form34").val('').trigger('change');
+                    $("#input11").prop("disabled", true);
+                }
+            });
+
+
+
             $("#Form10").change(function() {
                 if ($(this).is(":checked")) {
                     $("#form10").prop("disabled", false);
@@ -937,6 +1274,11 @@
                     $("#form20").prop("disabled", true);
                 }
             });
+
+
+
+
+
 
             $('#sale_order').trigger('change');
 

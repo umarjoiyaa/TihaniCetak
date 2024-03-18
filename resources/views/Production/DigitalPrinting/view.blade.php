@@ -549,6 +549,114 @@
                                         </tbody>
                                     </table>
                                 </div>
+                                <div class="col-md-6">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Finishing</th>
+                                                <th>Partner</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="finishing_12" @checked($digital_printing->finishing_12 != null) id="Form27"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" @disabled($digital_printing->finishing_12 == null) @if($digital_printing->finishing_12) @else disabled @endif
+                                                        name="finishing_12_val" id="input2"
+                                                        class="form-control w-50 float-right" value="{{ $digital_printing->finishing_12 }}">
+                                                </td>
+                                                <td><select name="finishing_13_val" @disabled($digital_printing->finishing_12 == null)
+                                                        placeholder="select Supplier" id="form27"
+                                                        class="form-control form-select w-100">
+                                                        <option value="" @selected($digital_printing->finishing_13 == null) disabled></option>
+                                                        <option value="In-house" @selected($digital_printing->finishing_13 == 'In-house')>In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}"  @selected($digital_printing->finishing_13 == $supplier->id)>{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
+                                            </tr>
+
+
+
+                                            <tr>
+                                                <td><input type="checkbox" name="finishing_14" @checked($digital_printing->finishing_14 != null) id="Form26"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" @disabled($digital_printing->finishing_14 == null) @if($digital_printing->finishing_14) @else disabled @endif
+                                                        name="finishing_14_val" id="input3"
+                                                        class="form-control w-50 float-right" value="{{ $digital_printing->finishing_14 }}">
+                                                </td>
+                                                <td><select name="finishing_15_val" @disabled($digital_printing->finishing_14 == null)
+                                                        placeholder="select Supplier" id="form26"
+                                                        class="form-control form-select w-100">
+                                                        <option value="" @selected($digital_printing->finishing_15 == null) disabled></option>
+                                                        <option value="In-house" @selected($digital_printing->finishing_15 == 'In-house')>In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_15 == $supplier->id)>{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="finishing_16" @checked($digital_printing->finishing_16 != null) id="Form23"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" @disabled($digital_printing->finishing_16 == null) @if($digital_printing->finishing_16) @else disabled @endif
+                                                        name="finishing_16_val" id="input4"
+                                                        class="form-control w-50 float-right" value="{{ $digital_printing->finishing_16 }}">
+                                                </td>
+                                                <td><select name="finishing_17_val" @disabled($digital_printing->finishing_16 == null)
+                                                        placeholder="select Supplier" id="form23"
+                                                        class="form-control form-select w-100">
+                                                        <option value="" @selected($digital_printing->finishing_17 == null) disabled></option>
+                                                        <option value="In-house" @selected($digital_printing->finishing_17 == 'In-house')>In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_17 == $supplier->id)>{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="finishing_18" @checked($digital_printing->finishing_18 != null) id="Form24"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" @disabled($digital_printing->finishing_18 == null) @if($digital_printing->finishing_18) @else disabled @endif
+                                                        name="finishing_18_val" id="input5"
+                                                        class="form-control w-50 float-right" value="{{ $digital_printing->finishing_18 }}">
+                                                </td>
+                                                <td><select name="finishing_19_val" @disabled($digital_printing->finishing_18 == null)
+                                                        placeholder="select Supplier" id="form24"
+                                                        class="form-control form-select w-100">
+                                                        <option value="" @selected($digital_printing->finishing_19 == null) disabled></option>
+                                                        <option value="In-house" @selected($digital_printing->finishing_19 == 'In-house')>In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_19 == $supplier->id)>{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
+                                            </tr>
+                                            <tr>
+                                                <td><input type="checkbox" name="finishing_20" @checked($digital_printing->finishing_20 != null) id="Form25"
+                                                        class=" mr-5"> Others:
+                                                    <input type="text" @disabled($digital_printing->finishing_20 == null) @if($digital_printing->finishing_20) @else disabled @endif
+                                                        name="finishing_20_val" id="input6"
+                                                        class="form-control w-50 float-right" value="{{ $digital_printing->finishing_20 }}">
+                                                </td>
+                                                <td><select name="finishing_21_val" @disabled($digital_printing->finishing_20 == null)
+                                                        placeholder="select Supplier" id="form25"
+                                                        class="form-control form-select w-100">
+                                                        <option value="" @selected($digital_printing->finishing_21 == null) disabled></option>
+                                                        <option value="In-house" @selected($digital_printing->finishing_21 == 'In-house')>In-house</option>
+                                                        @foreach ($suppliers as $supplier)
+                                                            <option value="{{ $supplier->id }}" @selected($digital_printing->finishing_21 == $supplier->id)>{{ $supplier->name }}
+                                                            </option>
+                                                        @endforeach
+                                                    </select></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                     </div>

@@ -339,7 +339,9 @@ class LaporanProsesPenjilidanSaddleController extends Controller
             'time' => 'required',
             'user' => 'required',
             'pembantu' => 'required',
-            'semasa' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -398,7 +400,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
 
         $laporan_proses_penjilidan_saddle->status = 'checked';
         $laporan_proses_penjilidan_saddle->save();
-
+        if($request->semasa != null){
         foreach($request->semasa as $value){
            $detail = new LaporanProsesPenjilidanSaddleC();
            $detail->penjilidan_id = $laporan_proses_penjilidan_saddle->id;
@@ -414,6 +416,8 @@ class LaporanProsesPenjilidanSaddleController extends Controller
            $detail->c_10 = $value['10'] ?? null;
            $detail->save();
         }
+    }
+
 
         Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Store');
         return redirect()->route('laporan_proses_penjilidan_saddle')->with('custom_success', 'LAPORAN PROSES PENJILIDAN SADDLE has been Created Successfully !');
@@ -455,7 +459,9 @@ class LaporanProsesPenjilidanSaddleController extends Controller
             'time' => 'required',
             'user' => 'required',
             'pembantu' => 'required',
-            'semasa' => 'required'
+
+        ],[
+            'user.required' => 'The operator field is required.',
         ]);
 
         // If validations fail
@@ -517,20 +523,22 @@ class LaporanProsesPenjilidanSaddleController extends Controller
 
         LaporanProsesPenjilidanSaddleC::where('penjilidan_id', '=', $id)->delete();
 
-        foreach($request->semasa as $value){
-           $detail = new LaporanProsesPenjilidanSaddleC();
-           $detail->penjilidan_id = $laporan_proses_penjilidan_saddle->id;
-           $detail->c_1 = $value['1'] ?? null;
-           $detail->c_2 = $value['2'] ?? null;
-           $detail->c_3 = $value['3'] ?? null;
-           $detail->c_4 = $value['4'] ?? null;
-           $detail->c_5 = $value['5'] ?? null;
-           $detail->c_6 = $value['6'] ?? null;
-           $detail->c_7 = $value['7'] ?? null;
-           $detail->c_8 = $value['8'] ?? null;
-           $detail->c_9 = $value['9'] ?? null;
-           $detail->c_10 = $value['10'] ?? null;
-           $detail->save();
+        if($request->semasa != null){
+            foreach($request->semasa as $value){
+               $detail = new LaporanProsesPenjilidanSaddleC();
+               $detail->penjilidan_id = $laporan_proses_penjilidan_saddle->id;
+               $detail->c_1 = $value['1'] ?? null;
+               $detail->c_2 = $value['2'] ?? null;
+               $detail->c_3 = $value['3'] ?? null;
+               $detail->c_4 = $value['4'] ?? null;
+               $detail->c_5 = $value['5'] ?? null;
+               $detail->c_6 = $value['6'] ?? null;
+               $detail->c_7 = $value['7'] ?? null;
+               $detail->c_8 = $value['8'] ?? null;
+               $detail->c_9 = $value['9'] ?? null;
+               $detail->c_10 = $value['10'] ?? null;
+               $detail->save();
+            }
         }
 
         Helper::logSystemActivity('LAPORAN PROSES PENJILIDAN SADDLE', 'LAPORAN PROSES PENJILIDAN SADDLE Update');

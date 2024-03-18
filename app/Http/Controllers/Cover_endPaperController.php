@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\CoverAndEndpaper;
 use App\Models\CoverEndPaperDetail;
 use App\Models\CoverEndPaperDetailB;
+use App\Models\OtherCoverAndEndpaper;
 use App\Models\Supplier;
 use App\Models\User;
 use Carbon\Carbon;
@@ -405,6 +406,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_15 = ($request->finishing_15 != null) ? $request->finishing_15 : null;
         $cover_end_paper->finishing_16 = ($request->finishing_16 != null) ? $request->finishing_16 : null;
         $cover_end_paper->finishing_17 = ($request->finishing_17 != null) ? $request->finishing_17 : null;
+       
 
         $cover_end_paper->finishing_supplier_1 = $request->finishing_supplier_1;
         $cover_end_paper->finishing_supplier_2 = $request->finishing_supplier_2;
@@ -423,13 +425,38 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_supplier_15 = $request->finishing_supplier_15;
         $cover_end_paper->finishing_supplier_16 = $request->finishing_supplier_16;
         $cover_end_paper->finishing_supplier_17 = $request->finishing_supplier_17;
+        
 
         $cover_end_paper->finishing_input_1 = $request->finishing_input_1;
         $cover_end_paper->finishing_input_2 = $request->finishing_input_2;
         $cover_end_paper->finishing_input_3 = $request->finishing_input_3;
+      
 
         $cover_end_paper->status = 'Not-initiated';
         $cover_end_paper->save();
+
+
+        $other_cover_end_paper = new OtherCoverAndEndpaper();
+        $other_cover_end_paper->parent_id = $cover_end_paper->id;
+        $other_cover_end_paper->finishing_18 = ($request->finishing_18 != null) ? $request->finishing_18 : null;
+        $other_cover_end_paper->finishing_19 = ($request->finishing_19 != null) ? $request->finishing_19 : null;
+        $other_cover_end_paper->finishing_20 = ($request->finishing_20 != null) ? $request->finishing_20 : null;
+        $other_cover_end_paper->finishing_21 = ($request->finishing_21 != null) ? $request->finishing_21 : null;
+        $other_cover_end_paper->finishing_22 = ($request->finishing_22 != null) ? $request->finishing_22 : null;
+
+        $other_cover_end_paper->finishing_supplier_18 = $request->finishing_supplier_18;
+        $other_cover_end_paper->finishing_supplier_19 = $request->finishing_supplier_19;
+        $other_cover_end_paper->finishing_supplier_20 = $request->finishing_supplier_20;
+        $other_cover_end_paper->finishing_supplier_21 = $request->finishing_supplier_21;
+        $other_cover_end_paper->finishing_supplier_22 = $request->finishing_supplier_22;
+
+        $other_cover_end_paper->finishing_input_4 = $request->finishing_input_4;
+        $other_cover_end_paper->finishing_input_5 = $request->finishing_input_5;
+        $other_cover_end_paper->finishing_input_6 = $request->finishing_input_6;
+        $other_cover_end_paper->finishing_input_7 = $request->finishing_input_7;
+        $other_cover_end_paper->finishing_input_8 = $request->finishing_input_8;
+
+        $other_cover_end_paper->save();
 
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Store');
         return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Created Successfully !');
@@ -440,9 +467,10 @@ class Cover_endPaperController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $cover_end_paper = CoverAndEndpaper::find($id);
+        $other_cover_end_paper = OtherCoverAndEndpaper::where('parent_id',$cover_end_paper->id)->first();
         $suppliers = Supplier::select('id', 'name')->get();
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
-        return view('Production.Cover_endPaper.edit', compact('cover_end_paper', 'suppliers'));
+        return view('Production.Cover_endPaper.edit', compact('cover_end_paper', 'suppliers','other_cover_end_paper'));
     }
 
     public function view($id){
@@ -576,6 +604,30 @@ class Cover_endPaperController extends Controller
             $cover_end_paper->status = 'Not-initiated';
         }
         $cover_end_paper->save();
+
+        $other_cover_end_paper =  OtherCoverAndEndpaper::where('parent_id','=',$id)->first();
+        $other_cover_end_paper->parent_id = $cover_end_paper->id;
+        $other_cover_end_paper->finishing_18 = ($request->finishing_18 != null) ? $request->finishing_18 : null;
+        $other_cover_end_paper->finishing_19 = ($request->finishing_19 != null) ? $request->finishing_19 : null;
+        $other_cover_end_paper->finishing_20 = ($request->finishing_20 != null) ? $request->finishing_20 : null;
+        $other_cover_end_paper->finishing_21 = ($request->finishing_21 != null) ? $request->finishing_21 : null;
+        $other_cover_end_paper->finishing_22 = ($request->finishing_22 != null) ? $request->finishing_22 : null;
+
+        $other_cover_end_paper->finishing_supplier_18 = $request->finishing_supplier_18;
+        $other_cover_end_paper->finishing_supplier_19 = $request->finishing_supplier_19;
+        $other_cover_end_paper->finishing_supplier_20 = $request->finishing_supplier_20;
+        $other_cover_end_paper->finishing_supplier_21 = $request->finishing_supplier_21;
+        $other_cover_end_paper->finishing_supplier_22 = $request->finishing_supplier_22;
+
+        $other_cover_end_paper->finishing_input_4 = $request->finishing_input_4;
+        $other_cover_end_paper->finishing_input_5 = $request->finishing_input_5;
+        $other_cover_end_paper->finishing_input_6 = $request->finishing_input_6;
+        $other_cover_end_paper->finishing_input_7 = $request->finishing_input_7;
+        $other_cover_end_paper->finishing_input_8 = $request->finishing_input_8;
+
+        $other_cover_end_paper->save();
+
+
 
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
         return redirect()->route('cover_end_paper')->with('custom_success', 'COVER & ENDPAPER has been Updated Successfully !');

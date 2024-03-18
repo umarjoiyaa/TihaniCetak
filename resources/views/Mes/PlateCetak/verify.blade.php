@@ -30,7 +30,7 @@
                     <div class="col-md-4 mt-3">
                         <div class="form-group">
                             <div class="form-label">Diperiksa oleh</div>
-                            <input readonly type="text" value="{{ Auth::user()->user_name }}" readonly
+                            <input readonly type="text" value="{{ $plate_cetak->user->full_name }}" readonly
                                         class="form-control" name="" id="">
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                         </div>
                    </div>
                 </div>
-                    
+
 
                     <div class="col-md-12 mt-3">
                         <table class="table table-bordered table-warna" border="1">

@@ -357,7 +357,7 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'mesin' => 'required',
+
         ]);
 
         // If validations fail
@@ -424,7 +424,7 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            'mesin' => 'required',
+            
         ]);
 
         // If validations fail
