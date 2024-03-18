@@ -979,7 +979,7 @@
                             <tr class="cover">
                                 <td>Cover</td>
                                 <td><input type="checkbox" class="Cover16"
-                                        onchange="handleCheckboxChange('Cover16',this)" name="bahagianC[{{ $key }}][1]" @checked(old('bahagianC.{{ $key }}.1') == 'ok') id=""
+                                        onchange="handleCheckboxChange('Cover16',this)" name="bahagianC[{{ $key }}][1]" @checked(old('bahagianC.' . $key . '.1') == 'ok') id=""
                                         value="ok"></td>
                                 <td><input type="checkbox" class="Cover16"
                                         onchange="handleCheckboxChange('Cover16',this)" @checked(old('bahagianC.' . $key . '.1') != 'ok' && old('bahagianC.' . $key . '.1') != 'na') name="bahagianC[{{ $key }}][1]"
@@ -989,7 +989,7 @@
                                         value="na"></td>
                                 <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" @checked(old('bahagianC.' . $key . '.2') == 'ok')
                                         name="bahagianC[{{ $key }}][2]" id="" value="ok"></td>
-                                <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" @checked(old('bahagianC.' . $key . '.2') != 'ok' && old('bahagianC.{{ $key }}.2') != 'na')
+                                <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" @checked(old('bahagianC.' . $key . '.2') != 'ok' && old('bahagianC.' . $key . '.2') != 'na')
                                          name="bahagianC[{{ $key }}][2]" id="" value="ng"></td>
                                 <td><input type="checkbox" class="Text20" onchange="handleCheckboxChange('Text20',this)" @checked(old('bahagianC.' . $key . '.2') == 'na')
                                         name="bahagianC[{{ $key }}][2]" id="" value="na"></td>
@@ -1031,7 +1031,7 @@
                                         onchange="handleCheckboxChange('Endpaper13',this)" name="bahagianC[{{ $key }}][1]" id="" @checked(old('bahagianC.' . $key . '.1') == 'ok')
                                         value="ok"></td>
                                 <td><input type="checkbox" class="Endpaper13"
-                                        onchange="handleCheckboxChange('Endpaper13',this)" @checked(old('bahagianC.{{ $key }}.1') != 'ok' && old('bahagianC.' . $key . '.1') != 'na')
+                                        onchange="handleCheckboxChange('Endpaper13',this)" @checked(old('bahagianC.' . $key . '.1') != 'ok' && old('bahagianC.' . $key . '.1') != 'na')
                                         name="bahagianC[{{ $key }}][1]" id="" value="ng"></td>
                                 <td><input type="checkbox" class="Endpaper13"
                                         onchange="handleCheckboxChange('Endpaper13',this)" name="bahagianC[{{ $key }}][1]" id=""  @checked(old('bahagianC.' . $key . '1') == 'na')
