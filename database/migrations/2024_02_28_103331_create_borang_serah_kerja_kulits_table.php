@@ -49,6 +49,21 @@ return new class extends Migration
             $table->string('jenis_21')->nullable();
             $table->string('jenis_22')->nullable();
             $table->string('jenis_input_22')->nullable();
+            $table->string('jenis_23')->nullable();
+            $table->string('jenis_input_23')->nullable();
+            $table->string('jenis_24')->nullable();
+            $table->string('jenis_input_24')->nullable();
+            $table->string('jenis_25')->nullable();
+            $table->string('jenis_input_25')->nullable();
+            $table->string('jenis_26')->nullable();
+            $table->string('jenis_input_26')->nullable();
+            $table->string('jenis_27')->nullable();
+            $table->string('jenis_input_27')->nullable();
+
+
+
+
+
 
             $table->string('siap_1')->nullable();
             $table->string('date_line')->nullable();

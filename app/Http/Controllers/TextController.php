@@ -297,15 +297,7 @@ class TextController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kertas' => 'required',
-            'saiz_potong' => 'required',
-            'plate' => 'required',
-            'print' => 'required',
-            'waste_paper' => 'required',
-            'last_print' => 'required',
-            'seksyen_no' => 'required',
+
         ]);
 
         // If validations fail
@@ -339,7 +331,16 @@ class TextController extends Controller
         $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
         $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
         $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
-
+        $text->binding_11 = ($request->binding_11 != null) ? $request->binding_11_val : null;
+        $text->binding_12 = ($request->binding_11 != null) ? $request->binding_12_val : null;
+        $text->binding_13 = ($request->binding_13 != null) ? $request->binding_13_val : null;
+        $text->binding_14 = ($request->binding_13 != null) ? $request->binding_14_val : null;
+        $text->binding_15 = ($request->binding_15 != null) ? $request->binding_15_val : null;
+        $text->binding_16 = ($request->binding_15 != null) ? $request->binding_16_val : null;
+        $text->binding_17 = ($request->binding_17 != null) ? $request->binding_17_val : null;
+        $text->binding_18 = ($request->binding_17 != null) ? $request->binding_18_val : null;
+        $text->binding_19 = ($request->binding_19 != null) ? $request->binding_19_val : null;
+        $text->binding_20 = ($request->binding_20 != null) ? $request->binding_20_val : null;
         $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;
         $text->save();
@@ -362,7 +363,7 @@ class TextController extends Controller
                 }
             }
         }else{
-            if(is_array($request->section)){
+            if(is_array($request->section) && !isset($request->section)){
                 foreach($request->section as $key => $value){
                     $detail = new TextDetail();
                     $detail->text_id = $text->id;
@@ -442,15 +443,7 @@ class TextController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'kertas' => 'required',
-            'saiz_potong' => 'required',
-            'plate' => 'required',
-            'print' => 'required',
-            'waste_paper' => 'required',
-            'last_print' => 'required',
-            'seksyen_no' => 'required',
+
         ]);
 
         // If validations fail
@@ -484,6 +477,17 @@ class TextController extends Controller
         $text->binding_8 = ($request->binding_8 != null) ? $request->binding_8_val : null;
         $text->binding_9 = ($request->binding_9 != null) ? $request->binding_9_val : null;
         $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
+        $text->binding_10 = ($request->binding_9 != null) ? $request->binding_10_val : null;
+        $text->binding_11 = ($request->binding_11 != null) ? $request->binding_11_val : null;
+        $text->binding_12 = ($request->binding_11 != null) ? $request->binding_12_val : null;
+        $text->binding_13 = ($request->binding_13 != null) ? $request->binding_13_val : null;
+        $text->binding_14 = ($request->binding_13 != null) ? $request->binding_14_val : null;
+        $text->binding_15 = ($request->binding_15 != null) ? $request->binding_15_val : null;
+        $text->binding_16 = ($request->binding_15 != null) ? $request->binding_16_val : null;
+        $text->binding_17 = ($request->binding_17 != null) ? $request->binding_17_val : null;
+        $text->binding_18 = ($request->binding_17 != null) ? $request->binding_18_val : null;
+        $text->binding_19 = ($request->binding_19 != null) ? $request->binding_19_val : null;
+        $text->binding_20 = ($request->binding_20 != null) ? $request->binding_20_val : null;
 
         $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;
@@ -509,7 +513,7 @@ class TextController extends Controller
                 }
             }
         }else{
-            if(is_array($request->section)){
+            if(is_array($request->section) && !isset($request->section)){
                 foreach($request->section as $key => $value){
                     $detail = new TextDetail();
                     $detail->text_id = $text->id;

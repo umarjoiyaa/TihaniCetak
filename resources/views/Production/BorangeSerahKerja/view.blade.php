@@ -1,568 +1,438 @@
 @extends('layouts.app')
 
 @section('content')
-<form action="" method="post">
+
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-12">
-                            <h5 class="float-left"><b>PRODUCTION JOBSHEET LIST- DIGITAL PRINTING</b></h5>
-                            <p class="float-right">TCBS-B66 (Rev.1)</p>
+                            <h5 class="float-left"><b>BORANG SERAH KERJA (KULIT BUKU / COVER)</b></h5>
+                            <p class="float-right">TCBS-B33 (Rev. 1)</p>
                         </div>
                     </div>
 
-                    <!-- <div class="row">
-                            <div class="col-md-12">
-                                <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
-                                    <div class="row">
-                                        <div class="col-md-2"></div>
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h5 style="font-size:35px;">AMARAN : <br>
-                                                <span style="color:black;">
-                                                    TIADA SAMPLE JANGAN CETAK <br>
-                                                    FIRST PIECE JANGAN LUPA
-                                                </span>
-                                            </h5>
-                                        </div>
 
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-1"></div>
+                    <div class="card" style="background:#f4f4ff;">
+                        <div class="card-body">
+                            <div class="row mt-2">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="">Tarikh</label>
+                                        <input type="text" name="date"
+                                        value="{{ $borange_serah_kerja->date }}" class="form-control"
+                                        id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                     </div>
-
-
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="">Po No</label>
+                                    <input type="text"  name="po_no" value="{{ $borange_serah_kerja->po_no }}" id="" class="form-control">
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div for="" class="form-label">Disediakan Oleh</div>
+                                        <input type="text" readonly value="{{ $borange_serah_kerja->user->full_name }}" class="form-control">
+                                    </div>
                                 </div>
                             </div>
+                            <div class="row mt-2">
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="" class="form-label"> Sales Order No </label>
+                                        <input type="text" value="{{ $borange_serah_kerja->sale_order->order_no }}" class="form-control">
+                               
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Tajuk</label>
+                                        <input type="text" readonly name="" value="{{ $borange_serah_kerja->sale_order->description }}" id="tajuk"
+                                                class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="" class="form-label">Nama Subkontraktor</label>
+                                        <input type="text" readonly name="" value="{{ $borange_serah_kerja->supplier->name }}" id="tajuk"
+                                                class="form-control">
+                                        
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Kuantiti </div>
+                                        <input type="text"  name="qty" value="{{ $borange_serah_kerja->qty }}"
+                                        class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <div class="label">Saiz Kertas</div>
+                                        <input type="text"  name="size" value="{{ $borange_serah_kerja->size }}"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
+                    </div>
 
-                        <div class="card" style="background:#f4f4ff;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <h5><b>Production Button</b></h5>
-                                    </div>
-                                    <div class="col-md-4 ">
-                                        <button class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-play" style="font-size:20px;"></i>Start</button>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <button class="btn  w-100" style="border:1px solid black;"><i
-                                                class="la la-pause" style="font-size:20px;"></i>Start</button>
-                                    </div>
-                                    <div class="col-md-4  ">
-                                        <div class="box">
-                                            <button class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                    class="la la-stop-circle" style="font-size:20px;"></i>Start</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
 
                     <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
                             <div class="row">
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="">Date</label>
-                                        <input type="date" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <label for="">By</label>
-                                    <input type="text" value="Admin" readonly name="" id="" class="form-control">
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Sales Order No.</label>
-                                        <select name="" id="" readonly class="form-control">
-                                            <option value="">select sales Order no</option>
-                                            <option value="" selected>SO-001496</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Tajuk</label>
-                                        <input type="text" value="IQRO GENIUS - RUMI (NEW COVER)" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Kod Buku</label>
-                                        <input type="text" readonly value="CP-2940" class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Pelanggan</label>
-                                        <input type="text" value="EDUKID DISTRIBUTORS SDN BHD" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Saiz Produk </label>
-                                        <input type="text" value="15cm X 21cm" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Kuantiti SO</label>
-                                        <input type="text" value="5000" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Jumlah mukasurat</label>
-                                        <input type="text" value="196pp" readonly name="" id="" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Kuantiti Waste</label>
-                                        <input type="text" placeholder="interger input" value="200" readonly name=""
-                                            id="" class="form-control">
-                                    </div>
-                                </div>
-
-                                <!-- <div class="col-md-4">
-                                        <div class="form-group">
-                                            <div for="" class="form-label">Remark</div>
-                                            <input type="text" placeholder="User Input" readonly name="" id=""
-                                                class="form-control">
-                                        </div>
-                                    </div> -->
-                            </div>
-
-                            <div class="row mt-5">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Mesin</label>
-                                        <select name="" id="" readonly class="form-control">
-                                            <option value="" selected>REVORIA SC170 FUJIFIILM</option>
-                                            <option value="">Others</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div for="" class="form-label">Kategori job</div>
-                                        <select name="" id="" readonly placeholder="Pilih Kategori Job"
-                                            class="form-control">
-                                            <option value="">MOCK UP</option>
-                                            <option value="" selected>PENEGELUAREN</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="">Jenis produk</label>
-                                        <select name="" id="" readonly placeholder="Pilih Jenis produk"
-                                            class="form-control">
-                                            <option value="" selected>BUKU</option>
-                                            <option value="">FLYERS</option>
-                                            <option value="">POSTER</option>
-                                            <option value="">BUSINESS CARD</option>
-                                            <option value="">KAD KAHWIN</option>
-                                            <option value="">STICKERS</option>
-                                            <option value="">OTHERS</option>
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div for="" class="form-label">Kertas: teks</div>
-                                        <input type="text" value="Simily 70gsm" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div for="" class="form-label">Kertas: Cover</div>
-                                        <input type="text" value="1/s artcard 260gsm" readonly name="" id=""
-                                            class="form-control">
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row mt-3">
                                 <div class="col-md-12">
-                                    <h5><b>Cover</b></h5>
+                                    <h5><b>Jenis Finishing</b></h5>
                                 </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" checked name="" id=""></div>
-                                            <div class="col-md-2">Front</div>
-                                            <div class="col-md-1"><input type="checkbox" checked name="" id=""></div>
-                                            <div class="col-md-2">back</div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_1"   @checked($borange_serah_kerja->jenis_1 == "on") id="jenis_1"></div>
+                                        <div class="col-md-4">
+                                            <h5>UV+Texture Emboss</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text"  @disabled($borange_serah_kerja->jenis_1 != "on") value="{{ $borange_serah_kerja->jenis_input_1  }}"  name="jenis_input_1" id="jenis_input_1"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_2"  @checked($borange_serah_kerja->jenis_2 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Matt Lamination</h5>
                                         </div>
 
                                     </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Print</label>
-                                    <select name="" id="" readonly placeholder="Pilih print" class="form-control">
-                                        <option value="">1C</option>
-                                        <option value="" selected>4C</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Jumlah Up</label>
-                                    <input type="text" value="4" readonly name="" id="" class="form-control">
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="">Print Cut</label>
-                                    <select name="" id="" readonly placeholder="pilih Print Cut" class="form-control">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="">4</option>
-                                        <option value="">6</option>
-                                        <option value="">8</option>
-                                        <option value="">10</option>
-                                        <option value="">12</option>
-                                        <option value="">14</option>
-                                        <option value="" selected>16</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row mt-3">
-                                <div class="col-md-12">
-                                    <h5><b>Cover</b></h5>
-                                </div>
-                                <div class="col-md-4 mt-3">
-                                    <div class="form-group">
-                                        <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" checked name="" id=""></div>
-                                            <div class="col-md-2">Front</div>
-                                            <div class="col-md-1"><input type="checkbox" checked name="" id=""></div>
-                                            <div class="col-md-2">back</div>
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_3"  @checked($borange_serah_kerja->jenis_3 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Spot Miraval</h5>
+
                                         </div>
 
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_4"  @checked($borange_serah_kerja->jenis_4 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Emboss</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_5"  @checked($borange_serah_kerja->jenis_5 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>UV Vanish</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_6"  @checked($borange_serah_kerja->jenis_6 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Creasing Line</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_7"  @checked($borange_serah_kerja->jenis_7 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Perforation</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_8" @checked($borange_serah_kerja->jenis_8 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Punch Hole</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_9"  @checked($borange_serah_kerja->jenis_9 == "on") id="jenis_9"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_9 != "on") value="{{ $borange_serah_kerja->jenis_input_9  }}" name="jenis_input_9" id="jenis_input_9"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_24" @checked($borange_serah_kerja->jenis_24 == 'on') id="jenis_24"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_24 != 'on') value="{{ $borange_serah_kerja->jenis_input_24 }}" name="jenis_input_24" id="jenis_input_24"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_26" @checked($borange_serah_kerja->jenis_26 == 'on') id="jenis_26"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_26 != 'on') value="{{ $borange_serah_kerja->jenis_input_26 }}" name="jenis_input_26" id="jenis_input_26"
+                                                class="form-control"></div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_10"  @checked($borange_serah_kerja->jenis_10 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Gloss Lamination</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_11" @checked($borange_serah_kerja->jenis_11 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Spot UV</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_12" @checked($borange_serah_kerja->jenis_12 == "on") id="jenis_12"></div>
+                                        <div class="col-md-4">
+                                            <h5>Hot Stamping</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_12 != "on") value="{{ $borange_serah_kerja->jenis_input_12  }}"  name="jenis_input_12"  id="jenis_input_12"
+                                                class="form-control"></div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_13" @checked($borange_serah_kerja->jenis_13 == "on")  id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Deboss</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_14" @checked($borange_serah_kerja->jenis_14 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Spot Corse UV</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_15" @checked($borange_serah_kerja->jenis_15 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Die Cut</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_16" @checked($borange_serah_kerja->jenis_16 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Numbering</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_17" @checked($borange_serah_kerja->jenis_17 == "on") id=""></div>
+                                        <div class="col-md-4">
+                                            <h5>Round Corner</h5>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_23" @checked($borange_serah_kerja->jenis_23 == 'on') id="jenis_23"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_23 != 'on') value="{{ $borange_serah_kerja->jenis_input_23 }}" name="jenis_input_23" id="jenis_input_23"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_25" @checked($borange_serah_kerja->jenis_25 == 'on') id="jenis_25"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_25 != 'on') value="{{ $borange_serah_kerja->jenis_input_25 }}" name="jenis_input_25" id="jenis_input_25"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_27" @checked($borange_serah_kerja->jenis_27 == 'on') id="jenis_27"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled($borange_serah_kerja->jenis_27 != 'on') value="{{ $borange_serah_kerja->jenis_input_27 }}" name="jenis_input_27" id="jenis_input_27"
+                                                class="form-control"></div>
+                                    </div>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f4f4ff;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_18" @checked($borange_serah_kerja->jenis_18 == "on") id="jenis_18"><span
+                                                class="ml-3">Emboss</span></div>
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_19" @checked($borange_serah_kerja->jenis_19 == "on") id="jenis_19"><span
+                                                class="ml-3">Deboss</span></div>
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_20" @checked($borange_serah_kerja->jenis_20 == "on") id="jenis_20"><span
+                                                class="ml-3">Hotstamping</span></div>
+                                        <div class="col-md-2"><input type="checkbox" name="jenis_21" @checked($borange_serah_kerja->jenis_21 == "on") id="jenis_21"><span
+                                                class="ml-3">Spot Uv</span></div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-4">
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <div class="col-md-2"><input type="checkbox" @checked($borange_serah_kerja->jenis_22 == "on") name="jenis_22" id="jenis_22"><span
+                                                class="ml-2">Lain-lain</span></div>
+                                        <div class="col-md-3" style="margin-left:-100px;"><input disabled type="text" @disabled($borange_serah_kerja->jenis_22 != "on") value="{{ $borange_serah_kerja->jenis_input_22  }}" name="jenis_input_22" id="jenis_input_22"
+                                                class="form-control"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card" style="background:#f4f4ff;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label for="">Siap Finishing hantar ke </label>
+                                    <input type="text" class="form-control" value="{{ $borange_serah_kerja->siap_1 }}"  name="siap_1" id="siap_1">
                                 </div>
                                 <div class="col-md-4">
-                                    <label for="">Print</label>
-                                    <select name="" id="" readonly placeholder="Pilih print" class="form-control">
-                                        <option value="">1C</option>
-                                        <option value="" selected>4C</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4">
-                                    <label for="">Print Cut</label>
-                                    <select name="" id="" readonly placeholder="pilih Print Cut" class="form-control">
-                                        <option value="">1</option>
-                                        <option value="">2</option>
-                                        <option value="">3</option>
-                                        <option value="" selected>4</option>
-                                        <option value="">6</option>
-                                        <option value="">8</option>
-                                        <option value="">10</option>
-                                        <option value="">12</option>
-                                        <option value="">14</option>
-                                        <option value="">16</option>
-                                    </select>
+                                    <label for="">Dateline:</label>
+                                    <input type="text" class="form-control datepicker" value="{{ $borange_serah_kerja->date_line }}" name="date_line" id="date_line">
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5><b>Finishing</b></h5>
-                                </div>
-                                <div class="col-md-12">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Finishing</th>
-                                                <th>Partner</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Gloss
-                                                    Lamination</td>
-                                                <td>
-                                                    <input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Matt
-                                                    Lamination</td>
-                                                <td><input type="text" value="Partner A" name="" id=""
-                                                        class="form-control"></td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">SPOT UV</td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hot Stamping
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Emboss</td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Diecut</td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Round corner
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Round back
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Square Back
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
-                                                    <input type="text" placeholder="User Input" name="" id=""
-                                                        class="form-control w-75 float-right">
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5><b>Binding</b></h5>
-                                </div>
-                                <div class="col-md-12">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Binding</th>
-                                                <th>Partner</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-
-
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Perfect Bind
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Staple Bind
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Wire 0</td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Hard Cover
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Creasing Line
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Cut to Size
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5">Folding
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><input type="checkbox" name="" id="" class=" mr-5"> Others:
-                                                    <input type="text" placeholder="User Input" name="" id=""
-                                                        class="form-control w-75 float-right">
-                                                </td>
-                                                <td><input type="text" value="" name="" id="" class="form-control">
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h4>Jobsheet Details</h4>
-                                </div>
-                                <div class="col-md-12">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Action</th>
-                                                <th>Start datetime</th>
-                                                <th>End datetime</th>
-                                                <th>Total Time(min)</th>
-                                                <th>Machine</th>
-                                                <th>Operator</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><button class="btn btn-primary">+</button></td>
-                                                <td>Start_time</td>
-                                                <td>Pause_time</td>
-                                                <td>auto_calculate</td>
-                                                <td>machine_no</td>
-                                                <td>operator_</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="card" style="background:#f4f4ff; border-radius:5px;">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5><b>Production Machine Detail</b></h5>
-                                </div>
-                                <div class="col-md-12">
-                                    <table class="table table-bordered">
-                                        <thead>
-                                            <tr>
-                                                <th>Process</th>
-                                                <th>Machine</th>
-                                                <th>Start datetime</th>
-                                                <th>End datetime</th>
-                                                <th>Total time</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>production_status</td>
-                                                <td>Machine_no</td>
-                                                <td>datetime_start</td>
-                                                <td>datetime_end</td>
-                                                <td>end_datetime - start_datetime</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- <div class="row">
                             <div class="col-md-12">
-                                <div class="text-center" style="font-size:80px; color:red; dispaly:inline-block;">
+                                <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
                                     <div class="row">
-                                        <div class="col-md-2"></div>
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <h5 style="font-size:35px;">AMARAN : <br>
-                                                <span style="color:black;">
-                                                    TIADA SAMPLE JANGAN CETAK <br>
-                                                    FIRST PIECE JANGAN LUPA
+
+                                        <div class="col-md-12">
+                                            <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
+                                                <span style="color:black; font-size:14px;">
+                                                    <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA
+                                                        OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
                                                 </span>
                                             </h5>
                                         </div>
-
-                                        <div class="col-md-1">
-                                            <i class="fe fe-alert-triangle"></i>
-                                        </div>
-                                        <div class="col-md-1"></div>
                                     </div>
 
 
                                 </div>
                             </div>
                         </div> -->
-
-                    <div class="row mt-2">
-                        <div class="col-md-12">
-                            <button class="btn btn-primary float-right">Save</button>
-                        </div>
-                    </div>
 
                 </div>
 
 
             </div>
-            <a href="{{route('digitalPrinting.index')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
+            <a href="{{route('borange_serah_kerja')}}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
     </div>
 
 
-</form>
 @endsection
+
+@push('custom-scripts')
+<script>
+    $(document).ready(function(){
+        $('input,select').attr('disabled','disabled');
+
+        $('#sale_order').trigger('change');
+
+        $('#sale_order').select2({
+                ajax: {
+                    url: '{{ route('sale_order.get') }}',
+                    dataType: 'json',
+                    delay: 1000,
+                    data: function(params) {
+                        return {
+                            q: params.term,
+                            page: params.page || 1,
+                        };
+                    },
+                    processResults: function(data, params) {
+                        params.page = params.page || 1;
+
+                        return {
+                            results: data.results,
+                            pagination: {
+                                more: data.pagination.more
+                            }
+                        };
+                    },
+                    cache: true
+                },
+                containerCssClass: 'form-control',
+                templateResult: function(data) {
+                    if (data.loading) {
+                        return "Loading...";
+                    }
+                    if ($('#sale_order').data('id') == data.id) {
+                        return $('<option value=' + data.id + ' selected>' + data.order_no +
+                            '</option>');
+                    } else {
+                        return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                    }
+                },
+                templateSelection: function(data) {
+                    return data.text || null;
+                }
+            });
+        });
+
+
+            $('#sale_order').on('change', function() {
+                const id = $(this).val();
+                $.ajax({
+                    type: 'GET',
+                    url: '{{ route('sale_order_penjilidan.detail.get') }}',
+                    data: {
+                        "id": id
+                    },
+                    success: function(data) {
+                        $('#tajuk').val(data.sale_order.description);
+                        $('#customer').val(data.sale_order.customer);
+                        $('#size').val(data.sale_order.size);
+                        $('#sale_order_qty').val(data.sale_order.sale_order_qty);
+                    }
+                });
+            });
+
+
+
+
+</script>
+@endpush

@@ -296,7 +296,7 @@
                             <div class="card-body">
                                 <h5><b>Finishing</b></h5>
                                 <div class="row">
-                                    <div class="col-md-7">
+                                    <div class="col-md-6">
                                         <table class="table table-bordered">
                                             <thead>
                                                 <tr>
@@ -613,6 +613,7 @@
                                             </tbody>
                                         </table>
                                     </div>
+                                    
                                 </div>
                             </div>
                         </div>

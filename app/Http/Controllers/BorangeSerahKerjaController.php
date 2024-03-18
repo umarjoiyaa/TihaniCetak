@@ -332,8 +332,8 @@ class BorangeSerahKerjaController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'nama' => 'required',
-            'date_line' => 'required',
+
+
 
         ]);
 
@@ -381,6 +381,17 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
         $borange_serah_kerja->jenis_22 = ($request->jenis_22 != null) ? $request->jenis_22 : null;
         $borange_serah_kerja->jenis_input_22 = $request->jenis_input_22;
+        $borange_serah_kerja->jenis_23 = ($request->jenis_23 != null) ? $request->jenis_23 : null;
+        $borange_serah_kerja->jenis_input_23 = $request->jenis_input_23;
+        $borange_serah_kerja->jenis_24 = ($request->jenis_24 != null) ? $request->jenis_24 : null;
+        $borange_serah_kerja->jenis_input_24 = $request->jenis_input_24;
+        $borange_serah_kerja->jenis_25 = ($request->jenis_25 != null) ? $request->jenis_25 : null;
+        $borange_serah_kerja->jenis_input_25 = $request->jenis_input_25;
+        $borange_serah_kerja->jenis_26 = ($request->jenis_26 != null) ? $request->jenis_26 : null;
+        $borange_serah_kerja->jenis_input_26 = $request->jenis_input_26;
+        $borange_serah_kerja->jenis_27 = ($request->jenis_27 != null) ? $request->jenis_27 : null;
+        $borange_serah_kerja->jenis_input_27 = $request->jenis_input_27;
+
         $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
@@ -409,8 +420,7 @@ class BorangeSerahKerjaController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'nama' => 'required',
-            'date_line' => 'required',
+
 
         ]);
 
@@ -459,6 +469,16 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
         $borange_serah_kerja->jenis_22 = ($request->jenis_22 != null) ? $request->jenis_22 : null;
         $borange_serah_kerja->jenis_input_22 = $request->jenis_input_22;
+        $borange_serah_kerja->jenis_23 = ($request->jenis_23 != null) ? $request->jenis_23 : null;
+        $borange_serah_kerja->jenis_input_23 = $request->jenis_input_23;
+        $borange_serah_kerja->jenis_24 = ($request->jenis_24 != null) ? $request->jenis_24 : null;
+        $borange_serah_kerja->jenis_input_24 = $request->jenis_input_24;
+        $borange_serah_kerja->jenis_25 = ($request->jenis_25 != null) ? $request->jenis_25 : null;
+        $borange_serah_kerja->jenis_input_25 = $request->jenis_input_25;
+        $borange_serah_kerja->jenis_26 = ($request->jenis_26 != null) ? $request->jenis_26 : null;
+        $borange_serah_kerja->jenis_input_26 = $request->jenis_input_26;
+        $borange_serah_kerja->jenis_27 = ($request->jenis_27 != null) ? $request->jenis_27 : null;
+        $borange_serah_kerja->jenis_input_27 = $request->jenis_input_27;
         $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
@@ -607,8 +627,15 @@ class BorangeSerahKerjaController extends Controller
 
 
 
-    public function view(){
-        return view('Production.BorangeSerahKerja.view');
+    public function view($id){
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (KULIT BUKU/COVER) View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) View');
+        return view('Production.BorangeSerahKerja.view', compact('borange_serah_kerja', 'suppliers'));
+
     }
 
 }
