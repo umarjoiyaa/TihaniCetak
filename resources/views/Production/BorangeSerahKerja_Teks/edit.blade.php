@@ -195,8 +195,32 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                         </div>
+                                        <div class="row mt-2">
+                                            <div class="col-md-1"><input type="checkbox" name="jenis_17"
+                                                    @checked($borange_serah_kerja_teks->jenis_17 == 'on') id="Other17"></div>
+                                            <div class="col-md-6">
+
+                                                <div class="row">
+                                                    <div class="col-md2">
+                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div id="input" style="width:150px;">
+                                                            @if ($borange_serah_kerja_teks->jenis_17 == 'on')
+                                                                <input type="text" name="jenis_input_17"
+                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_17 }}"
+                                                                    class="form-control Others">
+                                                            @else
+                                                            <input type="text" name="jenis_input_17"
+                                                            class="form-control Others17" style="display:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="col-md-4 ">
 
@@ -257,6 +281,57 @@
                                             </div>
 
                                         </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-1"><input type="checkbox" name="jenis_18"
+                                                    @checked($borange_serah_kerja_teks->jenis_18 == 'on') id="Other18"></div>
+                                            <div class="col-md-6">
+
+                                                <div class="row">
+                                                    <div class="col-md2">
+                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div id="input" style="width:150px;">
+                                                            @if ($borange_serah_kerja_teks->jenis_18 == 'on')
+                                                                <input type="text" name="jenis_input_18"
+                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_18 }}"
+                                                                    class="form-control Others">
+                                                            @else
+                                                            <input type="text" name="jenis_input_18"
+                                                            class="form-control Others18" style="display:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-1"><input type="checkbox" name="jenis_20"
+                                                    @checked($borange_serah_kerja_teks->jenis_20 == 'on') id="Other20"></div>
+                                            <div class="col-md-6">
+
+                                                <div class="row">
+                                                    <div class="col-md2">
+                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div id="input" style="width:150px;">
+                                                            @if ($borange_serah_kerja_teks->jenis_20 == 'on')
+                                                                <input type="text" name="jenis_input_20"
+                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_20 }}"
+                                                                    class="form-control Others">
+                                                            @else
+                                                            <input type="text" name="jenis_input_20"
+                                                            class="form-control Others20" style="display:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
                                     </div>
                                     <div class="col-md-5 ">
                                         <div class="row">
@@ -311,6 +386,59 @@
                                                 </div>
                                             </div>
                                         </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-1"><input type="checkbox" name="jenis_19"
+                                                    @checked($borange_serah_kerja_teks->jenis_19 == 'on') id="Other19"></div>
+                                            <div class="col-md-6">
+
+                                                <div class="row">
+                                                    <div class="col-md2">
+                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div id="input" style="width:150px;">
+                                                            @if ($borange_serah_kerja_teks->jenis_19 == 'on')
+                                                                <input type="text" name="jenis_input_19"
+                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_19 }}"
+                                                                    class="form-control Others">
+                                                            @else
+                                                            <input type="text" name="jenis_input_19"
+                                                            class="form-control Others19" style="display:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-2">
+                                            <div class="col-md-1"><input type="checkbox" name="jenis_21"
+                                                    @checked($borange_serah_kerja_teks->jenis_21 == 'on') id="Other21"></div>
+                                            <div class="col-md-6">
+
+                                                <div class="row">
+                                                    <div class="col-md2">
+                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        <div id="input" style="width:150px;">
+                                                            @if ($borange_serah_kerja_teks->jenis_21 == 'on')
+                                                                <input type="text" name="jenis_input_21"
+                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_21 }}"
+                                                                    class="form-control Others">
+                                                            @else
+                                                            <input type="text" name="jenis_input_21"
+                                                            class="form-control Others21" style="display:none;">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
                                     </div>
                                 </div>
                                 <div class="row mt-3">
@@ -458,6 +586,48 @@
                     $('.Chipboard').css('display','none')
                 }
             })
+
+
+            $("#Other17").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others17').css('display','')
+                }else{
+                    $('.Others17').css('display','none')
+                }
+            })
+
+            $("#Other18").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others18').css('display','')
+                }else{
+                    $('.Others18').css('display','none')
+                }
+            })
+
+            $("#Other19").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others19').css('display','')
+                }else{
+                    $('.Others19').css('display','none')
+                }
+            })
+
+            $("#Other20").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others20').css('display','')
+                }else{
+                    $('.Others20').css('display','none')
+                }
+            })
+
+            $("#Other21").on('change',function(){
+                if($(this).prop('checked')){
+                    $('.Others21').css('display','')
+                }else{
+                    $('.Others21').css('display','none')
+                }
+            })
+
 
 
 

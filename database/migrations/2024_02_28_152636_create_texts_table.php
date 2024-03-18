@@ -39,6 +39,16 @@ return new class extends Migration
             $table->string('binding_8')->nullable();
             $table->string('binding_9')->nullable();
             $table->string('binding_10')->nullable();
+            $table->string('binding_11')->nullable();
+            $table->string('binding_12')->nullable();
+            $table->string('binding_13')->nullable();
+            $table->string('binding_14')->nullable();
+            $table->string('binding_15')->nullable();
+            $table->string('binding_16')->nullable();
+            $table->string('binding_17')->nullable();
+            $table->string('binding_18')->nullable();
+            $table->string('binding_19')->nullable();
+            $table->string('binding_20')->nullable();
 
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();

@@ -453,12 +453,13 @@ class DigitalPrintingController extends Controller
         $digital_printing = DigitalPrinting::find($id);
         $suppliers = Supplier::select('id', 'name')->get();
         $users = User::all();
+        $digital_printing_other = OtherDigitalPrinting::where('Parent_id',  '=',$digital_printing->id)->first();
         $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING View');
-        return view('Production.DigitalPrinting.view', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+        return view('Production.DigitalPrinting.view', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs','digital_printing_other'));
     }
 
     public function print($id){
@@ -594,13 +595,14 @@ class DigitalPrintingController extends Controller
         }
         $digital_printing = DigitalPrinting::find($id);
         $users = User::all();
+        $digital_printing_other = OtherDigitalPrinting::where('Parent_id',  '=',$digital_printing->id)->first();
         $suppliers = Supplier::select('id', 'name')->get();
         $check_machines = DigitalPrintingDetail::where('machine', '=', $digital_printing->mesin)->where('digital_id',  '=', $id)->orWhere('machine', '=', $digital_printing->mesin_others)->orderby('id', 'DESC')->first();
         $details = DigitalPrintingDetail::where('digital_id',  '=', $id)->orderby('id', 'ASC')->get();
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = DigitalPrintingDetailB::whereIn('digital_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('DIGITAL PRINTING', 'DIGITAL PRINTING Update');
-        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+        return view('Production.DigitalPrinting.proses', compact('digital_printing', 'suppliers', 'users', 'check_machines', 'details', 'detailbs','digital_printing_other'));
     }
 
     public function proses_update(Request $request, $id)

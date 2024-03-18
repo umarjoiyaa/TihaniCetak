@@ -14,4 +14,9 @@ class CoverAndEndpaper extends Model
     {
         return $this->belongsTo(SaleOrder::class, 'sale_order_id', 'id');
     }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }

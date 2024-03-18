@@ -318,9 +318,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'nama' => 'required',
-            'jenis' => 'required',
-            'date_line' => 'required',
+
 
         ]);
 
@@ -330,7 +328,10 @@ class BorangeSerahKerja_TeksController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $userText = implode(', ', $request->jenis);
+
+        if($request->jeni != null){
+            $userText = implode(', ', $request->jenis);
+        }
 
 
         $borange_serah_kerja = new BorangSerahKerjaTeks();
@@ -338,8 +339,13 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
         $borange_serah_kerja->po_no = $request->po_no;
+        if($request->jeni != null){
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
+        }else{
+            $borange_serah_kerja->jenis = '';
+            $borange_serah_kerja->jenis_text = '';
+        }
         $borange_serah_kerja->jumlah = $request->jumlah;
 
         $borange_serah_kerja->date_line = $request->date_line;
@@ -366,6 +372,19 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_input_14 = $request->jenis_input_14;
         $borange_serah_kerja->jenis_15 = ($request->jenis_15 != null) ? $request->jenis_15 : null;
         $borange_serah_kerja->jenis_16 = ($request->jenis_16 != null) ? $request->jenis_16 : null;
+        $borange_serah_kerja->jenis_17 = ($request->jenis_17 != null) ? $request->jenis_17 : null;
+        $borange_serah_kerja->jenis_input_17 = $request->jenis_input_17;
+        $borange_serah_kerja->jenis_18 = ($request->jenis_18 != null) ? $request->jenis_18 : null;
+        $borange_serah_kerja->jenis_input_18 = $request->jenis_input_18;
+        $borange_serah_kerja->jenis_19 = ($request->jenis_19 != null) ? $request->jenis_19 : null;
+        $borange_serah_kerja->jenis_input_19 = $request->jenis_input_19;
+        $borange_serah_kerja->jenis_20 = ($request->jenis_20 != null) ? $request->jenis_20 : null;
+        $borange_serah_kerja->jenis_input_20 = $request->jenis_input_20;
+        $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
+        $borange_serah_kerja->jenis_input_21 = $request->jenis_input_21;
+
+
+
         $borange_serah_kerja->status = 'checked';
         $borange_serah_kerja->save();
 
@@ -384,9 +403,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'nama' => 'required',
-            'jenis' => 'required',
-            'date_line' => 'required',
+
         ]);
 
         // If validations fail
@@ -394,7 +411,9 @@ class BorangeSerahKerja_TeksController extends Controller
             return redirect()->back()
                 ->withErrors($validator)->withInput();
         }
-        $userText = implode(', ', $request->jenis);
+        if($request->jeni != null){
+            $userText = implode(', ', $request->jenis);
+        }
 
         $borange_serah_kerja = BorangSerahKerjaTeks::find($id);
         $borange_serah_kerja->sale_order_id = $request->sale_order;
@@ -403,8 +422,13 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->Qty_slap_binding = $request->Qty_slap_binding;
         $borange_serah_kerja->waste_binding = $request->waste_binding;
-        $borange_serah_kerja->jenis = json_encode($request->jenis);
-        $borange_serah_kerja->jenis_text = $userText;
+        if($request->jeni != null){
+            $borange_serah_kerja->jenis = json_encode($request->jenis);
+            $borange_serah_kerja->jenis_text = $userText;
+            }else{
+                $borange_serah_kerja->jenis = '';
+                $borange_serah_kerja->jenis_text = '';
+            }
         $borange_serah_kerja->jumlah = $request->jumlah;
         $borange_serah_kerja->date_line = $request->date_line;
         $borange_serah_kerja->created_by = Auth::user()->id;
@@ -428,6 +452,17 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_input_14 = $request->jenis_input_14;
         $borange_serah_kerja->jenis_15 = ($request->jenis_15 != null) ? $request->jenis_15 : null;
         $borange_serah_kerja->jenis_16 = ($request->jenis_16 != null) ? $request->jenis_16 : null;
+        $borange_serah_kerja->jenis_input_17 = $request->jenis_input_17;
+        $borange_serah_kerja->jenis_18 = ($request->jenis_18 != null) ? $request->jenis_18 : null;
+        $borange_serah_kerja->jenis_input_18 = $request->jenis_input_18;
+        $borange_serah_kerja->jenis_19 = ($request->jenis_19 != null) ? $request->jenis_19 : null;
+        $borange_serah_kerja->jenis_input_19 = $request->jenis_input_19;
+        $borange_serah_kerja->jenis_20 = ($request->jenis_20 != null) ? $request->jenis_20 : null;
+        $borange_serah_kerja->jenis_input_20 = $request->jenis_input_20;
+        $borange_serah_kerja->jenis_21 = ($request->jenis_21 != null) ? $request->jenis_21 : null;
+        $borange_serah_kerja->jenis_input_21 = $request->jenis_input_21;
+
+
         $borange_serah_kerja->status = 'checked';
         $borange_serah_kerja->save();
 

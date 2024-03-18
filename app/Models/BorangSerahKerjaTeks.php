@@ -23,4 +23,8 @@ class BorangSerahKerjaTeks extends Model
     {
         return $this->belongsTo(SenariSemakCetak::class, 'sale_order_id', 'sale_order_id');
     }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'created_by', 'id');
+    }
 }

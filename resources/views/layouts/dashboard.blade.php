@@ -88,11 +88,11 @@
        }
 
        .card3{
-        margin-inline:100px;
+        margin-inline:;
         width:600px;
        }
        .card4{
-        margin-inline:100px;
+        margin-inline:;
         width:600px;
        }
 
@@ -175,10 +175,10 @@
                     <h4 class="card-title tx-20 mg-b-0 p-2">Dashboard</h4>
                 </div>
                 <div class="row mt-3">
-                    <div class="col-md-2 col-xl-2">
+                    <div class="col-md-2 col-lg-2">
                         <div class="card childCard ht-40p card1">
                             <div class="card-body text-center ">
-                                <span class="badge  p-2 text-xl-center mb-2 Management"> Management</span>
+                                <span class="badge  p-2 text-lg-center mb-2 Management"> Management</span>
                                 <a href="{{route('sale_order')}}">
                                     <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
@@ -194,7 +194,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-xl-5">
+                    <div class="col-md-10 col-lg-5">
                         <div class="card childCard  card2" >
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
@@ -341,7 +341,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-xl-5">
+                    <div class="col-md-6 col-lg-5">
                         <div class="card childCard  card3">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production

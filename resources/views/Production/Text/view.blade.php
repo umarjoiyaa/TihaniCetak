@@ -344,7 +344,7 @@
                                 <div class="col-md-12">
                                     <h5><b>Binding </b></h5>
                                 </div>
-                                <div class="col-md-7">
+                                <div class="col-md-6">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -512,6 +512,121 @@
                                                     @endforeach
                                                 </select></td>
                                             </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="col-md-6">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Finishing</th>
+                                                <th>Partner</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+
+
+                                            <tr>
+                                                <td><input type="checkbox" name="binding_11" id="Input11"
+                                                        class=" mr-5" @checked($text->binding_11 != null)> Others:
+                                                    <input type="text" @disabled($text->binding_11 == null) name="binding_11_val" id="input11"
+                                                        class="form-control w-50 float-right" value="{{$text->binding_11}}">
+                                                </td>
+                                                <td><select name="binding_12_val" @disabled($text->binding_11 == null)
+                                                    placeholder="select Supplier" id="input12"
+                                                    class="form-control form-select w-100">
+                                                    <option value="" @selected($text->binding_11 == null) disabled></option>
+                                                    <option value="In-house" @selected($text->binding_12 == 'In-house')>In-house
+                                                    </option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}"
+                                                            @selected($text->binding_12 == $supplier->id)>{{ $supplier->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="binding_13" id="Input13"
+                                                        class=" mr-5" @checked($text->binding_13 != null)> Others:
+                                                    <input type="text" @disabled($text->binding_13 == null) name="binding_13_val" id="input13"
+                                                        class="form-control w-50 float-right" value="{{$text->binding_13}}">
+                                                </td>
+                                                <td><select name="binding_14_val" @disabled($text->binding_13 == null)
+                                                    placeholder="select Supplier" id="input14"
+                                                    class="form-control form-select w-100">
+                                                    <option value="" @selected($text->binding_13 == null) disabled></option>
+                                                    <option value="In-house" @selected($text->binding_14 == 'In-house')>In-house
+                                                    </option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}"
+                                                            @selected($text->binding_14 == $supplier->id)>{{ $supplier->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="binding_15" id="Input15"
+                                                        class=" mr-5" @checked($text->binding_15 != null)> Others:
+                                                    <input type="text" @disabled($text->binding_15 == null) name="binding_15_val" id="input15"
+                                                        class="form-control w-50 float-right" value="{{$text->binding_15}}">
+                                                </td>
+                                                <td><select name="binding_16_val" @disabled($text->binding_15 == null)
+                                                    placeholder="select Supplier" id="input16"
+                                                    class="form-control form-select w-100">
+                                                    <option value="" @selected($text->binding_15 == null) disabled></option>
+                                                    <option value="In-house" @selected($text->binding_16 == 'In-house')>In-house
+                                                    </option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}"
+                                                            @selected($text->binding_16 == $supplier->id)>{{ $supplier->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="binding_17" id="Input17"
+                                                        class=" mr-5" @checked($text->binding_17 != null)> Others:
+                                                    <input type="text" @disabled($text->binding_17 == null) name="binding_17_val" id="input17"
+                                                        class="form-control w-50 float-right" value="{{$text->binding_17}}">
+                                                </td>
+                                                <td><select name="binding_18_val" @disabled($text->binding_17 == null)
+                                                    placeholder="select Supplier" id="input18"
+                                                    class="form-control form-select w-100">
+                                                    <option value="" @selected($text->binding_17 == null) disabled></option>
+                                                    <option value="In-house" @selected($text->binding_18 == 'In-house')>In-house
+                                                    </option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}"
+                                                            @selected($text->binding_18 == $supplier->id)>{{ $supplier->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select></td>
+                                            </tr>
+
+                                            <tr>
+                                                <td><input type="checkbox" name="binding_19" id="Input19"
+                                                        class=" mr-5" @checked($text->binding_19 != null)> Others:
+                                                    <input type="text" @disabled($text->binding_19 == null) name="binding_19_val" id="input19"
+                                                        class="form-control w-50 float-right" value="{{$text->binding_19}}">
+                                                </td>
+                                                <td><select name="binding_20_val" @disabled($text->binding_19 == null)
+                                                    placeholder="select Supplier" id="input20"
+                                                    class="form-control form-select w-100">
+                                                    <option value="" @selected($text->binding_19 == null) disabled></option>
+                                                    <option value="In-house" @selected($text->binding_20 == 'In-house')>In-house
+                                                    </option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}"
+                                                            @selected($text->binding_20 == $supplier->id)>{{ $supplier->name }}
+                                                        </option>
+                                                    @endforeach
+                                                </select></td>
+                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>

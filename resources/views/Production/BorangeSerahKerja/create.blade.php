@@ -184,6 +184,24 @@
                                                 class="form-control"></div>
                                     </div>
 
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_24" @checked(old('jenis_24') == 'on') id="jenis_24"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_24') != 'on') value="{{ old('jenis_input_24') }}" name="jenis_input_24" id="jenis_input_24"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_26" @checked(old('jenis_26') == 'on') id="jenis_26"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_26') != 'on') value="{{ old('jenis_input_26') }}" name="jenis_input_26" id="jenis_input_26"
+                                                class="form-control"></div>
+                                    </div>
+
                                 </div>
                                 <div class="col-md-6">
                                     <div class="row">
@@ -251,6 +269,35 @@
                                         </div>
 
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_23" @checked(old('jenis_23') == 'on') id="jenis_23"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_23') != 'on') value="{{ old('jenis_input_23') }}" name="jenis_input_23" id="jenis_input_23"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_25" @checked(old('jenis_25') == 'on') id="jenis_25"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_25') != 'on') value="{{ old('jenis_input_25') }}" name="jenis_input_25" id="jenis_input_25"
+                                                class="form-control"></div>
+                                    </div>
+
+                                    <div class="row mt-2">
+                                        <div class="col-md-1"><input type="checkbox" name="jenis_27" @checked(old('jenis_27') == 'on') id="jenis_27"></div>
+                                        <div class="col-md-3">
+                                            <h5>Others</h5>
+                                        </div>
+                                        <div class="col-md-6"><input type="text" @disabled(old('jenis_27') != 'on') value="{{ old('jenis_input_27') }}" name="jenis_input_27" id="jenis_input_27"
+                                                class="form-control"></div>
+                                    </div>
+
+
 
 
 
@@ -372,6 +419,41 @@
                 $('#jenis_input_22').removeAttr('disabled')
             }else{
                 $('#jenis_input_22').attr('disabled','disabled');
+            }
+        })
+        $('#jenis_23').on('change',function(){
+            if($(this).prop('checked')){
+                $('#jenis_input_23').removeAttr('disabled')
+            }else{
+                $('#jenis_input_23').attr('disabled','disabled');
+            }
+        })
+        $('#jenis_24').on('change',function(){
+            if($(this).prop('checked')){
+                $('#jenis_input_24').removeAttr('disabled')
+            }else{
+                $('#jenis_input_24').attr('disabled','disabled');
+            }
+        })
+        $('#jenis_25').on('change',function(){
+            if($(this).prop('checked')){
+                $('#jenis_input_25').removeAttr('disabled')
+            }else{
+                $('#jenis_input_25').attr('disabled','disabled');
+            }
+        })
+        $('#jenis_26').on('change',function(){
+            if($(this).prop('checked')){
+                $('#jenis_input_26').removeAttr('disabled')
+            }else{
+                $('#jenis_input_26').attr('disabled','disabled');
+            }
+        })
+        $('#jenis_27').on('change',function(){
+            if($(this).prop('checked')){
+                $('#jenis_input_27').removeAttr('disabled')
+            }else{
+                $('#jenis_input_27').attr('disabled','disabled');
             }
         })
         $('#sale_order').trigger('change');
