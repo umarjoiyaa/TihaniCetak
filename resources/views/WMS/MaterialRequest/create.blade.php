@@ -304,27 +304,19 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-123</td>
-                                        <td>A/Card 260gr</td>
+                                        <td>AA</td>
+                                        <td>Item A</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-124</td>
-                                        <td>A/Card 280gr</td>
+                                        <td>BB</td>
+                                        <td>Item B</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-125</td>
-                                        <td>A/Card 300gr</td>
-                                        <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -361,27 +353,19 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-123</td>
-                                        <td>A/Card 260gr</td>
+                                        <td>AA</td>
+                                        <td>Item A</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-124</td>
-                                        <td>A/Card 280gr</td>
+                                        <td>BB</td>
+                                        <td>Item B</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-125</td>
-                                        <td>A/Card 300gr</td>
-                                        <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -419,27 +403,19 @@
                                 <tbody>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-123</td>
-                                        <td>A/Card 260gr</td>
+                                        <td>AA</td>
+                                        <td>Item A</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                     <tr>
                                         <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-124</td>
-                                        <td>A/Card 280gr</td>
+                                        <td>BB</td>
+                                        <td>Item B</td>
                                         <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>A-125</td>
-                                        <td>A/Card 300gr</td>
-                                        <td>Paper</td>
-                                        <td>pkt</td>
-                                        <td>24</td>
+                                        <td>Unit</td>
+                                        <td>200</td>
                                     </tr>
                                 </tbody>
                             </table>

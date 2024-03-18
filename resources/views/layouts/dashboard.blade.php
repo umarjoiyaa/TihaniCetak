@@ -678,7 +678,7 @@
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <a href="{{route('Good_Receiving')}}">
+                                        <a href="{{route('good_receiving')}}">
                                             <div class="card p-2 " style="border-radius:17px;background:#f5d98f; ">
 
                                                     <iconify-icon  icon="pepicons-pop:file" width="20"

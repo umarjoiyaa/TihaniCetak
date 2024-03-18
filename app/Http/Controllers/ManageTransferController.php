@@ -287,4 +287,69 @@ class ManageTransferController extends Controller
         $qty = Location::select('used_qty')->where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->first();
         return $qty;
     }
+
+    public function store(Request $request)
+    {
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Create')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $validator = null;
+
+        $validatedData = $request->validate([
+            'ref_no' => 'required',
+        ]);
+
+        // If validations fail
+        if (!$validatedData) {
+            return redirect()->back()
+                ->withErrors($validator)->withInput();
+        }
+
+        $manage_transfer = new ManageTransfer();
+        $manage_transfer->request_id = $request->ref_no;
+        $manage_transfer->date = $request->date;
+        $manage_transfer->created_by = Auth::user()->id;
+        $manage_transfer->status = 'Request';
+        $manage_transfer->save();
+
+        foreach($request->kertas as $value){
+            $manage_transfer_detail_b = new MaterialRequestB();
+            $manage_transfer_detail_b->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_b->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_b->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_b->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_b->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_b->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_b->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_b->save();
+        }
+
+        foreach($request->bahan as $value){
+            $manage_transfer_detail_c = new MaterialRequestB();
+            $manage_transfer_detail_c->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_c->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_c->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_c->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_c->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_c->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_c->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_c->save();
+        }
+
+        foreach($request->wip as $value){
+            $manage_transfer_detail_d = new MaterialRequestB();
+            $manage_transfer_detail_d->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_d->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_d->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_d->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_d->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_d->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_d->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_d->save();
+        }
+
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Store');
+        return redirect()->route('manage_transfer')->with('custom_success', 'MANAGE TRANSFER has been Created Successfully !');
+    }
 }
