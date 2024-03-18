@@ -143,7 +143,7 @@ class BorangeSerahKerjaController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.transfer', $row->id) . '">Transfer</a>
                                 <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'transfer') {
+                } else if ($row->status == 'transfered') {
                     $row->status = '<span class="badge badge-success">Transfer</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.receive', $row->id) . '">Receive</a>
                                 <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
@@ -156,10 +156,8 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="">Pruchasing</a>
-                    <a class="dropdown-item" href="">Transfer</a>
-                    <a class="dropdown-item" href="">Receive</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '" >Delete</a>';
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja.purchasing', $row->id) . '">Purchasing</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -258,7 +256,7 @@ class BorangeSerahKerjaController extends Controller
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.transfer', $row->id) . '">Transfer</a>
                                 <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'transfer') {
+                } else if ($row->status == 'transfered') {
                     $row->status = '<span class="badge badge-success">Transfer</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.receive', $row->id) . '">Receive</a>
                                 <a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
@@ -271,11 +269,10 @@ class BorangeSerahKerjaController extends Controller
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="">Pruchasing</a>
-                    <a class="dropdown-item" href="">Transfer</a>
-                    <a class="dropdown-item" href="">Receive</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '" >Delete</a>';
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja.purchasing', $row->id) . '">Purchasing</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja.delete', $row->id) . '">Delete</a>';
                 }
+
 
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
