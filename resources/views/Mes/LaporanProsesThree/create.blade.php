@@ -334,6 +334,76 @@
                                                 @if (old('semasa'))
 
                                                 @foreach (old('semasa') as $key => $value)
+                                                @php
+                                                    $length = count(old('semasa'));
+                                                @endphp
+                                                @if($length == 1)
+                                                    <tr>
+                                                        <td>
+                                                            {{ $value[1]  ?? '' }}
+                                                        </td>
+                                                        <td>
+                                                            <input type="hidden" value="{{ $value[1]  ?? ''}}"
+                                                                name="{{ "semasa[$key][1]" }}"><input type="checkbox"
+                                                                name="{{ "semasa[$key][2]" }}"
+                                                                @checked($value[2] ?? '' == 'on')
+                                                                value="{{ $value[2]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][3]" }}"
+                                                                @checked($value[3] ?? '' == 'on')
+                                                                value="{{ $value[3] ?? '' }}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][4]" }}"
+                                                                @checked($value[4] ?? '' == 'on')
+                                                                value="{{ $value[4]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][5]" }}"
+                                                                @checked($value[5] ?? '' == 'on')
+                                                                value="{{ $value[5]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][6]" }}"
+                                                                @checked($value[6] ?? '' == 'on')
+                                                                value="{{ $value[6]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][7]" }}"
+                                                                @checked($value[7] ?? '' == 'on')
+                                                                value="{{ $value[7]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][8]" }}"
+                                                                @checked($value[8] ?? '' == 'on')
+                                                                value="{{ $value[8]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][9]" }}"
+                                                                @checked($value[9] ?? '' == 'on')
+                                                                value="{{ $value[9]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][10]" }}"
+                                                                @checked($value[10] ?? '' == 'on')
+                                                                value="{{ $value[10]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><input type="checkbox" name="{{ "semasa[$key][11]" }}"
+                                                                @checked($value[11] ?? '' == 'on')
+                                                                value="{{ $value[11]  ?? ''}}" id="">
+                                                        </td>
+                                                        <td><button type="button" class="btn btn-primary check_btn"
+                                                                style="border-radius:5px; " @disabled($value[12])>check</button></td>
+                                                        <td><input type="text" style="width:340px;"
+                                                                name="{{ "semasa[$key][12]" }}"
+                                                                class="check_operator form-control"
+                                                                value="{{ $value[12] ?? '' }}" readonly></td>
+                                                                <td><button type="button" class="btn btn-primary verify_btn"
+                                                                    disabled>Verify</button>
+                                                            </td>
+
+                                                        <td><input type="text"name="{{ "semasa[$key][13]" }}"
+                                                                class="verify_operator form-control"
+                                                                value="{{ $value[13] ?? '' }}" readonly></td>
+                                                        <td><button type="button" class="btn btn-danger remove d-none"
+                                                                style="border-radius:5px; ">X</button>
+                                                        </td>
+
+                                                    </tr>
+                                                    @else
                                                     <tr>
                                                         <td>
                                                             {{ $value[1]  ?? '' }}
@@ -399,6 +469,7 @@
                                                         </td>
 
                                                     </tr>
+                                                    @endif
                                                 @endforeach
                                             @else
                                                 <tr>
@@ -433,7 +504,7 @@
                                                     </td>
                                                     <td><input type="text" name="semasa[1][13]"
                                                             class="verify_operator form-control" readonly></td>
-                                                    <td><button type="button" class="btn btn-danger remove"
+                                                    <td><button type="button" class="btn btn-danger remove d-none"
                                                             style="border-radius:5px; ">X</button>
                                                     </td>
                                                 </tr>
@@ -471,7 +542,9 @@
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
-            }
+            }else if ($('#table tbody tr').length == 1) {
+                $('#table tbody tr .remove').removeClass('d-none');
+                    }
             let length = $('#table tbody tr').length + 1;
             $('#table tbody').append(`<tr>
                                                             <td>${increment}</td>
@@ -509,8 +582,19 @@
 
         $(document).on('click', '.remove', function() {
             increment -= 500;
-            $(this).closest('tr').remove();
+           $(this).closest('tr').remove();
+           updateSequence($('#table'))
+            if ($('#table tbody tr:visible').length === 1) {
+                $('#table tbody tr:visible .remove').addClass('d-none');
+            }
         });
+
+        function updateSequence(table) {
+            var visibleRows = table.find('tbody tr:visible');
+            visibleRows.each(function(index) {
+                $(this).find('td:eq(0)').text((index + 1) * 500);
+            });
+        }
 
         $(document).ready(function() {
             $('#sale_order').trigger('change');

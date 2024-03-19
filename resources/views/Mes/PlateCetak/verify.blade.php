@@ -102,7 +102,7 @@
                    </div>
                 </div>
 
-
+                <div class="row">
                     <div class="col-md-12 mt-3">
                         <table class="table table-bordered table-warna" border="1">
                             <thead>

@@ -1,7 +1,24 @@
 @extends('layouts.app')
+@section('content')
 
-@section('css')
 <style>
+    .childCard {
+        background-color: #E3E2EE;
+        border-radius: 17px
+            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
+    }
+
+    .Management {
+        font-size: 16px;
+        background: white;
+        border-radius: 2.3vh
+    }
+
+    .Dashboard a,
+    a:hover {
+        color: #18002D !important;
+    }
+
     .card a{
         color:black;
         font-size:12px;
@@ -21,22 +38,50 @@
 
     }
 
-    .card1 {
-        width:180px;
+    .card .card-width{
+        margin-inline:auto;
+        width:175px;
+        height:120px;
+    }    
+
+    
+    .card .col-md-4 .card{
+        width:130px;
+        height:130px;
+    }
+    .card .col-md-5 .card{
+        width:130px;
+        height:130px;
+    }
+     
+    .card1{
+        width:200px;
+        height:auto;
     }
 
+    .card1 .card{
+        margin-inline:auto;
+        width:130px;
+        height:auto;
+    }
 
-
-
-
-    .card .col-md-4 .card{
-        width:140px;
-        height:120px;
-
+    .card2 .card span{
+        margin-top: 50px;
     }
     .hor-menu .horizontalMenu > .horizontalMenu-list > li > a:hover{
         color:;
     }
+    #abcd{
+        display:none;
+    }
+    #abcde{
+        display:none;
+    }
+    .card7{
+        width:700px;
+        margin-inline:auto;
+    }
+   
 
     @media screen  and (max-width:1260px){
         .card .col-md-4 .card{
@@ -63,76 +108,93 @@
             height:120px;
         }
          .card1{
-            width:110px;
+            width:175px;
             margin-inline:auto;
-            height:110px;
+            height:auto;
         }
         .card .card1{
-            width:150px;
-            height: 170px;
+            width:175px;
+            height: auto; 
+        }
+        .card7{
+            width:600px;
+            margin-inline:none;
         }
 
     }
     @media screen  and (max-width:1040px){
+        
         .card .col-md-3 .card{
-            width:100px;
-            height:110px;
+            width:200px;
+            height:150px;
         }
         .card .col-md-4 .card{
             width:200px;
             height:150px;
         }
+
         .card .col-md-3 .card i{
             margin-inline:auto;
         }
+        .card .card-width{
+            width:auto;
+            height:150px;
+        }
+        .card .col-md-5 .card{
+            width:200px;
+            height:150px;
+        }
     }
-
-
+    
+    
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
-            width: 160px;
-            height: 190px;
+            width: 150px;
+            height: auto;
         }
        .card1 .card{
             margin-inline:auto;
-            width:120px;
-            height:100px;
+            width:auto;
+            height:140px;
        }
        .card2{
+        width:530px;
         margin-inline:50px;
        }
+       .card3{
+        margin-top: 30px;
+       }
+
+      
 
        .card .card-width{
-        width:200px;
+        width:auto;
         height:150px;
        }
 
         .card .col-md-4 .card{
             width:auto;
-            height:140px;
-            padding:10px;
+            height:160px;
+            padding:5px;
             font-size:15px;
        }
 
        .card .col-md-3 .card{
             width:auto;
-            height:120px;
-            font-size:15px;
+            height:150px;
+            font-size:16px;
        }
 
        .card .col-md-5 .card{
-            width:150px;
-            height:120px;
-            font-size:15px;
+            width:auto;
+            height:150px;
+            font-size:16px;
        }
 
        .card span{
-            font-size:9px;
+            font-size:14px;
        }
-       .card-width{
-            width:150px;
-            height:130px;
-       }
+       
     }
 
 
@@ -140,61 +202,44 @@
 
         .card .card-width {
             margin-inline: auto;
-            width: 180px;
-            height: 120px;
+            width: auto;
+            height: 140px;
         }
         .card .col-md-4 .card{
             margin-inline:auto;
-            width:180px;
+            width:auto;
             height:140px;
             font-size:14px;
         }
         .card .col-md-5 .card{
-            width:180px;
-            height:120px;
-            font-size:15px;
-       }
+            width:auto;
+            height:150px;
+            font-size:14px;
+        }
         .card .col-md-3 .card{
             margin-inline:auto;
-            width:180px;
+            width:auto;
             height:140px;
         }
         .card .card1 {
-            width: 203px;
-            height: 212px;
+            width: 218px;
+            height: 240px;
         }
 
         .card .card1 .card{
             margin-inline:auto;
-            width:140px;
+            width:auto;
             height:120px;
         }
-        .card .card-width{
-            margin-inline:auto;
-            width:150px;
-            height:140px;
+         .card7{
+            width:auto;
+         }
+         
+        #abcde{
+            display:block;
+            margin-top: -50px;
+            justify-content:center; 
         }
-    }
-</style>
-@endsection
-@section('content')
-
-<style>
-    .childCard {
-        background-color: #E3E2EE;
-        border-radius: 17px
-            /* box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px; */
-    }
-
-    .Management {
-        font-size: 16px;
-        background: white;
-        border-radius: 2.3vh
-    }
-
-    .Dashboard a,
-    a:hover {
-        color: #18002D !important;
     }
 </style>
 
@@ -209,17 +254,21 @@
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title tx-20 mg-b-0 p-2">Dashboard</h4>
                 </div>
-                <div class="row mt-3">
-                    <div class="col-md-2 col-xl-2">
+                <div class="row mt-2">
+                    <div class="col-md-2  col-lg-3 col-xl-2">
                         <div class="card childCard ht-40p card1">
                             <div class="card-body text-center ">
-                                <span class="badge  p-2 text-xl-center mb-2 Management"> Management</span>
+                                <span class="badge w-100  p-2 text-xl-center mb-2 Management"> Management</span>
                                 <a href="{{route('sale_order')}}">
                                     <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
-
-                                                <iconify-icon icon="pepicons-pop:file" width="24"
+                                            
+                                                <iconify-icon id="abc" icon="pepicons-pop:file" width="24"
                                                     height="24"></iconify-icon><br>
+                                                    <!-- <iconify-icon id="abcd" class="justify-content-center" icon="pepicons-pop:file" width="30"
+                                                    height="30"></iconify-icon><br>
+                                                    <iconify-icon id="abcde" class="justify-content-center" icon="pepicons-pop:file" width="35"
+                                                    height="35"></iconify-icon><br> -->
                                                 <span style="font-weight: bold;">Sales Order
                                                     List</span>
 
@@ -229,12 +278,12 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-10 col-xl-5">
+                    <div class="col-md-9 col-lg-9 col-xl-5">
                         <div class="card childCard  card2" >
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Production
                                     Jobsheet </span>
-                                <div class="row mt-2">
+                                <div class="row mt-4">
                                     <div class="col-md-4">
                                         <a href="{{route('digital_printing')}}">
                                             <div class="card " style="border-radius:17px;background:#788fd5;">
@@ -550,7 +599,7 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-12 col-lg-6">
+                    <div class="col-md-12 col-xl-6">
                         <div class="card childCard  card5  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Laporan
@@ -707,8 +756,8 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-12 col-lg-6">
-                        <div class="card childCard  card6  h-auto">
+                    <div class="col-md-12 col-xl-6">
+                        <div class="card  childCard  card6  h-auto">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Warehouse </span>
                                 <div class="row mt-2 ">
@@ -806,7 +855,7 @@
 
 
                                 </div>
-                                <div class="row mt-2 d-flex justify-content-center">
+                                <div class="row mt-2">
 
 
                                     <div class="col-md-5 d-flex justify-content-center ">
@@ -831,7 +880,7 @@
                 </div>
 
                 <div class="row mt-3 d-flex justify-content-center">
-                    <div class="col-md-12 col-lg-6  ">
+                    <div class="col-md-12 col-xl-6">
                         <div class="card childCard  card7">
                             <div class="card-body text-center ">
                                 <span class="badge p-2  mb-2 Management d-flex justify-content-center"> Dashboard

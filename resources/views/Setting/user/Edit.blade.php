@@ -18,7 +18,7 @@
                             
                             
                         <div class="row">
-                            <div class="col-md-10 d-flex justify-content-end">
+                            <div class="col-md-12 d-flex justify-content-end">
                                 <div class="form-group">
                                     <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Active user</span></label>
                                 </div>

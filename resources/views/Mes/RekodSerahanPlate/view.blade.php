@@ -96,7 +96,7 @@
                             </div>
                         </div>
 
-                        <div class="row">
+                        <div class="row" id="Status_tbl">
                             <div class="col-md-5">
                                 <h5>Diwajibkan untuk JOB BAHARU</h5>
                             </div>
@@ -143,7 +143,13 @@
     <script>
         $(document).ready(function() {
             $('input').attr('disabled', 'disabled');
+            var status = $('#status').val();
 
+            if (status == "Repeat") {
+                        $('#Status_tbl').css('display','none')
+                    }else if (status == "New"){
+                        $('#Status_tbl').css('display','')
+                    }
             var value = $('#jenis').val();
             if (value == "Other") {
                 $('.OtherSection').css('display','')

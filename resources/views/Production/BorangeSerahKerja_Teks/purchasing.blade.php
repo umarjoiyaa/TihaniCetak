@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-    <form action="{{ route('borange_serah_kerja_teks.update', $borange_serah_kerja_teks->id) }}" method="post">
-        @csrf
+
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Edit</b></h5>
+                                <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Purchase</b></h5>
                                 <p class="float-right">TCBS-B34 (Rev. 2)</p>
                             </div>
                         </div>
 
-
+                        <form action="{{ route('borange_serah_kerja_teks.purchasing.approve', $borange_serah_kerja_teks->id) }}" method="post">
+                            @csrf
                         <div class="card" style="background:#f4f4ff;">
                             <div class="card-body">
                                 <div class="row">
@@ -210,7 +210,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_17 == 'on')
                                                                 <input type="text" name="jenis_input_17"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_17 }}"
-                                                                    class="form-control Others17">
+                                                                    class="form-control Others">
                                                             @else
                                                             <input type="text" name="jenis_input_17"
                                                             class="form-control Others17" style="display:none;">
@@ -296,7 +296,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_18 == 'on')
                                                                 <input type="text" name="jenis_input_18"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_18 }}"
-                                                                    class="form-control Others18">
+                                                                    class="form-control Others">
                                                             @else
                                                             <input type="text" name="jenis_input_18"
                                                             class="form-control Others18" style="display:none;">
@@ -321,7 +321,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_20 == 'on')
                                                                 <input type="text" name="jenis_input_20"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_20 }}"
-                                                                    class="form-control Others20">
+                                                                    class="form-control Others">
                                                             @else
                                                             <input type="text" name="jenis_input_20"
                                                             class="form-control Others20" style="display:none;">
@@ -401,7 +401,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_19 == 'on')
                                                                 <input type="text" name="jenis_input_19"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_19 }}"
-                                                                    class="form-control Others19">
+                                                                    class="form-control Others">
                                                             @else
                                                             <input type="text" name="jenis_input_19"
                                                             class="form-control Others19" style="display:none;">
@@ -426,7 +426,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_21 == 'on')
                                                                 <input type="text" name="jenis_input_21"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_21 }}"
-                                                                    class="form-control Others21">
+                                                                    class="form-control Others">
                                                             @else
                                                             <input type="text" name="jenis_input_21"
                                                             class="form-control Others21" style="display:none;">
@@ -508,7 +508,10 @@
                             </div> -->
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-12 d-flex justify-content-end">
-                                <button class="btn btn-primary mx-2 mt-3">Save</button>
+
+                                <button class="btn btn-primary" > Purchase</button>
+
+                            </form>
                             </div>
                         </div>
                     </div>
@@ -520,7 +523,7 @@
         </div>
 
 
-    </form>
+
 @endsection
 @push('custom-scripts')
     <script>
@@ -563,6 +566,9 @@
                 }
             });
 
+            $('input,select').attr('disabled', 'disabled');
+        $('input[name=po_no]').removeAttr('disabled');
+        $('input[type=hidden]').removeAttr('disabled');
             $("#Other").on('change',function(){
                 if($(this).prop('checked')){
                     $('.Others').css('display','')

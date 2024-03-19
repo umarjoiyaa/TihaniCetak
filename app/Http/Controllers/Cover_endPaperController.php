@@ -341,11 +341,7 @@ class Cover_endPaperController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'jenis' => 'required',
-            'print_cut' => 'required',
-            'plate' => 'required'
+
         ]);
 
         // If validations fail
@@ -406,7 +402,7 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_15 = ($request->finishing_15 != null) ? $request->finishing_15 : null;
         $cover_end_paper->finishing_16 = ($request->finishing_16 != null) ? $request->finishing_16 : null;
         $cover_end_paper->finishing_17 = ($request->finishing_17 != null) ? $request->finishing_17 : null;
-       
+
 
         $cover_end_paper->finishing_supplier_1 = $request->finishing_supplier_1;
         $cover_end_paper->finishing_supplier_2 = $request->finishing_supplier_2;
@@ -425,12 +421,12 @@ class Cover_endPaperController extends Controller
         $cover_end_paper->finishing_supplier_15 = $request->finishing_supplier_15;
         $cover_end_paper->finishing_supplier_16 = $request->finishing_supplier_16;
         $cover_end_paper->finishing_supplier_17 = $request->finishing_supplier_17;
-        
+
 
         $cover_end_paper->finishing_input_1 = $request->finishing_input_1;
         $cover_end_paper->finishing_input_2 = $request->finishing_input_2;
         $cover_end_paper->finishing_input_3 = $request->finishing_input_3;
-      
+
 
         $cover_end_paper->status = 'Not-initiated';
         $cover_end_paper->save();
@@ -478,6 +474,7 @@ class Cover_endPaperController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $cover_end_paper = CoverAndEndpaper::find($id);
+        $other_cover_end_paper = OtherCoverAndEndpaper::where('parent_id',$cover_end_paper->id)->first();
         $suppliers = Supplier::select('id', 'name')->get();
         $users = User::all();
         $check_machines = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
@@ -485,7 +482,7 @@ class Cover_endPaperController extends Controller
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER View');
-        return view('Production.Cover_endPaper.view', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+        return view('Production.Cover_endPaper.view', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs','other_cover_end_paper'));
     }
 
 
@@ -518,11 +515,6 @@ class Cover_endPaperController extends Controller
         $validatedData = $request->validate([
             'sale_order' => 'required',
             'date' => 'required',
-            'kuantiti_waste' => 'required',
-            'mesin' => 'required',
-            'jenis' => 'required',
-            'print_cut' => 'required',
-            'plate' => 'required'
         ]);
 
         // If validations fail
@@ -638,6 +630,7 @@ class Cover_endPaperController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $cover_end_paper = CoverAndEndpaper::find($id);
+        $other_cover_end_paper = OtherCoverAndEndpaper::where('parent_id',$cover_end_paper->id)->first();
         $users = User::all();
         $suppliers = Supplier::select('id', 'name')->get();
         $check_machines = CoverEndPaperDetail::where('cover_paper_id',  '=', $id)->where('machine', '=', $cover_end_paper->mesin)->orWhere('machine', '=', $cover_end_paper->mesin_others)->orderby('id', 'DESC')->first();
@@ -645,7 +638,7 @@ class Cover_endPaperController extends Controller
         $detailIds = $details->pluck('id')->toArray();
         $detailbs = CoverEndPaperDetailB::whereIn('cover_paper_detail_id', $detailIds)->orderby('id', 'ASC')->get();
         Helper::logSystemActivity('COVER & ENDPAPER', 'COVER & ENDPAPER Update');
-        return view('Production.Cover_endPaper.proses', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs'));
+        return view('Production.Cover_endPaper.proses', compact('cover_end_paper', 'suppliers', 'users', 'check_machines', 'details', 'detailbs','other_cover_end_paper'));
     }
 
     public function proses_update(Request $request, $id)
