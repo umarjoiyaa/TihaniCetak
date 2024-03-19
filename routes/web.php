@@ -598,13 +598,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/BorangeSerahKerja/update/{id}', [BorangeSerahKerjaController::class, 'update'])->name('borange_serah_kerja.update');
     Route::get('/Production/BorangeSerahKerja/purchasing/{id}', [BorangeSerahKerjaController::class, 'purchasing'])->name('borange_serah_kerja.purchasing');
     Route::post('/Production/BorangeSerahKerja/purchasing/approve/{id}', [BorangeSerahKerjaController::class, 'purchasing_approve'])->name('borange_serah_kerja.purchasing.approve');
-    Route::post('/Production/BorangeSerahKerja/purchasing/decline/{id}', [BorangeSerahKerjaController::class, 'purchasing_decline'])->name('borange_serah_kerja.purchasing.decline');
     Route::get('/Production/BorangeSerahKerja/transfer/{id}', [BorangeSerahKerjaController::class, 'transfer'])->name('borange_serah_kerja.transfer');
     Route::post('/Production/BorangeSerahKerja/transfer/approve/{id}', [BorangeSerahKerjaController::class, 'transfer_approve'])->name('borange_serah_kerja.transfer.approve');
-    Route::post('/Production/BorangeSerahKerja/transfer/decline/{id}', [BorangeSerahKerjaController::class, 'transfer_decline'])->name('borange_serah_kerja.transfer.decline');
     Route::get('/Production/BorangeSerahKerja/receive/{id}', [BorangeSerahKerjaController::class, 'receive'])->name('borange_serah_kerja.receive');
     Route::post('/Production/BorangeSerahKerja/receive/approve/{id}', [BorangeSerahKerjaController::class, 'receive_approve'])->name('borange_serah_kerja.receive.approve');
-    Route::post('/Production/BorangeSerahKerja/receive/decline/{id}', [BorangeSerahKerjaController::class, 'receive_decline'])->name('borange_serah_kerja.receive.decline');
     Route::get('/Production/BorangeSerahKerja/delete/{id}', [BorangeSerahKerjaController::class, 'delete'])->name('borange_serah_kerja.delete');
 
 
@@ -616,9 +613,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerjaTeks/view/{id}', [BorangeSerahKerja_TeksController::class, 'view'])->name('borange_serah_kerja_teks.view');
     Route::get('/Production/BorangeSerahKerjaTeks/edit/{id}', [BorangeSerahKerja_TeksController::class, 'edit'])->name('borange_serah_kerja_teks.edit');
     Route::post('/Production/BorangeSerahKerjaTeks/update/{id}', [BorangeSerahKerja_TeksController::class, 'update'])->name('borange_serah_kerja_teks.update');
-    Route::get('/Production/BorangeSerahKerjaTeks/verify/{id}', [BorangeSerahKerja_TeksController::class, 'verify'])->name('borange_serah_kerja_teks.verify');
-    Route::post('/Production/BorangeSerahKerjaTeks/approve/approve/{id}', [BorangeSerahKerja_TeksController::class, 'approve_approve'])->name('borange_serah_kerja_teks.approve.approve');
-    Route::post('/Production/BorangeSerahKerjaTeks/approve/decline/{id}', [BorangeSerahKerja_TeksController::class, 'approve_decline'])->name('borange_serah_kerja_teks.approve.decline');
+    Route::get('/Production/BorangeSerahKerjaTeks/purchasing/{id}', [BorangeSerahKerja_TeksController::class, 'purchasing'])->name('borange_serah_kerja_teks.purchasing');
+    Route::post('/Production/BorangeSerahKerjaTeks/purchasing/approve/{id}', [BorangeSerahKerja_TeksController::class, 'purchasing_approve'])->name('borange_serah_kerja_teks.purchasing.approve');
+    Route::get('/Production/BorangeSerahKerjaTeks/transfer/{id}', [BorangeSerahKerja_TeksController::class, 'transfer'])->name('borange_serah_kerja_teks.transfer');
+    Route::post('/Production/BorangeSerahKerjaTeks/transfer/approve/{id}', [BorangeSerahKerja_TeksController::class, 'transfer_approve'])->name('borange_serah_kerja_teks.transfer.approve');
+    Route::get('/Production/BorangeSerahKerjaTeks/receive/{id}', [BorangeSerahKerja_TeksController::class, 'receive'])->name('borange_serah_kerja_teks.receive');
+    Route::post('/Production/BorangeSerahKerjaTeks/receive/approve/{id}', [BorangeSerahKerja_TeksController::class, 'receive_approve'])->name('borange_serah_kerja_teks.receive.approve');
     Route::get('/Production/BorangeSerahKerjaTeks/delete/{id}', [BorangeSerahKerja_TeksController::class, 'delete'])->name('borange_serah_kerja_teks.delete');
 
     // Production Scheduling

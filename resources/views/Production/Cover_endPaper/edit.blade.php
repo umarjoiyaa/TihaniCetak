@@ -630,97 +630,122 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                
+
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_18" @checked(old($other_cover_end_paper->finishing_18) == 'on') id="FormOther1"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old($other_cover_end_paper->finishing_18) != 'on') @if(old($other_cover_end_paper->finishing_18)) @else disabled @endif placeholder="User Input"
-                                                            name="finishing_input_4" id="input8"
-                                                            class="form-control w-50 float-right" value="{{ old($other_cover_end_paper->finishing_input_4) }}">
+                                                    <td><input type="checkbox" name="finishing_18"
+                                                            @checked($other_cover_end_paper->finishing_18 == 'on') id="FormOther1"
+                                                            class=" mr-5">
+                                                        Others:
+                                                        <input type="text"
+                                                            value="{{ $other_cover_end_paper->finishing_input_4 }}"
+                                                            name="finishing_input_4" id="input8" @disabled($other_cover_end_paper->finishing_18 == null)
+                                                            class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><select name="finishing_supplier_18" @disabled(old('finishing_18') != 'on')
-                                                            placeholder="select Supplier" id="formOther1"
-                                                            class="form-control form-select w-100">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="In-house" @selected(old('finishing_supplier_18') == 'In-house')>In-house</option>
+                                                    <td><select name="finishing_supplier_18"
+                                                            @disabled($other_cover_end_paper->finishing_18 == null) id="formOther1"
+                                                            class="form-control form-select">
+                                                            <option value="" @selected($other_cover_end_paper->finishing_18 == null) disabled></option>
+                                                            <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_18 == 'In-house')>
+                                                                In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_supplier_18') == $supplier->id)>{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($other_cover_end_paper->finishing_supplier_18 == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_19" @checked(old('finishing_19') == 'on') id="FormOther2"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_19') != 'on') @if(old('finishing_19')) @else disabled @endif placeholder="User Input"
-                                                            name="finishing_input_5" id="input3"
-                                                            class="form-control w-50 float-right" value="{{ old('finishing_input_5') }}">
+                                                    <td><input type="checkbox" name="finishing_19"
+                                                            @checked($other_cover_end_paper->finishing_19 == 'on') id="FormOther2"
+                                                            class=" mr-5">
+                                                        Others:
+                                                        <input type="text"
+                                                            value="{{ $other_cover_end_paper->finishing_input_5 }}"
+                                                            name="finishing_input_5" id="input3" @disabled($other_cover_end_paper->finishing_19 == null)
+                                                            class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><select name="finishing_supplier_19" @disabled(old('finishing_19') != 'on')
-                                                            placeholder="select Supplier" id="formOther2"
-                                                            class="form-control form-select w-100">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="In-house" @selected(old('finishing_supplier_19') == 'In-house')>In-house</option>
+                                                    <td><select name="finishing_supplier_19"
+                                                            @disabled($other_cover_end_paper->finishing_19 == null) id="formOther2"
+                                                            class="form-control form-select">
+                                                            <option value="" @selected($other_cover_end_paper->finishing_19 == null) disabled></option>
+                                                            <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_19 == 'In-house')>
+                                                                In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_supplier_19') == $supplier->id)>{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($other_cover_end_paper->finishing_supplier_19 == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_20" @checked(old('finishing_20') == 'on') id="FormOther3"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_20') != 'on') @if(old('finishing_20')) @else disabled @endif placeholder="User Input"
-                                                            name="finishing_input_6" id="input4"
-                                                            class="form-control w-50 float-right" value="{{ old('finishing_input_6') }}">
+                                                    <td><input type="checkbox" name="finishing_20"
+                                                            @checked($other_cover_end_paper->finishing_20 == 'on') id="FormOther3"
+                                                            class=" mr-5">
+                                                        Others:
+                                                        <input type="text"
+                                                            value="{{ $other_cover_end_paper->finishing_input_6 }}"
+                                                            name="finishing_input_6" id="input4" @disabled($other_cover_end_paper->finishing_20 == null)
+                                                            class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><select name="finishing_supplier_20" @disabled(old('finishing_20') != 'on')
-                                                            placeholder="select Supplier" id="formOther3"
-                                                            class="form-control form-select w-100">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="In-house" @selected(old('finishing_supplier_20') == 'In-house')>In-house</option>
+                                                    <td><select name="finishing_supplier_20"
+                                                            @disabled($other_cover_end_paper->finishing_20 == null) id="formOther3"
+                                                            class="form-control form-select">
+                                                            <option value="" @selected($other_cover_end_paper->finishing_20 == null) disabled></option>
+                                                            <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_20 == 'In-house')>
+                                                                In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_supplier_20') == $supplier->id)>{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($other_cover_end_paper->finishing_supplier_20 == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_21" @checked(old('finishing_21') == 'on') id="FormOther4"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_21') != 'on') @if(old('finishing_21')) @else disabled @endif placeholder="User Input"
-                                                            name="finishing_input_7" id="input5"
-                                                            class="form-control w-50 float-right" value="{{ old('finishing_input_7') }}">
+                                                    <td><input type="checkbox" name="finishing_21"
+                                                            @checked($other_cover_end_paper->finishing_21 == 'on') id="FormOther4"
+                                                            class=" mr-5">
+                                                        Others:
+                                                        <input type="text"
+                                                            value="{{ $other_cover_end_paper->finishing_input_7 }}"
+                                                            name="finishing_input_7" id="input5" @disabled($other_cover_end_paper->finishing_21 == null)
+                                                            class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><select name="finishing_supplier_21" @disabled(old('finishing_21') != 'on')
-                                                            placeholder="select Supplier" id="formOther4"
-                                                            class="form-control form-select w-100">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="In-house" @selected(old('finishing_supplier_21') == 'In-house')>In-house</option>
+                                                    <td><select name="finishing_supplier_21"
+                                                            @disabled($other_cover_end_paper->finishing_21 == null) id="formOther4"
+                                                            class="form-control form-select">
+                                                            <option value="" @selected($other_cover_end_paper->finishing_21 == null) disabled></option>
+                                                            <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_21 == 'In-house')>
+                                                                In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_supplier_21') == $supplier->id)>{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($other_cover_end_paper->finishing_supplier_21 == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>
                                                 </tr>
 
                                                 <tr>
-                                                    <td><input type="checkbox" name="finishing_22" @checked(old('finishing_22') == 'on') id="FormOther5"
-                                                            class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_22') != 'on') @if(old('finishing_22')) @else disabled @endif placeholder="User Input"
+                                                    <td><input type="checkbox" name="finishing_22"
+                                                            @checked($other_cover_end_paper->finishing_22 == 'on') id="FormOther5"
+                                                            class=" mr-5">
+                                                        Others:
+                                                        <input type="text"
+                                                            value="{{ $other_cover_end_paper->finishing_input_8 }}" @disabled($other_cover_end_paper->finishing_22 == null)
                                                             name="finishing_input_8" id="input10"
-                                                            class="form-control w-50 float-right" value="{{ old('finishing_input_8') }}">
+                                                            class="form-control w-50 float-right">
                                                     </td>
-                                                    <td><select name="finishing_supplier_22" @disabled(old('finishing_22') != 'on')
-                                                            placeholder="select Supplier" id="formOther5"
-                                                            class="form-control form-select w-100">
-                                                            <option value="" selected disabled></option>
-                                                            <option value="In-house" @selected(old('finishing_supplier_22') == 'In-house')>In-house</option>
+                                                    <td><select name="finishing_supplier_22"
+                                                            @disabled($other_cover_end_paper->finishing_22 == null) id="formOther5"
+                                                            class="form-control form-select">
+                                                            <option value="" @selected($other_cover_end_paper->finishing_22 == null) disabled></option>
+                                                            <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_22 == 'In-house')>
+                                                                In-house</option>
                                                             @foreach ($suppliers as $supplier)
-                                                                <option value="{{ $supplier->id }}" @selected(old('finishing_supplier_22') == $supplier->id)>{{ $supplier->name }}
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($other_cover_end_paper->finishing_supplier_22 == $supplier->id)>{{ $supplier->name }}
                                                                 </option>
                                                             @endforeach
                                                         </select></td>

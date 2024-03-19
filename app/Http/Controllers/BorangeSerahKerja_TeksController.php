@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\BorangSerahKerjaTeks;
 use App\Models\Supplier;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -137,22 +138,32 @@ class BorangeSerahKerja_TeksController extends Controller
             $index = 0;
             foreach ($uom as $row) {
 
-                if ($row->status == 'checked') {
-                    $row->status = '<span class="badge badge-warning">Checked</span>';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-light">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.purchasing', $row->id) . '">Purchasing</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
+                } else if ($row->status == 'purchased') {
+                    $row->status = '<span class="badge badge-primary">Purchased</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.transfer', $row->id) . '">Transfer</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'declined') {
+                } else if ($row->status == 'transfered') {
+                    $row->status = '<span class="badge badge-warning">Transfer</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.receive', $row->id) . '">Receive</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'received') {
+                    $row->status = '<span class="badge badge-success">Received</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>';
+                }
+                else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '" >Delete</a>';
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.purchasing', $row->id) . '">Purchasing</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -245,22 +256,32 @@ class BorangeSerahKerja_TeksController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
 
-                if ($row->status == 'checked') {
-                    $row->status = '<span class="badge badge-warning">Checked</span>';
+                if ($row->status == 'Not-initiated') {
+                    $row->status = '<span class="badge badge-light">Not-initiated</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.verify', $row->id) . '">Verify</a>
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.purchasing', $row->id) . '">Purchasing</a>
                     <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'verified') {
-                    $row->status = '<span class="badge badge-success">Verified</span>';
-                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
+                } else if ($row->status == 'purchased') {
+                    $row->status = '<span class="badge badge-primary">Purchased</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.transfer', $row->id) . '">Transfer</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                                 <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
-                } else if ($row->status == 'declined') {
+                } else if ($row->status == 'transfered') {
+                    $row->status = '<span class="badge badge-warning">Transfer</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.receive', $row->id) . '">Receive</a>
+                                <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
+                                <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
+                } else if ($row->status == 'received') {
+                    $row->status = '<span class="badge badge-success">Received</span>';
+                    $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>';
+                }
+                else if ($row->status == 'declined') {
                     $row->status = '<span class="badge badge-danger">Declined</span>';
                     $actions = '<a class="dropdown-item" href="' . route('borange_serah_kerja_teks.view', $row->id) . '">View</a>
                     <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.edit', $row->id) . '">Edit</a>
-                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.verify', $row->id) . '">Verify</a>
-                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '" >Delete</a>';
+                    <a class="dropdown-item" href="' . route('borange_serah_kerja_teks.purchasing', $row->id) . '">Purchasing</a>
+                    <a class="dropdown-item"  id="swal-warning" data-delete="' . route('borange_serah_kerja_teks.delete', $row->id) . '">Delete</a>';
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
@@ -329,7 +350,7 @@ class BorangeSerahKerja_TeksController extends Controller
         }
 
 
-        if($request->jeni != null){
+        if($request->jenis != null){
             $userText = implode(', ', $request->jenis);
         }
 
@@ -339,7 +360,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
         $borange_serah_kerja->po_no = $request->po_no;
-        if($request->jeni != null){
+        if($request->jenis != null){
         $borange_serah_kerja->jenis = json_encode($request->jenis);
         $borange_serah_kerja->jenis_text = $userText;
         }else{
@@ -385,7 +406,7 @@ class BorangeSerahKerja_TeksController extends Controller
 
 
 
-        $borange_serah_kerja->status = 'checked';
+        $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
         Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Store');
@@ -411,7 +432,7 @@ class BorangeSerahKerja_TeksController extends Controller
             return redirect()->back()
                 ->withErrors($validator)->withInput();
         }
-        if($request->jeni != null){
+        if($request->jenis != null){
             $userText = implode(', ', $request->jenis);
         }
 
@@ -422,7 +443,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->Qty_slap_binding = $request->Qty_slap_binding;
         $borange_serah_kerja->waste_binding = $request->waste_binding;
-        if($request->jeni != null){
+        if($request->jenis != null){
             $borange_serah_kerja->jenis = json_encode($request->jenis);
             $borange_serah_kerja->jenis_text = $userText;
             }else{
@@ -452,6 +473,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_input_14 = $request->jenis_input_14;
         $borange_serah_kerja->jenis_15 = ($request->jenis_15 != null) ? $request->jenis_15 : null;
         $borange_serah_kerja->jenis_16 = ($request->jenis_16 != null) ? $request->jenis_16 : null;
+        $borange_serah_kerja->jenis_17 = ($request->jenis_17 != null) ? $request->jenis_17 : null;
         $borange_serah_kerja->jenis_input_17 = $request->jenis_input_17;
         $borange_serah_kerja->jenis_18 = ($request->jenis_18 != null) ? $request->jenis_18 : null;
         $borange_serah_kerja->jenis_input_18 = $request->jenis_input_18;
@@ -463,12 +485,103 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja->jenis_input_21 = $request->jenis_input_21;
 
 
-        $borange_serah_kerja->status = 'checked';
+        $borange_serah_kerja->status = 'Not-initiated';
         $borange_serah_kerja->save();
 
         Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Store');
         return redirect()->route('borange_serah_kerja_teks')->with('custom_success', 'BORANG SERAH KERJA (TEKS) has been Created Successfully !');
     }
+
+    public function purchasing($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Purchasing')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Update');
+        return view('Production.BorangeSerahKerja_Teks.purchasing', compact('borange_serah_kerja_teks','suppliers'));
+    }
+
+
+    public function transfer($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Transfer')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Update');
+        return view('Production.BorangeSerahKerja_Teks.transfer', compact('borange_serah_kerja_teks','suppliers'));
+    }
+
+    public function receive($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Update');
+        return view('Production.BorangeSerahKerja_Teks.receive', compact('borange_serah_kerja_teks','suppliers'));
+    }
+
+    public function purchasing_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Purchasing')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $borange_serah_kerja_teks->status = 'purchased';
+        $borange_serah_kerja_teks->po_no = $request->po_no;
+        $borange_serah_kerja_teks->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja_teks->purchased_by_user = Auth::user()->user_name;
+        $borange_serah_kerja_teks->purchased_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->purchased_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja_teks->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Purchased');
+        return redirect()->route('borange_serah_kerja_teks')->with('custom_success', 'CTP has been Successfully Purchased!');
+    }
+
+    public function transfer_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Transfer')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $borange_serah_kerja_teks->status = 'transfered';
+        $borange_serah_kerja_teks->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja_teks->transfer_by_user = Auth::user()->user_name;
+        $borange_serah_kerja_teks->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->transfer_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja_teks->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Transfered');
+        return redirect()->route('borange_serah_kerja_teks')->with('custom_success', 'BORANG SERAH KERJA (TEKS) has been Successfully Transfered!');
+    }
+
+    public function receive_approve(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        $borange_serah_kerja_teks->status = 'received';
+        $borange_serah_kerja_teks->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $borange_serah_kerja_teks->received_by_user = Auth::user()->user_name;
+        $borange_serah_kerja_teks->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->received_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $borange_serah_kerja_teks->save();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Received');
+        return redirect()->route('borange_serah_kerja_teks')->with('custom_success', 'BORANG SERAH KERJA (TEKS) has been Successfully Received!');
+    }
+
+
+
+
+
 
 
     public function edit($id){
@@ -493,14 +606,17 @@ class BorangeSerahKerja_TeksController extends Controller
         return redirect()->route('borange_serah_kerja_teks')->with('custom_success', 'BORANG SERAH KERJA (TEKS) has been Deleted Successfully !');
     }
 
-
-
-
-    public function view(){
-        return view('Production.BorangeSerahKerja_Teks.view');
+    public function view($id)
+    {
+        if (!Auth::user()->hasPermissionTo('BORANG SERAH KERJA (TEKS) View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
+        // dd($borange_serah_kerja_teks);
+        $suppliers = Supplier::select('id', 'name')->get();
+        Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) View');
+        return view('Production.BorangeSerahKerja_Teks.view', compact('borange_serah_kerja_teks', 'suppliers'));
     }
 
-    public function verify(){
-        return view('Production.BorangeSerahKerja_Teks.verify');
-    }
+
 }
