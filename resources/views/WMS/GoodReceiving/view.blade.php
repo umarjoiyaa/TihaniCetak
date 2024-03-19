@@ -46,16 +46,17 @@
                             @foreach ($good_receiving_products as $good_receiving_product)
                                 <tr>
                                     <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $good_receiving_product->item_code }}</td>
-                                    <td>{{ $good_receiving_product->description }}</td>
-                                    <td>{{ $good_receiving_product->uom }}</td>
+                                    <td>{{ $good_receiving_product->products->item_code }}</td>
+                                    <td>{{ $good_receiving_product->products->description }}</td>
+                                    <td>{{ $good_receiving_product->products->base_uom }}</td>
                                     <td>{{ $good_receiving_product->quantity }}</td>
                                     <td><input type="number" value="{{ $good_receiving_product->receiving_qty ?? 0 }}"
                                             readonly class="form-control receiving_qty">
                                     </td>
                                     <td>{{ $good_receiving_product->delivery_date }}</td>
                                     <td>
-                                        <input type="hidden" class="hiddenId" value="{{ $good_receiving_product->id }}">
+                                        <input type="hidden" class="hiddenId"
+                                            value="{{ $good_receiving_product->product_id }}">
                                         <button type="button" class="btn btn-primary openModal" data-toggle="modal"
                                             data-target="#exampleModal">+</button>
                                     </td>
@@ -83,7 +84,7 @@
                         <div>Quantity: <span class="quantity_text"></span></div>
                     </div>
                     <div class="row d-flex justify-content-between">
-                        <div>Description: <span class="description_text"></span></div>
+                        <div>Description: <span class="description_text"></span> UOM: <span class="uom_text"></span></div>
                         <div>Receive Quantity: <span class="receive_quantity_text"></span></div>
                     </div>
                     <br>
@@ -92,7 +93,6 @@
                             <thead>
                                 <tr>
                                     <th>Location</th>
-                                    <th>UOM</th>
                                     <th>Receive Quantity</th>
                                     <th>Remarks</th>
                                     <th>Remarks</th>
@@ -124,7 +124,6 @@
                     'area': element.area_id,
                     'shelf': element.shelf_id,
                     'level': element.level_id,
-                    'uom': element.uom,
                     'receive_qty': element.receiving_qty,
                     'remarks': element.remarks,
                     'hiddenId': element.product_id
@@ -171,7 +170,6 @@
                                                                                                     ${optionsHtml}
                                                                                                 </select>
                                                                                                 </td>
-                                                                                                <td><input type="text" readonly class="form-control uom" value="${element.uom}"></td>
                                                                                                 <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
                                                                                                 <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
                                                                                                 <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
@@ -195,7 +193,6 @@
                                                                                                     ${optionsHtml}
                                                                                                 </select>
                                                                                             </td>
-                                                                                            <td><input type="text" readonly class="form-control uom"></td>
                                                                                             <td><input type="number" class="form-control receive_qty"></td>
                                                                                             <td><textarea class="form-control remarks"></textarea></td>
                                                                                             <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
@@ -205,9 +202,11 @@
 
             let item_code_text = $(this).closest('tr').find('td:eq(1)').text();
             let description_text = $(this).closest('tr').find('td:eq(2)').text();
+            let uom_text = $(this).closest('tr').find('td:eq(3)').text();
             let quantity_text = $(this).closest('tr').find('td:eq(4)').text();
             $('.item_code_text').text(item_code_text);
             $('.description_text').text(description_text);
+            $('.uom_text').text(uom_text);
             $('.quantity_text').text(quantity_text);
             $('.receive_qty').trigger('keyup');
             $('input, select, textarea').attr('disabled', 'disabled');
@@ -271,7 +270,7 @@
                 <body>
                     <div class="container">
                         <div class="logo">
-                            <img src="{{asset('assets/img/tihani.png')}}" width="50" alt="Logo"><h3>Tihani Cetak</h3>
+                            <img src="{{ asset('assets/img/tihani.png') }}" width="50" alt="Logo"><h3>Tihani Cetak</h3>
                         </div>
                         <table class="data-table">
                             <tbody>

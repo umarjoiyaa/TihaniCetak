@@ -17,9 +17,8 @@ return new class extends Migration
             $table->foreign('receiving_id')->references('id')->on('good_receivings')->nullable();
             $table->unsignedBigInteger('received_by')->nullable();
             $table->foreign('received_by')->references('id')->on('users')->nullable();
-            $table->string('item_code')->nullable();
-            $table->string('description')->nullable();
-            $table->string('uom')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullable();
             $table->string('quantity')->nullable();
             $table->string('receiving_qty')->nullable();
             $table->string('delivery_date')->nullable();

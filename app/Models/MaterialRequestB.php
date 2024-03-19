@@ -10,9 +10,13 @@ class MaterialRequestB extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function manage_transfer_b()
+    public function products()
     {
-        return $this->belongsTo(ManageTransferB::class, 'stock_code', 'stock_code');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 
+    public function uoms()
+    {
+        return $this->belongsTo(Uom::class, 'uom_request', 'id');
+    }
 }

@@ -270,13 +270,12 @@ class GoodReceivingController extends Controller
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
-            $detail->uom = $value['uom'] ?? null;
             $detail->receiving_qty = $value['receive_qty'] ?? null;
             $detail->remarks = $value['remarks'] ?? null;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->first();
-            $product = GoodReceivingProduct::find($detail->product_id);
+            $product = GoodReceivingProduct::where('receiving_id', '=', $id)->where('product_id', '=', $detail->product_id)->first();
             if($product->receiving_qty == null){
                 $product->receiving_qty = (int)$detail->receiving_qty;
             }else{
@@ -290,9 +289,7 @@ class GoodReceivingController extends Controller
                 $location->area_id = $detail->area_id;
                 $location->shelf_id = $detail->shelf_id;
                 $location->level_id = $detail->level_id;
-                $location->item_code = $product->item_code;
-                $location->description = $product->description;
-                $location->uom = $product->uom;
+                $location->product_id = $detail->product_id;
                 $location->used_qty = (int)$detail->receiving_qty;
             }
 

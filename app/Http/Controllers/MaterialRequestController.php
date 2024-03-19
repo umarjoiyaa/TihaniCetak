@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Helpers\Helper;
 use App\Models\Uom;
+use App\Models\Product;
 use App\Models\ManageTransfer;
 use App\Models\MaterialRequest;
 use App\Models\MaterialRequestB;
@@ -261,8 +262,24 @@ class MaterialRequestController extends Controller
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $count = MaterialRequest::whereYear('date', $year)->count();
         $uoms = Uom::select('id', 'name')->get();
+        $paper_products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
+        ->selectSub(function ($query) {
+            $query->selectRaw('SUM(used_qty)')
+                ->from('locations')
+                ->whereColumn('locations.product_id', 'products.id');
+        }, 'total_used_qty')
+        ->whereIn('group', ['PAPERS', 'papers'])
+        ->get();
+        $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
+        ->selectSub(function ($query) {
+            $query->selectRaw('SUM(used_qty)')
+                ->from('locations')
+                ->whereColumn('locations.product_id', 'products.id');
+        }, 'total_used_qty')
+        ->whereNotIn('group', ['PAPERS', 'papers'])
+        ->get();
         Helper::logSystemActivity('MATERIAL REQUEST', 'MATERIAL REQUEST Create');
-        return view('WMS.MaterialRequest.create', compact('year', 'count', 'uoms'));
+        return view('WMS.MaterialRequest.create', compact('year', 'count', 'uoms', 'paper_products', 'products'));
     }
 
     public function store(Request $request)
@@ -301,12 +318,9 @@ class MaterialRequestController extends Controller
         foreach($request->kertas as $value){
             $material_request_detail_b = new MaterialRequestB();
             $material_request_detail_b->material_id = $material_request->id;
-            $material_request_detail_b->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_b->group = $value['group'] ?? null;
-            $material_request_detail_b->description = $value['description'] ?? null;
+            $material_request_detail_b->product_id = $value['product_id'] ?? null;
             $material_request_detail_b->grammage = $value['grammage'] ?? null;
             $material_request_detail_b->saiz = $value['saiz'] ?? null;
-            $material_request_detail_b->uom = $value['uom'] ?? null;
             $material_request_detail_b->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_b->uom_request = $value['uom_request'] ?? null;
             $material_request_detail_b->request_qty = $value['request_qty'] ?? 0;
@@ -317,10 +331,7 @@ class MaterialRequestController extends Controller
         foreach($request->bahan as $value){
             $material_request_detail_c = new MaterialRequestC();
             $material_request_detail_c->material_id = $material_request->id;
-            $material_request_detail_c->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_c->group = $value['group'] ?? null;
-            $material_request_detail_c->description = $value['description'] ?? null;
-            $material_request_detail_c->uom = $value['uom'] ?? null;
+            $material_request_detail_c->product_id = $value['product_id'] ?? null;
             $material_request_detail_c->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_c->request_qty = $value['request_qty'] ?? 0;
             $material_request_detail_c->save();
@@ -329,10 +340,7 @@ class MaterialRequestController extends Controller
         foreach($request->wip as $value){
             $material_request_detail_d = new MaterialRequestD();
             $material_request_detail_d->material_id = $material_request->id;
-            $material_request_detail_d->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_d->group = $value['group'] ?? null;
-            $material_request_detail_d->description = $value['description'] ?? null;
-            $material_request_detail_d->uom = $value['uom'] ?? null;
+            $material_request_detail_d->product_id = $value['product_id'] ?? null;
             $material_request_detail_d->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_d->request_qty = $value['request_qty'] ?? 0;
             $material_request_detail_d->save();
@@ -352,8 +360,24 @@ class MaterialRequestController extends Controller
         $detailcs = MaterialRequestC::where('material_id', $id)->get();
         $detailds = MaterialRequestD::where('material_id', $id)->get();
         $uoms = Uom::select('id', 'name')->get();
+        $paper_products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
+        ->selectSub(function ($query) {
+            $query->selectRaw('SUM(used_qty)')
+                ->from('locations')
+                ->whereColumn('locations.product_id', 'products.id');
+        }, 'total_used_qty')
+        ->whereIn('group', ['PAPERS', 'papers'])
+        ->get();
+        $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
+        ->selectSub(function ($query) {
+            $query->selectRaw('SUM(used_qty)')
+                ->from('locations')
+                ->whereColumn('locations.product_id', 'products.id');
+        }, 'total_used_qty')
+        ->whereNotIn('group', ['PAPERS', 'papers'])
+        ->get();
         Helper::logSystemActivity('MATERIAL REQUEST', 'MATERIAL REQUEST Update');
-        return view('WMS.MaterialRequest.edit',compact('material_request', 'detailbs', 'detailcs', 'detailds', 'uoms'));
+        return view('WMS.MaterialRequest.edit',compact('material_request', 'detailbs', 'detailcs', 'detailds', 'uoms', 'paper_products', 'products'));
     }
 
     public function view($id){
@@ -374,6 +398,8 @@ class MaterialRequestController extends Controller
         if (!Auth::user()->hasPermissionTo('MATERIAL REQUEST Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
+
+        $validator = null;
 
         $validatedData = $request->validate([
             'sale_order' => 'required',
@@ -405,12 +431,9 @@ class MaterialRequestController extends Controller
         foreach($request->kertas as $value){
             $material_request_detail_b = new MaterialRequestB();
             $material_request_detail_b->material_id = $material_request->id;
-            $material_request_detail_b->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_b->group = $value['group'] ?? null;
-            $material_request_detail_b->description = $value['description'] ?? null;
+            $material_request_detail_b->product_id = $value['product_id'] ?? null;
             $material_request_detail_b->grammage = $value['grammage'] ?? null;
             $material_request_detail_b->saiz = $value['saiz'] ?? null;
-            $material_request_detail_b->uom = $value['uom'] ?? null;
             $material_request_detail_b->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_b->uom_request = $value['uom_request'] ?? null;
             $material_request_detail_b->request_qty = $value['request_qty'] ?? 0;
@@ -423,10 +446,7 @@ class MaterialRequestController extends Controller
         foreach($request->bahan as $value){
             $material_request_detail_c = new MaterialRequestC();
             $material_request_detail_c->material_id = $material_request->id;
-            $material_request_detail_c->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_c->group = $value['group'] ?? null;
-            $material_request_detail_c->description = $value['description'] ?? null;
-            $material_request_detail_c->uom = $value['uom'] ?? null;
+            $material_request_detail_c->product_id = $value['product_id'] ?? null;
             $material_request_detail_c->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_c->request_qty = $value['request_qty'] ?? 0;
             $material_request_detail_c->save();
@@ -437,10 +457,7 @@ class MaterialRequestController extends Controller
         foreach($request->wip as $value){
             $material_request_detail_d = new MaterialRequestD();
             $material_request_detail_d->material_id = $material_request->id;
-            $material_request_detail_d->stock_code = $value['stock_code'] ?? null;
-            $material_request_detail_d->group = $value['group'] ?? null;
-            $material_request_detail_d->description = $value['description'] ?? null;
-            $material_request_detail_d->uom = $value['uom'] ?? null;
+            $material_request_detail_d->product_id = $value['product_id'] ?? null;
             $material_request_detail_d->available_qty = $value['available_qty'] ?? 0;
             $material_request_detail_d->request_qty = $value['request_qty'] ?? 0;
             $material_request_detail_d->save();

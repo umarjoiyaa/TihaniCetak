@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('transfer_id')->nullable();
             $table->foreign('transfer_id')->references('id')->on('manage_transfers')->nullable();
-            $table->string('stock_code')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullable();
             $table->string('area_id')->nullable();
             $table->string('shelf_id')->nullable();
             $table->string('level_id')->nullable();

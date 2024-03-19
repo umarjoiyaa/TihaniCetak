@@ -27,8 +27,8 @@ $(document).ready(function () {
                 name: 'sr_no',
                 orderable: false
             }, {
-                data: 'code',
-                name: 'code',
+                data: 'item_code',
+                name: 'item_code',
             },
             {
                 data: 'description',
@@ -83,8 +83,8 @@ function AjaxCall(columnsData) {
                 name: 'sr_no',
                 orderable: false
             }, {
-                data: 'code',
-                name: 'code',
+                data: 'item_code',
+                name: 'item_code',
             },
             {
                 data: 'description',

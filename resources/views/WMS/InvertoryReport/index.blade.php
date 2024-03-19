@@ -14,18 +14,12 @@
                                 <label for="item_code">Item Code</label>
                                 <select id="item_code" class="form-select" multiple>
                                     @foreach ($products as $product)
-                                        <option value="{{ $product->item_code }}" data-id="{{ $product->description }}">
+                                        <option value="{{ $product->id }}">
                                             {{ $product->item_code }}</option>
                                     @endforeach
                                 </select>
                             </div>
                         </div>
-                        {{-- <div class="col-md-4">
-                            <div class="form-group">
-                                <label for="">Description</label>
-                                <input type="text" readonly id="description" class="form-control">
-                            </div>
-                        </div> --}}
                         <div class="col-md-4"></div>
                         <div class="col-md-4"></div>
                         <div class="col-md-4">
@@ -85,7 +79,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="d-flex justify-content-end">
-                                <button class="btn btn-primary mt-3">Download</button>
+                                <button class="btn btn-primary mt-3" id="export-btn">Download</button>
                             </div>
                         </div>
                     </div>

@@ -137,12 +137,7 @@ Route::middleware('auth')->group(function () {
     // Product
     Route::get('/Setting/Product', [ProductController::class, 'index'])->name('product');
     Route::get('/Setting/Product/Data', [ProductController::class, 'Data'])->name('product.data');
-    Route::get('/Setting/Product/Create', [ProductController::class, 'Create'])->name('product.create');
-    Route::post('/Setting/Product/Store', [ProductController::class, 'Store'])->name('product.store');
-    Route::get('/Setting/Product/Edit/{id}', [ProductController::class, 'Edit'])->name('product.edit');
     Route::get('/Setting/Product/View/{id}', [ProductController::class, 'View'])->name('product.view');
-    Route::post('/Setting/Product/Update/{id}', [ProductController::class, 'Update'])->name('product.update');
-    Route::get('/Setting/Product/Delete/{id}', [ProductController::class, 'Delete'])->name('product.delete');
 
     // UOM
     Route::get('/Setting/Uom', [UomController::class, 'Index'])->name('uom');
