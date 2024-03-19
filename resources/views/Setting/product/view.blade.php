@@ -42,10 +42,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row mt-3 d-flex justify-content-end">
-                        {{-- <div class="col-md-4 d-flex justify-content-end">
-                            <button class="btn btn-primary" type="submit">Save</button>
-                        </div> --}}
                     </div>
                 </div>
             </div>

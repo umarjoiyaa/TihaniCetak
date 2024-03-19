@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <input type="text" readonly
-                                            value="{{ $material_request->sale_order->sale_order_no }}" id=""
+                                            value="{{ $material_request->sale_order->order_no }}" id=""
                                             class="form-control">
                                     </div>
                                 </div>
@@ -86,13 +86,18 @@
                                                 @foreach ($detailbs as $key => $value)
                                                     <tr>
                                                         <td><input type='hidden' class="stock_code"
-                                                                value='{{ $value->stock_code }}'
-                                                                name="kertas[{{ $key + 1 }}][stock_code]" /><input
-                                                                type='hidden' value='{{ $value->group }}' class="group"
-                                                                name="kertas[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                                value='{{ $value->products->id }}'
+                                                                name="kertas[{{ $key + 1 }}][product_id]" /><input
+                                                                type='hidden' value='{{ $value->products->group }}'
+                                                                class="group"
+                                                                name="kertas[{{ $key + 1 }}][group]" /><input
+                                                                type="hidden"
+                                                                name="kertas[{{ $key + 1 }}]['stock_code']"
+                                                                value="{{ $value->products->item_code }}" />{{ $value->products->item_code }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->description }}'
-                                                                name="kertas[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                        <td><input type='hidden'
+                                                                value='{{ $value->products->descriptiom }}'
+                                                                name="kertas[{{ $key + 1 }}][description]" />{{ $value->products->description }}
                                                         </td>
                                                         <td><input type='number' class="form-control"
                                                                 value='{{ $value->grammage }}'
@@ -100,22 +105,22 @@
                                                         <td><input type='number' class="form-control"
                                                                 value='{{ $value->saiz }}'
                                                                 name="kertas[{{ $key + 1 }}][saiz]" /></td>
-                                                        <td><input type='hidden' value='{{ $value->uom }}'
-                                                                name="kertas[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                        <td><input type='hidden' value='{{ $value->products->base_uom }}'
+                                                                name="kertas[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                         </td>
                                                         <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                name="kertas[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                name="kertas[{{ $key + 1 }}][available_qty]"
+                                                                class="available_qty" />{{ $value->available_qty }}
                                                         </td>
                                                         <td><select class="form-control"
                                                                 name="kertas[{{ $key + 1 }}][uom_request]">
-                                                                <option value="RIM" @selected($value->uom_request == 'RIM')>RIM
-                                                                </option>
-                                                                <option @selected($value->uom_request == 'PKT') value="PKT">PKT
-                                                                </option>
-                                                                <option @selected($value->uom_request == 'SHEET') value="SHEET">
-                                                                    SHEET</option>
+                                                                @foreach ($uoms as $uom)
+                                                                    <option value="{{ $uom->id }}"
+                                                                        @selected($value->uom_request == $uom->id)>
+                                                                        {{ $uom->name }}</option>
+                                                                @endforeach
                                                             </select></td>
-                                                        <td><input type='number' class="form-control"
+                                                        <td><input type='number' class="form-control request_qty"
                                                                 value='{{ $value->request_qty }}'
                                                                 name="kertas[{{ $key + 1 }}][request_qty]" />
                                                         </td>
@@ -150,22 +155,28 @@
                                                 @foreach ($detailcs as $key => $value)
                                                     <tr>
                                                         <td><input type='hidden' class="stock_code"
-                                                                value='{{ $value->stock_code }}'
-                                                                name="bahan[{{ $key + 1 }}][stock_code]" /><input
-                                                                type='hidden' value='{{ $value->group }}'
+                                                                value='{{ $value->products->id }}'
+                                                                name="bahan[{{ $key + 1 }}][product_id]" /><input
+                                                                type='hidden' value='{{ $value->products->group }}'
                                                                 class="group"
-                                                                name="bahan[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                                name="bahan[{{ $key + 1 }}][group]" /><input
+                                                                type="hidden"
+                                                                name="bahan[{{ $key + 1 }}]['stock_code']"
+                                                                value="{{ $value->products->item_code }}" />{{ $value->products->item_code }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->description }}'
-                                                                name="bahan[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                        <td><input type='hidden'
+                                                                value='{{ $value->products->description }}'
+                                                                name="bahan[{{ $key + 1 }}][description]" />{{ $value->products->description }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->uom }}'
-                                                                name="bahan[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                        <td><input type='hidden'
+                                                                value='{{ $value->products->base_uom }}'
+                                                                name="bahan[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                         </td>
                                                         <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                name="bahan[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                name="bahan[{{ $key + 1 }}][available_qty]"
+                                                                class="available_qty" />{{ $value->available_qty }}
                                                         </td>
-                                                        <td><input type='number' class="form-control"
+                                                        <td><input type='number' class="form-control request_qty"
                                                                 value='{{ $value->request_qty }}'
                                                                 name="bahan[{{ $key + 1 }}][request_qty]" /></td>
                                                     </tr>
@@ -196,22 +207,28 @@
                                                 @foreach ($detailds as $key => $value)
                                                     <tr>
                                                         <td><input type='hidden' class="stock_code"
-                                                                value='{{ $value->stock_code }}'
-                                                                name="wip[{{ $key + 1 }}][stock_code]" /><input
-                                                                type='hidden' value='{{ $value->group }}'
+                                                                value='{{ $value->products->id }}'
+                                                                name="wip[{{ $key + 1 }}][product_id]" /><input
+                                                                type='hidden' value='{{ $value->products->group }}'
                                                                 class="group"
-                                                                name="wip[{{ $key + 1 }}][group]" />{{ $value->stock_code }}
+                                                                name="wip[{{ $key + 1 }}][group]" /><input
+                                                                type="hidden"
+                                                                name="wip[{{ $key + 1 }}]['stock_code']"
+                                                                value="{{ $value->products->item_code }}" />{{ $value->products->item_code }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->description }}'
-                                                                name="wip[{{ $key + 1 }}][description]" />{{ $value->description }}
+                                                        <td><input type='hidden'
+                                                                value='{{ $value->products->description }}'
+                                                                name="wip[{{ $key + 1 }}][description]" />{{ $value->products->description }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->uom }}'
-                                                                name="wip[{{ $key + 1 }}][uom]" />{{ $value->uom }}
+                                                        <td><input type='hidden'
+                                                                value='{{ $value->products->base_uom }}'
+                                                                name="wip[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                         </td>
                                                         <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                name="wip[{{ $key + 1 }}][available_qty]" />{{ $value->available_qty }}
+                                                                name="wip[{{ $key + 1 }}][available_qty]"
+                                                                class="available_qty" />{{ $value->available_qty }}
                                                         </td>
-                                                        <td><input type='number' class="form-control"
+                                                        <td><input type='number' class="form-control request_qty"
                                                                 value='{{ $value->request_qty }}'
                                                                 name="wip[{{ $key + 1 }}][request_qty]" /></td>
                                                     </tr>

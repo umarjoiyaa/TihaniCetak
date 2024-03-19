@@ -683,8 +683,7 @@
                                                 <div class="row">
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            <div class="col-md-1"><input type="checkbox" name=""
-                                                                    id=""></div>
+
                                                             <div class="col-md-3">Other</div>
                                                             <div class="col-md-6"><input type="text" width=""
                                                                     style="width:200px;" name="bahagianA[1][17]"
@@ -748,8 +747,7 @@
                                                 <div class="row">
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            <div class="col-md-1"><input type="checkbox" name=""
-                                                                    id=""></div>
+
                                                             <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width="" style="width:200px;"
@@ -814,8 +812,7 @@
                                                 <div class="row">
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            <div class="col-md-1"><input type="checkbox" name=""
-                                                                    id=""></div>
+
                                                             <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width="" style="width:200px;"
@@ -881,8 +878,7 @@
 
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            <div class="col-md-1"><input type="checkbox"
-                                                                    name="" id=""></div>
+
                                                             <div class="col-md-3">Other</div>
                                                             <div class="col-md-6">
                                                                 <input type="text" width=""
@@ -947,8 +943,7 @@
                                                 <div class="row">
                                                     <div class="col-md-9">
                                                         <div class="row">
-                                                            <div class="col-md-1"><input type="checkbox"
-                                                                    name="" id=""></div>
+
                                                             <div class="col-md-3">Other</div>
                                                             <div class="col-md-6"><input type="text" width=""
                                                                     style="width:200px;" name="bahagianA[1][21]"

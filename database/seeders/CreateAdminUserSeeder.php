@@ -2,7 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Department;
+use App\Models\Area;
+use App\Models\AreaLevel;
+use App\Models\AreaShelf;
+use App\Models\GoodReceiving;
+use App\Models\GoodReceivingProduct;
+use App\Models\Product;
 use App\Models\SaleOrder;
 use App\Models\Supplier;
 use Illuminate\Database\Seeder;
@@ -101,6 +106,34 @@ class CreateAdminUserSeeder extends Seeder
             'approval_status' => 'published',
         ]);
 
+        Product::create([
+            'item_code' => 'AA',
+            'description' => 'ITEM A',
+            'group' => 'PAPERS',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'BB',
+            'description' => 'ITEM B',
+            'group' => 'SEMI FG',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'CC',
+            'description' => 'ITEM C',
+            'group' => 'RAW MATERIAL',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'DD',
+            'description' => 'ITEM D',
+            'group' => 'PAPERS',
+            'base_uom' => 'UNITS'
+        ]);
+
         Supplier::create([
             'name' => 'Supplier A',
             'code' => 'SPA'
@@ -115,5 +148,40 @@ class CreateAdminUserSeeder extends Seeder
             'name' => 'Supplier C',
             'code' => 'SPC'
         ]);
+
+        $good_receiving = GoodReceiving::create([
+            'doc_key' => '454574',
+            'doc_no' => 'P003654',
+            'doc_date' => '16-03-2024',
+            'incomming_qty' => 400,
+            'receive_qty' => 0,
+            'po_no' => 'PO-11231-1',
+            'creditor_name' => 'Supplier A',
+        ]);
+
+        GoodReceivingProduct::create([
+            'receiving_id' => $good_receiving->id,
+            'product_id' => 1,
+            'quantity' => 200,
+            'delivery_date' => '20-03-2024',
+        ]);
+
+        GoodReceivingProduct::create([
+            'receiving_id' => $good_receiving->id,
+            'product_id' => 3,
+            'quantity' => 200,
+            'delivery_date' => '20-03-2024',
+        ]);
+
+        AreaLevel::create([
+            'name' => 'Level 1',
+            'code' => 'Level 1'
+        ]);
+
+        AreaLevel::create([
+            'name' => 'Level 2',
+            'code' => 'Level 2'
+        ]);
+
     }
 }

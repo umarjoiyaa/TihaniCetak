@@ -15,7 +15,7 @@ use App\Http\Controllers\DigitalPrintingController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiController;
 use App\Http\Controllers\Laporan_PemeriksaanController;
 use App\Http\Controllers\GoodReceivingController;
-use App\Http\Controllers\Inventory_reportController;
+use App\Http\Controllers\InventoryReportController;
 use App\Http\Controllers\invertory_ShopFloorController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanController;
 use App\Http\Controllers\KulitBukuController;
@@ -137,12 +137,7 @@ Route::middleware('auth')->group(function () {
     // Product
     Route::get('/Setting/Product', [ProductController::class, 'index'])->name('product');
     Route::get('/Setting/Product/Data', [ProductController::class, 'Data'])->name('product.data');
-    Route::get('/Setting/Product/Create', [ProductController::class, 'Create'])->name('product.create');
-    Route::post('/Setting/Product/Store', [ProductController::class, 'Store'])->name('product.store');
-    Route::get('/Setting/Product/Edit/{id}', [ProductController::class, 'Edit'])->name('product.edit');
     Route::get('/Setting/Product/View/{id}', [ProductController::class, 'View'])->name('product.view');
-    Route::post('/Setting/Product/Update/{id}', [ProductController::class, 'Update'])->name('product.update');
-    Route::get('/Setting/Product/Delete/{id}', [ProductController::class, 'Delete'])->name('product.delete');
 
     // UOM
     Route::get('/Setting/Uom', [UomController::class, 'Index'])->name('uom');
@@ -598,13 +593,10 @@ Route::middleware('auth')->group(function () {
     Route::post('/Production/BorangeSerahKerja/update/{id}', [BorangeSerahKerjaController::class, 'update'])->name('borange_serah_kerja.update');
     Route::get('/Production/BorangeSerahKerja/purchasing/{id}', [BorangeSerahKerjaController::class, 'purchasing'])->name('borange_serah_kerja.purchasing');
     Route::post('/Production/BorangeSerahKerja/purchasing/approve/{id}', [BorangeSerahKerjaController::class, 'purchasing_approve'])->name('borange_serah_kerja.purchasing.approve');
-    Route::post('/Production/BorangeSerahKerja/purchasing/decline/{id}', [BorangeSerahKerjaController::class, 'purchasing_decline'])->name('borange_serah_kerja.purchasing.decline');
     Route::get('/Production/BorangeSerahKerja/transfer/{id}', [BorangeSerahKerjaController::class, 'transfer'])->name('borange_serah_kerja.transfer');
     Route::post('/Production/BorangeSerahKerja/transfer/approve/{id}', [BorangeSerahKerjaController::class, 'transfer_approve'])->name('borange_serah_kerja.transfer.approve');
-    Route::post('/Production/BorangeSerahKerja/transfer/decline/{id}', [BorangeSerahKerjaController::class, 'transfer_decline'])->name('borange_serah_kerja.transfer.decline');
     Route::get('/Production/BorangeSerahKerja/receive/{id}', [BorangeSerahKerjaController::class, 'receive'])->name('borange_serah_kerja.receive');
     Route::post('/Production/BorangeSerahKerja/receive/approve/{id}', [BorangeSerahKerjaController::class, 'receive_approve'])->name('borange_serah_kerja.receive.approve');
-    Route::post('/Production/BorangeSerahKerja/receive/decline/{id}', [BorangeSerahKerjaController::class, 'receive_decline'])->name('borange_serah_kerja.receive.decline');
     Route::get('/Production/BorangeSerahKerja/delete/{id}', [BorangeSerahKerjaController::class, 'delete'])->name('borange_serah_kerja.delete');
 
 
@@ -616,13 +608,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/Production/BorangeSerahKerjaTeks/view/{id}', [BorangeSerahKerja_TeksController::class, 'view'])->name('borange_serah_kerja_teks.view');
     Route::get('/Production/BorangeSerahKerjaTeks/edit/{id}', [BorangeSerahKerja_TeksController::class, 'edit'])->name('borange_serah_kerja_teks.edit');
     Route::post('/Production/BorangeSerahKerjaTeks/update/{id}', [BorangeSerahKerja_TeksController::class, 'update'])->name('borange_serah_kerja_teks.update');
-    Route::get('/Production/BorangeSerahKerjaTeks/verify/{id}', [BorangeSerahKerja_TeksController::class, 'verify'])->name('borange_serah_kerja_teks.verify');
-    Route::post('/Production/BorangeSerahKerjaTeks/approve/approve/{id}', [BorangeSerahKerja_TeksController::class, 'approve_approve'])->name('borange_serah_kerja_teks.approve.approve');
-    Route::post('/Production/BorangeSerahKerjaTeks/approve/decline/{id}', [BorangeSerahKerja_TeksController::class, 'approve_decline'])->name('borange_serah_kerja_teks.approve.decline');
+    Route::get('/Production/BorangeSerahKerjaTeks/purchasing/{id}', [BorangeSerahKerja_TeksController::class, 'purchasing'])->name('borange_serah_kerja_teks.purchasing');
+    Route::post('/Production/BorangeSerahKerjaTeks/purchasing/approve/{id}', [BorangeSerahKerja_TeksController::class, 'purchasing_approve'])->name('borange_serah_kerja_teks.purchasing.approve');
+    Route::get('/Production/BorangeSerahKerjaTeks/transfer/{id}', [BorangeSerahKerja_TeksController::class, 'transfer'])->name('borange_serah_kerja_teks.transfer');
+    Route::post('/Production/BorangeSerahKerjaTeks/transfer/approve/{id}', [BorangeSerahKerja_TeksController::class, 'transfer_approve'])->name('borange_serah_kerja_teks.transfer.approve');
+    Route::get('/Production/BorangeSerahKerjaTeks/receive/{id}', [BorangeSerahKerja_TeksController::class, 'receive'])->name('borange_serah_kerja_teks.receive');
+    Route::post('/Production/BorangeSerahKerjaTeks/receive/approve/{id}', [BorangeSerahKerja_TeksController::class, 'receive_approve'])->name('borange_serah_kerja_teks.receive.approve');
     Route::get('/Production/BorangeSerahKerjaTeks/delete/{id}', [BorangeSerahKerja_TeksController::class, 'delete'])->name('borange_serah_kerja_teks.delete');
 
     // Production Scheduling
     Route::get('/Production/ProductionScheduling', [ProductionSchedulingController::class, 'index'])->name('production_scheduling');
+    Route::get('/Production/ProductionScheduling/records', [ProductionSchedulingController::class, 'records'])->name('production_scheduling.records');
     Route::get('/Production/ProductionScheduling/detail', [ProductionSchedulingController::class, 'detail'])->name('production_scheduling.detail');
 
     // Printing Process
@@ -664,9 +660,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/StockCard_report/Create', [StockCard_ReportController::class, 'Create'])->name('StockCard_report.create');
 
     //Invertory Report
-    Route::get('/WMS/Invertory_report', [Inventory_reportController::class, 'index'])->name('Invertory_report');
-    Route::get('/WMS/Invertory_report/view', [Inventory_reportController::class, 'view'])->name('Invertory_report.view');
-    Route::get('/WMS/Invertory_report/Create', [Inventory_reportController::class, 'Create'])->name('Invertory_report.create');
+    Route::get('/WMS/InvertoryReport', [InventoryReportController::class, 'index'])->name('inventory_report');
+    Route::get('/WMS/InvertoryReport/generate', [InventoryReportController::class, 'generate'])->name('inventory_report.generate');
 
     //Subcon Monitoring Report
     Route::get('/WMS/Subcon_Monitoring_Report', [Subcon_monitorimg_report_Controller::class, 'index'])->name('Sub_monitring_report');
@@ -685,10 +680,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/Stock_Transfer_location/receive', [Stock_Transfer_locationController::class, 'receive'])->name('stock_Transfer_location.receive');
 
     //Good Receiving
-    Route::get('/WMS/Good_Receiving', [GoodReceivingController::class, 'index'])->name('Good_Receiving');
-    Route::get('/WMS/Good_Receiving/view', [GoodReceivingController::class, 'view'])->name('Good_Receiving.view');
-    Route::get('/WMS/Good_Receiving/Create', [GoodReceivingController::class, 'Create'])->name('Good_Receiving.create');
-    Route::get('/WMS/Good_Receiving/Receive', [GoodReceivingController::class, 'receive'])->name('Good_Receiving.receive');
+    Route::get('/WMS/GoodReceiving', [GoodReceivingController::class, 'index'])->name('good_receiving');
+    Route::get('/WMS/GoodReceiving/data', [GoodReceivingController::class, 'Data'])->name('good_receiving.data');
+    Route::get('/WMS/GoodReceiving/view/{id}', [GoodReceivingController::class, 'view'])->name('good_receiving.view');
+    Route::get('/WMS/GoodReceiving/receive/{id}', [GoodReceivingController::class, 'receive'])->name('good_receiving.receive');
+    Route::post('/WMS/GoodReceiving/receive/update/{id}', [GoodReceivingController::class, 'receive_update'])->name('good_receiving.receive.update');
 
     // Material Requesst
     Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');
@@ -705,6 +701,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/manage-transfer/data', [ManageTransferController::class, 'Data'])->name('manage_transfer.data');
     Route::get('/WMS/manage-transfer/Create', [ManageTransferController::class, 'create'])->name('manage_transfer.create');
     Route::get('/WMS/manage-transfer/Ref', [ManageTransferController::class, 'ref'])->name('ref.get');
+    Route::get('/WMS/manage-transfer/AvailableQty', [ManageTransferController::class, 'available_qty'])->name('get.available_qty');
     Route::post('/WMS/manage-transfer/store', [ManageTransferController::class, 'store'])->name('manage_transfer.store');
     Route::get('/WMS/manage-transfer/edit/{id}', [ManageTransferController::class, 'edit'])->name('manage_transfer.edit');
     Route::get('/WMS/manage-transfer/view/{id}', [ManageTransferController::class, 'view'])->name('manage_transfer.view');

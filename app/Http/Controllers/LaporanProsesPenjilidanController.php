@@ -572,7 +572,7 @@ class LaporanProsesPenjilidanController extends Controller
 
         foreach($request->semasa as $key => $value){
             $detail = LaporanProsesPenjilidanC::find($key);
-            $detail->c_8 = $value['1'] ?? null;
+            $detail->c_8 = $value['8'] ?? null;
             $detail->save();
          }
 

@@ -325,6 +325,55 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($details as $key => $detail)
+                                                        @php
+                                                            $length = count($details);
+                                                        @endphp
+                                                        @if($length == 1)
+                                                            <tr>
+                                                                <td>{{ $detail->c_1 }}</td>
+                                                                <td><input type="hidden" value="{{ $detail->c_1 }}"
+                                                                        name="semasa[{{$key+1}}][1]"><input type="checkbox"
+                                                                        name="semasa[{{$key+1}}][2]" id=""
+                                                                        @checked($detail->c_2 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][3]"
+                                                                        id="" @checked($detail->c_3 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][4]"
+                                                                        id="" @checked($detail->c_4 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][5]"
+                                                                        id="" @checked($detail->c_5 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][6]"
+                                                                        id="" @checked($detail->c_6 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][7]"
+                                                                        id="" @checked($detail->c_7 != null)>
+                                                                </td>
+                                                                <td><input type="checkbox" name="semasa[{{$key+1}}][8]"
+                                                                        id="" @checked($detail->c_8 != null)>
+                                                                </td>
+                                                                <td><button type="button"
+                                                                        class="btn btn-primary check_btn"
+                                                                        style="border-radius:5px;"
+                                                                        @disabled($detail->c_9 != null)>check</button></td>
+                                                                <td><input type="text" style="width:340px;" value="{{ $detail->c_9 }}"
+                                                                        name="semasa[{{$key+1}}][9]"
+                                                                        class="check_operator form-control" readonly></td>
+                                                                <td><button type="button"
+                                                                        class="btn btn-primary verify_btn"
+                                                                        disabled>Verify</button>
+                                                                </td>
+                                                                <td><input type="text" name="semasa[{{$key+1}}][10]"
+                                                                        class="verify_operator form-control" readonly></td>
+                                                                <td><button type="button" class="btn btn-danger d-none remove"
+                                                                        style="border-radius:5px; ">X</button>
+                                                                </td>
+                                                            </tr>
+                                                            @else
+
+
                                                             <tr>
                                                                 <td>{{ $detail->c_1 }}</td>
                                                                 <td><input type="hidden" value="{{ $detail->c_1 }}"
@@ -367,6 +416,8 @@
                                                                         style="border-radius:5px; ">X</button>
                                                                 </td>
                                                             </tr>
+
+                                                            @endif
                                                         @endforeach
                                                     </tbody>
                                                 </table>
@@ -399,6 +450,8 @@
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
+            }else if ($('#table tbody tr').length == 1) {
+                $('#table tbody tr .remove').removeClass('d-none');
             }else{
                           var lengths = $('#table tbody tr').length;
                           increment = (lengths+1)*500;
@@ -434,8 +487,19 @@
 
         $(document).on('click', '.remove', function() {
             increment -= 500;
-            $(this).closest('tr').remove();
+           $(this).closest('tr').remove();
+           updateSequence($('#table'))
+            if ($('#table tbody tr:visible').length === 1) {
+                $('#table tbody tr:visible .remove').addClass('d-none');
+            }
         });
+
+        function updateSequence(table) {
+            var visibleRows = table.find('tbody tr:visible');
+            visibleRows.each(function(index) {
+                $(this).find('td:eq(0)').text((index + 1) * 500);
+            });
+        }
 
         $(document).ready(function() {
             $('#sale_order').trigger('change');

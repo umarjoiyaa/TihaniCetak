@@ -9,7 +9,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Create</b></h5>
+                                <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Edit</b></h5>
                                 <p class="float-right">TCBS-B34 (Rev. 2)</p>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_17 == 'on')
                                                                 <input type="text" name="jenis_input_17"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_17 }}"
-                                                                    class="form-control Others">
+                                                                    class="form-control Others17">
                                                             @else
                                                             <input type="text" name="jenis_input_17"
                                                             class="form-control Others17" style="display:none;">
@@ -296,7 +296,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_18 == 'on')
                                                                 <input type="text" name="jenis_input_18"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_18 }}"
-                                                                    class="form-control Others">
+                                                                    class="form-control Others18">
                                                             @else
                                                             <input type="text" name="jenis_input_18"
                                                             class="form-control Others18" style="display:none;">
@@ -321,7 +321,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_20 == 'on')
                                                                 <input type="text" name="jenis_input_20"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_20 }}"
-                                                                    class="form-control Others">
+                                                                    class="form-control Others20">
                                                             @else
                                                             <input type="text" name="jenis_input_20"
                                                             class="form-control Others20" style="display:none;">
@@ -401,7 +401,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_19 == 'on')
                                                                 <input type="text" name="jenis_input_19"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_19 }}"
-                                                                    class="form-control Others">
+                                                                    class="form-control Others19">
                                                             @else
                                                             <input type="text" name="jenis_input_19"
                                                             class="form-control Others19" style="display:none;">
@@ -426,7 +426,7 @@
                                                             @if ($borange_serah_kerja_teks->jenis_21 == 'on')
                                                                 <input type="text" name="jenis_input_21"
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_21 }}"
-                                                                    class="form-control Others">
+                                                                    class="form-control Others21">
                                                             @else
                                                             <input type="text" name="jenis_input_21"
                                                             class="form-control Others21" style="display:none;">

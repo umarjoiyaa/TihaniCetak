@@ -287,12 +287,25 @@ class Helper
         ];
 
         $wms_job_sheets = [
+            'GOOD RECEIVING' => [
+                'GOOD RECEIVING List',
+                'GOOD RECEIVING Receive',
+                'GOOD RECEIVING View',
+            ],
             'MATERIAL REQUEST' => [
                 'MATERIAL REQUEST List',
                 'MATERIAL REQUEST Create',
                 'MATERIAL REQUEST Update',
                 'MATERIAL REQUEST View',
                 'MATERIAL REQUEST Delete',
+            ],
+            'MANAGE TRANSFER' => [
+                'MANAGE TRNASFER List',
+                'MANAGE TRNASFER Create',
+                'MANAGE TRNASFER Update',
+                'MANAGE TRNASFER Receive',
+                'MANAGE TRNASFER View',
+                'MANAGE TRNASFER Delete',
             ]
         ];
 
@@ -301,7 +314,9 @@ class Helper
         ];
 
         $reports = [
-
+            'INVENTORY REPORT' => [
+                'INVENTORY REPORT View',
+            ],
         ];
 
         $administrations = [
@@ -338,10 +353,7 @@ class Helper
         $databases = [
             'Product' => [
                 'Product List',
-                'Product Create',
-                'Product Update',
                 'Product View',
-                'Product Delete',
             ],
             'UOM' => [
                 'UOM List',

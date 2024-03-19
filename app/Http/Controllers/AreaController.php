@@ -6,6 +6,7 @@ use App\Helpers\Helper;
 use App\Models\Area;
 use App\Models\AreaShelf;
 use App\Models\Location;
+use App\Models\AreaLocation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
@@ -236,11 +237,11 @@ class AreaController extends Controller
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                $location = new Location();
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                $location = new AreaLocation();
                 $location->area_id = $area->id;
                 $location->shelf_id = $shelf->id;
-                $location->level_id = $level->id;
-                $location->used_qty = 0;
+                $location->level_id = $level;
                 $location->save();
             }
         }
@@ -280,11 +281,11 @@ class AreaController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('areas', 'name')->whereNull('deleted_at'),
+                Rule::unique('areas', 'name')->whereNull('deleted_at')->ignore($id),
             ],
             'code' => [
                 'required',
-                Rule::unique('areas', 'code')->whereNull('deleted_at'),
+                Rule::unique('areas', 'code')->whereNull('deleted_at')->ignore($id),
             ],
             'shelf' => 'required'
         ]);
@@ -296,6 +297,16 @@ class AreaController extends Controller
         }
 
         $area = Area::find($id);
+        $existingShelves = json_decode($area->shelf_id);
+
+        $shelvesToRemove = array_diff($existingShelves, $request->shelf);
+
+        $locationsWithUsedQty = Location::where('area_id', $area->id)->whereIn('shelf_id', $shelvesToRemove)->where('used_qty', '!=', 0)->orWhere('used_qty', '!=', null)->exists();
+
+        if ($locationsWithUsedQty) {
+            return redirect()->back()->with('custom_errors', 'You try to remove SHELF or SHELVES which contain`s some quantity !');
+        }
+
         $area->name = $request->name;
         $area->code = $request->code;
         $area->shelf_id = json_encode($request->shelf);
@@ -306,12 +317,11 @@ class AreaController extends Controller
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
-                $location = new Location();
+                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                $location = new AreaLocation();
                 $location->area_id = $area->id;
                 $location->shelf_id = $shelf->id;
-                $location->level_id = $level->id;
-                $location->used_qty = 0;
+                $location->level_id = $level;
                 $location->save();
             }
         }
@@ -327,11 +337,15 @@ class AreaController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area = Area::find($id);
+        $location = Location::where('area_id', '=', $id)->where('used_qty', '!=', 0)->orWhere('used_qty', '!=', null)->first();
+        if ($location) {
+            return redirect()->back()->with('custom_errors', 'You try to delete AREA which contain`s some quantity !');
+        }
         $shelves = AreaShelf::whereIn('id', $area->shelf_id)->get();
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
+                AreaLocation::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level->id)->delete();
             }
         }
         $area->delete();

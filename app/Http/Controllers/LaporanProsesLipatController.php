@@ -397,7 +397,11 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get()->sortBy(function ($record) {
+            preg_match('/(\d+)/', $record->b_1, $matches);
+            $numeric_part = isset($matches[0]) ? intval($matches[0]) : PHP_INT_MAX;
+            return $numeric_part;
+        });
         $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
@@ -410,8 +414,11 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
-        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get()->sortBy(function ($record) {
+            preg_match('/(\d+)/', $record->b_1, $matches);
+            $numeric_part = isset($matches[0]) ? intval($matches[0]) : PHP_INT_MAX;
+            return $numeric_part;
+        });        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT View');
@@ -526,8 +533,11 @@ class LaporanProsesLipatController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $laporan_proses_lipat = LaporanProsesLipat::find($id);
-        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->orderBy('b_1', 'asc')->get();
-        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
+        $details = LaporanProsesLipatB::where('proses_lipat_id', '=', $id)->get()->sortBy(function ($record) {
+            preg_match('/(\d+)/', $record->b_1, $matches);
+            $numeric_part = isset($matches[0]) ? intval($matches[0]) : PHP_INT_MAX;
+            return $numeric_part;
+        });        $detailss = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->orderByRaw('CAST(c_1 AS UNSIGNED)')->get();
         $sections = LaporanProsesLipatC::where('proses_lipat_id', '=', $id)->select('row')->distinct()->orderByRaw('CAST(row AS UNSIGNED)')->get();
         $users = User::all();
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Update');

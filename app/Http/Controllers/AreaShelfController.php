@@ -266,11 +266,11 @@ class AreaShelfController extends Controller
         $validatedData = $request->validate([
             'name' => [
                 'required',
-                Rule::unique('area_shelves', 'name')->whereNull('deleted_at'),
+                Rule::unique('area_shelves', 'name')->whereNull('deleted_at')->ignore($id),
             ],
             'code' => [
                 'required',
-                Rule::unique('area_shelves', 'code')->whereNull('deleted_at'),
+                Rule::unique('area_shelves', 'code')->whereNull('deleted_at')->ignore($id),
             ],
             'level' => 'required'
         ]);
@@ -298,7 +298,7 @@ class AreaShelfController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $area_Shelf = AreaShelf::find($id);
-        $shelf = Area::where('shelf_id', '=', $area_Shelf->id)->first();
+        $shelf = Area::whereJsonContains('shelf_id', $area_Shelf->id)->first();
         if($shelf){
             return back()->with('custom_errors', 'This SHELF is used in AREA!');
         }

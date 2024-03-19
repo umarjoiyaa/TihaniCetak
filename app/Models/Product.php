@@ -10,4 +10,10 @@ class Product extends Model
 {
     use HasFactory;
     use SoftDeletes;
+
+    public function location()
+    {
+        return $this->belongsTo(Location::class, 'product_id', 'id');
+    }
+
 }

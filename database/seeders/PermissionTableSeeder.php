@@ -66,10 +66,7 @@ class PermissionTableSeeder extends Seeder
             'Area View',
             'Area Delete',
             'Product List',
-            'Product Create',
-            'Product Update',
             'Product View',
-            'Product Delete',
             'SaleOrder List',
             'SaleOrder View',
             'SaleOrder Upload',
@@ -249,7 +246,9 @@ class PermissionTableSeeder extends Seeder
             'BORANG SERAH KERJA (TEKS) List',
             'BORANG SERAH KERJA (TEKS) Create',
             'BORANG SERAH KERJA (TEKS) Update',
-            'BORANG SERAH KERJA (TEKS) Verify',
+            'BORANG SERAH KERJA (TEKS) Purchasing',
+            'BORANG SERAH KERJA (TEKS) Transfer',
+            'BORANG SERAH KERJA (TEKS) Receive',
             'BORANG SERAH KERJA (TEKS) View',
             'BORANG SERAH KERJA (TEKS) Delete',
             'PRINTING PROCESS List',
@@ -257,23 +256,29 @@ class PermissionTableSeeder extends Seeder
             'PRINTING PROCESS Verify',
             'PRINTING PROCESS View',
             'PRODUCTION SCHEDULING View',
+            'GOOD RECEIVING List',
+            'GOOD RECEIVING Receive',
+            'GOOD RECEIVING View',
             'MATERIAL REQUEST List',
             'MATERIAL REQUEST Create',
             'MATERIAL REQUEST Update',
             'MATERIAL REQUEST View',
             'MATERIAL REQUEST Delete',
+            'MANAGE TRANSFER List',
+            'MANAGE TRANSFER Create',
+            'MANAGE TRANSFER Update',
+            'MANAGE TRANSFER Receive',
+            'MANAGE TRANSFER View',
+            'MANAGE TRANSFER Delete',
+            'INVENTORY REPORT View'
          ];
 
         foreach ($permissions as $permission) {
-            if (!Permission::where('name', $permission)->exists()) {
-                Permission::create(['name' => $permission]);
-            }
+            Permission::create(['name' => $permission]);
         }
 
         foreach ($permissionss as $perm) {
-            if (!Permission::where('name', $perm)->exists()) {
-                Permission::create(['name' => $perm]);
-            }
+            Permission::create(['name' => $perm]);
         }
     }
 }

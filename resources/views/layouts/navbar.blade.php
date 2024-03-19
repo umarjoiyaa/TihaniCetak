@@ -90,7 +90,7 @@
         margin-left: 280px;
         /* margin-top: 70px; */
       }
-      
+
      }
 
      @media screen and (max-width:610px){
@@ -423,7 +423,7 @@
                         <h6 class="pl-3 pt-3"><b>Jobsheet</b></h6>
                         <div class="row">
                           <div class="col-md-8">
-                            <a class="dropdown-item" href="{{route('Good_Receiving')}}">Good
+                            <a class="dropdown-item" href="{{route('good_receiving')}}">Good
                               Receiving</a>
                             <a class="dropdown-item" href="{{route('material_request')}}">Material Request</a>
                             <a class="dropdown-item" href="{{route('manage_transfer')}}">Manage Transfer</a>
@@ -445,7 +445,7 @@
                     <div class="col-sm-3">
                       <h6 class="pl-3 pt-3"><b>Report</b></h6>
                       <a class="dropdown-item" href="{{route('StockCard_report')}}">Stock Card Report</a>
-                      <a class="dropdown-item" href="{{route('Invertory_report')}}">Inventory Report -  By Location</a>
+                      <a class="dropdown-item" href="{{route('inventory_report')}}">Inventory Report -  By Location</a>
                       <a class="dropdown-item" href="{{route('Sub_monitring_report')}}">Subcon Monitoring Report</a>
                     </div>
                   </div>
@@ -497,7 +497,7 @@
                 <div class="dropdown-menu">
                   <div class="row">
                     <div class="col-sm-4">
-                      
+
                       <a class="dropdown-item" href="#"><i
                         class="fas fa-user"></i>{{ Auth::user()->full_name }}</a>
                       <a class="dropdown-item" href="#"><i
@@ -604,7 +604,7 @@
                                                     <i class="las la-angle-right text-right text-muted"></i>
                                                 </div>
                                             </a>
-                                        
+
                                         <div class="dropdown-footer">
                                             <a href="#">VIEW ALL</a>
                                         </div>
@@ -617,8 +617,8 @@
 
         </div>
       </nav>
-                                    
-                                    
+
+
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->

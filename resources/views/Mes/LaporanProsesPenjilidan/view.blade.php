@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-    <div class="container">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -345,7 +344,6 @@
             </div>
             <a href="{{ route('laporan_proses_penjilidan') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
         </div>
-    </div>
     </div>
 @endsection
 @push('custom-scripts')

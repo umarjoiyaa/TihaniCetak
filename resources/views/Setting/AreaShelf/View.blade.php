@@ -33,7 +33,7 @@
                             <select name="level[]" class="form-select" multiple>
                                 @foreach ($levels as $level)
                                     <option value="{{ $level->id }}"
-                                        @if ($item) {{ in_array($item, $level->id) ? 'selected' : '' }} @endif>
+                                        @if ($item) {{ in_array($level->id, $item) ? 'selected' : '' }} @endif>
                                         {{ $level->name }}</option>
                                 @endforeach
                             </select>

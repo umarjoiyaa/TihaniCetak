@@ -11,13 +11,11 @@
         }
 
         .sub-menu1 {
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease;
+            display: none;
         }
 
         .sub-menu1.open {
-            max-height: 1000px;
+            display: block;
         }
 
         .menu-arrow {

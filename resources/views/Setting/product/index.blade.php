@@ -11,9 +11,6 @@
 
                 </div>
                 <div class="card-body">
-                    <div class="d-flex justify-content-end">
-                        <a href="{{ route('product.create') }}" class="btn btn-primary  mb-3">Create</a>
-                    </div>
                     <div class="table-responsive">
                         <table class="table text-md-nowrap datatable">
                             <thead>

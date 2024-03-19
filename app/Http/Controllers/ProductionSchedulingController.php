@@ -20,7 +20,21 @@ class ProductionSchedulingController extends Controller
         if (!Auth::user()->hasPermissionTo('PRODUCTION SCHEDULING View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        return view('Production.ProductionScheduling.index');
+        $data = [];
+
+        $digital_printing = DigitalPrinting::select('date')->get()->toArray();
+        $cover_end_paper = CoverAndEndpaper::select('date')->get()->toArray();
+        $text = Text::select('date')->get()->toArray();
+        $mesin_lipat = MesinLipat::select('date')->get()->toArray();
+        $staple_bind = StapleBind::select('date')->get()->toArray();
+        $perfect_bind = PerfectBind::select('date')->get()->toArray();
+        $mesin_knife = MesinKnife::select('date')->get()->toArray();
+        $kulit_buku = BorangSerahKerjaKulit::select('date')->get()->toArray();
+        $teks = BorangSerahKerjaTeks::select('date')->get()->toArray();
+
+        $data = array_merge($digital_printing, $cover_end_paper, $text, $mesin_lipat, $staple_bind, $perfect_bind, $mesin_knife, $kulit_buku, $teks);
+        $data = array_unique($data, SORT_REGULAR);
+        return view('Production.ProductionScheduling.index', compact('data'));
     }
 
     public function detail(Request $request){

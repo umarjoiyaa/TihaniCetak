@@ -9,4 +9,10 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class MaterialRequestC extends Model
 {
     use HasFactory, SoftDeletes;
+
+    public function products()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
+
 }
