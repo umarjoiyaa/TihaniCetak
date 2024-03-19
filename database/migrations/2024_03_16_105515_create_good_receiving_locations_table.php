@@ -16,11 +16,10 @@ return new class extends Migration
             $table->unsignedBigInteger('receiving_id')->nullable();
             $table->foreign('receiving_id')->references('id')->on('good_receivings')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('good_receiving_products')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullable();
             $table->string('area_id')->nullable();
             $table->string('shelf_id')->nullable();
             $table->string('level_id')->nullable();
-            $table->string('uom')->nullable();
             $table->string('receiving_qty')->nullable();
             $table->string('remarks')->nullable();
             $table->softDeletes();

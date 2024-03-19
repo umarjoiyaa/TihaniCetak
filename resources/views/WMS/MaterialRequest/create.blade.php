@@ -94,11 +94,14 @@
                                                         @foreach (old('kertas') as $key => $value)
                                                             <tr>
                                                                 <td><input type='hidden' class="stock_code"
-                                                                        value='{{ $value['stock_code'] }}'
-                                                                        name="kertas[{{ $key }}][stock_code]" /><input
+                                                                        value='{{ $value['product_id'] }}'
+                                                                        name="kertas[{{ $key }}][product_id]" /><input
                                                                         type='hidden' value='{{ $value['group'] }}'
                                                                         class="group"
-                                                                        name="kertas[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                        name="kertas[{{ $key }}][group]" /><input
+                                                                        type="hidden"
+                                                                        name="kertas[{{ $key }}]['stock_code']"
+                                                                        value="{{ $value['stock_code'] }}" />{{ $value['stock_code'] }}
                                                                 </td>
                                                                 <td><input type='hidden'
                                                                         value='{{ $value['description'] }}'
@@ -173,11 +176,14 @@
                                                         @foreach (old('bahan') as $key => $value)
                                                             <tr>
                                                                 <td><input type='hidden' class="stock_code"
-                                                                        value='{{ $value['stock_code'] }}'
-                                                                        name="bahan[{{ $key }}][stock_code]" /><input
+                                                                        value='{{ $value['product_id'] }}'
+                                                                        name="bahan[{{ $key }}][product_id]" /><input
                                                                         type='hidden' value='{{ $value['group'] }}'
                                                                         class="group"
-                                                                        name="bahan[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                        name="bahan[{{ $key }}][group]" /><input
+                                                                        type="hidden"
+                                                                        name="bahan[{{ $key }}]['stock_code']"
+                                                                        value="{{ $value['stock_code'] }}" />{{ $value['stock_code'] }}
                                                                 </td>
                                                                 <td><input type='hidden'
                                                                         value='{{ $value['description'] }}'
@@ -234,11 +240,14 @@
                                                         @foreach (old('wip') as $key => $value)
                                                             <tr>
                                                                 <td><input type='hidden' class="stock_code"
-                                                                        value='{{ $value['stock_code'] }}'
-                                                                        name="wip[{{ $key }}][stock_code]" /><input
+                                                                        value='{{ $value['product_id'] }}'
+                                                                        name="wip[{{ $key }}][product_id]" /><input
                                                                         type='hidden' value='{{ $value['group'] }}'
                                                                         class="group"
-                                                                        name="wip[{{ $key }}][group]" />{{ $value['stock_code'] }}
+                                                                        name="wip[{{ $key }}][group]" /><input
+                                                                        type="hidden"
+                                                                        name="wip[{{ $key }}]['stock_code']"
+                                                                        value="{{ $value['stock_code'] }}" />{{ $value['stock_code'] }}
                                                                 </td>
                                                                 <td><input type='hidden'
                                                                         value='{{ $value['description'] }}'
@@ -302,22 +311,18 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>AA</td>
-                                        <td>Item A</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>BB</td>
-                                        <td>Item B</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
+                                    @foreach ($paper_products as $paper_product)
+                                        <tr>
+                                            <td><input type="checkbox" name="" id=""><input
+                                                    type="hidden" value="{{ $paper_product->id }}" class="stock_code">
+                                            </td>
+                                            <td>{{ $paper_product->item_code }}</td>
+                                            <td>{{ $paper_product->description }}</td>
+                                            <td>{{ $paper_product->group }}</td>
+                                            <td>{{ $paper_product->base_uom }}</td>
+                                            <td>{{ $paper_product->total_used_qty ?? 0 }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -351,22 +356,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>AA</td>
-                                        <td>Item A</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>BB</td>
-                                        <td>Item B</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
+                                    @foreach ($products as $product)
+                                        <tr>
+                                            <td><input type="checkbox" name="" id=""><input
+                                                    type="hidden" value="{{ $product->id }}" class="stock_code"></td>
+                                            <td>{{ $product->item_code }}</td>
+                                            <td>{{ $product->description }}</td>
+                                            <td>{{ $product->group }}</td>
+                                            <td>{{ $product->base_uom }}</td>
+                                            <td>{{ $product->total_used_qty ?? 0 }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -401,22 +401,17 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>AA</td>
-                                        <td>Item A</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
-                                    <tr>
-                                        <td><input type="checkbox" name="" id=""></td>
-                                        <td>BB</td>
-                                        <td>Item B</td>
-                                        <td>Paper</td>
-                                        <td>Unit</td>
-                                        <td>200</td>
-                                    </tr>
+                                    @foreach ($products as $product)
+                                        <tr>
+                                            <td><input type="checkbox" name="" id=""><input
+                                                    type="hidden" value="{{ $product->id }}" class="stock_code"></td>
+                                            <td>{{ $product->item_code }}</td>
+                                            <td>{{ $product->description }}</td>
+                                            <td>{{ $product->group }}</td>
+                                            <td>{{ $product->base_uom }}</td>
+                                            <td>{{ $product->total_used_qty ?? 0 }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -495,6 +490,7 @@
 
                 var checkedRow = $(this).closest('tr');
 
+                var product_id = checkedRow.find('.stock_code').val();
                 var stock_code = checkedRow.find('td:eq(1)').text();
                 var description = checkedRow.find('td:eq(2)').text();
                 var group = checkedRow.find('td:eq(3)').text();
@@ -503,7 +499,7 @@
 
                 var newRow = $(
                     `<tr>
-                    <td><input type='hidden' value='${stock_code}' class="stock_code" name="kertas[${$length}][stock_code]"/><input type='hidden' value='${group}' class="group" name="kertas[${$length}][group]"/>${stock_code}</td>
+                    <td><input type='hidden' value='${product_id}' class="stock_code" name="kertas[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="kertas[${$length}][group]"/><input type="hidden" name="kertas[${$length}][stock_code]" value="${stock_code}"/>${stock_code}</td>
                     <td><input type='hidden' value='${description}' name="kertas[${$length}][description]"/>${description}</td>
                     <td><input type='number' class="form-control" value='' name="kertas[${$length}][grammage]"/></td>
                     <td><input type='number' class="form-control" value='' name="kertas[${$length}][saiz]"/></td>
@@ -530,6 +526,7 @@
             $('#Table1').DataTable().destroy();
 
             var checkedRow = $(this).closest('tr');
+            var product_id = checkedRow.find('.stock_code').val();
             var stock_code = $(checkedRow).find('td:eq(0)').text();
             var description = $(checkedRow).find('td:eq(1)').text();
             var group = $(checkedRow).find('.group').val();
@@ -537,7 +534,7 @@
             var available_quantity = $(checkedRow).find('td:eq(5)').text();
 
             $("#table1 tbody").append(
-                `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
+                `<tr><td><input type='checkbox'><input type="hidden" value="${product_id}" class="stock_code"></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
             );
             $(this).closest('tr').remove();
             $('#table1').dataTable();
@@ -553,6 +550,7 @@
 
                 var checkedRow = $(this).closest('tr');
 
+                var product_id = checkedRow.find('.stock_code').val();
                 var stock_code = checkedRow.find('td:eq(1)').text();
                 var description = checkedRow.find('td:eq(2)').text();
                 var group = checkedRow.find('td:eq(3)').text();
@@ -561,7 +559,7 @@
 
                 var newRow = $(
                     `<tr>
-                    <td><input type='hidden' value='${stock_code}' class="stock_code" name="bahan[${$length}][stock_code]"/><input type='hidden' value='${group}' class="group" name="bahan[${$length}][group]"/>${stock_code}</td>
+                    <td><input type='hidden' value='${product_id}' class="stock_code" name="bahan[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="bahan[${$length}][group]"/><input type="hidden" name="bahan[${$length}][stock_code]" value="${stock_code}"/>${stock_code}</td>
                     <td><input type='hidden' value='${description}' name="bahan[${$length}][description]"/>${description}</td>
                     <td><input type='hidden' value='${uom}' name="bahan[${$length}][uom]"/>${uom}</td>
                     <td><input type='hidden' value='${available_qty}' name="bahan[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
@@ -584,6 +582,7 @@
             $('#Table2').DataTable().destroy();
 
             var checkedRow = $(this).closest('tr');
+            var product_id = checkedRow.find('.stock_code').val();
             var stock_code = $(checkedRow).find('td:eq(0)').text();
             var description = $(checkedRow).find('td:eq(1)').text();
             var group = $(checkedRow).find('.group').val();
@@ -591,7 +590,7 @@
             var available_quantity = $(checkedRow).find('td:eq(3)').text();
 
             $("#table2 tbody").append(
-                `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
+                `<tr><td><input type='checkbox'><input type="hidden" value="${product_id}" class="stock_code"></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
             );
             $(this).closest('tr').remove();
             $('#table2').dataTable();
@@ -607,6 +606,7 @@
 
                 var checkedRow = $(this).closest('tr');
 
+                var product_id = checkedRow.find('.stock_code').val();
                 var stock_code = checkedRow.find('td:eq(1)').text();
                 var description = checkedRow.find('td:eq(2)').text();
                 var group = checkedRow.find('td:eq(3)').text();
@@ -615,7 +615,7 @@
 
                 var newRow = $(
                     `<tr>
-                    <td><input type='hidden' value='${stock_code}' class="stock_code" name="wip[${$length}][stock_code]"/><input type='hidden' value='${group}' class="group" name="wip[${$length}][group]"/>${stock_code}</td>
+                    <td><input type='hidden' value='${product_id}' class="stock_code" name="wip[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="wip[${$length}][group]"/><input type="hidden" name="wip[${$length}][stock_code]" value="${stock_code}"/>${stock_code}</td>
                     <td><input type='hidden' value='${description}' name="wip[${$length}][description]"/>${description}</td>
                     <td><input type='hidden' value='${uom}' name="wip[${$length}][uom]"/>${uom}</td>
                     <td><input type='hidden' value='${available_qty}' name="wip[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
@@ -638,6 +638,7 @@
             $('#Table3').DataTable().destroy();
 
             var checkedRow = $(this).closest('tr');
+            var product_id = checkedRow.find('.stock_code').val();
             var stock_code = $(checkedRow).find('td:eq(0)').text();
             var description = $(checkedRow).find('td:eq(1)').text();
             var group = $(checkedRow).find('.group').val();
@@ -645,7 +646,7 @@
             var available_quantity = $(checkedRow).find('td:eq(3)').text();
 
             $("#table3 tbody").append(
-                `<tr><td><input type='checkbox'></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
+                `<tr><td><input type='checkbox'><input type="hidden" value="${product_id}" class="stock_code"></td><td>${stock_code}</td><td>${description}</td><td>${group}</td><td>${uom}</td><td>${available_quantity}</td></tr>`
             );
             $(this).closest('tr').remove();
             $('#table3').dataTable();
@@ -658,11 +659,11 @@
         $('#additem').click(function() {
             if ($bool) {
                 $('#table1').DataTable().destroy();
-                $("#table1 tbody tr").find("td:eq(1)").each(function() {
+                $("#table1 tbody tr").find(".stock_code").each(function() {
                     let this1 = $(this);
                     $("#Table1 tbody").find(".stock_code").each(function() {
                         let this2 = $(this);
-                        if (this1.text() == this2.val()) {
+                        if (this1.val() == this2.val()) {
                             this1.closest('tr').remove();
                         }
                     });
@@ -677,11 +678,11 @@
         $('#additem1').click(function() {
             if ($bool1) {
                 $('#table2').DataTable().destroy();
-                $("#table2 tbody").find("td:eq(1)").each(function() {
+                $("#table2 tbody").find(".stock_code").each(function() {
                     let this1 = $(this);
                     $("#Table2 tbody").find(".stock_code").each(function() {
                         let this2 = $(this);
-                        if (this1.text() == this2.val()) {
+                        if (this1.val() == this2.val()) {
                             this1.closest('tr').remove();
                         }
                     });
@@ -696,11 +697,11 @@
         $('#additem2').click(function() {
             if ($bool2) {
                 $('#table3').DataTable().destroy();
-                $("#table3 tbody").find("td:eq(1)").each(function() {
+                $("#table3 tbody").find(".stock_code").each(function() {
                     let this1 = $(this);
                     $("#Table3 tbody").find(".stock_code").each(function() {
                         let this2 = $(this);
-                        if (this1.text() == this2.val()) {
+                        if (this1.val() == this2.val()) {
                             this1.closest('tr').remove();
                         }
                     });

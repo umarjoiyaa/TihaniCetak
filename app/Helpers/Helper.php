@@ -353,10 +353,7 @@ class Helper
         $databases = [
             'Product' => [
                 'Product List',
-                'Product Create',
-                'Product Update',
                 'Product View',
-                'Product Delete',
             ],
             'UOM' => [
                 'UOM List',

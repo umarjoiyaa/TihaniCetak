@@ -10,8 +10,8 @@ class MaterialRequestD extends Model
 {
     use HasFactory, SoftDeletes;
 
-    public function manage_transfer_d()
+    public function products()
     {
-        return $this->belongsTo(ManageTransferD::class, 'stock_code', 'stock_code');
+        return $this->belongsTo(Product::class, 'product_id', 'id');
     }
 }

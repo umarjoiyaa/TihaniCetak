@@ -7,6 +7,7 @@ use App\Models\AreaLevel;
 use App\Models\AreaShelf;
 use App\Models\GoodReceiving;
 use App\Models\GoodReceivingProduct;
+use App\Models\Product;
 use App\Models\SaleOrder;
 use App\Models\Supplier;
 use Illuminate\Database\Seeder;
@@ -105,6 +106,34 @@ class CreateAdminUserSeeder extends Seeder
             'approval_status' => 'published',
         ]);
 
+        Product::create([
+            'item_code' => 'AA',
+            'description' => 'ITEM A',
+            'group' => 'PAPERS',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'BB',
+            'description' => 'ITEM B',
+            'group' => 'SEMI FG',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'CC',
+            'description' => 'ITEM C',
+            'group' => 'RAW MATERIAL',
+            'base_uom' => 'UNITS'
+        ]);
+
+        Product::create([
+            'item_code' => 'DD',
+            'description' => 'ITEM D',
+            'group' => 'PAPERS',
+            'base_uom' => 'UNITS'
+        ]);
+
         Supplier::create([
             'name' => 'Supplier A',
             'code' => 'SPA'
@@ -132,18 +161,14 @@ class CreateAdminUserSeeder extends Seeder
 
         GoodReceivingProduct::create([
             'receiving_id' => $good_receiving->id,
-            'item_code' => 'AA',
-            'description' => 'Item A',
-            'uom' => 'Unit',
+            'product_id' => 1,
             'quantity' => 200,
             'delivery_date' => '20-03-2024',
         ]);
 
         GoodReceivingProduct::create([
             'receiving_id' => $good_receiving->id,
-            'item_code' => 'BB',
-            'description' => 'Item B',
-            'uom' => 'Unit',
+            'product_id' => 3,
             'quantity' => 200,
             'delivery_date' => '20-03-2024',
         ]);

@@ -24,4 +24,9 @@ class Location extends Model
     {
         return $this->belongsTo(AreaLevel::class, 'level_id', 'id');
     }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

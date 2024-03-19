@@ -15,10 +15,8 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('material_id')->nullable();
             $table->foreign('material_id')->references('id')->on('material_requests')->nullable();
-            $table->string('stock_code')->nullable();
-            $table->string('group')->nullable();
-            $table->string('description')->nullable();
-            $table->string('uom')->nullable();
+            $table->unsignedBigInteger('product_id')->nullable();
+            $table->foreign('product_id')->references('id')->on('products')->nullable();
             $table->string('available_qty')->nullable();
             $table->string('request_qty')->nullable();
             $table->softDeletes();

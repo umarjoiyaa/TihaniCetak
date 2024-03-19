@@ -283,9 +283,9 @@ class ManageTransferController extends Controller
 
     public function ref(Request $request){
         $material = MaterialRequest::where('id', '=', $request->id)->with('sale_order', 'user')->first();
-        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->with('manage_transfer_b')->get();
-        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->with('manage_transfer_c')->get();
-        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->with('manage_transfer_d')->get();
+        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->with('products', 'uoms')->get();
+        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->with('products')->get();
+        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->with('products')->get();
         return response()->json(['material' => $material, 'material_b' => $material_b, 'material_c' => $material_c, 'material_d' => $material_d]);
     }
 
@@ -322,7 +322,7 @@ class ManageTransferController extends Controller
         foreach($request->kertas as $value){
             $manage_transfer_detail_b = new ManageTransferB();
             $manage_transfer_detail_b->transfer_id = $manage_transfer->id;
-            $manage_transfer_detail_b->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_b->product_id = $value['product_id'] ?? null;
             $manage_transfer_detail_b->previous_qty = $value['previous_qty'] ?? 0;
             $manage_transfer_detail_b->balance_qty = $value['balance_qty'] ?? 0;
             $manage_transfer_detail_b->transfer_qty = $value['transfer_qty'] ?? 0;
@@ -334,7 +334,7 @@ class ManageTransferController extends Controller
         foreach($request->bahan as $value){
             $manage_transfer_detail_c = new ManageTransferC();
             $manage_transfer_detail_c->transfer_id = $manage_transfer->id;
-            $manage_transfer_detail_c->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_c->product_id = $value['product_id'] ?? null;
             $manage_transfer_detail_c->previous_qty = $value['previous_qty'] ?? 0;
             $manage_transfer_detail_c->balance_qty = $value['balance_qty'] ?? 0;
             $manage_transfer_detail_c->transfer_qty = $value['transfer_qty'] ?? 0;
@@ -346,7 +346,7 @@ class ManageTransferController extends Controller
         foreach($request->wip as $value){
             $manage_transfer_detail_d = new ManageTransferD();
             $manage_transfer_detail_d->transfer_id = $manage_transfer->id;
-            $manage_transfer_detail_d->stock_code = $value['stock_code'] ?? null;
+            $manage_transfer_detail_d->product_id = $value['product_id'] ?? null;
             $manage_transfer_detail_d->previous_qty = $value['previous_qty'] ?? 0;
             $manage_transfer_detail_d->balance_qty = $value['balance_qty'] ?? 0;
             $manage_transfer_detail_d->transfer_qty = $value['transfer_qty'] ?? 0;
@@ -361,7 +361,7 @@ class ManageTransferController extends Controller
             if($value['tableId'] == 1){
                 $detail = new ManageTransferLocation1();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->product_id = $value['stock_code'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -370,7 +370,7 @@ class ManageTransferController extends Controller
             } else if($value['tableId'] == 2){
                 $detail = new ManageTransferLocation2();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->product_id = $value['stock_code'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -379,7 +379,7 @@ class ManageTransferController extends Controller
             } else if($value['tableId'] == 3){
                 $detail = new ManageTransferLocation3();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->stock_code = $value['stock_code'] ?? null;
+                $detail->product_id = $value['stock_code'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -387,7 +387,7 @@ class ManageTransferController extends Controller
                 $detail->save();
             }
 
-            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('item_code', '=', $value['stock_code'])->where('description', '=', $value['description'])->first();
+            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['stock_code'])->first();
             $location->used_qty -= (int)$value['transfer_qty'];
             $location->save();
         }

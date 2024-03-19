@@ -6,7 +6,6 @@ use App\Helpers\Helper;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -21,14 +20,14 @@ class ProductController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Product::select('id', 'code', 'description', 'group', 'base_uom')->where('created_by', '=', Auth::user()->id);
+            $query = Product::select('id', 'item_code', 'description', 'group', 'base_uom');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
-                        ->where('code', 'like', '%' . $searchLower . '%')
+                        ->where('item_code', 'like', '%' . $searchLower . '%')
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhere('group', 'like', '%' . $searchLower . '%')
                         ->orWhere('base_uom', 'like', '%' . $searchLower . '%');
@@ -40,7 +39,7 @@ class ProductController extends Controller
 
             if (!empty($columnsData)) {
                 $sortableColumns = [
-                    1 => 'code',
+                    1 => 'item_code',
                     2 => 'description',
                     3 => 'group',
                     4 => 'base_uom',
@@ -65,7 +64,7 @@ class ProductController extends Controller
 
                         switch ($column['index']) {
                             case 1:
-                                $q->where('code', 'like', '%' . $searchLower . '%');
+                                $q->where('item_code', 'like', '%' . $searchLower . '%');
                                 break;
                             case 2:
                                 $q->where('description', 'like', '%' . $searchLower . '%');
@@ -100,9 +99,7 @@ class ProductController extends Controller
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
-                    <a class="dropdown-item" href="' . route('product.edit', $row->id) . '">Edit</a>
                     <a class="dropdown-item" href="' . route('product.view', $row->id) . '">View</a>
-                    <a class="dropdown-item" id="swal-warning" data-delete="' . route('product.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
                 $index++;
@@ -128,14 +125,14 @@ class ProductController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = Product::select('id', 'code', 'description', 'group', 'base_uom')->where('created_by', '=', Auth::user()->id);
+            $query = Product::select('id', 'item_code', 'description', 'group', 'base_uom');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
                 $searchLower = strtolower($search);
                 $query->where(function ($q) use ($searchLower) {
                     $q
-                        ->where('code', 'like', '%' . $searchLower . '%')
+                        ->where('item_code', 'like', '%' . $searchLower . '%')
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhere('group', 'like', '%' . $searchLower . '%')
                         ->orWhere('base_uom', 'like', '%' . $searchLower . '%');
@@ -144,7 +141,7 @@ class ProductController extends Controller
             }
 
             $sortableColumns = [
-                1 => 'code',
+                1 => 'item_code',
                 2 => 'description',
                 3 => 'group',
                 4 => 'base_uom',
@@ -173,9 +170,7 @@ class ProductController extends Controller
                     <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                     data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                     <div  class="dropdown-menu tx-13">
-                        <a class="dropdown-item" href="' . route('product.edit', $row->id) . '">Edit</a>
                         <a class="dropdown-item" href="' . route('product.view', $row->id) . '">View</a>
-                        <a class="dropdown-item" id="swal-warning" data-delete="' . route('product.delete', $row->id) . '">Delete</a>
                     </div>
                 </div>';
             });
@@ -202,57 +197,6 @@ class ProductController extends Controller
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
-    public function create()
-    {
-        if (!Auth::user()->hasPermissionTo('Product Create')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        Helper::logSystemActivity('Product', 'Product Create');
-        return view('Setting.Product.Create');
-    }
-    public function store(Request $request)
-    {
-        if (!Auth::user()->hasPermissionTo('Product Create')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $validator = null;
-
-        $validatedData = $request->validate([
-            'code' => [
-                'required',
-                Rule::unique('products', 'code')->whereNull('deleted_at'),
-            ],
-            'description' => 'required',
-            'group' => 'required',
-            'base_uom' => 'required'
-        ]);
-
-        // If validations fail
-        if (!$validatedData) {
-            return redirect()->back()
-                ->withErrors($validator)->withInput();
-        }
-
-        $Product = new Product();
-        $Product->code = $request->code;
-        $Product->description = $request->description;
-        $Product->group = $request->group;
-        $Product->base_uom = $request->base_uom;
-        $Product->created_by = Auth::user()->id;
-        $Product->save();
-        Helper::logSystemActivity('Product', 'Product Store');
-        return redirect()->route('product')->with('custom_success', 'Product has been Created Successfully !');
-    }
-
-    public function edit($id)
-    {
-        if (!Auth::user()->hasPermissionTo('Product Update')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $product = Product::find($id);
-        Helper::logSystemActivity('Product', 'Product Edit');
-        return view('Setting.Product.Edit', compact('product'));
-    }
 
     public function view($id)
     {
@@ -264,49 +208,4 @@ class ProductController extends Controller
         return view('Setting.Product.View', compact('product'));
     }
 
-    public function update(Request $request, $id)
-    {
-        if (!Auth::user()->hasPermissionTo('Product Update')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $validator = null;
-
-        $validatedData = $request->validate([
-            'code' => [
-                'required',
-                Rule::unique('products', 'code')->whereNull('deleted_at'),
-            ],
-            'description' => 'required',
-            'group' => 'required',
-            'base_uom' => 'required'
-        ]);
-
-        // If validations fail
-        if (!$validatedData) {
-            return redirect()->back()
-                ->withErrors($validator)->withInput();
-        }
-
-        $Product = Product::find($id);
-        $Product->code = $request->code;
-        $Product->description = $request->description;
-        $Product->group = $request->group;
-        $Product->base_uom = $request->base_uom;
-        $Product->created_by = Auth::user()->id;
-        $Product->save();
-        Helper::logSystemActivity('Product', 'Product Update');
-        return redirect()->route('product')->with('custom_success', 'Product has been Updated Successfully !');
-    }
-
-
-    public function delete($id)
-    {
-        if (!Auth::user()->hasPermissionTo('Product Delete')) {
-            return back()->with('custom_errors', 'You don`t have Right Permission');
-        }
-        $Product = Product::find($id);
-        $Product->delete();
-        Helper::logSystemActivity('Product', 'Product Delete');
-        return redirect()->route('product')->with('custom_success', 'Product has been Deleted Successfully !');
-    }
 }
