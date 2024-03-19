@@ -248,18 +248,18 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
+                            <div class="row">
                                 <div class="col-md-12">
                                     <h4><b>Nota :</b></h4>
                                     <div class="row">
-                                        <div class="col-md-1"><div style="background:wheat; width:70px; height:20px;"></div></div>
+                                        <div class="col-md-1"><div style="background:wheat; width:50px; height:20px;"></div></div>
                                         <div class="col-md-11" style="margin-left:-40px;">
                                             <span>Pemeriksaan hanya dilakukan sekali semasa pengesahan 1st piece dan tidak perlu dilakukan semasa proses</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                    </div>
                 </div>
             </div>
             <a href="{{ route('laporan_pemeriksaan_kualiti_penjilidan_saddle') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>

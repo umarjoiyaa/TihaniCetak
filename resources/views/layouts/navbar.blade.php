@@ -28,16 +28,12 @@
       }
 
       @media screen and (max-width:992px) {
-        .main-right{
-          display:block;
-          /* margin-inline:auto; */
-          float:right;
-        }
-        form{
+        
+        #form{
           display:none;
         }
         nav{
-          display: block !important;
+          display: none !important;
         }
         .abcd{
           display:none;
@@ -57,6 +53,16 @@
         }
         .dropdown-item{
           font-size:13px;
+        }
+      }
+      @media screen and (max-width:991px){
+        nav{
+          display:block !important;
+        }
+        .main-right{
+          display:block;
+          /* margin-inline:auto; */
+          float:right;
         }
       }
      @media screen and (max-width:907px){
@@ -152,7 +158,7 @@
         </button>
                         <div class="main-header-right main-right ">
                             <div class="nav nav-item  navbar-nav-right ml-auto">
-                                <form class="navbar-form nav-item my-auto d-lg-none" role="search">
+                                <form id="form" class="navbar-form nav-item my-auto d-lg-none" role="search">
                                     <div class="input-group nav-item my-auto">
                                         <input type="text" class="form-control" placeholder="Search">
                                         <span class="input-group-btn">
