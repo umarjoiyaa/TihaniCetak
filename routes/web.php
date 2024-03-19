@@ -46,7 +46,7 @@ use App\Http\Controllers\RekodSerahanPlateController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
 use App\Http\Controllers\ShopFloorController;
-use App\Http\Controllers\Stock_InController;
+use App\Http\Controllers\StockInController;
 use App\Http\Controllers\Stock_Transfer_locationController;
 use App\Http\Controllers\Stock_TransferController;
 use App\Http\Controllers\StockCard_ReportController;
@@ -709,9 +709,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/manage-transfer/delete/{id}', [ManageTransferController::class, 'delete'])->name('manage_transfer.delete');
 
     // Stock In
-    Route::get('/WMS/Stock_in', [Stock_InController::class, 'index'])->name('Stock_in');
-    Route::get('/WMS/Stock_in/view', [Stock_InController::class, 'view'])->name('Stock_in.view');
-    Route::get('/WMS/Stock_in/Create', [Stock_InController::class, 'Create'])->name('Stock_in.create');
+    Route::get('/WMS/stock-in', [StockInController::class, 'index'])->name('stock_in');
+    Route::get('/WMS/stock-in/data', [StockInController::class, 'Data'])->name('stock_in.data');
+    Route::get('/WMS/stock-in/Create', [StockInController::class, 'create'])->name('stock_in.create');
+    Route::post('/WMS/stock-in/store', [StockInController::class, 'store'])->name('stock_in.store');
+    Route::get('/WMS/stock-in/edit/{id}', [StockInController::class, 'edit'])->name('stock_in.edit');
+    Route::get('/WMS/stock-in/view/{id}', [StockInController::class, 'view'])->name('stock_in.view');
+    Route::post('/WMS/stock-in/update/{id}', [StockInController::class, 'update'])->name('stock_in.update');
+    Route::get('/WMS/stock-in/delete/{id}', [StockInController::class, 'delete'])->name('stock_in.delete');
 
     // Stock Transfer
     Route::get('/WMS/Stock_Transfer', [Stock_TransferController::class, 'index'])->name('Stock_Transfer');
