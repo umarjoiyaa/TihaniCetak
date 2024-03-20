@@ -106,8 +106,8 @@
                                             </tr>
                                             <tr>
                                                 <td>Saiz spine (perfect bind)</td>
-                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok')value="ok" id=""></td>
-                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng')value="ng" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ok') value="ok" id=""></td>
+                                                <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'ng') value="ng" id=""></td>
                                                 <td><input type="checkbox" class="Text2" onchange="handleCheckboxChange('Text2',this)" name="file_artwork_4" @checked($pod->file_artwork_4 == 'na') value="na" id=""></td>
                                             </tr>
                                             <tr>

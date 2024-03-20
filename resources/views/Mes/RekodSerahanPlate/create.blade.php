@@ -112,7 +112,7 @@
                                 <div class="col-md-4 ">
                                     <div class="form-group">
                                         <label for="">Status Job</label>
-                                        <input type="text" readonly id="status" class="form-control">
+                                        <input type="text" readonly id="status" name="status" class="form-control">
                                     </div>
                                 </div>
 

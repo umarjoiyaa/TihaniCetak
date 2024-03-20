@@ -335,15 +335,16 @@
                         </div>
                     </div>
 
-                    <div class="row d-flex justify-content-end">
-                                    <div class="col-md-12 d-flex justify-content-end">
-                                        <button class="btn btn-primary button1" type="submit"> Verify</button>
+                    <div class="row d-flex justify-content-end flex-row-reverse">
+                        <div class="col-md-12 d-flex  flex-row-reverse">
+
+                                        <button class="btn btn-primary button1 mx-2" type="submit"> Verify</button>
                             </form>
                             <form
                                 action="{{ route('laporan_proses_penjilidan_saddle.approve.decline', $laporan_proses_penjilidan_saddle->id) }}"
                                 method="POST" enctype="multipart/form-data">
                                 @csrf
-                                <button class="btn btn-danger" style="margin-left:-170px;" type="submit">Decline</button>
+                                <button class="btn btn-danger"  type="submit">Decline</button>
                             </form>
                         </div>
                     </div>

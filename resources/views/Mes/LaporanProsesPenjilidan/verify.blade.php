@@ -286,7 +286,7 @@
                                 </div>
 
 
-                                
+
                                 <div class="col-md-12">
                                     <form
                                         action="{{ route('laporan_proses_penjilidan.approve.approve', $laporan_proses_penjilidan->id) }}"
@@ -342,30 +342,35 @@
                                                         </td>
                                                         <td><input type="text" name="semasa[{{$detail->id}}][8]"
                                                                 class="verify_operator form-control" style="width:340px" readonly></td>
-                                                        
+
                                                     </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
-                                        
+
                                 </div>
                             </div>
                         </div>
                     </div>
-                                        
-                    <div class="row d-flex justify-content-end">
-                        <div class="col-md-12 d-flex justify-content-end">
 
-                                        <button class="btn btn-primary button" type="submit"> Verify</button>
+                    <div class="row d-flex justify-content-end flex-row-reverse">
+                        <div class="col-md-12 d-flex  flex-row-reverse">
+
+
+
+
+
+                                        <button class="btn btn-primary button mx-2" type="submit"> Verify</button>
                             </form>
-                           
+
                             <form
-                                action="{{ route('laporan_proses_penjilidan.approve.decline', $laporan_proses_penjilidan->id) }}"
-                                method="POST" enctype="multipart/form-data">
-                                @csrf
-                                <button class="btn btn-danger" style="margin-left: -170px" type="submit">Decline</button>
-                            </form>
+                            action="{{ route('laporan_proses_penjilidan.approve.decline', $laporan_proses_penjilidan->id) }}"
+                            method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <button class="btn btn-danger" style="" type="submit">Decline</button>
+                        </form>
+
 
 
                         </div>

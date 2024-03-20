@@ -41,7 +41,7 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Sales Order No.</div>
                                             <input type="text" value="{{ $rekod_serahan_plate->sale_order->order_no }}"
