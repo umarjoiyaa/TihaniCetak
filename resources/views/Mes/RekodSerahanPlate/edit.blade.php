@@ -45,7 +45,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="form-label">Sales Order No.</div>
                                                 <select name="sale_order"
@@ -67,7 +67,7 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-md-4 OtherSection " style="display: none" >
+                                        <div class="col-md-4 OtherSection mt-3" style="display: none" >
                                             <div class="form-label">Other (Input)</div>
                                             <input type="text" placeholder="User Input" value="{{ $rekod_serahan_plate->user_input }}" name="user_input" id=""
                                                 class="form-control">
@@ -101,7 +101,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <label for="">status Job</label>
-                                                <input type="text" readonly id="status" class="form-control">
+                                                <input type="text" readonly id="status" name="status" class="form-control">
                                             </div>
                                         </div>
 
@@ -130,7 +130,7 @@
                                                         id="" value="ok">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover1"
-                                                onchange="handleCheckboxChange('Cover1',this)" @checked($rekod_serahan_plate->dummy_lipat == 'ng') name="dummy_lipat"
+                                                onchange="handleCheckboxChange('Cover1',this)"  @checked($rekod_serahan_plate->dummy_lipat == 'ng') @if($rekod_serahan_plate->dummy_lipat == null) checked @endif name="dummy_lipat"
                                                         value="ng" id=""></td>
                                             </tr>
                                             <tr>
@@ -140,7 +140,7 @@
                                                         id="" value="ok">
                                                 </td>
                                                 <td><input type="checkbox" class="Cover2"
-                                                onchange="handleCheckboxChange('Cover2',this)" @checked($rekod_serahan_plate->sample == 'ng') name="sample"
+                                                onchange="handleCheckboxChange('Cover2',this)" @checked($rekod_serahan_plate->sample == 'ng') @if($rekod_serahan_plate->sample == null) checked @endif name="sample"
                                                         id="" value="ng"></td>
                                             </tr>
                                         </tbody>

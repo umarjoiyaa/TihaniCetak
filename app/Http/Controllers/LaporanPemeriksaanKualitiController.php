@@ -360,16 +360,16 @@ class LaporanPemeriksaanKualitiController extends Controller
         $laporan_pemeriksaan_kualiti->time = $timeIn12HourFormat;
         $laporan_pemeriksaan_kualiti->created_by = Auth::user()->id;
 
-        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no;
+        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
         $laporan_pemeriksaan_kualiti->mesin = $request->mesin;
         $laporan_pemeriksaan_kualiti->jenis = $request->jenis;
 
-        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6;
+        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3 == null ? '' : $request->b_3;
+        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4 == null ? '' : $request->b_4;
+        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5 == null ? '' : $request->b_5;
+        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6 == null ? '' : $request->b_6;
 
         $laporan_pemeriksaan_kualiti->status = 'checked';
         $laporan_pemeriksaan_kualiti->save();
@@ -425,16 +425,16 @@ class LaporanPemeriksaanKualitiController extends Controller
         $laporan_pemeriksaan_kualiti->time = $timeIn12HourFormat;
         $laporan_pemeriksaan_kualiti->created_by = Auth::user()->id;
 
-        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no;
+        $laporan_pemeriksaan_kualiti->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
         $laporan_pemeriksaan_kualiti->mesin = $request->mesin;
         $laporan_pemeriksaan_kualiti->jenis = $request->jenis;
 
-        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6;
+        $laporan_pemeriksaan_kualiti->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $laporan_pemeriksaan_kualiti->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $laporan_pemeriksaan_kualiti->b_3 = $request->b_3 == null ? '' : $request->b_3;
+        $laporan_pemeriksaan_kualiti->b_4 = $request->b_4 == null ? '' : $request->b_4;
+        $laporan_pemeriksaan_kualiti->b_5 = $request->b_5 == null ? '' : $request->b_5;
+        $laporan_pemeriksaan_kualiti->b_6 = $request->b_6 == null ? '' : $request->b_6;
 
         $laporan_pemeriksaan_kualiti->status = 'checked';
         $laporan_pemeriksaan_kualiti->save();

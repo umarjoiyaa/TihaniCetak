@@ -361,15 +361,15 @@ class PengumpulanGatheringController extends Controller
         $pengumpulan_gathering->time = $timeIn12HourFormat;
         $pengumpulan_gathering->created_by = Auth::user()->id;
 
-        $pengumpulan_gathering->seksyen_no = $request->seksyen_no;
+        $pengumpulan_gathering->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
 
-        $pengumpulan_gathering->b_1 = $request->b_1;
-        $pengumpulan_gathering->b_2 = $request->b_2;
-        $pengumpulan_gathering->b_3 = $request->b_3;
-        $pengumpulan_gathering->b_4 = $request->b_4;
-        $pengumpulan_gathering->b_5 = $request->b_5;
-        $pengumpulan_gathering->b_6 = $request->b_6;
-        $pengumpulan_gathering->b_7 = $request->b_7;
+        $pengumpulan_gathering->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $pengumpulan_gathering->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $pengumpulan_gathering->b_3 = $request->b_3 == null ? '' : $request->b_3;
+        $pengumpulan_gathering->b_4 = $request->b_4 == null ? '' : $request->b_4;
+        $pengumpulan_gathering->b_5 = $request->b_5 == null ? '' : $request->b_5;
+        $pengumpulan_gathering->b_6 = $request->b_6 == null ? '' : $request->b_6;
+        $pengumpulan_gathering->b_7 = $request->b_7 == null ? '' : $request->b_7;
 
         $pengumpulan_gathering->status = 'checked';
         $pengumpulan_gathering->save();
@@ -426,15 +426,15 @@ class PengumpulanGatheringController extends Controller
         $pengumpulan_gathering->time = $timeIn12HourFormat;
         $pengumpulan_gathering->created_by = Auth::user()->id;
 
-        $pengumpulan_gathering->seksyen_no = $request->seksyen_no;
+        $pengumpulan_gathering->seksyen_no = $request->seksyen_no == null ? '' : $request->seksyen_no;
 
-        $pengumpulan_gathering->b_1 = $request->b_1;
-        $pengumpulan_gathering->b_2 = $request->b_2;
-        $pengumpulan_gathering->b_3 = $request->b_3;
-        $pengumpulan_gathering->b_4 = $request->b_4;
-        $pengumpulan_gathering->b_5 = $request->b_5;
-        $pengumpulan_gathering->b_6 = $request->b_6;
-        $pengumpulan_gathering->b_7 = $request->b_7;
+        $pengumpulan_gathering->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $pengumpulan_gathering->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $pengumpulan_gathering->b_3 = $request->b_3 == null ? '' : $request->b_3;
+        $pengumpulan_gathering->b_4 = $request->b_4 == null ? '' : $request->b_4;
+        $pengumpulan_gathering->b_5 = $request->b_5 == null ? '' : $request->b_5;
+        $pengumpulan_gathering->b_6 = $request->b_6 == null ? '' : $request->b_6;
+        $pengumpulan_gathering->b_7 = $request->b_7 == null ? '' : $request->b_7;
 
         $pengumpulan_gathering->status = 'checked';
         $pengumpulan_gathering->save();

@@ -121,28 +121,16 @@ class PlateCetakController extends Controller
                                 $q->where('machine', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
-                                $q->where(function ($query) use ($searchLower) {
-                                    $query->where('section', 'like', '%' . $searchLower . '%')
-                                          ->orWhereNull('section');
-                                });
+                                $q->where('section', 'like', '%' . $searchLower . '%');
                                 break;
                             case 10:
-                                $q->where(function($query) use ($searchLower) {
-                                    $query->where('warna_7', 'like', '%' . $searchLower . '%')
-                                          ->orWhereNull('warna_7');
-                                });
+                                $q->where('warna_7', 'like', '%' . $searchLower . '%');
                                 break;
                             case 11:
-                                $q->where(function($query) use ($searchLower) {
-                                    $query->where('warna_8', 'like', '%' . $searchLower . '%')
-                                          ->orWhereNull('warna_8');
-                                });
+                                $q->where('warna_8', 'like', '%' . $searchLower . '%');
                                 break;
                             case 12:
-                                $q->where(function($query) use ($searchLower) {
-                                    $query->where('warna_9', 'like', '%' . $searchLower . '%')
-                                          ->orWhereNull('warna_9');
-                                });
+                                $q->where('warna_9', 'like', '%' . $searchLower . '%');
                                 break;
                             case 16:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
@@ -413,7 +401,7 @@ class PlateCetakController extends Controller
         $plate_cetak->time = $timeIn12HourFormat;
         $plate_cetak->created_by = Auth::user()->id;
         $plate_cetak->machine = $request->machine;
-        $plate_cetak->section = $request->section;
+        $plate_cetak->section = $request->section == null ? 0 : $request->section ;
         $plate_cetak->section_plate = $request->section_plate;
 
         $plate_cetak->warna_1 = $request->warna_1;
@@ -422,9 +410,9 @@ class PlateCetakController extends Controller
         $plate_cetak->warna_4 = $request->warna_4;
         $plate_cetak->warna_5 = $request->warna_5;
         $plate_cetak->warna_6 = $request->warna_6;
-        $plate_cetak->warna_7 = $request->warna_7;
-        $plate_cetak->warna_8 = $request->warna_8;
-        $plate_cetak->warna_9 = $request->warna_9;
+        $plate_cetak->warna_7 = $request->warna_7 == null ? '' : $request->warna_7;
+        $plate_cetak->warna_8 = $request->warna_8 == null ? '' : $request->warna_8;
+        $plate_cetak->warna_9 = $request->warna_9 == null ? '' : $request->warna_9;
         $plate_cetak->warna_10 = $request->warna_10;
         $plate_cetak->warna_11 = $request->warna_11;
         $plate_cetak->warna_12 = $request->warna_12;
@@ -484,7 +472,7 @@ class PlateCetakController extends Controller
         $plate_cetak->time = $timeIn12HourFormat;
         $plate_cetak->created_by = Auth::user()->id;
         $plate_cetak->machine = $request->machine;
-        $plate_cetak->section = $request->section;
+        $plate_cetak->section = $request->section == null ? 0 : $request->section ;
         $plate_cetak->section_plate = $request->section_plate;
 
         $plate_cetak->warna_1 = $request->warna_1;
@@ -493,9 +481,9 @@ class PlateCetakController extends Controller
         $plate_cetak->warna_4 = $request->warna_4;
         $plate_cetak->warna_5 = $request->warna_5;
         $plate_cetak->warna_6 = $request->warna_6;
-        $plate_cetak->warna_7 = $request->warna_7;
-        $plate_cetak->warna_8 = $request->warna_8;
-        $plate_cetak->warna_9 = $request->warna_9;
+        $plate_cetak->warna_7 = $request->warna_7 == null ? '' : $request->warna_7;
+        $plate_cetak->warna_8 = $request->warna_8 == null ? '' : $request->warna_8;
+        $plate_cetak->warna_9 = $request->warna_9 == null ? '' : $request->warna_9;
         $plate_cetak->warna_10 = $request->warna_10;
         $plate_cetak->warna_11 = $request->warna_11;
         $plate_cetak->warna_12 = $request->warna_12;

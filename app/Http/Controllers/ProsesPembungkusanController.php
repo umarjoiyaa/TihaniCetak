@@ -355,13 +355,13 @@ class ProsesPembungkusanController extends Controller
         $proses_pembungkusan->date = $request->date;
         $proses_pembungkusan->time = $timeIn12HourFormat;
         $proses_pembungkusan->machine = $request->machine;
-        $proses_pembungkusan->kategori = $request->kategori;
+        $proses_pembungkusan->kategori = $request->kategori == null ? '' : $request->kategori  ;
         $proses_pembungkusan->created_by = Auth::user()->id;
 
-        $proses_pembungkusan->checklist_1 = $request->checklist_1;
-        $proses_pembungkusan->checklist_2 = $request->checklist_2;
-        $proses_pembungkusan->checklist_3 = $request->checklist_3;
-        $proses_pembungkusan->checklist_4 = $request->checklist_4;
+        $proses_pembungkusan->checklist_1 = $request->checklist_1 == null ? '' : $request->checklist_1;
+        $proses_pembungkusan->checklist_2 = $request->checklist_2 == null ? '' : $request->checklist_2;
+        $proses_pembungkusan->checklist_3 = $request->checklist_3 == null ? '' : $request->checklist_3;
+        $proses_pembungkusan->checklist_4 = $request->checklist_4 == null ? '' : $request->checklist_4;
 
 
         $proses_pembungkusan->status = 'checked';
@@ -402,7 +402,7 @@ class ProsesPembungkusanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            
+
         ]);
 
         // If validations fail
@@ -421,11 +421,12 @@ class ProsesPembungkusanController extends Controller
         $proses_pembungkusan->time = $timeIn12HourFormat;
         $proses_pembungkusan->machine = $request->machine;
         $proses_pembungkusan->created_by = Auth::user()->id;
-        $proses_pembungkusan->kategori = $request->kategori;
-        $proses_pembungkusan->checklist_1 = $request->checklist_1;
-        $proses_pembungkusan->checklist_2 = $request->checklist_2;
-        $proses_pembungkusan->checklist_3 = $request->checklist_3;
-        $proses_pembungkusan->checklist_4 = $request->checklist_4;
+        $proses_pembungkusan->kategori = $request->kategori == null ? '' : $request->kategori  ;
+
+        $proses_pembungkusan->checklist_1 = $request->checklist_1 == null ? '' : $request->checklist_1;
+        $proses_pembungkusan->checklist_2 = $request->checklist_2 == null ? '' : $request->checklist_2;
+        $proses_pembungkusan->checklist_3 = $request->checklist_3 == null ? '' : $request->checklist_3;
+        $proses_pembungkusan->checklist_4 = $request->checklist_4 == null ? '' : $request->checklist_4;
 
 
         $proses_pembungkusan->status = 'checked';
