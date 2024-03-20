@@ -16413,7 +16413,7 @@ video {
 }
 @media (max-width: 576px) {
   .horizontalMenucontainer .responsive.main-header {
-    margin-top: 70px;
+    margin-top: 550px;
     position: absolute;
   }
 }
