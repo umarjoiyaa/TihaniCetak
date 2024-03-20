@@ -356,11 +356,12 @@
                         </div>
 
 
+
+
                             <div class="row mt-5">
                                 <div class="col-md-12">
                                     <h3><b>Verified By</b></h3>
                                 </div>
-                                <div class="col-md-12">
                                     <table class="table table-bordered">
                                         <thead>
                                             <tr>
@@ -379,7 +380,6 @@
                                             </tr>
                                         </tbody>
                                     </table>
-                                </div>
                             </div>
                         </div>
                     </div>

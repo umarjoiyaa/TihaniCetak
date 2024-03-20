@@ -32,7 +32,7 @@
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-md-4">
+                                    <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Sales Order No.</div>
                                             <input type="text" value="{{ $kulit_buku->sale_order->order_no }}"

@@ -241,14 +241,15 @@
 
                             </div>
                         </div>
-                        <div class="row d-flex justify-content-end mt-3">
-                            <div class="col-md-12 d-flex justify-content-end">
-                                <button class="btn btn-primary button1" type="submit"> Verify</button>
+                        <div class="row d-flex justify-content-end flex-row-reverse mt-3">
+                            <div class="col-md-12 d-flex flex-row-reverse">
+
+                                <button class="btn btn-primary button1 mx-2" type="submit"> Verify</button>
                     </form>
                     <form action="{{ route('laporan_proses_lipat.approve.decline', $laporan_proses_lipat->id) }}"
                         method="POST" enctype="multipart/form-data">
                         @csrf
-                        <button class="btn btn-danger " type="submit" style="margin-left:-170px;">Decline</button>
+                        <button class="btn btn-danger " type="submit" >Decline</button>
                     </form>
                 </div>
             </div>
