@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - POD</b></h5>
-                            <p class="float-right">TCBS-B23 (Rev.5)</p>
+                            <p class="float-right">TCSB-B23 (Rev.5)</p>
                         </div>
                     </div>
 

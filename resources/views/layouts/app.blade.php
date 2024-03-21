@@ -63,7 +63,8 @@
                 text-align:left;
         }
         .check_operator_text,
-
+        .check_operator,
+        .verify_operator,
         .check_verify_text {
             width: 340px !important;
         }
@@ -765,7 +766,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Manage Transfer</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('stock_in') }}"
+                                                                        href="{{ route('Stock_in') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

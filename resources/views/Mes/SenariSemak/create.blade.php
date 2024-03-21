@@ -16,7 +16,7 @@
                                <div class="row">
                                 <div class="col-md-12">
                                     <h5 class="float-left"><b>Senarai Semak Pencetakan Digital</b></h5>
-                                    <p class="float-right">TCSB-BO4(Rev.11)</p>
+                                    <p class="float-right">TCSB-BO4 (Rev.11)</p>
                                 </div>
                                </div>
 
