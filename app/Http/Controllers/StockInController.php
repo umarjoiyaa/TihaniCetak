@@ -321,14 +321,18 @@ class StockInController extends Controller
             if ($location) {
                 $location->used_qty += (int)$detail->qty;
             } else {
-                $location = new Location();
-                $location->area_id = $detail->area_id;
-                $location->shelf_id = $detail->shelf_id;
-                $location->level_id = $detail->level_id;
-                $location->product_id = $detail->product_id;
-                $location->used_qty = (int)$detail->qty;
+                if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                    $location = new Location();
+                    $location->area_id = $detail->area_id;
+                    $location->shelf_id = $detail->shelf_id;
+                    $location->level_id = $detail->level_id;
+                    $location->product_id = $detail->product_id;
+                    $location->used_qty = (int)$detail->qty;
+                }
             }
-            $location->save();
+            if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                $location->save();
+            }
         }
 
         Helper::logSystemActivity('STOCK IN', 'STOCK IN Store');
@@ -400,11 +404,13 @@ class StockInController extends Controller
         $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
-            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
-            if ($location) {
-                $location->used_qty -= (int)$existingDetail->qty;
-                $location->save();
+                if ($location) {
+                    $location->used_qty -= (int)$existingDetail->qty;
+                    $location->save();
+                }
             }
         }
 
@@ -439,14 +445,18 @@ class StockInController extends Controller
             if ($location) {
                 $location->used_qty += (int)$detail->qty;
             } else {
-                $location = new Location();
-                $location->area_id = $detail->area_id;
-                $location->shelf_id = $detail->shelf_id;
-                $location->level_id = $detail->level_id;
-                $location->product_id = $detail->product_id;
-                $location->used_qty = (int)$detail->qty;
+                if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                    $location = new Location();
+                    $location->area_id = $detail->area_id;
+                    $location->shelf_id = $detail->shelf_id;
+                    $location->level_id = $detail->level_id;
+                    $location->product_id = $detail->product_id;
+                    $location->used_qty = (int)$detail->qty;
+                }
             }
-            $location->save();
+            if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                $location->save();
+            }
         }
 
         Helper::logSystemActivity('STOCK IN', 'STOCK IN update');

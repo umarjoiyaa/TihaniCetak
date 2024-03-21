@@ -251,11 +251,13 @@ class GoodReceivingController extends Controller
         $existingDetails = GoodReceivingLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
-            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
-            if ($location) {
-                $location->used_qty -= (int)$existingDetail->receiving_qty;
-                $location->save();
+                if ($location) {
+                    $location->used_qty -= (int)$existingDetail->receiving_qty;
+                    $location->save();
+                }
             }
         }
 
@@ -285,15 +287,18 @@ class GoodReceivingController extends Controller
             if ($location) {
                 $location->used_qty += (int)$detail->receiving_qty;
             } else {
-                $location = new Location();
-                $location->area_id = $detail->area_id;
-                $location->shelf_id = $detail->shelf_id;
-                $location->level_id = $detail->level_id;
-                $location->product_id = $detail->product_id;
-                $location->used_qty = (int)$detail->receiving_qty;
+                if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                    $location = new Location();
+                    $location->area_id = $detail->area_id;
+                    $location->shelf_id = $detail->shelf_id;
+                    $location->level_id = $detail->level_id;
+                    $location->product_id = $detail->product_id;
+                    $location->used_qty = (int)$detail->receiving_qty;
+                }
             }
-
-            $location->save();
+            if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
+                $location->save();
+            }
         }
 
         $sum = GoodReceivingProduct::where('receiving_id', $id)->sum('receiving_qty');
