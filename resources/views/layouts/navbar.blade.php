@@ -28,7 +28,7 @@
       }
 
       @media screen and (max-width:992px) {
-        
+
         #form{
           display:none;
         }
@@ -534,7 +534,7 @@
                             <a class="dropdown-item" href="{{route('material_request')}}">Material Request</a>
                             <a class="dropdown-item" href="{{route('manage_transfer')}}">Manage Transfer</a>
                             <a class="dropdown-item" href="{{route('stock_in')}}">Stock In</a>
-                            <a class="dropdown-item" href="{{route('Stock_Transfer')}}">Stock Transfer</a>
+                            <a class="dropdown-item" href="{{route('stock_transfer')}}">Stock Transfer</a>
                           </div>
                           <div class="col-md-4">
                             <a class="dropdown-item" href="{{route('stock_Transfer_location')}}">Stock Transfer (Location)</a>

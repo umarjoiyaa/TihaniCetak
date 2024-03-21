@@ -48,7 +48,7 @@ use App\Http\Controllers\SenariSemakController;
 use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\StockInController;
 use App\Http\Controllers\Stock_Transfer_locationController;
-use App\Http\Controllers\Stock_TransferController;
+use App\Http\Controllers\StockTransferController;
 use App\Http\Controllers\StockCard_ReportController;
 use App\Http\Controllers\Subcon_monitorimg_report_Controller;
 use App\Http\Controllers\UomController;
@@ -719,10 +719,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/stock-in/delete/{id}', [StockInController::class, 'delete'])->name('stock_in.delete');
 
     // Stock Transfer
-    Route::get('/WMS/Stock_Transfer', [Stock_TransferController::class, 'index'])->name('Stock_Transfer');
-    Route::get('/WMS/Stock_Transfer/view', [Stock_TransferController::class, 'view'])->name('Stock_Transfer.view');
-    Route::get('/WMS/Stock_Transfer/Create', [Stock_TransferController::class, 'Create'])->name('Stock_Transfer.create');
-    Route::get('/WMS/Stock_Transfer/Receive', [Stock_TransferController::class, 'receive'])->name('Stock_Transfer.Receive');
+    Route::get('/WMS/stock-transfer', [StockTransferController::class, 'index'])->name('stock_transfer');
+    Route::get('/WMS/stock-transfer/data', [StockTransferController::class, 'Data'])->name('stock_transfer.data');
+    Route::get('/WMS/stock-transfer/Create', [StockTransferController::class, 'create'])->name('stock_transfer.create');
+    Route::post('/WMS/stock-transfer/store', [StockTransferController::class, 'store'])->name('stock_transfer.store');
+    Route::get('/WMS/stock-transfer/edit/{id}', [StockTransferController::class, 'edit'])->name('stock_transfer.edit');
+    Route::get('/WMS/stock-transfer/view/{id}', [StockTransferController::class, 'view'])->name('stock_transfer.view');
+    Route::post('/WMS/stock-transfer/update/{id}', [StockTransferController::class, 'update'])->name('stock_transfer.update');
+    Route::get('/WMS/stock-transfer/receive/{id}', [StockTransferController::class, 'receive'])->name('stock_transfer.receive');
+    Route::post('/WMS/stock-transfer/receive/update/{id}', [StockTransferController::class, 'receive_update'])->name('stock_transfer.receive.update');
+    Route::get('/WMS/stock-transfer/delete/{id}', [StockTransferController::class, 'delete'])->name('stock_transfer.delete');
 
     // Laporan_Pemeriksaan
     Route::get('/WMS/Laporan_Pemeriksaan', [Laporan_PemeriksaanController::class, 'index'])->name('Laporan_Pemeriksaan');

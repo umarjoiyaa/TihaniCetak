@@ -42,9 +42,9 @@
         margin-inline:auto;
         width:175px;
         height:120px;
-    }    
+    }
 
-    
+
     .card .col-md-4 .card{
         width:130px;
         height:130px;
@@ -53,7 +53,7 @@
         width:130px;
         height:130px;
     }
-     
+
     .card1{
         width:200px;
         height:auto;
@@ -81,7 +81,7 @@
         width:700px;
         margin-inline:auto;
     }
-   
+
 
     @media screen  and (max-width:1260px){
         .card .col-md-4 .card{
@@ -114,7 +114,7 @@
         }
         .card .card1{
             width:175px;
-            height: auto; 
+            height: auto;
         }
         .card7{
             width:600px;
@@ -123,7 +123,7 @@
 
     }
     @media screen  and (max-width:1040px){
-        
+
         .card .col-md-3 .card{
             width:200px;
             height:150px;
@@ -145,8 +145,8 @@
             height:150px;
         }
     }
-    
-    
+
+
     @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
         .card .card1 {
             width: 150px;
@@ -165,7 +165,7 @@
         margin-top: 30px;
        }
 
-      
+
 
        .card .card-width{
         width:auto;
@@ -194,7 +194,7 @@
        .card span{
             font-size:14px;
        }
-       
+
     }
 
 
@@ -234,11 +234,11 @@
          .card7{
             width:auto;
          }
-         
+
         #abcde{
             display:block;
             margin-top: -50px;
-            justify-content:center; 
+            justify-content:center;
         }
     }
 </style>
@@ -262,7 +262,7 @@
                                 <a href="{{route('sale_order')}}">
                                     <div class="card" style="border-radius:17px;background:#ddcdf0;">
                                         <div class="card-body">
-                                            
+
                                                 <iconify-icon id="abc" icon="pepicons-pop:file" width="24"
                                                     height="24"></iconify-icon><br>
                                                     <!-- <iconify-icon id="abcd" class="justify-content-center" icon="pepicons-pop:file" width="30"
@@ -815,7 +815,7 @@
                                 </div>
                                 <div class="row mt-2 ">
                                     <div class="col-md-3">
-                                        <a href="{{route('Stock_Transfer')}}">
+                                        <a href="{{route('stock_transfer')}}">
                                             <div class="card p-2 " style="border-radius:17px;background:#f5d98f; ">
 
                                                     <iconify-icon  icon="pepicons-pop:file" width="20"

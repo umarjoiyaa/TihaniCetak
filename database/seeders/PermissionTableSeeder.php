@@ -275,6 +275,12 @@ class PermissionTableSeeder extends Seeder
             'STOCK IN Update',
             'STOCK IN View',
             'STOCK IN Delete',
+            'STOCK TRANSFER List',
+            'STOCK TRANSFER Create',
+            'STOCK TRANSFER Update',
+            'STOCK TRANSFER View',
+            'STOCK TRANSFER Delete',
+            'STOCK TRANSFER Receive',
             'INVENTORY REPORT View'
          ];
 

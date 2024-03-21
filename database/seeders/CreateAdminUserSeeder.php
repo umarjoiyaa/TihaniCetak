@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Area;
 use App\Models\AreaLevel;
 use App\Models\AreaShelf;
+use App\Models\Customer;
 use App\Models\GoodReceiving;
 use App\Models\GoodReceivingProduct;
 use App\Models\Product;
@@ -147,6 +148,21 @@ class CreateAdminUserSeeder extends Seeder
         Supplier::create([
             'name' => 'Supplier C',
             'code' => 'SPC'
+        ]);
+
+        Customer::create([
+            'name' => 'Customer A',
+            'code' => 'CRA'
+        ]);
+
+        Customer::create([
+            'name' => 'Customer B',
+            'code' => 'CRB'
+        ]);
+
+        Customer::create([
+            'name' => 'Customer C',
+            'code' => 'CRC'
         ]);
 
         $good_receiving = GoodReceiving::create([
