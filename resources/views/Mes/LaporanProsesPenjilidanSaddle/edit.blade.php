@@ -388,7 +388,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-md-12 mt-3">
-                                    <button class="btn btn-primary float-right">update</button>
+                                    <button class="btn btn-primary float-right">Save</button>
                                 </div>
                             </div>
                         </div>
@@ -408,16 +408,19 @@
         }
 
         var increment = 1000;
+        var length = Math.floor(Math.random() * 100);
         $(document).on('click', '#AddRow', function() {
             if ($('#table tbody tr').length == 0) {
                 increment = 500;
             }else if ($('#table tbody tr').length == 1) {
                 $('#table tbody tr .remove').removeClass('d-none');
+                var lengths = $('#table tbody tr').length;
+                increment = (lengths+1)*500;
             }else{
                 var lengths = $('#table tbody tr').length;
                 increment = (lengths+1)*500;
             }
-            let length = $('#table tbody tr').length + 1;
+
             $('#table tbody').append(`<tr>
                                                             <td>${increment}</td>
                                                             <td><input type="hidden" value="${increment}" name="semasa[${length}][1]"><input type="checkbox" name="semasa[${length}][2]" id="">
@@ -444,6 +447,7 @@
                                                                     style="border-radius:5px; ">X</button>
                                                             </td>`);
             increment += 500;
+            length++;
         });
 
         $(document).on('click', '.remove', function() {
@@ -459,6 +463,7 @@
             var visibleRows = table.find('tbody tr:visible');
             visibleRows.each(function(index) {
                 $(this).find('td:eq(0)').text((index + 1) * 500);
+                 $(this).find('td:eq(1) input[type=hidden]').val((index + 1) * 500);
             });
         }
 

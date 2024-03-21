@@ -9,7 +9,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES PEMBUNGKUSAN</b></h5>
-                        <p class="float-right">TCBS-B23 (Rev.5)</p>
+                        <p class="float-right">TCSB-B23 (Rev. 5)</p>
                     </div>
                 </div>
                 <div class="card" style="background:#f4f4ff;">
@@ -57,13 +57,13 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="form-label">Tajuk</div>
-                                    <input type="text" value="auto Display" readonly name="" id="tajuk" class="form-control">
+                                    <input type="text"  readonly name="" id="tajuk" value="{{ $proses_pembungkusan->sale_order->description  }}" class="form-control">
                                 </div>
                             </div>
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="form-label">Kod Buku</div>
-                                    <input type="text" readonly value="auto Display" name="" id="kod_buku" class="form-control">
+                                    <input type="text" readonly  name="" id="kod_buku" value="{{ $proses_pembungkusan->sale_order->kod_buku  }}" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -171,7 +171,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('proses_pembungkusan')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
+            <a href="{{route('proses_pembungkusan')}}"><i class="ti-arrow-left mx-2 mt-1"></i>
                 back to list</a>
         </div>
     </div>

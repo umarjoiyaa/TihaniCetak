@@ -382,16 +382,16 @@ class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
 
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10 == null ? '' : $request->b_10;
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'checked';
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();
@@ -430,7 +430,7 @@ class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            
+
         ]);
 
         // If validations fail
@@ -450,16 +450,16 @@ class LaporanPemeriksaanKualitiPenjilidanSaddleController extends Controller
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->mesin = $request->mesin;
 
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9;
-        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
+        $laporan_pemeriksaan_kualiti_penjilidan_saddle->b_10 = $request->b_10 == null ? '' : $request->b_10;
 
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->status = 'checked';
         $laporan_pemeriksaan_kualiti_penjilidan_saddle->save();

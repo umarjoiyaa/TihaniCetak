@@ -256,9 +256,9 @@
   color: #292e37;
 }
 .alert-success {
-  color: #50cd89;
-  background-color:  #e8fff3;
-  border-color: #50cd89;
+  color: white;
+  background-color:  #35AB5D;
+  border-color: #35AB5D;
 }
 .alert-success hr {
   border-top-color: #b9e3a5;
@@ -16413,7 +16413,7 @@ video {
 }
 @media (max-width: 576px) {
   .horizontalMenucontainer .responsive.main-header {
-    margin-top: 70px;
+    margin-top: 550px;
     position: absolute;
   }
 }

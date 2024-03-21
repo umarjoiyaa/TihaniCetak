@@ -455,24 +455,24 @@ class CTPController extends Controller
         $ctp->time = $timeIn12HourFormat;
         $ctp->created_by = Auth::user()->id;
 
-        $ctp->file_artwork_1 = $request->file_artwork_1;
-        $ctp->file_artwork_2 = $request->file_artwork_2;
-        $ctp->file_artwork_3 = $request->file_artwork_3;
-        $ctp->file_artwork_4 = $request->file_artwork_4;
-        $ctp->file_artwork_5 = $request->file_artwork_5;
-        $ctp->file_artwork_6 = $request->file_artwork_6;
-        $ctp->file_artwork_7 = $request->file_artwork_7;
-        $ctp->file_artwork_8 = $request->file_artwork_8;
+        $ctp->file_artwork_1 = $request->file_artwork_1 == null ? '' : $request->file_artwork_1 ;
+        $ctp->file_artwork_2 = $request->file_artwork_2 == null ? '' : $request->file_artwork_2 ;
+        $ctp->file_artwork_3 = $request->file_artwork_3 == null ? '' : $request->file_artwork_3 ;
+        $ctp->file_artwork_4 = $request->file_artwork_4 == null ? '' : $request->file_artwork_4 ;
+        $ctp->file_artwork_5 = $request->file_artwork_5 == null ? '' : $request->file_artwork_5 ;
+        $ctp->file_artwork_6 = $request->file_artwork_6 == null ? '' : $request->file_artwork_6 ;
+        $ctp->file_artwork_7 = $request->file_artwork_7 == null ? '' : $request->file_artwork_7 ;
+        $ctp->file_artwork_8 = $request->file_artwork_8 == null ? '' : $request->file_artwork_8 ;
 
 
-        $ctp->impositions_1 = $request->impositions_1;
-        $ctp->impositions_2 = $request->impositions_2;
-        $ctp->impositions_3 = $request->impositions_3;
-        $ctp->impositions_4 = $request->impositions_4;
-        $ctp->impositions_5 = $request->impositions_5;
-        $ctp->impositions_6 = $request->impositions_6;
-        $ctp->impositions_7 = $request->impositions_7;
-        $ctp->impositions_8 = $request->impositions_8;
+        $ctp->impositions_1 = $request->impositions_1 == null ? '' :    $request->impositions_1 ;
+        $ctp->impositions_2 = $request->impositions_2 == null ? '' :    $request->impositions_2 ;
+        $ctp->impositions_3 = $request->impositions_3 == null ? '' :    $request->impositions_3 ;
+        $ctp->impositions_4 = $request->impositions_4 == null ? '' :    $request->impositions_4 ;
+        $ctp->impositions_5 = $request->impositions_5 == null ? '' :    $request->impositions_5 ;
+        $ctp->impositions_6 = $request->impositions_6 == null ? '' :    $request->impositions_6 ;
+        $ctp->impositions_7 = $request->impositions_7 == null ? '' :    $request->impositions_7 ;
+        $ctp->impositions_8 = $request->impositions_8 == null ? '' :    $request->impositions_8 ;
         $ctp->status = 'checked';
         $ctp->save();
         Helper::logSystemActivity('CTP', 'CTP Store');
@@ -529,25 +529,26 @@ class CTPController extends Controller
         $ctp->date = $request->date;
         $ctp->time = $timeIn12HourFormat;
         $ctp->created_by = Auth::user()->id;
+        
+        $ctp->file_artwork_1 = $request->file_artwork_1 == null ? '' : $request->file_artwork_1 ;
+        $ctp->file_artwork_2 = $request->file_artwork_2 == null ? '' : $request->file_artwork_2 ;
+        $ctp->file_artwork_3 = $request->file_artwork_3 == null ? '' : $request->file_artwork_3 ;
+        $ctp->file_artwork_4 = $request->file_artwork_4 == null ? '' : $request->file_artwork_4 ;
+        $ctp->file_artwork_5 = $request->file_artwork_5 == null ? '' : $request->file_artwork_5 ;
+        $ctp->file_artwork_6 = $request->file_artwork_6 == null ? '' : $request->file_artwork_6 ;
+        $ctp->file_artwork_7 = $request->file_artwork_7 == null ? '' : $request->file_artwork_7 ;
+        $ctp->file_artwork_8 = $request->file_artwork_8 == null ? '' : $request->file_artwork_8 ;
 
-        $ctp->file_artwork_1 = $request->file_artwork_1;
-        $ctp->file_artwork_2 = $request->file_artwork_2;
-        $ctp->file_artwork_3 = $request->file_artwork_3;
-        $ctp->file_artwork_4 = $request->file_artwork_4;
-        $ctp->file_artwork_5 = $request->file_artwork_5;
-        $ctp->file_artwork_6 = $request->file_artwork_6;
-        $ctp->file_artwork_7 = $request->file_artwork_7;
-        $ctp->file_artwork_8 = $request->file_artwork_8;
 
+        $ctp->impositions_1 = $request->impositions_1 == null ? '' :    $request->impositions_1 ;
+        $ctp->impositions_2 = $request->impositions_2 == null ? '' :    $request->impositions_2 ;
+        $ctp->impositions_3 = $request->impositions_3 == null ? '' :    $request->impositions_3 ;
+        $ctp->impositions_4 = $request->impositions_4 == null ? '' :    $request->impositions_4 ;
+        $ctp->impositions_5 = $request->impositions_5 == null ? '' :    $request->impositions_5 ;
+        $ctp->impositions_6 = $request->impositions_6 == null ? '' :    $request->impositions_6 ;
+        $ctp->impositions_7 = $request->impositions_7 == null ? '' :    $request->impositions_7 ;
+        $ctp->impositions_8 = $request->impositions_8 == null ? '' :    $request->impositions_8 ;
 
-        $ctp->impositions_1 = $request->impositions_1;
-        $ctp->impositions_2 = $request->impositions_2;
-        $ctp->impositions_3 = $request->impositions_3;
-        $ctp->impositions_4 = $request->impositions_4;
-        $ctp->impositions_5 = $request->impositions_5;
-        $ctp->impositions_6 = $request->impositions_6;
-        $ctp->impositions_7 = $request->impositions_7;
-        $ctp->impositions_8 = $request->impositions_8;
 
         $ctp->status = 'checked';
         $ctp->save();

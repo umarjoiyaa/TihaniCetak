@@ -436,19 +436,19 @@ class ProsesThreeKnifeController extends Controller
         $proses_three_knife->machine = $request->machine;
         $proses_three_knife->created_by = Auth::user()->id;
 
-        $proses_three_knife->b_1 = $request->b_1;
-        $proses_three_knife->b_2 = $request->b_2;
-        $proses_three_knife->b_3 = $request->b_3;
-        $proses_three_knife->b_4 = $request->b_4;
-        $proses_three_knife->b_5 = $request->b_5;
-        $proses_three_knife->b_6 = $request->b_6;
-        $proses_three_knife->b_7 = $request->b_7;
-        $proses_three_knife->b_8 = $request->b_8;
-        $proses_three_knife->b_9 = $request->b_9;
-        $proses_three_knife->b_10 = $request->b_10;
-        $proses_three_knife->b_11 = $request->b_11;
-        $proses_three_knife->b_12 = $request->b_12;
-        $proses_three_knife->b_13 = $request->b_13;
+        $proses_three_knife->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $proses_three_knife->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $proses_three_knife->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $proses_three_knife->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $proses_three_knife->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $proses_three_knife->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $proses_three_knife->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $proses_three_knife->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $proses_three_knife->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
+        $proses_three_knife->b_10 = $request->b_10 == null ? '' : $request->b_10;
+        $proses_three_knife->b_11 = $request->b_11 == null ? '' : $request->b_11;
+        $proses_three_knife->b_12 = $request->b_12 == null ? '' : $request->b_12;
+        $proses_three_knife->b_13 = $request->b_13 == null ? '' : $request->b_13;
 
         $proses_three_knife->status = 'checked';
         $proses_three_knife->save();
@@ -507,19 +507,19 @@ class ProsesThreeKnifeController extends Controller
         // $proses_three_knife->machine = $request->machine;
         $proses_three_knife->created_by = Auth::user()->id;
 
-        $proses_three_knife->b_1 = $request->b_1;
-        $proses_three_knife->b_2 = $request->b_2;
-        $proses_three_knife->b_3 = $request->b_3;
-        $proses_three_knife->b_4 = $request->b_4;
-        $proses_three_knife->b_5 = $request->b_5;
-        $proses_three_knife->b_6 = $request->b_6;
-        $proses_three_knife->b_7 = $request->b_7;
-        $proses_three_knife->b_8 = $request->b_8;
-        $proses_three_knife->b_9 = $request->b_9;
-        $proses_three_knife->b_10 = $request->b_10;
-        $proses_three_knife->b_11 = $request->b_11;
-        $proses_three_knife->b_12 = $request->b_12;
-        $proses_three_knife->b_13 = $request->b_13;
+        $proses_three_knife->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $proses_three_knife->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $proses_three_knife->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $proses_three_knife->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $proses_three_knife->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $proses_three_knife->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $proses_three_knife->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $proses_three_knife->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $proses_three_knife->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
+        $proses_three_knife->b_10 = $request->b_10 == null ? '' : $request->b_10;
+        $proses_three_knife->b_11 = $request->b_11 == null ? '' : $request->b_11;
+        $proses_three_knife->b_12 = $request->b_12 == null ? '' : $request->b_12;
+        $proses_three_knife->b_13 = $request->b_13 == null ? '' : $request->b_13;
 
         $proses_three_knife->status = 'checked';
         $proses_three_knife->save();

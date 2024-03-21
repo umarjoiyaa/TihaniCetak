@@ -168,14 +168,38 @@ $(document).ready(function () {
             {
                 data: 'warna_7',
                 name: 'warna_7',
+                "render": function(data, type, row, meta) {
+                    // Check if section_plate is 'A', then display checkmark
+                    if (data != null) {
+                        return data;
+                    } else  {
+                        return '';
+                    }
+                }
             },
             {
                 data: 'warna_8',
                 name: 'warna_8',
+                "render": function(data, type, row, meta) {
+                    // Check if section_plate is 'A', then display checkmark
+                    if (data != null) {
+                        return data;
+                    } else  {
+                        return '';
+                    }
+                }
             },
             {
                 data: 'warna_9',
                 name: 'warna_9',
+                "render": function(data, type, row, meta) {
+                    // Check if section_plate is 'A', then display checkmark
+                    if (data != null) {
+                        return data;
+                    } else  {
+                        return '';
+                    }
+                }
             },
             {
                 data: 'warna_10',
@@ -258,208 +282,232 @@ function AjaxCall(columnsData) {
             }
         }, // URL to fetch data
         columns: [{
-                data: 'sr_no',
-                name: 'sr_no',
-                orderable: false
-            },
-            {
-                data: 'date',
-                name: 'date',
-            },
-            {
-                data: 'time',
-                name: 'time',
-            },
-            {
-                data: 'sale_order.order_no',
-                name: 'sale_order.order_no',
-            },
-            {
-                data: 'sale_order.description',
-                name: 'sale_order.description',
-            },
-            {
-                data: 'sale_order.kod_buku',
-                name: 'sale_order.kod_buku',
-            },
-            {
-                data: 'machine',
-                name: 'machine',
-            },
-            {
-                data: 'section',
-                name: 'section',
-            },
-            {
-                data: 'section_plate',
-                name: 'section_plate',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'A') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            data: 'sr_no',
+            name: 'sr_no',
+            orderable: false
+        },
+        {
+            data: 'date',
+            name: 'date',
+        },
+        {
+            data: 'time',
+            name: 'time',
+        },
+        {
+            data: 'sale_order.order_no',
+            name: 'sale_order.order_no',
+        },
+        {
+            data: 'sale_order.description',
+            name: 'sale_order.description',
+        },
+        {
+            data: 'sale_order.kod_buku',
+            name: 'sale_order.kod_buku',
+        },
+        {
+            data: 'machine',
+            name: 'machine',
+        },
+        {
+            data: 'section',
+            name: 'section',
+        },
+        {
+            data: 'section_plate',
+            name: 'section_plate',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'A') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'section_plate',
-                name: 'section_plate',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'B') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'section_plate',
+            name: 'section_plate',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'B') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'section_plate',
-                name: 'section_plate',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'A/B') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'section_plate',
+            name: 'section_plate',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'A/B') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_1',
-                name: 'warna_1',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_1',
+            name: 'warna_1',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_2',
-                name: 'warna_2',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_2',
+            name: 'warna_2',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_3',
-                name: 'warna_3',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_3',
+            name: 'warna_3',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_4',
-                name: 'warna_4',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_4',
+            name: 'warna_4',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_5',
-                name: 'warna_5',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_5',
+            name: 'warna_5',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_6',
-                name: 'warna_6',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_6',
+            name: 'warna_6',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_7',
-                name: 'warna_7',
-            },
-            {
-                data: 'warna_8',
-                name: 'warna_8',
-            },
-            {
-                data: 'warna_9',
-                name: 'warna_9',
-            },
-            {
-                data: 'warna_10',
-                name: 'warna_10',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_7',
+            name: 'warna_7',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data != null) {
+                    return data;
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_11',
-                name: 'warna_11',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_8',
+            name: 'warna_8',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data != null) {
+                    return data;
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'warna_12',
-                name: 'warna_12',
-                "render": function(data, type, row, meta) {
-                    // Check if section_plate is 'A', then display checkmark
-                    if (data === 'yes') {
-                        return '<i class="fa fa-check"></i>';
-                    } else  {
-                        return '';
-                    }
+            }
+        },
+        {
+            data: 'warna_9',
+            name: 'warna_9',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data != null) {
+                    return data;
+                } else  {
+                    return '';
                 }
-            },
-            {
-                data: 'user.user_name',
-                name: 'user.user_name',
-            },
-            {
-                data: 'status',
-                name: 'status',
-            },
-            {
-                data: 'action',
-                name: 'action',
-                orderable: false
-            },
-        ],
+            }
+        },
+        {
+            data: 'warna_10',
+            name: 'warna_10',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
+                }
+            }
+        },
+        {
+            data: 'warna_11',
+            name: 'warna_11',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
+                }
+            }
+        },
+        {
+            data: 'warna_12',
+            name: 'warna_12',
+            "render": function(data, type, row, meta) {
+                // Check if section_plate is 'A', then display checkmark
+                if (data === 'yes') {
+                    return '<i class="fa fa-check"></i>';
+                } else  {
+                    return '';
+                }
+            }
+        },
+        {
+            data: 'user.user_name',
+            name: 'user.user_name',
+        },
+        {
+            data: 'status',
+            name: 'status',
+        },
+        {
+            data: 'action',
+            name: 'action',
+            orderable: false
+        },
+    ],
         paging: true
         // Other DataTables options go here
     });

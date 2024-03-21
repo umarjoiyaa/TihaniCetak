@@ -276,6 +276,11 @@
                     success: function(data) {
                         $('#kod_buku').val(data.sale_order.kod_buku);
                         $('#tajuk').val(data.sale_order.description);
+                         if (data.section != null) {
+                            $('#jumlah').val(data.section.item_cover_text);
+                        } else {
+                            $('#jumlah').val(0);
+                        }
                     }
                 });
             });

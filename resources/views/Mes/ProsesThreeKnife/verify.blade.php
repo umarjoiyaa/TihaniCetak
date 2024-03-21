@@ -8,7 +8,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h5 class="float-left"><b>LAPORAN PEMERIKSAAN KUALITI - PROSES THREE KNIFE</b></h5>
-                        <p class="float-right">TCBS-B23 (Rev.5)</p>
+                        <p class="float-right">TCSB-B23 (Rev.5)</p>
                     </div>
                 </div>
                 <div class="card" style="background:#f4f4ff;">
@@ -102,124 +102,72 @@
 
                                             <tr>
                                                 <td style="background:wheat;">saiz yang betul</td>
-                                                <td><input type="checkbox" disabled name="b_1" class="b_1"
-                                                        onchange="handleCheckboxChange('b_1',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_1" class="b_1"
-                                                        onchange="handleCheckboxChange('b_1',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_1" class="b_1" onchange="handleCheckboxChange('b_1',this)" value="ok"  @checked($proses_three_knife->b_1 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_1" class="b_1" onchange="handleCheckboxChange('b_1',this)"  value="ng"  @checked($proses_three_knife->b_1 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Kedudukan potongan</td>
-                                                <td><input type="checkbox" disabled name="b_2" class="b_2"
-                                                        onchange="handleCheckboxChange('b_2',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_2" class="b_2"
-                                                        onchange="handleCheckboxChange('b_2',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_2" class="b_2" onchange="handleCheckboxChange('b_2',this)" value="ok" @checked($proses_three_knife->b_2 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_2" class="b_2" onchange="handleCheckboxChange('b_2',this)" value="ng" @checked($proses_three_knife->b_2 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>teks tidak terpotong</td>
-                                                <td><input type="checkbox" disabled name="b_3" class="b_3"
-                                                        onchange="handleCheckboxChange('b_3',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_3" class="b_3"
-                                                        onchange="handleCheckboxChange('b_3',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_3" class="b_3" onchange="handleCheckboxChange('b_3',this)" value="ok" @checked($proses_three_knife->b_3 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_3" class="b_3" onchange="handleCheckboxChange('b_3',this)" value="ng" @checked($proses_three_knife->b_3 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Kepetekan / squareness</td>
-                                                <td><input type="checkbox" disabled name="b_4" class="b_4"
-                                                        onchange="handleCheckboxChange('b_4',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_4" class="b_4"
-                                                        onchange="handleCheckboxChange('b_4',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_4" class="b_4" onchange="handleCheckboxChange('b_4',this)" value="ok" @checked($proses_three_knife->b_4 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_4" class="b_4" onchange="handleCheckboxChange('b_4',this)" value="ng" @checked($proses_three_knife->b_4 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Potongan yang bersih</td>
-                                                <td><input type="checkbox" disabled name="b_5" class="b_5"
-                                                        onchange="handleCheckboxChange('b_5',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_5" class="b_5"
-                                                        onchange="handleCheckboxChange('b_5',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_5" class="b_5" onchange="handleCheckboxChange('b_5',this)" value="ok" @checked($proses_three_knife->b_5 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_5" class="b_5" onchange="handleCheckboxChange('b_5',this)" value="ng" @checked($proses_three_knife->b_5 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Turutan muka surat</td>
-                                                <td><input type="checkbox" disabled name="b_6" class="b_6"
-                                                        onchange="handleCheckboxChange('b_6',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_6" class="b_6"
-                                                        onchange="handleCheckboxChange('b_6',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_6" class="b_6" onchange="handleCheckboxChange('b_6',this)" value="ok" @checked($proses_three_knife->b_6 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_6" class="b_6" onchange="handleCheckboxChange('b_6',this)" value="ng" @checked($proses_three_knife->b_6 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Kotor</td>
-                                                <td><input type="checkbox" disabled name="b_7" class="b_7"
-                                                        onchange="handleCheckboxChange('b_7',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_7" class="b_7"
-                                                        onchange="handleCheckboxChange('b_7',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_7" class="b_7" onchange="handleCheckboxChange('b_7',this)" value="ok" @checked($proses_three_knife->b_7 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_7" class="b_7" onchange="handleCheckboxChange('b_7',this)" value="ng" @checked($proses_three_knife->b_7 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Koyak</td>
-                                                <td><input type="checkbox" disabled name="b_8" class="b_8"
-                                                        onchange="handleCheckboxChange('b_8',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_8" class="b_8"
-                                                        onchange="handleCheckboxChange('b_8',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_8" class="b_8" onchange="handleCheckboxChange('b_8',this)" value="ok" @checked($proses_three_knife->b_8 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_8" class="b_8" onchange="handleCheckboxChange('b_8',this)" value="ng" @checked($proses_three_knife->b_8 == "ng") id=""></td>
                                             </tr>
                                             <tr>
                                                 <td>Melekat</td>
-                                                <td><input type="checkbox" disabled name="b_9" class="b_9"
-                                                        onchange="handleCheckboxChange('b_9',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_9" class="b_9"
-                                                        onchange="handleCheckboxChange('b_9',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_9" class="b_9" onchange="handleCheckboxChange('b_9',this)" value="ok" @checked($proses_three_knife->b_9 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_9" class="b_9" onchange="handleCheckboxChange('b_9',this)" value="ng" @checked($proses_three_knife->b_9 == "ng") id=""></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Calar</td>
-                                                <td><input type="checkbox" disabled name="b_10" class="b_10"
-                                                        onchange="handleCheckboxChange('b_10',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_10" class="b_10"
-                                                        onchange="handleCheckboxChange('b_10',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_10" class="b_10" onchange="handleCheckboxChange('b_10',this)" value="ok" @checked($proses_three_knife->b_10 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_10" class="b_10" onchange="handleCheckboxChange('b_10',this)" value="ng" @checked($proses_three_knife->b_10 == "ng") id=""></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Kemik</td>
-                                                <td><input type="checkbox" disabled name="b_11" class="b_11"
-                                                        onchange="handleCheckboxChange('b_11',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_11" class="b_11"
-                                                        onchange="handleCheckboxChange('b_11',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_11" class="b_11" onchange="handleCheckboxChange('b_11',this)" value="ok" @checked($proses_three_knife->b_11 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_11" class="b_11" onchange="handleCheckboxChange('b_11',this)" value="ng" @checked($proses_three_knife->b_11 == "ng") id=""></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Label yang betul</td>
-                                                <td><input type="checkbox" disabled name="b_12" class="b_12"
-                                                        onchange="handleCheckboxChange('b_12',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_12" class="b_12"
-                                                        onchange="handleCheckboxChange('b_12',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_12" class="b_12" onchange="handleCheckboxChange('b_12',this)" value="ok" @checked($proses_three_knife->b_12 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_12" class="b_12" onchange="handleCheckboxChange('b_12',this)" value="ng" @checked($proses_three_knife->b_12 == "ng") id=""></td>
                                             </tr>
 
                                             <tr>
                                                 <td>Pematuhan SOP</td>
-                                                <td><input type="checkbox" disabled name="b_13" class="b_13"
-                                                        onchange="handleCheckboxChange('b_13',this)" value="ok"
-                                                        @checked($proses_three_knife->b_1 == "ok") id=""></td>
-                                                <td><input type="checkbox" disabled name="b_13" class="b_13"
-                                                        onchange="handleCheckboxChange('b_13',this)" value="ng"
-                                                        @checked($proses_three_knife->b_1 == "ng") id=""></td>
+                                                <td><input type="checkbox"  name="b_13" class="b_13" onchange="handleCheckboxChange('b_13',this)" value="ok" @checked($proses_three_knife->b_13 == "ok") id=""></td>
+                                                <td><input type="checkbox" name="b_13" class="b_13" onchange="handleCheckboxChange('b_13',this)" value="ng" @checked($proses_three_knife->b_13 == "ng") id=""></td>
                                             </tr>
 
                                         </tbody>
@@ -264,7 +212,7 @@
     </div>
     <div class="row">
         <div class="col-md-12">
-            <a href="{{route('proses_three_knife')}}"><i class="ti-angle-left mr-5 $indigo-100"></i>
+            <a href="{{route('proses_three_knife')}}"><i class="ti-arrow-left mx-2 mt-1"></i>
                 back to list</a>
         </div>
     </div>
@@ -272,7 +220,9 @@
 </div>
 @endsection
 @push('custom-scripts')
-$(document).ready(function() {
+<script>
+    $(document).ready(function() {
 $('input').attr('disabled', 'disabled');
 });
+</script>
 @endpush

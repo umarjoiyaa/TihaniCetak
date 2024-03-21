@@ -328,9 +328,9 @@ class KulitBukuController extends Controller
         $kulit_buku->time = $timeIn12HourFormat;
         $kulit_buku->created_by = Auth::user()->id;
 
-        $kulit_buku->b_1 = $request->b_1;
-        $kulit_buku->b_2 = $request->b_2;
-        $kulit_buku->b_3 = $request->b_3;
+        $kulit_buku->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $kulit_buku->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $kulit_buku->b_3 = $request->b_3 == null ? '' : $request->b_3;
 
         $kulit_buku->status = 'checked';
         $kulit_buku->save();
@@ -386,9 +386,9 @@ class KulitBukuController extends Controller
         $kulit_buku->time = $timeIn12HourFormat;
         $kulit_buku->created_by = Auth::user()->id;
 
-        $kulit_buku->b_1 = $request->b_1;
-        $kulit_buku->b_2 = $request->b_2;
-        $kulit_buku->b_3 = $request->b_3;
+        $kulit_buku->b_1 = $request->b_1 == null ? '' : $request->b_1;
+        $kulit_buku->b_2 = $request->b_2 == null ? '' : $request->b_2;
+        $kulit_buku->b_3 = $request->b_3 == null ? '' : $request->b_3;
 
         $kulit_buku->status = 'checked';
         $kulit_buku->save();

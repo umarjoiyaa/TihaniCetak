@@ -470,28 +470,28 @@ class PODController extends Controller
         $pod->time = $timeIn12HourFormat;
         $pod->created_by = Auth::user()->id;
 
-        $pod->file_artwork_1 = $request->file_artwork_1;
-        $pod->file_artwork_2 = $request->file_artwork_2;
-        $pod->file_artwork_3 = $request->file_artwork_3;
-        $pod->file_artwork_4 = $request->file_artwork_4;
-        $pod->file_artwork_5 = $request->file_artwork_5;
-        $pod->file_artwork_6 = $request->file_artwork_6;
-        $pod->file_artwork_7 = $request->file_artwork_7;
+        $pod->file_artwork_1 = $request->file_artwork_1 == null ? '' : $request->file_artwork_1;
+        $pod->file_artwork_2 = $request->file_artwork_2 == null ? '' : $request->file_artwork_2;
+        $pod->file_artwork_3 = $request->file_artwork_3 == null ? '' : $request->file_artwork_3;
+        $pod->file_artwork_4 = $request->file_artwork_4 == null ? '' : $request->file_artwork_4;
+        $pod->file_artwork_5 = $request->file_artwork_5 == null ? '' : $request->file_artwork_5;
+        $pod->file_artwork_6 = $request->file_artwork_6 == null ? '' : $request->file_artwork_6;
+        $pod->file_artwork_7 = $request->file_artwork_7 == null ? '' : $request->file_artwork_7;
 
 
 
-        $pod->first_piece_1 = $request->first_piece_1;
-        $pod->first_piece_2 = $request->first_piece_2;
-        $pod->first_piece_3 = $request->first_piece_3;
-        $pod->first_piece_4 = $request->first_piece_4;
-        $pod->first_piece_5 = $request->first_piece_5;
-        $pod->first_piece_6 = $request->first_piece_6;
-        $pod->first_piece_7 = $request->first_piece_7;
-        $pod->first_piece_8 = $request->first_piece_8;
-        $pod->first_piece_9 = $request->first_piece_9;
-        $pod->first_piece_10 = $request->first_piece_10;
+        $pod->first_piece_1 = $request->first_piece_1 == null ? '' :    $request->first_piece_1;
+        $pod->first_piece_2 = $request->first_piece_2 == null ? '' :    $request->first_piece_2;
+        $pod->first_piece_3 = $request->first_piece_3 == null ? '' :    $request->first_piece_3;
+        $pod->first_piece_4 = $request->first_piece_4 == null ? '' :    $request->first_piece_4;
+        $pod->first_piece_5 = $request->first_piece_5 == null ? '' :    $request->first_piece_5;
+        $pod->first_piece_6 = $request->first_piece_6 == null ? '' :    $request->first_piece_6;
+        $pod->first_piece_7 = $request->first_piece_7 == null ? '' :    $request->first_piece_7;
+        $pod->first_piece_8 = $request->first_piece_8 == null ? '' :    $request->first_piece_8;
+        $pod->first_piece_9 = $request->first_piece_9 == null ? '' :    $request->first_piece_9;
+        $pod->first_piece_10 = $request->first_piece_10 == null ? '' :  $request->first_piece_10;
         // dd($request->first_piece_11);
-        $pod->first_piece_11 = $request->first_piece_11;
+        $pod->first_piece_11 = $request->first_piece_11 == null ? '' :  $request->first_piece_11;
 
         $pod->status = 'checked';
         $pod->save();
@@ -549,26 +549,28 @@ class PODController extends Controller
         $pod->time = $timeIn12HourFormat;
         $pod->created_by = Auth::user()->id;
 
-        $pod->file_artwork_1 = $request->file_artwork_1;
-        $pod->file_artwork_2 = $request->file_artwork_2;
-        $pod->file_artwork_3 = $request->file_artwork_3;
-        $pod->file_artwork_4 = $request->file_artwork_4;
-        $pod->file_artwork_5 = $request->file_artwork_5;
-        $pod->file_artwork_6 = $request->file_artwork_6;
-        $pod->file_artwork_7 = $request->file_artwork_7;
+        $pod->file_artwork_1 = $request->file_artwork_1 == null ? '' : $request->file_artwork_1;
+        $pod->file_artwork_2 = $request->file_artwork_2 == null ? '' : $request->file_artwork_2;
+        $pod->file_artwork_3 = $request->file_artwork_3 == null ? '' : $request->file_artwork_3;
+        $pod->file_artwork_4 = $request->file_artwork_4 == null ? '' : $request->file_artwork_4;
+        $pod->file_artwork_5 = $request->file_artwork_5 == null ? '' : $request->file_artwork_5;
+        $pod->file_artwork_6 = $request->file_artwork_6 == null ? '' : $request->file_artwork_6;
+        $pod->file_artwork_7 = $request->file_artwork_7 == null ? '' : $request->file_artwork_7;
 
 
-        $pod->first_piece_1 = $request->first_piece_1;
-        $pod->first_piece_2 = $request->first_piece_2;
-        $pod->first_piece_3 = $request->first_piece_3;
-        $pod->first_piece_4 = $request->first_piece_4;
-        $pod->first_piece_5 = $request->first_piece_5;
-        $pod->first_piece_6 = $request->first_piece_6;
-        $pod->first_piece_7 = $request->first_piece_7;
-        $pod->first_piece_8 = $request->first_piece_8;
-        $pod->first_piece_9 = $request->first_piece_9;
-        $pod->first_piece_10 = $request->first_piece_10;
-        $pod->first_piece_11 = $request->first_piece_11;
+
+        $pod->first_piece_1 = $request->first_piece_1 == null ? '' :    $request->first_piece_1;
+        $pod->first_piece_2 = $request->first_piece_2 == null ? '' :    $request->first_piece_2;
+        $pod->first_piece_3 = $request->first_piece_3 == null ? '' :    $request->first_piece_3;
+        $pod->first_piece_4 = $request->first_piece_4 == null ? '' :    $request->first_piece_4;
+        $pod->first_piece_5 = $request->first_piece_5 == null ? '' :    $request->first_piece_5;
+        $pod->first_piece_6 = $request->first_piece_6 == null ? '' :    $request->first_piece_6;
+        $pod->first_piece_7 = $request->first_piece_7 == null ? '' :    $request->first_piece_7;
+        $pod->first_piece_8 = $request->first_piece_8 == null ? '' :    $request->first_piece_8;
+        $pod->first_piece_9 = $request->first_piece_9 == null ? '' :    $request->first_piece_9;
+        $pod->first_piece_10 = $request->first_piece_10 == null ? '' :  $request->first_piece_10;
+
+        $pod->first_piece_11 = $request->first_piece_11 == null ? '' :  $request->first_piece_11;
 
         $pod->status = 'checked';
         $pod->save();

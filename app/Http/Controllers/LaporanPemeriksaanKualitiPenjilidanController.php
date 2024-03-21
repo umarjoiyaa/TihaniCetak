@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
 use App\Models\LaporanPemeriksaanKualitiPenjilidan;
@@ -377,15 +376,15 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
 
         $laporan_pemeriksaan_kualiti_penjilidan->mesin = $request->mesin;
 
-        $laporan_pemeriksaan_kualiti_penjilidan->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_6 = $request->b_6;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_7 = $request->b_7;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_8 = $request->b_8;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_9 = $request->b_9;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
 
         $laporan_pemeriksaan_kualiti_penjilidan->status = 'checked';
         $laporan_pemeriksaan_kualiti_penjilidan->save();
@@ -424,7 +423,7 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'time' => 'required',
-            
+
         ]);
 
         // If validations fail
@@ -444,15 +443,15 @@ class LaporanPemeriksaanKualitiPenjilidanController extends Controller
 
         $laporan_pemeriksaan_kualiti_penjilidan->mesin = $request->mesin;
 
-        $laporan_pemeriksaan_kualiti_penjilidan->b_1 = $request->b_1;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_2 = $request->b_2;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_3 = $request->b_3;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_4 = $request->b_4;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_5 = $request->b_5;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_6 = $request->b_6;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_7 = $request->b_7;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_8 = $request->b_8;
-        $laporan_pemeriksaan_kualiti_penjilidan->b_9 = $request->b_9;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_1 = $request->b_1 == null ? '' : $request->b_1 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_2 = $request->b_2 == null ? '' : $request->b_2 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_3 = $request->b_3 == null ? '' : $request->b_3 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_4 = $request->b_4 == null ? '' : $request->b_4 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_5 = $request->b_5 == null ? '' : $request->b_5 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_6 = $request->b_6 == null ? '' : $request->b_6 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_7 = $request->b_7 == null ? '' : $request->b_7 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_8 = $request->b_8 == null ? '' : $request->b_8 ;
+        $laporan_pemeriksaan_kualiti_penjilidan->b_9 = $request->b_9 == null ? '' : $request->b_9 ;
 
         $laporan_pemeriksaan_kualiti_penjilidan->status = 'checked';
         $laporan_pemeriksaan_kualiti_penjilidan->save();
