@@ -35,7 +35,8 @@
                                         <div class="form-group">
                                             <label class="label">Disediakan Oleh</label>
                                             <input type="text" readonly name=""
-                                                value="{{ $borange_serah_kerja_teks->user->full_name }}" id="" class="form-control">
+                                                value="{{ $borange_serah_kerja_teks->user->full_name }}" id=""
+                                                class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -44,7 +45,8 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label"> Sales Order No </div>
-                                            <input type="text" class="form-control" value="{{ $borange_serah_kerja_teks->sale_order->order_no }}">
+                                            <input type="text" class="form-control"
+                                                value="{{ $borange_serah_kerja_teks->sale_order->order_no }}">
 
                                         </div>
                                     </div>
@@ -52,7 +54,8 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Tajuk</div>
-                                            <input type="text" readonly class="form-control" id="tajuk" value="{{ $borange_serah_kerja_teks->sale_order->description }}">
+                                            <input type="text" readonly class="form-control" id="tajuk"
+                                                value="{{ $borange_serah_kerja_teks->sale_order->description }}">
                                         </div>
                                     </div>
                                 </div>
@@ -61,15 +64,16 @@
                                         <div class="form-group">
                                             <div class="label">Nama Subkontraktor</div>
                                             <input type="text" readonly name=""
-                                            value="{{ $borange_serah_kerja_teks->supplier->name }}"
-                                            class="form-control">
+                                                value="{{ $borange_serah_kerja_teks->supplier->name }}"
+                                                class="form-control">
                                         </div>
                                     </div>
 
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <div class="label">Jumlah Seksyen </div>
-                                            <input type="number" value="{{ $borange_serah_kerja_teks->jumlah }}" name="jumlah" class="form-control">
+                                            <input type="number" value="{{ $borange_serah_kerja_teks->jumlah }}"
+                                                name="jumlah" class="form-control">
 
                                         </div>
                                     </div>
@@ -169,7 +173,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -178,8 +182,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_5 }}"
                                                                     class="form-control Others">
                                                             @else
-                                                            <input type="text" name="jenis_input_5"
-                                                            class="form-control Others" style="display:none;">
+                                                                <input type="text" name="jenis_input_5"
+                                                                    class="form-control Others" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -193,7 +197,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -202,8 +206,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_17 }}"
                                                                     class="form-control Others17">
                                                             @else
-                                                            <input type="text" name="jenis_input_17"
-                                                            class="form-control Others17" style="display:none;">
+                                                                <input type="text" name="jenis_input_17"
+                                                                    class="form-control Others17" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -248,25 +252,25 @@
                                                     @checked($borange_serah_kerja_teks->jenis_10 == 'on') id="Ribbon"></div>
                                             <div class="col-md-6">
                                                 <div class="row d-flex">
-                                                        <h5 class="ml-2">Ribbon </h5>
-                                                        <div class="boxinput mx-1" style="width:100px;">
-                                                            @if ($borange_serah_kerja_teks->jenis_10 == 'on')
-                                                                <input type="text" name="jenis_input_10"
-                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_10 }}"
-                                                                    class="form-control ribbon">
-                                                            @else
-                                                            <input style="display: none" type="text" name="jenis_input_10"
-                                                            class="form-control ribbon">
-                                                            @endif
+                                                    <h5 class="ml-2">Ribbon </h5>
+                                                    <div class="boxinput mx-1" style="width:100px;">
+                                                        @if ($borange_serah_kerja_teks->jenis_10 == 'on')
+                                                            <input type="text" name="jenis_input_10"
+                                                                value="{{ $borange_serah_kerja_teks->jenis_input_10 }}"
+                                                                class="form-control ribbon">
+                                                        @else
+                                                            <input style="display: none" type="text"
+                                                                name="jenis_input_10" class="form-control ribbon">
+                                                        @endif
                                                     </div>
 
-                                                        <div id="labelContainer1">
-                                                            @if ($borange_serah_kerja_teks->jenis_10 == 'on')
-                                                                <label class="ribbon">pcs</label>
-                                                            @else
+                                                    <div id="labelContainer1">
+                                                        @if ($borange_serah_kerja_teks->jenis_10 == 'on')
+                                                            <label class="ribbon">pcs</label>
+                                                        @else
                                                             <label class="ribbon" style="display: none">pcs</label>
-                                                            @endif
-                                                        </div>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
 
@@ -279,7 +283,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -288,8 +292,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_18 }}"
                                                                     class="form-control Others18">
                                                             @else
-                                                            <input type="text" name="jenis_input_18"
-                                                            class="form-control Others18" style="display:none;">
+                                                                <input type="text" name="jenis_input_18"
+                                                                    class="form-control Others18" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -304,7 +308,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -313,8 +317,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_20 }}"
                                                                     class="form-control Others20">
                                                             @else
-                                                            <input type="text" name="jenis_input_20"
-                                                            class="form-control Others20" style="display:none;">
+                                                                <input type="text" name="jenis_input_20"
+                                                                    class="form-control Others20" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -354,23 +358,22 @@
                                                     @checked($borange_serah_kerja_teks->jenis_14 == 'on') id="Chipboard"></div>
                                             <div class="col-md-6">
                                                 <div class="row d-flex">
-                                                        <h5 class="ml-2">Chipboard</h5>
-                                                        <div id="chipinput1" class="mx-1" style="width:100px;">
-                                                            @if ($borange_serah_kerja_teks->jenis_14 == 'on')
-                                                                <input type="text" name="jenis_input_14"
-                                                                    value="{{ $borange_serah_kerja_teks->jenis_input_14 }}"
-                                                                    class="form-control Chipboard">
-                                                            @else
+                                                    <h5 class="ml-2">Chipboard</h5>
+                                                    <div id="chipinput1" class="mx-1" style="width:100px;">
+                                                        @if ($borange_serah_kerja_teks->jenis_14 == 'on')
                                                             <input type="text" name="jenis_input_14"
-
-                                                                    class="form-control Chipboard" style="display: none;">
-                                                            @endif
-                                                        </div>
-                                                    <div  id="labelContainer">
+                                                                value="{{ $borange_serah_kerja_teks->jenis_input_14 }}"
+                                                                class="form-control Chipboard">
+                                                        @else
+                                                            <input type="text" name="jenis_input_14"
+                                                                class="form-control Chipboard" style="display: none;">
+                                                        @endif
+                                                    </div>
+                                                    <div id="labelContainer">
                                                         @if ($borange_serah_kerja_teks->jenis_14 == 'on')
                                                             <label class="Chipboard">gsm</label>
-                                                         @else
-                                                         <label class="Chipboard" style="display: none;">gsm</label>
+                                                        @else
+                                                            <label class="Chipboard" style="display: none;">gsm</label>
                                                         @endif
                                                     </div>
                                                 </div>
@@ -384,7 +387,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -393,8 +396,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_19 }}"
                                                                     class="form-control Others19">
                                                             @else
-                                                            <input type="text" name="jenis_input_19"
-                                                            class="form-control Others19" style="display:none;">
+                                                                <input type="text" name="jenis_input_19"
+                                                                    class="form-control Others19" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -409,7 +412,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md2">
-                                                        <h5  style="margin-left:10px;">Others</h5>
+                                                        <h5 style="margin-left:10px;">Others</h5>
                                                     </div>
                                                     <div class="col-md-8">
                                                         <div id="input" style="width:150px;">
@@ -418,8 +421,8 @@
                                                                     value="{{ $borange_serah_kerja_teks->jenis_input_21 }}"
                                                                     class="form-control Others21">
                                                             @else
-                                                            <input type="text" name="jenis_input_21"
-                                                            class="form-control Others21" style="display:none;">
+                                                                <input type="text" name="jenis_input_21"
+                                                                    class="form-control Others21" style="display:none;">
                                                             @endif
                                                         </div>
                                                     </div>
@@ -486,8 +489,9 @@
                                                 <tr>
                                                     <th>Date</th>
                                                     <th>Username</th>
-                                                    <th>Desgination</th>
+                                                    <th>Designation</th>
                                                     <th>Department</th>
+                                                    <th>Remarks</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -499,6 +503,8 @@
                                                     <td>{{ $borange_serah_kerja_teks->purchased_by_designation }}
                                                     </td>
                                                     <td>{{ $borange_serah_kerja_teks->purchased_by_department }}
+                                                    </td>
+                                                    <td>{{ $borange_serah_kerja_teks->purchased_by_remarks }}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -520,8 +526,9 @@
                                                 <tr>
                                                     <th>Date</th>
                                                     <th>Username</th>
-                                                    <th>Desgination</th>
+                                                    <th>Designation</th>
                                                     <th>Department</th>
+                                                    <th>Remarks</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -533,6 +540,8 @@
                                                     <td>{{ $borange_serah_kerja_teks->transfer_by_designation }}
                                                     </td>
                                                     <td>{{ $borange_serah_kerja_teks->transfer_by_department }}
+                                                    </td>
+                                                    <td>{{ $borange_serah_kerja_teks->transfer_by_remarks }}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -555,8 +564,9 @@
                                                 <tr>
                                                     <th>Date</th>
                                                     <th>Username</th>
-                                                    <th>Desgination</th>
+                                                    <th>Designation</th>
                                                     <th>Department</th>
+                                                    <th>Remarks</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -569,6 +579,8 @@
                                                     </td>
                                                     <td>{{ $borange_serah_kerja_teks->received_by_department }}
                                                     </td>
+                                                    <td>{{ $borange_serah_kerja_teks->received_by_remarks }}
+                                                    </td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -579,24 +591,24 @@
 
 
                         <!-- <div class="row">
-                                <div class="col-md-12">
-                                    <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
-                                        <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="text-center" style="font-size:20px; color:black; dispaly:inline-block;">
+                                            <div class="row">
 
-                                            <div class="col-md-12">
-                                                <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
-                                                    <span style="color:black; font-size:14px;">
-                                                        <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA
-                                                            OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
-                                                    </span>
-                                                </h5>
+                                                <div class="col-md-12">
+                                                    <h5 style="font-size:20px;"><b>PERINGATAN :</b> <br>
+                                                        <span style="color:black; font-size:14px;">
+                                                            <b>SERAHKAN SAMPLE KEPADA QC/EKSEKUTIF QA/PENGURUS OPERASI/PENYELIA
+                                                                OPERASI UNTUK PENGESAHAN SEBELUM MEMULAKAN PROSES LIPAT</b>
+                                                        </span>
+                                                    </h5>
+                                                </div>
                                             </div>
+
+
                                         </div>
-
-
                                     </div>
-                                </div>
-                            </div> -->
+                                </div> -->
                         <div class="row d-flex justify-content-end">
                             <div class="col-md-12 d-flex justify-content-end">
                                 <button class="btn btn-primary mx-2 mt-3">Save</button>
@@ -606,7 +618,8 @@
 
 
                 </div>
-                <a href="{{ route('borange_serah_kerja_teks') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
+                <a href="{{ route('borange_serah_kerja_teks') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to
+                    list</a>
             </div>
         </div>
 
@@ -654,68 +667,68 @@
                 }
             });
 
-            $("#Other").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others').css('display','')
-                }else{
-                    $('.Others').css('display','none')
+            $("#Other").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others').css('display', '')
+                } else {
+                    $('.Others').css('display', 'none')
                 }
             })
 
-            $("#Ribbon").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.ribbon').css('display','')
-                }else{
-                    $('.ribbon').css('display','none');
+            $("#Ribbon").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.ribbon').css('display', '')
+                } else {
+                    $('.ribbon').css('display', 'none');
                 }
             })
 
-            $("#Chipboard").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Chipboard').css('display','')
-                }else{
-                    $('.Chipboard').css('display','none')
+            $("#Chipboard").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Chipboard').css('display', '')
+                } else {
+                    $('.Chipboard').css('display', 'none')
                 }
             })
 
 
-            $("#Other17").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others17').css('display','')
-                }else{
-                    $('.Others17').css('display','none')
+            $("#Other17").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others17').css('display', '')
+                } else {
+                    $('.Others17').css('display', 'none')
                 }
             })
 
-            $("#Other18").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others18').css('display','')
-                }else{
-                    $('.Others18').css('display','none')
+            $("#Other18").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others18').css('display', '')
+                } else {
+                    $('.Others18').css('display', 'none')
                 }
             })
 
-            $("#Other19").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others19').css('display','')
-                }else{
-                    $('.Others19').css('display','none')
+            $("#Other19").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others19').css('display', '')
+                } else {
+                    $('.Others19').css('display', 'none')
                 }
             })
 
-            $("#Other20").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others20').css('display','')
-                }else{
-                    $('.Others20').css('display','none')
+            $("#Other20").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others20').css('display', '')
+                } else {
+                    $('.Others20').css('display', 'none')
                 }
             })
 
-            $("#Other21").on('change',function(){
-                if($(this).prop('checked')){
-                    $('.Others21').css('display','')
-                }else{
-                    $('.Others21').css('display','none')
+            $("#Other21").on('change', function() {
+                if ($(this).prop('checked')) {
+                    $('.Others21').css('display', '')
+                } else {
+                    $('.Others21').css('display', 'none')
                 }
             })
 

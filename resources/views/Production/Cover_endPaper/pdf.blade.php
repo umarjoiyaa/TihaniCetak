@@ -18,7 +18,7 @@
         <div class="row d-flex">
             <div class="col-md-12">
                         <h5 class="float-left"><b>PRODUCTION JOBSHEET- COVER & ENDPAPER</b></h5>
-                        <p class="float-right">TCBS-B66 (Rev.1)</p>
+                        <p class="float-right">TCSB-B62 (Rev.0)</p>
                 </div>
         </div>
 
@@ -214,7 +214,7 @@
 
 
                 <br>
-                <h5><b>Print Details</b></h5>
+                <h5><b>Print Detail</b></h5>
 
                 <div class="row mt-2 mx-2" >
                     <div >

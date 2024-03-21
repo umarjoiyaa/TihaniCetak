@@ -194,14 +194,15 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                            </div>
+
 
 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="card" style="background:#f4f4ff; border-radius:5px;">
                                     <div class="card-body">
-                                        <h5><b>Print Details</b></h5>
+                                        <h5><b>Print Detail</b></h5>
                                         <div class="row ">
                                             <div class="col-md-4">
                                                 <div class="form-group">

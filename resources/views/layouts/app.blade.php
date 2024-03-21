@@ -63,8 +63,7 @@
                 text-align:left;
         }
         .check_operator_text,
-        .check_operator,
-        .verify_operator,
+
         .check_verify_text {
             width: 340px !important;
         }

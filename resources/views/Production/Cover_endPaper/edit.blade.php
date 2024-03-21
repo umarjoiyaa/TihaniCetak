@@ -11,8 +11,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-12">
-                                <h5 class="float-left"><b>PRODUCTION JOBSHEET- COVER DAN ENDPAPER</b></h5>
-                                <p class="float-right">TCBS-B62 (Rev.0)</p>
+                                <h5 class="float-left"><b>PRODUCTION JOBSHEET- COVER AND ENDPAPER</b></h5>
+                                <p class="float-right">TCSB-B62 (Rev.0)</p>
                             </div>
                         </div>
 
@@ -160,13 +160,12 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card" style="background:#f4f4ff; border-radius:5px;">
                                 <div class="card-body">
-                                    <h5><b>Print Details</b></h5>
+                                    <h5><b>Print Detail</b></h5>
                                     <div class="row ">
                                         <div class="col-md-4">
                                             <div class="form-group">

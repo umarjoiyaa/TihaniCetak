@@ -320,7 +320,7 @@
                                         <tr>
                                             <th>Date</th>
                                             <th>Username</th>
-                                            <th>Desgination</th>
+                                            <th>Designation</th>
                                             <th>Department</th>
                                         </tr>
                                     </thead>

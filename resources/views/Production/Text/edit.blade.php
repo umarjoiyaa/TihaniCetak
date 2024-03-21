@@ -340,9 +340,12 @@
                                                     <th>Kuantiti Waste</th>
                                                 </tr>
                                             <tbody>
+                                                @php
+                                                    $count = 1;
+                                                @endphp
                                                 @foreach ($details as $value)
                                                     <tr>
-                                                        <td>{{$value->seksyen_no}}</td>
+                                                        <td>{{$count}}</td>
                                                         <td> <input type="text" name="section[{{$value->seksyen_no}}][date]"
                                                             class="form-control datepicker"
                                                             id="datepicker{{$value->seksyen_no}}" value="{{$value->date}}" pattern="\d{2}-\d{2}-\d{4}" class="date_section" placeholder="dd-mm-yyyy"></td>
@@ -368,6 +371,9 @@
                                                         <td><input type="number" value="{{$value->kuantiti_waste}}" name="section[{{$value->seksyen_no}}][kuantiti_waste]" class="form-control kuantiti_waste_section"
                                                                 id=""></td>
                                                     </tr>
+                                                    @php
+                                                    $count++;
+                                                    @endphp
                                                 @endforeach
                                             </tbody>
                                             </thead>
@@ -943,7 +949,7 @@
 
             }
         })
-        var key = 1;
+        var key = Math.floor(Math.random() * 100);
         $(document).on('change', '#seksyen_no', function() {
     var value = +$(this).val();
     var length = $('#child_table tbody tr').length == 0 ? 1 : $('#child_table tbody tr').length;

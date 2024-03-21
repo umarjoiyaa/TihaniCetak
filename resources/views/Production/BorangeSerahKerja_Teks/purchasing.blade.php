@@ -480,6 +480,10 @@
                                             class="form-control datepicker" id="datepicker1" pattern="\d{2}-\d{2}-\d{4}"
                                             placeholder="dd-mm-yyyy">
                                     </div>
+                                    <div class="col-md-4">
+                                        <label for="">Remarks :</label>
+                                        <textarea  id="" class="form-control" cols="30" rows="1" name="purchased_by_remarks"></textarea>
+                                    </div>
                                 </div>
                             </div>
                         </div>

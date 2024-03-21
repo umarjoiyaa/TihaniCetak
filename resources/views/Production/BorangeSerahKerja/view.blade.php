@@ -388,8 +388,9 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Username</th>
-                                                <th>Desgination</th>
+                                                <th>Designation</th>
                                                 <th>Department</th>
+                                                <th>Remarks</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -401,6 +402,8 @@
                                                 <td>{{ $borange_serah_kerja->purchased_by_designation }}
                                                 </td>
                                                 <td>{{ $borange_serah_kerja->purchased_by_department }}
+                                                </td>
+                                                <td>{{ $borange_serah_kerja->purchased_by_remarks }}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -422,8 +425,9 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Username</th>
-                                                <th>Desgination</th>
+                                                <th>Designation</th>
                                                 <th>Department</th>
+                                                <th>Remarks</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -435,6 +439,8 @@
                                                 <td>{{ $borange_serah_kerja->transfer_by_designation }}
                                                 </td>
                                                 <td>{{ $borange_serah_kerja->transfer_by_department }}
+                                                </td>
+                                                <td>{{ $borange_serah_kerja->transfer_by_remarks }}
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -457,8 +463,9 @@
                                             <tr>
                                                 <th>Date</th>
                                                 <th>Username</th>
-                                                <th>Desgination</th>
+                                                <th>Designation</th>
                                                 <th>Department</th>
+                                                <th>Remarks</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -470,6 +477,8 @@
                                                 <td>{{ $borange_serah_kerja->received_by_designation }}
                                                 </td>
                                                 <td>{{ $borange_serah_kerja->received_by_department }}
+                                                </td>
+                                                <td>{{ $borange_serah_kerja->received_by_remarks }}
                                                 </td>
                                             </tr>
                                         </tbody>

@@ -535,6 +535,8 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
         $borange_serah_kerja_teks->status = 'purchased';
         $borange_serah_kerja_teks->po_no = $request->po_no;
+        $borange_serah_kerja_teks->purchased_by_remarks = $request->purchased_by_remarks;
+
         $borange_serah_kerja_teks->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->purchased_by_user = Auth::user()->user_name;
         $borange_serah_kerja_teks->purchased_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
@@ -552,6 +554,7 @@ class BorangeSerahKerja_TeksController extends Controller
 
         $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
         $borange_serah_kerja_teks->status = 'transfered';
+        $borange_serah_kerja_teks->transfer_by_remarks = $request->transfer_by_remarks;
         $borange_serah_kerja_teks->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->transfer_by_user = Auth::user()->user_name;
         $borange_serah_kerja_teks->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
@@ -569,6 +572,7 @@ class BorangeSerahKerja_TeksController extends Controller
 
         $borange_serah_kerja_teks = BorangSerahKerjaTeks::find($id);
         $borange_serah_kerja_teks->status = 'received';
+        $borange_serah_kerja_teks->received_by_remarks = $request->received_by_remarks;
         $borange_serah_kerja_teks->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->received_by_user = Auth::user()->user_name;
         $borange_serah_kerja_teks->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';

@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>JOBSHEET - STAPLE BIND</b></h5>
-                            <p class="float-right">TCBS-B51 (Rev. 1)</p>
+                            <p class="float-right">TCSB-B51 (Rev. 1)</p>
                         </div>
                     </div>
 
@@ -269,7 +269,7 @@
                                     <tr>
                                         <th>Date</th>
                                         <th>Username</th>
-                                        <th>Desgination</th>
+                                        <th>Designation</th>
                                         <th>Department</th>
                                     </tr>
                                 </thead>
@@ -289,7 +289,7 @@
                         </div>
                     </div>
 
-                   
+
 
 
                     <div class="row">

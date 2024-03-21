@@ -64,17 +64,21 @@ return new class extends Migration
             $table->string('purchased_by_user')->nullable();
             $table->string('purchased_by_designation')->nullable();
             $table->string('purchased_by_department')->nullable();
+            $table->string('purchased_by_remarks')->nullable();
 
             $table->string('transfer_by_date')->nullable();
             $table->string('transfer_by_user')->nullable();
             $table->string('transfer_by_designation')->nullable();
             $table->string('transfer_by_department')->nullable();
+            $table->string('transfer_by_remarks')->nullable();
+
 
             $table->string('received_by_date')->nullable();
             $table->string('received_by_user')->nullable();
             $table->string('received_by_designation')->nullable();
             $table->string('received_by_department')->nullable();
-            
+            $table->string('received_by_remarks')->nullable();
+
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();

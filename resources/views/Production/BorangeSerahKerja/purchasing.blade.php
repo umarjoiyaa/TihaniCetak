@@ -342,6 +342,10 @@
                                     <label for="">Dateline:</label>
                                     <input type="text" class="form-control datepicker" value="{{ $borange_serah_kerja->date_line }}" name="date_line" id="date_line">
                                 </div>
+                                <div class="col-md-4">
+                                    <label for="">Remarks :</label>
+                                    <textarea  id="" class="form-control" cols="30" rows="1" name="purchased_by_remarks"></textarea>
+                                </div>
                             </div>
                         </div>
                     </div>

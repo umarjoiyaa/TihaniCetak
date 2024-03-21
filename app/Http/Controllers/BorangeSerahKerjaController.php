@@ -538,6 +538,7 @@ class BorangeSerahKerjaController extends Controller
 
         $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
         $borange_serah_kerja->status = 'purchased';
+        $borange_serah_kerja->purchased_by_remarks = $request->purchased_by_remarks;
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->purchased_by_user = Auth::user()->user_name;
@@ -556,6 +557,7 @@ class BorangeSerahKerjaController extends Controller
 
         $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
         $borange_serah_kerja->status = 'transfered';
+        $borange_serah_kerja->transfer_by_remarks = $request->transfer_by_remarks;
         $borange_serah_kerja->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->transfer_by_user = Auth::user()->user_name;
         $borange_serah_kerja->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
@@ -573,6 +575,7 @@ class BorangeSerahKerjaController extends Controller
 
         $borange_serah_kerja = BorangSerahKerjaKulit::find($id);
         $borange_serah_kerja->status = 'received';
+        $borange_serah_kerja->received_by_remarks = $request->received_by_remarks;
         $borange_serah_kerja->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->received_by_user = Auth::user()->user_name;
         $borange_serah_kerja->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
@@ -582,7 +585,7 @@ class BorangeSerahKerjaController extends Controller
         return redirect()->route('borange_serah_kerja')->with('custom_success', 'BORANG SERAH KERJA (KULIT BUKU/COVER) has been Successfully Received!');
     }
 
-    
+
 
 
     public function view($id){
