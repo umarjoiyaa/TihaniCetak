@@ -360,8 +360,7 @@
 
 
 
-                            
-                        </div>
+
                         <div class="row mt-5">
                                 <div class="col-md-12">
                                     <h3><b>Verified By</b></h3>
@@ -386,28 +385,7 @@
                                     </table>
                             </div>
                         </div>
-                                <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered">
-                                            <thead>
-                                                <tr>
-                                                    <th>Date</th>
-                                                    <th>Username</th>
-                                                    <th>Desgination</th>
-                                                    <th>Department</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <td>{{ $laporan_proses_three->verified_by_date }}</td>
-                                                    <td>{{ $laporan_proses_three->verified_by_user }}</td>
-                                                    <td>{{ $laporan_proses_three->verified_by_designation }}</td>
-                                                    <td>{{ $laporan_proses_three->verified_by_department }}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
+                            </div>
                             </div>
                     </div>
                 </div>

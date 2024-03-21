@@ -1359,6 +1359,7 @@
         }
     }
     $(document).ready(function () {
+        $('#Text').val(1);
         $('#sale_order').trigger('change');
 
 $('#sale_order').select2({

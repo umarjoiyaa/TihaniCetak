@@ -766,7 +766,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Manage Transfer</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Stock_in') }}"
+                                                                        href="{{ route('stock_in') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

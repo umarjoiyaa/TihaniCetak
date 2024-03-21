@@ -223,6 +223,8 @@
 <script>
     $(document).ready(function() {
 $('input').attr('disabled', 'disabled');
+$('input[type="hidden"]').removeAttr('disabled');
+
 });
 </script>
 @endpush
