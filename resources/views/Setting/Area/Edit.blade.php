@@ -36,7 +36,7 @@
                                     <select name="shelf[]" class="form-select" multiple>
                                         @foreach ($shelves as $shelf)
                                             <option value="{{ $shelf->id }}"
-                                                @if (old('shelf')) {{ in_array($item, $shelf->id) ? 'selected' : '' }} @endif>
+                                                @if ($item) {{ in_array($shelf->id, $item) ? 'selected' : '' }} @endif>
                                                 {{ $shelf->name }}</option>
                                         @endforeach
                                     </select>

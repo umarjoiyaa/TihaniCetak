@@ -306,6 +306,21 @@ class Helper
                 'MANAGE TRNASFER Receive',
                 'MANAGE TRNASFER View',
                 'MANAGE TRNASFER Delete',
+            ],
+            'STOCK IN' => [
+                'STOCK IN List',
+                'STOCK IN Create',
+                'STOCK IN Update',
+                'STOCK IN View',
+                'STOCK IN Delete',
+            ],
+            'STOCK TRANSFER' => [
+                'STOCK TRANSFER List',
+                'STOCK TRANSFER Create',
+                'STOCK TRANSFER Update',
+                'STOCK TRANSFER View',
+                'STOCK TRANSFER Delete',
+                'STOCK TRANSFER Receive',
             ]
         ];
 

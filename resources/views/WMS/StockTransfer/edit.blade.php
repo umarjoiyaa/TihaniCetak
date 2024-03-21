@@ -1,0 +1,558 @@
+@extends('layouts.app')
+@section('content')
+    <form action="{{ route('stock_transfer.update', $stock_transfer->id) }}" method="POST">
+        @csrf
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Stock Transfer</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="card" style="background:#f6f7f7;">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Ref No</div>
+                                            <input type="text" name="ref_no" readonly
+                                                value="{{ $stock_transfer->ref_no }}" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Date</div>
+                                            <input type="text" name="date" value="{{ $stock_transfer->date }}"
+                                                class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                                placeholder="dd-mm-yyyy">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Transfer By</div>
+                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Sales Order No.</div>
+                                            <select name="sale_order" data-id="{{ $stock_transfer->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $stock_transfer->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $stock_transfer->sale_order->order_no }}
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Description</div>
+                                            <textarea name="description" class="form-control">{{ $stock_transfer->description }}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 mt-3">
+                                        <div class="form-group">
+                                            <div class="label">Do No </div>
+                                            <input type="text" name="do_no" value="{{ $stock_transfer->do_no }}"
+                                                class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <h4>Transfer To:</h4>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="row">
+                                            <div class="col-md-1"><input type="checkbox" name="customer"
+                                                    @checked($stock_transfer->customer == 1)>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5>Customer</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="customer_id" class="form-control">
+                                                    <option value="">Select Customer</option>
+                                                    @foreach ($customers as $customer)
+                                                        <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
+                                                            {{ $customer->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                    <div class="col-md-6 mt-3">
+                                        <div class="row">
+                                            <div class="col-md-1"><input type="checkbox" name="supplier"
+                                                    @checked($stock_transfer->subcon == 1)>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <h5>Subcon</h5>
+                                            </div>
+                                            <div class="col-md-8">
+                                                <select name="supplier_id" class="form-control">
+                                                    <option value="">Select Supplier</option>
+                                                    @foreach ($suppliers as $supplier)
+                                                        <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
+                                                            {{ $supplier->name }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6"></div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary float-right mb-2" id="additem"
+                                            class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">+ Add
+                                            Product</button>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <table class="table mt-2" id="Table">
+                                                <thead>
+                                                    <tr>
+                                                        <td>Item Code</td>
+                                                        <td>Description</td>
+                                                        <td>UOM</td>
+                                                        <td>Quantity</td>
+                                                        <td>Action</td>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($stock_products as $key => $stock_product)
+                                                        <tr>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->product_id }}'
+                                                                    class="product_id"
+                                                                    name="products[{{ $key }}][product_id]" /><input
+                                                                    type='hidden'
+                                                                    value='{{ $stock_product->products->group }}'
+                                                                    class="group"
+                                                                    name="products[{{ $key }}][group]" /><input
+                                                                    type="hidden"
+                                                                    name="products[{{ $key }}][item_code]"
+                                                                    value="{{ $stock_product->products->item_code }}" />{{ $stock_product->products->item_code }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->description }}'
+                                                                    name="products[{{ $key }}][description]" />{{ $stock_product->products->description }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->base_uom }}'
+                                                                    name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control qty"
+                                                                    value='{{ $stock_product->qty }}' readonly
+                                                                    name="products[{{ $key }}][qty]" /></td>
+                                                            <td><input type="hidden" class="hiddenId"
+                                                                    value="{{ $stock_product->product_id }}"><button
+                                                                    type="button" class="btn btn-primary openModal"
+                                                                    data-toggle="modal"
+                                                                    data-target="#exampleModal">+</button></td>
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="storedData" name="details">
+                                        <button class="btn btn-primary float-right" type="button"
+                                            id="saveForm">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ route('stock_transfer') }}" class="">Back to list</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Products</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table datatable w-100">
+                            <thead>
+                                <tr>
+                                    <th></th>
+                                    <th>Item Code</th>
+                                    <th>Description</th>
+                                    <th>Group</th>
+                                    <th>UOM</th>
+                                </tr>
+                            </thead>
+                            <tbody id="productsTable">
+                                @foreach ($products as $product)
+                                    <tr>
+                                        <td><input type="checkbox" name="" id=""><input type="hidden"
+                                                value="{{ $product->id }}" class="product_id"></td>
+                                        <td>{{ $product->item_code }}</td>
+                                        <td>{{ $product->description }}</td>
+                                        <td>{{ $product->group }}</td>
+                                        <td>{{ $product->base_uom }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="addrows">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Stock Transfer</h5>
+                    <input type="hidden" class="product_ids">
+                </div>
+                <div class="modal-body">
+                    <div class="row d-flex justify-content-between">
+                        <div>Item Code: <span class="item_code_text"></span></div>
+                        <div>Quantity: <span class="quantity_text"></span></div>
+                    </div>
+                    <div class="row d-flex justify-content-between">
+                        <div>Description: <span class="description_text"></span></div>
+                        <div>UOM: <span class="uom_text"></span></div>
+                    </div>
+                    <br>
+                    <div class="table-responsive">
+                        <table class="table datatable1 w-100">
+                            <thead>
+                                <tr>
+                                    <th>Location</th>
+                                    <th>Available Qty</th>
+                                    <th>Quantity</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody id="myTable">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="saveModal">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+@endsection
+@push('custom-scripts')
+    <script>
+        $('#sale_order').select2({
+            ajax: {
+                url: '{{ route('sale_order.get') }}',
+                dataType: 'json',
+                delay: 1000,
+                data: function(params) {
+                    return {
+                        q: params.term,
+                        page: params.page || 1,
+                    };
+                },
+                processResults: function(data, params) {
+                    params.page = params.page || 1;
+
+                    return {
+                        results: data.results,
+                        pagination: {
+                            more: data.pagination.more
+                        }
+                    };
+                },
+                cache: true
+            },
+            containerCssClass: 'form-control',
+            placeholder: "Select Sales Order No",
+            templateResult: function(data) {
+                if (data.loading) {
+                    return "Loading...";
+                }
+
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
+            },
+            templateSelection: function(data) {
+                return data.text || "Select Sales Order No";
+            }
+        });
+
+        $('#Table').DataTable();
+        $('.datatable').DataTable();
+
+        function addRow(button) {
+            if ($.fn.DataTable.isDataTable('.datatable1')) {
+                $('.datatable1').DataTable().destroy();
+            }
+            var row = button.parentNode.parentNode.cloneNode(true);
+            button.parentNode.parentNode.parentNode.insertBefore(row, button.parentNode.parentNode.nextSibling);
+            $('.datatable1').DataTable();
+            $('.qty').trigger('keyup');
+        }
+
+        function removeRow(button) {
+            if ($.fn.DataTable.isDataTable('.datatable1')) {
+                $('.datatable1').DataTable().destroy();
+            }
+            if ($('#myTable tr').length > 1) {
+                $(button).closest('tr').remove();
+            } else {
+                alert("Can`t remove row!");
+        }
+        $('.qty').trigger('keyup');
+        $('.datatable1').DataTable();
+    }
+    let locations = [];
+    $(document).ready(function() {
+        sessionStorage.clear();
+        var detailsb = @json($stock_locations);
+        detailsb.forEach(element => {
+            let data = sessionStorage.getItem(`modalData${element.product_id}`);
+            if (!data) {
+                data = [];
+            } else {
+                data = JSON.parse(data);
+            }
+            let rowData = {};
+            rowData['location'] = `${element.area_id}->${element.shelf_id}->${element.level_id}`;
+            rowData['area'] = element.area_id;
+            rowData['shelf'] = element.shelf_id;
+            rowData['level'] = element.level_id;
+            rowData['qty'] = element.qty;
+            rowData['hiddenId'] = element.product_id;
+            data.push(rowData);
+            sessionStorage.setItem(`modalData${element.product_id}`, JSON.stringify(data));
+        });
+        locations = @json($locations);
+    });
+
+    $(document).on('click', '.openModal', function() {
+        if ($.fn.DataTable.isDataTable('.datatable1')) {
+            $('.datatable1').DataTable().destroy();
+        }
+        let hiddenId = $(this).closest('tr').find('.hiddenId').val();
+        $('.product_ids').val(hiddenId);
+        let storedData = sessionStorage.getItem(`modalData${hiddenId}`);
+        if (storedData) {
+            $('#myTable').html(``);
+            storedData = JSON.parse(storedData);
+            storedData.forEach(element => {
+                let optionsHtml = '';
+                locations.forEach(location => {
+                    let selected = '';
+                    if (element.location ===
+                        `${location.area_id}->${location.shelf_id}->${location.level_id}`) {
+                        selected = 'selected';
+                    }
+                    optionsHtml +=
+                        `<option
+                                                                                                                                                                                                                                                                                data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                                                                                                                                                                ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                            </option>`;
+                });
+                $('#myTable').append(
+                    `<tr>
+                                                                                                                                                                                                                                                                            <td>
+                                                                                                                                                                                                                                                                            <select class="form-control location">
+                                                                                                                                                                                                                                                                                ${optionsHtml}
+                                                                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                            <td><input type="number" class="form-control available_qty" readonly></td>
+                                                                                                                                                                                                                                                                            <td><input type="number" class="form-control qty" value="${element.qty}"></td>
+                                                                                                                                                                                                                                                                            <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                        </tr>`
+                );
+            });
+        } else {
+            let optionsHtml = '';
+            locations.forEach(location => {
+                optionsHtml +=
+                    `<option
+                                                                                                                                                                                                                                                                                data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                            </option>`;
+            });
+            let defaultRow =
+                `
+                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                            <select class="form-control location">
+                                                                                                                                                                                                                                                                                ${optionsHtml}
+                                                                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                        <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                        <td><input type="number" class="form-control qty"></td>
+                                                                                                                                                                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                    </tr>`;
+            $('#myTable').html(defaultRow);
+        }
+
+        let item_code_text = $(this).closest('tr').find('td:eq(0)').text();
+        let description_text = $(this).closest('tr').find('td:eq(1)').text();
+        let uom_text = $(this).closest('tr').find('td:eq(2)').text();
+        $('.item_code_text').text(item_code_text);
+        $('.description_text').text(description_text);
+        $('.uom_text').text(uom_text);
+        $('.location').trigger('change');
+        $('.qty').trigger('keyup');
+        $('.datatable1').DataTable();
+    });
+
+    $('#saveModal').on('click', function() {
+        $('#exampleModal').modal('hide');
+        let hiddenId = $('.product_ids').val();
+        let data = [];
+        $('#myTable tr').each(function() {
+            let rowData = {};
+            rowData['location'] = $(this).find('.location').val();
+            rowData['area'] = $(this).find('.location option:selected').attr('data-area-id');
+            rowData['shelf'] = $(this).find('.location option:selected').attr('data-shelf-id');
+            rowData['level'] = $(this).find('.location option:selected').attr('data-level-id');
+            rowData['qty'] = $(this).find('.qty').val();
+            rowData['hiddenId'] = hiddenId;
+            data.push(rowData);
+        });
+        sessionStorage.setItem(`modalData${hiddenId}`, JSON.stringify(data));
+        $('#Table tbody tr').each(function() {
+            if ($(this).find('.hiddenId').val() == hiddenId) {
+                let total_qty = $('.quantity_text').text();
+                $(this).find('.qty1').val(total_qty);
+            }
+        });
+    });
+
+    $(document).on('keyup change', '.qty', function() {
+        // if ($(this).closest('tr').find('.available_qty').val() < $(this).val()) {
+        //     $(this).val($(this).closest('tr').find('.available_qty').val());
+        // } else {
+            let total = 0;
+            $('#myTable .qty').each(function() {
+                total += +$(this).val();
+            });
+            $('.quantity_text').text(total);
+        // }
+    });
+
+    $('#saveForm').on('click', function() {
+        let array = [];
+        $('.hiddenId').each(function() {
+            let storedData = sessionStorage.getItem(`modalData${$(this).val()}`);
+            if (storedData == null) {
+                storedData = `{"hiddenId":"${$(this).val()}"}`;
+            }
+            array.push(JSON.parse(storedData));
+        });
+        $('#storedData').val(JSON.stringify(array));
+        $(this).closest('form').submit();
+    });
+
+    //important work
+    $bool = true;
+
+    $('#additem').click(function() {
+        if ($bool) {
+            $('.datatable').DataTable().destroy();
+            $(".datatable tbody tr").find(".product_id").each(function() {
+                let this1 = $(this);
+                $("#Table tbody").find(".product_id").each(function() {
+                    let this2 = $(this);
+                    if (this1.val() == this2.val()) {
+                        this1.closest('tr').remove();
+                    }
+                });
+            });
+            $('.datatable').dataTable();
+            $bool = false;
+        }
+    });
+
+    $('#addrows').click(function() {
+        $('.datatable').DataTable().destroy();
+        $('#Table').DataTable().destroy();
+
+        $(".datatable tbody").find("input[type=checkbox]:checked").each(function() {
+            $length = $("#Table tbody tr").length;
+
+            var checkedRow = $(this).closest('tr');
+
+            var product_id = checkedRow.find('.product_id').val();
+            var item_code = checkedRow.find('td:eq(1)').text();
+            var description = checkedRow.find('td:eq(2)').text();
+            var group = checkedRow.find('td:eq(3)').text();
+            var uom = checkedRow.find('td:eq(4)').text();
+
+            var newRow = $(
+                `<tr>
+                                                                                            <td><input type='hidden' value='${product_id}' class="product_id" name="products[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="products[${$length}][group]"/><input type="hidden" name="products[${$length}][item_code]" value="${item_code}"/>${item_code}</td>
+                                                                                            <td><input type='hidden' value='${description}' name="products[${$length}][description]"/>${description}</td>
+                                                                                            <td><input type='hidden' value='${uom}' name="products[${$length}][uom]"/>${uom}</td>
+                                                                                            <td><input type='number' class="form-control qty1" value='0' readonly name="products[${$length}][qty]"/></td>
+                                                                                            <td><input type="hidden" class="hiddenId" value="${product_id}"><button type="button" class="btn btn-primary openModal" data-toggle="modal" data-target="#exampleModal">+</button></td></tr>`
+            );
+
+            $("#Table tbody").append(newRow);
+
+            checkedRow.remove();
+
+        });
+        $('#Table').dataTable();
+        $('.datatable').dataTable();
+    });
+
+    $(document).on('change', '.location', function() {
+        $this = $(this).closest('tr').find('.available_qty');
+        var area_id = $(this).find('option:selected').attr('data-area-id');
+        var shelf_id = $(this).find('option:selected').attr('data-shelf-id');
+        var level_id = $(this).find('option:selected').attr('data-level-id');
+        var product_id = $('.product_ids').val();
+        $.ajax({
+            url: '{{ route('get.available_qty') }}',
+            method: 'GET',
+            data: {
+                area_id: area_id,
+                shelf_id: shelf_id,
+                level_id: level_id,
+                product_id: product_id
+            },
+            success: function(response) {
+                $this.val(`${response.used_qty ? response.used_qty : 0}`);
+                    // $(this).closest('tr').find('.qty').trigger('change');
+                }
+            });
+        });
+    </script>
+@endpush

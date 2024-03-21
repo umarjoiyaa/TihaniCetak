@@ -6,12 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class StockInProduct extends Model
+class Customer extends Model
 {
     use HasFactory, SoftDeletes;
-
-    public function products()
-    {
-        return $this->belongsTo(Product::class, 'product_id', 'id');
-    }
 }

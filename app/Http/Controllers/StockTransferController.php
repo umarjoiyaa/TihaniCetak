@@ -1,19 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
-    use Illuminate\Support\Facades\Auth;
-    use Illuminate\Http\Request;
-    use App\Helpers\Helper;
-    use App\Models\AreaLocation;
-    use App\Models\Location;
-    use App\Models\User;
-    use App\Models\Product;
-    use App\Models\StockIn;
-    use App\Models\StockInProduct;
-    use App\Models\StockInLocation;
-    use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use App\Helpers\Helper;
+use App\Models\AreaLocation;
+use App\Models\Location;
+use App\Models\Supplier;
+use App\Models\Customer;
+use App\Models\Product;
+use App\Models\StockTransfer;
+use App\Models\StockTransferProduct;
+use App\Models\StockTransferLocation;
+use Carbon\Carbon;
 
-class StockInController extends Controller
+class StockTransferController extends Controller
 {
     public function Data(Request $request)
     {
@@ -27,7 +28,7 @@ class StockInController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = StockIn::select('id', 'sale_order_id', 'date', 'ref_no', 'transfer_by', 'description', 'created_by')->with('sale_order', 'user', 'transfer_user');
+            $query = StockTransfer::select('id', 'sale_order_id', 'date', 'ref_no', 'supplier_id', 'description', 'created_by')->with('sale_order', 'user', 'supplier');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -39,10 +40,10 @@ class StockInController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('description', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('transfer_user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('supplier', function ($query) use ($searchLower) {
+                            $query->where('name', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('full_name', 'like', '%' . $searchLower . '%');
                         });
@@ -58,8 +59,8 @@ class StockInController extends Controller
                     1 => 'date',
                     2 => 'ref_no',
                     3 => 'sale_order_id',
-                    4 => 'description',
-                    5 => 'transfer_by',
+                    4 => 'supplier_id',
+                    5 => 'description',
                     6 => 'created_by',
                     // Add more columns as needed
                 ];
@@ -93,12 +94,12 @@ class StockInController extends Controller
                                 });
                                 break;
                             case 4:
-                                $q->where('description', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('supplier', function ($query) use ($searchLower) {
+                                    $query->where('name', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 5:
-                                $q->whereHas('transfer_user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('description', 'like', '%' . $searchLower . '%');
                                 break;
                             case 6:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
@@ -126,13 +127,18 @@ class StockInController extends Controller
             foreach ($uom as $row) {
                 $row->sr_no = $start + $index + 1;
 
+                $editLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" href="' . route('stock_transfer.edit', $row->id) . '">Edit</a>';
+                $receiveLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" href="' . route('stock_transfer.receive', $row->id) . '">Receive</a>';
+                $deleteLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" id="swal-warning" data-delete="' . route('stock_transfer.delete', $row->id) . '">Delete</a>';
+
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="' . route('stock_in.edit', $row->id) . '">Edit</a>
-                                <a class="dropdown-item" href="' . route('stock_in.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('stock_in.delete', $row->id) . '">Delete</a>
+                                ' . $editLink . '
+                                <a class="dropdown-item" href="' . route('stock_transfer.view', $row->id) . '">View</a>
+                                ' . $receiveLink . '
+                                ' . $deleteLink . '
                                 </div>
                             </div>';
 
@@ -159,7 +165,7 @@ class StockInController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = StockIn::select('id', 'sale_order_id', 'date', 'ref_no', 'transfer_by', 'description', 'created_by')->with('sale_order', 'user', 'transfer_user');
+            $query = StockTransfer::select('id', 'sale_order_id', 'date', 'ref_no', 'supplier_id', 'description', 'created_by')->with('sale_order', 'user', 'supplier');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -171,10 +177,10 @@ class StockInController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('description', 'like', '%' . $searchLower . '%')
-                        ->orWhereHas('transfer_user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('supplier', function ($query) use ($searchLower) {
+                            $query->where('name', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('full_name', 'like', '%' . $searchLower . '%');
                         });
@@ -186,8 +192,8 @@ class StockInController extends Controller
                 1 => 'date',
                 2 => 'ref_no',
                 3 => 'sale_order_id',
-                4 => 'description',
-                5 => 'transfer_by',
+                4 => 'supplier_id',
+                5 => 'description',
                 6 => 'created_by',
                 // Add more columns as needed
             ];
@@ -212,13 +218,18 @@ class StockInController extends Controller
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
 
+                $editLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" href="' . route('stock_transfer.edit', $row->id) . '">Edit</a>';
+                $receiveLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" href="' . route('stock_transfer.receive', $row->id) . '">Receive</a>';
+                $deleteLink = $row->status == 'Received' ? '' : '<a class="dropdown-item" id="swal-warning" data-delete="' . route('stock_transfer.delete', $row->id) . '">Delete</a>';
+
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
                                 data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
-                                <a class="dropdown-item" href="' . route('stock_in.edit', $row->id) . '">Edit</a>
-                                <a class="dropdown-item" href="' . route('stock_in.view', $row->id) . '">View</a>
-                                <a class="dropdown-item" id="swal-warning" data-delete="' . route('stock_in.delete', $row->id) . '">Delete</a>
+                                ' . $editLink . '
+                                <a class="dropdown-item" href="' . route('stock_transfer.view', $row->id) . '">View</a>
+                                ' . $receiveLink . '
+                                ' . $deleteLink . '
                                 </div>
                             </div>';
                             $index++;
@@ -236,34 +247,35 @@ class StockInController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('STOCK IN List') ||
-            Auth::user()->hasPermissionTo('STOCK IN Create') ||
-            Auth::user()->hasPermissionTo('STOCK IN Update') ||
-            Auth::user()->hasPermissionTo('STOCK IN View') ||
-            Auth::user()->hasPermissionTo('STOCK IN Delete')
+            Auth::user()->hasPermissionTo('STOCK TRANSFER List') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Create') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Update') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER View') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Delete')
         ) {
-            Helper::logSystemActivity('STOCK IN', 'STOCK IN List');
-            return view('WMS.StockIn.index');
+            Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER List');
+            return view('WMS.StockTransfer.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('STOCK IN Create')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
-        $count = StockIn::whereYear('date', $year)->count();
-        $users = User::all();
+        $count = StockTransfer::whereYear('date', $year)->count();
+        $suppliers = Supplier::select('id', 'name', 'code')->get();
+        $customers = Customer::select('id', 'name', 'code')->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN Create');
-        return view('WMS.StockIn.create', compact('year', 'count', 'users', 'products', 'locations'));
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Create');
+        return view('WMS.StockTransfer.create', compact('year', 'count', 'suppliers', 'customers', 'products', 'locations'));
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('STOCK IN Create')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -273,8 +285,6 @@ class StockInController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'ref_no' => 'required',
-            'transfer_by' => 'required',
-            'category' => 'required',
         ]);
 
         // If validations fail
@@ -283,22 +293,25 @@ class StockInController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $stock_in = new StockIn();
-        $stock_in->sale_order_id = $request->sale_order;
-        $stock_in->date = $request->date;
-        $stock_in->ref_no = $request->ref_no;
-        $stock_in->description = $request->description;
-        $stock_in->transfer_by = $request->transfer_by;
-        $stock_in->category = $request->category;
-        $stock_in->created_by = Auth::user()->id;
-        $stock_in->save();
+        $stock_transfer = new StockTransfer();
+        $stock_transfer->sale_order_id = $request->sale_order;
+        $stock_transfer->date = $request->date;
+        $stock_transfer->ref_no = $request->ref_no;
+        $stock_transfer->description = $request->description;
+        $stock_transfer->do_no = $request->do_no;
+        $stock_transfer->customer = ($request->customer != null) ? 1 : null;
+        $stock_transfer->customer_id = ($request->customer != null) ? $request->customer_id : null;
+        $stock_transfer->subcon = ($request->supplier != null) ? 1 : null;
+        $stock_transfer->supplier_id = ($request->supplier_id != null) ? $request->supplier_id : null;
+        $stock_transfer->created_by = Auth::user()->id;
+        $stock_transfer->save();
 
         foreach($request->products as $value){
-            $stock_in_product = new StockInProduct();
-            $stock_in_product->stock_id = $stock_in->id;
-            $stock_in_product->product_id = $value['product_id'] ?? null;
-            $stock_in_product->qty = $value['qty'] ?? 0;
-            $stock_in_product->save();
+            $stock_transfer_product = new StockTransferProduct();
+            $stock_transfer_product->stock_id = $stock_transfer->id;
+            $stock_transfer_product->product_id = $value['product_id'] ?? null;
+            $stock_transfer_product->qty = $value['qty'] ?? 0;
+            $stock_transfer_product->save();
         }
 
         $storedData = json_decode($request->input('details'), true);
@@ -308,8 +321,8 @@ class StockInController extends Controller
         })->sortBy('hiddenId')->values()->toArray();
 
         foreach ($newArray as $key => $value) {
-            $detail = new StockInLocation();
-            $detail->stock_id = $stock_in->id;
+            $detail = new StockTransferLocation();
+            $detail->stock_id = $stock_transfer->id;
             $detail->product_id = $value['hiddenId'] ?? null;
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
@@ -319,58 +332,51 @@ class StockInController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty ?? 0;
-            } else {
-                if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
-                    $location = new Location();
-                    $location->area_id = $detail->area_id;
-                    $location->shelf_id = $detail->shelf_id;
-                    $location->level_id = $detail->level_id;
-                    $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty ?? 0;
-                }
+                $location->used_qty -= (int)$detail->qty ?? 0;
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                 $location->save();
             }
         }
 
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN Store');
-        return redirect()->route('stock_in')->with('custom_success', 'STOCK IN has been Created Successfully !');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Store');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
     }
 
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('STOCK IN Update')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $users = User::all();
-        $stock_in = StockIn::find($id);
-        $stock_products = StockInProduct::where('stock_id', $id)->get();
-        $stock_locations = StockInLocation::where('stock_id', $id)->get();
+        $suppliers = Supplier::select('id', 'name', 'code')->get();
+        $customers = Customer::select('id', 'name', 'code')->get();
+        $stock_transfer = StockTransfer::find($id);
+        $stock_products = StockTransferProduct::where('stock_id', $id)->get();
+        $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN Update');
-        return view('WMS.StockIn.edit',compact('stock_in', 'stock_products', 'stock_locations', 'locations', 'products', 'users'));
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Update');
+        return view('WMS.StockTransfer.edit',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('STOCK IN View')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $users = User::all();
-        $stock_in = StockIn::find($id);
-        $stock_products = StockInProduct::where('stock_id', $id)->get();
-        $stock_locations = StockInLocation::where('stock_id', $id)->get();
+        $suppliers = Supplier::select('id', 'name', 'code')->get();
+        $customers = Customer::select('id', 'name', 'code')->get();
+        $stock_transfer = StockTransfer::find($id);
+        $stock_products = StockTransferProduct::where('stock_id', $id)->get();
+        $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN View');
-        return view('WMS.StockIn.view',compact('stock_in', 'stock_products', 'stock_locations', 'locations', 'products', 'users'));
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER View');
+        return view('WMS.StockTransfer.view',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
     }
 
     public function update(Request $request,$id)
     {
-        if (!Auth::user()->hasPermissionTo('STOCK IN Update')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -380,8 +386,6 @@ class StockInController extends Controller
             'sale_order' => 'required',
             'date' => 'required',
             'ref_no' => 'required',
-            'transfer_by' => 'required',
-            'category' => 'required',
         ]);
 
         // If validations fail
@@ -390,39 +394,42 @@ class StockInController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
-        $stock_in = StockIn::find($id);
-        $stock_in->sale_order_id = $request->sale_order;
-        $stock_in->date = $request->date;
-        $stock_in->description = $request->description;
-        $stock_in->transfer_by = $request->transfer_by;
-        $stock_in->category = $request->category;
-        $stock_in->created_by = Auth::user()->id;
-        $stock_in->save();
+        $stock_transfer = StockTransfer::find($id);
+        $stock_transfer->sale_order_id = $request->sale_order;
+        $stock_transfer->date = $request->date;
+        $stock_transfer->description = $request->description;
+        $stock_transfer->do_no = $request->do_no;
+        $stock_transfer->customer = ($request->customer != null) ? 1 : null;
+        $stock_transfer->customer_id = ($request->customer != null) ? $request->customer_id : null;
+        $stock_transfer->subcon = ($request->supplier != null) ? 1 : null;
+        $stock_transfer->supplier_id = ($request->supplier_id != null) ? $request->supplier_id : null;
+        $stock_transfer->created_by = Auth::user()->id;
+        $stock_transfer->save();
 
-        $details = StockInProduct::where('stock_id', '=', $id)->get();
+        $details = StockTransferProduct::where('stock_id', '=', $id)->get();
         $detailIds = $details->pluck('product_id')->toArray();
-        $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
+        $existingDetails = StockTransferLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
             if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
         }
 
-        StockInProduct::where('stock_id', $id)->delete();
-        StockInLocation::whereIn('product_id', $detailIds)->delete();
+        StockTransferProduct::where('stock_id', $id)->delete();
+        StockTransferLocation::whereIn('product_id', $detailIds)->delete();
 
         foreach($request->products as $value){
-            $stock_in_product = new StockInProduct();
-            $stock_in_product->stock_id = $stock_in->id;
-            $stock_in_product->product_id = $value['product_id'] ?? null;
-            $stock_in_product->qty = $value['qty'] ?? 0;
-            $stock_in_product->save();
+            $stock_transfer_product = new StockTransferProduct();
+            $stock_transfer_product->stock_id = $stock_transfer->id;
+            $stock_transfer_product->product_id = $value['product_id'] ?? null;
+            $stock_transfer_product->qty = $value['qty'] ?? 0;
+            $stock_transfer_product->save();
         }
 
         $storedData = json_decode($request->input('details'), true);
@@ -432,8 +439,8 @@ class StockInController extends Controller
         })->sortBy('hiddenId')->values()->toArray();
 
         foreach ($newArray as $key => $value) {
-            $detail = new StockInLocation();
-            $detail->stock_id = $stock_in->id;
+            $detail = new StockTransferLocation();
+            $detail->stock_id = $stock_transfer->id;
             $detail->product_id = $value['hiddenId'] ?? null;
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
@@ -443,51 +450,75 @@ class StockInController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty ?? 0;
-            } else {
-                if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
-                    $location = new Location();
-                    $location->area_id = $detail->area_id;
-                    $location->shelf_id = $detail->shelf_id;
-                    $location->level_id = $detail->level_id;
-                    $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty ?? 0;
-                }
+                $location->used_qty -= (int)$detail->qty ?? 0;
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                 $location->save();
             }
         }
 
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN update');
-        return redirect()->route('stock_in')->with('custom_success', 'STOCK IN has been Created Successfully !');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Update');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
+    }
+
+    public function receive($id){
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $suppliers = Supplier::select('id', 'name', 'code')->get();
+        $customers = Customer::select('id', 'name', 'code')->get();
+        $stock_transfer = StockTransfer::find($id);
+        $stock_products = StockTransferProduct::where('stock_id', $id)->get();
+        $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Receive');
+        return view('WMS.StockTransfer.receive',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
+    }
+
+    public function receive_update(Request $request,$id)
+    {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $stock_transfer = StockTransfer::find($id);
+        $stock_transfer->status = 'Received';
+        $stock_transfer->receive_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $stock_transfer->receive_by_user = Auth::user()->user_name;
+        $stock_transfer->receive_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $stock_transfer->receive_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $stock_transfer->save();
+
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Receive');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('STOCK IN Delete')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $stock_in = StockIn::find($id);
+        $stock_transfer = StockTransfer::find($id);
 
-        $details = StockInProduct::where('stock_id', '=', $id)->get();
+        $details = StockTransferProduct::where('stock_id', '=', $id)->get();
         $detailIds = $details->pluck('product_id')->toArray();
-        $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
+        $existingDetails = StockTransferLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
             if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
         }
 
-        StockInProduct::where('stock_id', $id)->delete();
-        StockInLocation::where('stock_id', $id)->delete();
-        $stock_in->delete();
-        Helper::logSystemActivity('STOCK IN', 'STOCK IN Delete');
-        return redirect()->route('stock_in')->with('custom_success', 'STOCK IN has been Successfully Deleted!');
+        StockTransferProduct::where('stock_id', $id)->delete();
+        StockTransferLocation::where('stock_id', $id)->delete();
+        $stock_transfer->delete();
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Delete');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Successfully Deleted!');
     }
 }

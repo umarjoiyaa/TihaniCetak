@@ -773,7 +773,7 @@
                                                                             style="color: #a41843"></iconify-icon>
                                                                         Stock In</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Stock_Transfer') }}"
+                                                                        href="{{ route('stock_transfer') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
