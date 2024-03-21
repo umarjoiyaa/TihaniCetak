@@ -255,7 +255,7 @@ class StockInController extends Controller
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $count = StockIn::whereYear('date', $year)->count();
         $users = User::all();
-        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
         Helper::logSystemActivity('STOCK IN', 'STOCK IN Create');
         return view('WMS.StockIn.create', compact('year', 'count', 'users', 'products', 'locations'));
@@ -292,7 +292,7 @@ class StockInController extends Controller
         $stock_in->category = $request->category;
         $stock_in->created_by = Auth::user()->id;
         $stock_in->save();
-
+dd($request->all());
         foreach($request->products as $value){
             $stock_in_product = new StockInProduct();
             $stock_in_product->stock_id = $stock_in->id;
@@ -303,17 +303,21 @@ class StockInController extends Controller
 
         $storedData = json_decode($request->input('details'), true);
 
-        foreach ($storedData as $key => $value) {
+        $newArray = collect($storedData)->flatMap(function ($subArray) {
+            return $subArray;
+        })->sortBy('hiddenId')->values()->toArray();
+
+        foreach ($newArray as $key => $value) {
             $detail = new StockInLocation();
             $detail->stock_id = $stock_in->id;
-            $detail->product_id = $value['product_id'] ?? null;
+            $detail->product_id = $value['hiddenId'] ?? null;
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
             $detail->qty = $value['qty'] ?? null;
             $detail->save();
 
-            $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->first();
+            $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
                 $location->used_qty += (int)$detail->qty;
             } else {
@@ -340,7 +344,7 @@ class StockInController extends Controller
         $stock_in = StockIn::find($id);
         $stock_products = StockInProduct::where('stock_id', $id)->get();
         $stock_locations = StockInLocation::where('stock_id', $id)->get();
-        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
         Helper::logSystemActivity('STOCK IN', 'STOCK IN Update');
         return view('WMS.StockIn.edit',compact('stock_in', 'stock_products', 'stock_locations', 'locations', 'products', 'users'));
@@ -354,7 +358,7 @@ class StockInController extends Controller
         $stock_in = StockIn::find($id);
         $stock_products = StockInProduct::where('stock_id', $id)->get();
         $stock_locations = StockInLocation::where('stock_id', $id)->get();
-        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
         Helper::logSystemActivity('STOCK IN', 'STOCK IN View');
         return view('WMS.StockIn.view',compact('stock_in', 'stock_products', 'stock_locations', 'locations', 'products', 'users'));

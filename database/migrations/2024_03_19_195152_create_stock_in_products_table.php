@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('stock_in_products', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('stock_id')->nullable();
+            $table->foreign('stock_id')->references('id')->on('stock_ins')->nullable();
             $table->unsignedBigInteger('product_id')->nullable();
             $table->foreign('product_id')->references('id')->on('products')->nullable();
             $table->string('qty')->nullable();
