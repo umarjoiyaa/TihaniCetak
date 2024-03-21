@@ -321,6 +321,13 @@ class Helper
                 'STOCK TRANSFER View',
                 'STOCK TRANSFER Delete',
                 'STOCK TRANSFER Receive',
+            ],
+            'STOCK TRANSFER LOCATION' => [
+                'STOCK TRANSFER LOCATION List',
+                'STOCK TRANSFER LOCATION Create',
+                'STOCK TRANSFER LOCATION Update',
+                'STOCK TRANSFER LOCATION View',
+                'STOCK TRANSFER LOCATION Delete',
             ]
         ];
 

@@ -47,7 +47,7 @@ use App\Http\Controllers\RoleController;
 use App\Http\Controllers\SenariSemakController;
 use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\StockInController;
-use App\Http\Controllers\Stock_Transfer_locationController;
+use App\Http\Controllers\StockTransferLocationController;
 use App\Http\Controllers\StockTransferController;
 use App\Http\Controllers\StockCard_ReportController;
 use App\Http\Controllers\Subcon_monitorimg_report_Controller;
@@ -86,11 +86,6 @@ Auth::routes([
 Route::middleware('auth')->group(function () {
     //DASHBOARD
     Route::get('/home', [DashboardController::class, 'index'])->name('dashboard');
-
-    //PROFILE
-    // Route::get('/user/profile', [ProfileController::class, 'index'])->name('user.profile');
-    // Route::post('/user/profile', [ProfileController::class, 'update'])->name('user.profile.update');
-    // Route::post('/user/profile/password', [ProfileController::class, 'password'])->name('profile.password.update');
 
     // START SETTINGS //
 
@@ -201,7 +196,7 @@ Route::middleware('auth')->group(function () {
 
     // END SETTINGS //
 
-    // START Mes //
+    // START MES //
 
     // Sales Order List
     Route::get('/Mes/SalesOrderList', [SalesOrderController::class, 'index'])->name('sale_order');
@@ -464,7 +459,7 @@ Route::middleware('auth')->group(function () {
     Route::post('/Mes/ProsesPembungkusan/approve/decline/{id}', [ProsesPembungkusanController::class, 'approve_decline'])->name('proses_pembungkusan.approve.decline');
     Route::get('/Mes/ProsesPembungkusan/delete/{id}', [ProsesPembungkusanController::class, 'delete'])->name('proses_pembungkusan.delete');
 
-    // END Mes //
+    // END MES //
 
     // START PRODUCTION
 
@@ -673,12 +668,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/invertory_ShopFloor/view', [invertory_ShopFloorController::class, 'view'])->name('invertory_ShopFloor.view');
     Route::get('/WMS/invertory_ShopFloor/Create', [invertory_ShopFloorController::class, 'Create'])->name('invertory_ShopFloor.create');
 
-    //invertory_ShopFloor
-    Route::get('/WMS/Stock_Transfer_location', [Stock_Transfer_locationController::class, 'index'])->name('stock_Transfer_location');
-    Route::get('/WMS/Stock_Transfer_location/view', [Stock_Transfer_locationController::class, 'view'])->name('stock_Transfer_location.view');
-    Route::get('/WMS/Stock_Transfer_location/Create', [Stock_Transfer_locationController::class, 'Create'])->name('stock_Transfer_location.create');
-    Route::get('/WMS/Stock_Transfer_location/receive', [Stock_Transfer_locationController::class, 'receive'])->name('stock_Transfer_location.receive');
-
     //Good Receiving
     Route::get('/WMS/GoodReceiving', [GoodReceivingController::class, 'index'])->name('good_receiving');
     Route::get('/WMS/GoodReceiving/data', [GoodReceivingController::class, 'Data'])->name('good_receiving.data');
@@ -729,6 +718,16 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/stock-transfer/receive/{id}', [StockTransferController::class, 'receive'])->name('stock_transfer.receive');
     Route::post('/WMS/stock-transfer/receive/update/{id}', [StockTransferController::class, 'receive_update'])->name('stock_transfer.receive.update');
     Route::get('/WMS/stock-transfer/delete/{id}', [StockTransferController::class, 'delete'])->name('stock_transfer.delete');
+
+    // Stock Transfer (Location)
+    Route::get('/WMS/stock-transfer-location', [StockTransferLocationController::class, 'index'])->name('stock_transfer_location');
+    Route::get('/WMS/stock-transfer-location/data', [StockTransferLocationController::class, 'Data'])->name('stock_transfer_location.data');
+    Route::get('/WMS/stock-transfer-location/Create', [StockTransferLocationController::class, 'create'])->name('stock_transfer_location.create');
+    Route::post('/WMS/stock-transfer-location/store', [StockTransferLocationController::class, 'store'])->name('stock_transfer_location.store');
+    Route::get('/WMS/stock-transfer-location/edit/{id}', [StockTransferLocationController::class, 'edit'])->name('stock_transfer_location.edit');
+    Route::get('/WMS/stock-transfer-location/view/{id}', [StockTransferLocationController::class, 'view'])->name('stock_transfer_location.view');
+    Route::post('/WMS/stock-transfer-location/update/{id}', [StockTransferLocationController::class, 'update'])->name('stock_transfer_location.update');
+    Route::get('/WMS/stock-transfer-location/delete/{id}', [StockTransferLocationController::class, 'delete'])->name('stock_transfer_location.delete');
 
     // Laporan_Pemeriksaan
     Route::get('/WMS/Laporan_Pemeriksaan', [Laporan_PemeriksaanController::class, 'index'])->name('Laporan_Pemeriksaan');
