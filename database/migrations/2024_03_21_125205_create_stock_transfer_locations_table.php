@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('shelf_id')->nullable();
             $table->string('level_id')->nullable();
             $table->string('qty')->nullable();
+            $table->string('available_qty')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

@@ -328,6 +328,7 @@ class StockTransferController extends Controller
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
             $detail->qty = $value['qty'] ?? 0;
+            $detail->available_qty = $value['available_qty'] ?? 0;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
@@ -446,6 +447,7 @@ class StockTransferController extends Controller
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
             $detail->qty = $value['qty'] ?? 0;
+            $detail->available_qty = $value['available_qty'] ?? 0;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
