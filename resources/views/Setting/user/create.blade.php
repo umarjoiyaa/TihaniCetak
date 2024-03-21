@@ -1,5 +1,4 @@
 @extends('layouts.app')
-
 @section('content')
 <div class="row">
     <div class="col-md-12">
@@ -14,13 +13,13 @@
                     </div>
                     <form action="{{route('user.store')}}" method="post">
                         @csrf
-                       <div class="row">
-                       <div class="col-md-10 d-flex justify-content-end">
-                            <div class="form-group">
-                                <label class="ckbox"><input @if(!old('is_active')) checked @else @checked(old('is_active') != null) @endif type="checkbox" name="is_active"><span
-                                        class="tx-17">Active User</span></label>
+                        <div class="row">
+                            <div class="col-md-12 d-flex justify-content-end">
+                                <div class="form-group">
+                                    <label class="ckbox"><input @if(!old('is_active')) checked @else @checked(old('is_active') != null) @endif type="checkbox" name="is_active"><span
+                                    class="tx-17">Active User</span></label>
+                                </div>
                             </div>
-                        </div>
                        </div>
                         <div class="row">
                             <div class="col-md-4">

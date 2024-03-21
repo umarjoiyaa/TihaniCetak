@@ -36,11 +36,11 @@ class MaterialRequestController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('ref_no', 'like', '%' . $searchLower . '%')
-                        ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('date', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('description', 'like', '%' . $searchLower . '%')
+                        ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('full_name', 'like', '%' . $searchLower . '%');
                         })
@@ -170,11 +170,11 @@ class MaterialRequestController extends Controller
                 $query->where(function ($q) use ($searchLower) {
                     $q
                         ->where('ref_no', 'like', '%' . $searchLower . '%')
-                        ->where('date', 'like', '%' . $searchLower . '%')
+                        ->orWhere('date', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->where('description', 'like', '%' . $searchLower . '%')
+                        ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('full_name', 'like', '%' . $searchLower . '%');
                         })
