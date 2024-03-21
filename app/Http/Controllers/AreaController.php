@@ -237,7 +237,7 @@ class AreaController extends Controller
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                AreaLocation::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
                 $location = new AreaLocation();
                 $location->area_id = $area->id;
                 $location->shelf_id = $shelf->id;
@@ -317,7 +317,7 @@ class AreaController extends Controller
         foreach($shelves as $shelf){
             $levels = json_decode($shelf->level_id);
             foreach($levels as $level){
-                Location::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
+                AreaLocation::where('area_id', '=', $area->id)->where('shelf_id', '=', $shelf->id)->where('level_id', '=', $level)->delete();
                 $location = new AreaLocation();
                 $location->area_id = $area->id;
                 $location->shelf_id = $shelf->id;

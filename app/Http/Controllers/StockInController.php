@@ -292,7 +292,7 @@ class StockInController extends Controller
         $stock_in->category = $request->category;
         $stock_in->created_by = Auth::user()->id;
         $stock_in->save();
-dd($request->all());
+
         foreach($request->products as $value){
             $stock_in_product = new StockInProduct();
             $stock_in_product->stock_id = $stock_in->id;
@@ -400,7 +400,7 @@ dd($request->all());
         $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
-            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->first();
+            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
             if ($location) {
                 $location->used_qty -= (int)$existingDetail->qty;
@@ -421,17 +421,21 @@ dd($request->all());
 
         $storedData = json_decode($request->input('details'), true);
 
-        foreach ($storedData as $key => $value) {
+        $newArray = collect($storedData)->flatMap(function ($subArray) {
+            return $subArray;
+        })->sortBy('hiddenId')->values()->toArray();
+
+        foreach ($newArray as $key => $value) {
             $detail = new StockInLocation();
             $detail->stock_id = $stock_in->id;
-            $detail->product_id = $value['product_id'] ?? null;
+            $detail->product_id = $value['hiddenId'] ?? null;
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
             $detail->qty = $value['qty'] ?? null;
             $detail->save();
 
-            $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->first();
+            $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
                 $location->used_qty += (int)$detail->qty;
             } else {
@@ -460,7 +464,7 @@ dd($request->all());
         $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
-            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->first();
+            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
             if ($location) {
                 $location->used_qty -= (int)$existingDetail->qty;
