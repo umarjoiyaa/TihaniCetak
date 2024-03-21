@@ -314,12 +314,12 @@ class StockInController extends Controller
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
-            $detail->qty = $value['qty'] ?? null;
+            $detail->qty = $value['qty'] ?? 0;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty;
+                $location->used_qty += (int)$detail->qty ?? 0;
             } else {
                 if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                     $location = new Location();
@@ -327,7 +327,7 @@ class StockInController extends Controller
                     $location->shelf_id = $detail->shelf_id;
                     $location->level_id = $detail->level_id;
                     $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty;
+                    $location->used_qty = (int)$detail->qty ?? 0;
                 }
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
@@ -408,7 +408,7 @@ class StockInController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty -= (int)$existingDetail->qty;
+                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -438,12 +438,12 @@ class StockInController extends Controller
             $detail->area_id = $value['area'] ?? null;
             $detail->shelf_id = $value['shelf'] ?? null;
             $detail->level_id = $value['level'] ?? null;
-            $detail->qty = $value['qty'] ?? null;
+            $detail->qty = $value['qty'] ?? 0;
             $detail->save();
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty;
+                $location->used_qty += (int)$detail->qty ?? 0;
             } else {
                 if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                     $location = new Location();
@@ -451,7 +451,7 @@ class StockInController extends Controller
                     $location->shelf_id = $detail->shelf_id;
                     $location->level_id = $detail->level_id;
                     $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty;
+                    $location->used_qty = (int)$detail->qty ?? 0;
                 }
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
@@ -474,11 +474,13 @@ class StockInController extends Controller
         $existingDetails = StockInLocation::whereIn('product_id', $detailIds)->get();
 
         foreach ($existingDetails as $existingDetail) {
-            $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
-            if ($location) {
-                $location->used_qty -= (int)$existingDetail->qty;
-                $location->save();
+                if ($location) {
+                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
             }
         }
 
