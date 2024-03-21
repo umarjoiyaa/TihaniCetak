@@ -290,7 +290,7 @@ class ManageTransferController extends Controller
     }
 
     public function available_qty(Request $request){
-        $qty = Location::select('used_qty')->where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->first();
+        $qty = Location::select('used_qty')->where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->where('product_id', '=', $request->product_id)->first();
         return $qty;
     }
 

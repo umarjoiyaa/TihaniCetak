@@ -12,7 +12,7 @@
                     <div class="d-flex justify-content-end">
                         <a href="{{ route('stock_transfer.create') }}" class="btn btn-primary mb-2">Create</a>
                     </div>
-                    <table class="table  mt-2" id="example1">
+                    <table class="table datatable mt-2">
                         <thead>
                             <tr>
                                 <td>Sr.</td>

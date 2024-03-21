@@ -30,7 +30,7 @@ return new class extends Migration
 
             $table->string('receive_by_user')->nullable();
             $table->string('receive_by_department')->nullable();
-            $table->string('receive_by_desugnation')->nullable();
+            $table->string('receive_by_designation')->nullable();
             $table->string('receive_by_date')->nullable();
             $table->string('status')->nullable();
 

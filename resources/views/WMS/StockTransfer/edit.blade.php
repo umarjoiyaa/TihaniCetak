@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form action="{{ route('stock_transfer.store') }}" method="POST">
+    <form action="{{ route('stock_transfer.update', $stock_transfer->id) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -16,16 +16,15 @@
                                         <div class="form-group">
                                             <div class="label">Ref No</div>
                                             <input type="text" name="ref_no" readonly
-                                                value="TCSB/ST/{{ $year }}/{{ $count }}"
-                                                class="form-control">
+                                                value="{{ $stock_transfer->ref_no }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Date</div>
-                                            <input type="text" name="date"
-                                                value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
-                                                id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                            <input type="text" name="date" value="{{ $stock_transfer->date }}"
+                                                class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                                placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -38,21 +37,26 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
-                                                <option value="" selected disabled>Select a Sale Order</option>
+                                            <select name="sale_order" data-id="{{ $stock_transfer->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $stock_transfer->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $stock_transfer->sale_order->order_no }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Description</div>
-                                            <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+                                            <textarea name="description" class="form-control">{{ $stock_transfer->description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Do No </div>
-                                            <input type="text" name="do_no" class="form-control">
+                                            <input type="text" name="do_no" value="{{ $stock_transfer->do_no }}"
+                                                class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-12">
@@ -60,7 +64,8 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="customer">
+                                            <div class="col-md-1"><input type="checkbox" name="customer"
+                                                    @checked($stock_transfer->customer == 1)>
                                             </div>
                                             <div class="col-md-3">
                                                 <h5>Customer</h5>
@@ -69,7 +74,8 @@
                                                 <select name="customer_id" class="form-control">
                                                     <option value="">Select Customer</option>
                                                     @foreach ($customers as $customer)
-                                                        <option value="{{ $customer->id }}">{{ $customer->name }}</option>
+                                                        <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
+                                                            {{ $customer->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -78,7 +84,8 @@
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6 mt-3">
                                         <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="supplier">
+                                            <div class="col-md-1"><input type="checkbox" name="supplier"
+                                                    @checked($stock_transfer->subcon == 1)>
                                             </div>
                                             <div class="col-md-3">
                                                 <h5>Subcon</h5>
@@ -87,7 +94,8 @@
                                                 <select name="supplier_id" class="form-control">
                                                     <option value="">Select Supplier</option>
                                                     @foreach ($suppliers as $supplier)
-                                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
+                                                        <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
+                                                            {{ $supplier->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -116,6 +124,38 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($stock_products as $key => $stock_product)
+                                                        <tr>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->product_id }}'
+                                                                    class="product_id"
+                                                                    name="products[{{ $key }}][product_id]" /><input
+                                                                    type='hidden'
+                                                                    value='{{ $stock_product->products->group }}'
+                                                                    class="group"
+                                                                    name="products[{{ $key }}][group]" /><input
+                                                                    type="hidden"
+                                                                    name="products[{{ $key }}][item_code]"
+                                                                    value="{{ $stock_product->products->item_code }}" />{{ $stock_product->products->item_code }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->description }}'
+                                                                    name="products[{{ $key }}][description]" />{{ $stock_product->products->description }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->base_uom }}'
+                                                                    name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control qty"
+                                                                    value='{{ $stock_product->qty }}' readonly
+                                                                    name="products[{{ $key }}][qty]" /></td>
+                                                            <td><input type="hidden" class="hiddenId"
+                                                                    value="{{ $stock_product->product_id }}"><button
+                                                                    type="button" class="btn btn-primary openModal"
+                                                                    data-toggle="modal"
+                                                                    data-target="#exampleModal">+</button></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -253,10 +293,15 @@
                     return "Loading...";
                 }
 
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
             },
             templateSelection: function(data) {
-                return data.order_no || "Select Sales Order No";
+                return data.text || "Select Sales Order No";
             }
         });
 
@@ -288,6 +333,24 @@
     let locations = [];
     $(document).ready(function() {
         sessionStorage.clear();
+        var detailsb = @json($stock_locations);
+        detailsb.forEach(element => {
+            let data = sessionStorage.getItem(`modalData${element.product_id}`);
+            if (!data) {
+                data = [];
+            } else {
+                data = JSON.parse(data);
+            }
+            let rowData = {};
+            rowData['location'] = `${element.area_id}->${element.shelf_id}->${element.level_id}`;
+            rowData['area'] = element.area_id;
+            rowData['shelf'] = element.shelf_id;
+            rowData['level'] = element.level_id;
+            rowData['qty'] = element.qty;
+            rowData['hiddenId'] = element.product_id;
+            data.push(rowData);
+            sessionStorage.setItem(`modalData${element.product_id}`, JSON.stringify(data));
+        });
         locations = @json($locations);
     });
 
@@ -311,24 +374,24 @@
                     }
                     optionsHtml +=
                         `<option
-                                                                                                                                                                                                                                                                    data-area-id="${location.area_id}"
-                                                                                                                                                                                                                                                                    data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                                                                                    data-level-id="${location.level_id}"
-                                                                                                                                                                                                                                                                    value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                                                                                                                                                                                                    ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                                                                                </option>`;
+                                                                                                                                                                                                                                                                                data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                                                                                                                                                                ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                            </option>`;
                 });
                 $('#myTable').append(
                     `<tr>
-                                                                                                                                                                                                                                                                <td>
-                                                                                                                                                                                                                                                                <select class="form-control location">
-                                                                                                                                                                                                                                                                    ${optionsHtml}
-                                                                                                                                                                                                                                                                </select>
-                                                                                                                                                                                                                                                                </td>
-                                                                                                                                                                                                                                                                <td><input type="number" class="form-control available_qty" readonly></td>
-                                                                                                                                                                                                                                                                <td><input type="number" class="form-control qty" value="${element.qty}"></td>
-                                                                                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                                                                                            </tr>`
+                                                                                                                                                                                                                                                                            <td>
+                                                                                                                                                                                                                                                                            <select class="form-control location">
+                                                                                                                                                                                                                                                                                ${optionsHtml}
+                                                                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                                                                            </td>
+                                                                                                                                                                                                                                                                            <td><input type="number" class="form-control available_qty" readonly></td>
+                                                                                                                                                                                                                                                                            <td><input type="number" class="form-control qty" value="${element.qty}"></td>
+                                                                                                                                                                                                                                                                            <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                        </tr>`
                 );
             });
         } else {
@@ -336,25 +399,25 @@
             locations.forEach(location => {
                 optionsHtml +=
                     `<option
-                                                                                                                                                                                                                                                                    data-area-id="${location.area_id}"
-                                                                                                                                                                                                                                                                    data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                                                                                    data-level-id="${location.level_id}"
-                                                                                                                                                                                                                                                                    value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                                                                                                                                                                    ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                                                                                </option>`;
+                                                                                                                                                                                                                                                                                data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                            </option>`;
             });
             let defaultRow =
                 `
-                                                                                                                                                                                                                                                        <tr>
-                                                                                                                                                                                                                                                            <td>
-                                                                                                                                                                                                                                                                <select class="form-control location">
-                                                                                                                                                                                                                                                                    ${optionsHtml}
-                                                                                                                                                                                                                                                                </select>
-                                                                                                                                                                                                                                                            </td>
-                                                                                                                                                                                                                                                            <td><input type="number" readonly class="form-control available_qty"></td>
-                                                                                                                                                                                                                                                            <td><input type="number" class="form-control qty"></td>
-                                                                                                                                                                                                                                                            <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                                                                                        </tr>`;
+                                                                                                                                                                                                                                                                    <tr>
+                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                            <select class="form-control location">
+                                                                                                                                                                                                                                                                                ${optionsHtml}
+                                                                                                                                                                                                                                                                            </select>
+                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                        <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                        <td><input type="number" class="form-control qty"></td>
+                                                                                                                                                                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                    </tr>`;
             $('#myTable').html(defaultRow);
         }
 
@@ -393,15 +456,15 @@
     });
 
     $(document).on('keyup change', '.qty', function() {
-        if ($(this).closest('tr').find('.available_qty').val() < $(this).val()) {
-            $(this).val($(this).closest('tr').find('.available_qty').val());
-        } else {
+        // if ($(this).closest('tr').find('.available_qty').val() < $(this).val()) {
+        //     $(this).val($(this).closest('tr').find('.available_qty').val());
+        // } else {
             let total = 0;
             $('#myTable .qty').each(function() {
                 total += +$(this).val();
             });
             $('.quantity_text').text(total);
-        }
+        // }
     });
 
     $('#saveForm').on('click', function() {
@@ -454,11 +517,11 @@
 
             var newRow = $(
                 `<tr>
-                                                                                <td><input type='hidden' value='${product_id}' class="product_id" name="products[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="products[${$length}][group]"/><input type="hidden" name="products[${$length}][item_code]" value="${item_code}"/>${item_code}</td>
-                                                                                <td><input type='hidden' value='${description}' name="products[${$length}][description]"/>${description}</td>
-                                                                                <td><input type='hidden' value='${uom}' name="products[${$length}][uom]"/>${uom}</td>
-                                                                                <td><input type='number' class="form-control qty1" value='0' readonly name="products[${$length}][qty]"/></td>
-                                                                                <td><input type="hidden" class="hiddenId" value="${product_id}"><button type="button" class="btn btn-primary openModal" data-toggle="modal" data-target="#exampleModal">+</button></td></tr>`
+                                                                                            <td><input type='hidden' value='${product_id}' class="product_id" name="products[${$length}][product_id]"/><input type='hidden' value='${group}' class="group" name="products[${$length}][group]"/><input type="hidden" name="products[${$length}][item_code]" value="${item_code}"/>${item_code}</td>
+                                                                                            <td><input type='hidden' value='${description}' name="products[${$length}][description]"/>${description}</td>
+                                                                                            <td><input type='hidden' value='${uom}' name="products[${$length}][uom]"/>${uom}</td>
+                                                                                            <td><input type='number' class="form-control qty1" value='0' readonly name="products[${$length}][qty]"/></td>
+                                                                                            <td><input type="hidden" class="hiddenId" value="${product_id}"><button type="button" class="btn btn-primary openModal" data-toggle="modal" data-target="#exampleModal">+</button></td></tr>`
             );
 
             $("#Table tbody").append(newRow);
@@ -487,7 +550,7 @@
             },
             success: function(response) {
                 $this.val(`${response.used_qty ? response.used_qty : 0}`);
-                    $(this).closest('tr').find('.qty').trigger('change');
+                    // $(this).closest('tr').find('.qty').trigger('change');
                 }
             });
         });

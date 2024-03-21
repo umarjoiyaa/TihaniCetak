@@ -247,20 +247,20 @@ class StockTransferController extends Controller
 
     public function index(){
         if (
-            Auth::user()->hasPermissionTo('STOCK Transfer List') ||
-            Auth::user()->hasPermissionTo('STOCK Transfer Create') ||
-            Auth::user()->hasPermissionTo('STOCK Transfer Update') ||
-            Auth::user()->hasPermissionTo('STOCK Transfer View') ||
-            Auth::user()->hasPermissionTo('STOCK Transfer Delete')
+            Auth::user()->hasPermissionTo('STOCK TRANSFER List') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Create') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Update') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER View') ||
+            Auth::user()->hasPermissionTo('STOCK TRANSFER Delete')
         ) {
-            Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer List');
+            Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER List');
             return view('WMS.StockTransfer.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
     public function create(){
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Create')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
@@ -269,13 +269,13 @@ class StockTransferController extends Controller
         $customers = Customer::select('id', 'name', 'code')->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Create');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Create');
         return view('WMS.StockTransfer.create', compact('year', 'count', 'suppliers', 'customers', 'products', 'locations'));
     }
 
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Create')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -301,7 +301,7 @@ class StockTransferController extends Controller
         $stock_transfer->do_no = $request->do_no;
         $stock_transfer->customer = ($request->customer != null) ? 1 : null;
         $stock_transfer->customer_id = ($request->customer != null) ? $request->customer_id : null;
-        $stock_transfer->supplier = ($request->supplier != null) ? 1 : null;
+        $stock_transfer->subcon = ($request->supplier != null) ? 1 : null;
         $stock_transfer->supplier_id = ($request->supplier_id != null) ? $request->supplier_id : null;
         $stock_transfer->created_by = Auth::user()->id;
         $stock_transfer->save();
@@ -339,13 +339,13 @@ class StockTransferController extends Controller
             }
         }
 
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Store');
-        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK Transfer has been Created Successfully !');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Store');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
     }
 
 
     public function edit($id){
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Update')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $suppliers = Supplier::select('id', 'name', 'code')->get();
@@ -355,12 +355,12 @@ class StockTransferController extends Controller
         $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Update');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Update');
         return view('WMS.StockTransfer.edit',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
     }
 
     public function view($id){
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer View')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $suppliers = Supplier::select('id', 'name', 'code')->get();
@@ -370,13 +370,13 @@ class StockTransferController extends Controller
         $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer View');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER View');
         return view('WMS.StockTransfer.view',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
     }
 
     public function update(Request $request,$id)
     {
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Update')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
@@ -401,7 +401,7 @@ class StockTransferController extends Controller
         $stock_transfer->do_no = $request->do_no;
         $stock_transfer->customer = ($request->customer != null) ? 1 : null;
         $stock_transfer->customer_id = ($request->customer != null) ? $request->customer_id : null;
-        $stock_transfer->supplier = ($request->supplier != null) ? 1 : null;
+        $stock_transfer->subcon = ($request->supplier != null) ? 1 : null;
         $stock_transfer->supplier_id = ($request->supplier_id != null) ? $request->supplier_id : null;
         $stock_transfer->created_by = Auth::user()->id;
         $stock_transfer->save();
@@ -457,12 +457,12 @@ class StockTransferController extends Controller
             }
         }
 
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Update');
-        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK Transfer has been Created Successfully !');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Update');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
     }
 
     public function receive($id){
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Receive')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Receive')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $suppliers = Supplier::select('id', 'name', 'code')->get();
@@ -472,30 +472,30 @@ class StockTransferController extends Controller
         $stock_locations = StockTransferLocation::where('stock_id', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Receive');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Receive');
         return view('WMS.StockTransfer.receive',compact('stock_transfer', 'stock_products', 'stock_locations', 'locations', 'products', 'suppliers', 'customers'));
     }
 
-    public function recieve_update(Request $request,$id)
+    public function receive_update(Request $request,$id)
     {
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Receive')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Receive')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
 
         $stock_transfer = StockTransfer::find($id);
         $stock_transfer->status = 'Received';
-        $stock_transfer->verified_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
-        $stock_transfer->verified_by_user = Auth::user()->user_name;
-        $stock_transfer->verified_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
-        $stock_transfer->verified_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $stock_transfer->receive_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $stock_transfer->receive_by_user = Auth::user()->user_name;
+        $stock_transfer->receive_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $stock_transfer->receive_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $stock_transfer->save();
 
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Receive');
-        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK Transfer has been Created Successfully !');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Receive');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Created Successfully !');
     }
 
     public function delete($id){
-        if (!Auth::user()->hasPermissionTo('STOCK Transfer Delete')) {
+        if (!Auth::user()->hasPermissionTo('STOCK TRANSFER Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $stock_transfer = StockTransfer::find($id);
@@ -518,7 +518,7 @@ class StockTransferController extends Controller
         StockTransferProduct::where('stock_id', $id)->delete();
         StockTransferLocation::where('stock_id', $id)->delete();
         $stock_transfer->delete();
-        Helper::logSystemActivity('STOCK Transfer', 'STOCK Transfer Delete');
-        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK Transfer has been Successfully Deleted!');
+        Helper::logSystemActivity('STOCK TRANSFER', 'STOCK TRANSFER Delete');
+        return redirect()->route('stock_transfer')->with('custom_success', 'STOCK TRANSFER has been Successfully Deleted!');
     }
 }

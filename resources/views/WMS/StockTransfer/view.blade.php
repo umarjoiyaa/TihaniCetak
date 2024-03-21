@@ -1,167 +1,187 @@
 @extends('layouts.app')
 @section('content')
-    <form action="{{ route('stock_transfer.receive.update', $stock_transfer->id) }}" method="POST">
-        @csrf
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h3>Stock Transfer</h3>
-                    </div>
-                    <div class="card-body">
-                        <div class="card" style="background:#f6f7f7;">
-                            <div class="card-body">
-                                <div class="row">
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Ref No</div>
-                                            <input type="text" name="ref_no" readonly
-                                                value="{{ $stock_transfer->ref_no }}" class="form-control">
-                                        </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Stock Transfer</h3>
+                </div>
+                <div class="card-body">
+                    <div class="card" style="background:#f6f7f7;">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Ref No</div>
+                                        <input type="text" name="ref_no" readonly value="{{ $stock_transfer->ref_no }}"
+                                            class="form-control">
                                     </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Date</div>
-                                            <input type="text" name="date" value="{{ $stock_transfer->date }}"
-                                                class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
-                                                placeholder="dd-mm-yyyy">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Transfer By</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Sales Order No.</div>
-                                            <input type="text" value="{{ $stock_transfer->sale_order->order_no }}"
-                                                readonly class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Description</div>
-                                            <textarea name="description" class="form-control">{{ $stock_transfer->description }}</textarea>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-4 mt-3">
-                                        <div class="form-group">
-                                            <div class="label">Do No </div>
-                                            <input type="text" name="do_no" value="{{ $stock_transfer->do_no }}"
-                                                class="form-control">
-                                        </div>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <h4>Transfer To:</h4>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="customer"
-                                                    @checked($stock_transfer->customer == 1)>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <h5>Customer</h5>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="customer_id" class="form-control">
-                                                    <option value="">Select Customer</option>
-                                                    @foreach ($customers as $customer)
-                                                        <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
-                                                            {{ $customer->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6"></div>
-                                    <div class="col-md-6 mt-3">
-                                        <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="supplier"
-                                                    @checked($stock_transfer->subcon == 1)>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <h5>Subcon</h5>
-                                            </div>
-                                            <div class="col-md-8">
-                                                <select name="supplier_id" class="form-control">
-                                                    <option value="">Select Supplier</option>
-                                                    @foreach ($suppliers as $supplier)
-                                                        <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
-                                                            {{ $supplier->name }}</option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6"></div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <div class="table-responsive">
-                                            <table class="table mt-2" id="Table">
-                                                <thead>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Date</div>
+                                        <input type="text" name="date" value="{{ $stock_transfer->date }}"
+                                            class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
+                                            placeholder="dd-mm-yyyy">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Transfer By</div>
+                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Sales Order No.</div>
+                                        <input type="text" value="{{ $stock_transfer->sale_order->order_no }}" readonly
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Description</div>
+                                        <textarea name="description" class="form-control">{{ $stock_transfer->description }}</textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mt-3">
+                                    <div class="form-group">
+                                        <div class="label">Do No </div>
+                                        <input type="text" name="do_no" value="{{ $stock_transfer->do_no }}"
+                                            class="form-control">
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <h4>Transfer To:</h4>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="customer"
+                                                @checked($stock_transfer->customer == 1)>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5>Customer</h5>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select name="customer_id" class="form-control">
+                                                <option value="">Select Customer</option>
+                                                @foreach ($customers as $customer)
+                                                    <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
+                                                        {{ $customer->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"></div>
+                                <div class="col-md-6 mt-3">
+                                    <div class="row">
+                                        <div class="col-md-1"><input type="checkbox" name="supplier"
+                                                @checked($stock_transfer->subcon == 1)>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <h5>Subcon</h5>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <select name="supplier_id" class="form-control">
+                                                <option value="">Select Supplier</option>
+                                                @foreach ($suppliers as $supplier)
+                                                    <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
+                                                        {{ $supplier->name }}</option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="table-responsive">
+                                        <table class="table mt-2" id="Table">
+                                            <thead>
+                                                <tr>
+                                                    <td>Item Code</td>
+                                                    <td>Description</td>
+                                                    <td>UOM</td>
+                                                    <td>Quantity</td>
+                                                    <td>Action</td>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach ($stock_products as $key => $stock_product)
                                                     <tr>
-                                                        <td>Item Code</td>
-                                                        <td>Description</td>
-                                                        <td>UOM</td>
-                                                        <td>Quantity</td>
-                                                        <td>Action</td>
+                                                        <td><input type='hidden' value='{{ $stock_product->product_id }}'
+                                                                class="product_id"
+                                                                name="products[{{ $key }}][product_id]" /><input
+                                                                type='hidden'
+                                                                value='{{ $stock_product->products->group }}'
+                                                                class="group"
+                                                                name="products[{{ $key }}][group]" /><input
+                                                                type="hidden"
+                                                                name="products[{{ $key }}][item_code]"
+                                                                value="{{ $stock_product->products->item_code }}" />{{ $stock_product->products->item_code }}
+                                                        </td>
+                                                        <td><input type='hidden'
+                                                                value='{{ $stock_product->products->description }}'
+                                                                name="products[{{ $key }}][description]" />{{ $stock_product->products->description }}
+                                                        </td>
+                                                        <td><input type='hidden'
+                                                                value='{{ $stock_product->products->base_uom }}'
+                                                                name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
+                                                        </td>
+                                                        <td><input type='number' class="form-control qty"
+                                                                value='{{ $stock_product->qty }}' readonly
+                                                                name="products[{{ $key }}][qty]" /></td>
+                                                        <td><input type="hidden" class="hiddenId"
+                                                                value="{{ $stock_product->product_id }}"><button
+                                                                type="button" class="btn btn-primary openModal"
+                                                                data-toggle="modal" data-target="#exampleModal">+</button>
+                                                        </td>
                                                     </tr>
-                                                </thead>
-                                                <tbody>
-                                                    @foreach ($stock_products as $key => $stock_product)
-                                                        <tr>
-                                                            <td><input type='hidden'
-                                                                    value='{{ $stock_product->product_id }}'
-                                                                    class="product_id"
-                                                                    name="products[{{ $key }}][product_id]" /><input
-                                                                    type='hidden'
-                                                                    value='{{ $stock_product->products->group }}'
-                                                                    class="group"
-                                                                    name="products[{{ $key }}][group]" /><input
-                                                                    type="hidden"
-                                                                    name="products[{{ $key }}][item_code]"
-                                                                    value="{{ $stock_product->products->item_code }}" />{{ $stock_product->products->item_code }}
-                                                            </td>
-                                                            <td><input type='hidden'
-                                                                    value='{{ $stock_product->products->description }}'
-                                                                    name="products[{{ $key }}][description]" />{{ $stock_product->products->description }}
-                                                            </td>
-                                                            <td><input type='hidden'
-                                                                    value='{{ $stock_product->products->base_uom }}'
-                                                                    name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
-                                                            </td>
-                                                            <td><input type='number' class="form-control qty"
-                                                                    value='{{ $stock_product->qty }}' readonly
-                                                                    name="products[{{ $key }}][qty]" /></td>
-                                                            <td><input type="hidden" class="hiddenId"
-                                                                    value="{{ $stock_product->product_id }}"><button
-                                                                    type="button" class="btn btn-primary openModal"
-                                                                    data-toggle="modal"
-                                                                    data-target="#exampleModal">+</button></td>
-                                                        </tr>
-                                                    @endforeach
-                                                </tbody>
-                                            </table>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <button class="btn btn-primary float-right" type="submit">Receive</button>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <h3><b>Received By</b></h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Desgination</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $stock_transfer->receive_by_date }}
+                                                </td>
+                                                <td>{{ $stock_transfer->receive_by_user }}
+                                                </td>
+                                                <td>{{ $stock_transfer->receive_by_designation }}
+                                                </td>
+                                                <td>{{ $stock_transfer->receive_by_department }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                         </div>
-                        <a href="{{ route('stock_transfer') }}" class="">Back to list</a>
                     </div>
+                    <a href="{{ route('stock_transfer') }}" class="">Back to list</a>
                 </div>
             </div>
         </div>
-    </form>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -228,7 +248,6 @@
             });
             locations = @json($locations);
             $('input, select, textarea').attr('disabled', 'disabled');
-            $('input[type="hidden"]').removeAttr('disabled');
             $('#Table').DataTable();
             $('.datatable').DataTable();
         });
