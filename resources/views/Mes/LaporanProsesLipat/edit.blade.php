@@ -1,10 +1,10 @@
 @extends('layouts.app')
 @section('css')
-<style>
-        table th{
-                text-align:left;
+    <style>
+        table th {
+            text-align: left;
         }
-</style>
+    </style>
 @endsection
 @section('content')
     <form action="{{ route('laporan_proses_lipat.update', $laporan_proses_lipat->id) }}" method="POST">
@@ -182,8 +182,7 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link {{ $key1 == 0 ? 'active' : '' }}"
                                                         id="tab{{ $section->row }}" data-toggle="tab"
-                                                        href="#Seksyen{{ $section->row }}"
-                                                        role="tab"
+                                                        href="#Seksyen{{ $section->row }}" role="tab"
                                                         aria-controls="Seksyen{{ $section->row }}"
                                                         aria-selected="{{ $key1 == 0 ? 'true' : 'false' }}">Seksyen
                                                         {{ $section->row }}</a>
@@ -220,16 +219,14 @@
                                                             <tbody>
                                                                 @php
                                                                     $newKey = 1;
+                                                                    $jumlah = 1000;
                                                                 @endphp
                                                                 @foreach ($detailss as $key2 => $value1)
-                                                                {{-- @php
-                                                                    dd($detailss);
-                                                                @endphp --}}
                                                                     @if ($value1->row == $section->row)
                                                                         <tr>
-                                                                            <td>{{ $value1->c_2 }} <input type="hidden"
+                                                                            <td>{{ $jumlah }} <input type="hidden"
                                                                                     name="section[{{ $section->row }}][{{ $newKey }}][1]"
-                                                                                    value="{{ $value1->c_2 }}"></td>
+                                                                                    value="{{ $jumlah }}"></td>
                                                                             <td><input type="checkbox"
                                                                                     name="section[{{ $section->row }}][{{ $newKey }}][2]"
                                                                                     @checked($value1->c_3 != null)>
@@ -254,7 +251,7 @@
                                                                             <td><input style="width:340px;" type="text"
                                                                                     name="section[{{ $section->row }}][{{ $newKey }}][5]"
                                                                                     class="verify_operator form-control"
-                                                                                    readonly ></td>
+                                                                                    readonly></td>
                                                                             <td><button type="button"
                                                                                     class="btn btn-danger remove"
                                                                                     style="border-radius:5px;">X</button>
@@ -262,6 +259,7 @@
                                                                         </tr>
                                                                         @php
                                                                             $newKey++;
+                                                                            $jumlah += 1000;
                                                                         @endphp
                                                                     @endif
                                                                 @endforeach
@@ -403,15 +401,15 @@
         $(document).ready(function() {
 
             $('.tab-content').each(function() {
-    $(this).find('.table').each(function() {
-        var closestTable = $(this);
-        var visibleRows = closestTable.find('tbody tr');
+                $(this).find('.table').each(function() {
+                    var closestTable = $(this);
+                    var visibleRows = closestTable.find('tbody tr');
 
-        if (visibleRows.length === 1) {
-            visibleRows.find('.remove').addClass('d-none');
-        }
-    });
-});
+                    if (visibleRows.length === 1) {
+                        visibleRows.find('.remove').addClass('d-none');
+                    }
+                });
+            });
 
 
             var initialValue = $('.SectionNumber').val();
@@ -419,13 +417,13 @@
             var sectionRanges = initializeSectionRanges(initialValue);
 
             $('.SectionNumber').on('keyup', function() {
-            var inputValue = $(this).val().trim();
+                var inputValue = $(this).val().trim();
 
-            var pattern = /^-?\d*(,\d*)?$/;
+                var pattern = /^-?\d*(,\d*)?$/;
 
-            inputValue = inputValue.replace(/[^0-9,-]/g, '');
+                inputValue = inputValue.replace(/[^0-9,-]/g, '');
 
-            $(this).val(inputValue);
+                $(this).val(inputValue);
 
             });
 
@@ -491,7 +489,7 @@
 
                     } else {
                         var soloNumber = parseInt(input);
-                        if(input == ""){
+                        if (input == "") {
                             return;
                         }
                         if (!$(`#myTab #tab${soloNumber}`).length) {
@@ -536,14 +534,14 @@
                 var table = $('#tableSection tbody');
                 var rows = table.find('tr').get();
 
-                rows.sort(function (a, b) {
+                rows.sort(function(a, b) {
                     var keyA = parseInt($(a).find('td:first-child').text().match(/\d+/)[0]);
                     var keyB = parseInt($(b).find('td:first-child').text().match(/\d+/)[0]);
 
                     return keyA - keyB;
                 });
 
-                $.each(rows, function (index, row) {
+                $.each(rows, function(index, row) {
                     table.append(row);
                 });
 
@@ -551,23 +549,24 @@
 
 
                 var $myTab = $('#myTab');
-                    var tabs = $myTab.find('li').get();
+                var tabs = $myTab.find('li').get();
 
-                    tabs.sort(function (a, b) {
-                        var keyA = parseInt($(a).find('a').text().match(/\d+/)[0]);
-                        var keyB = parseInt($(b).find('a').text().match(/\d+/)[0]);
+                tabs.sort(function(a, b) {
+                    var keyA = parseInt($(a).find('a').text().match(/\d+/)[0]);
+                    var keyB = parseInt($(b).find('a').text().match(/\d+/)[0]);
 
-                        return keyA - keyB;
-                    });
+                    return keyA - keyB;
+                });
 
-                    // Detach and reattach the sorted tabs
-                    $.each(tabs, function (index, tab) {
-                        $myTab.append(tab);
-                    });
+                // Detach and reattach the sorted tabs
+                $.each(tabs, function(index, tab) {
+                    $myTab.append(tab);
+                });
 
 
 
             }
+
             function createTabAndTable(sectionNumber, number) {
                 var tabIndex = $('#myTab li').length + 1;
 

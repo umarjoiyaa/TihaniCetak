@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('css')
-<style>
-        table th{
-                text-align:left;
+    <style>
+        table th {
+            text-align: left;
         }
-</style>
+    </style>
 @endsection
 @section('content')
     <div class="row">
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <h5 class="float-left">LAPORAN PROSES LIPAT</h5>
-                                    <p class="float-right">TCSB-B61 (Rev.0)</p>
-                                </div>
-                            </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h5 class="float-left">LAPORAN PROSES LIPAT</h5>
+                            <p class="float-right">TCSB-B61 (Rev.0)</p>
+                        </div>
+                    </div>
 
                     <div class="card" style="background:#f4f4ff;">
                         <div class="card-body">
@@ -24,7 +24,10 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Date</label>
-                                        <input type="text"  name="date" value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}" class="form-control" id="datepicker" disabled pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
+                                        <input type="text" name="date"
+                                            value="{{ \Carbon\Carbon::parse($laporan_proses_lipat->date)->format('d-m-Y') }}"
+                                            class="form-control" id="datepicker" disabled pattern="\d{2}-\d{2}-\d{4}"
+                                            placeholder="dd-mm-yyyy">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -184,11 +187,13 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
+                                                            @php
+                                                                $jumlah = 1000;
+                                                            @endphp
                                                             @foreach ($detailss as $key2 => $value1)
                                                                 @if ($value1->row == $section->row)
                                                                     <tr>
-                                                                        <td>{{ $value1->c_2 }} <input type="hidden"
-                                                                                value="{{ $value1->c_2 }}"></td>
+                                                                        <td>{{ $jumlah }}</td>
                                                                         <td><input type="checkbox"
                                                                                 @checked($value1->c_3 != null)>
                                                                         </td>
@@ -212,6 +217,9 @@
                                                                                 class="verify_operator form-control"
                                                                                 readonly value="{{ $value1->c_6 }}"></td>
                                                                     </tr>
+                                                                    @php
+                                                                        $jumlah += 1000;
+                                                                    @endphp
                                                                 @endif
                                                             @endforeach
                                                         </tbody>

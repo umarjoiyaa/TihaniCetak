@@ -196,12 +196,12 @@
                                                             <tbody>
                                                                 @php
                                                                     $newKey = 1;
+                                                                    $jumlah = 1000;
                                                                 @endphp
                                                                 @foreach ($detailss as $key2 => $value1)
                                                                     @if ($value1->row == $section->row)
                                                                         <tr>
-                                                                            <td>{{ $value1->c_2 }} <input type="hidden"
-                                                                                    value="{{ $value1->c_2 }}"></td>
+                                                                            <td>{{ $jumlah }}</td>
                                                                             <td><input type="checkbox"
                                                                                     @checked($value1->c_3 != null)>
                                                                             </td>
@@ -227,6 +227,7 @@
                                                                         </tr>
                                                                         @php
                                                                             $newKey++;
+                                                                            $jumlah += 1000;
                                                                         @endphp
                                                                     @endif
                                                                 @endforeach
