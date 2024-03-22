@@ -16,7 +16,6 @@ return new class extends Migration
             $table->unsignedBigInteger('sale_order_id')->nullable();
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('date')->nullable();
-            $table->string('date')->nullable();
             $table->string('operator')->nullable();
             $table->string('operator')->nullable();
             $table->string('operator_text')->nullable();
