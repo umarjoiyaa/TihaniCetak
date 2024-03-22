@@ -477,6 +477,7 @@
         });
 
         $(document).on('click', '.openModal', function() {
+            $('#section_nos').val('');
             let hiddenId = $(this).closest('tr').find('.hiddenId').val();
             $('.mesin_lipat_detail_id').val(hiddenId);
             let storedData = sessionStorage.getItem(`formData${hiddenId}`);

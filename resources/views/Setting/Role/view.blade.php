@@ -98,7 +98,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -136,7 +136,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -175,7 +175,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -223,7 +223,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -261,7 +261,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -299,7 +299,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -347,7 +347,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -385,7 +385,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -423,7 +423,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -471,7 +471,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -509,7 +509,7 @@
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}"
                                                                                                     @checked(in_array($value1->id, $rolePermissions))>
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach

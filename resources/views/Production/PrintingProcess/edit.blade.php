@@ -720,7 +720,6 @@
                 <div class="modal-content" >
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                        <span aria-hidden="true">&times;</span>
                         <select id="section_nos" class="form-select2"></select>
                         <input type="hidden" class="printing_detail_id">
                     </div>
@@ -850,7 +849,7 @@
             $('#saveModal').trigger('click');
 
             var jumlahSection = @json($sectionArray);
-            $('#section_nos').append(`<option selected disabled>Select Seksyen No</option>`);
+            $('#section_nos').append(`<option selected disabled value="">Select Seksyen No</option>`);
             jumlahSection.forEach(element => {
                 $('#section_nos').append(`<option value="${element}">Seksyen ${element}</option>`);
             });
@@ -916,6 +915,7 @@
         });
 
         $(document).on('click', '.openModal', function() {
+            $('#section_nos').val('');
             let hiddenId = $(this).closest('tr').find('.hiddenId').val();
             $('.printing_detail_id').val(hiddenId);
             let storedData = sessionStorage.getItem(`formData${hiddenId}`);

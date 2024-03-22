@@ -99,7 +99,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -136,7 +136,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -174,7 +174,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -221,7 +221,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -258,7 +258,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -295,7 +295,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -342,7 +342,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -379,7 +379,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -416,7 +416,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -463,7 +463,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach
@@ -500,7 +500,7 @@
                                                                                             <li><input type="checkbox"
                                                                                                     name="permissions[]"
                                                                                                     value="{{ $value1->id }}">
-                                                                                                {{ $lastWord }} </li>
+                                                                                                @if($lastWord == 'Update') Edit @else {{ $lastWord }} @endif </li>
                                                                                         @endif
                                                                                     @endforeach
                                                                                 @endforeach

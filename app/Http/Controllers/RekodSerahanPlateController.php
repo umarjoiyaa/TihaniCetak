@@ -239,29 +239,29 @@ class RekodSerahanPlateController extends Controller
     public function index()
     {
         if (
-            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE List') ||
-            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Create') ||
-            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Update') ||
-            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Delete') ||
-            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE View')
+            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE List') ||
+            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Create') ||
+            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Update') ||
+            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Delete') ||
+            Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE View')
         ) {
-            Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE List');
+            Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE List');
             return view('Mes.RekodSerahanPlate.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
     public function create()
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Create')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $users = User::all();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Create');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Create');
         return view('Mes.RekodSerahanPlate.create', compact('users'));
     }
     public function store(Request $request)
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Create')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $validator = null;
@@ -321,35 +321,35 @@ class RekodSerahanPlateController extends Controller
 
         $rekod_serahan_plate->created_by = Auth::user()->id;
         $rekod_serahan_plate->save();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Store');
-        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE has been Created Successfully !');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Store');
+        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE has been Created Successfully !');
     }
 
     public function edit($id)
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Update')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
         $users = User::all();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Edit');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Edit');
         return view('Mes.RekodSerahanPlate.edit', compact('rekod_serahan_plate', 'users'));
     }
 
     public function view($id)
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE View')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE View')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
         $users = User::all();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Edit');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Edit');
         return view('Mes.RekodSerahanPlate.view', compact('rekod_serahan_plate', 'users'));
     }
 
     public function update(Request $request, $id)
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Update')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Update')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $validator = null;
@@ -409,19 +409,19 @@ class RekodSerahanPlateController extends Controller
 
         $rekod_serahan_plate->created_by = Auth::user()->id;
         $rekod_serahan_plate->save();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Update');
-        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE has been Updated Successfully !');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Update');
+        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE has been Updated Successfully !');
     }
 
 
     public function delete($id)
     {
-        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAX DAN SAMPLE Delete')) {
+        if (!Auth::user()->hasPermissionTo('REKOD SERAHAN PLATE CETAK DAN SAMPLE Delete')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $rekod_serahan_plate = RekodSerahanPlate::find($id);
         $rekod_serahan_plate->delete();
-        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAX DAN SAMPLE', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE Delete');
-        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAX DAN SAMPLE has been Deleted Successfully !');
+        Helper::logSystemActivity('REKOD SERAHAN PLATE CETAK DAN SAMPLE', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE Delete');
+        return redirect()->route('rekod_serahan_plate')->with('custom_success', 'REKOD SERAHAN PLATE CETAK DAN SAMPLE has been Deleted Successfully !');
     }
 }

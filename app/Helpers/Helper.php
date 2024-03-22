@@ -50,12 +50,12 @@ class Helper
                 'Senarai Semak Pra Cetak Delete',
                 'Senarai Semak Pra Cetak Verify',
             ],
-            'REKOD SERAHAN PLATE CETAX DAN SAMPLE' => [
-                'REKOD SERAHAN PLATE CETAX DAN SAMPLE List',
-                'REKOD SERAHAN PLATE CETAX DAN SAMPLE Create',
-                'REKOD SERAHAN PLATE CETAX DAN SAMPLE Update',
-                'REKOD SERAHAN PLATE CETAX DAN SAMPLE View',
-                'REKOD SERAHAN PLATE CETAX DAN SAMPLE Delete',
+            'REKOD SERAHAN PLATE CETAK DAN SAMPLE' => [
+                'REKOD SERAHAN PLATE CETAK DAN SAMPLE List',
+                'REKOD SERAHAN PLATE CETAK DAN SAMPLE Create',
+                'REKOD SERAHAN PLATE CETAK DAN SAMPLE Update',
+                'REKOD SERAHAN PLATE CETAK DAN SAMPLE View',
+                'REKOD SERAHAN PLATE CETAK DAN SAMPLE Delete',
             ],
             'LAPORAN PROSES PENCETAKANI' => [
                 'LAPORAN PROSES PENCETAKANI List',
@@ -200,15 +200,6 @@ class Helper
                 'DIGITAL PRINTING View',
                 'DIGITAL PRINTING Delete',
             ],
-            'MESIN LIPAT' => [
-                'MESIN LIPAT List',
-                'MESIN LIPAT Create',
-                'MESIN LIPAT Update',
-                'MESIN LIPAT Proses',
-                'MESIN LIPAT Verify',
-                'MESIN LIPAT View',
-                'MESIN LIPAT Delete',
-            ],
             'COVER & ENDPAPER' => [
                 'COVER & ENDPAPER List',
                 'COVER & ENDPAPER Create',
@@ -224,6 +215,15 @@ class Helper
                 'TEXT Update',
                 'TEXT View',
                 'TEXT Delete',
+            ],
+            'MESIN LIPAT' => [
+                'MESIN LIPAT List',
+                'MESIN LIPAT Create',
+                'MESIN LIPAT Update',
+                'MESIN LIPAT Proses',
+                'MESIN LIPAT Verify',
+                'MESIN LIPAT View',
+                'MESIN LIPAT Delete',
             ],
             'STAPLE BIND' => [
                 'STAPLE BIND List',

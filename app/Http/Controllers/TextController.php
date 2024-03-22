@@ -274,8 +274,7 @@ class TextController extends Controller
             Auth::user()->hasPermissionTo('TEXT Create') ||
             Auth::user()->hasPermissionTo('TEXT Update') ||
             Auth::user()->hasPermissionTo('TEXT View') ||
-            Auth::user()->hasPermissionTo('TEXT Delete') ||
-            Auth::user()->hasPermissionTo('TEXT Proses')
+            Auth::user()->hasPermissionTo('TEXT Delete')
         ) {
             Helper::logSystemActivity('TEXT', 'TEXT List');
             return view('Production.Text.index');

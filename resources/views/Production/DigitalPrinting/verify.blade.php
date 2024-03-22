@@ -572,9 +572,9 @@
                                         <tbody>
 
                                             <tr>
-                                                <td><input type="checkbox" name="finishing_12" @checked($digital_printing->finishing_12 != null) id="Form27"
+                                                <td><input type="checkbox" name="finishing_12" @checked($digital_printing->finishing_13 != null) id="Form27"
                                                         class=" mr-5"> Others:
-                                                    <input type="text" @disabled($digital_printing->finishing_12 == null) @if($digital_printing->finishing_12) @else disabled @endif
+                                                    <input type="text" @disabled($digital_printing->finishing_13 == null)
                                                         name="finishing_12_val" id="input2"
                                                         class="form-control w-50 float-right" value="{{ $digital_printing->finishing_12 }}">
                                                 </td>
@@ -593,9 +593,9 @@
 
 
                                             <tr>
-                                                <td><input type="checkbox" name="finishing_14" @checked($digital_printing->finishing_14 != null) id="Form26"
+                                                <td><input type="checkbox" name="finishing_14" @checked($digital_printing->finishing_15 != null) id="Form26"
                                                         class=" mr-5"> Others:
-                                                    <input type="text" @disabled($digital_printing->finishing_14 == null) @if($digital_printing->finishing_14) @else disabled @endif
+                                                    <input type="text" @disabled($digital_printing->finishing_15 == null)
                                                         name="finishing_14_val" id="input3"
                                                         class="form-control w-50 float-right" value="{{ $digital_printing->finishing_14 }}">
                                                 </td>
@@ -612,9 +612,9 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" name="finishing_16" @checked($digital_printing->finishing_16 != null) id="Form23"
+                                                <td><input type="checkbox" name="finishing_16" @checked($digital_printing->finishing_17 != null) id="Form23"
                                                         class=" mr-5"> Others:
-                                                    <input type="text" @disabled($digital_printing->finishing_16 == null) @if($digital_printing->finishing_16) @else disabled @endif
+                                                    <input type="text" @disabled($digital_printing->finishing_17 == null)
                                                         name="finishing_16_val" id="input4"
                                                         class="form-control w-50 float-right" value="{{ $digital_printing->finishing_16 }}">
                                                 </td>
@@ -631,9 +631,9 @@
                                             </tr>
 
                                             <tr>
-                                                <td><input type="checkbox" name="finishing_18" @checked($digital_printing->finishing_18 != null) id="Form24"
+                                                <td><input type="checkbox" name="finishing_18" @checked($digital_printing->finishing_19 != null) id="Form24"
                                                         class=" mr-5"> Others:
-                                                    <input type="text" @disabled($digital_printing->finishing_18 == null) @if($digital_printing->finishing_18) @else disabled @endif
+                                                    <input type="text" @disabled($digital_printing->finishing_19 == null)
                                                         name="finishing_18_val" id="input5"
                                                         class="form-control w-50 float-right" value="{{ $digital_printing->finishing_18 }}">
                                                 </td>
@@ -649,9 +649,9 @@
                                                     </select></td>
                                             </tr>
                                             <tr>
-                                                <td><input type="checkbox" name="finishing_20" @checked($digital_printing->finishing_20 != null) id="Form25"
+                                                <td><input type="checkbox" name="finishing_20" @checked($digital_printing->finishing_21 != null) id="Form25"
                                                         class=" mr-5"> Others:
-                                                    <input type="text" @disabled($digital_printing->finishing_20 == null) @if($digital_printing->finishing_20) @else disabled @endif
+                                                    <input type="text" @disabled($digital_printing->finishing_21 == null)
                                                         name="finishing_20_val" id="input6"
                                                         class="form-control w-50 float-right" value="{{ $digital_printing->finishing_20 }}">
                                                 </td>

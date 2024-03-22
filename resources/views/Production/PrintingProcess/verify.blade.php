@@ -639,7 +639,6 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
-                                                <span aria-hidden="true">&times;</span>
                                                 <input type="hidden" class="printing_detail_id">
                                             </div>
                                             <div class="modal-body">
