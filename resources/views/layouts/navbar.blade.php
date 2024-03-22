@@ -537,7 +537,7 @@
                             <a class="dropdown-item" href="{{route('stock_transfer')}}">Stock Transfer</a>
                           </div>
                           <div class="col-md-4">
-                            <a class="dropdown-item" href="{{route('stock_Transfer_location')}}">Stock Transfer (Location)</a>
+                            <a class="dropdown-item" href="{{route('stock_transfer_location')}}">Stock Transfer (Location)</a>
                             <a class="dropdown-item" href="{{route('Laporan_Pemeriksaan')}}"> Laporan Pemeriksaan <br> Akhir, Pembungkusan &
                               <br> Penghantaran ke Stor</a>
                             <a class="dropdown-item" href="{{route('Pemeriksaan_Penghantaran')}}">Pemeriksaan Penghantaran</a>

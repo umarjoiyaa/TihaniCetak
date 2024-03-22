@@ -253,8 +253,10 @@ class GoodReceivingController extends Controller
         foreach ($existingDetails as $existingDetail) {
             if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
-
                 if ($location) {
+                    if (($location->used_qty - (int)$existingDetail->receiving_qty) < 0) {
+                        return back()->with('custom_errors', 'Insufficient quantity in location!');
+                    }
                     $location->used_qty -= (int)$existingDetail->receiving_qty ?? 0;
                     $location->save();
                 }

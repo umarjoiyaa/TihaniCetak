@@ -71,7 +71,7 @@
                                                 <h5>Customer</h5>
                                             </div>
                                             <div class="col-md-8">
-                                                <select name="customer_id" class="form-control">
+                                                <select name="customer_id" class="form-control" @disabled($stock_transfer->customer != 1)>
                                                     <option value="">Select Customer</option>
                                                     @foreach ($customers as $customer)
                                                         <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
@@ -91,7 +91,7 @@
                                                 <h5>Subcon</h5>
                                             </div>
                                             <div class="col-md-8">
-                                                <select name="supplier_id" class="form-control">
+                                                <select name="supplier_id" class="form-control" @disabled($stock_transfer->supplier != 1)>
                                                     <option value="">Select Supplier</option>
                                                     @foreach ($suppliers as $supplier)
                                                         <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
@@ -302,6 +302,15 @@
             },
             templateSelection: function(data) {
                 return data.text || "Select Sales Order No";
+            }
+        });
+
+        $("#supplier").change(function() {
+            if ($(this).is(":checked")) {
+                $("#supplier_id").prop("disabled", false);
+            } else {
+                $("#supplier_id").prop("disabled", true);
+                $("#supplier_id").val("");
             }
         });
 

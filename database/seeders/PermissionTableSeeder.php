@@ -281,7 +281,11 @@ class PermissionTableSeeder extends Seeder
             'STOCK TRANSFER View',
             'STOCK TRANSFER Delete',
             'STOCK TRANSFER Receive',
-            'INVENTORY REPORT View',
+            'STOCK TRANSFER LOCATION List',
+            'STOCK TRANSFER LOCATION Create',
+            'STOCK TRANSFER LOCATION Update',
+            'STOCK TRANSFER LOCATION View',
+            'STOCK TRANSFER LOCATION Delete',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR List',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Create',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Update',
@@ -291,6 +295,7 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Verify QC',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Transfer to store',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Receive by store',
+            'INVENTORY REPORT View'
          ];
 
         foreach ($permissions as $permission) {

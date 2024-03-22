@@ -781,7 +781,7 @@
                                                             </div>
                                                             <div class="col-lg-6 col-md-12 col-xs-12 link-list">
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('stock_Transfer_location') }}"
+                                                                        href="{{ route('stock_transfer_location') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"

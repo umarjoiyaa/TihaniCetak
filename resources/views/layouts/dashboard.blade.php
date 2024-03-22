@@ -828,7 +828,7 @@
                                     </div>
 
                                     <div class="col-md-3">
-                                        <a href="{{route('stock_Transfer_location')}}">
+                                        <a href="{{route('stock_transfer_location')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#f5d98f; ">
 
                                                     <iconify-icon  icon="pepicons-pop:file" width="20"
