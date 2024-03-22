@@ -344,9 +344,9 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->sale_order_id = $request->sale_order;
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
-        $borange_serah_kerja->qty = $request->qty;
-        $borange_serah_kerja->size = $request->size;
-        $borange_serah_kerja->po_no = $request->po_no;
+        $borange_serah_kerja->qty = $request->qty == null ? 0 : $request->qty ;
+        $borange_serah_kerja->size = $request->size == null ? 0 : $request->size;
+        $borange_serah_kerja->po_no = $request->po_no == null ? '' : $request->po_no ;
         $borange_serah_kerja->siap_1 = $request->siap_1;
 
         $borange_serah_kerja->date_line = $request->date_line;
@@ -431,9 +431,9 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->sale_order_id = $request->sale_order;
         $borange_serah_kerja->date = $request->date;
         $borange_serah_kerja->nama = $request->nama;
-        $borange_serah_kerja->qty = $request->qty;
-        $borange_serah_kerja->size = $request->size;
-        $borange_serah_kerja->po_no = $request->po_no;
+        $borange_serah_kerja->qty = $request->qty == null ? 0 : $request->qty ;
+        $borange_serah_kerja->size = $request->size == null ? 0 : $request->size;
+        $borange_serah_kerja->po_no = $request->po_no == null ? '' : $request->po_no ;
 
         $borange_serah_kerja->siap_1 = $request->siap_1;
 
@@ -542,7 +542,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->po_no = $request->po_no;
         $borange_serah_kerja->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->purchased_by_user = Auth::user()->user_name;
-        $borange_serah_kerja->purchased_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->purchased_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja->purchased_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Purchased');
@@ -560,7 +560,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->transfer_by_remarks = $request->transfer_by_remarks;
         $borange_serah_kerja->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->transfer_by_user = Auth::user()->user_name;
-        $borange_serah_kerja->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->transfer_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja->transfer_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Transfered');
@@ -578,7 +578,7 @@ class BorangeSerahKerjaController extends Controller
         $borange_serah_kerja->received_by_remarks = $request->received_by_remarks;
         $borange_serah_kerja->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja->received_by_user = Auth::user()->user_name;
-        $borange_serah_kerja->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja->received_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja->received_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (KULIT BUKU/COVER)', 'BORANG SERAH KERJA (KULIT BUKU/COVER) Received');

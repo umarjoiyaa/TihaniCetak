@@ -371,7 +371,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $mesin_lipat = new MesinLipat();
         $mesin_lipat->sale_order_id = $request->sale_order;
         $mesin_lipat->date = $request->date;
-        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen;
+        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen == null ? 0 : $request->jumlah_seksyen;
         $mesin_lipat->mesin = $request->mesin;
         $mesin_lipat->jenis_lipatan = $request->jenis_lipatan;
         $mesin_lipat->created_by = Auth::user()->id;
@@ -432,7 +432,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
         $mesin_lipat = MesinLipat::find($id);
         $mesin_lipat->sale_order_id = $request->sale_order;
         $mesin_lipat->date = $request->date;
-        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen;
+        $mesin_lipat->jumlah_seksyen = $request->jumlah_seksyen == null ? 0 : $request->jumlah_seksyen;
         $mesin_lipat->mesin = $request->mesin;
         $mesin_lipat->jenis_lipatan = $request->jenis_lipatan;
         $mesin_lipat->created_by = Auth::user()->id;

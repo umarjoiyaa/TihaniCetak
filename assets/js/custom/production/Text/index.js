@@ -47,8 +47,8 @@ $(document).ready(function () {
                 name: 'sale_order.description',
             },
             {
-                data: 'kuantiti_waste',
-                name: 'kuantiti_waste',
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
             },
             {
                 data: 'status',
@@ -114,8 +114,8 @@ function AjaxCall(columnsData) {
                 name: 'sale_order.description',
             },
             {
-                data: 'kuantiti_waste',
-                name: 'kuantiti_waste',
+                data: 'sale_order.sale_order_qty',
+                name: 'sale_order.sale_order_qty',
             },
             {
                 data: 'status',

@@ -25,7 +25,7 @@ class PerfectBindController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = PerfectBind::select('id', 'sale_order_id', 'date','status', 'mesin', 'jenis')->with('sale_order', 'senari_semak');
+            $query = PerfectBind::select('id', 'sale_order_id', 'jumlah','date','status', 'mesin', 'jenis')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -45,9 +45,7 @@ class PerfectBindController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
+                        ->orWhere('jumlah', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
@@ -69,7 +67,7 @@ class PerfectBindController extends Controller
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'sale_order_id',
+                    6 => 'jumlah',
                     7 => 'sale_order_id',
                     8 => 'jenis',
                     9 => 'mesin',
@@ -109,6 +107,7 @@ class PerfectBindController extends Controller
                                 });
                                 break;
                             case 4:
+                                // dd($q->get());
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                                 });
@@ -119,9 +118,7 @@ class PerfectBindController extends Controller
                                 });
                                 break;
                             case 6:
-                                $q->whereHas('senari_semak', function ($query) use ($searchLower) {
-                                    $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                                });
+                                $q->where('jumlah', 'like', '%' . $searchLower . '%');
                                 break;
                             case 7:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
@@ -215,7 +212,7 @@ class PerfectBindController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = PerfectBind::select('id', 'sale_order_id', 'date','status', 'mesin', 'jenis')->with('sale_order', 'senari_semak');
+            $query = PerfectBind::select('id', 'sale_order_id','jumlah', 'date','status', 'mesin', 'jenis')->with('sale_order', 'senari_semak');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -235,9 +232,7 @@ class PerfectBindController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('senari_semak', function ($query) use ($searchLower) {
-                            $query->where('item_cover_text', 'like', '%' . $searchLower . '%');
-                        })
+                        ->orWhere('jumlah', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
                         })
@@ -254,7 +249,7 @@ class PerfectBindController extends Controller
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'sale_order_id',
+                6 => 'jumlah',
                 7 => 'sale_order_id',
                 8 => 'jenis',
                 9 => 'mesin',
@@ -377,6 +372,7 @@ class PerfectBindController extends Controller
         $perfect_bind->date = $request->date;
         $perfect_bind->mesin = $request->mesin;
         $perfect_bind->jenis = $request->jenis;
+        $perfect_bind->jumlah = $request->jumlah;
         $perfect_bind->created_by = Auth::user()->id;
 
         $perfect_bind->status = 'Not-initiated';
@@ -434,6 +430,7 @@ class PerfectBindController extends Controller
         $perfect_bind->sale_order_id = $request->sale_order;
         $perfect_bind->date = $request->date;
         $perfect_bind->mesin = $request->mesin;
+        $perfect_bind->jumlah = $request->jumlah;
         $perfect_bind->jenis = $request->jenis;
         $perfect_bind->created_by = Auth::user()->id;
 

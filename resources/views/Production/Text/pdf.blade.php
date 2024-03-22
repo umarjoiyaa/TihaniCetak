@@ -18,7 +18,7 @@
         <div class="row d-flex">
             <div class="col-md-12">
                         <h3 class="float-left"><b>PRODUCTION JOBSHEET- TEXT</b></h3>
-                        <p class="float-right">TCBS-B66 (Rev.1)</p>
+                        <p class="float-right">TCSB-B66 (Rev.1)</p>
                 </div>
         </div>
 

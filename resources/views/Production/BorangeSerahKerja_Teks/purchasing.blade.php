@@ -9,7 +9,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Purchase</b></h5>
-                                <p class="float-right">TCBS-B34 (Rev. 2)</p>
+                                <p class="float-right">TCSB-B34 (Rev. 2)</p>
                             </div>
                         </div>
 
