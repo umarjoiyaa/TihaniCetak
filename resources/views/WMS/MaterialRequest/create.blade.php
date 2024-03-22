@@ -711,11 +711,5 @@
             }
         });
         //important work
-
-        $(document).on('keyup change', '.request_qty', function() {
-            if (parseFloat($(this).closest('tr').find('.available_qty').val()) < parseFloat($(this).val())) {
-                $(this).val($(this).closest('tr').find('.available_qty').val());
-            }
-        });
     </script>
 @endpush

@@ -695,6 +695,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/manage-transfer/edit/{id}', [ManageTransferController::class, 'edit'])->name('manage_transfer.edit');
     Route::get('/WMS/manage-transfer/view/{id}', [ManageTransferController::class, 'view'])->name('manage_transfer.view');
     Route::post('/WMS/manage-transfer/update/{id}', [ManageTransferController::class, 'update'])->name('manage_transfer.update');
+    Route::get('/WMS/manage-transfer/receive/{id}', [ManageTransferController::class, 'receive'])->name('manage_transfer.receive');
+    Route::get('/WMS/manage-transfer/receive-update/{id}', [ManageTransferController::class, 'receive_update'])->name('manage_transfer.receive.update');
     Route::get('/WMS/manage-transfer/delete/{id}', [ManageTransferController::class, 'delete'])->name('manage_transfer.delete');
 
     // Stock In

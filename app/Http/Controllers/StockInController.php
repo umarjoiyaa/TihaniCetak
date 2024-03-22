@@ -12,6 +12,7 @@ namespace App\Http\Controllers;
     use App\Models\StockInProduct;
     use App\Models\StockInLocation;
     use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class StockInController extends Controller
 {
@@ -253,8 +254,8 @@ class StockInController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
-        $count = StockIn::whereYear('date', $year)->count();
-        $users = User::all();
+        $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
+        $count = StockIn::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();        $users = User::all();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
         Helper::logSystemActivity('STOCK IN', 'STOCK IN Create');

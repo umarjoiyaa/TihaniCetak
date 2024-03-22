@@ -361,7 +361,7 @@ class ManageTransferController extends Controller
             if($value['tableId'] == 1){
                 $detail = new ManageTransferLocation1();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->product_id = $value['stock_code'] ?? null;
+                $detail->product_id = $value['hiddenId'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -370,7 +370,7 @@ class ManageTransferController extends Controller
             } else if($value['tableId'] == 2){
                 $detail = new ManageTransferLocation2();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->product_id = $value['stock_code'] ?? null;
+                $detail->product_id = $value['hiddenId'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -379,7 +379,7 @@ class ManageTransferController extends Controller
             } else if($value['tableId'] == 3){
                 $detail = new ManageTransferLocation3();
                 $detail->transfer_id = $manage_transfer->id;
-                $detail->product_id = $value['stock_code'] ?? null;
+                $detail->product_id = $value['hiddenId'] ?? null;
                 $detail->area_id = $value['area'] ?? null;
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
@@ -387,7 +387,7 @@ class ManageTransferController extends Controller
                 $detail->save();
             }
 
-            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['stock_code'])->first();
+            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['hiddenId'])->first();
             $location->used_qty -= (int)$value['transfer_qty'];
             $location->save();
         }

@@ -59,9 +59,10 @@
 
     @yield('css')
     <style>
-         table th{
-                text-align:left;
+        table th {
+            text-align: left;
         }
+
         .check_operator_text,
 
         .check_verify_text {
@@ -1699,7 +1700,7 @@
         <div class="main-footer ht-40">
             <div class="container-fluid pd-t-0-f ht-100p">
 
-                <span class="text-white">Copyright © {{date('Y')}} . All rights reserved IIOT FACTORY.</span>
+                <span class="text-white">Copyright © {{ date('Y') }} . All rights reserved IIOT FACTORY.</span>
             </div>
         </div>
         <!-- Footer closed -->

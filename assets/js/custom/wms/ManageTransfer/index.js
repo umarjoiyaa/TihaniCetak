@@ -27,24 +27,24 @@ $(document).ready(function () {
                 name: 'sr_no',
             },
             {
-                data: 'ref_no',
-                name: 'ref_no',
+                data: 'material_request.ref_no',
+                name: 'material_request.ref_no',
             },
             {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'sale_order.order_no',
-                name: 'sale_order.order_no',
+                data: 'material_request.sale_order.order_no',
+                name: 'material_request.sale_order.order_no',
             },
             {
-                data: 'description',
-                name: 'description',
+                data: 'material_request.description',
+                name: 'material_request.description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'material_request.user.full_name',
+                name: 'material_request.user.full_name',
             },
             {
                 data: 'status',
@@ -91,24 +91,24 @@ function AjaxCall(columnsData) {
                 name: 'sr_no',
             },
             {
-                data: 'ref_no',
-                name: 'ref_no',
+                data: 'material_request.ref_no',
+                name: 'material_request.ref_no',
             },
             {
                 data: 'date',
                 name: 'date',
             },
             {
-                data: 'sale_order.order_no',
-                name: 'sale_order.order_no',
+                data: 'material_request.sale_order.order_no',
+                name: 'material_request.sale_order.order_no',
             },
             {
-                data: 'description',
-                name: 'description',
+                data: 'material_request.description',
+                name: 'material_request.description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'material_request.user.full_name',
+                name: 'material_request.user.full_name',
             },
             {
                 data: 'status',

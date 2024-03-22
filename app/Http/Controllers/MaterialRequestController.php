@@ -13,6 +13,7 @@ use App\Models\MaterialRequestD;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class MaterialRequestController extends Controller
 {
@@ -260,7 +261,8 @@ class MaterialRequestController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
-        $count = MaterialRequest::whereYear('date', $year)->count();
+        $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
+        $count = MaterialRequest::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();
         $uoms = Uom::select('id', 'name')->get();
         $paper_products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
         ->selectSub(function ($query) {

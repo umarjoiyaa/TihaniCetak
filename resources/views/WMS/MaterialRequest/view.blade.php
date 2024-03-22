@@ -38,9 +38,8 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <input type="text" readonly
-                                            value="{{ $material_request->sale_order->order_no }}" id=""
-                                            class="form-control">
+                                        <input type="text" readonly value="{{ $material_request->sale_order->order_no }}"
+                                            id="" class="form-control">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">
@@ -108,9 +107,15 @@
                                                         <td><input type='hidden' value='{{ $value->products->base_uom }}'
                                                                 name="kertas[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                         </td>
-                                                        <td><input type='hidden' value='{{ $value->available_qty }}'
-                                                                name="kertas[{{ $key + 1 }}][available_qty]"
-                                                                class="available_qty" />{{ $value->available_qty }}
+                                                        @php
+                                                            $used_qty = App\Models\Location::where(
+                                                                'product_id',
+                                                                $value->products->id,
+                                                            )->sum('used_qty');
+                                                        @endphp
+                                                        <td><input type='hidden' value='{{ $used_qty }}'
+                                                                name="wip[{{ $key + 1 }}][available_qty]"
+                                                                class="available_qty" />{{ $used_qty }}
                                                         </td>
                                                         <td><select class="form-control"
                                                                 name="kertas[{{ $key + 1 }}][uom_request]">

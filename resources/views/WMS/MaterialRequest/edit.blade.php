@@ -120,9 +120,16 @@
                                                                     value='{{ $value->products->base_uom }}'
                                                                     name="kertas[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->available_qty }}'
+                                                            @php
+                                                                $used_qty = App\Models\Location::where(
+                                                                    'product_id',
+                                                                    $value->products->id,
+                                                                )->sum('used_qty');
+                                                            @endphp
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value->available_qty + $used_qty }}'
                                                                     name="kertas[{{ $key + 1 }}][available_qty]"
-                                                                    class="available_qty" />{{ $value->available_qty }}
+                                                                    class="available_qty" />{{ $value->available_qty + $used_qty }}
                                                             </td>
                                                             <td><select class="form-control"
                                                                     name="kertas[{{ $key + 1 }}][uom_request]">
@@ -185,10 +192,12 @@
                                                                     name="bahan[{{ $key + 1 }}]['stock_code']"
                                                                     value="{{ $value->products->item_code }}" />{{ $value->products->item_code }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->products->description }}'
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value->products->description }}'
                                                                     name="bahan[{{ $key + 1 }}][description]" />{{ $value->products->description }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->products->base_uom }}'
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value->products->base_uom }}'
                                                                     name="bahan[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                             </td>
                                                             <td><input type='hidden' value='{{ $value->available_qty }}'
@@ -244,15 +253,24 @@
                                                                     name="wip[{{ $key + 1 }}]['stock_code']"
                                                                     value="{{ $value->products->item_code }}" />{{ $value->products->item_code }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->products->description }}'
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value->products->description }}'
                                                                     name="wip[{{ $key + 1 }}][description]" />{{ $value->products->description }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->products->base_uom }}'
+                                                            <td><input type='hidden'
+                                                                    value='{{ $value->products->base_uom }}'
                                                                     name="wip[{{ $key + 1 }}][uom]" />{{ $value->products->base_uom }}
                                                             </td>
-                                                            <td><input type='hidden' value='{{ $value->available_qty }}'
+                                                            @php
+                                                                $used_qty = App\Models\Location::where(
+                                                                    'product_id',
+                                                                    $value->products->id,
+                                                                )->sum('used_qty');
+                                                            @endphp
+                                                            <td><input type='hidden'
+                                                                    value='{{ $used_qty }}'
                                                                     name="wip[{{ $key + 1 }}][available_qty]"
-                                                                    class="available_qty" />{{ $value->available_qty }}
+                                                                    class="available_qty" />{{ $used_qty }}
                                                             </td>
                                                             <td><input type='number' class="form-control request_qty"
                                                                     value='{{ $value->request_qty }}'
@@ -707,11 +725,5 @@
             }
         });
         //important work
-
-        $(document).on('keyup change', '.request_qty', function() {
-            if (parseFloat($(this).closest('tr').find('.available_qty').val()) < parseFloat($(this).val())) {
-                $(this).val($(this).closest('tr').find('.available_qty').val());
-            }
-        });
     </script>
 @endpush

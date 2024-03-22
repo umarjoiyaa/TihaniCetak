@@ -168,8 +168,13 @@
                                 *stockcard bahan mentah mestilah dikemaskini apabila bahan mentah dikeluarkan
                                 daripada stor
                                 </P>
-
-                                <button type="submit" class="btn btn-primary float-right">Save</button>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="hidden" id="storedData" name="details">
+                                        <button class="btn btn-primary float-right" type="button"
+                                            id="saveForm">Save</button>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <a href="{{ route('manage_transfer') }}" class="">Back to list</a>
@@ -178,16 +183,19 @@
             </div>
         </div>
     </form>
+
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl">
             <div class="modal-content">
-                <div class="modal-body">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Stock Transfer</h5>
                     <input type="hidden" class="product_id">
-                    <input type="hidden" class="description">
+                </div>
+                <div class="modal-body">
                     <div class="row d-flex justify-content-between">
-                        <div>Item : <span class="item_text"></span></div>
-                        <div>Total Qty : <span class="total_quantity_text"></span> | Total Transfer Qty : <span
+                        <div>Item: <span class="item_text"></span></div>
+                        <div>Total Qty: <span class="total_quantity_text"></span> | Total Transfer Qty: <span
                                 class="total_transfer_quantity_text"></span></div>
                     </div>
                     <br>
@@ -197,7 +205,7 @@
                                 <tr>
                                     <th>Location</th>
                                     <th>Available Qty</th>
-                                    <th>Transfer Qty</th>
+                                    <th>Quantity</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -208,7 +216,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" data-id="1" id="saveModal">Add</button>
+                    <button type="button" class="btn btn-primary" id="saveModal">Add</button>
                 </div>
             </div>
         </div>
@@ -222,34 +230,77 @@
 
         function addRow(button) {
             if ($.fn.DataTable.isDataTable('.datatable1')) {
-                $('.datatable').DataTable().destroy();
+                $('.datatable1').DataTable().destroy();
             }
             var row = button.parentNode.parentNode.cloneNode(true);
             button.parentNode.parentNode.parentNode.insertBefore(row, button.parentNode.parentNode.nextSibling);
-            $('.receive_qty').trigger('keyup');
+
+            var clonedDropdown = row.querySelector('.location');
+            var clonedDropdownValue = clonedDropdown.value;
+
+            var rows = document.querySelectorAll('#myTable tr'); // Assuming 'myTable' is the ID of your table
+            var foundMatch = false;
+
+            for (var i = 0; i < rows.length; i++) {
+                var dropdown = rows[i].querySelector('.location'); // Assuming the dropdown has a class of 'location'
+                if (dropdown.value === clonedDropdownValue) {
+                    var qtyInput = rows[i].querySelector(
+                        '.available_qty'); // Assuming the input has a class of 'available_qty'
+                    if (!foundMatch) {
+                        // If it's the first matched result, don't set available qty to 0
+                        foundMatch = true; // Set flag to true after the first match
+                    } else {
+                        qtyInput.value = 0;
+                    }
+                }
+            }
+
+
             $('.datatable1').DataTable();
+            $('.transfer_qty1').trigger('keyup');
         }
 
         function removeRow(button) {
+
+            var $rowToRemove = $(button).closest('tr');
+            var dropdownValue = $rowToRemove.find('.location').val();
+            var availableQty = parseFloat($rowToRemove.find('.available_qty').val());
+            $nextMatchingRow = '';
+
+            if (availableQty > 0) {
+                var $nextMatchingRow = null;
+
+                $('#myTable tr').each(function() {
+                    var $currentRow = $(this);
+                    var thisDropdownValue = $currentRow.find('.location').val();
+                    var thisAvailableQty = parseFloat($currentRow.find('.available_qty').val());
+
+                    if ($currentRow.is($rowToRemove)) {
+                        return true; // Skip the row to be removed
+                    }
+
+                    if (thisDropdownValue === dropdownValue) {
+                        $nextMatchingRow = $currentRow;
+                        return false; // Exit the loop once the matching row is found
+                    }
+                });
+
+                if ($nextMatchingRow) {
+                    var $nextMatchingAvailableQtyInput = $nextMatchingRow.find('.available_qty');
+                    var nextMatchingAvailableQty = parseFloat($nextMatchingAvailableQtyInput.val());
+                    $nextMatchingAvailableQtyInput.val(nextMatchingAvailableQty + availableQty);
+                }
+            }
+
             if ($.fn.DataTable.isDataTable('.datatable1')) {
-                $('.datatable').DataTable().destroy();
+                $('.datatable1').DataTable().destroy();
             }
             if ($('#myTable tr').length > 1) {
                 $(button).closest('tr').remove();
             } else {
-                Swal.fire({
-                    text: "Can`t remove row, if one row left!",
-                icon: "warning",
-                buttonsStyling: false,
-                confirmButtonText: "Okay!",
-                customClass: {
-                    confirmButton: "btn fw-bold btn-danger",
-                }
-            }).then(function(result) {
-                if (result.value) {}
-            });
+                alert("Can`t remove row!");
         }
-        $('.receive_qty').trigger('keyup');
+        $('.transfer_qty1').trigger('keyup');
         $('.datatable1').DataTable();
     }
 
@@ -270,127 +321,185 @@
         } else if ($(this).closest('table').hasClass('table3')) {
             $('#saveModal').attr('data-id', '3');
         }
+        let tableId = $('#saveModal').attr('data-id');
         let hiddenId = $(this).closest('tr').find('.hiddenId').val();
-        let description = $(this).closest('tr').find('.description').val();
         $('.product_id').val(hiddenId);
-        $('.description').val(description);
         let storedData = sessionStorage.getItem(`modalData${hiddenId}`);
         if (storedData) {
             $('#myTable').html(``);
             storedData = JSON.parse(storedData);
             storedData.forEach(element => {
-                let optionsHtml = '';
-                locations.forEach(location => {
-                    let selected = '';
-                    if (element.location ===
-                        `${location.area_id}->${location.shelf_id}->${location.level_id}`) {
-                        selected = 'selected';
-                    }
-                    optionsHtml +=
-                        `<option
-                                                                                                                                                                                                    data-area-id="${location.area_id}"
-                                                                                                                                                                                                    data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                    data-level-id="${location.level_id}"
-                                                                                                                                                                                                    value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                                                                                                                                    ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                </option>`;
-                });
-                $('#myTable').append(
-                    `<tr>
-                                                                                                                                                                                                <td>
-                                                                                                                                                                                                <select class="form-control location">
-                                                                                                                                                                                                    ${optionsHtml}
-                                                                                                                                                                                                </select>
-                                                                                                                                                                                                </td>
-                                                                                                                                                                                                <td>${element.available_qty}</td>
-                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1" value="${element.transfer_qty}"></td>
-                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                            </tr>`
-                );
+                if (element.tableId == tableId) {
+                    let optionsHtml = '';
+                    locations.forEach(location => {
+                        let selected = '';
+                        if (element.location ===
+                            `${location.area_id}->${location.shelf_id}->${location.level_id}`) {
+                            selected = 'selected';
+                        }
+                        optionsHtml +=
+                            `<option
+                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                    </option>`;
+                    });
+                    $('#myTable').append(
+                        `<tr>
+                                                                                                                                                                                                                                                                                                                                    <td>
+                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                    </select>
+                                                                                                                                                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control available_qty" readonly value="${element.available_qty}"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control transfer_qty1" value="${element.transfer_qty}"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                                </tr>`
+                    );
+                } else {
+                    let optionsHtml = '';
+                    locations.forEach(location => {
+                        optionsHtml +=
+                            `<option
+                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                    </option>`;
+                    });
+                    let defaultRow =
+                        `
+                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                    </select>
+                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1"></td>
+                                                                                                                                                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                            </tr>`;
+                    $('#myTable').html(defaultRow);
+                }
             });
         } else {
             let optionsHtml = '';
             locations.forEach(location => {
                 optionsHtml +=
                     `<option
-                                                                                                                                                                                                    data-area-id="${location.area_id}"
-                                                                                                                                                                                                    data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                    data-level-id="${location.level_id}"
-                                                                                                                                                                                                    value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                                                                                                    ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                </option>`;
+                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                    </option>`;
             });
             let defaultRow =
                 `
-                                                                                                                                                                                        <tr>
-                                                                                                                                                                                            <td>
-                                                                                                                                                                                                <select class="form-control location">
-                                                                                                                                                                                                    ${optionsHtml}
-                                                                                                                                                                                                </select>
-                                                                                                                                                                                            </td>
-                                                                                                                                                                                            <td></td>
-                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1"></td>
-                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                        </tr>`;
+                                                                                                                                                                                                                                                                                                                            <tr>
+                                                                                                                                                                                                                                                                                                                                <td>
+                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                    </select>
+                                                                                                                                                                                                                                                                                                                                </td>
+                                                                                                                                                                                                                                                                                                                                <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1"></td>
+                                                                                                                                                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                            </tr>`;
             $('#myTable').html(defaultRow);
-            $('#myTable .location').trigger('change');
         }
 
         let item_text = $(this).closest('tr').find('td:eq(0)').text();
         let quantity_text = $(this).closest('tr').find('.balance_qty').val();
         $('.item_text').text(item_text);
         $('.total_quantity_text').text(quantity_text);
+        $('.location').trigger('change');
         $('.transfer_qty1').trigger('change');
         $('.datatable1').DataTable();
     });
 
     $('#saveModal').on('click', function() {
-        let tableId = $(this).data('id');
-        let receive_qty = $('.total_quantity_text').text();
-        let qty = $('.total_transfer_quantity_text').text();
-        if (receive_qty > qty) {
-            alert("Can`t add more qty!");
-            } else {
-                $('#exampleModal').modal('hide');
-                let hiddenId = $('.product_id').val();
-                let description = $('.description').val();
-                let data = [];
-                $('#myTable tr').each(function() {
-                    let rowData = {};
-                    rowData['location'] = $(this).find('.location').val();
-                    rowData['area'] = $(this).find('.location option:selected').attr('data-area-id');
-                    rowData['shelf'] = $(this).find('.location option:selected').attr('data-shelf-id');
-                    rowData['level'] = $(this).find('.location option:selected').attr('data-level-id');
-                    rowData['available_qty'] = $(this).find('.available_qty').val();
-                    rowData['transfer_qty'] = $(this).find('.transfer_qty').val();
-                    rowData['hiddenId'] = hiddenId;
-                    rowData['stock_code'] = hiddenId;
-                    rowData['description'] = description;
-                    rowData['tableId'] = tableId;
-                    data.push(rowData);
-                });
-                sessionStorage.setItem(`modalData${hiddenId}`, JSON.stringify(data));
-                $('#productsTable tr').each(function() {
-                    if ($(this).find('.hiddenId').val() == hiddenId) {
-                        let total_qty = $('.total_transfer_quantity_text').text();
-                        let balance_qty = $(this).find('.balance_qty').text();
-                        $(this).find('.transfer_qty').val(total_qty);
-                        $(this).find('.remaining_qty').val(balance_qty - total_qty);
+        var alertNeeded = false;
+
+        $('#myTable tr').each(function() {
+            var availableQty = parseFloat($(this).find('.available_qty').val());
+            var qty = parseFloat($(this).find('.transfer_qty1').val());
+
+            if (availableQty < qty) {
+                alertNeeded = true;
+                return false;
+            }
+        });
+
+        if (alertNeeded) {
+            alert("available quantity must be greater or equals to transfer quantity.");
+        } else {
+            let tableId = $('#saveModal').attr('data-id');
+            let receive_qty = parseFloat($('.total_quantity_text').text());
+            let qty = parseFloat($('.total_transfer_quantity_text').text());
+            if (qty > receive_qty) {
+                alert("Can`t add more qty!");
+                } else {
+                    $('#exampleModal').modal('hide');
+                    let hiddenId = $('.product_id').val();
+                    let data = [];
+                    $('#myTable tr').each(function() {
+                        let rowData = {};
+                        rowData['location'] = $(this).find('.location').val();
+                        rowData['area'] = $(this).find('.location option:selected').attr('data-area-id');
+                        rowData['shelf'] = $(this).find('.location option:selected').attr('data-shelf-id');
+                        rowData['level'] = $(this).find('.location option:selected').attr('data-level-id');
+                        rowData['available_qty'] = $(this).find('.available_qty').val();
+                        rowData['transfer_qty'] = $(this).find('.transfer_qty1').val();
+                        rowData['hiddenId'] = hiddenId;
+                        rowData['tableId'] = tableId;
+                        data.push(rowData);
+                    });
+                    sessionStorage.setItem(`modalData${hiddenId}`, JSON.stringify(data));
+                    if (tableId == 1) {
+                        $('#table1 tr').each(function() {
+                            if ($(this).find('.hiddenId').val() == hiddenId) {
+                                let total_qty = $('.total_transfer_quantity_text').text();
+                                let balance_qty = $(this).find('.balance_qty').val();
+                                $(this).find('.transfer_qty').val(total_qty);
+                                $(this).find('.remaining_qty').val(balance_qty - total_qty);
+                                $(this).find('td:eq(11)').text(balance_qty - total_qty);
+                            }
+                        });
+                    } else if (tableId == 2) {
+                        $('#table2 tr').each(function() {
+                            if ($(this).find('.hiddenId').val() == hiddenId) {
+                                let total_qty = $('.total_transfer_quantity_text').text();
+                                let balance_qty = $(this).find('.balance_qty').val();
+                                $(this).find('.transfer_qty').val(total_qty);
+                                $(this).find('.remaining_qty').val(balance_qty - total_qty);
+                                $(this).find('td:eq(8)').text(balance_qty - total_qty);
+                            }
+                        });
+                    } else if (tableId == 3) {
+                        $('#table3 tr').each(function() {
+                            if ($(this).find('.hiddenId').val() == hiddenId) {
+                                let total_qty = $('.total_transfer_quantity_text').text();
+                                let balance_qty = $(this).find('.balance_qty').val();
+                                $(this).find('.transfer_qty').val(total_qty);
+                                $(this).find('.remaining_qty').val(balance_qty - total_qty);
+                                $(this).find('td:eq(8)').text(balance_qty - total_qty);
+                            }
+                        });
                     }
-                });
+                }
             }
         });
 
         $(document).on('keyup change', '.transfer_qty1', function() {
-            if ($(this).closest('tr').find('td:eq(1)').text() < $(this).val()) {
-                $(this).val($(this).closest('tr').find('td:eq(1)').text());
-            } else {
-                let total = 0;
-                $('#myTable .transfer_qty1').each(function() {
-                    total += +$(this).val();
-                });
-                $('.total_transfer_quantity_text').text(total);
-            }
+            let total = 0;
+            $('#myTable .transfer_qty1').each(function() {
+                total += +$(this).val();
+            });
+            $('.total_transfer_quantity_text').text(total);
         });
 
         $('#ref_no').on('change', function() {
@@ -421,9 +530,9 @@
                                                                     <td>${element.uoms ? element.uoms.name : ''}</td>
                                                                     <td>${element.request_qty}</td>
                                                                     <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="kertas[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : 0}' name="kertas[${$length}][balance_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="kertas[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><input type="number" readonly class="form-control transfer_qty" name="kertas[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : 0}' name="kertas[${$length}][remaining_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="kertas[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
                                                                     <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>                        </tr>`
                         );
@@ -443,9 +552,9 @@
                                                                     <td>${element.available_qty}</td>
                                                                     <td>${element.request_qty}</td>
                                                                     <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="bahan[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : 0}' name="bahan[${$length}][balance_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="bahan[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><input type="number" readonly class="form-control transfer_qty" name="bahan[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : 0}' name="bahan[${$length}][remaining_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="bahan[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><textarea class="form-control" name="bahan[${$length1}][remarks]"></textarea></td>
                                                                     <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>                        </tr>`
                         );
@@ -464,9 +573,9 @@
                                                                     <td>${element.available_qty}</td>
                                                                     <td>${element.request_qty}</td>
                                                                     <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="wip[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : 0}' name="wip[${$length}][balance_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.balance_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="wip[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><input type="number" readonly class="form-control transfer_qty" name="wip[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : 0}' name="wip[${$length}][remaining_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.remaining_qty : element.request_qty}</td>
+                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="wip[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
                                                                     <td><textarea class="form-control" name="wip[${$length2}][remarks]"></textarea></td>
                                                                     <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>
                                                                 </tr>`);
@@ -482,7 +591,13 @@
             $('.hiddenId').each(function() {
                 let storedData = sessionStorage.getItem(`modalData${$(this).val()}`);
                 if (storedData == null) {
-                    storedData = `{"hiddenId":"${$(this).val()}"}`;
+                    let tableId = 1;
+                    if ($(this).closest('table').hasClass('table2')) {
+                        tableId = 2;
+                    } else if ($(this).closest('table').hasClass('table3')) {
+                        tableId = 3;
+                    }
+                    storedData = `{"hiddenId":"${$(this).val()}", "tableId": "${tableId}"}`;
                 }
                 array.push(JSON.parse(storedData));
             });
@@ -496,25 +611,42 @@
         });
 
         $(document).on('change', '.location', function() {
-            $this = $(this).closest('tr').find('td:eq(1)');
+            var value = $(this).val();
+            var $this = $(this).closest('tr').find('.available_qty');
             var area_id = $(this).find('option:selected').attr('data-area-id');
             var shelf_id = $(this).find('option:selected').attr('data-shelf-id');
             var level_id = $(this).find('option:selected').attr('data-level-id');
             var product_id = $('.product_id').val();
-            $.ajax({
-                url: '{{ route('get.available_qty') }}',
-                method: 'GET',
-                data: {
-                    area_id: area_id,
-                    shelf_id: shelf_id,
-                    level_id: level_id,
-                    product_id: product_id
-                },
-                success: function(response) {
-                    $this.text(`${response.used_qty ? response.used_qty : 0}`);
-                    $(this).closest('tr').find('.transfer_qty1').trigger('change');
+
+            var $currentRow = $(this).closest('tr');
+            var dropdownValueSelected = false;
+
+            // Check if dropdown value is selected in any row
+            $('.location').not(this).each(function() {
+                if ($(this).val() === value) {
+                    dropdownValueSelected = true;
+                    return false; // Break out of the loop if a match is found
                 }
             });
+
+            if (!dropdownValueSelected) {
+                $.ajax({
+                    url: '{{ route('get.available_qty') }}',
+                    method: 'GET',
+                    data: {
+                        area_id: area_id,
+                        shelf_id: shelf_id,
+                        level_id: level_id,
+                        product_id: product_id
+                    },
+                    success: function(response) {
+                        $this.val(`${response.used_qty ? response.used_qty : 0}`);
+                    }
+                });
+            } else {
+                // Dropdown value is selected in another row, set available qty to 0
+                $this.val('0');
+            }
         });
     </script>
 @endPush
