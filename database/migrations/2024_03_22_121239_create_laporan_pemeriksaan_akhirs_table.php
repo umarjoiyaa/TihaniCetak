@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('date')->nullable();
             $table->string('operator')->nullable();
-            $table->string('operator')->nullable();
             $table->string('operator_text')->nullable();
             $table->string('di_bungkus_oleh')->nullable();
 
