@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    <form action="{{ route('stock_transfer_location.store') }}" method="POST">
+    <form action="{{ route('stock_transfer_location.update', $stock_transfer_location->id) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -16,23 +16,26 @@
                                         <div class="form-group">
                                             <div class="label">Ref No</div>
                                             <input type="text" name="ref_no" readonly
-                                                value="TCSB/TL/{{ $year }}/{{ $count }}"
-                                                class="form-control">
+                                                value="{{ $stock_transfer_location->ref_no }}" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Date</div>
                                             <input type="text" name="date"
-                                                value="{{ \Carbon\Carbon::now()->format('d-m-Y') }}" class="form-control"
+                                                value="{{ $stock_transfer_location->date }}" class="form-control"
                                                 id="datepicker" pattern="\d{2}-\d{2}-\d{4}" placeholder="dd-mm-yyyy">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
-                                                <option value="" selected disabled>Select a Sale Order</option>
+                                            <select name="sale_order" data-id="{{ $stock_transfer_location->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $stock_transfer_location->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $stock_transfer_location->sale_order->order_no }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -46,7 +49,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Description</div>
-                                            <textarea name="description" class="form-control">{{ old('description') }}</textarea>
+                                            <textarea name="description" class="form-control">{{ $stock_transfer_location->description }}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-md-4"></div>
@@ -56,7 +59,8 @@
                                             <select name="previous_location" id="previous_location" class="form-select">
                                                 <option value="" selected disabled>Select Previous Location</option>
                                                 @foreach ($locations as $location)
-                                                    <option data-area-id="{{ $location->area->id }}"
+                                                    <option @selected($stock_transfer_location->previous_area_id == $location->area->id && $stock_transfer_location->previous_shelf_id == $location->shelf->id && $stock_transfer_location->previous_level_id == $location->level->id)
+                                                        data-area-id="{{ $location->area->id }}"
                                                         data-shelf-id="{{ $location->shelf->id }}"
                                                         data-level-id="{{ $location->level->id }}"
                                                         value="{{ $location->area->name }}->{{ $location->shelf->name }}->{{ $location->level->name }}">
@@ -72,7 +76,8 @@
                                             <select name="new_location" id="new_location" class="form-select">
                                                 <option value="" selected disabled>Select New Location</option>
                                                 @foreach ($locations as $location)
-                                                    <option data-area-id="{{ $location->area->id }}"
+                                                    <option @selected($stock_transfer_location->new_area_id == $location->area->id && $stock_transfer_location->new_shelf_id == $location->shelf->id && $stock_transfer_location->new_level_id == $location->level->id)
+                                                        data-area-id="{{ $location->area->id }}"
                                                         data-shelf-id="{{ $location->shelf->id }}"
                                                         data-level-id="{{ $location->level->id }}"
                                                         value="{{ $location->area->name }}->{{ $location->shelf->name }}->{{ $location->level->name }}">
@@ -86,8 +91,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <button type="button" class="btn btn-primary float-right mb-2" id="additem"
-                                            class="btn btn-primary" disabled data-toggle="modal"
-                                            data-target="#exampleModal2">+ Add
+                                            class="btn btn-primary" data-toggle="modal" data-target="#exampleModal2">+ Add
                                             Product</button>
                                     </div>
                                 </div>
@@ -106,6 +110,41 @@
                                                     </tr>
                                                 </thead>
                                                 <tbody>
+                                                    @foreach ($stock_products as $key => $stock_product)
+                                                        <tr>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->product_id }}'
+                                                                    class="product_id"
+                                                                    name="products[{{ $key }}][product_id]" /><input
+                                                                    type='hidden'
+                                                                    value='{{ $stock_product->products->group }}'
+                                                                    class="group"
+                                                                    name="products[{{ $key }}][group]" /><input
+                                                                    type="hidden"
+                                                                    name="products[{{ $key }}][item_code]"
+                                                                    value="{{ $stock_product->products->item_code }}" />{{ $stock_product->products->item_code }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->description }}'
+                                                                    name="products[{{ $key }}][description]" />{{ $stock_product->products->description }}
+                                                            </td>
+                                                            <td><input type='hidden'
+                                                                    value='{{ $stock_product->products->base_uom }}'
+                                                                    name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
+                                                            </td>
+                                                            <td><input type='hidden' class="availale_qty"
+                                                                    value='{{ $stock_product->available_qty }}'
+                                                                    name="products[{{ $key }}][available_qty]" />{{ $stock_product->available_qty }}
+                                                            </td>
+                                                            <td><input type='number' class="form-control qty"
+                                                                    value='{{ $stock_product->qty }}'
+                                                                    name="products[{{ $key }}][qty]" /></td>
+                                                            <td><a class="removeRow"><iconify-icon
+                                                                        icon="fluent:delete-dismiss-24-filled"
+                                                                        width="20" height="20"
+                                                                        style="color: red;"></iconify-icon><a></td>
+                                                        </tr>
+                                                    @endforeach
                                                 </tbody>
                                             </table>
                                         </div>
@@ -198,10 +237,15 @@
                     return "Loading...";
                 }
 
-                return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                if ($('#sale_order').data('id') == data.id) {
+                    return $('<option value=' + data.id + ' selected>' + data.order_no +
+                        '</option>');
+                } else {
+                    return $('<option value=' + data.id + '>' + data.order_no + '</option>');
+                }
             },
             templateSelection: function(data) {
-                return data.order_no || "Select Sales Order No";
+                return data.text || "Select Sales Order No";
             }
         });
 

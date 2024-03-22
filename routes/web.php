@@ -722,6 +722,7 @@ Route::middleware('auth')->group(function () {
     // Stock Transfer (Location)
     Route::get('/WMS/stock-transfer-location', [StockTransferLocationController::class, 'index'])->name('stock_transfer_location');
     Route::get('/WMS/stock-transfer-location/data', [StockTransferLocationController::class, 'Data'])->name('stock_transfer_location.data');
+    Route::get('/WMS/stock-transfer-location/products', [StockTransferLocationController::class, 'products'])->name('stock_transfer_location.products');
     Route::get('/WMS/stock-transfer-location/Create', [StockTransferLocationController::class, 'create'])->name('stock_transfer_location.create');
     Route::post('/WMS/stock-transfer-location/store', [StockTransferLocationController::class, 'store'])->name('stock_transfer_location.store');
     Route::get('/WMS/stock-transfer-location/edit/{id}', [StockTransferLocationController::class, 'edit'])->name('stock_transfer_location.edit');

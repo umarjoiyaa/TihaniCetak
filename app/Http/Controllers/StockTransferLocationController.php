@@ -244,8 +244,8 @@ class StockTransferLocationController extends Controller
         return view('WMS.StockTransferLocation.create', compact('year', 'count', 'locations'));
     }
 
-    public function get_products(Request $request){
-        $products = Location::where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->with('products')->get();
+    public function products(Request $request){
+        $products = Location::where('area_id', '=', $request->area_id)->where('shelf_id', '=', $request->shelf_id)->where('level_id', '=', $request->level_id)->with('product')->get();
         return $products;
     }
 
@@ -305,8 +305,15 @@ class StockTransferLocationController extends Controller
             $location1 = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location1) {
                 $location1->used_qty += (int)$stock_transfer_location_product->qty ?? 0;
-                $location1->save();
+            }else{
+                $location1 = new Location();
+                $location1->area_id = $stock_transfer_location->new_area_id;
+                $location1->shelf_id = $stock_transfer_location->new_shelf_id;
+                $location1->level_id = $stock_transfer_location->new_level_id;
+                $location1->product_id = $stock_transfer_location->product_id;
+                $location1->used_qty = (int)$stock_transfer_location_product->qty ?? 0;
             }
+            $location1->save();
         }
 
         Helper::logSystemActivity('STOCK TRANSFER LOCATION', 'STOCK TRANSFER LOCATION Store');
@@ -359,6 +366,15 @@ class StockTransferLocationController extends Controller
                 ->withErrors($validator)->withInput();
         }
 
+        foreach($request->products as $value){
+            $location = Location::where('area_id', $request->previous_area_id)->where('shelf_id', $request->previous_shelf_id)->where('level_id', $request->previous_level_id)->where('product_id', $value['product_id'])->first();
+            if ($location) {
+                if (($location->used_qty - (int)$value['qty']) < 0) {
+                    return back()->with('custom_errors', 'Insufficient quantity in previous location!');
+                }
+            }
+        }
+
         $stock_transfer_location = StockLocation::find($id);
         $stock_transfer_location->sale_order_id = $request->sale_order;
         $stock_transfer_location->date = $request->date;
@@ -373,9 +389,23 @@ class StockTransferLocationController extends Controller
         $stock_transfer_location->new_level_id = $request->new_level_id;
 
         $stock_transfer_location->created_by = Auth::user()->id;
-        $stock_transfer_location->save();
 
-        //
+        $previousProducts = StockLocationProduct::where('stock_id', '=', $stock_transfer_location)->get();
+        foreach ($previousProducts as $prevProduct) {
+            $prevLocation = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $prevProduct->product_id)->first();
+            if ($prevLocation) {
+                $prevLocation->used_qty -= (int)$prevProduct->qty ?? 0;
+                $prevLocation->save();
+            }
+
+            $newLocation = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $prevProduct->product_id)->first();
+            if ($newLocation) {
+                $newLocation->used_qty += (int)$prevProduct->qty ?? 0;
+                $newLocation->save();
+            }
+        }
+
+        $stock_transfer_location->save();
 
         StockLocationProduct::where('stock_id', '=', $stock_transfer_location)->delete();
 
@@ -396,8 +426,15 @@ class StockTransferLocationController extends Controller
             $location1 = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location1) {
                 $location1->used_qty += (int)$stock_transfer_location_product->qty ?? 0;
-                $location1->save();
+            }else{
+                $location1 = new Location();
+                $location1->area_id = $stock_transfer_location->new_area_id;
+                $location1->shelf_id = $stock_transfer_location->new_shelf_id;
+                $location1->level_id = $stock_transfer_location->new_level_id;
+                $location1->product_id = $stock_transfer_location->product_id;
+                $location1->used_qty = (int)$stock_transfer_location_product->qty ?? 0;
             }
+            $location1->save();
         }
 
         Helper::logSystemActivity('STOCK TRANSFER LOCATION', 'STOCK TRANSFER LOCATION Update');
@@ -410,7 +447,23 @@ class StockTransferLocationController extends Controller
         }
         $stock_transfer_location = StockLocation::find($id);
 
-        //
+        $previousProducts = StockLocationProduct::where('stock_id', '=', $stock_transfer_location)->get();
+        foreach ($previousProducts as $prevProduct) {
+            $prevLocation = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $prevProduct->product_id)->first();
+            if ($prevLocation) {
+                if (($prevLocation->used_qty - (int)$prevProduct->qty) < 0) {
+                    return back()->with('custom_errors', 'Insufficient quantity in location!');
+                }
+                $prevLocation->used_qty -= (int)$prevProduct->qty ?? 0;
+                $prevLocation->save();
+            }
+
+            $newLocation = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $prevProduct->product_id)->first();
+            if ($newLocation) {
+                $newLocation->used_qty += (int)$prevProduct->qty ?? 0;
+                $newLocation->save();
+            }
+        }
 
         StockLocationProduct::where('stock_id', $id)->delete();
         $stock_transfer_location->delete();

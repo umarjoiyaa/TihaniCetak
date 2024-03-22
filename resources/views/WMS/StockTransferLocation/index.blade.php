@@ -10,7 +10,7 @@
                 </div>
                 <div class="card-body">
                     <div class="d-flex justify-content-end">
-                        <a href="{{ route('stock_transfer_location.create') }}" class="btn btn-primary mb-2">Create User</a>
+                        <a href="{{ route('stock_transfer_location.create') }}" class="btn btn-primary mb-2">Create</a>
                     </div>
                     <table class="table datatable mt-2">
                         <thead>
