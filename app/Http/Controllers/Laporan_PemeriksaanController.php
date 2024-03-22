@@ -268,16 +268,16 @@ class Laporan_PemeriksaanController extends Controller
             Auth::user()->hasPermissionTo('Senarai Semak Pencetakan Digital Verify')
         ) {
             Helper::logSystemActivity('Senarai Semak Pencetakan Digital List', 'Senarai Semak Pencetakan Digital List');
-            return view('Mes.SenariSemak.index');
+            return view('WMS.Laporan_Pemeriksaa.index');
         }
         return back()->with('custom_errors', 'You don`t have Right Permission');
     }
 
 
 
-    public function index(){
-        return view('WMS.Laporan_Pemeriksaa.index');
-    }
+    // public function index(){
+    //     return view('WMS.Laporan_Pemeriksaa.index');
+    // }
     public function create(){
         return view('WMS.Laporan_Pemeriksaa.create');
     }
