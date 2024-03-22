@@ -30,8 +30,9 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" data-id="{{ $stock_transfer_location->sale_order_id }}"
-                                                id="sale_order" class="form-control">
+                                            <select name="sale_order"
+                                                data-id="{{ $stock_transfer_location->sale_order_id }}" id="sale_order"
+                                                class="form-control">
                                                 <option value="{{ $stock_transfer_location->sale_order_id }}" selected
                                                     style="color: black; !important">
                                                     {{ $stock_transfer_location->sale_order->order_no }}
@@ -132,8 +133,27 @@
                                                                     value='{{ $stock_product->products->base_uom }}'
                                                                     name="products[{{ $key }}][uom]" />{{ $stock_product->products->base_uom }}
                                                             </td>
+                                                            @php
+                                                                $used_qty = App\Models\Location::where(
+                                                                    'product_id',
+                                                                    $stock_product->product_id,
+                                                                )
+                                                                    ->where(
+                                                                        'area_id',
+                                                                        $stock_transfer_location->previous_area_id,
+                                                                    )
+                                                                    ->where(
+                                                                        'shelf_id',
+                                                                        $stock_transfer_location->previous_shelf_id,
+                                                                    )
+                                                                    ->where(
+                                                                        'level_id',
+                                                                        $stock_transfer_location->previous_level_id,
+                                                                    )
+                                                                    ->sum('used_qty');
+                                                            @endphp
                                                             <td><input type='hidden' class="availale_qty"
-                                                                    value='{{ $stock_product->available_qty }}'
+                                                                    value='{{ $stock_product->available_qty + $used_qty }}'
                                                                     name="products[{{ $key }}][available_qty]" />{{ $stock_product->available_qty }}
                                                             </td>
                                                             <td><input type='number' class="form-control qty"
@@ -263,6 +283,12 @@
                 $('#additem').removeAttr('disabled');
             }
             $('#Table').DataTable();
+        });
+
+        $(document).on('keyup change', '.qty', function() {
+            if ($(this).val() > $(this).closest('tr').find('.available_qty').val()) {
+                $(this).val($(this).closest('tr').find('.available_qty').val());
+            }
         });
 
         $('#saveForm').on('click', function() {

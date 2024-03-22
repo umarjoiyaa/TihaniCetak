@@ -295,6 +295,12 @@
             });
         });
 
+        $(document).on('keyup change', '.qty', function() {
+            if($(this).val() > $(this).closest('tr').find('.available_qty').val()){
+                $(this).val($(this).closest('tr').find('.available_qty').val());
+            }
+        });
+
         $('#addrows').click(function() {
             $('.datatable').DataTable().destroy();
             $('#Table').DataTable().destroy();
