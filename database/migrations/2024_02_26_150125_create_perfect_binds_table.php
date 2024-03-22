@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('date')->nullable();
             $table->string('mesin')->nullable();
             $table->string('jenis')->nullable();
+            $table->string('jumlah')->nullable();
 
             $table->string('operator')->nullable();
             $table->string('verified_by_date')->nullable();

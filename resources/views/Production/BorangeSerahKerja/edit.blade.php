@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>BORANG SERAH KERJA (KULIT BUKU / COVER)</b></h5>
-                            <p class="float-right">TCBS-B33 (Rev. 1)</p>
+                            <p class="float-right">TCSB-B33 (Rev. 1)</p>
                         </div>
                     </div>
 

@@ -75,7 +75,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h5 class="float-left"><b>PRODUCTION JOBSHEET - TEXT</b></h5>
-                                <p class="float-right">TCBS-B16 (Rev.2)</p>
+                                <p class="float-right">TCSB-B16 (Rev.2)</p>
                             </div>
                         </div>
 

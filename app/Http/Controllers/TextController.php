@@ -45,7 +45,9 @@ class TextController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -62,7 +64,7 @@ class TextController extends Controller
                     3 => 'sale_order_id',
                     4 => 'sale_order_id',
                     5 => 'sale_order_id',
-                    6 => 'kuantiti_waste',
+                    6 => 'sale_order_id',
                     7 => 'status',
 
                     // Add more columns as needed
@@ -109,7 +111,9 @@ class TextController extends Controller
                                 });
                                 break;
                             case 6:
-                                $q->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('sale_order', function ($query) use ($searchLower) {
+                                    $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                                });
                                 break;
                             case 7:
                                 $q->where('status', 'like', '%' . $searchLower . '%');
@@ -195,7 +199,9 @@ class TextController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhere('kuantiti_waste', 'like', '%' . $searchLower . '%')
+                        ->orWhereHas('sale_order', function ($query) use ($searchLower) {
+                            $query->where('sale_order_qty', 'like', '%' . $searchLower . '%');
+                        })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
                 });
@@ -207,7 +213,7 @@ class TextController extends Controller
                 3 => 'sale_order_id',
                 4 => 'sale_order_id',
                 5 => 'sale_order_id',
-                6 => 'kuantiti_waste',
+                6 => 'sale_order_id',
                 7 => 'status',
 
                 // Add more columns as needed
@@ -244,8 +250,8 @@ class TextController extends Controller
                 }
 
                 $row->action = '<div class="dropdown dropdownwidth">
-                                <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
-                                data-toggle="dropdown" id="dropdownMenuButton" type="button">Action <i class="fas fa-caret-down ml-1"></i></button>
+                                <button aria-expanded="false" aria-haspopup="true" class="btn  btn-primary"
+                                data-toggle="dropdown" id="dropdownMenuButton" type="button" >Action <i class="fas fa-caret-down ml-1"></i></button>
                                 <div  class="dropdown-menu tx-13">
                                     ' . $actions . '
                                 </div>

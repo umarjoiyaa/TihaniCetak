@@ -10,7 +10,7 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- View</b></h5>
-                                <p class="float-right">TCBS-B34 (Rev. 2)</p>
+                                <p class="float-right">TCSB-B34 (Rev. 2)</p>
                             </div>
                         </div>
 
@@ -609,11 +609,7 @@
                                         </div>
                                     </div>
                                 </div> -->
-                        <div class="row d-flex justify-content-end">
-                            <div class="col-md-12 d-flex justify-content-end">
-                                <button class="btn btn-primary mx-2 mt-3">Save</button>
-                            </div>
-                        </div>
+
                     </div>
 
 

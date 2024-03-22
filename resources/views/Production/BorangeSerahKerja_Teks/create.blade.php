@@ -10,7 +10,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <h5 class="float-left"><b>BORANG SERAH KERJA (TEKS)- Create</b></h5>
-                            <p class="float-right">TCBS-B34 (Rev. 2)</p>
+                            <p class="float-right">TCSB-B34 (Rev. 2)</p>
                         </div>
                     </div>
 
@@ -303,7 +303,7 @@
                                         <div class="col-md-1"><input type="checkbox" name="jenis_14" @checked(old('jenis_14') == 'on') id="Chipboard"></div>
                                         <div class="col-md-6">
                                             <div class="row d-flex">
-                                                    <h5 >Chipboard</h5>
+                                                    <h5 class="ml-2" >Chipboard</h5>
                                                     <div id="chipinput1" class="mx-1" style="width:100px;">
                                                         <input type="text" class="Chipboard"  @if(old('jenis_14') == 'on') style="width:100px;" @else style="width:100px;display:none;" @endif  value="{{ old('jenis_input_14') }}"  name="jenis_input_14" >
                                                     </div>

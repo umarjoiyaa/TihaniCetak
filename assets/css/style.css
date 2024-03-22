@@ -1419,7 +1419,6 @@ input[type='submit'].btn-block {
 .sp-container button {
   border-width: 0;
   line-height: 1.538;
-  padding: 9px 20px;
   transition: none;
 }
 .btn:active,

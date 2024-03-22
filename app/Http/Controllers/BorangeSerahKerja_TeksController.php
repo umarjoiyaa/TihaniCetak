@@ -539,7 +539,7 @@ class BorangeSerahKerja_TeksController extends Controller
 
         $borange_serah_kerja_teks->purchased_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->purchased_by_user = Auth::user()->user_name;
-        $borange_serah_kerja_teks->purchased_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->purchased_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja_teks->purchased_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja_teks->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Purchased');
@@ -557,7 +557,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja_teks->transfer_by_remarks = $request->transfer_by_remarks;
         $borange_serah_kerja_teks->transfer_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->transfer_by_user = Auth::user()->user_name;
-        $borange_serah_kerja_teks->transfer_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->transfer_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja_teks->transfer_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja_teks->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Transfered');
@@ -575,7 +575,7 @@ class BorangeSerahKerja_TeksController extends Controller
         $borange_serah_kerja_teks->received_by_remarks = $request->received_by_remarks;
         $borange_serah_kerja_teks->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $borange_serah_kerja_teks->received_by_user = Auth::user()->user_name;
-        $borange_serah_kerja_teks->received_by_designation = (Auth::user()->designationss != null) ? Auth::user()->designationss->name : 'not assign';
+        $borange_serah_kerja_teks->received_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
         $borange_serah_kerja_teks->received_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
         $borange_serah_kerja_teks->save();
         Helper::logSystemActivity('BORANG SERAH KERJA (TEKS)', 'BORANG SERAH KERJA (TEKS) Received');

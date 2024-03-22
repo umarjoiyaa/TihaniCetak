@@ -382,6 +382,7 @@ class StapleBindController extends Controller
         $staple_bind->sale_order_id = $request->sale_order;
         $staple_bind->date = $request->date;
         $staple_bind->mesin = $request->mesin;
+        $staple_bind->jumlah = $request->jumlah;
         $staple_bind->created_by = Auth::user()->id;
 
         $staple_bind->status = 'Not-initiated';
@@ -439,6 +440,7 @@ class StapleBindController extends Controller
         $staple_bind->sale_order_id = $request->sale_order;
         $staple_bind->date = $request->date;
         $staple_bind->mesin = $request->mesin;
+        $staple_bind->jumlah = $request->jumlah;
         $staple_bind->created_by = Auth::user()->id;
 
         if($staple_bind->status == 'Paused'){
