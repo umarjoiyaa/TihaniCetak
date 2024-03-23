@@ -346,7 +346,7 @@ class TextController extends Controller
         $text->binding_17 = ($request->binding_17 != null) ? $request->binding_17_val : null;
         $text->binding_18 = ($request->binding_17 != null) ? $request->binding_18_val : null;
         $text->binding_19 = ($request->binding_19 != null) ? $request->binding_19_val : null;
-        $text->binding_20 = ($request->binding_20 != null) ? $request->binding_20_val : null;
+        $text->binding_20 = ($request->binding_19 != null) ? $request->binding_20_val : null;
         $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;
         $text->save();
@@ -493,7 +493,7 @@ class TextController extends Controller
         $text->binding_17 = ($request->binding_17 != null) ? $request->binding_17_val : null;
         $text->binding_18 = ($request->binding_17 != null) ? $request->binding_18_val : null;
         $text->binding_19 = ($request->binding_19 != null) ? $request->binding_19_val : null;
-        $text->binding_20 = ($request->binding_20 != null) ? $request->binding_20_val : null;
+        $text->binding_20 = ($request->binding_19 != null) ? $request->binding_20_val : null;
 
         $text->status = 'In-Progress';
         $text->created_by = Auth::user()->id;

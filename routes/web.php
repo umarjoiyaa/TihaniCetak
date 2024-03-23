@@ -733,6 +733,7 @@ Route::middleware('auth')->group(function () {
     // Laporan_Pemeriksaan
     Route::get('/WMS/Laporan_Pemeriksaan', [Laporan_PemeriksaanController::class, 'index'])->name('Laporan_Pemeriksaan');
     Route::get('/WMS/Laporan_Pemeriksaan/view', [Laporan_PemeriksaanController::class, 'view'])->name('Laporan_Pemeriksaan.view');
+    Route::post('/WMS/Laporan_Pemeriksaan/store', [Laporan_PemeriksaanController::class, 'SenariStore'])->name('laporan_pemeriksaan.senari_store');
     Route::get('/WMS/Laporan_Pemeriksaan/Create', [Laporan_PemeriksaanController::class, 'Create'])->name('Laporan_Pemeriksaan.create');
     Route::get('/WMS/Laporan_Pemeriksaan/senarai', [Laporan_PemeriksaanController::class, 'senarai'])->name('Laporan_Pemeriksaan.senarai');
 
