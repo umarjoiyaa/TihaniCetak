@@ -75,7 +75,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect('login');
-});
+})->name('main');
 
 Auth::routes([
     'register' => false,
