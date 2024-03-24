@@ -15,15 +15,16 @@
                         </div>
                         <form action="{{route('user.update', $user->id)}}" method="post">
                             @csrf
-                            
-                            
-                        <div class="row">
-                            <div class="col-md-12 d-flex justify-content-end">
-                                <div class="form-group">
-                                    <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span class="tx-17">Active user</span></label>
+
+                            <div class="row">
+                                <div class="col-md-12 d-flex justify-content-end">
+                                    <div class="form-group">
+                                        <label class="ckbox"><input @checked($user->is_active == "yes") type="checkbox" name="is_active"><span
+                                        class="tx-17">Active User</span></label>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                           </div>
+
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">

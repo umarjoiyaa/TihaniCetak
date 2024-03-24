@@ -59,7 +59,7 @@
                             <div class="col-md-4 mt-4">
                                 <div class="form-group">
                                     <div class="form-label">Kod Buku</div>
-                                    <input type="text" disabled value="auto Display"
+                                    <input type="text" disabled
                                         value="{{ $proses_three_knife->sale_order->kod_buku }}" id="kod_buku"
                                         class="form-control">
                                 </div>

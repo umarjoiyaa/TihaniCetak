@@ -558,7 +558,9 @@ class LaporanProsesLipatController extends Controller
         $laporan_proses_lipat->save();
 
         $section = $request->section;
-        ksort($section);
+
+        if($section != null){
+            ksort($section);
 
          foreach($section as $key => $value){
 
@@ -571,6 +573,8 @@ class LaporanProsesLipatController extends Controller
                 $detail_b->save();
             }
          }
+        }
+
 
         Helper::logSystemActivity('LAPORAN PROSES LIPAT', 'LAPORAN PROSES LIPAT Verified');
         return redirect()->route('laporan_proses_lipat')->with('custom_success', 'LAPORAN PROSES LIPAT has been Successfully Verified!');

@@ -16,8 +16,8 @@ return new class extends Migration
             $table->unsignedBigInteger('sale_order_id')->nullable();
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('date')->nullable();
-            $table->string('operator')->nullable();
-            $table->string('operator_text')->nullable();
+            $table->string('user_id')->nullable();
+            $table->string('user_text')->nullable();
             $table->string('di_bungkus_oleh')->nullable();
 
             $table->string('b_1')->nullable();
@@ -47,6 +47,9 @@ return new class extends Migration
             $table->string('kauntiti_siap_2')->nullable();
             $table->string('kauntiti_siap_3')->nullable();
 
+
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

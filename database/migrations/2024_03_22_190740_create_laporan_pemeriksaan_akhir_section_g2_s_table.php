@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('laporan_pemeriksaan_akhir_section_g2_s', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->foreign('parent_id')->references('id')->on('laporan_pemeriksaan_akhirs')->nullable();
             $table->string('subkontraktor_7')->nullable();
             $table->string('jumlah_13')->nullable();
             $table->string('disahkan_oleh_13')->nullable();

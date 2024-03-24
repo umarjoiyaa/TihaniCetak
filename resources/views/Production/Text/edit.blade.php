@@ -858,6 +858,76 @@
             }
         });
 
+        $("#Input11").change(function() {
+            if ($(this).is(":checked")) {
+                $("#input11").prop("disabled", false);
+                $("#input12").prop("disabled", false);
+                $("#input12").val("In-house").trigger('change');
+
+            } else {
+                $("#input11").prop("disabled", true);
+                $("#input12").prop("disabled", true);
+                $("#input12").val("").trigger('change');
+
+            }
+        });
+
+        $("#Input13").change(function() {
+            if ($(this).is(":checked")) {
+                $("#input13").prop("disabled", false);
+                $("#input14").prop("disabled", false);
+                $("#input14").val("In-house").trigger('change');
+
+            } else {
+                $("#input13").prop("disabled", true);
+                $("#input14").prop("disabled", true);
+                $("#input14").val("").trigger('change');
+
+            }
+        });
+
+        $("#Input15").change(function() {
+            if ($(this).is(":checked")) {
+                $("#input15").prop("disabled", false);
+                $("#input16").prop("disabled", false);
+                $("#input16").val("In-house").trigger('change');
+
+            } else {
+                $("#input15").prop("disabled", true);
+                $("#input16").prop("disabled", true);
+                $("#input16").val("").trigger('change');
+
+            }
+        });
+
+        $("#Input17").change(function() {
+            if ($(this).is(":checked")) {
+                $("#input17").prop("disabled", false);
+                $("#input18").prop("disabled", false);
+                $("#input18").val("In-house").trigger('change');
+
+            } else {
+                $("#input17").prop("disabled", true);
+                $("#input18").prop("disabled", true);
+                $("#input18").val("").trigger('change');
+
+            }
+        });
+
+        $("#Input19").change(function() {
+            if ($(this).is(":checked")) {
+                $("#input19").prop("disabled", false);
+                $("#input20").prop("disabled", false);
+                $("#input20").val("In-house").trigger('change');
+
+            } else {
+                $("#input19").prop("disabled", true);
+                $("#input20").prop("disabled", true);
+                $("#input20").val("").trigger('change');
+
+            }
+        });
+
         $(document).on('change', '#datepicker_main', function() {
             var value = $(this).val();
             $("#child_table tbody tr .datepicker").each(function() {

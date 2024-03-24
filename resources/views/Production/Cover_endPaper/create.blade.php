@@ -147,7 +147,7 @@
                                 </div>
                             </div>
                         </div>
-                    
+
 
                     <div class="card" style="background:#f4f4ff; border-radius:5px;">
                         <div class="card-body">
@@ -584,7 +584,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_18" @checked(old('finishing_18') == 'on') id="FormOther1"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_18') != 'on') @if(old('finishing_18')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_18') != 'on') @if(old('finishing_18')) @else disabled @endif
                                                             name="finishing_input_4" id="input8"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_input_4') }}">
                                                     </td>
@@ -603,7 +603,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_19" @checked(old('finishing_19') == 'on') id="FormOther2"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_19') != 'on') @if(old('finishing_19')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_19') != 'on') @if(old('finishing_19')) @else disabled @endif
                                                             name="finishing_input_5" id="input3"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_input_5') }}">
                                                     </td>
@@ -622,7 +622,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_20" @checked(old('finishing_20') == 'on') id="FormOther3"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_20') != 'on') @if(old('finishing_20')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_20') != 'on') @if(old('finishing_20')) @else disabled @endif
                                                             name="finishing_input_6" id="input4"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_input_6') }}">
                                                     </td>
@@ -641,7 +641,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_21" @checked(old('finishing_21') == 'on') id="FormOther4"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_21') != 'on') @if(old('finishing_21')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_21') != 'on') @if(old('finishing_21')) @else disabled @endif
                                                             name="finishing_input_7" id="input5"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_input_7') }}">
                                                     </td>
@@ -660,7 +660,7 @@
                                                 <tr>
                                                     <td><input type="checkbox" name="finishing_22" @checked(old('finishing_22') == 'on') id="FormOther5"
                                                             class=" mr-5"> Others:
-                                                        <input type="text" @disabled(old('finishing_22') != 'on') @if(old('finishing_22')) @else disabled @endif placeholder="User Input"
+                                                        <input type="text" @disabled(old('finishing_22') != 'on') @if(old('finishing_22')) @else disabled @endif
                                                             name="finishing_input_8" id="input10"
                                                             class="form-control w-50 float-right" value="{{ old('finishing_input_8') }}">
                                                     </td>
@@ -739,6 +739,7 @@
                             <button class="btn btn-primary float-right">Save</button>
                         </div>
                     </div>
+                </div>
                 </div>
                 <a href="{{ route('cover_end_paper') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>
             </div>

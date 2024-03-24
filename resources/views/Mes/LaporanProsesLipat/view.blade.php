@@ -37,12 +37,12 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div cclass="form-label">Checked By (Operator)</div>
+                                        <label cclass="form-label">Checked By (Operator)</label>
                                         <input type="text" value="{{ $laporan_proses_lipat->user->full_name }}" readonly
                                             name="" id="checked_by" class="form-control">
                                     </div>
                                 </div>
-                                <div class="col-md-4">
+                                <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div cclass="form-label">Sales Order No.</div>
                                         <input type="text" value="{{ $laporan_proses_lipat->sale_order->order_no }}"
@@ -88,7 +88,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
-                                        <div cclass="form-label">Seksyen No.</div>
+                                        <label cclass="form-label">Seksyen No.</label>
                                         <input type="text" name="seksyen_no" id=""
                                             value="{{ $laporan_proses_lipat->seksyen_no }}" class="form-control">
                                     </div>
