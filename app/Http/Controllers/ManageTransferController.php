@@ -17,6 +17,7 @@ use App\Models\MaterialRequestB;
 use App\Models\MaterialRequestC;
 use App\Models\MaterialRequestD;
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 
 class ManageTransferController extends Controller
@@ -144,8 +145,8 @@ class ManageTransferController extends Controller
             $index = 0;
             foreach ($uom as $row) {
                 $row->sr_no = $start + $index + 1;
-                $row->status = ($row->status == 'Request') ? '<span class="badge badge-warning">Request</span>' : '<span class="badge badge-success">Completed</span>';
-                $Link = ($row->status != 'Completed') ? '<a class="dropdown-item" href="' . route('manage_transfer.edit', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a><a class="dropdown-item" href="' . route('manage_transfer.receive', $row->id) . '">Receive</a><a class="dropdown-item" id="swal-warning" data-delete="' . route('manage_transfer.delete', $row->id) . '">Delete</a>' : '<a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a>';
+                $row->status = ($row->status == 'Transferred') ? '<span class="badge badge-success">Transferred</span>' : '<span class="badge badge-info">Received</span>';
+                $Link = ($row->status != 'Received') ? '<a class="dropdown-item" href="' . route('manage_transfer.edit', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a><a class="dropdown-item" href="' . route('manage_transfer.receive', $row->id) . '">Receive</a><a class="dropdown-item" id="swal-warning" data-delete="' . route('manage_transfer.delete', $row->id) . '">Delete</a>' : '<a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a>';
 
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
@@ -236,8 +237,8 @@ class ManageTransferController extends Controller
 
             $uom->each(function ($row, $index)  use (&$start) {
                 $row->sr_no = $start + $index + 1;
-                $row->status = ($row->status == 'Request') ? '<span class="badge badge-warning">Request</span>' : '<span class="badge badge-success">Completed</span>';
-                $Link = ($row->status != 'Completed') ? '<a class="dropdown-item" href="' . route('manage_transfer.edit', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a><a class="dropdown-item" href="' . route('manage_transfer.receive', $row->id) . '">Receive</a><a class="dropdown-item" id="swal-warning" data-delete="' . route('manage_transfer.delete', $row->id) . '">Delete</a>' : '<a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a>';
+                $row->status = ($row->status == 'Transferred') ? '<span class="badge badge-success">Transferred</span>' : '<span class="badge badge-info">Received</span>';
+                $Link = ($row->status != 'Received') ? '<a class="dropdown-item" href="' . route('manage_transfer.edit', $row->id) . '">Edit</a><a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a><a class="dropdown-item" href="' . route('manage_transfer.receive', $row->id) . '">Receive</a><a class="dropdown-item" id="swal-warning" data-delete="' . route('manage_transfer.delete', $row->id) . '">Delete</a>' : '<a class="dropdown-item" href="' . route('manage_transfer.view', $row->id) . '">View</a>';
 
                 $row->action = '<div class="dropdown dropdownwidth">
                                 <button aria-expanded="false" aria-haspopup="true" class="btn ripple btn-primary"
@@ -276,16 +277,43 @@ class ManageTransferController extends Controller
         if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $ref_nos = MaterialRequest::all();
+        $ref_nos = MaterialRequest::whereHas('manageTransfer', function($query) {
+            $query->whereHas('manageTransferProductA', function($subQueryA) {
+                $subQueryA->where('remaining_qty', '>', 0);
+            })->orWhereHas('manageTransferProductB', function($subQueryB) {
+                $subQueryB->where('remaining_qty', '>', 0);
+            })->orWhereHas('manageTransferProductC', function($subQueryC) {
+                $subQueryC->where('remaining_qty', '>', 0);
+            });
+        })->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Create');
         return view('WMS.ManageTransfer.create', compact('ref_nos', 'locations'));
     }
 
     public function ref(Request $request){
         $material = MaterialRequest::where('id', '=', $request->id)->with('sale_order', 'user')->first();
-        $material_b = MaterialRequestB::where('material_id', '=', $material->id)->with('products', 'uoms')->get();
-        $material_c = MaterialRequestC::where('material_id', '=', $material->id)->with('products')->get();
-        $material_d = MaterialRequestD::where('material_id', '=', $material->id)->with('products')->get();
+        $material_b = MaterialRequestB::with(['manageTransfer' => function ($query) use ($material) {
+            $query->latest()->with(['manageTransferProductA' => function ($query) use ($material) {
+                $query->where('product_id', $material->id)->first();
+            }]);
+        }, 'products', 'uoms'])
+        ->where('material_id', $material->id)
+        ->get();
+        $material_c = MaterialRequestC::with(['manageTransfer' => function ($query) use ($material) {
+            $query->latest()->with(['manageTransferProductB' => function ($query) use ($material) {
+                $query->where('product_id', $material->id)->first();
+            }]);
+        }, 'products'])
+        ->where('material_id', $material->id)
+        ->get();
+        $material_d = MaterialRequestD::with(['manageTransfer' => function ($query) use ($material) {
+            $query->latest()->with(['manageTransferProductC' => function ($query) use ($material) {
+                $query->where('product_id', $material->id)->first();
+            }]);
+        }, 'products'])
+        ->where('material_id', $material->id)
+        ->get();
         return response()->json(['material' => $material, 'material_b' => $material_b, 'material_c' => $material_c, 'material_d' => $material_d]);
     }
 
@@ -303,7 +331,8 @@ class ManageTransferController extends Controller
         $validator = null;
 
         $validatedData = $request->validate([
-            'ref_no' => 'required',
+            'date' => 'required',
+            'ref_no' => 'required'
         ]);
 
         // If validations fail
@@ -316,7 +345,7 @@ class ManageTransferController extends Controller
         $manage_transfer->request_id = $request->ref_no;
         $manage_transfer->date = $request->date;
         $manage_transfer->created_by = Auth::user()->id;
-        $manage_transfer->status = 'Request';
+        $manage_transfer->status = 'Transferred';
         $manage_transfer->save();
 
         foreach($request->kertas as $value){
@@ -366,6 +395,7 @@ class ManageTransferController extends Controller
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
                 $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
                 $detail->save();
             } else if($value['tableId'] == 2){
                 $detail = new ManageTransferLocation2();
@@ -375,6 +405,7 @@ class ManageTransferController extends Controller
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
                 $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
                 $detail->save();
             } else if($value['tableId'] == 3){
                 $detail = new ManageTransferLocation3();
@@ -384,6 +415,7 @@ class ManageTransferController extends Controller
                 $detail->shelf_id = $value['shelf'] ?? null;
                 $detail->level_id = $value['level'] ?? null;
                 $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
                 $detail->save();
             }
 
@@ -394,5 +426,297 @@ class ManageTransferController extends Controller
 
         Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Store');
         return redirect()->route('manage_transfer')->with('custom_success', 'MANAGE TRANSFER has been Created Successfully !');
+    }
+
+    public function edit($id){
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Update')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $manage_transfer = ManageTransfer::where('id', $id)->with('manageTransferProductA', 'manageTransferProductB', 'manageTransferProductC')->first();
+        $products_a = $manage_transfer->manageTransferProductA;
+        $products_b = $manage_transfer->manageTransferProductB;
+        $products_c = $manage_transfer->manageTransferProductC;
+
+        $locations_a = ManageTransferLocation1::where('transfer_id', '=', $id)->get();
+        $locations_b = ManageTransferLocation2::where('transfer_id', '=', $id)->get();
+        $locations_c = ManageTransferLocation3::where('transfer_id', '=', $id)->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Edit');
+        return view('WMS.ManageTransfer.edit', compact('manage_transfer', 'locations', 'products_a', 'products_b', 'products_c', 'locations_a', 'locations_b', 'locations_c'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Update')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $validator = null;
+
+        $validatedData = $request->validate([
+            'date' => 'required',
+        ]);
+
+        // If validations fail
+        if (!$validatedData) {
+            return redirect()->back()
+                ->withErrors($validator)->withInput();
+        }
+
+        $manage_transfer = ManageTransfer::find($id);
+        $manage_transfer->date = $request->date;
+        $manage_transfer->created_by = Auth::user()->id;
+        $manage_transfer->status = 'Transferred';
+        $manage_transfer->save();
+
+        $details = ManageTransferB::where('transfer_id', '=', $id)->get();
+        $detailIds = $details->pluck('product_id')->toArray();
+        $existingDetails = ManageTransferLocation1::whereIn('product_id', $detailIds)->get();
+
+        foreach ($existingDetails as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        $details1 = ManageTransferC::where('transfer_id', '=', $id)->get();
+        $detailIds1 = $details1->pluck('product_id')->toArray();
+        $existingDetails1 = ManageTransferLocation2::whereIn('product_id', $detailIds1)->get();
+
+        foreach ($existingDetails1 as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        $details2 = ManageTransferD::where('transfer_id', '=', $id)->get();
+        $detailIds2 = $details2->pluck('product_id')->toArray();
+        $existingDetails2 = ManageTransferLocation3::whereIn('product_id', $detailIds2)->get();
+
+        foreach ($existingDetails2 as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        ManageTransferB::where('transfer_id', $id)->delete();
+        ManageTransferC::where('transfer_id', $id)->delete();
+        ManageTransferD::where('transfer_id', $id)->delete();
+        ManageTransferLocation1::whereIn('product_id', $detailIds)->delete();
+        ManageTransferLocation2::whereIn('product_id', $detailIds1)->delete();
+        ManageTransferLocation3::whereIn('product_id', $detailIds2)->delete();
+
+        foreach($request->kertas as $value){
+            $manage_transfer_detail_b = new ManageTransferB();
+            $manage_transfer_detail_b->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_b->product_id = $value['product_id'] ?? null;
+            $manage_transfer_detail_b->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_b->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_b->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_b->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_b->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_b->save();
+        }
+
+        foreach($request->bahan as $value){
+            $manage_transfer_detail_c = new ManageTransferC();
+            $manage_transfer_detail_c->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_c->product_id = $value['product_id'] ?? null;
+            $manage_transfer_detail_c->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_c->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_c->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_c->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_c->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_c->save();
+        }
+
+        foreach($request->wip as $value){
+            $manage_transfer_detail_d = new ManageTransferD();
+            $manage_transfer_detail_d->transfer_id = $manage_transfer->id;
+            $manage_transfer_detail_d->product_id = $value['product_id'] ?? null;
+            $manage_transfer_detail_d->previous_qty = $value['previous_qty'] ?? 0;
+            $manage_transfer_detail_d->balance_qty = $value['balance_qty'] ?? 0;
+            $manage_transfer_detail_d->transfer_qty = $value['transfer_qty'] ?? 0;
+            $manage_transfer_detail_d->remaining_qty = $value['remaining_qty'] ?? 0;
+            $manage_transfer_detail_d->remarks = $value['remarks'] ?? null;
+            $manage_transfer_detail_d->save();
+        }
+
+        $storedData = json_decode($request->input('details'), true);
+
+        foreach ($storedData as $key => $value) {
+            if($value['tableId'] == 1){
+                $detail = new ManageTransferLocation1();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->product_id = $value['hiddenId'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
+                $detail->save();
+            } else if($value['tableId'] == 2){
+                $detail = new ManageTransferLocation2();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->product_id = $value['hiddenId'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
+                $detail->save();
+            } else if($value['tableId'] == 3){
+                $detail = new ManageTransferLocation3();
+                $detail->transfer_id = $manage_transfer->id;
+                $detail->product_id = $value['hiddenId'] ?? null;
+                $detail->area_id = $value['area'] ?? null;
+                $detail->shelf_id = $value['shelf'] ?? null;
+                $detail->level_id = $value['level'] ?? null;
+                $detail->transfer_qty = $value['transfer_qty'] ?? 0;
+                $detail->available_qty = $value['available_qty'] ?? 0;
+                $detail->save();
+            }
+
+            $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['hiddenId'])->first();
+            $location->used_qty -= (int)$value['transfer_qty'];
+            $location->save();
+        }
+
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Update');
+        return redirect()->route('manage_transfer')->with('custom_success', 'MANAGE TRANSFER has been Updated Successfully !');
+    }
+
+    public function view($id){
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER View')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $manage_transfer = ManageTransfer::where('id', $id)->with('manageTransferProductA', 'manageTransferProductB', 'manageTransferProductC')->first();
+        $products_a = $manage_transfer->manageTransferProductA;
+        $products_b = $manage_transfer->manageTransferProductB;
+        $products_c = $manage_transfer->manageTransferProductC;
+
+        $locations_a = ManageTransferLocation1::where('transfer_id', '=', $id)->get();
+        $locations_b = ManageTransferLocation2::where('transfer_id', '=', $id)->get();
+        $locations_c = ManageTransferLocation3::where('transfer_id', '=', $id)->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER View');
+        return view('WMS.ManageTransfer.view', compact('manage_transfer', 'locations', 'products_a', 'products_b', 'products_c', 'locations_a', 'locations_b', 'locations_c'));
+    }
+
+    public function receive($id){
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $manage_transfer = ManageTransfer::where('id', $id)->with('manageTransferProductA', 'manageTransferProductB', 'manageTransferProductC')->first();
+        $products_a = $manage_transfer->manageTransferProductA;
+        $products_b = $manage_transfer->manageTransferProductB;
+        $products_c = $manage_transfer->manageTransferProductC;
+
+        $locations_a = ManageTransferLocation1::where('transfer_id', '=', $id)->get();
+        $locations_b = ManageTransferLocation2::where('transfer_id', '=', $id)->get();
+        $locations_c = ManageTransferLocation3::where('transfer_id', '=', $id)->get();
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Receive');
+        return view('WMS.ManageTransfer.receive', compact('manage_transfer', 'locations', 'products_a', 'products_b', 'products_c', 'locations_a', 'locations_b', 'locations_c'));
+    }
+
+    public function receive_update(Request $request, $id)
+    {
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Receive')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+
+        $manage_transfer = ManageTransfer::find($id);
+        $manage_transfer->received_by_date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $manage_transfer->received_by_user = Auth::user()->user_name;
+        $manage_transfer->received_by_designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $manage_transfer->received_by_department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $manage_transfer->status = 'Received';
+        $manage_transfer->save();
+
+        $material_request = MaterialRequest::find($manage_transfer->request_id);
+        $material_request->status = 'Completed';
+        $material_request->save();
+
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Receive');
+        return redirect()->route('manage_transfer')->with('custom_success', 'MANAGE TRANSFER has been Received Successfully !');
+    }
+
+    public function delete($id){
+        if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Delete')) {
+            return back()->with('custom_errors', 'You don`t have Right Permission');
+        }
+        $manage_transfer = ManageTransfer::find($id);
+
+        $details = ManageTransferB::where('transfer_id', '=', $id)->get();
+        $detailIds = $details->pluck('product_id')->toArray();
+        $existingDetails = ManageTransferLocation1::whereIn('product_id', $detailIds)->get();
+
+        foreach ($existingDetails as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        $details1 = ManageTransferC::where('transfer_id', '=', $id)->get();
+        $detailIds1 = $details1->pluck('product_id')->toArray();
+        $existingDetails1 = ManageTransferLocation2::whereIn('product_id', $detailIds1)->get();
+
+        foreach ($existingDetails1 as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        $details2 = ManageTransferD::where('transfer_id', '=', $id)->get();
+        $detailIds2 = $details2->pluck('product_id')->toArray();
+        $existingDetails2 = ManageTransferLocation3::whereIn('product_id', $detailIds2)->get();
+
+        foreach ($existingDetails2 as $existingDetail) {
+            if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
+                $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
+
+                if ($location) {
+                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->save();
+                }
+            }
+        }
+
+        ManageTransferB::where('transfer_id', $id)->delete();
+        ManageTransferC::where('transfer_id', $id)->delete();
+        ManageTransferD::where('transfer_id', $id)->delete();
+        ManageTransferLocation1::whereIn('product_id', $detailIds)->delete();
+        ManageTransferLocation2::whereIn('product_id', $detailIds1)->delete();
+        ManageTransferLocation3::whereIn('product_id', $detailIds2)->delete();
+
+        $manage_transfer->delete();
+        Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Delete');
+        return redirect()->route('manage_transfer')->with('custom_success', 'MANAGE TRANSFER has been Successfully Deleted!');
     }
 }

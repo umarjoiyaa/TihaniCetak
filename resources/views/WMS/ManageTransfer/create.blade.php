@@ -339,49 +339,49 @@
                         }
                         optionsHtml +=
                             `<option
-                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
-                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
-                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                                                                                                                                                    </option>`;
+                                                                                                                                                                                                                                                                                                                                            data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                            data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                            data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                                                                                                                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                        </option>`;
                     });
                     $('#myTable').append(
                         `<tr>
-                                                                                                                                                                                                                                                                                                                                    <td>
-                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
-                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
-                                                                                                                                                                                                                                                                                                                                    </select>
-                                                                                                                                                                                                                                                                                                                                    </td>
-                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control available_qty" readonly value="${element.available_qty}"></td>
-                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control transfer_qty1" value="${element.transfer_qty}"></td>
-                                                                                                                                                                                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                                                                                                                                                                </tr>`
+                                                                                                                                                                                                                                                                                                                                        <td>
+                                                                                                                                                                                                                                                                                                                                        <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                            ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                        </select>
+                                                                                                                                                                                                                                                                                                                                        </td>
+                                                                                                                                                                                                                                                                                                                                        <td><input type="number" class="form-control available_qty" readonly value="${element.available_qty}"></td>
+                                                                                                                                                                                                                                                                                                                                        <td><input type="number" class="form-control transfer_qty1" value="${element.transfer_qty}"></td>
+                                                                                                                                                                                                                                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                                    </tr>`
                     );
                 } else {
                     let optionsHtml = '';
                     locations.forEach(location => {
                         optionsHtml +=
                             `<option
-                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
-                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
-                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                                                                                                                                                    </option>`;
+                                                                                                                                                                                                                                                                                                                                            data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                            data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                            data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                        </option>`;
                     });
                     let defaultRow =
                         `
-                                                                                                                                                                                                                                                                                                                            <tr>
-                                                                                                                                                                                                                                                                                                                                <td>
-                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
-                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
-                                                                                                                                                                                                                                                                                                                                    </select>
-                                                                                                                                                                                                                                                                                                                                </td>
-                                                                                                                                                                                                                                                                                                                                <td><input type="number" readonly class="form-control available_qty"></td>
-                                                                                                                                                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1"></td>
-                                                                                                                                                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                                                                                                                                                            </tr>`;
+                                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                                    <td>
+                                                                                                                                                                                                                                                                                                                                        <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                            ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                        </select>
+                                                                                                                                                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control transfer_qty1"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                                </tr>`;
                     $('#myTable').html(defaultRow);
                 }
             });
@@ -390,25 +390,25 @@
             locations.forEach(location => {
                 optionsHtml +=
                     `<option
-                                                                                                                                                                                                                                                                                                                                        data-area-id="${location.area_id}"
-                                                                                                                                                                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                                                                                                                                                                                        data-level-id="${location.level_id}"
-                                                                                                                                                                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                                                                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                                                                                                                                                                                    </option>`;
+                                                                                                                                                                                                                                                                                                                                            data-area-id="${location.area_id}"
+                                                                                                                                                                                                                                                                                                                                            data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                                                                                                                                                                            data-level-id="${location.level_id}"
+                                                                                                                                                                                                                                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                                                                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                                                                                                                                                                        </option>`;
             });
             let defaultRow =
                 `
-                                                                                                                                                                                                                                                                                                                            <tr>
-                                                                                                                                                                                                                                                                                                                                <td>
-                                                                                                                                                                                                                                                                                                                                    <select class="form-control location">
-                                                                                                                                                                                                                                                                                                                                        ${optionsHtml}
-                                                                                                                                                                                                                                                                                                                                    </select>
-                                                                                                                                                                                                                                                                                                                                </td>
-                                                                                                                                                                                                                                                                                                                                <td><input type="number" readonly class="form-control available_qty"></td>
-                                                                                                                                                                                                                                                                                                                                <td><input type="number" class="form-control transfer_qty1"></td>
-                                                                                                                                                                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                                                                                                                                                                            </tr>`;
+                                                                                                                                                                                                                                                                                                                                <tr>
+                                                                                                                                                                                                                                                                                                                                    <td>
+                                                                                                                                                                                                                                                                                                                                        <select class="form-control location">
+                                                                                                                                                                                                                                                                                                                                            ${optionsHtml}
+                                                                                                                                                                                                                                                                                                                                        </select>
+                                                                                                                                                                                                                                                                                                                                    </td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" readonly class="form-control available_qty"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><input type="number" class="form-control transfer_qty1"></td>
+                                                                                                                                                                                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                                                                                                                                                                </tr>`;
             $('#myTable').html(defaultRow);
         }
 
@@ -428,7 +428,7 @@
             var availableQty = parseFloat($(this).find('.available_qty').val());
             var qty = parseFloat($(this).find('.transfer_qty1').val());
 
-            if (availableQty < qty) {
+            if (availableQty < qty || isNaN(qty)) {
                 alertNeeded = true;
                 return false;
             }
@@ -519,23 +519,41 @@
                     $('#table1 tbody').html('');
                     $('#table1').DataTable().destroy();
                     data.material_b.forEach((element, index) => {
-                        $('#table1 tbody').append(
-                            `<tr>
-                                                                    <td><input type='hidden' value='${element.product_id}' class="stock_code" name="kertas[${$length}][product_id]"/>${element.products.item_code}</td>
-                                                                    <td>${element.products.description}</td>
-                                                                    <td>${element.grammage}</td>
-                                                                    <td>${element.saiz}</td>
-                                                                    <td>${element.products.base_uom}</td>
-                                                                    <td>${element.available_qty}</td>
-                                                                    <td>${element.uoms ? element.uoms.name : ''}</td>
-                                                                    <td>${element.request_qty}</td>
-                                                                    <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="kertas[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="kertas[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><input type="number" readonly class="form-control transfer_qty" name="kertas[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="kertas[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
-                                                                    <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>                        </tr>`
-                        );
+                        $('#table1 tbody').append(`
+                            <tr>
+                                <td>
+                                    <input type='hidden' value='${element.product_id}' class="stock_code" name="kertas[${$length}][product_id]"/>
+                                    ${element.products ? element.products.item_code : ''}
+                                </td>
+                                <td>${element.products ? element.products.description : ''}</td>
+                                <td>${element.grammage}</td>
+                                <td>${element.saiz}</td>
+                                <td>${element.products ? element.products.base_uom : ''}</td>
+                                <td>${element.available_qty}</td>
+                                <td>${element.uoms ? element.uoms.name : ''}</td>
+                                <td>${element.request_qty}</td>
+                                <td>
+                                    <input type='hidden' class="previous_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}' name="kertas[${$length}][previous_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}
+                                </td>
+                                <td>
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}' name="kertas[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}
+                                </td>
+                                <td><input type="number" readonly class="form-control transfer_qty" name="kertas[${$length}][transfer_qty]" value="0"/></td>
+                                <td>
+                                    <input type='hidden' class="remaining_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}' name="kertas[${$length}][remaining_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}
+                                </td>
+                                <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
+                                <td>
+                                    <input type="hidden" class="hiddenId" value="${element.product_id}">
+                                    <a class="addStock openModal" data-toggle="modal" data-target="#exampleModal">
+                                        <iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
                         $length++;
                     });
                     $('#table1').dataTable();
@@ -544,20 +562,38 @@
                     $('#table2 tbody').html('');
                     $('#table2').DataTable().destroy();
                     data.material_c.forEach((element, index) => {
-                        $('#table2 tbody').append(
-                            `<tr>
-                                                                    <td><input type='hidden' value='${element.product_id}' class="stock_code" name="kertas[${$length}][product_id]"/>${element.products.item_code}</td>
-                                                                    <td>${element.products.description}</td>
-                                                                    <td>${element.products.base_uom}</td>
-                                                                    <td>${element.available_qty}</td>
-                                                                    <td>${element.request_qty}</td>
-                                                                    <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="bahan[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="bahan[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><input type="number" readonly class="form-control transfer_qty" name="bahan[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="bahan[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><textarea class="form-control" name="bahan[${$length1}][remarks]"></textarea></td>
-                                                                    <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>                        </tr>`
-                        );
+                        $('#table2 tbody').append(`
+                            <tr>
+                                <td>
+                                    <input type='hidden' value='${element.product_id}' class="stock_code" name="bahan[${$length1}][product_id]"/>
+                                    ${element.products ? element.products.item_code : ''}
+                                </td>
+                                <td>${element.products ? element.products.description : ''}</td>
+                                <td>${element.products ? element.products.base_uom : ''}</td>
+                                <td>${element.available_qty}</td>
+                                <td>${element.request_qty}</td>
+                                <td>
+                                    <input type='hidden' class="previous_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}' name="bahan[${$length}][previous_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}
+                                </td>
+                                <td>
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}' name="bahan[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}
+                                </td>
+                                <td><input type="number" readonly class="form-control transfer_qty" name="bahan[${$length}][transfer_qty]" value="0"/></td>
+                                <td>
+                                    <input type='hidden' class="remaining_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}' name="bahan[${$length}][remaining_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}
+                                </td>
+                                <td><textarea class="form-control" name="bahan[${$length1}][remarks]"></textarea></td>
+                                <td>
+                                    <input type="hidden" class="hiddenId" value="${element.product_id}">
+                                    <a class="addStock openModal" data-toggle="modal" data-target="#exampleModal">
+                                        <iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
                         $length1++;
                     });
                     $('#table2').dataTable();
@@ -566,19 +602,38 @@
                     $('#table3 tbody').html('');
                     $('#table3').DataTable().destroy();
                     data.material_d.forEach((element, index) => {
-                        $('#table3 tbody').append(`<tr>
-                                                                    <td><input type='hidden' value='${element.product_id}' class="stock_code" name="kertas[${$length}][product_id]"/>${element.products.item_code}</td>
-                                                                    <td>${element.products.description}</td>
-                                                                    <td>${element.products.base_uom}</td>
-                                                                    <td>${element.available_qty}</td>
-                                                                    <td>${element.request_qty}</td>
-                                                                    <td><input type='hidden' class="previous_qty" value='${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}' name="wip[${$length}][previous_qty]"/>${element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0}</td>
-                                                                    <td><input type='hidden' class="balance_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="wip[${$length}][balance_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><input type="number" readonly class="form-control transfer_qty" name="wip[${$length}][transfer_qty]" value="0"/></td>
-                                                                    <td><input type='hidden' class="remaining_qty" value='${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}' name="wip[${$length}][remaining_qty]"/>${element.request_qty - (element.manage_transfer_b ? element.manage_transfer_b.previous_qty : 0)}</td>
-                                                                    <td><textarea class="form-control" name="wip[${$length2}][remarks]"></textarea></td>
-                                                                    <td><input type="hidden" class="hiddenId" value="${element.product_id}"><a class="addStock openModal" data-toggle="modal" data-target="#exampleModal"><iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon><a></td>
-                                                                </tr>`);
+                        $('#table3 tbody').append(`
+                            <tr>
+                                <td>
+                                    <input type='hidden' value='${element.product_id}' class="stock_code" name="wip[${$length2}][product_id]"/>
+                                    ${element.products ? element.products.item_code : ''}
+                                </td>
+                                <td>${element.products ? element.products.description : ''}</td>
+                                <td>${element.products ? element.products.base_uom : ''}</td>
+                                <td>${element.available_qty}</td>
+                                <td>${element.request_qty}</td>
+                                <td>
+                                    <input type='hidden' class="previous_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}' name="wip[${$length}][previous_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}
+                                </td>
+                                <td>
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}' name="wip[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}
+                                </td>
+                                <td><input type="number" readonly class="form-control transfer_qty" name="wip[${$length}][transfer_qty]" value="0"/></td>
+                                <td>
+                                    <input type='hidden' class="remaining_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}' name="wip[${$length}][remaining_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}
+                                </td>
+                                <td><textarea class="form-control" name="wip[${$length2}][remarks]"></textarea></td>
+                                <td>
+                                    <input type="hidden" class="hiddenId" value="${element.product_id}">
+                                    <a class="addStock openModal" data-toggle="modal" data-target="#exampleModal">
+                                        <iconify-icon icon="icon-park-outline:add" width="20" height="20" style="color: #18002D;"></iconify-icon>
+                                    </a>
+                                </td>
+                            </tr>
+                        `);
                         $length2++;
                     });
                     $('#table3').dataTable();

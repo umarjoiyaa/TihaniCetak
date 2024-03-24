@@ -307,41 +307,16 @@
             $('.location').trigger('change');
             $('.qty').trigger('keyup');
             $('table input, select, textarea').attr('disabled', 'disabled');
+            $('input[type="hidden"]').removeAttr('disabled');
             $('.datatable1').DataTable();
         });
 
         $(document).on('keyup change', '.qty', function() {
-            // if ($(this).closest('tr').find('.available_qty').val() < $(this).val()) {
-            //     $(this).val($(this).closest('tr').find('.available_qty').val());
-            // } else {
             let total = 0;
             $('#myTable .qty').each(function() {
                 total += +$(this).val();
             });
             $('.quantity_text').text(total);
-            // }
-        });
-
-        $(document).on('change', '.location', function() {
-            $this = $(this).closest('tr').find('.available_qty');
-            var area_id = $(this).find('option:selected').attr('data-area-id');
-            var shelf_id = $(this).find('option:selected').attr('data-shelf-id');
-            var level_id = $(this).find('option:selected').attr('data-level-id');
-            var product_id = $('.product_ids').val();
-            $.ajax({
-                url: '{{ route('get.available_qty') }}',
-                method: 'GET',
-                data: {
-                    area_id: area_id,
-                    shelf_id: shelf_id,
-                    level_id: level_id,
-                    product_id: product_id
-                },
-                success: function(response) {
-                    $this.val(`${response.used_qty ? response.used_qty : 0}`);
-                    // $(this).closest('tr').find('.qty').trigger('change');
-                }
-            });
         });
     </script>
 @endpush

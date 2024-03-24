@@ -19,4 +19,10 @@ class MaterialRequestB extends Model
     {
         return $this->belongsTo(Uom::class, 'uom_request', 'id');
     }
+
+    public function manageTransfer()
+    {
+        return $this->belongsTo(ManageTransfer::class, 'request_id', 'request_id');
+    }
+
 }

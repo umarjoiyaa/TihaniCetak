@@ -14,4 +14,14 @@ class ManageTransferB extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public function manageTransfer()
+    {
+        return $this->belongsTo(ManageTransfer::class, 'transfer_id');
+    }
+
+    public function materialRequestA()
+    {
+        return $this->belongsTo(MaterialRequestB::class, 'transfer_id');
+    }
 }

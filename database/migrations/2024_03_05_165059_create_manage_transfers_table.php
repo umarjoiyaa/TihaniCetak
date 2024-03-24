@@ -17,6 +17,12 @@ return new class extends Migration
             $table->foreign('request_id')->references('id')->on('material_requests')->nullable();
             $table->string('date')->nullable();
             $table->string('status')->nullable();
+
+            $table->string('received_by_date')->nullable();
+            $table->string('received_by_user')->nullable();
+            $table->string('received_by_designation')->nullable();
+            $table->string('received_by_department')->nullable();
+
             $table->unsignedBigInteger('created_by')->nullable();
             $table->foreign('created_by')->references('id')->on('users')->nullable();
             $table->softDeletes();

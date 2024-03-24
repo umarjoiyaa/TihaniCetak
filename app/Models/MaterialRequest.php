@@ -19,4 +19,10 @@ class MaterialRequest extends Model
     {
         return $this->belongsTo(SaleOrder::class, 'sale_order_id', 'id');
     }
+
+    public function manageTransfer()
+    {
+        return $this->hasOne(ManageTransfer::class, 'request_id');
+    }
+
 }

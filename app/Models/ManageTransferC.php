@@ -14,4 +14,9 @@ class ManageTransferC extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public function manageTransfer()
+    {
+        return $this->belongsTo(ManageTransfer::class, 'transfer_id');
+    }
 }

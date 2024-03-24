@@ -14,4 +14,10 @@ class MaterialRequestD extends Model
     {
         return $this->belongsTo(Product::class, 'product_id', 'id');
     }
+
+    public function manageTransfer()
+    {
+        return $this->belongsTo(ManageTransfer::class, 'request_id', 'request_id');
+    }
+
 }
