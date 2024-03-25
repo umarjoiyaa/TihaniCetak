@@ -31,7 +31,7 @@
                                         <div class="form-group">
                                             <div class="form-label">Checked By</div>
                                             <input type="text"
-                                                value="{{ $laporan_pemeriksaan_kualiti->user->full_name }}" readonly
+                                                value="{{ $laporan_pemeriksaan_kualiti->user->user_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>

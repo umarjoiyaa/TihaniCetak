@@ -262,7 +262,7 @@ class MaterialRequestController extends Controller
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
-        $count = MaterialRequest::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();
+        $count = MaterialRequest::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count() + 1;
         $uoms = Uom::select('id', 'name')->get();
         $paper_products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')
         ->selectSub(function ($query) {

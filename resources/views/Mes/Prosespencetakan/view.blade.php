@@ -29,7 +29,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Diperiksa oleh</label>
-                                            <input type="text" value="{{ $proses_pencetakan->user->full_name }}" readonly
+                                            <input type="text" value="{{ $proses_pencetakan->user->user_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>

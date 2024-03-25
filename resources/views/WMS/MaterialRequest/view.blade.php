@@ -31,7 +31,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <label for="">Diminta Oleh</label>
-                                        <input type="text" readonly value="{{ $material_request->user->full_name }}"
+                                        <input type="text" readonly value="{{ $material_request->user->user_name }}"
                                             id="" class="form-control">
                                     </div>
                                 </div>
@@ -75,7 +75,7 @@
                                                     <td>Grammage</td>
                                                     <td>Saiz</td>
                                                     <td>UOM</td>
-                                                    <td>Avaliable Qty</td>
+                                                    <td>Available Qty</td>
                                                     <td>UOM Request</td>
                                                     <td>Request Quantity</td>
                                                     <td>Remarks</td>
@@ -152,7 +152,7 @@
                                                     <td>Stock code</td>
                                                     <td>Description</td>
                                                     <td>UOM</td>
-                                                    <td>Avaliable Qty</td>
+                                                    <td>Available Qty</td>
                                                     <td>Request Quantity</td>
                                                 </tr>
                                             </thead>
@@ -204,7 +204,7 @@
                                                     <td>Stock code</td>
                                                     <td>Description</td>
                                                     <td>UOM</td>
-                                                    <td>Avaliable Qty</td>
+                                                    <td>Available Qty</td>
                                                     <td>Request Quantity</td>
                                                 </tr>
                                             </thead>

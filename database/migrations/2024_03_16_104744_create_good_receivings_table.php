@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('receive_qty')->nullable();
             $table->string('po_no')->nullable();
             $table->string('creditor_name')->nullable();
+            $table->string('category')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

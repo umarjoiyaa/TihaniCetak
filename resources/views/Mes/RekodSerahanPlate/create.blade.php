@@ -27,7 +27,7 @@
                                 </div>
                                 <div class="col-md-4 ">
                                     <label for="">Disediakan Oleh (Unit CTP)</label>
-                                    <input type="text" value="{{ Auth::user()->full_name }}" readonly id=""
+                                    <input type="text" value="{{ Auth::user()->user_name }}" readonly id=""
                                         class="form-control">
                                 </div>
                                 <div class="col-md-4 ">
@@ -37,7 +37,7 @@
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if(old('user')) {{ in_array($user->id,
                                                 old('user')) ? 'selected' : '' }} @endif>
-                                                {{ $user->full_name }}</option>
+                                                {{ $user->user_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>

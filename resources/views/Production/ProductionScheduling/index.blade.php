@@ -86,6 +86,7 @@
             var calendarEl = document.getElementById('calendar');
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 initialView: 'dayGridMonth',
+                timeZone: 'Asia/Kuala_Lumpur',
                 dayCellContent: function(info) {
                     var container = document.createElement('div');
 

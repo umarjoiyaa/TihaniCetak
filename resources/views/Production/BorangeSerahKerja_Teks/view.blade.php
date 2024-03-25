@@ -35,7 +35,7 @@
                                         <div class="form-group">
                                             <label class="label">Disediakan Oleh</label>
                                             <input type="text" readonly name=""
-                                                value="{{ $borange_serah_kerja_teks->user->full_name }}" id=""
+                                                value="{{ $borange_serah_kerja_teks->user->user_name }}" id=""
                                                 class="form-control">
                                         </div>
                                     </div>

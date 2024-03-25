@@ -124,8 +124,8 @@
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh</label>
                                         <input type="text" readonly
-                                            value="{{ $printing_process->text->user->full_name }}" class="form-control">
-                                        <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
+                                            value="{{ $printing_process->text->user->user_name }}" class="form-control">
+                                        <input type="hidden" value="{{ Auth::user()->user_name }}" id="checked_by">
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
@@ -138,7 +138,7 @@
                                                 @foreach ($users as $user)
                                                     <option value="{{ $user->id }}"
                                                         @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
+                                                        {{ $user->user_name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -199,19 +199,6 @@
                                     </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4"></div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="" class="form-label">Mesin</label>
-                                            <select name="mesin" id="mesin" class="form-control form-select">
-                                                <option value="SMZP (2C)" @selected($printing_process->text->mesin == 'SMZP (2C)')>SMZP (2C)</option>
-                                                <option value="RUOBI (4C)" @selected($printing_process->text->mesin == 'RUOBI (4C)')>RUOBI (4C)</option>
-                                                <option value="KOMORI (8C)" @selected($printing_process->text->mesin == 'KOMORI (8C)')>KOMORI (8C)
-                                                </option>
-                                                <option value="PANTONE" @selected($printing_process->text->mesin == 'PANTONE')>PANTONE</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">
@@ -612,7 +599,7 @@
                                                         <td>
                                                             @foreach ($names as $name)
                                                                 <span
-                                                                    class="badge badge-primary">{{ $name->full_name }}</span>
+                                                                    class="badge badge-primary">{{ $name->user_name }}</span>
                                                             @endforeach
                                                         </td>
                                                     </tr>
@@ -1148,7 +1135,7 @@
 
                         selectedUsers.forEach(function(user) {
                             badge += '<span class="badge badge-primary mx-1">' + user
-                                .full_name + '</span>';
+                                .user_name + '</span>';
                         });
 
 
@@ -1173,7 +1160,7 @@
         $('#play').on('click', function() {
             let operator = $('#operator').val();
             if (operator.length > 0) {
-                machineStarter(1, @json($digital_printing->id));
+                machineStarter(1, @json($printing_process->id));
             } else {
                 alert("Can`t Start Without Operator(s)!");
         }

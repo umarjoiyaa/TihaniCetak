@@ -35,7 +35,7 @@
                                         <div class="form-group">
                                             <label class="label">Disediakan Oleh</label>
                                             <input type="text" readonly name=""
-                                                value="{{ Auth::user()->full_name }}" id="" class="form-control">
+                                                value="{{ Auth::user()->user_name }}" id="" class="form-control">
                                         </div>
                                     </div>
                                 </div>

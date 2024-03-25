@@ -28,7 +28,7 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Disediakan Oleh</label>
-                                    <input type="text" readonly name="" value="{{ Auth::user()->full_name }}" id="" class="form-control">
+                                    <input type="text" readonly name="" value="{{ Auth::user()->user_name }}" id="" class="form-control">
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4 mt-3">

@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh (Unit CTP)</label>
-                                        <input type="text" value="{{ $rekod_serahan_plate->user->full_name }}" readonly
+                                        <input type="text" value="{{ $rekod_serahan_plate->user->user_name }}" readonly
                                             id="" class="form-control">
                                     </div>
                                     <div class="col-md-4 mt-3">
@@ -36,7 +36,7 @@
                                                 @foreach ($users as $user)
                                                     <option value="{{ $user->id }}" @if ($item)
                                                         {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
+                                                        {{ $user->user_name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
             $table->string('status')->nullable();
             $table->string('date')->nullable();
-            $table->string('mesin')->nullable();
             $table->string('kuantiti_waste')->nullable();
             $table->string('kertas')->nullable();
             $table->string('saiz_potong')->nullable();

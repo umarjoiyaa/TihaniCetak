@@ -53,7 +53,8 @@
                             </div>
                         </div>
                         <div class="col-md-12">
-                            <button class="btn btn-primary float-right" id="generate"><i class="fa fa-search"></i> Search </button>
+                            <button class="btn btn-primary float-right" id="generate"><i class="fa fa-search"></i> Search
+                            </button>
                         </div>
                     </div>
                     <div class="row mt-2">
@@ -63,7 +64,7 @@
                                     <tr>
                                         <th>Sr.</th>
                                         <th>Item code</th>
-                                        <th>Discryption</th>
+                                        <th>Description</th>
                                         <th>UOM</th>
                                         <th>Quantity in Stock</th>
                                         <th>Area</th>

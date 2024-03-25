@@ -59,8 +59,8 @@
                                     <div class="col-md-4">
                                         <label for="">Disediakan Oleh</label>
                                         <input type="text" readonly name=""
-                                            value="{{ $mesin_lipat->user->full_name }}" id="" class="form-control">
-                                        <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
+                                            value="{{ $mesin_lipat->user->user_name }}" id="" class="form-control">
+                                        <input type="hidden" value="{{ Auth::user()->user_name }}" id="checked_by">
                                     </div>
                                     <div class="col-md-4">
                                         <div class="form-group">
@@ -73,7 +73,7 @@
                                                 @foreach ($users as $user)
                                                     <option value="{{ $user->id }}"
                                                         @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
+                                                        {{ $user->user_name }}</option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -189,7 +189,7 @@
                                                         <td>
                                                             @foreach ($names as $name)
                                                                 <span
-                                                                    class="badge badge-primary">{{ $name->full_name }}</span>
+                                                                    class="badge badge-primary">{{ $name->user_name }}</span>
                                                             @endforeach
                                                         </td>
                                                     </tr>
@@ -677,7 +677,7 @@
 
                         selectedUsers.forEach(function(user) {
                             badge += '<span class="badge badge-primary mx-1">' + user
-                                .full_name + '</span>';
+                                .user_name + '</span>';
                         });
 
 
@@ -702,7 +702,7 @@
         $('#play').on('click', function() {
             let operator = $('#operator').val();
             if (operator.length > 0) {
-                machineStarter(1, @json($digital_printing->id));
+                machineStarter(1, @json($mesin_lipat->id));
             } else {
                 alert("Can`t Start Without Operator(s)!");
         }

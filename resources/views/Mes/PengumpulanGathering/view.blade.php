@@ -29,7 +29,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label class="form-label">Checked By</label>
-                                            <input type="text" value="{{ $pengumpulan_gathering->user->full_name }}"
+                                            <input type="text" value="{{ $pengumpulan_gathering->user->user_name }}"
                                                 readonly name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>

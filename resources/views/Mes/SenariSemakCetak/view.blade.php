@@ -96,7 +96,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Checked By</div>
-                                            <input type="text" value="{{ $senari_semak_cetak->user->full_name }}" readonly
+                                            <input type="text" value="{{ $senari_semak_cetak->user->user_name }}" readonly
                                                 class="form-control" name="" id="">
                                         </div>
                                     </div>

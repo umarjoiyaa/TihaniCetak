@@ -120,9 +120,9 @@
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <label for="">Disediakan Oleh</label>
-                                    <input type="text" readonly value="{{ $printing_process->text->user->full_name }}"
+                                    <input type="text" readonly value="{{ $printing_process->text->user->user_name }}"
                                         class="form-control">
-                                    <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
+                                    <input type="hidden" value="{{ Auth::user()->user_name }}" id="checked_by">
                                 </div>
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
@@ -134,7 +134,7 @@
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}"
                                                     @if ($item) {{ in_array($user->id, $item) ? 'selected' : '' }} @endif>
-                                                    {{ $user->full_name }}</option>
+                                                    {{ $user->user_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -194,19 +194,6 @@
                                 </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="" class="form-label">Mesin</label>
-                                        <select name="mesin" id="mesin" class="form-control form-select">
-                                            <option value="SMZP (2C)" @selected($printing_process->text->mesin == 'SMZP (2C)')>SMZP (2C)</option>
-                                            <option value="RUOBI (4C)" @selected($printing_process->text->mesin == 'RUOBI (4C)')>RUOBI (4C)</option>
-                                            <option value="KOMORI (8C)" @selected($printing_process->text->mesin == 'KOMORI (8C)')>KOMORI (8C)
-                                            </option>
-                                            <option value="PANTONE" @selected($printing_process->text->mesin == 'PANTONE')>PANTONE</option>
-                                        </select>
-                                    </div>
-                                </div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4"></div>
                                 <div class="col-md-4">

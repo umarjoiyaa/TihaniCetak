@@ -315,7 +315,6 @@ class TextController extends Controller
         $text->sale_order_id = $request->sale_order;
         $text->date = $request->date;
         $text->kuantiti_waste = $request->kuantiti_waste;
-        $text->mesin = $request->mesin;
         $text->kertas = $request->kertas;
         $text->saiz_potong = $request->saiz_potong;
         $text->plate = $request->plate;
@@ -461,7 +460,6 @@ class TextController extends Controller
         $text->sale_order_id = $request->sale_order;
         $text->date = $request->date;
         $text->kuantiti_waste = $request->kuantiti_waste;
-        $text->mesin = $request->mesin;
         $text->kertas = $request->kertas;
         $text->saiz_potong = $request->saiz_potong;
         $text->plate = $request->plate;
