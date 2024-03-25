@@ -322,6 +322,35 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <h3><b>Received By</b></h3>
+                                </div>
+                                <div class="col-md-12">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>Username</th>
+                                                <th>Desgination</th>
+                                                <th>Department</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>{{ $manage_transfer->received_by_date }}
+                                                </td>
+                                                <td>{{ $manage_transfer->received_by_user }}
+                                                </td>
+                                                <td>{{ $manage_transfer->received_by_designation }}
+                                                </td>
+                                                <td>{{ $manage_transfer->received_by_department }}
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
                             <p style="font-size:17px; color:#000;">
                             <h4> Nota :</h4><br>
                             <h6> Pengeluaran Kertas:</h6>

@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('duration')->nullable();
             $table->string('remarks')->nullable();
             $table->string('status')->nullable();
+            $table->string('operator')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });

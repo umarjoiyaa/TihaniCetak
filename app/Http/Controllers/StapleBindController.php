@@ -601,6 +601,7 @@ class StapleBindController extends Controller
                     'machine' => $request->machine,
                     'staple_id' => $request->staple_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = StapleBind::find($request->staple_id);

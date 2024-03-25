@@ -23,9 +23,9 @@
                                         <h5><b>Production Button</b></h5>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <button id="play" onclick="machineStarter(1, {{ $cover_end_paper->id }})"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-play" style="font-size:20px;"></i>Start</button>
+                                        <button id="play" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-play"
+                                                style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
                                         <button id="pause" type="button" class="btn btn-light w-100"
@@ -194,7 +194,7 @@
                                     </div>
                                 </div>
                             </div>
-                            </div>
+                        </div>
 
 
 
@@ -682,12 +682,14 @@
                                                             <td><select name="finishing_supplier_18"
                                                                     @disabled($other_cover_end_paper->finishing_18 == null) id="formOther1"
                                                                     class="form-control form-select">
-                                                                    <option value="" @selected($other_cover_end_paper->finishing_18 == null) disabled></option>
+                                                                    <option value="" @selected($other_cover_end_paper->finishing_18 == null)
+                                                                        disabled></option>
                                                                     <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_18 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($other_cover_end_paper->finishing_supplier_18 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($other_cover_end_paper->finishing_supplier_18 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -706,12 +708,14 @@
                                                             <td><select name="finishing_supplier_19"
                                                                     @disabled($other_cover_end_paper->finishing_19 == null) id="formOther2"
                                                                     class="form-control form-select">
-                                                                    <option value="" @selected($other_cover_end_paper->finishing_19 == null) disabled></option>
+                                                                    <option value="" @selected($other_cover_end_paper->finishing_19 == null)
+                                                                        disabled></option>
                                                                     <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_19 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($other_cover_end_paper->finishing_supplier_19 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($other_cover_end_paper->finishing_supplier_19 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -730,12 +734,14 @@
                                                             <td><select name="finishing_supplier_20"
                                                                     @disabled($other_cover_end_paper->finishing_20 == null) id="formOther3"
                                                                     class="form-control form-select">
-                                                                    <option value="" @selected($other_cover_end_paper->finishing_20 == null) disabled></option>
+                                                                    <option value="" @selected($other_cover_end_paper->finishing_20 == null)
+                                                                        disabled></option>
                                                                     <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_20 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($other_cover_end_paper->finishing_supplier_20 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($other_cover_end_paper->finishing_supplier_20 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -754,12 +760,15 @@
                                                             <td><select name="finishing_supplier_21"
                                                                     @disabled($other_cover_end_paper->finishing_21 == null) id="formOther4"
                                                                     class="form-control form-select">
-                                                                    <option value="" @selected($other_cover_end_paper->finishing_21 == null) disabled></option>
-                                                                    <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_21 == 'In-house')>
+                                                                    <option value="" @selected($other_cover_end_paper->finishing_21 == null)
+                                                                        disabled></option>
+                                                                    <option value="In-house"
+                                                                        @selected($other_cover_end_paper->finishing_supplier_21 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($other_cover_end_paper->finishing_supplier_21 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($other_cover_end_paper->finishing_supplier_21 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -778,12 +787,15 @@
                                                             <td><select name="finishing_supplier_22"
                                                                     @disabled($other_cover_end_paper->finishing_22 == null) id="formOther5"
                                                                     class="form-control form-select">
-                                                                    <option value="" @selected($other_cover_end_paper->finishing_22 == null) disabled></option>
-                                                                    <option value="In-house" @selected($other_cover_end_paper->finishing_supplier_22 == 'In-house')>
+                                                                    <option value="" @selected($other_cover_end_paper->finishing_22 == null)
+                                                                        disabled></option>
+                                                                    <option value="In-house"
+                                                                        @selected($other_cover_end_paper->finishing_supplier_22 == 'In-house')>
                                                                         In-house</option>
                                                                     @foreach ($suppliers as $supplier)
                                                                         <option value="{{ $supplier->id }}"
-                                                                            @selected($other_cover_end_paper->finishing_supplier_22 == $supplier->id)>{{ $supplier->name }}
+                                                                            @selected($other_cover_end_paper->finishing_supplier_22 == $supplier->id)>
+                                                                            {{ $supplier->name }}
                                                                         </option>
                                                                     @endforeach
                                                                 </select></td>
@@ -840,6 +852,12 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($details as $detail)
+                                                    @php
+                                                        $names = App\Models\User::whereIn(
+                                                            'id',
+                                                            json_decode($detail->operator),
+                                                        )->get();
+                                                    @endphp
                                                     <tr>
                                                         <td><button type="button" data-toggle="modal"
                                                                 data-target="#exampleModal"
@@ -854,7 +872,12 @@
                                                             {{ $detail->machine }}
                                                         </td>
                                                         <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
+                                                        <td>
+                                                            @foreach ($names as $name)
+                                                                <span
+                                                                    class="badge badge-primary">{{ $name->full_name }}</span>
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -978,7 +1001,7 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content" >
+                <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <span aria-hidden="true" data-dismiss="modal"
@@ -1320,7 +1343,7 @@
             let array = [];
             $('.hiddenId').each(function() {
                 let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
-                if(storedData == null){
+                if (storedData == null) {
                     storedData = `{"hiddenId":"${$(this).val()}"}`;
                 }
                 array.push(JSON.parse(storedData));
@@ -1356,6 +1379,16 @@
                     $('#machine_detail_table tbody').empty();
                     $('#jobsheet_detail_table tbody').empty();
                     data.details.forEach(function(detail, index) {
+                        let operators = JSON.parse(detail.operator);
+                        let users = @json($users);
+
+                        let selectedUsers = [];
+
+                        users.forEach(function(user) {
+                            if (operators.some(operator => operator == user.id)) {
+                                selectedUsers.push(user);
+                            }
+                        });
                         var statusBadge;
                         if (detail.status == 1) {
                             statusBadge = '<span class="badge badge-success">Started</span>';
@@ -1386,10 +1419,12 @@
                             `<button type="button" data-toggle="modal"
                                                             data-target="#exampleModal" class="btn btn-primary openModal">+</button>
                                                             <input type="hidden" class="hiddenId" value="${detail.id}">`;
-                        $('#operator').find('option:selected').each(function() {
-                            badge += '<span class="badge badge-primary mx-1">' + $(this)
-                                .text() + '</span>';
+
+                        selectedUsers.forEach(function(user) {
+                            badge += '<span class="badge badge-primary mx-1">' + user
+                                .full_name + '</span>';
                         });
+
 
                         $('#jobsheet_detail_table tbody').append(`<tr>
                             <td>${button}</td>
@@ -1409,9 +1444,18 @@
             $('#pauseModal').modal('show');
         });
 
-        function pauseMesin() {
-            if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
-                alert("Can`t Pause Without Remarks!");
+        $('#play').on('click', function() {
+            let operator = $('#operator').val();
+            if (operator.length > 0) {
+                machineStarter(1, @json($digital_printing->id));
+            } else {
+                alert("Can`t Start Without Operator(s)!");
+        }
+    });
+
+    function pauseMesin() {
+        if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
+            alert("Can`t Pause Without Remarks!");
             } else {
                 $('#pauseModal').modal('hide');
                 machineStarter(2, @json($cover_end_paper->id));

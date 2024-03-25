@@ -721,6 +721,7 @@ class DigitalPrintingController extends Controller
                     'machine' => $request->machine,
                     'digital_id' => $request->digital_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = DigitalPrinting::find($request->digital_id);

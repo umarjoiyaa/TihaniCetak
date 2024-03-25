@@ -9,6 +9,6 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class PerfectBindDetail extends Model
 {
     use HasFactory, SoftDeletes;
-    public $fillable = ['machine', 'perfect_id', 'start_time', 'end_time', 'duration', 'remarks', 'status'];
+    public $fillable = ['machine', 'perfect_id', 'start_time', 'end_time', 'duration', 'remarks', 'status', 'operator'];
 
 }

@@ -590,6 +590,7 @@ class PerfectBindController extends Controller
                     'machine' => $request->machine,
                     'perfect_id' => $request->perfect_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = PerfectBind::find($request->perfect_id);

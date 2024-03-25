@@ -448,6 +448,7 @@ class PrintingProcessController extends Controller
                     'machine' => $request->machine,
                     'printing_id' => $request->printing_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = PrintingProcess::find($request->printing_id);

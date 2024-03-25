@@ -21,9 +21,9 @@
                                         <h5><b>Production Button</b></h5>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <button id="play" onclick="machineStarter(1, {{ $perfect_bind->id }})"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-play" style="font-size:20px;"></i>Start</button>
+                                        <button id="play" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-play"
+                                                style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
                                         <button id="pause" type="button" class="btn btn-light w-100"
@@ -166,6 +166,12 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($details as $detail)
+                                                    @php
+                                                        $names = App\Models\User::whereIn(
+                                                            'id',
+                                                            json_decode($detail->operator),
+                                                        )->get();
+                                                    @endphp
                                                     <tr>
                                                         <td><button type="button" data-toggle="modal"
                                                                 data-target="#exampleModal"
@@ -180,7 +186,12 @@
                                                             {{ $detail->machine }}
                                                         </td>
                                                         <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
+                                                        <td>
+                                                            @foreach ($names as $name)
+                                                                <span
+                                                                    class="badge badge-primary">{{ $name->full_name }}</span>
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -542,7 +553,7 @@
             let array = [];
             $('.hiddenId').each(function() {
                 let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
-                if(storedData == null){
+                if (storedData == null) {
                     storedData = `{"hiddenId":"${$(this).val()}"}`;
                 }
                 array.push(JSON.parse(storedData));
@@ -577,8 +588,17 @@
                     check_machines(data.check_machine);
                     $('#machine_detail_table tbody').empty();
                     $('#jobsheet_detail_table tbody').empty();
-                    console.log(data)
                     data.details.forEach(function(detail, index) {
+                        let operators = JSON.parse(detail.operator);
+                        let users = @json($users);
+
+                        let selectedUsers = [];
+
+                        users.forEach(function(user) {
+                            if (operators.some(operator => operator == user.id)) {
+                                selectedUsers.push(user);
+                            }
+                        });
                         var statusBadge;
                         if (detail.status == 1) {
                             statusBadge = '<span class="badge badge-success">Started</span>';
@@ -609,10 +629,12 @@
                             `<button type="button" data-toggle="modal"
                                                             data-target="#exampleModal" class="btn btn-primary openModal">+</button>
                                                             <input type="hidden" class="hiddenId" value="${detail.id}">`;
-                        $('#operator').find('option:selected').each(function() {
-                            badge += '<span class="badge badge-primary mx-1">' + $(this)
-                                .text() + '</span>';
+
+                        selectedUsers.forEach(function(user) {
+                            badge += '<span class="badge badge-primary mx-1">' + user
+                                .full_name + '</span>';
                         });
+
 
                         $('#jobsheet_detail_table tbody').append(`<tr>
                             <td>${button}</td>
@@ -632,9 +654,18 @@
             $('#pauseModal').modal('show');
         });
 
-        function pauseMesin() {
-            if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
-                alert("Can`t Pause Without Remarks!");
+        $('#play').on('click', function() {
+            let operator = $('#operator').val();
+            if (operator.length > 0) {
+                machineStarter(1, @json($digital_printing->id));
+            } else {
+                alert("Can`t Start Without Operator(s)!");
+        }
+    });
+
+    function pauseMesin() {
+        if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
+            alert("Can`t Pause Without Remarks!");
             } else {
                 $('#pauseModal').modal('hide');
                 machineStarter(2, @json($perfect_bind->id));

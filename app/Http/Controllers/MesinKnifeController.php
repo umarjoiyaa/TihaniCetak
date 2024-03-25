@@ -583,6 +583,7 @@ class MesinKnifeController extends Controller
                     'machine' => $request->machine,
                     'knife_id' => $request->knife_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = MesinKnife::find($request->knife_id);

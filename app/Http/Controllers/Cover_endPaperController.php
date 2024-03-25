@@ -758,6 +758,7 @@ class Cover_endPaperController extends Controller
                     'machine' => $request->machine,
                     'cover_paper_id' => $request->cover_paper_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = CoverAndEndpaper::find($request->cover_paper_id);

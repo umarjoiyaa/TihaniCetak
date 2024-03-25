@@ -594,6 +594,7 @@ class ProductionJobSheet_MesinLipatController extends Controller
                     'machine' => $request->machine,
                     'mesin_lipat_id' => $request->mesin_lipat_id,
                     'status' => $request->status,
+                    'operator' => json_encode($request->operator),
                     'start_time' => Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A')
                 ]);
                 $digital = MesinLipat::find($request->mesin_lipat_id);

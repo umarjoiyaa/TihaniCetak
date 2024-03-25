@@ -86,9 +86,9 @@
                                         <h5><b>Production Button</b></h5>
                                     </div>
                                     <div class="col-md-4 ">
-                                        <button id="play" onclick="machineStarter(1, {{ $printing_process->id }})"
-                                            type="button" class="btn btn-light w-100" style="border:1px solid black;"><i
-                                                class="la la-play" style="font-size:20px;"></i>Start</button>
+                                        <button id="play" type="button" class="btn btn-light w-100"
+                                            style="border:1px solid black;"><i class="la la-play"
+                                                style="font-size:20px;"></i>Start</button>
                                     </div>
                                     <div class="col-md-4">
                                         <button id="pause" type="button" class="btn btn-light w-100"
@@ -123,9 +123,9 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh</label>
-                                        <input type="text" readonly value="{{ $printing_process->text->user->full_name }}"
-                                            class="form-control">
-                                            <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
+                                        <input type="text" readonly
+                                            value="{{ $printing_process->text->user->full_name }}" class="form-control">
+                                        <input type="hidden" value="{{ Auth::user()->full_name }}" id="checked_by">
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
@@ -337,9 +337,9 @@
                                                     @endphp
                                                     @foreach ($printing_process->text->details as $value)
                                                         @if ($value->machine == $printing_process->machine)
-                                                        @php
-                                                            array_push($sectionArray, $value->seksyen_no);
-                                                        @endphp
+                                                            @php
+                                                                array_push($sectionArray, $value->seksyen_no);
+                                                            @endphp
                                                             <tr>
                                                                 <td>{{ $value->seksyen_no }}</td>
                                                                 <td>{{ $value->side }}</td>
@@ -377,7 +377,8 @@
                                                         <select name="binding_1_val" @disabled($printing_process->text->binding_1 == null)
                                                             placeholder="select Supplier" id="staplebind"
                                                             class="form-control form-select w-100">
-                                                            <option value="" @selected($printing_process->text->binding_1 == null) disabled></option>
+                                                            <option value="" @selected($printing_process->text->binding_1 == null) disabled>
+                                                            </option>
                                                             <option value="In-house" @selected($printing_process->text->binding_1 == 'In-house')>In-house
                                                             </option>
                                                             @foreach ($suppliers as $supplier)
@@ -392,34 +393,36 @@
                                                     <td><input type="checkbox" name="binding_2" id="Input2"
                                                             class=" mr-5" @checked($printing_process->text->binding_2 != null)>Perfect Bind</td>
                                                     <td><select name="binding_2_val" @disabled($printing_process->text->binding_2 == null)
-                                                        placeholder="select Supplier" id="input2"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_2 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_2 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_2 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input2"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_2 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_2 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_2 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_3" id="Input3"
                                                             class=" mr-5" @checked($printing_process->text->binding_3 != null)>Lock Bind</td>
                                                     <td><select name="binding_3_val" @disabled($printing_process->text->binding_3 == null)
-                                                        placeholder="select Supplier" id="input3"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_3 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_3 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_3 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input3"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_3 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_3 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_3 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
 
                                                 <tr>
@@ -427,17 +430,18 @@
                                                             class=" mr-5" @checked($printing_process->text->binding_4 != null)>Wire O
                                                     </td>
                                                     <td><select name="binding_4_val" @disabled($printing_process->text->binding_4 == null)
-                                                        placeholder="select Supplier" id="input4"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_4 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_4 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_4 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input4"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_4 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_4 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_4 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_5" id="Input5"
@@ -445,89 +449,96 @@
                                                         Square Back
                                                     </td>
                                                     <td><select name="binding_5_val" @disabled($printing_process->text->binding_5 == null)
-                                                        placeholder="select Supplier" id="input5"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_5 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_5 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_5 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input5"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_5 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_5 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_5 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_6" id="Input6"
                                                             class=" mr-5" @checked($printing_process->text->binding_6 != null)>Hard Cover -
                                                         Round Back</td>
                                                     <td><select name="binding_6_val" @disabled($printing_process->text->binding_6 == null)
-                                                        placeholder="select Supplier" id="input6"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_6 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_6 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_6 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input6"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_6 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_6 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_6 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_7" id="Input7"
                                                             class=" mr-5" @checked($printing_process->text->binding_7 != null)>Sewing
                                                     </td>
                                                     <td><select name="binding_7_val" @disabled($printing_process->text->binding_7 == null)
-                                                        placeholder="select Supplier" id="input7"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_7 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_7 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_7 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input7"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_7 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_7 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_7 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_8" id="Input8"
                                                             class=" mr-5" @checked($printing_process->text->binding_8 != null)>Round corner
                                                     </td>
                                                     <td><select name="binding_8_val" @disabled($printing_process->text->binding_8 == null)
-                                                        placeholder="select Supplier" id="input8"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_8 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_8 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_8 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input8"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_8 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_8 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_8 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
 
 
                                                 <tr>
                                                     <td><input type="checkbox" name="binding_9" id="Input9"
                                                             class=" mr-5" @checked($printing_process->text->binding_9 != null)> Others:
-                                                        <input type="text" @disabled($printing_process->text->binding_9 == null) name="binding_9_val" id="input10"
-                                                            class="form-control w-50 float-right" value="{{$printing_process->text->binding_9}}">
+                                                        <input type="text" @disabled($printing_process->text->binding_9 == null)
+                                                            name="binding_9_val" id="input10"
+                                                            class="form-control w-50 float-right"
+                                                            value="{{ $printing_process->text->binding_9 }}">
                                                     </td>
                                                     <td><select name="binding_10_val" @disabled($printing_process->text->binding_9 == null)
-                                                        placeholder="select Supplier" id="input10"
-                                                        class="form-control form-select w-100">
-                                                        <option value="" @selected($printing_process->text->binding_9 == null) disabled></option>
-                                                        <option value="In-house" @selected($printing_process->text->binding_10 == 'In-house')>In-house
-                                                        </option>
-                                                        @foreach ($suppliers as $supplier)
-                                                            <option value="{{ $supplier->id }}"
-                                                                @selected($printing_process->text->binding_10 == $supplier->id)>{{ $supplier->name }}
+                                                            placeholder="select Supplier" id="input10"
+                                                            class="form-control form-select w-100">
+                                                            <option value="" @selected($printing_process->text->binding_9 == null) disabled>
                                                             </option>
-                                                        @endforeach
-                                                    </select></td>
+                                                            <option value="In-house" @selected($printing_process->text->binding_10 == 'In-house')>In-house
+                                                            </option>
+                                                            @foreach ($suppliers as $supplier)
+                                                                <option value="{{ $supplier->id }}"
+                                                                    @selected($printing_process->text->binding_10 == $supplier->id)>{{ $supplier->name }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -578,6 +589,12 @@
                                             </thead>
                                             <tbody>
                                                 @foreach ($details as $detail)
+                                                    @php
+                                                        $names = App\Models\User::whereIn(
+                                                            'id',
+                                                            json_decode($detail->operator),
+                                                        )->get();
+                                                    @endphp
                                                     <tr>
                                                         <td><button type="button" data-toggle="modal"
                                                                 data-target="#exampleModal"
@@ -592,7 +609,12 @@
                                                             {{ $detail->machine }}
                                                         </td>
                                                         <td>{{ $detail->remarks }}</td>
-                                                        <td class="operator_text"></td>
+                                                        <td>
+                                                            @foreach ($names as $name)
+                                                                <span
+                                                                    class="badge badge-primary">{{ $name->full_name }}</span>
+                                                            @endforeach
+                                                        </td>
                                                     </tr>
                                                 @endforeach
                                             </tbody>
@@ -717,7 +739,7 @@
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-xl" role="document">
-                <div class="modal-content" >
+                <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Production Output Details</h5>
                         <select id="section_nos" class="form-select2"></select>
@@ -725,49 +747,51 @@
                     </div>
                     <div class="modal-body">
                         <div class="table-responsive">
-                        <table class="table table-bordered" id="modalTable">
-                            <thead>
-                                <tr>
-                                    <th>Section No.</th>
-                                    <th>Side</th>
-                                    <th>Last Print</th>
-                                    <th>Waste paper</th>
-                                    <th>Rejection</th>
-                                    <th>Good count</th>
-                                    <th>Check</th>
-                                    <th></th>
-                                    <th>Verify</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><input type="text" name="" id=""
-                                        class="form-control section_no" readonly style="width:150px;"></td>
-                                    <td><select name="" id="" class="form-control side" style="width:150px;">
-                                        <option value="">Select Side</option>
-                                        <option value="A">A</option>
-                                        <option value="B">B</option>
-                                        <option value="A/B">A/B</option>
-                                    </select></td>
-                                    <td><input type="text" name="" id=""
-                                        class="form-control last_print" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control waste_paper" style="width:150px;"></td>
-                                    <td><input type="text" name="" id=""
-                                            class="form-control rejection" style="width:150px;"></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control good_count" style="width:150px;"></td>
-                                    <td><button type="button" class="btn btn-primary check_operator">Check</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_operator_text"></td>
-                                    <td><button disabled type="button"
-                                            class="btn btn-primary check_verify">Verify</button></td>
-                                    <td><input type="text" name="" id="" readonly
-                                            class="form-control check_verify_text"></td>
-                                </tr>
-                            </tbody>
-                        </table>
+                            <table class="table table-bordered" id="modalTable">
+                                <thead>
+                                    <tr>
+                                        <th>Section No.</th>
+                                        <th>Side</th>
+                                        <th>Last Print</th>
+                                        <th>Waste paper</th>
+                                        <th>Rejection</th>
+                                        <th>Good count</th>
+                                        <th>Check</th>
+                                        <th></th>
+                                        <th>Verify</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control section_no" readonly style="width:150px;"></td>
+                                        <td><select name="" id="" class="form-control side"
+                                                style="width:150px;">
+                                                <option value="">Select Side</option>
+                                                <option value="A">A</option>
+                                                <option value="B">B</option>
+                                                <option value="A/B">A/B</option>
+                                            </select></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control last_print" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control waste_paper" style="width:150px;"></td>
+                                        <td><input type="text" name="" id=""
+                                                class="form-control rejection" style="width:150px;"></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control good_count" style="width:150px;"></td>
+                                        <td><button type="button" class="btn btn-primary check_operator">Check</button>
+                                        </td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_operator_text"></td>
+                                        <td><button disabled type="button"
+                                                class="btn btn-primary check_verify">Verify</button></td>
+                                        <td><input type="text" name="" id="" readonly
+                                                class="form-control check_verify_text"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -1027,22 +1051,25 @@
         });
 
         function formatDateWithAMPM(date) {
-                    const options = { timeZone: 'Asia/Kuala_Lumpur', hour12: true };
-                    const formattedDate = date.toLocaleString('en-US', options);
-                    const datePart = formattedDate.split(',')[0].trim();
-                    const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
-                    const formattedDatePart = `${day}-${month}-${year}`;
-                    const timePart = formattedDate.split(',')[1].trim();
-                    const formattedDateTime = `${formattedDatePart} ${timePart}`;
+            const options = {
+                timeZone: 'Asia/Kuala_Lumpur',
+                hour12: true
+            };
+            const formattedDate = date.toLocaleString('en-US', options);
+            const datePart = formattedDate.split(',')[0].trim();
+            const [month, day, year] = datePart.split('/').map(part => part.padStart(2, '0'));
+            const formattedDatePart = `${day}-${month}-${year}`;
+            const timePart = formattedDate.split(',')[1].trim();
+            const formattedDateTime = `${formattedDatePart} ${timePart}`;
 
-                    return formattedDateTime;
-                }
+            return formattedDateTime;
+        }
 
         $('#saveForm').on('click', function() {
             let array = [];
             $('.hiddenId').each(function() {
                 let storedData = sessionStorage.getItem(`formData${$(this).val()}`);
-                if(storedData == null){
+                if (storedData == null) {
                     storedData = `{"hiddenId":"${$(this).val()}"}`;
                 }
                 array.push(JSON.parse(storedData));
@@ -1078,6 +1105,16 @@
                     $('#machine_detail_table tbody').empty();
                     $('#jobsheet_detail_table tbody').empty();
                     data.details.forEach(function(detail, index) {
+                        let operators = JSON.parse(detail.operator);
+                        let users = @json($users);
+
+                        let selectedUsers = [];
+
+                        users.forEach(function(user) {
+                            if (operators.some(operator => operator == user.id)) {
+                                selectedUsers.push(user);
+                            }
+                        });
                         var statusBadge;
                         if (detail.status == 1) {
                             statusBadge = '<span class="badge badge-success">Started</span>';
@@ -1108,10 +1145,12 @@
                             `<button type="button" data-toggle="modal"
                                                             data-target="#exampleModal" class="btn btn-primary openModal">+</button>
                                                             <input type="hidden" class="hiddenId" value="${detail.id}">`;
-                        $('#operator').find('option:selected').each(function() {
-                            badge += '<span class="badge badge-primary mx-1">' + $(this)
-                                .text() + '</span>';
+
+                        selectedUsers.forEach(function(user) {
+                            badge += '<span class="badge badge-primary mx-1">' + user
+                                .full_name + '</span>';
                         });
+
 
                         $('#jobsheet_detail_table tbody').append(`<tr>
                             <td>${button}</td>
@@ -1127,14 +1166,23 @@
             });
         }
 
-        $('#pause').on('click', function () {
+        $('#pause').on('click', function() {
             $('#pauseModal').modal('show');
         });
 
-        function pauseMesin() {
-            if($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null){
-                alert("Can`t Pause Without Remarks!");
-            }else{
+        $('#play').on('click', function() {
+            let operator = $('#operator').val();
+            if (operator.length > 0) {
+                machineStarter(1, @json($digital_printing->id));
+            } else {
+                alert("Can`t Start Without Operator(s)!");
+        }
+    });
+
+    function pauseMesin() {
+        if ($('#pauseRemarks').val() == '' || $('#pauseRemarks').val() == null) {
+            alert("Can`t Pause Without Remarks!");
+            } else {
                 $('#pauseModal').modal('hide');
                 machineStarter(2, @json($printing_process->id));
             }
