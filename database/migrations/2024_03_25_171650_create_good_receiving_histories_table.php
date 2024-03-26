@@ -11,16 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('good_receiving_products', function (Blueprint $table) {
+        Schema::create('good_receiving_histories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('receiving_id')->nullable();
             $table->foreign('receiving_id')->references('id')->on('good_receivings')->nullable();
-            $table->unsignedBigInteger('product_id')->nullable();
-            $table->foreign('product_id')->references('id')->on('products')->nullable();
-            $table->string('quantity')->nullable();
-            $table->string('receiving_qty')->nullable();
-            $table->string('previous_qty')->nullable();
-            $table->string('delivery_date')->nullable();
+            $table->string('date')->nullable();
+            $table->string('user')->nullable();
+            $table->string('designation')->nullable();
+            $table->string('department')->nullable();
+            $table->string('qty')->nullable();
             $table->softDeletes();
             $table->timestamps();
         });
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('good_receiving_products');
+        Schema::dropIfExists('good_receiving_histories');
     }
 };

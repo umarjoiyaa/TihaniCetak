@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers;
 use App\Helpers\Helper;
+use App\Models\GoodReceivingHistory;
 use App\Models\Location;
 use App\Models\AreaLocation;
 use App\Models\GoodReceiving;
 use App\Models\GoodReceivingProduct;
 use App\Models\GoodReceivingLocation;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
@@ -244,7 +246,6 @@ class GoodReceivingController extends Controller
         }
 
         $good_receiving = GoodReceiving::find($id);
-        $good_receiving->date = $request->date;
         $details = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
         $detailIds = $details->pluck('id')->toArray();
 
@@ -254,16 +255,21 @@ class GoodReceivingController extends Controller
             if($existingDetail->area_id != null && $existingDetail->shelf_id != null && $existingDetail->level_id != null){
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
                 if ($location) {
-                    if (($location->used_qty - (int)$existingDetail->receiving_qty) < 0) {
+                    if (($location->used_qty - $existingDetail->receiving_qty) < 0) {
                         return back()->with('custom_errors', 'Insufficient quantity in location!');
                     }
-                    $location->used_qty -= (int)$existingDetail->receiving_qty ?? 0;
+                    $location->used_qty -= $existingDetail->receiving_qty ?? 0;
                     $location->save();
                 }
             }
         }
 
-        GoodReceivingLocation::whereIn('product_id', $detailIds)->delete();
+        foreach ($details as $detail) {
+            $detail->receiving_qty -= $detail->previous_qty ?? 0;
+            $detail->save();
+        }
+
+        GoodReceivingLocation::where('receiving_id', $id)->whereIn('product_id', $detailIds)->delete();
 
         $storedData = json_decode($request->input('details'), true);
 
@@ -281,13 +287,15 @@ class GoodReceivingController extends Controller
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             $product = GoodReceivingProduct::where('receiving_id', '=', $id)->where('product_id', '=', $detail->product_id)->first();
             if($product->receiving_qty == null){
-                $product->receiving_qty = (int)$detail->receiving_qty ?? 0;
+                $product->previous_qty = 0;
+                $product->receiving_qty = $detail->receiving_qty ?? 0;
             }else{
-                $product->receiving_qty += (int)$detail->receiving_qty ?? 0;
+                $product->previous_qty = $product->receiving_qty ?? 0;
+                $product->receiving_qty += $detail->receiving_qty ?? 0;
             }
             $product->save();
             if ($location) {
-                $location->used_qty += (int)$detail->receiving_qty ?? 0;
+                $location->used_qty += $detail->receiving_qty ?? 0;
             } else {
                 if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                     $location = new Location();
@@ -295,7 +303,7 @@ class GoodReceivingController extends Controller
                     $location->shelf_id = $detail->shelf_id;
                     $location->level_id = $detail->level_id;
                     $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->receiving_qty ?? 0;
+                    $location->used_qty = $detail->receiving_qty ?? 0;
                 }
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
@@ -305,7 +313,18 @@ class GoodReceivingController extends Controller
 
         $sum = GoodReceivingProduct::where('receiving_id', $id)->sum('receiving_qty');
         $good_receiving->receive_qty = $sum ?? 0;
+        if($request->category){
+            $good_receiving->category = $request->category;
+        }
         $good_receiving->save();
+
+        $history = new GoodReceivingHistory();
+        $history->date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
+        $history->user = Auth::user()->user_name;
+        $history->designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
+        $history->department = (Auth::user()->departments != null) ? Auth::user()->departments->name : 'not assign';
+        $history->qty = $sum ?? 0;
+        $history->save();
 
         Helper::logSystemActivity('GOOD RECEIVING', 'GOOD RECEIVING Received');
         return redirect()->route('good_receiving')->with('custom_success', 'GOOD RECEIVING has been Received Successfully !');
@@ -316,10 +335,11 @@ class GoodReceivingController extends Controller
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
         $good_receiving = GoodReceiving::find($id);
+        $histories = GoodReceivingHistory::where('receiving_id', '=', $id)->get();
         $good_receiving_products = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
         $good_receiving_locations = GoodReceivingLocation::where('receiving_id', '=', $id)->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
-        return view('WMS.GoodReceiving.view', compact('good_receiving', 'good_receiving_products', 'good_receiving_locations', 'locations'));
+        return view('WMS.GoodReceiving.view', compact('good_receiving', 'good_receiving_products', 'good_receiving_locations', 'locations', 'histories'));
     }
 
 }

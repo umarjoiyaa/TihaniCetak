@@ -32,7 +32,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div for="" class="form-label">Disediakan Oleh</div>
-                                        <input type="text" readonly value="{{ $borange_serah_kerja->user->full_name }}"
+                                        <input type="text" readonly value="{{ $borange_serah_kerja->user->user_name }}"
                                             class="form-control">
                                     </div>
                                 </div>

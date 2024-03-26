@@ -33,7 +33,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Diminta Oleh</label>
-                                            <input type="text" readonly value="{{ Auth::user()->full_name }}"
+                                            <input type="text" readonly value="{{ Auth::user()->user_name }}"
                                                 id="" class="form-control">
                                         </div>
                                     </div>
@@ -82,7 +82,7 @@
                                                         <td>Grammage</td>
                                                         <td>Saiz</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>UOM Request</td>
                                                         <td>Request Quantity</td>
                                                         <td>Remarks</td>
@@ -166,7 +166,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Action</td>
                                                     </tr>
@@ -230,7 +230,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Action</td>
                                                     </tr>
@@ -307,7 +307,7 @@
                                         <th>Description</th>
                                         <th>Group</th>
                                         <th>UOM</th>
-                                        <th>Avaliable quantity</th>
+                                        <th>Available quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -352,7 +352,7 @@
                                         <th>Description</th>
                                         <th>Group</th>
                                         <th>UOM</th>
-                                        <th>Avaliable quantity</th>
+                                        <th>Available quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -397,7 +397,7 @@
                                         <th>Description</th>
                                         <th>Group</th>
                                         <th>UOM</th>
-                                        <th>Avaliable quantity</th>
+                                        <th>Available quantity</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -508,7 +508,7 @@
                     <td><select class="form-control" name="kertas[${$length}][uom_request]">${options}</select></td>
                     <td><input type='number' class="form-control request_qty" value='${available_qty}' name="kertas[${$length}][request_qty]"/></td>
                     <td><textarea class="form-control" name="kertas[${$length}][remarks]"></textarea></td>
-                    <td><a class="removeRow"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
+                    <td><button type="button" class="btn btn-danger removeRow">x</button></td></tr>`
                 );
 
                 $("#Table1 tbody").append(newRow);
@@ -564,7 +564,7 @@
                     <td><input type='hidden' value='${uom}' name="bahan[${$length}][uom]"/>${uom}</td>
                     <td><input type='hidden' value='${available_qty}' name="bahan[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
                     <td><input type='number' class="form-control request_qty" value='${available_qty}' name="bahan[${$length}][request_qty]"/></td>
-                    <td><a class="removeRow1"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
+                    <td><button type="button" class="btn btn-danger removeRow1">x</button></td></tr>`
                 );
 
                 $("#Table2 tbody").append(newRow);
@@ -620,7 +620,7 @@
                     <td><input type='hidden' value='${uom}' name="wip[${$length}][uom]"/>${uom}</td>
                     <td><input type='hidden' value='${available_qty}' name="wip[${$length}][available_qty]" class="available_qty"/>${available_qty}</td>
                     <td><input type='number' class="form-control request_qty" value='${available_qty}' name="wip[${$length}][request_qty]"/></td>
-                    <td><a class="removeRow2"><iconify-icon icon="fluent:delete-dismiss-24-filled" width="20" height="20" style="color: red;"></iconify-icon><a></td></tr>`
+                    <td><button type="button" class="btn btn-danger removeRow2">x</button></td></tr>`
                 );
 
                 $("#Table3 tbody").append(newRow);
@@ -673,42 +673,44 @@
             }
         });
 
-        $bool1 = true;
-
         $('#additem1').click(function() {
-            if ($bool1) {
-                $('#table2').DataTable().destroy();
-                $("#table2 tbody").find(".stock_code").each(function() {
-                    let this1 = $(this);
-                    $("#Table2 tbody").find(".stock_code").each(function() {
-                        let this2 = $(this);
-                        if (this1.val() == this2.val()) {
-                            this1.closest('tr').remove();
-                        }
-                    });
+            $('#table2').DataTable().destroy();
+            $("#table2 tbody").find(".stock_code").each(function() {
+                let this1 = $(this);
+                $("#Table2 tbody").find(".stock_code").each(function() {
+                    let this2 = $(this);
+                    if (this1.val() == this2.val()) {
+                        this1.closest('tr').remove();
+                    }
                 });
-                $('#table2').dataTable();
-                $bool1 = false;
-            }
+                $("#Table3 tbody").find(".stock_code").each(function() {
+                    let this3 = $(this);
+                    if (this1.val() == this3.val()) {
+                        this1.closest('tr').remove();
+                    }
+                });
+            });
+            $('#table2').dataTable();
         });
 
-        $bool2 = true;
-
         $('#additem2').click(function() {
-            if ($bool2) {
-                $('#table3').DataTable().destroy();
-                $("#table3 tbody").find(".stock_code").each(function() {
-                    let this1 = $(this);
-                    $("#Table3 tbody").find(".stock_code").each(function() {
-                        let this2 = $(this);
-                        if (this1.val() == this2.val()) {
-                            this1.closest('tr').remove();
-                        }
-                    });
+            $('#table3').DataTable().destroy();
+            $("#table3 tbody").find(".stock_code").each(function() {
+                let this1 = $(this);
+                $("#Table3 tbody").find(".stock_code").each(function() {
+                    let this2 = $(this);
+                    if (this1.val() == this2.val()) {
+                        this1.closest('tr').remove();
+                    }
                 });
-                $('#table3').dataTable();
-                $bool2 = false;
-            }
+                $("#Table2 tbody").find(".stock_code").each(function() {
+                    let this3 = $(this);
+                    if (this1.val() == this3.val()) {
+                        this1.closest('tr').remove();
+                    }
+                });
+            });
+            $('#table3').dataTable();
         });
         //important work
     </script>

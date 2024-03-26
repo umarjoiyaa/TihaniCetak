@@ -33,7 +33,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Dikeluarkan Oleh</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@
                                         <div class="form-group">
                                             <div class="label">Diminta Oleh</div>
                                             <input type="text" id="oleh" readonly class="form-control"
-                                                value="{{ $manage_transfer->materialRequest->user->full_name }}">
+                                                value="{{ $manage_transfer->materialRequest->user->user_name }}">
                                         </div>
                                     </div>
                                 </div>
@@ -74,7 +74,7 @@
                                                         <td>Grammage</td>
                                                         <td>Saiz</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>UOM Request</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
@@ -167,7 +167,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
                                                         <td>Balance Qty</td>
@@ -254,7 +254,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
                                                         <td>Balance Qty</td>

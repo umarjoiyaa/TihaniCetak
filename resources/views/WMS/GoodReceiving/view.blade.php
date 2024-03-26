@@ -25,45 +25,87 @@
                             <input type="text" value="{{ $good_receiving->creditor_name }}" readonly
                                 class="form-control">
                         </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-md-4">
+                            <label for="">Category</label>
+                            <select name="category" id="category" class="form-select">
+                                <option value="" selected disabled>Select Category</option>
+                                <option value="Raw Material" @selected($good_receiving->category == 'Raw Material')>Raw Material</option>
+                                <option value="Finish Good" @selected($good_receiving->category == 'Finish Good')>Finish Good</option>
+                                <option value="WIP" @selected($good_receiving->category == 'WIP')>WIP</option>
+                                <option value="Semi FG" @selected($good_receiving->category == 'Semi FG')>Semi FG</option>
+                            </select>
+                        </div>
                     </div>
-
-
-                    <table class="table mt-2 datatable w-100">
-                        <thead>
-                            <tr>
-                                <td>Sr.</td>
-                                <td>Item code</td>
-                                <td>Description</td>
-                                <td>UOM</td>
-                                <td>Quantity</td>
-                                <td>Receiving Quantity</td>
-                                <td>Delivery date</td>
-                                <td>Action</td>
-                            </tr>
-                        </thead>
-                        <tbody id="productsTable">
-                            @foreach ($good_receiving_products as $good_receiving_product)
+                    <div class="row">
+                        <table class="table mt-2 datatable w-100">
+                            <thead>
                                 <tr>
-                                    <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $good_receiving_product->products->item_code }}</td>
-                                    <td>{{ $good_receiving_product->products->description }}</td>
-                                    <td>{{ $good_receiving_product->products->base_uom }}</td>
-                                    <td>{{ $good_receiving_product->quantity }}</td>
-                                    <td><input type="number" value="{{ $good_receiving_product->receiving_qty ?? 0 }}"
-                                            readonly class="form-control receiving_qty">
-                                    </td>
-                                    <td>{{ $good_receiving_product->delivery_date }}</td>
-                                    <td>
-                                        <input type="hidden" class="hiddenId"
-                                            value="{{ $good_receiving_product->product_id }}">
-                                        <button type="button" class="btn btn-primary openModal" data-toggle="modal"
-                                            data-target="#exampleModal">+</button>
-                                    </td>
+                                    <td>Sr.</td>
+                                    <td>Item code</td>
+                                    <td>Description</td>
+                                    <td>UOM</td>
+                                    <td>Quantity</td>
+                                    <td>Receiving Quantity</td>
+                                    <td>Delivery date</td>
+                                    <td>Action</td>
                                 </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody id="productsTable">
+                                @foreach ($good_receiving_products as $good_receiving_product)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td>{{ $good_receiving_product->products->item_code }}</td>
+                                        <td>{{ $good_receiving_product->products->description }}</td>
+                                        <td>{{ $good_receiving_product->products->base_uom }}</td>
+                                        <td>{{ $good_receiving_product->quantity }}</td>
+                                        <td><input type="number" value="{{ $good_receiving_product->receiving_qty ?? 0 }}"
+                                                readonly class="form-control receiving_qty">
+                                        </td>
+                                        <td>{{ $good_receiving_product->delivery_date }}</td>
+                                        <td>
+                                            <input type="hidden" class="hiddenId"
+                                                value="{{ $good_receiving_product->product_id }}">
+                                            <button type="button" class="btn btn-primary openModal" data-toggle="modal"
+                                                data-target="#exampleModal">+</button>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="row mt-5">
+                            <div class="col-md-12">
+                                <h3><b>Received By</b></h3>
+                            </div>
+                            <div class="col-md-12">
+                                <table class="table datatable table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Username</th>
+                                            <th>Desgination</th>
+                                            <th>Department</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($histories as $history)
+                                            <tr>
+                                                <td>{{ $history->date }}
+                                                </td>
+                                                <td>{{ $history->user }}
+                                                </td>
+                                                <td>{{ $history->designation }}
+                                                </td>
+                                                <td>{{ $history->department }}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <a href="{{ route('good_receiving') }}"><i class="ti-arrow-left mx-2 mt-1"></i> back to list</a>

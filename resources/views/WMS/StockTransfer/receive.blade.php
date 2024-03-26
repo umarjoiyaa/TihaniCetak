@@ -30,7 +30,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Transfer By</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -59,18 +59,16 @@
                                     </div>
                                     <div class="col-md-6">
                                         <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="customer"
-                                                    @checked($stock_transfer->customer == 1)>
+                                            <div class="col-md-1"><input type="checkbox" id="customer" name="customer">
                                             </div>
                                             <div class="col-md-3">
                                                 <h5>Customer</h5>
                                             </div>
                                             <div class="col-md-8">
-                                                <select name="customer_id" class="form-control">
-                                                    <option value="">Select Customer</option>
+                                                <select name="customer_id" id="customer_id" class="form-select" disabled>
+                                                    <option value="" selected disabled>Select Customer</option>
                                                     @foreach ($customers as $customer)
-                                                        <option value="{{ $customer->id }}" @selected($stock_transfer->customer_id == $customer->id)>
-                                                            {{ $customer->name }}</option>
+                                                        <option value="{{ $customer->id }}">{{ $customer->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -79,18 +77,16 @@
                                     <div class="col-md-6"></div>
                                     <div class="col-md-6 mt-3">
                                         <div class="row">
-                                            <div class="col-md-1"><input type="checkbox" name="supplier"
-                                                    @checked($stock_transfer->subcon == 1)>
+                                            <div class="col-md-1"><input type="checkbox" id="supplier" name="supplier">
                                             </div>
                                             <div class="col-md-3">
                                                 <h5>Subcon</h5>
                                             </div>
                                             <div class="col-md-8">
-                                                <select name="supplier_id" class="form-control">
-                                                    <option value="">Select Supplier</option>
+                                                <select name="supplier_id" id="supplier_id" class="form-select" disabled>
+                                                    <option value="" selected disabled>Select Supplier</option>
                                                     @foreach ($suppliers as $supplier)
-                                                        <option value="{{ $supplier->id }}" @selected($stock_transfer->supplier_id == $supplier->id)>
-                                                            {{ $supplier->name }}</option>
+                                                        <option value="{{ $supplier->id }}">{{ $supplier->name }}</option>
                                                     @endforeach
                                                 </select>
                                             </div>

@@ -88,7 +88,7 @@
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">By</label><br>
-                        <label>{{ Auth::user()->full_name }}</label>
+                        <label>{{ Auth::user()->user_name }}</label>
 
                     </div>
                     <div >
@@ -146,18 +146,6 @@
                             </label>
                         </div>
                     </div>
-
-                </div>
-
-                <div class="row mt-2 mx-2" >
-                    <div >
-                        <div class="form-group">
-                            <label for="" class="font-weight-bold">Mesin</label><br>
-                        <label>{{ $text->mesin }}</label>
-
-                        </div>
-                    </div>
-
 
                 </div>
 

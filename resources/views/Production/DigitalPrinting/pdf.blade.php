@@ -88,7 +88,7 @@
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">By</label><br>
-                        <label>{{ $digital_printing->user->full_name }}</label>
+                        <label>{{ $digital_printing->user->user_name }}</label>
 
                     </div>
                     <div >
@@ -107,7 +107,7 @@
                                         @endphp
 
                                         @if ($selectedUser)
-                                            {{ $selectedUser->full_name }}
+                                            {{ $selectedUser->user_name }}
                                         @endif
                                     @endforeach
                                 @endif

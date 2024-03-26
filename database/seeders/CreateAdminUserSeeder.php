@@ -173,6 +173,7 @@ class CreateAdminUserSeeder extends Seeder
             'receive_qty' => 0,
             'po_no' => 'PO-11231-1',
             'creditor_name' => 'Supplier A',
+            'date' => '25-03-2024',
         ]);
 
         GoodReceivingProduct::create([

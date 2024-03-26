@@ -255,7 +255,8 @@ class StockInController extends Controller
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
-        $count = StockIn::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();        $users = User::all();
+        $count = StockIn::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count() + 1;
+        $users = User::all();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
         Helper::logSystemActivity('STOCK IN', 'STOCK IN Create');
@@ -320,7 +321,7 @@ class StockInController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty ?? 0;
+                $location->used_qty += $detail->qty ?? 0;
             } else {
                 if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                     $location = new Location();
@@ -328,7 +329,7 @@ class StockInController extends Controller
                     $location->shelf_id = $detail->shelf_id;
                     $location->level_id = $detail->level_id;
                     $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty ?? 0;
+                    $location->used_qty = $detail->qty ?? 0;
                 }
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
@@ -409,7 +410,7 @@ class StockInController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
+                    $location->used_qty -= $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -444,7 +445,7 @@ class StockInController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty += (int)$detail->qty ?? 0;
+                $location->used_qty += $detail->qty ?? 0;
             } else {
                 if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                     $location = new Location();
@@ -452,7 +453,7 @@ class StockInController extends Controller
                     $location->shelf_id = $detail->shelf_id;
                     $location->level_id = $detail->level_id;
                     $location->product_id = $detail->product_id;
-                    $location->used_qty = (int)$detail->qty ?? 0;
+                    $location->used_qty = $detail->qty ?? 0;
                 }
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
@@ -479,7 +480,7 @@ class StockInController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty -= (int)$existingDetail->qty ?? 0;
+                    $location->used_qty -= $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }

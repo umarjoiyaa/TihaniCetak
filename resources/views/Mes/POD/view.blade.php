@@ -31,7 +31,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="form-label">Checked By</div>
-                                        <input type="text" disabled value="{{ $pod->user->full_name }}" readonly
+                                        <input type="text" disabled value="{{ $pod->user->user_name }}" readonly
                                         class="form-control" name="" id="">
                                     </div>
                                 </div>

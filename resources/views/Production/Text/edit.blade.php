@@ -92,7 +92,7 @@
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <label for="">Disediakan Oleh</label>
-                                        <input type="text" readonly value="{{ Auth::user()->full_name }}"
+                                        <input type="text" readonly value="{{ Auth::user()->user_name }}"
                                             class="form-control">
                                     </div>
                                     <div class="col-md-4"></div>
@@ -150,18 +150,6 @@
                                     </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4"></div>
-
-                                    <div class="col-md-4">
-                                        <div class="form-group">
-                                            <label for="" class="form-label">Mesin</label>
-                                            <select name="mesin" id="mesin" class="form-control form-select">
-                                                <option value="SMZP (2C)" @selected($text->mesin == 'SMZP (2C)')>SMZP (2C)</option>
-                                                <option value="RUOBI (4C)" @selected($text->mesin == 'RUOBI (4C)')>RUOBI (4C)</option>
-                                                <option value="KOMORI (8C)" @selected($text->mesin == 'KOMORI (8C)')>KOMORI (8C)</option>
-                                                <option value="PANTONE" @selected($text->mesin == 'PANTONE')>PANTONE</option>
-                                            </select>
-                                        </div>
-                                    </div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4"></div>
                                     <div class="col-md-4">

@@ -266,7 +266,8 @@ class StockTransferController extends Controller
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
-        $count = StockTransfer::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();        $suppliers = Supplier::select('id', 'name', 'code')->get();
+        $count = StockTransfer::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count() + 1;
+        $suppliers = Supplier::select('id', 'name', 'code')->get();
         $customers = Customer::select('id', 'name', 'code')->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         $products = Product::select('id', 'item_code', 'description', 'group', 'base_uom')->get();
@@ -334,7 +335,7 @@ class StockTransferController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty -= (int)$detail->qty ?? 0;
+                $location->used_qty -= $detail->qty ?? 0;
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                 $location->save();
@@ -417,7 +418,7 @@ class StockTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -453,7 +454,7 @@ class StockTransferController extends Controller
 
             $location = Location::where('area_id', $detail->area_id)->where('shelf_id', $detail->shelf_id)->where('level_id', $detail->level_id)->where('product_id', $detail->product_id)->first();
             if ($location) {
-                $location->used_qty -= (int)$detail->qty ?? 0;
+                $location->used_qty -= $detail->qty ?? 0;
             }
             if($detail->area_id != null && $detail->shelf_id != null && $detail->level_id != null){
                 $location->save();
@@ -512,7 +513,7 @@ class StockTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }

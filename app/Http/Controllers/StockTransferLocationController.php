@@ -240,7 +240,8 @@ class StockTransferLocationController extends Controller
         }
         $year = Carbon::now('Asia/Kuala_Lumpur')->format('y');
         $current_year = Carbon::now('Asia/Kuala_Lumpur')->year;
-        $count = StockLocation::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count();        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
+        $count = StockLocation::where(DB::raw('YEAR(STR_TO_DATE(date, "%d-%m-%Y"))'), $current_year)->count() + 1;
+        $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         Helper::logSystemActivity('STOCK TRANSFER LOCATION', 'STOCK TRANSFER LOCATION Create');
         return view('WMS.StockTransferLocation.create', compact('year', 'count', 'locations'));
     }
@@ -299,20 +300,20 @@ class StockTransferLocationController extends Controller
 
             $location = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location) {
-                $location->used_qty -= (int)$stock_transfer_location_product->qty ?? 0;
+                $location->used_qty -= $stock_transfer_location_product->qty ?? 0;
                 $location->save();
             }
 
             $location1 = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location1) {
-                $location1->used_qty += (int)$stock_transfer_location_product->qty ?? 0;
+                $location1->used_qty += $stock_transfer_location_product->qty ?? 0;
             }else{
                 $location1 = new Location();
                 $location1->area_id = $stock_transfer_location->new_area_id;
                 $location1->shelf_id = $stock_transfer_location->new_shelf_id;
                 $location1->level_id = $stock_transfer_location->new_level_id;
                 $location1->product_id = $stock_transfer_location->product_id;
-                $location1->used_qty = (int)$stock_transfer_location_product->qty ?? 0;
+                $location1->used_qty = $stock_transfer_location_product->qty ?? 0;
             }
             $location1->save();
         }
@@ -370,7 +371,7 @@ class StockTransferLocationController extends Controller
         foreach($request->products as $value){
             $location = Location::where('area_id', $request->previous_area_id)->where('shelf_id', $request->previous_shelf_id)->where('level_id', $request->previous_level_id)->where('product_id', $value['product_id'])->first();
             if ($location) {
-                if (($location->used_qty - (int)$value['qty']) < 0) {
+                if (($location->used_qty - $value['qty']) < 0) {
                     return back()->with('custom_errors', 'Insufficient quantity in previous location!');
                 }
             }
@@ -395,13 +396,13 @@ class StockTransferLocationController extends Controller
         foreach ($previousProducts as $prevProduct) {
             $prevLocation = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $prevProduct->product_id)->first();
             if ($prevLocation) {
-                $prevLocation->used_qty -= (int)$prevProduct->qty ?? 0;
+                $prevLocation->used_qty -= $prevProduct->qty ?? 0;
                 $prevLocation->save();
             }
 
             $newLocation = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $prevProduct->product_id)->first();
             if ($newLocation) {
-                $newLocation->used_qty += (int)$prevProduct->qty ?? 0;
+                $newLocation->used_qty += $prevProduct->qty ?? 0;
                 $newLocation->save();
             }
         }
@@ -420,20 +421,20 @@ class StockTransferLocationController extends Controller
 
             $location = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location) {
-                $location->used_qty -= (int)$stock_transfer_location_product->qty ?? 0;
+                $location->used_qty -= $stock_transfer_location_product->qty ?? 0;
                 $location->save();
             }
 
             $location1 = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $stock_transfer_location_product->product_id)->first();
             if ($location1) {
-                $location1->used_qty += (int)$stock_transfer_location_product->qty ?? 0;
+                $location1->used_qty += $stock_transfer_location_product->qty ?? 0;
             }else{
                 $location1 = new Location();
                 $location1->area_id = $stock_transfer_location->new_area_id;
                 $location1->shelf_id = $stock_transfer_location->new_shelf_id;
                 $location1->level_id = $stock_transfer_location->new_level_id;
                 $location1->product_id = $stock_transfer_location->product_id;
-                $location1->used_qty = (int)$stock_transfer_location_product->qty ?? 0;
+                $location1->used_qty = $stock_transfer_location_product->qty ?? 0;
             }
             $location1->save();
         }
@@ -452,16 +453,16 @@ class StockTransferLocationController extends Controller
         foreach ($previousProducts as $prevProduct) {
             $prevLocation = Location::where('area_id', $stock_transfer_location->new_area_id)->where('shelf_id', $stock_transfer_location->new_shelf_id)->where('level_id', $stock_transfer_location->new_level_id)->where('product_id', $prevProduct->product_id)->first();
             if ($prevLocation) {
-                if (($prevLocation->used_qty - (int)$prevProduct->qty) < 0) {
+                if (($prevLocation->used_qty - $prevProduct->qty) < 0) {
                     return back()->with('custom_errors', 'Insufficient quantity in location!');
                 }
-                $prevLocation->used_qty -= (int)$prevProduct->qty ?? 0;
+                $prevLocation->used_qty -= $prevProduct->qty ?? 0;
                 $prevLocation->save();
             }
 
             $newLocation = Location::where('area_id', $stock_transfer_location->previous_area_id)->where('shelf_id', $stock_transfer_location->previous_shelf_id)->where('level_id', $stock_transfer_location->previous_level_id)->where('product_id', $prevProduct->product_id)->first();
             if ($newLocation) {
-                $newLocation->used_qty += (int)$prevProduct->qty ?? 0;
+                $newLocation->used_qty += $prevProduct->qty ?? 0;
                 $newLocation->save();
             }
         }

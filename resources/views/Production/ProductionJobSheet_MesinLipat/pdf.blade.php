@@ -88,7 +88,7 @@
                     </div>
                     <div style="margin-left:300px!important;margin-top:-98px !important">
                         <label for="" class="font-weight-bold">Disediakan Oleh</label><br>
-                        <label>{{ $mesin_lipat->user->full_name }}</label>
+                        <label>{{ $mesin_lipat->user->user_name }}</label>
 
                     </div>
                     <div >
@@ -107,7 +107,7 @@
                                         @endphp
 
                                         @if ($selectedUser)
-                                            {{ $selectedUser->full_name }}
+                                            {{ $selectedUser->user_name }}
                                         @endif
                                     @endforeach
                                 @endif

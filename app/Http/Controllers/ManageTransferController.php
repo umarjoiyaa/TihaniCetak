@@ -420,7 +420,7 @@ class ManageTransferController extends Controller
             }
 
             $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['hiddenId'])->first();
-            $location->used_qty -= (int)$value['transfer_qty'];
+            $location->used_qty -= $value['transfer_qty'];
             $location->save();
         }
 
@@ -478,7 +478,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -493,7 +493,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -508,7 +508,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -593,7 +593,7 @@ class ManageTransferController extends Controller
             }
 
             $location = Location::where('area_id', '=', $value['area'])->where('shelf_id', '=', $value['shelf'])->where('level_id', '=', $value['level'])->where('product_id', '=', $value['hiddenId'])->first();
-            $location->used_qty -= (int)$value['transfer_qty'];
+            $location->used_qty -= $value['transfer_qty'];
             $location->save();
         }
 
@@ -672,7 +672,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -687,7 +687,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }
@@ -702,7 +702,7 @@ class ManageTransferController extends Controller
                 $location = Location::where('area_id', $existingDetail->area_id)->where('shelf_id', $existingDetail->shelf_id)->where('level_id', $existingDetail->level_id)->where('product_id', $existingDetail->product_id)->first();
 
                 if ($location) {
-                    $location->used_qty += (int)$existingDetail->qty ?? 0;
+                    $location->used_qty += $existingDetail->qty ?? 0;
                     $location->save();
                 }
             }

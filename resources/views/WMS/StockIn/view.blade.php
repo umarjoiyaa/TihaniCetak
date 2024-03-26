@@ -40,7 +40,7 @@
                                             <option value="" disabled selected>Select User</option>
                                             @foreach ($users as $user)
                                                 <option value="{{ $user->id }}" @selected($stock_in->transfer_by == $user->id)>
-                                                    {{ $user->full_name }}</option>
+                                                    {{ $user->user_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -48,7 +48,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Receive By (Store)</div>
-                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                             class="form-control">
                                     </div>
                                 </div>

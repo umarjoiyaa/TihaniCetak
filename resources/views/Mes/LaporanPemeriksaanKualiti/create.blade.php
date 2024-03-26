@@ -33,7 +33,7 @@
                                         <div class="col-md-4 mt-3">
                                             <div class="form-group">
                                                 <div class="form-label">Checked By</div>
-                                                <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                                <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                                     name="" id="checked_by" class="form-control">
                                             </div>
                                         </div>

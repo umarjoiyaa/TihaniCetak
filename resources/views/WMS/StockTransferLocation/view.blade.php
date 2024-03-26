@@ -35,7 +35,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Transfer By</div>
-                                        <input type="text" value="{{ $stock_transfer_location->user->full_name }}"
+                                        <input type="text" value="{{ $stock_transfer_location->user->user_name }}"
                                             readonly class="form-control">
                                     </div>
                                 </div>

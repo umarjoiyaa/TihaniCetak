@@ -20,8 +20,7 @@
                             </div>
                             <div class="col-md-4">
                                 <label for="">Date</label>
-                                <input type="text" name="date"
-                                    value="{{ $good_receiving->date ?? \Carbon\Carbon::now()->format('d-m-Y') }}"
+                                <input type="text" name="date" readonly value="{{ $good_receiving->date }}"
                                     class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
                                     placeholder="dd-mm-yyyy">
                             </div>
@@ -30,7 +29,16 @@
                                 <input type="text" value="{{ $good_receiving->creditor_name }}" readonly
                                     class="form-control">
                             </div>
-                            <div class="col-md-3"></div>
+                            <div class="col-md-4">
+                                <label for="">Category</label>
+                                <select name="category" id="category" class="form-select">
+                                    <option value="" selected disabled>Select Category</option>
+                                    <option value="Raw Material" @selected($good_receiving->category == 'Raw Material')>Raw Material</option>
+                                    <option value="Finish Good" @selected($good_receiving->category == 'Finish Good')>Finish Good</option>
+                                    <option value="WIP" @selected($good_receiving->category == 'WIP')>WIP</option>
+                                    <option value="Semi FG" @selected($good_receiving->category == 'Semi FG')>Semi FG</option>
+                                </select>
+                            </div>
                         </div>
 
 
@@ -197,25 +205,25 @@
                     }
                     optionsHtml +=
                         `<option
-                                                                                                                                                                            data-area-id="${location.area_id}"
-                                                                                                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                            data-level-id="${location.level_id}"
-                                                                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
-                                                                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                        </option>`;
+                                                                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}" ${selected}>
+                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                    </option>`;
                 });
                 $('#myTable').append(
                     `<tr>
-                                                                                                                                                                        <td>
-                                                                                                                                                                        <select class="form-control location">
-                                                                                                                                                                            ${optionsHtml}
-                                                                                                                                                                        </select>
-                                                                                                                                                                        </td>
-                                                                                                                                                                        <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
-                                                                                                                                                                        <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
-                                                                                                                                                                        <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
-                                                                                                                                                                        <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                    </tr>`
+                                                                                                                                                                                    <td>
+                                                                                                                                                                                    <select class="form-control location">
+                                                                                                                                                                                        ${optionsHtml}
+                                                                                                                                                                                    </select>
+                                                                                                                                                                                    </td>
+                                                                                                                                                                                    <td><input type="number" class="form-control receive_qty" value="${element.receive_qty}"></td>
+                                                                                                                                                                                    <td><textarea class="form-control remarks">${element.remarks}</textarea></td>
+                                                                                                                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
+                                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                                </tr>`
                 );
             });
         } else {
@@ -223,26 +231,26 @@
             locations.forEach(location => {
                 optionsHtml +=
                     `<option
-                                                                                                                                                                            data-area-id="${location.area_id}"
-                                                                                                                                                                            data-shelf-id="${location.shelf_id}"
-                                                                                                                                                                            data-level-id="${location.level_id}"
-                                                                                                                                                                            value="${location.area_id}->${location.shelf_id}->${location.level_id}">
-                                                                                                                                                                            ${location.area.name}->${location.shelf.name}->${location.level.name}
-                                                                                                                                                                        </option>`;
+                                                                                                                                                                                        data-area-id="${location.area_id}"
+                                                                                                                                                                                        data-shelf-id="${location.shelf_id}"
+                                                                                                                                                                                        data-level-id="${location.level_id}"
+                                                                                                                                                                                        value="${location.area_id}->${location.shelf_id}->${location.level_id}">
+                                                                                                                                                                                        ${location.area.name}->${location.shelf.name}->${location.level.name}
+                                                                                                                                                                                    </option>`;
             });
             let defaultRow =
                 `
-                                                                                                                                                                <tr>
-                                                                                                                                                                    <td>
-                                                                                                                                                                        <select class="form-control location">
-                                                                                                                                                                            ${optionsHtml}
-                                                                                                                                                                        </select>
-                                                                                                                                                                    </td>
-                                                                                                                                                                    <td><input type="number" class="form-control receive_qty"></td>
-                                                                                                                                                                    <td><textarea class="form-control remarks"></textarea></td>
-                                                                                                                                                                    <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
-                                                                                                                                                                    <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
-                                                                                                                                                                </tr>`;
+                                                                                                                                                                            <tr>
+                                                                                                                                                                                <td>
+                                                                                                                                                                                    <select class="form-control location">
+                                                                                                                                                                                        ${optionsHtml}
+                                                                                                                                                                                    </select>
+                                                                                                                                                                                </td>
+                                                                                                                                                                                <td><input type="number" class="form-control receive_qty"></td>
+                                                                                                                                                                                <td><textarea class="form-control remarks"></textarea></td>
+                                                                                                                                                                                <td><button class="btn btn-primary remarks_btn">Print<i class="fas fa-print ml-2"></i></button></td>
+                                                                                                                                                                                <td><i class="fas fa-plus" onclick="addRow(this)"></i><i class="fas fa-minus ml-2" onclick="removeRow(this)"></i></td>
+                                                                                                                                                                            </tr>`;
             $('#myTable').html(defaultRow);
         }
 

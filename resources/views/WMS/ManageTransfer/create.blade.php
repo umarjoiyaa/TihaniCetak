@@ -37,7 +37,7 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Dikeluarkan Oleh</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            <input type="text" value="{{ Auth::user()->user_name }}" readonly
                                                 class="form-control">
                                         </div>
                                     </div>
@@ -75,7 +75,7 @@
                                                         <td>Grammage</td>
                                                         <td>Saiz</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>UOM Request</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
@@ -107,7 +107,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
                                                         <td>Balance Qty</td>
@@ -137,7 +137,7 @@
                                                         <td>Stock code</td>
                                                         <td>Description</td>
                                                         <td>UOM</td>
-                                                        <td>Avaliable Qty</td>
+                                                        <td>Available Qty</td>
                                                         <td>Request Quantity</td>
                                                         <td>Previous Qty</td>
                                                         <td>Balance Qty</td>
@@ -513,7 +513,7 @@
                 success: function(data) {
                     $('#sale_order').val(data.material.sale_order.order_no);
                     $('#description').val(data.material.description);
-                    $('#oleh').val(data.material.user.full_name);
+                    $('#oleh').val(data.material.user.user_name);
 
                     $length = 1;
                     $('#table1 tbody').html('');

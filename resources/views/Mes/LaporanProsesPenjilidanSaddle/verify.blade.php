@@ -45,7 +45,7 @@
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <div class="form-label">Checked By (Operator)</div>
-                                        <input type="text" value="{{ Auth::user()->full_name }}" readonly name=""
+                                        <input type="text" value="{{ Auth::user()->user_name }}" readonly name=""
                                             id="checked_by" class="form-control">
                                     </div>
                                 </div>
@@ -107,7 +107,7 @@
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if ($item) {{ in_array($user->id, $item) ?
                                                 'selected' : '' }} @endif>
-                                                {{ $user->full_name }}</option>
+                                                {{ $user->user_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -124,7 +124,7 @@
                                             @foreach ($users as $user)
                                             <option value="{{ $user->id }}" @if ($item1) {{ in_array($user->id, $item1)
                                                 ? 'selected' : '' }} @endif>
-                                                {{ $user->full_name }}</option>
+                                                {{ $user->user_name }}</option>
                                             @endforeach
                                         </select>
                                     </div>
