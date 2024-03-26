@@ -8,30 +8,59 @@
             <div class="card-header">
                 <div class="d-flex justify-content-between">
                     <h4 class="card-title tx-20 mg-b-0 p-2">Laporan Pemeriksaan AKHIR,PEMBUNGKUSAN DAN PENGHANTARAN KE
-                        STORE</h4>
+                        STORE List</h4>
                 </div>
 
             </div>
             <div class="card-body">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('Laporan_Pemeriksaan.create')}}" class="btn btn-primary mb-2">Create User</a>
+                    <a href="{{route('Laporan_Pemeriksaan.create')}}" class="btn btn-primary mb-2">Create </a>
                 </div>
 
-                <table class="table mt-2" id="example1">
+                <table class="table mt-2 datatable" id="example1">
                     <thead>
                         <tr>
+                            <td>Sr No.</td>
                             <td>Tarikh</td>
                             <td>Sales Order No.</td>
                             <td>Kod Buku</td>
                             <td>Tajuk</td>
                             <td>Operator</td>
-                            <td>kuantiti</td>
+                            <td>Kuantiti</td>
                             <td>Status</td>
                             <td>Action</td>
                         </tr>
                     </thead>
-                    <tbody>
+                    <thead>
                         <tr>
+                            <th></th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Tarikh">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Sales Order No">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Kod Buku">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Tajuk">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Operator">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Kuantiti">
+                            </th>
+                            <th>
+                                <input type="text" class="all_column" placeholder="search Status">
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{-- <tr>
                             <td>30/5/2023</td>
                             <td>SO-001496</td>
                             <td>CP 2940</td>
@@ -55,7 +84,7 @@
                                     </div>
                                 </div>
                             </td>
-                        </tr>
+                        </tr> --}}
                     </tbody>
                 </table>
             </div>
@@ -65,7 +94,8 @@
 
 @endsection
 @push('custom-scripts')
-<script>
-    $('#example1').DataTable();
-</script>
+    <script>
+        var data = "{{ route('Laporan_Pemeriksaan.data') }}";
+    </script>
+    <script src="{{ asset('assets/js/custom/wms/LaporanPemeirksaan/index.js') }}"></script>
 @endpush

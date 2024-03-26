@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('user_id')->nullable();
             $table->string('user_text')->nullable();
             $table->string('di_bungkus_oleh')->nullable();
+            $table->string('status')->nullable();
 
             $table->string('b_1')->nullable();
             $table->string('b_2')->nullable();

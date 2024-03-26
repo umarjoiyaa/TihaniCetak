@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="{{ route('laporan_pemeriksaan.store') }}" method="POST">
+    <form action="{{ route('laporan_pemeriksaan.update', $laporan_pemeriksaan_akhir->id) }}" method="POST">
         @csrf
         <div class="row">
             <div class="col-md-12">
@@ -20,7 +20,7 @@
                                         <div class="form-group">
                                             <label for="">Tarikh</label>
                                             <input type="text" name="date"
-                                                value="{{ \Carbon\Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y') }}"
+                                                value="{{ $laporan_pemeriksaan_akhir->date }}"
                                                 class="form-control" id="datepicker" pattern="\d{2}-\d{2}-\d{4}"
                                                 placeholder="dd-mm-yyyy">
 
@@ -30,26 +30,19 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Diperiksa oleh (Operator)</div>
-                                            <input type="text" value="{{ Auth::user()->full_name }}" readonly
+                                            <input type="text" value="{{ $laporan_pemeriksaan_akhir->user->full_name }}" readonly
                                                 name="" id="checked_by" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="form-label">Sales Order No.</div>
-                                            <select name="sale_order" id="sale_order" class="form-control">
-                                                @if (old('sale_order') != null)
-                                                    @php
-                                                        $name = App\Models\SaleOrder::find(old('sale_order'));
-                                                    @endphp
-                                                    <option value="{{ old('sale_order') }}" selected
-                                                        style="color: black; !important">
-                                                        {{ $name->order_no }}</option>
-                                                @else
-                                                    <option value="" selected disabled>Select any Sale Order
-                                                    </option>
-                                                @endif
-
+                                            <select name="sale_order" data-id="{{ $laporan_pemeriksaan_akhir->sale_order_id }}"
+                                                id="sale_order" class="form-control">
+                                                <option value="{{ $laporan_pemeriksaan_akhir->sale_order_id }}" selected
+                                                    style="color: black; !important">
+                                                    {{ $laporan_pemeriksaan_akhir->sale_order->order_no }}
+                                                </option>
                                             </select>
                                         </div>
                                     </div>
@@ -72,27 +65,33 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Operator</label>
-                                            <select name="user[]" class="form-control form-select" id="" multiple>
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        @if (old('user')) {{ in_array($user->id, old('user')) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
-                                                @endforeach
-                                            </select>
+                                            @php
+                                        $item = json_decode($laporan_pemeriksaan_akhir->user_id);
+                                        @endphp
+                                        <select name="user[]" class="form-control form-select" id="" multiple>
+                                            @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" @if ($item) {{ in_array($user->id, $item) ?
+                                                'selected' : '' }} @endif>
+                                                {{ $user->full_name }}</option>
+                                            @endforeach
+                                        </select>
                                         </div>
                                     </div>
 
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <label for="">Di Bungkus Oleh</label>
-                                            <select name="di_bungkus_oleh[]" class="form-control form-select" id=""
-                                                multiple>
-                                                @foreach ($users as $user)
-                                                    <option value="{{ $user->id }}"
-                                                        @if (old('di_bungkus_oleh')) {{ in_array($user->id, old('di_bungkus_oleh')) ? 'selected' : '' }} @endif>
-                                                        {{ $user->full_name }}</option>
-                                                @endforeach
-                                            </select>
+                                            @php
+                                            $item = json_decode($laporan_pemeriksaan_akhir->di_bungkus_oleh);
+                                        @endphp
+                                        <select name="user[]" class="form-control form-select" id="" multiple>
+                                            @foreach ($users as $user)
+                                            <option value="{{ $user->id }}" @if ($item) {{ in_array($user->id, $item) ?
+                                                'selected' : '' }} @endif>
+                                                {{ $user->full_name }}</option>
+                                            @endforeach
+                                        </select>
+
                                         </div>
                                     </div>
 
@@ -122,17 +121,17 @@
                                                 <tr>
                                                     <td>Label Produk Sebelum Dibaung</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="b_1" @checked(old('b_1') != null) id=""></td>
+                                                            type="checkbox" name="b_1" @checked($laporan_pemeriksaan_akhir->b_1 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Baki kuantiti produk Sebelum disimpan</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="b_2" @checked(old('b_2') != null) id=""></td>
+                                                            type="checkbox" name="b_2" @checked($laporan_pemeriksaan_akhir->b_2 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Reject dikuarantin ditempat lain/dibuang</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="b_3" @checked(old('b_3') != null) id=""></td>
+                                                            type="checkbox" name="b_3" @checked($laporan_pemeriksaan_akhir->b_2 != null) id=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -146,25 +145,25 @@
                                 <h5>C) Pengesahan kuantiti</h5>
                                 <div class="row mt-5">
                                     <div class="col-md-1">
-                                        <input type="checkbox" name="c_1" @checked(old('c_1') != null) id="c_1">
+                                        <input type="checkbox" name="c_1"  id="c_1" @checked($laporan_pemeriksaan_akhir->c_1 != null)  id="">
                                     </div>
                                     <div class="col-md-2">
                                         <h6>kuantiti setiap bungkusan:</h6>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" name="c_kuantiti_1" value="{{ old('c_kuantiti_1') }}" @if(old('c_1')) @else disabled @endif id="c_kuantiti_1" class="form-control">
+                                        <input type="text" name="c_kuantiti_1" id="c_kuantiti_1" @disabled($laporan_pemeriksaan_akhir->c_1 == null) value="{{$laporan_pemeriksaan_akhir->c_kuantiti_1 }}"   id="" class="form-control">
                                     </div>
                                     <div class="col-md-2">naskah/helai</div>
                                 </div>
                                 <div class="row mt-2">
                                     <div class="col-md-1">
-                                        <input type="checkbox" name="c_2" @checked(old('c_2') != null) id="c_2">
+                                        <input type="checkbox" name="c_2" id="c_2" @checked($laporan_pemeriksaan_akhir->c_2 != null)  id="">
                                     </div>
                                     <div class="col-md-2">
                                         <h6>Berat 1 bungkusan/kotak:</h6>
                                     </div>
                                     <div class="col-md-2">
-                                        <input type="text" name="c_berat_2" value="{{ old('c_berat_2') }}"  @if(old('c_2')) @else disabled @endif id="c_berat_2" class="form-control">
+                                        <input type="text" name="c_berat_2" id="c_berat_2" value="{{$laporan_pemeriksaan_akhir->c_berat_2 }}" @disabled($laporan_pemeriksaan_akhir->c_2 == null) id="" class="form-control">
                                     </div>
                                     <div class="col-md-2">kg</div>
                                 </div>
@@ -187,12 +186,12 @@
                                                 <tr>
                                                     <td>Menggunakan Pelekat Hologram</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="d_1"  @checked(old('d_1') != null) id=""></td>
+                                                            type="checkbox" name="d_1" @checked($laporan_pemeriksaan_akhir->d_1 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Lokasi yang betul</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="d_2"  @checked(old('d_2') != null) id=""></td>
+                                                            type="checkbox" name="d_2" @checked($laporan_pemeriksaan_akhir->d_2 != null) id=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -217,33 +216,33 @@
                                                 <tr>
                                                     <td>Nama Pelanggan</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_1"  @checked(old('e_1') != null) id=""></td>
+                                                            type="checkbox" name="e_1" @checked($laporan_pemeriksaan_akhir->e_1 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Kod Buku dab Tajuk</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_2"  @checked(old('e_2') != null) id=""></td>
+                                                            type="checkbox" name="e_2" @checked($laporan_pemeriksaan_akhir->e_2 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>kuantiti</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_3"  @checked(old('e_3') != null) id=""></td>
+                                                            type="checkbox" name="e_3" @checked($laporan_pemeriksaan_akhir->e_3 != null) id=""></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>No ISBN (Jika ada)</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_4"  @checked(old('e_4') != null) id=""></td>
+                                                            type="checkbox" name="e_4" @checked($laporan_pemeriksaan_akhir->e_4 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>NO KK (jika ada)</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_5"  @checked(old('e_5') != null) id=""></td>
+                                                            type="checkbox" name="e_5" @checked($laporan_pemeriksaan_akhir->e_5 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Berat (jika ada)</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="e_6" @checked(old('e_6') != null) id=""></td>
+                                                            type="checkbox" name="e_6" @checked($laporan_pemeriksaan_akhir->e_6 != null) id=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -269,17 +268,17 @@
                                                 <tr>
                                                     <td>Bookmark</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="f_1" @checked(old('f_1') != null) id=""></td>
+                                                            type="checkbox" name="f_1" @checked($laporan_pemeriksaan_akhir->f_2 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>shirnk wrap</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="f_2" @checked(old('f_2') != null) id=""></td>
+                                                            type="checkbox" name="f_2" @checked($laporan_pemeriksaan_akhir->f_2 != null) id=""></td>
                                                 </tr>
                                                 <tr>
                                                     <td>poster / leaflet</td>
                                                     <td class="text-center d-flex justify-content-center"><input
-                                                            type="checkbox" name="f_3" @checked(old('f_3') != null) id=""></td>
+                                                            type="checkbox" name="f_3" @checked($laporan_pemeriksaan_akhir->f_2 != null) id=""></td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -315,190 +314,190 @@
                                                 <tr>
                                                     <td>Kotor</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_1"
-                                                            value="{{ old('subkontraktor_1') }}" style="width:200px ;">
+                                                            value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_1  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_1"
-                                                            value="{{ old('jumlah_1') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1" @disabled(old('disahkan_oleh_1'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_1  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_1 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_1" value="{{ old('disahkan_oleh_1') }}"
+                                                            name="disahkan_oleh_1" value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_1  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_1"
-                                                            value="{{ old('tcsb_1') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_1  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_2"
-                                                            value="{{ old('jumlah_2') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2" @disabled(old('disahkan_oleh_2'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_2  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2"  @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_2 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_2') }}" name="disahkan_oleh_2"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_2  }}" name="disahkan_oleh_2"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>cetakan doubling</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_2"
-                                                            value="{{ old('subkontraktor_2') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_2  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_3"
-                                                            value="{{ old('jumlah_3') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_3'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_3  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1"  @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_3 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_3" value="{{ old('disahkan_oleh_3') }}"
+                                                            name="disahkan_oleh_3" value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_3  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_2"
-                                                            value="{{ old('tcsb_2') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_2  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_4"
-                                                            value="{{ old('jumlah_4') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_4'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_4  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2"  @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_4 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_4') }}" name="disahkan_oleh_4"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_4  }}" name="disahkan_oleh_4"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Senget</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_3"
-                                                            value="{{ old('subkontraktor_3') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_3  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_5"
-                                                            value="{{ old('jumlah_5') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_5'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_5  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_5 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_5" value="{{ old('disahkan_oleh_5') }}"
+                                                            name="disahkan_oleh_5" value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_5  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_3"
-                                                            value="{{ old('tcsb_3') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_3  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_6"
-                                                            value="{{ old('jumlah_6') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_6'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_6  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_6 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_6') }}" name="disahkan_oleh_6"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_6  }}" name="disahkan_oleh_6"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Roask/Koyak</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_4"
-                                                            value="{{ old('subkontraktor_4') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_4  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_7"
-                                                            value="{{ old('jumlah_7') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_7'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_7  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_7 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_7" value="{{ old('disahkan_oleh_7') }}"
+                                                            name="disahkan_oleh_7"  value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_7  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_4"
-                                                            value="{{ old('tcsb_4') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_4  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_8"
-                                                            value="{{ old('jumlah_8') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_8'))>Check</button></td>
+                                                            v value="{{ $laporan_pemeriksaan_akhir_section->jumlah_8  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_8 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_8') }}" name="disahkan_oleh_8"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_8  }}" name="disahkan_oleh_8"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Teks terpotong</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_5"
-                                                            value="{{ old('subkontraktor_5') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_5  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_9"
-                                                            value="{{ old('jumlah_9') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_9'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_9  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_9 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_9" value="{{ old('disahkan_oleh_9') }}"
+                                                            name="disahkan_oleh_9" value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_9  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_5"
-                                                            value="{{ old('tcsb_5') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_5  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_10"
-                                                            value="{{ old('jumlah_10') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_10'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_10  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_10 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_10') }}" name="disahkan_oleh_10"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_10  }}" name="disahkan_oleh_10"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Mukasurat tidak cukup</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_6"
-                                                            value="{{ old('subkontraktor_6') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->subkontraktor_6  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_11"
-                                                            value="{{ old('jumlah_11') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_11'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_11  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_11 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_11" value="{{ old('disahkan_oleh_11') }}"
+                                                            name="disahkan_oleh_11" value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_11  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_6"
-                                                            value="{{ old('tcsb_6') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->tcsb_6  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_12"
-                                                            value="{{ old('jumlah_12') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_12'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->jumlah_12  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_12 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_12') }}" name="disahkan_oleh_12"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section->disahkan_oleh_12  }}" name="disahkan_oleh_12"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Endpaper /cover terbalik</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_7"
-                                                            value="{{ old('subkontraktor_7') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_7  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_13"
-                                                            value="{{ old('jumlah_13') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_13'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_13  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_13 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_13" value="{{ old('disahkan_oleh_13') }}"
+                                                            name="disahkan_oleh_13" value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_13  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_7"
-                                                            value="{{ old('tcsb_7') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_7  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_14"
-                                                            value="{{ old('jumlah_14') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_14'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_14  }}"style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_14 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_14') }}" name="disahkan_oleh_14"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_14  }}" name="disahkan_oleh_14"
                                                             style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>tiada cetakan</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_8"
-                                                            value="{{ old('subkontraktor_8') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_8  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_15"
-                                                            value="{{ old('jumlah_15') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_15'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_15  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_15 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
-                                                            name="disahkan_oleh_15" value="{{ old('disahkan_oleh_15') }}"
+                                                            name="disahkan_oleh_15"  value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_15  }}"
                                                             readonly style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_8"
-                                                            value="{{ old('tcsb_8') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_8  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_16"
-                                                            value="{{ old('jumlah_16') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_16'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_16  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_16!= null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_16') }}"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_16  }}"
                                                             name="disahkan_oleh_16" style="width:360px ;"></td>
                                                 </tr>
 
                                                 <tr>
                                                     <td>Cover lari</td>
                                                     <td><input type="text" class="form-control" name="subkontraktor_9"
-                                                            value="{{ old('subkontraktor_9') }}" style="width:200px ;">
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_9  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_17"
-                                                            value="{{ old('jumlah_17') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_17'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_17  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_17 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
                                                             name="disahkan_oleh_17"
-                                                            value="{{ old('disahkan_oleh_17') }}" readonly
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_17  }}" readonly
                                                             style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_9"
-                                                            value="{{ old('tcsb_9') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_9  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_18"
-                                                            value="{{ old('jumlah_18') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_18'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_18  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_18 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_18') }}"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_18  }}"
                                                             name="disahkan_oleh_18" style="width:360px ;"></td>
                                                 </tr>
 
@@ -506,22 +505,22 @@
                                                     <td>Gam tidak cukup</td>
                                                     <td><input type="text" class="form-control"
                                                             name="subkontraktor_10"
-                                                            value="{{ old('subkontraktor_10') }}" style="width:200px ;">
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_10  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_19"
-                                                            value="{{ old('jumlah_19') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_19'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_19  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_19 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
                                                             name="disahkan_oleh_19"
-                                                            value="{{ old('disahkan_oleh_19') }}" readonly
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_19  }}" readonly
                                                             style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_10"
-                                                            value="{{ old('tcsb_10') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_10  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_20"
-                                                            value="{{ old('jumlah_20') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_20'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_20  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_20 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_20') }}"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_20  }}"
                                                             name="disahkan_oleh_20" style="width:360px ;"></td>
                                                 </tr>
 
@@ -529,22 +528,22 @@
                                                     <td>Teks terlipat</td>
                                                     <td><input type="text" class="form-control"
                                                             name="subkontraktor_11"
-                                                            value="{{ old('subkontraktor_11') }}" style="width:200px ;">
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_11  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_21"
-                                                            value="{{ old('jumlah_21') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"   @disabled(old('disahkan_oleh_21'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_21  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_21 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
                                                             name="disahkan_oleh_21"
-                                                            value="{{ old('disahkan_oleh_21') }}" readonly
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_21  }}" readonly
                                                             style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_11"
-                                                            value="{{ old('tcsb_11') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_11  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_22"
-                                                            value="{{ old('jumlah_22') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_22'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_22  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_22 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_22') }}"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_22  }}"
                                                             name="disahkan_oleh_22" style="width:360px ;"></td>
                                                 </tr>
 
@@ -552,22 +551,22 @@
                                                     <td>Lain-Lain</td>
                                                     <td><input type="text" class="form-control"
                                                             name="subkontraktor_12"
-                                                            value="{{ old('subkontraktor_12') }}" style="width:200px ;">
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->subkontraktor_12  }}" style="width:200px ;">
                                                     </td>
                                                     <td><input type="text" class="form-control" name="jumlah_23"
-                                                            value="{{ old('jumlah_23') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_1"  @disabled(old('disahkan_oleh_23'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_23  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_1" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_23 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_1"
                                                             name="disahkan_oleh_23"
-                                                            value="{{ old('disahkan_oleh_23') }}" readonly
+                                                            value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_23  }}" readonly
                                                             style="width:360px ;"></td>
                                                     <td><input type="text" class="form-control" name="tcsb_12"
-                                                            value="{{ old('tcsb_12') }}" style="width:200px ;"></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->tcsb_12  }}" style="width:200px ;"></td>
                                                     <td><input type="text" class="form-control" name="jumlah_24"
-                                                            value="{{ old('jumlah_24') }}" style="width:200px ;"></td>
-                                                    <td><button class="btn btn-primary Check_2"  @disabled(old('disahkan_oleh_24'))>Check</button></td>
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->jumlah_24  }}" style="width:200px ;"></td>
+                                                    <td><button class="btn btn-primary Check_2" @disabled($laporan_pemeriksaan_akhir_section->disahkan_oleh_24 != null)>Check</button></td>
                                                     <td><input type="text" class="form-control Qc_2" readonly
-                                                            value="{{ old('disahkan_oleh_24') }}"
+                                                        value="{{ $laporan_pemeriksaan_akhir_section2->disahkan_oleh_24  }}"
                                                             name="disahkan_oleh_24" style="width:360px ;"></td>
                                                 </tr>
                                             </tbody>
@@ -580,14 +579,14 @@
                         <div class="row d-flex mt-3">
                             <div class="col-md-2">kuantiti saip:</div>
                             <div class="col-md-2">
-                                <input type="text" value="{{ old('kauntiti_siap_1') }}" name="kauntiti_siap_1" id=""
-                                    class="form-control">
+                                <input type="text" name="kauntiti_siap_1" id=""
+                                    class="form-control" value="{{ $laporan_pemeriksaan_akhir->kauntiti_siap_1 }}">
                             </div>
                             <div class="col-md-2">
                                 <select name="kauntiti_siap_2" id="" class="form-control saip">
 
-                                    <option value="Naskah" @selected(old('kauntiti_siap_2') == "Naskah")>Naskah</option>
-                                    <option value="Helai" @selected(old('kauntiti_siap_2') == "Helai")>Helai</option>
+                                    <option value="Naskah" @selected($laporan_pemeriksaan_akhir->kauntiti_siap_2 == "Naskah")>Naskah</option>
+                                    <option value="Helai" @selected($laporan_pemeriksaan_akhir->kauntiti_siap_2 == "Helai")>Helai</option>
                                 </select>
                             </div>
                             <div class="col-md-2"></div>
@@ -613,8 +612,11 @@
                                     <div class="row mt-3">
                                         <div class="col-md-4">
                                             <label for="">Jumlah palet</label>
+                                            @php
+                                                $jumlah = count($laporan_pemeriksaan_akhir_senari);
+                                            @endphp
                                             <input type="number" name="jumlah_palet" id="jumlah_palet"
-                                                class="form-control">
+                                                class="form-control" value="{{ $jumlah }}">
                                         </div>
 
                                     </div>
@@ -625,11 +627,20 @@
                                                     <tr class="tr_thead">
                                                         <th style="width: 250px;">Palet No.</th>
 
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari as $item)
 
-                                                            <th style="width: 250px;">
-                                                                <input type="hidden" class="pallet" name="row[1][1]"
-                                                                    value="1">Pallet 1
-                                                            </th>
+                                                        <th style="width: 250px;">
+                                                            <input type="hidden" class="pallet" name="row[1][1]"
+                                                                value="{{  $item->row_pallet }}">Pallet {{ $item['row_pallet'] }}
+                                                        </th>
+                                                        @endforeach
+                                                        @else
+                                                        <th style="width: 250px;">
+                                                            <input type="hidden" class="pallet" name="row[1][1]"
+                                                                value="1">Pallet 1
+                                                        </th>
+                                                        @endif
 
 
                                                     </tr>
@@ -641,8 +652,17 @@
                                                             <div style="width: 200px;">kuantiti bagi setiap palet</div>
                                                         </td>
 
-                                                            <td><input type="text"  name="row[1][2]"
-                                                                    class="form-control td_first"></td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari as $item)
+                                                        <td><input type="text"  name="row[1][2]"
+                                                            class="form-control td_first" value="{{ $item['row_1'] }}"></td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text"  name="row[1][2]"
+                                                            class="form-control td_first"></td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="second_tr">
@@ -650,8 +670,15 @@
                                                             <div style="width: 200px;">Kualiti sample</div>
                                                         </td>
 
-                                                            <td><input type="text"  name="row[1][3]"
-                                                                    class="form-control td_second"></td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari as $item)
+                                                        <td><input type="text"  name="row[1][3]"
+                                                            class="form-control td_second" value="{{ $item['row_2'] }}"></td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text"  name="row[1][3]"
+                                                            class="form-control td_second"></td>
+                                                        @endif
 
                                                     </tr>
 
@@ -670,10 +697,23 @@
                                                         <th>Kriteria</th>
 
 
-                                                            <th style="width: 250px;">
-                                                                <input type="hidden" class="keputusan_row_pallet" name="row[1][1]"
-                                                                    value="1">Pallet 1
-                                                            </th>
+
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                           {{-- @php
+                                                            dd($item);
+                                                        @endphp --}}
+                                                        <th style="width: 250px;">
+                                                            <input type="hidden" class="pallet" name="row[1][1]"
+                                                                value="1">Pallet {{ $item['keputusan_row_pallet'] }}
+                                                        </th>
+                                                        @endforeach
+                                                        @else
+                                                        <th style="width: 250px;">
+                                                            <input type="hidden" class="keputusan_row_pallet" name="row[1][1]"
+                                                                value="1">Pallet 1
+                                                        </th>
+                                                        @endif
 
 
 
@@ -683,148 +723,313 @@
                                                     <tr class="first_row_keputusan">
                                                         <td>Kotor</td>
 
-                                                            <td><input type="text" name="keputusan[1][2]"
-                                                                    class="form-control  td_keputusan_1">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][2]"
+                                                            class="form-control  td_keputusan_1" value="{{ $item['keputusan_row_1'] }}">
+                                                        </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][2]"
+                                                            class="form-control  td_keputusan_1">
+                                                         </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="second_row_keputusan">
                                                         <td>Cetaken doubling</td>
 
-                                                            <td><input type="text" name="keputusan[1][3]"
-                                                                    class="form-control td_keputusan_2">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][3]"
+                                                            class="form-control  td_keputusan_2" value="{{ $item['keputusan_row_2'] }}">
+                                                        </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][3]"
+                                                            class="form-control  td_keputusan_2">
+                                                         </td>
+                                                        @endif
 
                                                     </tr>
                                                     <tr class="third_row_keputusan">
                                                         <td>Senget</td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][4]"
+                                                            class="form-control td_keputusan_3" value="{{ $item['keputusan_row_3'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][4]"
+                                                            class="form-control td_keputusan_3">
+                                                    </td>
+                                                        @endif
 
-                                                            <td><input type="text" name="keputusan[1][4]"
-                                                                    class="form-control td_keputusan_3">
-                                                            </td>
 
                                                     </tr>
                                                     <tr class="forth_row_keputusan">
                                                         <td>Rosak/Koyak</td>
 
-                                                            <td><input type="text" name="keputusan[1][5]"
-                                                                    class="form-control td_keputusan_4">
-                                                            </td>
+
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][5]"
+                                                            class="form-control td_keputusan_4" value="{{ $item['keputusan_row_4'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][5]"
+                                                            class="form-control td_keputusan_4">
+                                                    </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="fifth_row_keputusan">
                                                         <td>Teks terpontong</td>
 
-                                                            <td><input type="text" name="keputusan[1][6]"
-                                                                    class="form-control td_keputusan_5">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][6]"
+                                                            class="form-control td_keputusan_5" value="{{ $item['keputusan_row_5'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][6]"
+                                                            class="form-control td_keputusan_5">
+                                                    </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="sixth_row_keputusan">
                                                         <td>Muka surat tidak cukup</td>
 
-                                                            <td><input type="text" name="keputusan[1][7]"
-                                                                    class="form-control td_keputusan_6">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][7]"
+                                                            class="form-control td_keputusan_6" value="{{ $item['keputusan_row_6'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][7]"
+                                                            class="form-control td_keputusan_6">
+                                                    </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="seventh_row_keputusan">
                                                         <td>Endpaper/cover paper terblaik</td>
 
-                                                            <td><input type="text" name="keputusan[1][8]"
-                                                                    class="form-control td_keputusan_7">
-                                                            </td>
-
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][8]"
+                                                            class="form-control td_keputusan_7" value="{{ $item['keputusan_row_7'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][8]"
+                                                            class="form-control td_keputusan_7">
+                                                    </td>
+                                                        @endif
                                                     </tr>
                                                     <tr class="eight_row_keputusan">
                                                         <td>tiada cetaken</td>
 
-                                                            <td><input type="text" name="keputusan[1][9]"
-                                                                    class="form-control td_keputusan_8">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][9]"
+                                                            class="form-control td_keputusan_8" value="{{ $item['keputusan_row_8'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][9]"
+                                                            class="form-control td_keputusan_8">
+                                                    </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="nineth_row_keputusan">
                                                         <td>Cover Lari</td>
 
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][10]"
+                                                            class="form-control td_keputusan_9" value="{{ $item['keputusan_row_9'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][10]"
+                                                            class="form-control td_keputusan_9">
+                                                    </td>
+                                                        @endif
 
-                                                            <td><input type="text" name="keputusan[1][10]"
-                                                                    class="form-control td_keputusan_9">
-                                                            </td>
+
 
                                                     </tr>
                                                     <tr class="tenth_row_keputusan">
                                                         <td>masalah UV Tarnish</td>
 
-                                                            <td><input type="text" name="keputusan[1][11]"
-                                                                    class="form-control td_keputusan_10">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][11]"
+                                                            class="form-control td_keputusan_10" value="{{ $item['keputusan_row_10'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][11]"
+                                                            class="form-control td_keputusan_10">
+                                                    </td>
+                                                        @endif
+
 
                                                     </tr>
                                                     <tr class="eleventh_row_keputusan">
                                                         <td>Gam tidak cukup</td>
 
-                                                            <td><input type="text" name="keputusan[1][12]"
-                                                                    class="form-control td_keputusan_11">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][12]"
+                                                            class="form-control td_keputusan_11" value="{{ $item['keputusan_row_11'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][12]"
+                                                            class="form-control td_keputusan_11">
+                                                    </td>
+                                                        @endif
+
 
                                                     </tr>
                                                     <tr class="twelveth_row_keputusan">
                                                         <td>Teks-terlipat</td>
 
-                                                            <td><input type="text" name="keputusan[1][13]"
-                                                                    class="form-control td_keputusan_12">
-                                                            </td>
-
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][13]"
+                                                            class="form-control td_keputusan_12" value="{{ $item['keputusan_row_12'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][13]"
+                                                            class="form-control td_keputusan_12">
+                                                    </td>
+                                                        @endif
                                                     </tr>
                                                     <tr class="thirteenth_row_keputusan">
                                                         <td>Lain-Lain</td>
 
-                                                            <td><input type="text" name="keputusan[1][14]"
-                                                                    class="form-control td_keputusan_13">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][14]"
+                                                            class="form-control td_keputusan_13" value="{{ $item['keputusan_row_13'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][14]"
+                                                            class="form-control td_keputusan_13">
+                                                    </td>
+                                                        @endif
 
                                                     </tr>
                                                     <tr class="forteenth_row_keputusan">
                                                         <td>Jumlah Reject</td>
 
-                                                            <td><input type="text" name="keputusan[1][15]"
-                                                                    class="form-control td_keputusan_14">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][15]"
+                                                            class="form-control td_keputusan_14" value="{{ $item['keputusan_row_14'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][15]"
+                                                            class="form-control td_keputusan_14">
+                                                    </td>
+                                                        @endif
 
                                                     </tr>
                                                     <tr class="fifteenth_row_keputusan">
                                                         <td>permeriksaan 100%</td>
 
-                                                            <td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td>
                                                                 <div class="d-flex justify-content-center"> <label
                                                                         class="mx-2">Yes</label>
                                                                     <div class="custom-control custom-switch">
                                                                         <input type="checkbox"
                                                                             class="custom-control-input td_keputusan_15"
-                                                                            id="customSwitch1"
-                                                                            name="keputusan[1][16]">
+                                                                            id="customSwitch{{ $item['keputusan_row_pallet'] }}" @checked($item['keputusan_row_15'] != null)
+                                                                            name="keputusan[{{ $item['keputusan_row_pallet'] }}][16]">
                                                                         <label class="custom-control-label"
-                                                                            for="customSwitch1">No</label>
+                                                                            for="customSwitch{{ $item['keputusan_row_pallet'] }}">No</label>
                                                                     </div>
                                                                 </div>
                                                             </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td>
+                                                            <div class="d-flex justify-content-center"> <label
+                                                                    class="mx-2">Yes</label>
+                                                                <div class="custom-control custom-switch">
+                                                                    <input type="checkbox"
+                                                                        class="custom-control-input td_keputusan_15"
+                                                                        id="customSwitch1"
+                                                                        name="keputusan[1][16]">
+                                                                    <label class="custom-control-label"
+                                                                        for="customSwitch1">No</label>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                     <tr class="sixteenth_row_keputusan">
                                                         <td>Diperiksa Oleh</td>
 
-                                                            <td><input type="text" name="keputusan[1][17]"
-                                                                    class="form-control td_keputusan_16">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][17]"
+                                                            class="form-control td_keputusan_16" value="{{ $item['keputusan_row_16'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][17]"
+                                                            class="form-control td_keputusan_16">
+                                                    </td>
+                                                        @endif
+
+
+
 
                                                     </tr>
                                                     <tr class="seventeenth_row_keputusan">
                                                         <td>Disahkan Oleh</td>
 
-                                                            <td><input type="text" name="keputusan[1][18]"
-                                                                    class="form-control td_keputusan_17">
-                                                            </td>
+                                                        @if(!empty($laporan_pemeriksaan_akhir_senari2))
+                                                        @foreach ($laporan_pemeriksaan_akhir_senari2 as $item)
+                                                        <td><input type="text" name="keputusan[1][18]"
+                                                            class="form-control td_keputusan_17" value="{{ $item['keputusan_row_17'] }}">
+                                                    </td>
+                                                        @endforeach
+                                                        @else
+                                                        <td><input type="text" name="keputusan[1][18]"
+                                                            class="form-control td_keputusan_17">
+                                                    </td>
+                                                        @endif
+
+
 
                                                     </tr>
                                                 </tbody>
@@ -847,18 +1052,18 @@
 
 
                                 <div class="row">
-                                    <div class="col-md-2 mt-5"><input type="text" value="{{ old('kauntiti_siap_3') }}" name="kauntiti_siap_3"
-                                            id="" class="form-control"></div>
+                                    <div class="col-md-2 mt-5"><input type="text" name="kauntiti_siap_3"
+                                            id="" class="form-control" value="{{ $laporan_pemeriksaan_akhir->kauntiti_siap_3 }}"></div>
                                     <div class="col-md-2 mt-5">
                                         <h5>Bungkusan</h5>
                                     </div>
                                 </div>
 
-                                <input type="hidden" value="" class="Table1Data" name="row">
+                                <input type="hidden"  class="Table1Data" name="row">
                                 <input type="hidden" class="Table2Data"
                                     name="keputusan">
 
-                                <button type="submit" class="btn btn-primary float-right">Save</button>
+                                <button  class="btn btn-primary float-right">Save</button>
 
                             </div>
                         </div>
@@ -874,8 +1079,8 @@
 
 
 
-
     </form>
+
     @endsection
     @push('custom-scripts')
         <script>
@@ -883,6 +1088,7 @@
 
 
             $(document).ready(function() {
+                $('input[type=hidden]').removeAttr('disabled');
                 $('.saip').select2();
 
                 function ModalRenderData(){
@@ -1157,21 +1363,6 @@ $('.form-control').css('width', '200px');
                 });
 
 
-                $("#c_1").change(function() {
-                if ($(this).is(":checked")) {
-                    $("#c_kuantiti_1").prop("disabled", false);
-                } else {
-                    $("#c_kuantiti_1").prop("disabled", true);
-                }
-            });
-
-            $("#c_2").change(function() {
-                if ($(this).is(":checked")) {
-                    $("#c_berat_2").prop("disabled", false);
-                } else {
-                    $("#c_berat_2").prop("disabled", true);
-                }
-            });
 
 
                 $('#sale_order').trigger('change');
@@ -1248,8 +1439,7 @@ $('.form-control').css('width', '200px');
 
                 var first_td = [];
                 var second_td = [];
-                table_1_data = [];
-                table_2_data = [];
+
 
 
                 $('#dynamicTable thead tr').each(function() {
@@ -1435,6 +1625,22 @@ $('.form-control').css('width', '200px');
                 console.log(data);
                 sessionStorage.setItem(`modalData`, JSON.stringify(data));
             }
+
+            $("#c_1").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#c_kuantiti_1").prop("disabled", false);
+                } else {
+                    $("#c_kuantiti_1").prop("disabled", true);
+                }
+            });
+
+            $("#c_2").change(function() {
+                if ($(this).is(":checked")) {
+                    $("#c_berat_2").prop("disabled", false);
+                } else {
+                    $("#c_berat_2").prop("disabled", true);
+                }
+            });
 
             $('#sale_order').on('change', function() {
                 const id = $(this).val();
