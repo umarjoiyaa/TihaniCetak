@@ -241,7 +241,7 @@ class RoleController extends Controller
         }
         // Prevent from from self deleting
         $role = Role::find($id);
-        $existrole = User::whereJsonContains('role_ids', $id)->exists();
+        $existrole = User::whereJsonContains('role_ids', $id)->whereNull('deleted_at')->exists();
         if ($role->id == Auth::user()->roles->pluck('id')[0]) {
             return back()->with('custom_errors', 'This role has been assigned to you. You cannot delete it. Ask super admin to do that.');
         }
