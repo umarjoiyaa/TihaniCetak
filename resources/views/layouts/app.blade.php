@@ -391,7 +391,7 @@
                         </div>
                         <ul class="horizontalMenu-list">
                             <li aria-haspopup="true" class="box"><a href="{{ route('dashboard') }}"
-                                    class="sub-icon" id="home"><i class="ti-home menu-icon"></i> Home</a></li>
+                                    class="sub-icon" id="home"><i class="ti-home menu-icon"></i> HOME</a></li>
                             <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
                                     id="mes"><i class="ti-bar-chart-alt"></i> MES </a>
                                 <div class="horizontal-megamenu clearfix">
@@ -587,7 +587,7 @@
                                 </div>
                             </li>
                             <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
-                                    id="production"><i class="ti-layers"></i> Production</a>
+                                    id="production"><i class="ti-layers"></i> PRODUCTION</a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -797,7 +797,7 @@
                                                                         Laporan Pemeriksaan <br> Akhir, Pembungkusan &
                                                                         <br> Penghantaran ke Stor</a></li>
                                                                 <li aria-haspopup="true"><a
-                                                                        href="{{ route('Pemeriksaan_Penghantaran') }}"
+                                                                        href="{{ route('pemeriksaan_penghantaran') }}"
                                                                         class="slide-item"><iconify-icon
                                                                             icon="ph:arrow-square-right"
                                                                             width="17"
@@ -852,7 +852,7 @@
                                 </div>
                             </li>
                             <li aria-haspopup="true" class="box"><a href="#" class="sub-icon"
-                                    id="setting"><i class="icon ion-ios-settings"></i> Setting </a>
+                                    id="setting"><i class="icon ion-ios-settings"></i> SETTING </a>
                                 <div class="horizontal-megamenu clearfix">
                                     <div class="container-fluid">
                                         <div class="mega-menubg hor-mega-menu">
@@ -1753,6 +1753,7 @@
             $("#datepicker, .datepicker").datepicker({
                 dateFormat: 'dd-mm-yy'
             });
+            $('input[type="number"]').attr('step', '0.01');
 
             setTimeout(function() {
                 $('.section-messages').fadeOut();

@@ -29,7 +29,7 @@ use App\Http\Controllers\MachineDashboardController;
 use App\Http\Controllers\ManageTransferController;
 use App\Http\Controllers\MaterialRequestController;
 use App\Http\Controllers\OEEDashboardController;
-use App\Http\Controllers\Pemeriksaan_PenghantaranController;
+use App\Http\Controllers\PemeriksaanPenghantaranController;
 use App\Http\Controllers\PlateCetakController;
 use App\Http\Controllers\PODController;
 use App\Http\Controllers\PrintingProcessController;
@@ -741,11 +741,17 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/Laporan_Pemeriksaan/Create', [Laporan_PemeriksaanController::class, 'Create'])->name('Laporan_Pemeriksaan.create');
     Route::get('/WMS/Laporan_Pemeriksaan/senarai', [Laporan_PemeriksaanController::class, 'senarai'])->name('Laporan_Pemeriksaan.senarai');
 
-    // Pemeriksaan_Penghantaran
-    Route::get('/WMS/Pemeriksaan_Penghantaran', [Pemeriksaan_PenghantaranController::class, 'index'])->name('Pemeriksaan_Penghantaran');
-    Route::get('/WMS/Pemeriksaan_Penghantaran/view', [Pemeriksaan_PenghantaranController::class, 'view'])->name('Pemeriksaan_Penghantaran.view');
-    Route::get('/WMS/Pemeriksaan_Penghantaran/Create', [Pemeriksaan_PenghantaranController::class, 'Create'])->name('Pemeriksaan_Penghantaran.create');
-    Route::get('/WMS/Pemeriksaan_Penghantaran/senarai', [Pemeriksaan_PenghantaranController::class, 'senarai'])->name('Pemeriksaan_Penghantaran.senarai');
+    // Pemeriksaan Penghantaran
+    Route::get('/WMS/pemeriksaan-penghantaran', [PemeriksaanPenghantaranController::class, 'index'])->name('pemeriksaan_penghantaran');
+    Route::get('/WMS/pemeriksaan-penghantaran/data', [PemeriksaanPenghantaranController::class, 'Data'])->name('pemeriksaan_penghantaran.data');
+    Route::get('/WMS/pemeriksaan-penghantaran/Create', [PemeriksaanPenghantaranController::class, 'create'])->name('pemeriksaan_penghantaran.create');
+    Route::post('/WMS/pemeriksaan-penghantaran/store', [PemeriksaanPenghantaranController::class, 'store'])->name('pemeriksaan_penghantaran.store');
+    Route::get('/WMS/pemeriksaan-penghantaran/edit/{id}', [PemeriksaanPenghantaranController::class, 'edit'])->name('pemeriksaan_penghantaran.edit');
+    Route::get('/WMS/pemeriksaan-penghantaran/view/{id}', [PemeriksaanPenghantaranController::class, 'view'])->name('pemeriksaan_penghantaran.view');
+    Route::post('/WMS/pemeriksaan-penghantaran/update/{id}', [PemeriksaanPenghantaranController::class, 'update'])->name('pemeriksaan_penghantaran.update');
+    Route::get('/WMS/pemeriksaan-penghantaran/verify/{id}', [PemeriksaanPenghantaranController::class, 'verify'])->name('pemeriksaan_penghantaran.verify');
+    Route::post('/WMS/pemeriksaan-penghantaran/verify/update/{id}', [PemeriksaanPenghantaranController::class, 'verify_update'])->name('pemeriksaan_penghantaran.verify.update');
+    Route::get('/WMS/pemeriksaan-penghantaran/delete/{id}', [PemeriksaanPenghantaranController::class, 'delete'])->name('pemeriksaan_penghantaran.delete');
 
     // END WMS
 });

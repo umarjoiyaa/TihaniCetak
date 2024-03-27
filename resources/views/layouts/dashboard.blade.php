@@ -859,7 +859,7 @@
 
 
                                     <div class="col-md-5 d-flex justify-content-center ">
-                                        <a href="{{route('Pemeriksaan_Penghantaran')}}">
+                                        <a href="{{route('pemeriksaan_penghantaran')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#f5d98f; ">
 
                                                     <iconify-icon  icon="pepicons-pop:file" width="20"

@@ -401,7 +401,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="{{route('dashboard')}}">Home <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="{{route('dashboard')}}">HOME <span class="sr-only">(current)</span></a>
             </li>
 
             <li class="nav-item dropdown">
@@ -470,7 +470,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Production
+                  PRODUCTION
                 </a>
                 <div class="dropdown-menu">
                   <div class="row">
@@ -540,7 +540,7 @@
                             <a class="dropdown-item" href="{{route('stock_transfer_location')}}">Stock Transfer (Location)</a>
                             <a class="dropdown-item" href="{{route('Laporan_Pemeriksaan')}}"> Laporan Pemeriksaan <br> Akhir, Pembungkusan &
                               <br> Penghantaran ke Stor</a>
-                            <a class="dropdown-item" href="{{route('Pemeriksaan_Penghantaran')}}">Pemeriksaan Penghantaran</a>
+                            <a class="dropdown-item" href="{{route('pemeriksaan_penghantaran')}}">Pemeriksaan Penghantaran</a>
                           </div>
                         </div>
                     </div>
@@ -560,7 +560,7 @@
 
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
-                  Setting
+                    SETTING
                 </a>
                 <div class="dropdown-menu">
                   <div class="row">

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Pemeriksaan_PenghantaranController extends Controller
+class PemeriksaanPenghantaranController extends Controller
 {
     public function index(){
         return view('WMS.Pemeriksaan_Penghantaran.index');

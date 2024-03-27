@@ -480,12 +480,12 @@
                                                             </td>
                                                             <td><button type="button" class="btn btn-primary check_btn"
                                                                     style="border-radius:5px; ">check</button></td>
-                                                            <td><input type="text" name="section[${number}][1][4]"
+                                                            <td><input type="text" style="width:340px;" name="section[${number}][1][4]"
                                                                     class="check_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-primary verify_btn"
                                                                     disabled>Verify</button>
                                                             </td>
-                                                            <td><input type="text" name="section[${number}][1][5]"
+                                                            <td><input type="text" style="width:340px;" name="section[${number}][1][5]"
                                                                     class="verify_operator form-control" readonly></td>
                                                             <td><button type="button" class="btn btn-danger remove d-none"
                                                                     style="border-radius:5px; ">X</button></td>

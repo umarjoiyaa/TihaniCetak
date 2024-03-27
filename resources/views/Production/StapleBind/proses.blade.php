@@ -581,6 +581,7 @@
                     "machine": machine,
                     "status": status,
                     "remarks": $('#pauseRemarks').val(),
+                    "operator": $('#operator').val(),
                 },
                 success: function(data) {
                     $("#msg").html(data.message);

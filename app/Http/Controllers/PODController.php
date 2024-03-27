@@ -112,7 +112,6 @@ class PODController extends Controller
                 $results = $query->where(function ($q) use ($columnsData) {
                     foreach ($columnsData as $column) {
                         $searchLower = strtolower($column['value']);
-
                         switch ($column['index']) {
                             case 1:
                                 $q->where('date', 'like', '%' . $searchLower . '%');
@@ -130,12 +129,12 @@ class PODController extends Controller
                                 break;
                             case 4:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('description', 'like', '%' . $searchLower . '%');
+                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 5:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
-                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
+                                    $query->where('description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 6:

@@ -37,17 +37,17 @@ class PrintingProcessController extends Controller
                         ->whereHas('text', function ($query) use ($searchLower) {
                             $query->where('date', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('customer', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('text', function ($query) use ($searchLower) {
                             $query->where('kuantiti_waste', 'like', '%' . $searchLower . '%');
@@ -99,23 +99,23 @@ class PrintingProcessController extends Controller
                                 });
                                 break;
                             case 2:
-                                $q->whereHas('text', function ($query) use ($searchLower) {
-                                    $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text.sale_order', function ($query) use ($searchLower) {
+                                    $query->where('order_no', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 3:
-                                $q->whereHas('text', function ($query) use ($searchLower) {
-                                    $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text.sale_order', function ($query) use ($searchLower) {
+                                    $query->where('customer', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 4:
-                                $q->whereHas('text', function ($query) use ($searchLower) {
-                                    $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text.sale_order', function ($query) use ($searchLower) {
+                                    $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 5:
-                                $q->whereHas('text', function ($query) use ($searchLower) {
-                                    $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
+                                $q->whereHas('text.sale_order', function ($query) use ($searchLower) {
+                                    $query->where('description', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 6:
@@ -209,17 +209,17 @@ class PrintingProcessController extends Controller
                         ->whereHas('text', function ($query) use ($searchLower) {
                             $query->where('date', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.order_no', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.customer', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('customer', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.kod_buku', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('kod_buku', 'like', '%' . $searchLower . '%');
                         })
-                        ->orWhereHas('text', function ($query) use ($searchLower) {
-                            $query->where('sale_order.description', 'like', '%' . $searchLower . '%');
+                        ->orWhereHas('text.sale_order', function ($query) use ($searchLower) {
+                            $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('text', function ($query) use ($searchLower) {
                             $query->where('kuantiti_waste', 'like', '%' . $searchLower . '%');

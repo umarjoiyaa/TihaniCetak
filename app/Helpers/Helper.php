@@ -339,7 +339,15 @@ class Helper
                 'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Verify QC',
                 'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Transfer to store',
                 'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Receive by store',
-                ]
+            ],
+            'PEMERIKSAAN PENGHANTARAN' => [
+                'PEMERIKSAAN PENGHANTARAN List',
+                'PEMERIKSAAN PENGHANTARAN Create',
+                'PEMERIKSAAN PENGHANTARAN Update',
+                'PEMERIKSAAN PENGHANTARAN View',
+                'PEMERIKSAAN PENGHANTARAN Verify',
+                'PEMERIKSAAN PENGHANTARAN Delete'
+            ]
         ];
 
         $wms_dashboards = [
