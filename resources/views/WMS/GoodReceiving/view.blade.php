@@ -272,7 +272,7 @@
             let datepicker = $('#datepicker').val();
             let item_code = $('.item_code_text').text();
             let description = $('.description_text').text();
-            let quantity = $('.quantity_text').text();
+            let quantity = $(this).closest('tr').find('.receive_qty').val();
             let location = $(this).closest('tr').find('.location option:selected').text();
             let uom = $(this).closest('tr').find('.uom').val();
             let remarks = $(this).closest('tr').find('.remarks').val();
