@@ -37,7 +37,7 @@ class SenariSemakCetakController extends Controller
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
@@ -100,7 +100,7 @@ class SenariSemakCetakController extends Controller
                                 break;
                             case 5:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });;
                                 break;
                             case 6:
@@ -183,7 +183,7 @@ class SenariSemakCetakController extends Controller
                     $q
                     ->where('date', 'like', '%' . $searchLower . '%')
                     ->orWhereHas('user', function ($query) use ($searchLower) {
-                        $query->where('full_name', 'like', '%' . $searchLower . '%');
+                        $query->where('user_name', 'like', '%' . $searchLower . '%');
                     })
                     ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                         $query->where('order_no', 'like', '%' . $searchLower . '%');

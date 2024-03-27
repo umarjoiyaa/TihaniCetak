@@ -360,7 +360,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -372,7 +372,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         foreach ($pembantuIds as $pembantuId) {
             $pembantu = User::find($pembantuId);
             if ($pembantu) {
-               $pembantuNames[] = $pembantu->full_name;
+               $pembantuNames[] = $pembantu->user_name;
             }
         }
 
@@ -480,7 +480,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -492,7 +492,7 @@ class LaporanProsesPenjilidanSaddleController extends Controller
         foreach ($pembantuIds as $pembantuId) {
             $pembantu = User::find($pembantuId);
             if ($pembantu) {
-               $pembantuNames[] = $pembantu->full_name;
+               $pembantuNames[] = $pembantu->user_name;
             }
         }
 

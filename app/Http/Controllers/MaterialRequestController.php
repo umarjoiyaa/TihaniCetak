@@ -43,7 +43,7 @@ class MaterialRequestController extends Controller
                         })
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -97,7 +97,7 @@ class MaterialRequestController extends Controller
                                 break;
                             case 5:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 6:
@@ -177,7 +177,7 @@ class MaterialRequestController extends Controller
                         })
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed

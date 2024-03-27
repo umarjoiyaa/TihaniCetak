@@ -106,7 +106,7 @@ class RekodSerahanPlateController extends Controller
                                 break;
                             case 9:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             default:
@@ -289,7 +289,7 @@ class RekodSerahanPlateController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -375,7 +375,7 @@ class RekodSerahanPlateController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 

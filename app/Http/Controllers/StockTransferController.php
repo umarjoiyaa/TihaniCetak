@@ -46,7 +46,7 @@ class StockTransferController extends Controller
                         })
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         });
                     // Add more columns as needed
                 });
@@ -104,7 +104,7 @@ class StockTransferController extends Controller
                                 break;
                             case 6:
                                 $q->whereHas('user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             default:
@@ -183,7 +183,7 @@ class StockTransferController extends Controller
                         })
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         });
                     // Add more columns as needed
                 });

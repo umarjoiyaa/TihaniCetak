@@ -325,7 +325,7 @@ class LaporanProsesLipatController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -455,7 +455,7 @@ class LaporanProsesLipatController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 

@@ -52,10 +52,10 @@ class ManageTransferController extends Controller
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('material_request.user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed
@@ -114,12 +114,12 @@ class ManageTransferController extends Controller
                                 break;
                             case 5:
                                 $q->whereHas('material_request.user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 6:
                                 $q->whereHas('material_request.user', function ($query) use ($searchLower) {
-                                    $query->where('full_name', 'like', '%' . $searchLower . '%');
+                                    $query->where('user_name', 'like', '%' . $searchLower . '%');
                                 });
                                 break;
                             case 7:
@@ -197,10 +197,10 @@ class ManageTransferController extends Controller
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('material_request.user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhere('status', 'like', '%' . $searchLower . '%');
                     // Add more columns as needed

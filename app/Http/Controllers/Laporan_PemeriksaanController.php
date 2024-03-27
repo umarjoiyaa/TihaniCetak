@@ -38,7 +38,7 @@ class Laporan_PemeriksaanController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -196,7 +196,7 @@ class Laporan_PemeriksaanController extends Controller
                     $q
                         ->where('date', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
-                            $query->where('full_name', 'like', '%' . $searchLower . '%');
+                            $query->where('user_name', 'like', '%' . $searchLower . '%');
                         })
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
@@ -334,7 +334,7 @@ class Laporan_PemeriksaanController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -346,7 +346,7 @@ class Laporan_PemeriksaanController extends Controller
         foreach ($pembantuIds as $pembantuId) {
             $pembantu = User::find($pembantuId);
             if ($pembantu) {
-               $pembantuNames[] = $pembantu->full_name;
+               $pembantuNames[] = $pembantu->user_name;
             }
         }
 
@@ -564,7 +564,7 @@ class Laporan_PemeriksaanController extends Controller
         foreach ($userIds as $userId) {
             $user = User::find($userId);
             if ($user) {
-               $userNames[] = $user->full_name;
+               $userNames[] = $user->user_name;
             }
         }
 
@@ -576,7 +576,7 @@ class Laporan_PemeriksaanController extends Controller
         foreach ($pembantuIds as $pembantuId) {
             $pembantu = User::find($pembantuId);
             if ($pembantu) {
-               $pembantuNames[] = $pembantu->full_name;
+               $pembantuNames[] = $pembantu->user_name;
             }
         }
 
