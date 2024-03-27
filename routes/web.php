@@ -733,8 +733,13 @@ Route::middleware('auth')->group(function () {
 
     // Laporan_Pemeriksaan
     Route::get('/WMS/Laporan_Pemeriksaan', [Laporan_PemeriksaanController::class, 'index'])->name('Laporan_Pemeriksaan');
+    Route::get('/WMS/Laporan_Pemeriksaan/data', [Laporan_PemeriksaanController::class, 'Data'])->name('Laporan_Pemeriksaan.data');
     Route::get('/WMS/Laporan_Pemeriksaan/view', [Laporan_PemeriksaanController::class, 'view'])->name('Laporan_Pemeriksaan.view');
-    Route::post('/WMS/Laporan_Pemeriksaan/store', [Laporan_PemeriksaanController::class, 'SenariStore'])->name('laporan_pemeriksaan.senari_store');
+    Route::post('/WMS/Laporan_Pemeriksaan/store', [Laporan_PemeriksaanController::class, 'store'])->name('laporan_pemeriksaan.store');
+    Route::get('/WMS/Laporan_Pemeriksaan/edit/{id}', [Laporan_PemeriksaanController::class, 'edit'])->name('laporan_pemeriksaan.edit');
+    Route::get('/WMS/Laporan_Pemeriksaan/view/{id}', [Laporan_PemeriksaanController::class, 'view'])->name('laporan_pemeriksaan.view');
+    Route::get('/WMS/Laporan_Pemeriksaan/delete/{id}', [Laporan_PemeriksaanController::class, 'delete'])->name('laporan_pemeriksaan.delete');
+    Route::post('/WMS/Laporan_Pemeriksaan/update/{$id}', [Laporan_PemeriksaanController::class, 'update'])->name('laporan_pemeriksaan.update');
     Route::get('/WMS/Laporan_Pemeriksaan/Create', [Laporan_PemeriksaanController::class, 'Create'])->name('Laporan_Pemeriksaan.create');
     Route::get('/WMS/Laporan_Pemeriksaan/senarai', [Laporan_PemeriksaanController::class, 'senarai'])->name('Laporan_Pemeriksaan.senarai');
 
