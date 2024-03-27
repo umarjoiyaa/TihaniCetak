@@ -343,7 +343,9 @@ class Helper
         ];
 
         $wms_dashboards = [
-
+            'INVENTORY SHOPFLOOR' => [
+                'INVENTORY SHOPFLOOR View',
+            ],
         ];
 
         $reports = [
