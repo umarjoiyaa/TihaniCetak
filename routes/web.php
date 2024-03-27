@@ -16,7 +16,7 @@ use App\Http\Controllers\LaporanPemeriksaanKualitiController;
 use App\Http\Controllers\Laporan_PemeriksaanController;
 use App\Http\Controllers\GoodReceivingController;
 use App\Http\Controllers\InventoryReportController;
-use App\Http\Controllers\invertory_ShopFloorController;
+use App\Http\Controllers\InvertoryShopfloorController;
 use App\Http\Controllers\LaporanPemeriksaanKualitiPenjilidanController;
 use App\Http\Controllers\KulitBukuController;
 use App\Http\Controllers\LaporanProsesPenjilidanController;
@@ -664,16 +664,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/WMS/Subcon_Monitoring_Report/Create', [Subcon_monitorimg_report_Controller::class, 'Create'])->name('Sub_monitring_report.create');
 
     //invertory_ShopFloor
-    Route::get('/WMS/invertory_ShopFloor', [invertory_ShopFloorController::class, 'index'])->name('invertory_ShopFloor');
-    Route::get('/WMS/invertory_ShopFloor/view', [invertory_ShopFloorController::class, 'view'])->name('invertory_ShopFloor.view');
-    Route::get('/WMS/invertory_ShopFloor/Create', [invertory_ShopFloorController::class, 'Create'])->name('invertory_ShopFloor.create');
+    Route::get('/WMS/inventory-shopfloor', [InvertoryShopfloorController::class, 'index'])->name('inventory_shopfloor');
+    Route::get('/WMS/inventory-shopfloor/generate', [InvertoryShopfloorController::class, 'generate'])->name('inventory_shopfloor.generate');
 
     //Good Receiving
-    Route::get('/WMS/GoodReceiving', [GoodReceivingController::class, 'index'])->name('good_receiving');
-    Route::get('/WMS/GoodReceiving/data', [GoodReceivingController::class, 'Data'])->name('good_receiving.data');
-    Route::get('/WMS/GoodReceiving/view/{id}', [GoodReceivingController::class, 'view'])->name('good_receiving.view');
-    Route::get('/WMS/GoodReceiving/receive/{id}', [GoodReceivingController::class, 'receive'])->name('good_receiving.receive');
-    Route::post('/WMS/GoodReceiving/receive/update/{id}', [GoodReceivingController::class, 'receive_update'])->name('good_receiving.receive.update');
+    Route::get('/WMS/good-receiving', [GoodReceivingController::class, 'index'])->name('good_receiving');
+    Route::get('/WMS/good-receiving/data', [GoodReceivingController::class, 'Data'])->name('good_receiving.data');
+    Route::get('/WMS/good-receiving/view/{id}', [GoodReceivingController::class, 'view'])->name('good_receiving.view');
+    Route::get('/WMS/good-receiving/receive/{id}', [GoodReceivingController::class, 'receive'])->name('good_receiving.receive');
+    Route::post('/WMS/good-receiving/receive/update/{id}', [GoodReceivingController::class, 'receive_update'])->name('good_receiving.receive.update');
 
     // Material Requesst
     Route::get('/WMS/material-request', [MaterialRequestController::class, 'index'])->name('material_request');
