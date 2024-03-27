@@ -319,6 +319,7 @@ class GoodReceivingController extends Controller
         $good_receiving->save();
 
         $history = new GoodReceivingHistory();
+        $history->receiving_id = $id;
         $history->date = Carbon::now('Asia/Kuala_Lumpur')->format('d-m-Y h:i:s A');
         $history->user = Auth::user()->user_name;
         $history->designation = (Auth::user()->designations != null) ? Auth::user()->designations->name : 'not assign';
