@@ -349,9 +349,15 @@ class Helper
         ];
 
         $reports = [
+            'STOCK CARD REPORT' => [
+                'STOCK CARD REPORT View',
+            ],
             'INVENTORY REPORT' => [
                 'INVENTORY REPORT View',
             ],
+            'SUBCON MONITORING REPORT' => [
+                'SUBCON MONITORING REPORT View',
+            ]
         ];
 
         $administrations = [

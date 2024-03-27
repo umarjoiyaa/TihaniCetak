@@ -296,7 +296,9 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Transfer to store',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Receive by store',
             'INVENTORY SHOPFLOOR View',
-            'INVENTORY REPORT View'
+            'INVENTORY REPORT View',
+            'STOCK CARD REPORT View',
+            'SUBCON MONITORING REPORT View'
          ];
 
         foreach ($permissions as $permission) {

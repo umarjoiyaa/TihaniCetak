@@ -827,7 +827,7 @@
                                                         style="color: white; border-radius:5px;">Report</div>
                                                     <ul>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('StockCard_report') }}"
+                                                                href="{{ route('stock_card_report') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Stock Card
@@ -839,7 +839,7 @@
                                                                     style="color: #a41843"></iconify-icon> Inventory
                                                                 Report - By Location</a></li>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('Sub_monitring_report') }}"
+                                                                href="{{ route('sub_monitoring_report') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Subcon

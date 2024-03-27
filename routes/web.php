@@ -49,8 +49,8 @@ use App\Http\Controllers\ShopFloorController;
 use App\Http\Controllers\StockInController;
 use App\Http\Controllers\StockTransferLocationController;
 use App\Http\Controllers\StockTransferController;
-use App\Http\Controllers\StockCard_ReportController;
-use App\Http\Controllers\Subcon_monitorimg_report_Controller;
+use App\Http\Controllers\StockCardReportController;
+use App\Http\Controllers\SubconMonitoringReportController;
 use App\Http\Controllers\UomController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\DashboardController;
@@ -649,19 +649,17 @@ Route::middleware('auth')->group(function () {
 
     // START WMS
 
-    //StockCard Report
-    Route::get('/WMS/StockCard_report', [StockCard_ReportController::class, 'index'])->name('StockCard_report');
-    Route::get('/WMS/StockCard_report/view', [StockCard_ReportController::class, 'view'])->name('StockCard_report.view');
-    Route::get('/WMS/StockCard_report/Create', [StockCard_ReportController::class, 'Create'])->name('StockCard_report.create');
+    //Stock Card Report
+    Route::get('/WMS/stock-card-report', [StockCardReportController::class, 'index'])->name('stock_card_report');
+    Route::get('/WMS/stock-card-report/generate', [StockCardReportController::class, 'generate'])->name('stock_card_report.generate');
 
     //Invertory Report
-    Route::get('/WMS/InvertoryReport', [InventoryReportController::class, 'index'])->name('inventory_report');
-    Route::get('/WMS/InvertoryReport/generate', [InventoryReportController::class, 'generate'])->name('inventory_report.generate');
+    Route::get('/WMS/invertory-report', [InventoryReportController::class, 'index'])->name('inventory_report');
+    Route::get('/WMS/invertory-report/generate', [InventoryReportController::class, 'generate'])->name('inventory_report.generate');
 
     //Subcon Monitoring Report
-    Route::get('/WMS/Subcon_Monitoring_Report', [Subcon_monitorimg_report_Controller::class, 'index'])->name('Sub_monitring_report');
-    Route::get('/WMS/Subcon_Monitoring_Report/view', [Subcon_monitorimg_report_Controller::class, 'view'])->name('Sub_monitring_report.view');
-    Route::get('/WMS/Subcon_Monitoring_Report/Create', [Subcon_monitorimg_report_Controller::class, 'Create'])->name('Sub_monitring_report.create');
+    Route::get('/WMS/subcon-monitoring-report', [SubconMonitoringReportController::class, 'index'])->name('sub_monitoring_report');
+    Route::get('/WMS/subcon-monitoring-report/generate', [SubconMonitoringReportController::class, 'generate'])->name('sub_monitoring_report.generate');
 
     //invertory_ShopFloor
     Route::get('/WMS/inventory-shopfloor', [InvertoryShopfloorController::class, 'index'])->name('inventory_shopfloor');

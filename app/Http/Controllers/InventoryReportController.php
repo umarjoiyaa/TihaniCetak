@@ -20,7 +20,7 @@ class InventoryReportController extends Controller
         $areas = Area::select('id', 'name')->get();
         $shelfs = AreaShelf::select('id', 'name')->get();
         $levels = AreaLevel::select('id', 'name')->get();
-        return view("WMS.InvertoryReport.index", compact('products', 'areas', 'shelfs', 'levels'));
+        return view("WMS.InventoryReport.index", compact('products', 'areas', 'shelfs', 'levels'));
     }
 
     public function generate(Request $request){

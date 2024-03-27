@@ -550,9 +550,9 @@
                     </div>
                     <div class="col-sm-3">
                       <h6 class="pl-3 pt-3"><b>Report</b></h6>
-                      <a class="dropdown-item" href="{{route('StockCard_report')}}">Stock Card Report</a>
+                      <a class="dropdown-item" href="{{route('stock_card_report')}}">Stock Card Report</a>
                       <a class="dropdown-item" href="{{route('inventory_report')}}">Inventory Report -  By Location</a>
-                      <a class="dropdown-item" href="{{route('Sub_monitring_report')}}">Subcon Monitoring Report</a>
+                      <a class="dropdown-item" href="{{route('sub_monitoring_report')}}">Subcon Monitoring Report</a>
                     </div>
                   </div>
                 </div>
