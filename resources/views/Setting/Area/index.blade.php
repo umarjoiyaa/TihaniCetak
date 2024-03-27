@@ -15,7 +15,7 @@
                         <a href="{{ route('area.create') }}" class="btn btn-primary  mb-3">Create</a>
                     </div>
                     <div class="table-responsive">
-                        <table class="table text-md-nowrap datatable">
+                        <table class="table datatable">
                             <thead>
                                 <tr>
                                     <th class="wd-15p border-bottom-0">Sr.</th>

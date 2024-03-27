@@ -7,7 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=0'>
 
     <!-- Title -->
-    <title> Tihani Cetak </title>
+    <title> TIHANI CETAK </title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('assets/img/tihani.png') }}" type="image/x-icon" />
