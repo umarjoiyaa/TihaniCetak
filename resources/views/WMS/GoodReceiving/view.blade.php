@@ -129,8 +129,11 @@
                         <div>Quantity: <span class="quantity_text"></span></div>
                     </div>
                     <div class="row d-flex justify-content-between">
-                        <div>Description: <span class="description_text"></span> UOM: <span class="uom_text"></span></div>
+                        <div>Description: <span class="description_text"></span></div>
                         <div>Receive Quantity: <span class="receive_quantity_text"></span></div>
+                    </div>
+                    <div class="row">
+                        <div>UOM: <span class="uom_text"></span></div>
                     </div>
                     <br>
                     <div class="table-responsive">
@@ -274,7 +277,7 @@
             let description = $('.description_text').text();
             let quantity = $(this).closest('tr').find('.receive_qty').val();
             let location = $(this).closest('tr').find('.location option:selected').text();
-            let uom = $(this).closest('tr').find('.uom').val();
+            let uom = $('.uom_text').val();
             let remarks = $(this).closest('tr').find('.remarks').val();
 
             var htmlContent = `

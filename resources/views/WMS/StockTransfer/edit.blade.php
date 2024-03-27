@@ -547,6 +547,7 @@
                 rowData['hiddenId'] = hiddenId;
                 data.push(rowData);
             });
+            sessionStorage.removeItem(`modalData${hiddenId}`);
             sessionStorage.setItem(`modalData${hiddenId}`, JSON.stringify(data));
             $('#Table tbody tr').each(function() {
                 if ($(this).find('.hiddenId').val() == hiddenId) {

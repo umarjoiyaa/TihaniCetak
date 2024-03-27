@@ -694,6 +694,7 @@
                         rowData['tableId'] = tableId;
                         data.push(rowData);
                     });
+                    sessionStorage.removeItem(`modalData${hiddenId}`);
                     sessionStorage.setItem(`modalData${hiddenId}`, JSON.stringify(data));
                     if (tableId == 1) {
                         $('#table1 tr').each(function() {

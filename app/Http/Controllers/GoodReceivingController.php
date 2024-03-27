@@ -247,7 +247,7 @@ class GoodReceivingController extends Controller
 
         $good_receiving = GoodReceiving::find($id);
         $details = GoodReceivingProduct::where('receiving_id', '=', $id)->get();
-        $detailIds = $details->pluck('id')->toArray();
+        $detailIds = $details->pluck('product_id')->toArray();
 
         $existingDetails = GoodReceivingLocation::whereIn('product_id', $detailIds)->get();
 
