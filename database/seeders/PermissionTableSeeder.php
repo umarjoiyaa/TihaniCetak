@@ -295,6 +295,7 @@ class PermissionTableSeeder extends Seeder
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Verify QC',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Transfer to store',
             'LAPORAN PEMERIKSAAN AKHIR, PEMBUNGKISAN DAN PENGHANTARAN KE STOR Receive by store',
+            'INVENTORY SHOPFLOOR View',
             'INVENTORY REPORT View'
          ];
 
