@@ -36,74 +36,77 @@
                             </select>
                         </div>
                     </div>
-                    <div class="row">
-                        <table class="table mt-2 datatable w-100">
-                            <thead>
-                                <tr>
-                                    <td>Sr.</td>
-                                    <td>Item code</td>
-                                    <td>Description</td>
-                                    <td>UOM</td>
-                                    <td>Quantity</td>
-                                    <td>Receiving Quantity</td>
-                                    <td>Delivery date</td>
-                                    <td>Action</td>
-                                </tr>
-                            </thead>
-                            <tbody id="productsTable">
-                                @foreach ($good_receiving_products as $good_receiving_product)
-                                    <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $good_receiving_product->products->item_code }}</td>
-                                        <td>{{ $good_receiving_product->products->description }}</td>
-                                        <td>{{ $good_receiving_product->products->base_uom }}</td>
-                                        <td>{{ $good_receiving_product->quantity }}</td>
-                                        <td><input type="number" value="{{ $good_receiving_product->receiving_qty ?? 0 }}"
-                                                readonly class="form-control receiving_qty">
-                                        </td>
-                                        <td>{{ $good_receiving_product->delivery_date }}</td>
-                                        <td>
-                                            <input type="hidden" class="hiddenId"
-                                                value="{{ $good_receiving_product->product_id }}">
-                                            <button type="button" class="btn btn-primary openModal" data-toggle="modal"
-                                                data-target="#exampleModal">+</button>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="row">
-                        <div class="row mt-5">
-                            <div class="col-md-12">
-                                <h3><b>Received By</b></h3>
-                            </div>
-                            <div class="col-md-12">
-                                <table class="table datatable table-bordered">
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="table-responsive">
+                                <table class="table mt-2 datatable w-100">
                                     <thead>
                                         <tr>
-                                            <th>Date</th>
-                                            <th>Username</th>
-                                            <th>Desgination</th>
-                                            <th>Department</th>
+                                            <td>Sr.</td>
+                                            <td>Item code</td>
+                                            <td>Description</td>
+                                            <td>UOM</td>
+                                            <td>Quantity</td>
+                                            <td>Receiving Quantity</td>
+                                            <td>Delivery date</td>
+                                            <td>Action</td>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        @foreach ($histories as $history)
+                                    <tbody id="productsTable">
+                                        @foreach ($good_receiving_products as $good_receiving_product)
                                             <tr>
-                                                <td>{{ $history->date }}
+                                                <td>{{ $loop->iteration }}</td>
+                                                <td>{{ $good_receiving_product->products->item_code }}</td>
+                                                <td>{{ $good_receiving_product->products->description }}</td>
+                                                <td>{{ $good_receiving_product->products->base_uom }}</td>
+                                                <td>{{ $good_receiving_product->quantity }}</td>
+                                                <td><input type="number"
+                                                        value="{{ $good_receiving_product->receiving_qty ?? 0 }}" readonly
+                                                        class="form-control receiving_qty">
                                                 </td>
-                                                <td>{{ $history->user }}
-                                                </td>
-                                                <td>{{ $history->designation }}
-                                                </td>
-                                                <td>{{ $history->department }}
+                                                <td>{{ $good_receiving_product->delivery_date }}</td>
+                                                <td>
+                                                    <input type="hidden" class="hiddenId"
+                                                        value="{{ $good_receiving_product->product_id }}">
+                                                    <button type="button" class="btn btn-primary openModal"
+                                                        data-toggle="modal" data-target="#exampleModal">+</button>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
                                 </table>
                             </div>
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-md-12">
+                            <h3><b>Received By</b></h3>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table datatable w-100 table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Username</th>
+                                        <th>Desgination</th>
+                                        <th>Department</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($histories as $history)
+                                        <tr>
+                                            <td>{{ $history->date }}
+                                            </td>
+                                            <td>{{ $history->user }}
+                                            </td>
+                                            <td>{{ $history->designation }}
+                                            </td>
+                                            <td>{{ $history->department }}
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
