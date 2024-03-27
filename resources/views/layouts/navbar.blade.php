@@ -546,7 +546,7 @@
                     </div>
                     <div class="col-sm-3">
                       <h6 class="pl-3 pt-3"><b>Dashboard</b></h6>
-                      <a class="dropdown-item" href="{{route('invertory_ShopFloor')}}">Inventory Shopfloor</a>
+                      <a class="dropdown-item" href="{{route('inventory_shopfloor')}}">Inventory Shopfloor</a>
                     </div>
                     <div class="col-sm-3">
                       <h6 class="pl-3 pt-3"><b>Report</b></h6>

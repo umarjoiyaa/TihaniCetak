@@ -815,7 +815,7 @@
                                                         style="color: white; border-radius:5px;">Dashboard</div>
                                                     <ul>
                                                         <li aria-haspopup="true"><a
-                                                                href="{{ route('invertory_ShopFloor') }}"
+                                                                href="{{ route('inventory_shopfloor') }}"
                                                                 class="slide-item"><iconify-icon
                                                                     icon="ph:arrow-square-right" width="17"
                                                                     style="color: #a41843"></iconify-icon> Inventory

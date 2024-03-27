@@ -926,7 +926,7 @@
                                     </div>
 
                                     <div class="col-md-3 ">
-                                        <a href="{{route('invertory_ShopFloor')}}">
+                                        <a href="{{route('inventory_shopfloor')}}">
                                             <div class="card p-2" style="border-radius:17px;background:#e6b4a0; ">
 
                                                     <iconify-icon  icon="pepicons-pop:file" width="20"
