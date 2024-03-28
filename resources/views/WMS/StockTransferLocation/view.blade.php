@@ -29,7 +29,7 @@
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
                                         <input type="text" class="form-control"
-                                            value="{{ $stock_transfer_location->sale_order->order_no }}">
+                                            value="{{ $stock_transfer_location->sale_order->order_no ?? $stock_transfer_location->sale_order_other }}">
                                     </div>
                                 </div>
                                 <div class="col-md-4 mt-3">

@@ -48,6 +48,7 @@ class ManageTransferController extends Controller
                         ->orWhereHas('material_request.sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('material_request.sale_order_other', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('material_request', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
@@ -105,7 +106,7 @@ class ManageTransferController extends Controller
                             case 3:
                                 $q->whereHas('material_request.sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
-                                });
+                                })->orWhere('material_request.sale_order_other', 'like', '%' . $searchLower . '%');
                                 break;
                             case 4:
                                 $q->whereHas('material_request', function ($query) use ($searchLower) {
@@ -193,6 +194,7 @@ class ManageTransferController extends Controller
                         ->orWhereHas('material_request.sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('material_request.sale_order_other', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('material_request', function ($query) use ($searchLower) {
                             $query->where('description', 'like', '%' . $searchLower . '%');
                         })
@@ -277,15 +279,22 @@ class ManageTransferController extends Controller
         if (!Auth::user()->hasPermissionTo('MANAGE TRANSFER Create')) {
             return back()->with('custom_errors', 'You don`t have Right Permission');
         }
-        $ref_nos = MaterialRequest::whereHas('manageTransfer', function($query) {
-            $query->whereHas('manageTransferProductA', function($subQueryA) {
+        $ref_nos = MaterialRequest::select('material_requests.*')
+        ->leftJoin('manage_transfers', 'material_requests.id', '=', 'manage_transfers.request_id')
+        ->where(function ($query) {
+            $query->whereHas('manageTransfer.manageTransferProductA', function ($subQueryA) {
                 $subQueryA->where('remaining_qty', '>', 0);
-            })->orWhereHas('manageTransferProductB', function($subQueryB) {
+            })
+            ->orWhereHas('manageTransfer.manageTransferProductB', function ($subQueryB) {
                 $subQueryB->where('remaining_qty', '>', 0);
-            })->orWhereHas('manageTransferProductC', function($subQueryC) {
+            })
+            ->orWhereHas('manageTransfer.manageTransferProductC', function ($subQueryC) {
                 $subQueryC->where('remaining_qty', '>', 0);
             });
-        })->get();
+        })
+        ->orWhereNull('manage_transfers.id')
+        ->orWhereNull('material_requests.id')
+        ->get();
         $locations = AreaLocation::select('area_id', 'shelf_id', 'level_id')->with('area', 'shelf', 'level')->get();
         Helper::logSystemActivity('MANAGE TRANSFER', 'MANAGE TRANSFER Create');
         return view('WMS.ManageTransfer.create', compact('ref_nos', 'locations'));

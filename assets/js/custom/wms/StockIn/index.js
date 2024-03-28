@@ -44,12 +44,12 @@ $(document).ready(function () {
                 name: 'description',
             },
             {
-                data: 'transfer_user.full_name',
-                name: 'transfer_user.full_name',
+                data: 'transfer_user.user_name',
+                name: 'transfer_user.user_name',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'action',
@@ -109,12 +109,12 @@ function AjaxCall(columnsData) {
                 name: 'description',
             },
             {
-                data: 'transfer_user.full_name',
-                name: 'transfer_user.full_name',
+                data: 'transfer_user.user_name',
+                name: 'transfer_user.user_name',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'action',

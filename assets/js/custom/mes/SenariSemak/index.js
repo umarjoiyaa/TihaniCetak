@@ -46,8 +46,8 @@ $(document).ready(function () {
                 name: 'date',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'status',
@@ -113,8 +113,8 @@ function AjaxCall(columnsData) {
                 name: 'date',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'status',

@@ -37,14 +37,21 @@ $(document).ready(function () {
             {
                 data: 'material_request.sale_order.order_no',
                 name: 'material_request.sale_order.order_no',
+                render: function (data, type, row) {
+                    if (data === null) {
+                        return row.sale_order_other;
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: 'material_request.description',
                 name: 'material_request.description',
             },
             {
-                data: 'material_request.user.full_name',
-                name: 'material_request.user.full_name',
+                data: 'material_request.user.user_name',
+                name: 'material_request.user.user_name',
             },
             {
                 data: 'status',
@@ -101,14 +108,21 @@ function AjaxCall(columnsData) {
             {
                 data: 'material_request.sale_order.order_no',
                 name: 'material_request.sale_order.order_no',
+                render: function (data, type, row) {
+                    if (data === null) {
+                        return row.sale_order_other;
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: 'material_request.description',
                 name: 'material_request.description',
             },
             {
-                data: 'material_request.user.full_name',
-                name: 'material_request.user.full_name',
+                data: 'material_request.user.user_name',
+                name: 'material_request.user.user_name',
             },
             {
                 data: 'status',

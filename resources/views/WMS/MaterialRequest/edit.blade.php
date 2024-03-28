@@ -40,11 +40,11 @@
                                     <div class="col-md-4 mt-3">
                                         <div class="form-group">
                                             <div class="label">Sales Order No.</div>
-                                            <select name="sale_order" data-id="{{ $material_request->sale_order_id }}"
+                                            <select name="sale_order" data-id="{{ $material_request->sale_order_id ?? $material_request->sale_order_other }}"
                                                 id="sale_order" class="form-control">
-                                                <option value="{{ $material_request->sale_order_id }}" selected
+                                                <option value="{{ $material_request->sale_order_id ?? $material_request->sale_order_other }}" selected
                                                     style="color: black; !important">
-                                                    {{ $material_request->sale_order->order_no }}
+                                                    {{ $material_request->sale_order->order_no ?? $material_request->sale_order_other }}
                                                 </option>
                                             </select>
                                         </div>
@@ -443,6 +443,12 @@
                 },
                 processResults: function(data, params) {
                     params.page = params.page || 1;
+
+                    var otherOption = {
+                        id: 'OTHERS',
+                        order_no: 'OTHERS'
+                    };
+                    data.results.unshift(otherOption);
 
                     return {
                         results: data.results,

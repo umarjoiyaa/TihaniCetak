@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('sale_order_id')->nullable();
             $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
+            $table->string('sale_order_other')->nullable();
             $table->unsignedBigInteger('transfer_by')->nullable();
             $table->foreign('transfer_by')->references('id')->on('users')->nullable();
             $table->string('ref_no')->nullable();

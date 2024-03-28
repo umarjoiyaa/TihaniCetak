@@ -512,7 +512,7 @@
                     "id": id
                 },
                 success: function(data) {
-                    $('#sale_order').val(data.material.sale_order.order_no);
+                    $('#sale_order').val(`${data.material.sale_order ? data.material.sale_order.order_no : data.material.sale_order_other }`);
                     $('#description').val(data.material.description);
                     $('#oleh').val(data.material.user.user_name);
 
@@ -538,8 +538,8 @@
                                     ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}
                                 </td>
                                 <td>
-                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}' name="kertas[${$length}][balance_qty]"/>
-                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : 0}
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : element.request_qty}' name="kertas[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_a[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_a[0].transfer_qty : element.request_qty}
                                 </td>
                                 <td><input type="number" readonly class="form-control transfer_qty" name="kertas[${$length}][transfer_qty]" value="0"/></td>
                                 <td>
@@ -578,8 +578,8 @@
                                     ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}
                                 </td>
                                 <td>
-                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}' name="bahan[${$length}][balance_qty]"/>
-                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : 0}
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : element.request_qty}' name="bahan[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_b[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_b[0].transfer_qty : element.request_qty}
                                 </td>
                                 <td><input type="number" readonly class="form-control transfer_qty" name="bahan[${$length}][transfer_qty]" value="0"/></td>
                                 <td>
@@ -618,8 +618,8 @@
                                     ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}
                                 </td>
                                 <td>
-                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}' name="wip[${$length}][balance_qty]"/>
-                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : 0}
+                                    <input type='hidden' class="balance_qty" value='${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : element.request_qty}' name="wip[${$length}][balance_qty]"/>
+                                    ${element.manage_transfer && element.manage_transfer.manage_transfer_product_c[0] ? +element.request_qty - +element.manage_transfer.manage_transfer_product_c[0].transfer_qty : element.request_qty}
                                 </td>
                                 <td><input type="number" readonly class="form-control transfer_qty" name="wip[${$length}][transfer_qty]" value="0"/></td>
                                 <td>

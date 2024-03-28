@@ -29,7 +29,7 @@ class MaterialRequestController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = MaterialRequest::select('id', 'sale_order_id', 'date', 'ref_no', 'status', 'description', 'created_by')->with('sale_order', 'user');
+            $query = MaterialRequest::select('id', 'sale_order_id', 'date', 'ref_no', 'status', 'description', 'created_by', 'sale_order_other')->with('sale_order', 'user');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -41,6 +41,7 @@ class MaterialRequestController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('sale_order_other', 'like', '%' . $searchLower . '%')
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
@@ -90,7 +91,7 @@ class MaterialRequestController extends Controller
                             case 3:
                                 $q->whereHas('sale_order', function ($query) use ($searchLower) {
                                     $query->where('order_no', 'like', '%' . $searchLower . '%');
-                                });
+                                })->orWhere('sale_order_other', 'like', '%' . $searchLower . '%');
                                 break;
                             case 4:
                                 $q->where('description', 'like', '%' . $searchLower . '%');
@@ -163,7 +164,7 @@ class MaterialRequestController extends Controller
             $orderByColumnIndex = $request->input('order.0.column'); // Get the index of the column to sort by
             $orderByDirection = $request->input('order.0.dir'); // Get the sort direction ('asc' or 'desc')
 
-            $query = MaterialRequest::select('id', 'sale_order_id', 'date', 'ref_no', 'status', 'description', 'created_by')->with('sale_order', 'user');
+            $query = MaterialRequest::select('id', 'sale_order_id', 'date', 'ref_no', 'status', 'description', 'created_by', 'sale_order_other')->with('sale_order', 'user');
 
             // Apply search if a search term is provided
             if (!empty($search)) {
@@ -175,6 +176,7 @@ class MaterialRequestController extends Controller
                         ->orWhereHas('sale_order', function ($query) use ($searchLower) {
                             $query->where('order_no', 'like', '%' . $searchLower . '%');
                         })
+                        ->orWhere('sale_order_other', 'like', '%' . $searchLower . '%')
                         ->orWhere('description', 'like', '%' . $searchLower . '%')
                         ->orWhereHas('user', function ($query) use ($searchLower) {
                             $query->where('user_name', 'like', '%' . $searchLower . '%');
@@ -307,7 +309,11 @@ class MaterialRequestController extends Controller
         }
 
         $material_request = new MaterialRequest();
-        $material_request->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $material_request->sale_order_other = $request->sale_order;
+        }else{
+            $material_request->sale_order_id = $request->sale_order;
+        }
         $material_request->date = $request->date;
         $material_request->ref_no = $request->ref_no;
         $material_request->description = $request->description;
@@ -418,7 +424,11 @@ class MaterialRequestController extends Controller
         }
 
         $material_request = MaterialRequest::find($id);
-        $material_request->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $material_request->sale_order_other = $request->sale_order;
+        }else{
+            $material_request->sale_order_id = $request->sale_order;
+        }
         $material_request->date = $request->date;
         $material_request->ref_no = $request->ref_no;
         $material_request->description = $request->description;

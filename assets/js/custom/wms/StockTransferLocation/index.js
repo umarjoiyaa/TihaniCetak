@@ -44,8 +44,8 @@ $(document).ready(function () {
                 name: 'description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'action',
@@ -105,8 +105,8 @@ function AjaxCall(columnsData) {
                 name: 'description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'action',

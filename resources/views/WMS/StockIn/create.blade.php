@@ -215,6 +215,12 @@
                 processResults: function(data, params) {
                     params.page = params.page || 1;
 
+                    var otherOption = {
+                        id: 'OTHERS',
+                        order_no: 'OTHERS'
+                    };
+                    data.results.unshift(otherOption);
+                    
                     return {
                         results: data.results,
                         pagination: {

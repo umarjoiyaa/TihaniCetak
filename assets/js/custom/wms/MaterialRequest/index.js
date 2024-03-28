@@ -35,16 +35,23 @@ $(document).ready(function () {
                 name: 'date',
             },
             {
-                data: 'sale_order.order_no',
+                data: 'sale_order',
                 name: 'sale_order.order_no',
+                render: function (data, type, row) {
+                    if (data === null) {
+                        return row.sale_order_other;
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: 'description',
                 name: 'description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'status',
@@ -99,16 +106,23 @@ function AjaxCall(columnsData) {
                 name: 'date',
             },
             {
-                data: 'sale_order.order_no',
+                data: 'sale_order',
                 name: 'sale_order.order_no',
+                render: function (data, type, row) {
+                    if (data === null) {
+                        return row.sale_order_other;
+                    } else {
+                        return data;
+                    }
+                }
             },
             {
                 data: 'description',
                 name: 'description',
             },
             {
-                data: 'user.full_name',
-                name: 'user.full_name',
+                data: 'user.user_name',
+                name: 'user.user_name',
             },
             {
                 data: 'status',

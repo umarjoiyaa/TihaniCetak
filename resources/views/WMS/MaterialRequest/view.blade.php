@@ -38,7 +38,7 @@
                                 <div class="col-md-4 mt-3">
                                     <div class="form-group">
                                         <div class="label">Sales Order No.</div>
-                                        <input type="text" readonly value="{{ $material_request->sale_order->order_no }}"
+                                        <input type="text" readonly value="{{ $material_request->sale_order->order_no ?? $material_request->sale_order_other }}"
                                             id="" class="form-control">
                                     </div>
                                 </div>
