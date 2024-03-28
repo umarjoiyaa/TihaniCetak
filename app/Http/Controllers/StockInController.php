@@ -286,7 +286,11 @@ class StockInController extends Controller
         }
 
         $stock_in = new StockIn();
-        $stock_in->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_in->sale_order_other = $request->sale_order;
+        }else{
+            $stock_in->sale_order_id = $request->sale_order;
+        }
         $stock_in->date = $request->date;
         $stock_in->ref_no = $request->ref_no;
         $stock_in->description = $request->description;
@@ -393,7 +397,11 @@ class StockInController extends Controller
         }
 
         $stock_in = StockIn::find($id);
-        $stock_in->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_in->sale_order_other = $request->sale_order;
+        }else{
+            $stock_in->sale_order_id = $request->sale_order;
+        }
         $stock_in->date = $request->date;
         $stock_in->description = $request->description;
         $stock_in->transfer_by = $request->transfer_by;

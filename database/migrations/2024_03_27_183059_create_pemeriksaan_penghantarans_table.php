@@ -13,6 +13,24 @@ return new class extends Migration
     {
         Schema::create('pemeriksaan_penghantarans', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('sale_order_id')->nullable();
+            $table->foreign('sale_order_id')->references('id')->on('sale_orders')->nullable();
+            $table->string('sale_order_other')->nullable();
+            $table->string('quantity')->nullable();
+            $table->string('date')->nullable();
+            $table->string('label')->nullable();
+            $table->string('berat')->nullable();
+            $table->string('kualiti')->nullable();
+
+            $table->string('status')->nullable();
+            $table->string('verify_by_date')->nullable();
+            $table->string('verify_by_user')->nullable();
+            $table->string('verify_by_designation')->nullable();
+            $table->string('verify_by_department')->nullable();
+
+            $table->unsignedBigInteger('created_by')->nullable();
+            $table->foreign('created_by')->references('id')->on('users')->nullable();
+            $table->softDeletes();
             $table->timestamps();
         });
     }

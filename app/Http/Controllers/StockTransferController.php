@@ -296,7 +296,11 @@ class StockTransferController extends Controller
         }
 
         $stock_transfer = new StockTransfer();
-        $stock_transfer->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_transfer->sale_order_other = $request->sale_order;
+        }else{
+            $stock_transfer->sale_order_id = $request->sale_order;
+        }
         $stock_transfer->date = $request->date;
         $stock_transfer->ref_no = $request->ref_no;
         $stock_transfer->description = $request->description;
@@ -398,7 +402,11 @@ class StockTransferController extends Controller
         }
 
         $stock_transfer = StockTransfer::find($id);
-        $stock_transfer->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_transfer->sale_order_other = $request->sale_order;
+        }else{
+            $stock_transfer->sale_order_id = $request->sale_order;
+        }
         $stock_transfer->date = $request->date;
         $stock_transfer->description = $request->description;
         $stock_transfer->do_no = $request->do_no;

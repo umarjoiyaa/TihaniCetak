@@ -275,7 +275,11 @@ class StockTransferLocationController extends Controller
         }
 
         $stock_transfer_location = new StockLocation();
-        $stock_transfer_location->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_transfer_location->sale_order_other = $request->sale_order;
+        }else{
+            $stock_transfer_location->sale_order_id = $request->sale_order;
+        }
         $stock_transfer_location->date = $request->date;
         $stock_transfer_location->ref_no = $request->ref_no;
         $stock_transfer_location->description = $request->description;
@@ -378,7 +382,11 @@ class StockTransferLocationController extends Controller
         }
 
         $stock_transfer_location = StockLocation::find($id);
-        $stock_transfer_location->sale_order_id = $request->sale_order;
+        if($request->sale_order == 'OTHERS'){
+            $stock_transfer_location->sale_order_other = $request->sale_order;
+        }else{
+            $stock_transfer_location->sale_order_id = $request->sale_order;
+        }
         $stock_transfer_location->date = $request->date;
         $stock_transfer_location->ref_no = $request->ref_no;
         $stock_transfer_location->description = $request->description;
